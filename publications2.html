@@ -96,35 +96,37 @@ $(function() {
             if(data[cat] && data[cat].length > 0) {
                 html += '<h2>' + cat + '</h2>';
                 $.each(data[cat], function(idx, p) {
-                    var authsHtml = p.authors.replace(/Zhen Zhang/g, '<span class="my_name">Zhen Zhang</span>');
+                    var auths = p.authors.replace(/Zhen Zhang/g, '<span class="my_name">Zhen Zhang</span>');
                     var idxStr = (currentIdx < 10 ? '0'+currentIdx : currentIdx);
 
-                    // 拼接编号 [xx]
+                    // 1. 编号部分
                     html += '<p> [' + idxStr + ']';
 
-                    // 核心修改 1：图书不标注 New
+                    // 2. New 标签判断（图书不加，其余前10篇加）
                     if(currentIdx > (total - 10) && cat !== "Monograph") {
-                        // 插入图片，配合 CSS 的负margin实现视觉零间距
                         html += '<img src="images/new.gif" class="new_icon" alt="new" />';
                     } else {
-                        // 核心修改 2：非 new.gif 记录，在编号后插入标准空格
+                        // 非 New 记录，编号后加空格
                         html += '&nbsp;';
                     }
 
-                    // 拼接作者信息
-                    html += authsHtml + '. ' + p.title + ', ';
+                    // 3. 作者与标题
+                    html += auths + '. ' + p.title + ', ';
 
+                    // 4. 内容详情
                     if(cat === "Journal Articles") {
                         html += '<em>' + p.source + '</em>';
                         if(p.vol) html += ', ' + p.vol;
                         if(p.no) html += '(' + p.no + ')';
                         if(p.page) html += ', ' + p.page;
                         if(p.year) html += ', ' + p.year;
+                        // 期刊保留文本显示 DOI
                         if(p.doi) html += '. DOI: ' + p.doi;
                     } else if(cat === "Conference Papers") {
                         html += 'In <em>Proceedings of ' + p.source + '</em>';
                         if(p.addr) html += ', ' + p.addr;
                         if(p.date) html += ', ' + p.date;
+                        // 会议论文：有 DOI 则不显示文本，直接在后面加 PDF 链接
                     } else if(cat === "Monograph") {
                         html += '<em>' + p.source + '</em>';
                         if(p.isbn) html += ', ISBN: ' + p.isbn;
@@ -132,6 +134,7 @@ $(function() {
                     }
                     html += '. ';
 
+                    // 5. 各种 Note 标注
                     var notes = [];
                     if(p.metrics) notes.push(p.metrics);
                     if(p.esi_high) notes.push('<strong>ESI Highly Cited Paper</strong>');
@@ -139,11 +142,12 @@ $(function() {
                     if(p.note_en) notes.push('<strong>' + p.note_en + '</strong>');
                     if(notes.length > 0) html += '(' + notes.join(", ") + ') ';
 
-                    // PDF 图标
-                    if(cat === "Journal Articles" && p.doi) {
+                    // 6. PDF 链接处理（期刊显示，会议若有 DOI 也显示图标但不显文本）
+                    if(p.doi && (cat === "Journal Articles" || cat === "Conference Papers")) {
                         var link = p.doi.startsWith('http') ? p.doi : 'https://doi.org/' + p.doi;
                         html += '<a href="' + link + '" target="_blank"><img src="images/iconPdf.png" width="23" height="24" style="vertical-align:middle;margin-left:5px;" /></a>';
                     }
+
                     html += '</p>';
                     currentIdx--;
                 });
