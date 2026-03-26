@@ -28,7 +28,7 @@
 
         /* 每一类第一条记录的段前间距 */
         #main_publication_area h2 + p {
-            margin-top: 15px !important;
+            margin-top: 25px !important;
         }
 
         /* --- 3. 姓名样式：纯黑加粗 --- */
@@ -90,26 +90,29 @@ $(function() {
         $.each(data, function(c, l) { total += l.length; });
         var currentIdx = total;
 
-        // 包含 Monograph 的分类顺序
         var categories = ["Monograph", "Journal Articles", "Conference Papers"];
 
         $.each(categories, function(i, cat) {
             if(data[cat] && data[cat].length > 0) {
                 html += '<h2>' + cat + '</h2>';
                 $.each(data[cat], function(idx, p) {
-                    // 黑色加粗人名
-                    var auths = p.authors.replace(/Zhen Zhang/g, '<span class="my_name">Zhen Zhang</span>');
+                    var authsHtml = p.authors.replace(/Zhen Zhang/g, '<span class="my_name">Zhen Zhang</span>');
                     var idxStr = (currentIdx < 10 ? '0'+currentIdx : currentIdx);
 
-                    // 渲染逻辑：[编号]紧跟图片，无任何空格
+                    // 拼接编号 [xx]
                     html += '<p> [' + idxStr + ']';
 
-                    if(currentIdx > (total - 10)) {
+                    // 核心修改 1：图书不标注 New
+                    if(currentIdx > (total - 10) && cat !== "Monograph") {
+                        // 插入图片，配合 CSS 的负margin实现视觉零间距
                         html += '<img src="images/new.gif" class="new_icon" alt="new" />';
+                    } else {
+                        // 核心修改 2：非 new.gif 记录，在编号后插入标准空格
+                        html += '&nbsp;';
                     }
 
-                    // 图片后也无空格，直接跟作者信息
-                    html += auths + '. ' + p.title + ', ';
+                    // 拼接作者信息
+                    html += authsHtml + '. ' + p.title + ', ';
 
                     if(cat === "Journal Articles") {
                         html += '<em>' + p.source + '</em>';
