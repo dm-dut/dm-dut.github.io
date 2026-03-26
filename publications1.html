@@ -8,7 +8,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <style type="text/css">
-        /* --- 1. 标题风格：复刻浅蓝色大字号 + 下划线 --- */
+        /* --- 1. 标题风格：保持原有的浅蓝色 --- */
         h2 {
             font-size: 1.3em;
             color: #527bbd;
@@ -19,25 +19,24 @@
             clear: both;
         }
 
-        /* --- 2. 论文条目与精确间距控制 --- */
+        /* --- 2. 论文条目间距 --- */
         #main_publication_area p {
             margin: 0.5em 0;
             line-height: 1.4;
             text-align: justify;
         }
 
-        /* 每一类第一条记录的段前间距 */
         #main_publication_area h2 + p {
-            margin-top: 15px !important;
+            margin-top: 25px !important;
         }
 
-        /* --- 3. 姓名样式：纯黑加粗 --- */
+        /* --- 3. 姓名加粗 --- */
         .my_name {
             color: #000 !important;
             font-weight: bold !important;
         }
 
-        /* --- 4. New 图标视觉贴合修正 --- */
+        /* --- 4. New 图标视觉贴合 --- */
         .new_icon {
             vertical-align: middle;
             border: none;
@@ -46,11 +45,18 @@
             padding: 0;
         }
 
-        /* 切换按钮样式 */
-        .lang-btn-container { text-align: right; margin-bottom: 5px; margin-top: 10px; }
+        /* --- 5. 新增：中英文切换按钮样式 --- */
+        .lang-control {
+            text-align: right;
+            margin-bottom: -10px; /* 紧贴下方内容 */
+            padding-right: 10px;
+        }
         #switch-btn {
-            cursor: pointer; color: #527bbd; font-weight: bold;
-            text-decoration: underline; font-size: 0.9em;
+            cursor: pointer;
+            color: #527bbd;
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 0.9em;
         }
     </style>
 </head>
@@ -72,11 +78,11 @@
   </td>
 
   <td id="layout-content">
-    <div class="lang-btn-container">
+    <div class="lang-control">
         <span id="switch-btn">Switch to Chinese (中文版)</span>
     </div>
 
-    <div id="main_publication_area">Loading publications...</div>
+    <div id="main_publication_area">Loading...</div>
 
     <div id="footer">
         <p>Last updated: <span id="update_time"></span></p>
@@ -88,67 +94,63 @@
 
 <script type="text/javascript">
 $(function() {
-    var currentLang = 'en';
+    var currentLang = 'en'; // 初始语言
     var allData = null;
 
-    // 更新页脚时间
-    var now = new Date();
-    $("#update_time").text(now.getFullYear() + "-" + (now.getMonth()+1) + "-" + now.getDate());
-
-    // 按钮切换点击事件
+    // 1. 点击切换事件
     $("#switch-btn").click(function() {
         currentLang = (currentLang === 'en' ? 'cn' : 'en');
         $(this).text(currentLang === 'en' ? 'Switch to Chinese (中文版)' : 'Switch to English (英文版)');
         render();
     });
 
+    // 2. 渲染函数
     function render() {
         if(!allData) return;
         var html = "";
-        var totalCount = 0;
+        var total = 0;
 
-        // 修正分类名称以匹配 convert.py 输出
-        var internalCategories = ["Monograph", "Journal Articles", "Conference Papers"];
-        var catDisplayLabels = {
+        // 统计总数用于倒序编号
+        var cats = ["Monograph", "Journal Articles", "Conference Papers"];
+        $.each(cats, function(i, c) { if(allData[c]) total += allData[c].length; });
+        var currentIdx = total;
+
+        // 分类标题映射
+        var labels = {
             "en": ["Monograph", "Journal Articles", "Conference Papers"],
             "cn": ["专著", "期刊论文", "会议论文"]
         };
 
-        // 计算总数用于逆序编号
-        $.each(internalCategories, function(i, cat) {
-            if(allData[cat]) totalCount += allData[cat].length;
-        });
-
-        var currentIdx = totalCount;
-
-        $.each(internalCategories, function(i, cat) {
+        $.each(cats, function(i, cat) {
             if(allData[cat] && allData[cat].length > 0) {
-                html += '<h2>' + catDisplayLabels[currentLang][i] + '</h2>';
+                html += '<h2>' + labels[currentLang][i] + '</h2>';
+
                 $.each(allData[cat], function(idx, p) {
-                    // 安全获取双语字段，若不存在则降级显示
-                    var auths = (currentLang === 'en' ? p.authors_en : p.authors_cn) || p.authors || "";
-                    var title = (currentLang === 'en' ? p.title_en : p.title_cn) || p.title || "";
-                    var source = (currentLang === 'en' ? p.source_en : p.source_cn) || p.source || "";
+                    // 根据当前语言提取字段
+                    var authors = (currentLang === 'en' ? p.authors_en : p.authors_cn) || "";
+                    var title = (currentLang === 'en' ? p.title_en : p.title_cn) || "";
+                    var source = (currentLang === 'en' ? p.source_en : p.source_cn) || "";
                     var noteVal = (currentLang === 'en' ? p.note_en : p.note_cn) || "";
 
-                    // 姓名加粗渲染
-                    auths = auths.replace(/Zhen Zhang/g, '<span class="my_name">Zhen Zhang</span>');
-                    auths = auths.replace(/张震/g, '<span class="my_name">张震</span>');
+                    // 姓名加粗逻辑 (同时匹配中英文)
+                    authors = authors.replace(/Zhen Zhang/g, '<span class="my_name">Zhen Zhang</span>');
+                    authors = authors.replace(/张震/g, '<span class="my_name">张震</span>');
 
                     var idxStr = (currentIdx < 10 ? '0'+currentIdx : currentIdx);
                     html += '<p> [' + idxStr + ']';
 
-                    // New 标签逻辑：前 10 条且非专著
-                    if(currentIdx > (totalCount - 10) && cat !== "Monograph") {
+                    // New 标签逻辑
+                    if(currentIdx > (total - 10) && cat !== "Monograph") {
                         html += '<img src="images/new.gif" class="new_icon" alt="new" />';
                     } else {
                         html += '&nbsp;';
                     }
 
-                    // 标点处理：期刊逗号，会议句号
+                    // 标点符号逻辑
                     var punc = (cat === "Journal Articles") ? ", " : ". ";
-                    html += auths + '. ' + title + punc;
+                    html += authors + '. ' + title + punc;
 
+                    // 详细信息展示
                     if(cat === "Journal Articles") {
                         html += '<em>' + source + '</em>';
                         if(p.vol) html += ', ' + p.vol;
@@ -157,27 +159,27 @@ $(function() {
                         if(p.year) html += ', ' + p.year;
                         if(p.doi && currentLang === 'en') html += '. DOI: ' + p.doi;
                     } else if(cat === "Conference Papers") {
-                        var inText = (currentLang === 'en' ? 'In ' : '发表于 ');
-                        html += inText + '<em>' + source + '</em>';
-                        if(p.year) html += ', ' + p.year;
+                        var prefix = (currentLang === 'en' ? 'In ' : '发表于 ');
+                        html += prefix + '<em>' + source + '</em>, ' + p.year;
                     } else if(cat === "Monograph") {
                         html += '<em>' + source + '</em>, ' + p.year;
                     }
                     html += '. ';
 
-                    // Note 与 ESI 处理
+                    // Note 逻辑 (包含您提到的中文 Note)
                     var notes = [];
-                    if(p.metrics) notes.append(p.metrics);
+                    if(p.metrics) notes.push(p.metrics);
                     if(p.esi_high) notes.push(currentLang === 'en' ? '<strong>ESI Highly Cited Paper</strong>' : '<strong>ESI 高被引论文</strong>');
                     if(noteVal && noteVal !== "nan") notes.push('<strong>' + noteVal + '</strong>');
 
                     if(notes.length > 0) html += '(' + notes.join(", ") + ') ';
 
-                    // DOI PDF 图标 (仅限期刊和会议)
-                    if(p.doi && p.doi !== "" && cat !== "Monograph") {
+                    // PDF 图标
+                    if(p.doi && cat !== "Monograph") {
                         var link = p.doi.indexOf('http') === 0 ? p.doi : 'https://doi.org/' + p.doi;
                         html += '<a href="' + link + '" target="_blank"><img src="images/iconPdf.png" width="23" height="24" style="vertical-align:middle;margin-left:5px;" /></a>';
                     }
+
                     html += '</p>';
                     currentIdx--;
                 });
@@ -186,15 +188,17 @@ $(function() {
         $("#main_publication_area").html(html);
     }
 
-    // 核心：加载 JSON 并启动渲染
-    $.getJSON("papers.json")
-        .done(function(data) {
-            allData = data;
-            render();
-        })
-        .fail(function() {
-            $("#main_publication_area").html("<span style='color:red;'>Error: Could not load papers.json. Please check the file.</span>");
-        });
+    // 3. 数据加载
+    $.getJSON("papers.json", function(data) {
+        allData = data;
+        render();
+    }).fail(function() {
+        $("#main_publication_area").text("Failed to load papers.json.");
+    });
+
+    // 4. 更新页脚时间
+    var d = new Date();
+    $("#update_time").text(d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate());
 });
 </script>
 </body>
