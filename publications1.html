@@ -8,59 +8,52 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <style type="text/css">
-        /* --- 1. 标题风格：保持原有的浅蓝色 --- */
+        /* --- 1. 标题风格：复刻浅蓝色大字号 + 下划线 --- */
         h2 {
             font-size: 1.3em;
-            color: #527bbd;
+            color: #527bbd; /* 浅蓝色 */
             font-weight: bold;
             border-bottom: 2px solid #527bbd;
             padding-bottom: 5px;
-            margin: 15px 0 5px 0;
+            margin: 10px 0 5px 0; /* 统一间距，收紧分类下的空白 */
             clear: both;
         }
 
-        /* --- 2. 论文条目间距 --- */
+        /* --- 2. 论文条目与精确间距控制 --- */
         #main_publication_area p {
-            margin: 0.5em 0;
+            margin: 0.5em 0; /* 缩小基础间距 */
             line-height: 1.4;
             text-align: justify;
         }
 
+        /* 每一类第一条记录的段前间距 */
         #main_publication_area h2 + p {
             margin-top: 25px !important;
         }
 
-        /* --- 3. 姓名加粗 --- */
+        /* --- 3. 姓名样式：纯黑加粗 --- */
         .my_name {
             color: #000 !important;
             font-weight: bold !important;
         }
 
-        /* --- 4. New 图标视觉贴合 --- */
+        /* --- 4. New 图标视觉贴合修正 --- */
         .new_icon {
             vertical-align: middle;
             border: none;
+            /* 视觉补偿：消除图片自带的微小边隙 */
             margin-left: -0.5px;
             margin-right: -0.3px;
             padding: 0;
         }
-
-        /* --- 5. 新增：中英文切换按钮样式 --- */
-        .lang-control {
-            text-align: right;
-            margin-bottom: -10px; /* 紧贴下方内容 */
-            padding-right: 10px;
-        }
-        #switch-btn {
-            cursor: pointer;
-            color: #527bbd;
-            font-weight: bold;
-            text-decoration: underline;
-            font-size: 0.9em;
-        }
+        /* --- 4. New 图标样式 --- */
+        /*.new_icon {*/
+        /*    vertical-align: middle;*/
+        /*    margin: 0 8px;*/
+        /*    border: none;*/
+        /*}*/
     </style>
 </head>
-
 
 <body>
 <h1 style="padding-left: 0.5em"><a href="index.html">Dr. Zhen Zhang's Homepage</a></h1>
@@ -70,7 +63,7 @@
 <tr valign="top">
   <td id="layout-menu">
     <div class="menu-item"><a href="index.html">Home</a></div>
-    <div class="menu-item"><a href="publications.html">Publications</a></div>
+    <div class="menu-item"><a href="publications-0325.html">Publications</a></div>
     <div class="menu-item"><a href="service.html">Service</a></div>
     <div class="menu-item"><a href="grants.html">Grants</a></div>
     <div class="menu-item"><a href="award.html">Awards</a></div>
@@ -79,11 +72,9 @@
   </td>
 
   <td id="layout-content">
-    <div class="lang-control">
-        <span id="switch-btn">Switch to Chinese (中文版)</span>
+    <div id="main_publication_area">
+        loading...
     </div>
-
-    <div id="main_publication_area">Loading...</div>
 
     <div id="footer">
         <p>Last updated: <span id="update_time"></span></p>
@@ -95,102 +86,88 @@
 
 <script type="text/javascript">
 $(function() {
-    var currentLang = 'en'; // 初始语言
-    var allData = null;
+    // 动态生成具体更新时间
+    var now = new Date();
+    var timeStr = now.getFullYear() + "-" + (now.getMonth()+1) + "-" + now.getDate() + " " +
+                  now.getHours().toString().padStart(2,'0') + ":" +
+                  now.getMinutes().toString().padStart(2,'0');
+    $("#update_time").text(timeStr);
 
-    // 1. 点击切换事件
-    $("#switch-btn").click(function() {
-        currentLang = (currentLang === 'en' ? 'cn' : 'en');
-        $(this).text(currentLang === 'en' ? 'Switch to Chinese (中文版)' : 'Switch to English (英文版)');
-        render();
-    });
-
-    // 2. 渲染函数
-function render() {
-        if(!allData) return;
+    $.getJSON("papers.json", function(data) {
         var html = "";
-        var cats = ["Monograph", "Journal Articles", "Conference Papers"];
-        var labels = { "en": ["Monograph", "Journal Articles", "Conference Papers"], "cn": ["专著", "期刊论文", "会议论文"] };
-
         var total = 0;
-        $.each(cats, function(i, c) { if(allData[c]) total += allData[c].length; });
+        $.each(data, function(c, l) { total += l.length; });
         var currentIdx = total;
 
-        $.each(cats, function(i, cat) {
-            if(allData[cat] && allData[cat].length > 0) {
-                html += '<h2>' + labels[currentLang][i] + '</h2>';
-                $.each(allData[cat], function(idx, p) {
-                    var auths = (currentLang === 'en' ? p.authors_en : p.authors_cn) || "";
-                    var title = (currentLang === 'en' ? p.title_en : p.title_cn) || "";
-                    var source = (currentLang === 'en' ? p.source_en : p.source_cn) || "";
-                    var noteVal = (currentLang === 'en' ? p.note_en : p.note_cn) || "";
+        var categories = ["Monograph", "Journal Articles", "Conference Papers"];
 
-                    // 姓名加粗逻辑 (带星号匹配)
-                    auths = auths.replace(/(Zhen Zhang\*?)/g, '<span class="my_name">$1</span>');
-                    auths = auths.replace(/(张震\*?)/g, '<span class="my_name">$1</span>');
-
+        $.each(categories, function(i, cat) {
+            if(data[cat] && data[cat].length > 0) {
+                html += '<h2>' + cat + '</h2>';
+                $.each(data[cat], function(idx, p) {
+                    var auths = p.authors.replace(/Zhen Zhang/g, '<span class="my_name">Zhen Zhang</span>');
                     var idxStr = (currentIdx < 10 ? '0'+currentIdx : currentIdx);
-                    html += '<p> [' + idxStr + '] ';
 
-                    if(currentIdx > (total - 10) && cat !== "Monograph") {
-                        html += '<img src=\"images/new.gif\" class=\"new_icon\" alt=\"new\" />';
+                    // 1. 编号部分
+                    html += '<p> [' + idxStr + ']';
+
+                    // 2. New 标签判断（图书不加，其余前10篇加）
+                    if(currentIdx > (total - 11) && cat !== "Monograph") {
+                        html += '<img src="images/new.gif" class="new_icon" alt="new" />';
+                    } else {
+                        // 非 New 记录，编号后加空格
+                        html += '&nbsp;';
                     }
 
-                    // 1. 作者 + 标题
-                    var punc = (cat === "Journal Articles") ? ", " : ". ";
-                    html += auths + '. ' + title + punc;
+                    // 3. 作者
+                    html += auths + '. ';
 
-                    // 2. 详情展示
+                    // 4. 标题与标点 (期刊用逗号，会议用句号)
+                    var titlePunctuation = (cat === "Journal Articles") ? ", " : ". ";
+                    html += p.title + titlePunctuation;
+
+                    // 5. 内容详情
                     if(cat === "Journal Articles") {
-                        // 格式：期刊名, 年份, 卷(期), 页码. DOI
-                        html += '<em>' + source + '</em>';
-                        if(p.year) html += ', ' + p.year;
+                        html += '<em>' + p.source + '</em>';
                         if(p.vol) html += ', ' + p.vol;
                         if(p.no) html += '(' + p.no + ')';
                         if(p.page) html += ', ' + p.page;
+                        if(p.year) html += ', ' + p.year;
+                        // 期刊保留文本显示 DOI
                         if(p.doi) html += '. DOI: ' + p.doi;
                     } else if(cat === "Conference Papers") {
-                        // 范例格式：In 会议名, pp. 页码, 地址, 日期, 年份.
-                        html += 'In <em>' + source + '</em>';
-                        if(p.page) html += ', pp. ' + p.page;
-                        if(p.addr && p.addr !== "nan") html += ', ' + p.addr;
-                        if(p.date && p.date !== "nan") html += ', ' + p.date;
+                        html += 'In <em>Proceedings of ' + p.source + '</em>';
+                        if(p.addr) html += ', ' + p.addr;
+                        if(p.date) html += ', ' + p.date;
+                        // 会议论文：有 DOI 则不显示文本，直接在后面加 PDF 链接
                     } else if(cat === "Monograph") {
-                        html += '<em>' + source + '</em>, ' + p.year;
+                        html += '<em>' + p.source + '</em>';
+                        if(p.isbn) html += ', ISBN: ' + p.isbn;
+                        html += ', ' + p.year;
                     }
                     html += '. ';
 
-                    // 3. 各种 Note (检索、ESI、备注)
+                    // 6. 各种 Note 标注
                     var notes = [];
                     if(p.metrics) notes.push(p.metrics);
-                    if(p.esi_high) notes.push(currentLang === 'en' ? '<strong>ESI Highly Cited Paper</strong>' : '<strong>ESI 高被引论文</strong>');
-                    if(noteVal && noteVal !== "") notes.push('<strong>' + noteVal + '</strong>');
+                    if(p.esi_high) notes.push('<strong>ESI Highly Cited Paper</strong>');
+                    if(p.esi_hot) notes.push('<strong>ESI Hot Paper</strong>');
+                    if(p.note_en) notes.push('<strong>' + p.note_en + '</strong>');
                     if(notes.length > 0) html += '(' + notes.join(", ") + ') ';
 
-                    // 4. PDF 图标 (会议如果存在 DOI 也会显示)
-                    if(p.doi && cat !== "Monograph") {
+                    // 6. PDF 链接处理（期刊显示，会议若有 DOI 也显示图标但不显文本）
+                    if(p.doi && (cat === "Journal Articles" || cat === "Conference Papers")) {
                         var link = p.doi.startsWith('http') ? p.doi : 'https://doi.org/' + p.doi;
-                        html += '<a href=\"' + link + '\" target=\"_blank\"><img src=\"images/iconPdf.png\" width=\"23\" height=\"24\" style=\"vertical-align:middle;margin-left:5px;\" /></a>';
+                        html += '<a href="' + link + '" target="_blank"><img src="images/iconPdf.png" width="23" height="24" style="vertical-align:middle;margin-left:5px;" /></a>';
                     }
+
                     html += '</p>';
                     currentIdx--;
                 });
             }
         });
         $("#main_publication_area").html(html);
-    }
-
-    // 3. 数据加载
-    $.getJSON("papers.json", function(data) {
-        allData = data;
-        render();
-    }).fail(function() {
-        $("#main_publication_area").text("Failed to load papers.json.");
     });
-
-    // 4. 更新页脚时间
-    var d = new Date();
-$("#update_time").text(d.toLocaleString('zh-CN', { hour12: false }));
 });
 </script>
 </body>
