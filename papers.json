@@ -64,7 +64,7 @@
             "esi_high": false,
             "esi_hot": false,
             "note_en": "",
-            "metrics": "SCI, EI, FMS A, IF=7.5"
+            "metrics": "SCI, EI, IF=7.5"
         },
         {
             "authors": "Yuan Jin, Zhen Zhang*",
