@@ -105,81 +105,71 @@ $(function() {
     });
 
     // 2. 渲染函数
-    function render() {
+function render() {
         if(!allData) return;
         var html = "";
-        var total = 0;
-
-        // 统计总数用于倒序编号
         var cats = ["Monograph", "Journal Articles", "Conference Papers"];
+        var labels = { "en": ["Monograph", "Journal Articles", "Conference Papers"], "cn": ["专著", "期刊论文", "会议论文"] };
+
+        var total = 0;
         $.each(cats, function(i, c) { if(allData[c]) total += allData[c].length; });
         var currentIdx = total;
-
-        // 分类标题映射
-        var labels = {
-            "en": ["Monograph", "Journal Articles", "Conference Papers"],
-            "cn": ["专著", "期刊论文", "会议论文"]
-        };
 
         $.each(cats, function(i, cat) {
             if(allData[cat] && allData[cat].length > 0) {
                 html += '<h2>' + labels[currentLang][i] + '</h2>';
-
                 $.each(allData[cat], function(idx, p) {
-                    // 根据当前语言提取字段
-                    var authors = (currentLang === 'en' ? p.authors_en : p.authors_cn) || "";
+                    // 1. 获取对应语言字段
+                    var auths = (currentLang === 'en' ? p.authors_en : p.authors_cn) || "";
                     var title = (currentLang === 'en' ? p.title_en : p.title_cn) || "";
                     var source = (currentLang === 'en' ? p.source_en : p.source_cn) || "";
                     var noteVal = (currentLang === 'en' ? p.note_en : p.note_cn) || "";
 
-                    // 姓名加粗逻辑 (同时匹配中英文)
-                    authors = authors.replace(/Zhen Zhang/g, '<span class="my_name">Zhen Zhang</span>');
-                    authors = authors.replace(/张震/g, '<span class="my_name">张震</span>');
+                    // 2. 姓名加粗
+                    auths = auths.replace(/Zhen Zhang/g, '<span class="my_name">Zhen Zhang</span>')
+                                 .replace(/张震/g, '<span class="my_name">张震</span>');
 
                     var idxStr = (currentIdx < 10 ? '0'+currentIdx : currentIdx);
-                    html += '<p> [' + idxStr + ']';
+                    html += '<p> [' + idxStr + '] ';
 
-                    // New 标签逻辑
+                    // 3. New 标签
                     if(currentIdx > (total - 10) && cat !== "Monograph") {
                         html += '<img src="images/new.gif" class="new_icon" alt="new" />';
-                    } else {
-                        html += '&nbsp;';
                     }
 
-                    // 标点符号逻辑
+                    // 4. 标题与作者 (期刊用逗号，会议/专著用句号)
                     var punc = (cat === "Journal Articles") ? ", " : ". ";
-                    html += authors + '. ' + title + punc;
+                    html += auths + '. ' + title + punc;
 
-                    // 详细信息展示
+                    // 5. 详细出版信息
                     if(cat === "Journal Articles") {
                         html += '<em>' + source + '</em>';
                         if(p.vol) html += ', ' + p.vol;
                         if(p.no) html += '(' + p.no + ')';
                         if(p.page) html += ', ' + p.page;
                         if(p.year) html += ', ' + p.year;
-                        if(p.doi && currentLang === 'en') html += '. DOI: ' + p.doi;
+                        // 期刊论文：无论中英文模式都显示 DOI
+                        if(p.doi) html += '. DOI: ' + p.doi;
                     } else if(cat === "Conference Papers") {
-                        var prefix = (currentLang === 'en' ? 'In ' : '发表于 ');
-                        html += prefix + '<em>' + source + '</em>, ' + p.year;
+                        // 会议论文：统一用英文 In
+                        html += 'In <em>' + source + '</em>, ' + p.year;
                     } else if(cat === "Monograph") {
                         html += '<em>' + source + '</em>, ' + p.year;
                     }
                     html += '. ';
 
-                    // Note 逻辑 (包含您提到的中文 Note)
+                    // 6. Note 标注 (ESI, Metrics, 备注)
                     var notes = [];
                     if(p.metrics) notes.push(p.metrics);
                     if(p.esi_high) notes.push(currentLang === 'en' ? '<strong>ESI Highly Cited Paper</strong>' : '<strong>ESI 高被引论文</strong>');
-                    if(noteVal && noteVal !== "nan") notes.push('<strong>' + noteVal + '</strong>');
-
+                    if(noteVal && noteVal !== "") notes.push('<strong>' + noteVal + '</strong>');
                     if(notes.length > 0) html += '(' + notes.join(", ") + ') ';
 
-                    // PDF 图标
+                    // 7. PDF 图标
                     if(p.doi && cat !== "Monograph") {
                         var link = p.doi.indexOf('http') === 0 ? p.doi : 'https://doi.org/' + p.doi;
                         html += '<a href="' + link + '" target="_blank"><img src="images/iconPdf.png" width="23" height="24" style="vertical-align:middle;margin-left:5px;" /></a>';
                     }
-
                     html += '</p>';
                     currentIdx--;
                 });
