@@ -1,13 +1,13 @@
-name: Update Publication List
+name: Auto Update Publication List
 on:
   push:
     paths:
-      - 'MyPublication.xlsx' # 当你上传这个文件时触发
+      - 'MyPublication.xlsx' # 只有当这个文件更新时才运行
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Set up Python
@@ -15,16 +15,16 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: pip install pandas openpyxl
 
-      - name: Convert Excel to JSON
-        run: python convert.py
+      - name: Run Converter
+        run: python convert.py # 运行转换脚本生成 papers.json
 
-      - name: Commit and Push changes
+      - name: Commit and Push
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add papers.json
-          git commit -m "Auto-update papers.json from Excel" || exit 0
+          git commit -m "Update papers.json from Excel" || exit 0
           git push

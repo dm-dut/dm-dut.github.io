@@ -2,47 +2,73 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title>Zhen Zhang's Publications</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Zhen Zhang's Publications</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-    <div id="container">
-        <div id="includedContent">
-            <div id="paper_list_dynamic">正在加载最新发表记录...</div>
+    <div id="layout-content">
+        <div id="toptitle">
+            <h1>Publications</h1>
         </div>
+
+        <div id="dynamic_content">
+            </div>
     </div>
 
     <script type="text/javascript">
     $(function() {
         $.getJSON("papers.json", function(data) {
-            var items = [];
-            $.each(data, function(key, val) {
-                // 自动加粗你自己的名字
-                var authors = val.authors.replace(/Zhang, Zhen/g, "<strong>Zhang, Zhen</strong>");
+            var html = "";
+            var totalCount = 0;
+            // 计算总数用于显示编号 [20], [19]...
+            $.each(data, function(c, list) { totalCount += list.length; });
 
-                // 拼接 HTML，完全模仿你原有的 <p> [数字] 格式
-                var html = '<p> [' + val.display_index + '] ';
-                html += authors + '. ';
-                html += '<strong>' + val.title + '</strong>, ';
-                html += '<em>' + val.journal + '</em>';
-                if(val.year) html += ', ' + val.year;
-                if(val.doi && val.doi !== '') {
-                    html += '. DOI: ' + val.doi + '. ';
-                }
-                html += '(' + val.metrics + ') ';
+            var categories = ["Books", "Journal Articles", "Conference Papers"];
+            var currentIdx = totalCount;
 
-                // PDF 图标链接
-                if(val.doi) {
-                    html += '<a href="https://doi.org/' + val.doi + '" target="_blank">';
-                    html += '<img src="images/iconPdf.png" width="23" height="24" alt="PDF" /></a>';
+            $.each(categories, function(i, cat) {
+                if (data[cat] && data[cat].length > 0) {
+                    html += '<h2>' + cat + '</h2>';
+
+                    $.each(data[cat], function(idx, p) {
+                        var authors = p.authors.replace(/Zhang, Zhen/g, "<strong>Zhen Zhang</strong>");
+                        var numStr = (currentIdx < 10 ? '0' + currentIdx : currentIdx);
+
+                        html += '<p> [' + numStr + '] ' + authors + '. ';
+                        html += '<strong>' + p.title + '</strong>, ';
+
+                        if (cat === "Journal Articles") {
+                            // 期刊格式: Source, Vol(No), Pages, Year.
+                            html += '<em>' + p.source + '</em>';
+                            if (p.volume) html += ', ' + p.volume;
+                            if (p.number) html += '(' + p.number + ')';
+                            if (p.pages) html += ', ' + p.pages;
+                            if (p.year) html += ', ' + p.year;
+                        } else if (cat === "Conference Papers") {
+                            // 会议格式: In Proc. of Source, Address, Date.
+                            html += 'In <em>Proceedings of ' + p.source + '</em>';
+                            if (p.address) html += ', ' + p.address;
+                            if (p.conf_date) html += ', ' + p.conf_date;
+                        } else {
+                            html += '<em>' + p.source + '</em>, ' + p.year;
+                        }
+
+                        if (p.doi) html += '. DOI: ' + p.doi;
+                        html += '. (' + p.metrics + ') ';
+
+                        // 匹配原网页 PDF 图标样式
+                        if (p.doi) {
+                            var link = p.doi.startsWith('http') ? p.doi : 'https://doi.org/' + p.doi;
+                            html += '<a href="' + link + '" target="_blank">';
+                            html += '<img src="images/iconPdf.png" width="23" height="24" alt="PDF" style="vertical-align:middle;margin-left:5px;"/></a>';
+                        }
+                        html += '</p>';
+                        currentIdx--;
+                    });
                 }
-                html += '</p>';
-                items.push(html);
             });
-            $("#paper_list_dynamic").html(items.join(""));
-        }).fail(function() {
-            $("#paper_list_dynamic").html("<p>无法加载论文列表，请确保 papers.json 已生成。</p>");
+            $("#dynamic_content").html(html);
         });
     });
     </script>
