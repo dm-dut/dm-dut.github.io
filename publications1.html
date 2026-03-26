@@ -12,7 +12,16 @@
             <h1>Publications</h1>
         </div>
 
-        <div id="dynamic_content">
+        <div id="toptitle_right">
+            <a href="index.html">Home</a><br />
+            <a href="research.html">Research</a><br />
+            <strong>Publications</strong><br />
+            <a href="group.html">Group</a><br />
+            <a href="services.html">Services</a><br />
+            <a href="teaching.html">Teaching</a><br />
+        </div>
+
+        <div id="main_publication_area">
             </div>
     </div>
 
@@ -20,55 +29,56 @@
     $(function() {
         $.getJSON("papers.json", function(data) {
             var html = "";
-            var totalCount = 0;
-            // 计算总数用于显示编号 [20], [19]...
-            $.each(data, function(c, list) { totalCount += list.length; });
+            var total = 0;
+            $.each(data, function(c, l) { total += l.length; });
+            var currentIdx = total;
 
-            var categories = ["Books", "Journal Articles", "Conference Papers"];
-            var currentIdx = totalCount;
+            var order = ["Books", "Journal Articles", "Conference Papers"];
 
-            $.each(categories, function(i, cat) {
-                if (data[cat] && data[cat].length > 0) {
+            $.each(order, function(i, cat) {
+                if(data[cat] && data[cat].length > 0) {
                     html += '<h2>' + cat + '</h2>';
-
                     $.each(data[cat], function(idx, p) {
-                        var authors = p.authors.replace(/Zhang, Zhen/g, "<strong>Zhen Zhang</strong>");
-                        var numStr = (currentIdx < 10 ? '0' + currentIdx : currentIdx);
+                        // 姓名变蓝
+                        var auths = p.authors.replace(/Zhen Zhang/g, '<span style="color:#0000FF;">Zhen Zhang</span>');
+                        var idxStr = (currentIdx < 10 ? '0'+currentIdx : currentIdx);
 
-                        html += '<p> [' + numStr + '] ' + authors + '. ';
-                        html += '<strong>' + p.title + '</strong>, ';
+                        html += '<p> [' + idxStr + '] ' + auths + '. ' + p.title + ', ';
 
-                        if (cat === "Journal Articles") {
-                            // 期刊格式: Source, Vol(No), Pages, Year.
+                        if(cat === "Journal Articles") {
                             html += '<em>' + p.source + '</em>';
-                            if (p.volume) html += ', ' + p.volume;
-                            if (p.number) html += '(' + p.number + ')';
-                            if (p.pages) html += ', ' + p.pages;
-                            if (p.year) html += ', ' + p.year;
-                        } else if (cat === "Conference Papers") {
-                            // 会议格式: In Proc. of Source, Address, Date.
+                            if(p.vol) html += ', ' + p.vol;
+                            if(p.no) html += '(' + p.no + ')';
+                            if(p.page) html += ', ' + p.page;
+                            if(p.year) html += ', ' + p.year;
+                        } else if(cat === "Conference Papers") {
                             html += 'In <em>Proceedings of ' + p.source + '</em>';
-                            if (p.address) html += ', ' + p.address;
-                            if (p.conf_date) html += ', ' + p.conf_date;
-                        } else {
-                            html += '<em>' + p.source + '</em>, ' + p.year;
+                            if(p.addr) html += ', ' + p.addr;
+                            if(p.date) html += ', ' + p.date;
                         }
 
-                        if (p.doi) html += '. DOI: ' + p.doi;
-                        html += '. (' + p.metrics + ') ';
+                        if(p.doi) html += '. DOI: ' + p.doi;
+                        html += '. ';
 
-                        // 匹配原网页 PDF 图标样式
-                        if (p.doi) {
+                        // 标签与 Note
+                        var notes = [];
+                        if(p.metrics) notes.push(p.metrics);
+                        if(p.esi_high) notes.push('<strong>ESI Highly Cited Paper</strong>');
+                        if(p.esi_hot) notes.push('<strong>ESI Hot Paper</strong>');
+                        if(p.note) notes.push('<strong>' + p.note + '</strong>');
+
+                        if(notes.length > 0) html += '(' + notes.join(", ") + ') ';
+
+                        if(p.doi) {
                             var link = p.doi.startsWith('http') ? p.doi : 'https://doi.org/' + p.doi;
-                            html += '<a href="' + link + '" target="_blank">';
-                            html += '<img src="images/iconPdf.png" width="23" height="24" alt="PDF" style="vertical-align:middle;margin-left:5px;"/></a>';
+                            html += '<a href="' + link + '" target="_blank"><img src="images/iconPdf.png" width="23" height="24" style="vertical-align:middle;" /></a>';
                         }
                         html += '</p>';
                         currentIdx--;
                     });
                 }
             });
-            $("#dynamic_content").html(html);
+            $("#main_publication_area").html(html);
         });
     });
     </script>
