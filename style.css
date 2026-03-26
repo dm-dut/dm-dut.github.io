@@ -370,3 +370,15 @@ table.imgtable, table.imgtable td {
     border: none;
     text-align: left;
 }
+
+/* --- 补充：针对 JavaScript 生成的特定姓名的样式 --- */
+.my_name {
+    color: #0000FF !important;    /* 鲜蓝色 */
+    font-weight: bold !important;  /* 加粗 */
+}
+
+/* 确保标签容器在 style.css 的 padding 和 margin 定义下正常显示 */
+#main_publication_area p {
+    margin-bottom: 1em;
+    line-height: 1.4;
+}

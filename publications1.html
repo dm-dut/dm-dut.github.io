@@ -7,22 +7,24 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-    <div id="layout-content">
+    <div id="layout_wrapper" style="width: 100%; overflow: auto;">
         <div id="toptitle">
             <h1>Publications</h1>
         </div>
 
-        <div id="toptitle_right">
-            <a href="index.html">Home</a><br />
-            <a href="research.html">Research</a><br />
-            <strong>Publications</strong><br />
-            <a href="group.html">Group</a><br />
-            <a href="services.html">Services</a><br />
-            <a href="teaching.html">Teaching</a><br />
+        <div id="main_content" style="float: left; width: 75%; padding-right: 5%;">
+            <div id="main_publication_area">
+                正在加载最新发表记录...
+            </div>
         </div>
 
-        <div id="main_publication_area">
-            </div>
+        <div id="toptitle_right" style="float: right; width: 20%; text-align: right; padding-top: 20px;">
+            <a href="index.html">Home</a><br />
+            <a href="research.html">Research</a><br />
+            <a href="group.html">Group</a><br />
+            <strong>Publications</strong><br /> <a href="services.html">Services</a><br />
+            <a href="teaching.html">Teaching</a><br />
+        </div>
     </div>
 
     <script type="text/javascript">
@@ -39,39 +41,57 @@
                 if(data[cat] && data[cat].length > 0) {
                     html += '<h2>' + cat + '</h2>';
                     $.each(data[cat], function(idx, p) {
-                        // 姓名变蓝
-                        var auths = p.authors.replace(/Zhen Zhang/g, '<span style="color:#0000FF;">Zhen Zhang</span>');
+
+                        // --- 关键修正 1：应用 CSS 类名实现加粗和蓝色 ---
+                        // 这里不再直接写 style="color:#0000FF;font-weight:bold;"
+                        // 而是通过 papers.json 中的 authors 字段，利用 .replace 方法将 "Zhen Zhang"
+                        // 替换为带有特定 class 的标签，依靠外部 style.css 控制样式。
+                        var authorsWithStyle = p.authors.replace(/Zhen Zhang/g, '<span class="my_name">Zhen Zhang</span>');
+
                         var idxStr = (currentIdx < 10 ? '0'+currentIdx : currentIdx);
 
-                        html += '<p> [' + idxStr + '] ' + auths + '. ' + p.title + ', ';
+                        // 开始拼接
+                        html += '<p> [' + idxStr + '] ' + authorsWithStyle + '. ';
+
+                        // 标题不加粗
+                        html += p.title + ', ';
 
                         if(cat === "Journal Articles") {
+                            // 期刊格式：有卷期页码，有 DOI
                             html += '<em>' + p.source + '</em>';
                             if(p.vol) html += ', ' + p.vol;
                             if(p.no) html += '(' + p.no + ')';
                             if(p.page) html += ', ' + p.page;
                             if(p.year) html += ', ' + p.year;
+                            if(p.doi) html += '. DOI: ' + p.doi;
                         } else if(cat === "Conference Papers") {
+                            // 会议格式： In Proc of 会议名, 地点, 时间.
+                            // --- 关键修正 2：删除会议 DOI ---
                             html += 'In <em>Proceedings of ' + p.source + '</em>';
                             if(p.addr) html += ', ' + p.addr;
                             if(p.date) html += ', ' + p.date;
+                            // 会议部分不再打印 DOI
                         }
 
-                        if(p.doi) html += '. DOI: ' + p.doi;
                         html += '. ';
 
-                        // 标签与 Note
+                        // 处理 Note (SCI, ISTP, IF 不加粗；ESI和Excel note 加粗)
                         var notes = [];
                         if(p.metrics) notes.push(p.metrics);
+
+                        // 这些需要加粗
                         if(p.esi_high) notes.push('<strong>ESI Highly Cited Paper</strong>');
                         if(p.esi_hot) notes.push('<strong>ESI Hot Paper</strong>');
-                        if(p.note) notes.push('<strong>' + p.note + '</strong>');
+                        if(p.note) notes.push('<strong>' + p.note + '</strong>'); // 英文 Note
 
-                        if(notes.length > 0) html += '(' + notes.join(", ") + ') ';
+                        if(notes.length > 0) {
+                            html += '(' + notes.join(", ") + ') ';
+                        }
 
-                        if(p.doi) {
+                        // 统一在 DOI 后面加 PDF 图标 (仅期刊有 DOI)
+                        if(cat === "Journal Articles" && p.doi) {
                             var link = p.doi.startsWith('http') ? p.doi : 'https://doi.org/' + p.doi;
-                            html += '<a href="' + link + '" target="_blank"><img src="images/iconPdf.png" width="23" height="24" style="vertical-align:middle;" /></a>';
+                            html += '<a href="' + link + '" target="_blank"><img src="images/iconPdf.png" width="23" height="24" style="vertical-align:middle;margin-left:5px;" /></a>';
                         }
                         html += '</p>';
                         currentIdx--;
