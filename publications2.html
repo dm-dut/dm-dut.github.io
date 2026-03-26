@@ -112,7 +112,7 @@ $(function() {
                     html += '<p> [' + idxStr + ']';
 
                     // 2. New 标签判断（图书不加，其余前10篇加）
-                    if(currentIdx > (total - 10) && cat !== "Monograph") {
+                    if(currentIdx > (total - 11) && cat !== "Monograph") {
                         html += '<img src="images/new.gif" class="new_icon" alt="new" />';
                     } else {
                         // 非 New 记录，编号后加空格
