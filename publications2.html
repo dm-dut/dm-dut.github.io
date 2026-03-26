@@ -11,9 +11,9 @@
         /* --- 1. 标题风格：复刻浅蓝色大字号 + 下划线 --- */
         h2 {
             font-size: 1.8em;
-            color: #4a7eb0; /* 浅蓝色 */
+            color: #527bbd; /* 浅蓝色 */
             font-weight: bold;
-            border-bottom: 2px solid #336699;
+            border-bottom: 2px solid #527bbd;
             padding-bottom: 5px;
             margin: 15px 0 10px 0; /* 统一间距，收紧分类下的空白 */
             clear: both;
@@ -37,12 +37,21 @@
             font-weight: bold !important;
         }
 
-        /* --- 4. New 图标样式 --- */
+        /* --- 4. New 图标视觉贴合修正 --- */
         .new_icon {
             vertical-align: middle;
-            margin: 0 8px;
             border: none;
+            /* 视觉补偿：消除图片自带的微小边隙 */
+            margin-left: -3px;
+            margin-right: -1px;
+            padding: 0;
         }
+        /* --- 4. New 图标样式 --- */
+        /*.new_icon {*/
+        /*    vertical-align: middle;*/
+        /*    margin: 0 8px;*/
+        /*    border: none;*/
+        /*}*/
     </style>
 </head>
 
@@ -110,10 +119,14 @@ $(function() {
                         html += '&nbsp;';
                     }
 
-                    // 3. 作者与标题
-                    html += auths + '. ' + p.title + ', ';
+                    // 3. 作者
+                    html += auths + '. ';
 
-                    // 4. 内容详情
+                    // 4. 标题与标点 (期刊用逗号，会议用句号)
+                    var titlePunctuation = (cat === "Journal Articles") ? ", " : ". ";
+                    html += p.title + titlePunctuation;
+
+                    // 5. 内容详情
                     if(cat === "Journal Articles") {
                         html += '<em>' + p.source + '</em>';
                         if(p.vol) html += ', ' + p.vol;
@@ -134,7 +147,7 @@ $(function() {
                     }
                     html += '. ';
 
-                    // 5. 各种 Note 标注
+                    // 6. 各种 Note 标注
                     var notes = [];
                     if(p.metrics) notes.push(p.metrics);
                     if(p.esi_high) notes.push('<strong>ESI Highly Cited Paper</strong>');
