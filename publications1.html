@@ -124,49 +124,53 @@ function render() {
                     var source = (currentLang === 'en' ? p.source_en : p.source_cn) || "";
                     var noteVal = (currentLang === 'en' ? p.note_en : p.note_cn) || "";
 
-                    // --- 在 render 函数内部的姓名加粗部分 ---
-
-                    // 1. 匹配 Zhen Zhang (后面可选一颗星号)
+                    // 姓名加粗逻辑 (带星号匹配)
                     auths = auths.replace(/(Zhen Zhang\*?)/g, '<span class="my_name">$1</span>');
-
-                    // 2. 匹配 张震 (后面可选一颗星号)
                     auths = auths.replace(/(张震\*?)/g, '<span class="my_name">$1</span>');
 
                     var idxStr = (currentIdx < 10 ? '0'+currentIdx : currentIdx);
                     html += '<p> [' + idxStr + '] ';
 
                     if(currentIdx > (total - 10) && cat !== "Monograph") {
-                        html += '<img src="images/new.gif" class="new_icon" alt="new" />';
+                        html += '<img src=\"images/new.gif\" class=\"new_icon\" alt=\"new\" />';
                     }
 
+                    // 1. 作者 + 标题
                     var punc = (cat === "Journal Articles") ? ", " : ". ";
                     html += auths + '. ' + title + punc;
 
+                    // 2. 详情展示
                     if(cat === "Journal Articles") {
+                        // 格式：期刊名, 年份, 卷(期), 页码. DOI
                         html += '<em>' + source + '</em>';
+                        if(p.year) html += ', ' + p.year;
                         if(p.vol) html += ', ' + p.vol;
                         if(p.no) html += '(' + p.no + ')';
                         if(p.page) html += ', ' + p.page;
-                        if(p.year) html += ', ' + p.year;
-                        // 无论什么模式，期刊都显示 DOI 文本
                         if(p.doi) html += '. DOI: ' + p.doi;
                     } else if(cat === "Conference Papers") {
-                        // 会议论文连接词固定用英文 In
-                        html += 'In <em>' + source + '</em>, ' + p.year;
+                        // 范例格式：In 会议名, pp. 页码, 地址, 日期, 年份.
+                        html += 'In <em>' + source + '</em>';
+                        if(p.page) html += ', pp. ' + p.page;
+                        if(p.addr && p.addr !== "nan") html += ', ' + p.addr;
+                        if(p.date && p.date !== "nan") html += ', ' + p.date;
+                        if(p.year) html += ', ' + p.year;
                     } else if(cat === "Monograph") {
                         html += '<em>' + source + '</em>, ' + p.year;
                     }
                     html += '. ';
 
+                    // 3. 各种 Note (检索、ESI、备注)
                     var notes = [];
                     if(p.metrics) notes.push(p.metrics);
                     if(p.esi_high) notes.push(currentLang === 'en' ? '<strong>ESI Highly Cited Paper</strong>' : '<strong>ESI 高被引论文</strong>');
                     if(noteVal && noteVal !== "") notes.push('<strong>' + noteVal + '</strong>');
                     if(notes.length > 0) html += '(' + notes.join(", ") + ') ';
 
+                    // 4. PDF 图标 (会议如果存在 DOI 也会显示)
                     if(p.doi && cat !== "Monograph") {
                         var link = p.doi.startsWith('http') ? p.doi : 'https://doi.org/' + p.doi;
-                        html += '<a href="' + link + '" target="_blank"><img src="images/iconPdf.png" width="23" height="24" style="vertical-align:middle;margin-left:5px;" /></a>';
+                        html += '<a href=\"' + link + '\" target=\"_blank\"><img src=\"images/iconPdf.png\" width=\"23\" height=\"24\" style=\"vertical-align:middle;margin-left:5px;\" /></a>';
                     }
                     html += '</p>';
                     currentIdx--;
