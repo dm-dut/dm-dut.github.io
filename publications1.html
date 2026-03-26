@@ -61,6 +61,7 @@
     </style>
 </head>
 
+
 <body>
 <h1 style="padding-left: 0.5em"><a href="index.html">Dr. Zhen Zhang's Homepage</a></h1>
 <hr>
@@ -154,7 +155,6 @@ function render() {
                         if(p.page) html += ', pp. ' + p.page;
                         if(p.addr && p.addr !== "nan") html += ', ' + p.addr;
                         if(p.date && p.date !== "nan") html += ', ' + p.date;
-                        if(p.year) html += ', ' + p.year;
                     } else if(cat === "Monograph") {
                         html += '<em>' + source + '</em>, ' + p.year;
                     }
@@ -190,7 +190,7 @@ function render() {
 
     // 4. 更新页脚时间
     var d = new Date();
-    $("#update_time").text(d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate());
+$("#update_time").text(d.toLocaleString('zh-CN', { hour12: false }));
 });
 </script>
 </body>
