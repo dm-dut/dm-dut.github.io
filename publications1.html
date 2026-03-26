@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Zhen Zhang's Publications</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="includedContent">
+            <div id="paper_list_dynamic">正在加载最新发表记录...</div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $(function() {
+        $.getJSON("papers.json", function(data) {
+            var items = [];
+            $.each(data, function(key, val) {
+                // 自动加粗你自己的名字
+                var authors = val.authors.replace(/Zhang, Zhen/g, "<strong>Zhang, Zhen</strong>");
+
+                // 拼接 HTML，完全模仿你原有的 <p> [数字] 格式
+                var html = '<p> [' + val.display_index + '] ';
+                html += authors + '. ';
+                html += '<strong>' + val.title + '</strong>, ';
+                html += '<em>' + val.journal + '</em>';
+                if(val.year) html += ', ' + val.year;
+                if(val.doi && val.doi !== '') {
+                    html += '. DOI: ' + val.doi + '. ';
+                }
+                html += '(' + val.metrics + ') ';
+
+                // PDF 图标链接
+                if(val.doi) {
+                    html += '<a href="https://doi.org/' + val.doi + '" target="_blank">';
+                    html += '<img src="images/iconPdf.png" width="23" height="24" alt="PDF" /></a>';
+                }
+                html += '</p>';
+                items.push(html);
+            });
+            $("#paper_list_dynamic").html(items.join(""));
+        }).fail(function() {
+            $("#paper_list_dynamic").html("<p>无法加载论文列表，请确保 papers.json 已生成。</p>");
+        });
+    });
+    </script>
+</body>
+</html>
