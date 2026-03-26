@@ -155,9 +155,18 @@ function render() {
                         if(p.page) html += ', pp. ' + p.page;
                         if(p.addr && p.addr !== "nan") html += ', ' + p.addr;
                         if(p.date && p.date !== "nan") html += ', ' + p.date;
-                    } else if(cat === "Monograph") {
-                        html += '<em>' + source + '</em>, ' + Address +', ' + p.year;
-                    }
+                        } else if(cat === "Monograph") {
+                            // 格式：书名, 地址, 年份.
+                            html += '<em>' + source + '</em>';
+                            // 检查是否有出版地址
+                            if(p.Address && p.Address !== "nan" && p.Address !== "") {
+                                html += ', ' + p.Address;
+                            }
+                            if(p.year) {
+                                html += ', ' + p.year;
+                            }
+                        }
+
                     html += '. ';
 
                     // 3. 各种 Note (检索、ESI、备注)
