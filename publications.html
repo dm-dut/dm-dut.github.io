@@ -97,6 +97,7 @@
 $(function() {
     var currentLang = 'en'; // 初始语言
     var allData = null;
+    var fileSaveTime = ""; // 用于存储 JSON 中的保存时间
 
     // 1. 点击切换事件
     $("#switch-btn").click(function() {
@@ -182,19 +183,27 @@ function render() {
             }
         });
         $("#main_publication_area").html(html);
+
+        // 显示从 JSON 中读取的保存时间
+        $("#update_time").text(fileSaveTime);
     }
 
-    // 3. 数据加载
-    $.getJSON("papers.json", function(data) {
-        allData = data;
+   // 3. 数据加载 (适配包含 metadata 的 JSON 结构)
+    $.getJSON("papers.json", function(response) {
+        if(response.metadata && response.publications) {
+            allData = response.publications;
+            fileSaveTime = response.metadata.last_update;
+        } else {
+            // 如果 JSON 还是老结构，直接赋值
+            allData = response;
+            // 兜底方案：如果没有 metadata，显示当前系统时间
+            var d = new Date();
+            fileSaveTime = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+        }
         render();
     }).fail(function() {
         $("#main_publication_area").text("Failed to load papers.json.");
     });
-
-    // 4. 更新页脚时间
-    var d = new Date();
-$("#update_time").text(d.toLocaleString('zh-CN', { hour12: false }));
 });
 </script>
 </body>
