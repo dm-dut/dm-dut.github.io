@@ -12,31 +12,6 @@
 <h1 style="padding-left: 0.5em"><a href="index.html">Dr. Zhen Zhang's Homepage</a></h1><hr>
 </head>
 
-$(function() {
-    // ... 你原有的 getJSON 和 render 代码 ...
-
-    // --- 新增：获取网页文件保存时间 ---
-    function updatePageModifiedTime() {
-        // document.lastModified 会返回当前文件的最后修改日期和时间
-        var lastMod = new Date(document.lastModified);
-
-        // 格式化时间：YYYY-MM-DD HH:MM:SS
-        var year = lastMod.getFullYear();
-        var month = (lastMod.getMonth() + 1).toString().padStart(2, '0');
-        var day = lastMod.getDate().toString().padStart(2, '0');
-        var hours = lastMod.getHours().toString().padStart(2, '0');
-        var minutes = lastMod.getMinutes().toString().padStart(2, '0');
-        var seconds = lastMod.getSeconds().toString().padStart(2, '0');
-
-        var formattedDate = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
-
-        // 填充到对应的 HTML 标签
-        $("#page_save_time").text(formattedDate);
-    }
-
-    // 执行函数
-    updatePageModifiedTime();
-});
 
 <body>
 <table summary="Table for page layout." id="tlayout">
@@ -89,5 +64,28 @@ Field, 2019</p></li>
 </td>
 </tr>
 </table>
+
+<script type="text/javascript">
+        (function() {
+            // 1. 获取文件最后修改时间
+            var lastMod = new Date(document.lastModified);
+
+            // 2. 格式化：2026-03-27 08:40:00
+            var pad = function(n) { return n.toString().padStart(2, '0'); };
+
+            var formattedDate = lastMod.getFullYear() + "-" +
+                                pad(lastMod.getUTCMonth() + 1) + "-" +
+                                pad(lastMod.getDate()) + " " +
+                                pad(lastMod.getHours()) + ":" +
+                                pad(lastMod.getMinutes()) + ":" +
+                                pad(lastMod.getSeconds());
+
+            // 3. 写入到 ID 为 page_save_time 的标签中
+            var element = document.getElementById('page_save_time');
+            if (element) {
+                element.innerHTML = formattedDate;
+            }
+        })();
+    </script>
 </body>
 </html>
