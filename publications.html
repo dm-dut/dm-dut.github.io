@@ -70,7 +70,7 @@
 <tr valign="top">
   <td id="layout-menu">
     <div class="menu-item"><a href="index.html">Home</a></div>
-    <div class="menu-item"><a href="publications1.html">Publications</a></div>
+    <div class="menu-item"><a href="publications.html">Publications</a></div>
     <div class="menu-item"><a href="service.html">Service</a></div>
     <div class="menu-item"><a href="grants.html">Grants</a></div>
     <div class="menu-item"><a href="award.html">Awards</a></div>
@@ -107,87 +107,90 @@ $(function() {
     });
 
     // 2. 渲染函数
+
 function render() {
-        if(!allData) return;
-        var html = "";
-        var cats = ["Monograph", "Journal Articles", "Conference Papers"];
-        var labels = { "en": ["Monograph", "Journal Articles", "Conference Papers"], "cn": ["专著", "期刊论文", "会议论文"] };
+    if(!allData) return;
+    var html = "";
+    var cats = ["Monograph", "Journal Articles", "Conference Papers"];
+    var labels = { "en": ["Monograph", "Journal Articles", "Conference Papers"], "cn": ["专著", "期刊论文", "会议论文"] };
 
-        var total = 0;
-        $.each(cats, function(i, c) { if(allData[c]) total += allData[c].length; });
-        var currentIdx = total;
+    // 遍历每一个类别
+    $.each(cats, function(i, cat) {
+        if(allData[cat] && allData[cat].length > 0) {
+            html += '<h2>' + labels[currentLang][i] + '</h2>';
 
-        $.each(cats, function(i, cat) {
-            if(allData[cat] && allData[cat].length > 0) {
-                html += '<h2>' + labels[currentLang][i] + '</h2>';
-                $.each(allData[cat], function(idx, p) {
-                    var auths = (currentLang === 'en' ? p.authors_en : p.authors_cn) || "";
-                    var title = (currentLang === 'en' ? p.title_en : p.title_cn) || "";
-                    var source = (currentLang === 'en' ? p.source_en : p.source_cn) || "";
-                    var noteVal = (currentLang === 'en' ? p.note_en : p.note_cn) || "";
+            // --- 核心修改：每类单独计数 ---
+            // 获取当前类别的总篇数作为起始编号
+            var categoryTotal = allData[cat].length;
+            var currentIdx = categoryTotal;
 
-                    // 姓名加粗逻辑 (带星号匹配)
-                    auths = auths.replace(/(Zhen Zhang\*?)/g, '<span class="my_name">$1</span>');
-                    auths = auths.replace(/(张震\*?)/g, '<span class="my_name">$1</span>');
+            $.each(allData[cat], function(idx, p) {
+                var auths = (currentLang === 'en' ? p.authors_en : p.authors_cn) || "";
+                var title = (currentLang === 'en' ? p.title_en : p.title_cn) || "";
+                var source = (currentLang === 'en' ? p.source_en : p.source_cn) || "";
+                var noteVal = (currentLang === 'en' ? p.note_en : p.note_cn) || "";
 
-                    var idxStr = (currentIdx < 10 ? '0'+currentIdx : currentIdx);
-                    html += '<p> [' + idxStr + '] ';
+                // 姓名加粗
+                auths = auths.replace(/(Zhen Zhang\*?)/g, '<span class="my_name">$1</span>')
+                             .replace(/(张震\*?)/g, '<span class="my_name">$1</span>');
 
-                    if(currentIdx > (total - 11) && cat !== "Monograph") {
-                        html += '<img src=\"images/new.gif\" class=\"new_icon\" alt=\"new\" />';
-                    }
+                // 格式化编号：[05], [04]...
+                var idxStr = (currentIdx < 10 ? '0' + currentIdx : currentIdx);
+                html += '<p> [' + idxStr + '] ';
 
-                    // 1. 作者 + 标题
-                    var punc = (cat === "Journal Articles") ? ", " : ". ";
-                    html += auths + '. ' + title + punc;
+                // New 图标逻辑：如果是该类别最新的前 3 篇（且不是专著），显示 New
+                if(currentIdx > (categoryTotal - 3) && cat !== "Monograph") {
+                    html += '<img src="images/new.gif" class="new_icon" alt="new" />';
+                }
 
-                    // 2. 详情展示
-                    if(cat === "Journal Articles") {
-                        // 格式：期刊名, 年份, 卷(期), 页码. DOI
-                        html += '<em>' + source + '</em>';
-                        if(p.year) html += ', ' + p.year;
-                        if(p.vol) html += ', ' + p.vol;
-                        if(p.no) html += '(' + p.no + ')';
-                        if(p.page) html += ', ' + p.page;
-                        if(p.doi) html += '. DOI: ' + p.doi;
-                    } else if(cat === "Conference Papers") {
-                        // 范例格式：In 会议名, pp. 页码, 地址, 日期, 年份.
-                        html += 'In <em>' + source + '</em>';
-                        if(p.page) html += ', pp. ' + p.page;
-                        if(p.addr && p.addr !== "nan") html += ', ' + p.addr;
-                        if(p.date && p.date !== "nan") html += ', ' + p.date;
-                    } else if(cat === "Monograph") {
-                    // 核心修正：专著格式：书名, 出版地, 年份.
+                // 1. 作者 + 标题
+                var punc = (cat === "Journal Articles") ? ", " : ". ";
+                html += auths + '. ' + title + punc;
+
+                // 2. 详情展示 (Journal / Conference / Monograph)
+                if(cat === "Journal Articles") {
                     html += '<em>' + source + '</em>';
-                    if(p.Address) html += ', ' + p.Address; // 这里用书的出版地
+                    if(p.year) html += ', ' + p.year;
+                    if(p.vol) html += ', ' + p.vol;
+                    if(p.no) html += '(' + p.no + ')';
+                    if(p.page) html += ', ' + p.page;
+                    if(p.doi) html += '. DOI: ' + p.doi;
+                } else if(cat === "Conference Papers") {
+                    html += 'In <em>' + source + '</em>';
+                    if(p.page) html += ', pp. ' + p.page;
+                    if(p.addr && p.addr !== "nan") html += ', ' + p.addr;
+                    if(p.date && p.date !== "nan") html += ', ' + p.date;
+                    if(p.year) html += ', ' + p.year;
+                } else if(cat === "Monograph") {
+                    html += '<em>' + source + '</em>';
+                    if(p.Address && p.Address !== "nan") html += ', ' + p.Address;
                     if(p.year) html += ', ' + p.year;
                     if(p.ISBN) html += ', ISBN: ' + p.ISBN;
                 }
                 html += '. ';
 
-                    // 3. 各种 Note (检索、ESI、备注)
-                    var notes = [];
-                    if(p.metrics) notes.push(p.metrics);
-                    if(p.esi_high) notes.push(currentLang === 'en' ? '<strong>ESI Highly Cited Paper</strong>' : '<strong>ESI 高被引论文</strong>');
-                    if(noteVal && noteVal !== "") notes.push('<strong>' + noteVal + '</strong>');
-                    if(notes.length > 0) html += '(' + notes.join(", ") + ') ';
+                // 3. Note 备注
+                var notes = [];
+                if(p.metrics) notes.push(p.metrics);
+                if(p.esi_high) notes.push(currentLang === 'en' ? '<strong>ESI Highly Cited Paper</strong>' : '<strong>ESI 高被引论文</strong>');
+                if(noteVal && noteVal !== "") notes.push('<strong>' + noteVal + '</strong>');
+                if(notes.length > 0) html += '(' + notes.join(", ") + ') ';
 
-                    // 4. PDF 图标 (会议如果存在 DOI 也会显示)
-                    if(p.doi && cat !== "Monograph") {
-                        var link = p.doi.startsWith('http') ? p.doi : 'https://doi.org/' + p.doi;
-                        html += '<a href=\"' + link + '\" target=\"_blank\"><img src=\"images/iconPdf.png\" width=\"23\" height=\"24\" style=\"vertical-align:middle;margin-left:5px;\" /></a>';
-                    }
-                    html += '</p>';
-                    currentIdx--;
-                });
-            }
-        });
-        $("#main_publication_area").html(html);
+                // 4. PDF 图标
+                if(p.doi && cat !== "Monograph") {
+                    var link = p.doi.startsWith('http') ? p.doi : 'https://doi.org/' + p.doi;
+                    html += '<a href="' + link + '" target="_blank"><img src="images/iconPdf.png" width="23" height="24" style="vertical-align:middle;margin-left:5px;" /></a>';
+                }
+                html += '</p>';
 
-        // 显示从 JSON 中读取的保存时间
-        $("#update_time").text(fileSaveTime);
-    }
-
+                // 当前类别的计数递减
+                currentIdx--;
+            });
+        }
+    });
+    $("#main_publication_area").html(html);
+    $("#update_time").text(fileSaveTime);
+}
    // 3. 数据加载 (适配包含 metadata 的 JSON 结构)
     $.getJSON("papers.json", function(response) {
         if(response.metadata && response.publications) {
