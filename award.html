@@ -12,11 +12,37 @@
 <h1 style="padding-left: 0.5em"><a href="index.html">Dr. Zhen Zhang's Homepage</a></h1><hr>
 </head>
 
+$(function() {
+    // ... 你原有的 getJSON 和 render 代码 ...
+
+    // --- 新增：获取网页文件保存时间 ---
+    function updatePageModifiedTime() {
+        // document.lastModified 会返回当前文件的最后修改日期和时间
+        var lastMod = new Date(document.lastModified);
+
+        // 格式化时间：YYYY-MM-DD HH:MM:SS
+        var year = lastMod.getFullYear();
+        var month = (lastMod.getMonth() + 1).toString().padStart(2, '0');
+        var day = lastMod.getDate().toString().padStart(2, '0');
+        var hours = lastMod.getHours().toString().padStart(2, '0');
+        var minutes = lastMod.getMinutes().toString().padStart(2, '0');
+        var seconds = lastMod.getSeconds().toString().padStart(2, '0');
+
+        var formattedDate = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+
+        // 填充到对应的 HTML 标签
+        $("#page_save_time").text(formattedDate);
+    }
+
+    // 执行函数
+    updatePageModifiedTime();
+});
+
 <body>
 <table summary="Table for page layout." id="tlayout">
 <tr valign="top">
   <td id="layout-menu"><div class="menu-item"><a href="index.html">Home</a></div>
-    <div class="menu-item"><a href="publications-0325.html">Publications</a></div>
+    <div class="menu-item"><a href="publications.html">Publications</a></div>
     <div class="menu-item"><a href="service.html">Service</a></div>
     <div class="menu-item"><a href="grants.html">Grants</a></div>
         <div class="menu-item"><a href="award.html">Awards</a></div>
@@ -52,7 +78,7 @@ Field, 2019</p></li>
     <div id="footer" class="row">
       <div class="col c12">
         <p>Last updated:
-          <!-- #BeginDate format:IS1a -->2026-01-01 5:21 PM<!-- #EndDate --></p>
+          <span id="page_save_time"></span> </p>
         <p>
           &copy; 2014-2026 Zhen Zhang<br />
           </p>
