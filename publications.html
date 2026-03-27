@@ -107,20 +107,17 @@ $(function() {
     });
 
     // 2. 渲染函数
-
 function render() {
     if(!allData) return;
     var html = "";
     var cats = ["Monograph", "Journal Articles", "Conference Papers"];
     var labels = { "en": ["Monograph", "Journal Articles", "Conference Papers"], "cn": ["专著", "期刊论文", "会议论文"] };
 
-    // 遍历每一个类别
     $.each(cats, function(i, cat) {
         if(allData[cat] && allData[cat].length > 0) {
             html += '<h2>' + labels[currentLang][i] + '</h2>';
 
-            // --- 核心修改：每类单独计数 ---
-            // 获取当前类别的总篇数作为起始编号
+            // 每类独立计数
             var categoryTotal = allData[cat].length;
             var currentIdx = categoryTotal;
 
@@ -130,16 +127,16 @@ function render() {
                 var source = (currentLang === 'en' ? p.source_en : p.source_cn) || "";
                 var noteVal = (currentLang === 'en' ? p.note_en : p.note_cn) || "";
 
-                // 姓名加粗
+                // 姓名加粗 (带星号匹配)
                 auths = auths.replace(/(Zhen Zhang\*?)/g, '<span class="my_name">$1</span>')
                              .replace(/(张震\*?)/g, '<span class="my_name">$1</span>');
 
-                // 格式化编号：[05], [04]...
                 var idxStr = (currentIdx < 10 ? '0' + currentIdx : currentIdx);
                 html += '<p> [' + idxStr + '] ';
 
-                // New 图标逻辑：如果是该类别最新的前 3 篇（且不是专著），显示 New
-                if(currentIdx > (categoryTotal - 3) && cat !== "Monograph") {
+                // --- 核心修改：New 图标逻辑 ---
+                // 仅针对“期刊论文”类别，且为该类别中序号最大的前 10 个（即最新的 10 篇）
+                if(cat === "Journal Articles" && currentIdx > (categoryTotal - 10)) {
                     html += '<img src="images/new.gif" class="new_icon" alt="new" />';
                 }
 
@@ -147,7 +144,7 @@ function render() {
                 var punc = (cat === "Journal Articles") ? ", " : ". ";
                 html += auths + '. ' + title + punc;
 
-                // 2. 详情展示 (Journal / Conference / Monograph)
+                // 2. 详情展示
                 if(cat === "Journal Articles") {
                     html += '<em>' + source + '</em>';
                     if(p.year) html += ', ' + p.year;
@@ -169,27 +166,28 @@ function render() {
                 }
                 html += '. ';
 
-                // 3. Note 备注
+                // 3. 备注信息
                 var notes = [];
                 if(p.metrics) notes.push(p.metrics);
                 if(p.esi_high) notes.push(currentLang === 'en' ? '<strong>ESI Highly Cited Paper</strong>' : '<strong>ESI 高被引论文</strong>');
                 if(noteVal && noteVal !== "") notes.push('<strong>' + noteVal + '</strong>');
                 if(notes.length > 0) html += '(' + notes.join(", ") + ') ';
 
-                // 4. PDF 图标
-                if(p.doi && cat !== "Monograph") {
+                // --- 核心修改：PDF 图标链接 (包含书) ---
+                // 只要该条目有 DOI 数据，就显示图标，不再排除 Monograph
+                if(p.doi && p.doi !== "" && p.doi !== "nan") {
                     var link = p.doi.startsWith('http') ? p.doi : 'https://doi.org/' + p.doi;
                     html += '<a href="' + link + '" target="_blank"><img src="images/iconPdf.png" width="23" height="24" style="vertical-align:middle;margin-left:5px;" /></a>';
                 }
-                html += '</p>';
 
-                // 当前类别的计数递减
+                html += '</p>';
                 currentIdx--;
             });
         }
     });
     $("#main_publication_area").html(html);
     $("#update_time").text(fileSaveTime);
+
 }
    // 3. 数据加载 (适配包含 metadata 的 JSON 结构)
     $.getJSON("papers.json", function(response) {
