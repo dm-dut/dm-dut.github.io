@@ -59,16 +59,43 @@
     <p>[01] Participant, Enterprise Knowledge Management Methods and Enterprise Ontology, <strong>the National High Technology Research and Development Program</strong> (2008AA04Z107),
       CNY710K, 2008.10 - 2010.12.</p>
     
-    
-     <div id="footer" class="row">
-  <div class="col c12">
-  <p> Last updated:
-    <!-- #BeginDate format:IS1a -->2026-01-01 5:21 PM<!-- #EndDate -->
-    </p>
-  <p>&copy; 2014-2026 Zhen Zhang<br />
-  
-  </div></td>
+<div id="footer" class="row">
+      <div class="col c12">
+        <p>Last updated:
+          <span id="page_save_time"></span> </p>
+        <p>
+          &copy; 2014-2026 Zhen Zhang<br />
+          </p>
+        </div>
+      </div>
+  </div>
+
+</td>
 </tr>
 </table>
+
+<script type="text/javascript">
+        (function() {
+            // 1. 获取文件最后修改时间
+            var lastMod = new Date(document.lastModified);
+
+            // 2. 格式化：2026-03-27 08:40:00
+            var pad = function(n) { return n.toString().padStart(2, '0'); };
+
+            var formattedDate = lastMod.getFullYear() + "-" +
+                                pad(lastMod.getUTCMonth() + 1) + "-" +
+                                pad(lastMod.getDate()) + " " +
+                                pad(lastMod.getHours()) + ":" +
+                                pad(lastMod.getMinutes()) + ":" +
+                                pad(lastMod.getSeconds());
+
+            // 3. 写入到 ID 为 page_save_time 的标签中
+            var element = document.getElementById('page_save_time');
+            if (element) {
+                element.innerHTML = formattedDate;
+            }
+        })();
+    </script>
 </body>
 </html>
+
