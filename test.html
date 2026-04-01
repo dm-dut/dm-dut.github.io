@@ -5,70 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>期刊目录综合查询系统</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        body { background-color: #f4f7f6; font-family: "Microsoft YaHei", sans-serif; }
-        .container { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-top: 30px; margin-bottom: 50px; }
-        .filter-section { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #dee2e6; }
-        .table-container { max-height: 550px; overflow-y: auto; border: 1px solid #eee; }
-        .nav-tabs .nav-link { font-weight: bold; color: #6c757d; }
-        .nav-tabs .nav-link.active { color: #0d6efd; border-bottom: 3px solid #0d6efd; }
-        .table thead { position: sticky; top: 0; background: #fff; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); }
-        .global-search-card { border-left: 5px solid #0d6efd; background-color: #f0f7ff; }
-        .badge-rank { font-size: 0.9em; }
+        :root {
+            --primary-color: #0d6efd;
+            --bg-body: #f0f2f5;
+        }
+
+        body { background-color: var(--bg-body); font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; }
+
+        /* 容器美化 */
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* 标题样式 */
+        h2 { font-weight: 700; letter-spacing: 1px; margin-bottom: 30px; }
+
+        /* 搜索卡片增强 */
+        .global-search-card {
+            border: none;
+            border-left: 6px solid var(--primary-color);
+            background-color: #f8fbff;
+            transition: transform 0.2s;
+        }
+        .global-search-card:hover { transform: translateY(-2px); }
+
+        /* 过滤区域 */
+        .filter-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #edf2f7;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        /* 选项卡美化 */
+        .nav-tabs { border-bottom: 2px solid #edf2f7; }
+        .nav-tabs .nav-link {
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+        }
+        .nav-tabs .nav-link:hover { background-color: #f8f9fa; }
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            background: none;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        /* 表格列宽与样式控制 */
+        .table-container {
+            max-height: 600px;
+            overflow-y: auto;
+            border-radius: 8px;
+            border: 1px solid #edf2f7;
+        }
+
+        .table { margin-bottom: 0; vertical-align: middle; }
+        .table thead th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            padding: 12px 10px;
+            border-bottom: 2px solid #dee2e6;
+            white-space: nowrap;
+        }
+
+        /* 固定列宽逻辑 */
+        /* AJG 表格列宽 */
+        #table-ajg th:nth-child(1) { width: 45%; } /* Journal Title */
+        #table-ajg th:nth-child(2) { width: 25%; } /* Field */
+        #table-ajg th:nth-child(3) { width: 15%; } /* AJG 2024 */
+        #table-ajg th:nth-child(4) { width: 15%; } /* 影响因子 */
+
+        /* CCF 表格列宽 */
+        #table-ccf th:nth-child(1) { width: 15%; } /* 简称 */
+        #table-ccf th:nth-child(2) { width: 35%; } /* 全称 */
+        #table-ccf th:nth-child(3) { width: 20%; } /* 分类 */
+        #table-ccf th:nth-child(4) { width: 15%; } /* 级别 */
+        #table-ccf th:nth-child(5) { width: 15%; } /* 影响因子 */
+
+        /* FMS 表格列宽 */
+        #table-fms th:nth-child(1) { width: 35%; } /* 期刊名称 */
+        #table-fms th:nth-child(2) { width: 20%; } /* 学科 */
+        #table-fms th:nth-child(3),
+        #table-fms th:nth-child(4),
+        #table-fms th:nth-child(5) { width: 10%; text-align: center; } /* 等级列们 */
+        #table-fms th:nth-child(6) { width: 15%; } /* 影响因子 */
+
+        .table tbody td { padding: 12px 10px; font-size: 0.95rem; }
+
+        /* 滚动条美化 */
+        .table-container::-webkit-scrollbar { width: 6px; }
+        .table-container::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 10px; }
+        .table-container::-webkit-scrollbar-track { background: #f7fafc; }
+
+        .badge-system { padding: 5px 10px; border-radius: 6px; font-weight: 600; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2 class="mb-4 text-center text-primary">期刊目录管理与综合查询系统</h2>
+    <h2 class="text-center text-primary"><i class="bi bi-journal-bookmark-fill"></i> 期刊目录综合查询系统</h2>
+    <p class="text-center text-muted mb-5">Decision Sciences & Operations Research 专家工具</p>
 
-    <div class="card mb-4 global-search-card">
-        <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-search"></i> 跨库综合匹配</h5>
-            <p class="text-muted small">输入期刊全称或简称，自动在 AJG、CCF、FMS 三个库中检索对应级别。</p>
+    <div class="card mb-5 global-search-card shadow-sm">
+        <div class="card-body p-4">
+            <h5 class="card-title mb-3"><i class="bi bi-lightning-charge"></i> 跨库综合匹配</h5>
             <div class="input-group">
-                <input type="text" id="globalSearchInput" class="form-control form-control-lg" placeholder="搜索期刊名称（如：Management Science）...">
-                <button class="btn btn-primary px-4" onclick="executeGlobalSearch()">点击查询</button>
+                <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+                <input type="text" id="globalSearchInput" class="form-control form-control-lg border-start-0" placeholder="搜索期刊全称或简称（例如：Omega 或 Management Science）" onkeyup="if(event.keyCode===13) executeGlobalSearch()">
+                <button class="btn btn-primary btn-lg px-5" onclick="executeGlobalSearch()">查询</button>
             </div>
-            <div id="globalResult" class="mt-3"></div>
+            <div id="globalResult" class="mt-4"></div>
         </div>
     </div>
 
-    <ul class="nav nav-tabs mb-3" id="journalTabs" role="tablist">
-        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-ajg">AJG 2024 目录</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-ccf">CCF 目录</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-fms">FMS 2025 目录</button></li>
+    <ul class="nav nav-tabs mb-4" id="journalTabs" role="tablist">
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-ajg"><i class="bi bi-table"></i> AJG 2024</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-ccf"><i class="bi bi-table"></i> CCF</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-fms"><i class="bi bi-table"></i> FMS 2025</button></li>
     </ul>
 
-    <div class="tab-content mt-2">
+    <div class="tab-content">
         <div class="tab-pane fade show active" id="tab-ajg">
-            <div class="row g-2 filter-section">
-                <div class="col-md-4"><input type="text" class="form-control" id="search-ajg" placeholder="按期刊名搜索..." oninput="filterTable('ajg')"></div>
-                <div class="col-md-4"><select class="form-select" id="field-ajg" onchange="filterTable('ajg')"><option value="">所有学科 (Field)</option></select></div>
-                <div class="col-md-4"><select class="form-select" id="rank-ajg" onchange="filterTable('ajg')"><option value="">所有级别 (AJG 2024)</option></select></div>
+            <div class="row g-3 filter-section shadow-sm align-items-end">
+                <div class="col-md-5">
+                    <label class="form-label small fw-bold">期刊检索</label>
+                    <input type="text" class="form-control" id="search-ajg" placeholder="输入名称关键字..." oninput="filterTable('ajg')">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label small fw-bold">学科分类</label>
+                    <select class="form-select" id="field-ajg" onchange="filterTable('ajg')"><option value="">全部学科</option></select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold">AJG 级别</label>
+                    <select class="form-select" id="rank-ajg" onchange="filterTable('ajg')"><option value="">全部等级</option></select>
+                </div>
             </div>
-            <div class="table-container"><table class="table table-hover table-striped table-sm" id="table-ajg"><thead></thead><tbody></tbody></table></div>
+            <div class="table-container shadow-sm"><table class="table table-hover" id="table-ajg"><thead></thead><tbody></tbody></table></div>
         </div>
 
         <div class="tab-pane fade" id="tab-ccf">
-            <div class="row g-2 filter-section">
-                <div class="col-md-4"><input type="text" class="form-control" id="search-ccf" placeholder="按简称或全称搜索..." oninput="filterTable('ccf')"></div>
-                <div class="col-md-4"><select class="form-select" id="field-ccf" onchange="filterTable('ccf')"><option value="">所有分类</option></select></div>
-                <div class="col-md-4"><select class="form-select" id="rank-ccf" onchange="filterTable('ccf')"><option value="">所有级别</option></select></div>
+            <div class="row g-3 filter-section shadow-sm align-items-end">
+                <div class="col-md-5">
+                    <label class="form-label small fw-bold">简称/全称检索</label>
+                    <input type="text" class="form-control" id="search-ccf" placeholder="输入关键字..." oninput="filterTable('ccf')">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label small fw-bold">领域分类</label>
+                    <select class="form-select" id="field-ccf" onchange="filterTable('ccf')"><option value="">全部分类</option></select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold">CCF 级别</label>
+                    <select class="form-select" id="rank-ccf" onchange="filterTable('ccf')"><option value="">全部等级</option></select>
+                </div>
             </div>
-            <div class="table-container"><table class="table table-hover table-striped table-sm" id="table-ccf"><thead></thead><tbody></tbody></table></div>
+            <div class="table-container shadow-sm"><table class="table table-hover" id="table-ccf"><thead></thead><tbody></tbody></table></div>
         </div>
 
         <div class="tab-pane fade" id="tab-fms">
-            <div class="row g-2 filter-section">
-                <div class="col-md-4"><input type="text" class="form-control" id="search-fms" placeholder="按期刊名搜索..." oninput="filterTable('fms')"></div>
-                <div class="col-md-4"><select class="form-select" id="field-fms" onchange="filterTable('fms')"><option value="">所有学科</option></select></div>
-                <div class="col-md-4"><select class="form-select" id="rank-fms" onchange="filterTable('fms')"><option value="">所有级别</option></select></div>
+            <div class="row g-3 filter-section shadow-sm align-items-end">
+                <div class="col-md-5">
+                    <label class="form-label small fw-bold">期刊名检索</label>
+                    <input type="text" class="form-control" id="search-fms" placeholder="输入名称..." oninput="filterTable('fms')">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label small fw-bold">管理学分支</label>
+                    <select class="form-select" id="field-fms" onchange="filterTable('fms')"><option value="">全部学科</option></select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold">FMS 级别</label>
+                    <select class="form-select" id="rank-fms" onchange="filterTable('fms')"><option value="">全部等级</option></select>
+                </div>
             </div>
-            <div class="table-container"><table class="table table-hover table-striped table-sm" id="table-fms"><thead></thead><tbody></tbody></table></div>
+            <div class="table-container shadow-sm"><table class="table table-hover" id="table-fms"><thead></thead><tbody></tbody></table></div>
         </div>
     </div>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
