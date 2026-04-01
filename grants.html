@@ -6,117 +6,115 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        /* 1. 基础布局 */
-        body { background-color: #f1f3f5; font-family: "Segoe UI", system-ui, sans-serif; margin: 0; padding: 10px; overflow: hidden; height: 100vh; font-size: 1rem; }
-        .main-card { background: #fff; max-width: 1600px; margin: 0 auto; height: calc(100vh - 20px); border-radius: 12px; padding: 15px 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
+        /* 基础布局优化 */
+        body { background-color: #f1f3f5; font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 10px; overflow: hidden; height: 100vh; }
+        .main-card { background: #fff; max-width: 1600px; margin: 0 auto; height: calc(100vh - 20px); border-radius: 12px; padding: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
 
-        /* 2. 顶部搜索 */
-        .top-bar { display: flex; align-items: center; gap: 20px; margin-bottom: 10px; flex-shrink: 0; }
-        h2 { font-size: 1.3rem; font-weight: bold; margin: 0; color: #0d6efd; white-space: nowrap; }
-        .search-box { flex-grow: 1; background: #f8fbff; border: 1px solid #dee2e6; border-left: 5px solid #0d6efd; border-radius: 6px; padding: 4px 12px; }
+        /* 顶部搜索 */
+        .top-bar { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; flex-shrink: 0; }
+        .search-box { flex-grow: 1; border-left: 5px solid #0d6efd; border-radius: 6px; }
 
-        /* 3. 全局检索结果区（优化列宽分配） */
-        #globalResult { max-height: 220px; overflow-y: auto; margin-bottom: 12px; border-radius: 8px; flex-shrink: 0; display: none; border: 2px solid #0d6efd; background: #fff; }
-        .global-table { table-layout: fixed; width: 100%; margin: 0; }
-        .global-table th, .global-table td { padding: 8px 10px; vertical-align: middle; border-bottom: 1px solid #eee; }
-        .global-table th { background-color: #0d6efd !important; color: #fff; position: sticky; top: 0; z-index: 10; font-size: 0.9rem; }
-        
-        /* 全局结果列宽微调 */
-        .g-col-db { width: 65px; }
-        .g-col-name { width: auto; }
-        .g-col-field { width: 35%; } /* 加宽分类显示 */
-        .g-col-rank { width: 70px; text-align: center; } /* 极窄级别 */
-        .g-col-if { width: 70px; text-align: center; }   /* 极窄IF */
+        /* 全局检索结果区 - 强化显示完整性 */
+        #globalResult { max-height: 200px; overflow-y: auto; margin-bottom: 10px; border: 2px solid #0d6efd; border-radius: 8px; display: none; flex-shrink: 0; }
+        .global-table { table-layout: fixed; width: 100%; margin: 0; border-collapse: collapse; }
+        .global-table th { background: #0d6efd !important; color: #fff; position: sticky; top: 0; padding: 8px; font-size: 0.9rem; }
+        .global-table td { padding: 8px; border-bottom: 1px solid #eee; vertical-align: middle; word-wrap: break-word; overflow-wrap: break-word; white-space: normal !important; }
 
-        /* 全局结果允许换行 */
-        .global-table td.wrap-cell { white-space: normal !important; word-break: break-all; line-height: 1.3; font-size: 0.95rem; }
+        /* 全局表列宽比例 */
+        .g-w-db { width: 60px; }
+        .g-w-name { width: 45%; } /* 全称给最大 */
+        .g-w-field { width: 30%; } 
+        .g-w-rank { width: 70px; text-align: center; }
+        .g-w-if { width: 70px; text-align: center; }
 
-        /* 4. 选项卡与主表布局 */
-        .nav-tabs { flex-shrink: 0; border-bottom: 2px solid #dee2e6; }
-        .nav-tabs .nav-link { font-size: 1rem; padding: 8px 20px; font-weight: 600; color: #555; }
-        .nav-tabs .nav-link.active { color: #0d6efd; border-bottom: 3px solid #0d6efd; }
-
-        .filter-bar { background: #f8f9fa; padding: 8px 15px; border-radius: 8px; margin: 8px 0; border: 1px solid #eee; flex-shrink: 0; }
+        /* 主表容器 - 强制撑满 */
         .tab-content { flex-grow: 1; overflow: hidden; display: flex; flex-direction: column; }
-        .tab-pane { height: 100%; }
-        .tab-pane.active { display: flex; flex-direction: column; }
+        .tab-pane.active { display: flex; flex-direction: column; height: 100%; }
         .table-wrap { flex-grow: 1; overflow-y: auto; border: 1px solid #eee; border-radius: 4px; }
 
-        /* 5. 主表：CCF 宽度精细控制 */
-        .table { font-size: 1rem; width: 100%; margin: 0; table-layout: fixed; border-collapse: separate; border-spacing: 0; }
-        .table thead th { position: sticky; top: 0; background: #f8f9fa; z-index: 5; border-bottom: 2px solid #dee2e6; padding: 10px; font-weight: bold; }
-        .table tbody td { padding: 10px; border-bottom: 1px solid #f1f1f1; vertical-align: middle; }
+        /* 主表格样式 - 彻底解决显示不全 */
+        .table { table-layout: fixed; width: 100%; margin: 0; }
+        .table th { background: #f8f9fa; position: sticky; top: 0; z-index: 5; padding: 10px; font-size: 0.95rem; border-bottom: 2px solid #dee2e6; }
+        .table td { 
+            padding: 10px; 
+            vertical-align: middle; 
+            line-height: 1.4;
+            word-wrap: break-word; 
+            overflow-wrap: break-word; 
+            white-space: normal !important; /* 强制允许换行，不截断 */
+        }
 
-        /* 主表允许换行的单元格类型 */
-        .table td.text-wrap-content { white-space: normal !important; word-break: break-all; line-height: 1.4; }
+        /* CCF 主表列宽锁定比例 */
+        .ccf-col-abbr { width: 80px; font-size: 0.85rem; color: #666; }
+        .ccf-col-full { width: 45%; font-weight: 600; color: #222; }
+        .ccf-col-cat { width: 25%; color: #444; }
+        .ccf-col-rank { width: 65px; text-align: center; }
+        .ccf-col-if { width: 65px; text-align: center; }
 
-        /* CCF 主表各列比例 */
-        #table-ccf .col-abbr { width: 85px; color: #666; font-size: 0.9rem; } /* 压缩简称 */
-        #table-ccf .col-full { width: auto; font-weight: 500; }             /* 全称自适应 */
-        #table-ccf .col-cat { width: 25%; }                                 /* 分类占1/4 */
-        #table-ccf .col-rank { width: 75px; text-align: center; }           /* 压缩级别 */
-        #table-ccf .col-if { width: 75px; text-align: center; }             /* 压缩影响因子 */
+        /* 筛选栏压缩 */
+        .filter-bar { background: #f8f9fa; padding: 8px; border-radius: 6px; margin-bottom: 8px; flex-shrink: 0; border: 1px solid #eee; }
+        .filter-bar label { font-size: 0.8rem; color: #888; font-weight: bold; margin-bottom: 2px; display: block; }
+        .filter-bar select, .filter-bar input { height: 32px; font-size: 0.95rem; padding: 2px 8px; }
 
         .table-hover tbody tr:hover { background-color: #f1f7ff !important; }
-        .badge-rank { font-size: 0.85rem; padding: 3px 8px; border-radius: 4px; }
     </style>
 </head>
 <body>
 
 <div class="main-card">
     <div class="top-bar">
-        <h2><i class="bi bi-journal-bookmark-fill"></i> 期刊查询系统</h2>
-        <div class="search-box">
-            <div class="input-group input-group-sm">
-                <input type="text" id="globalSearchInput" class="form-control border-0 bg-transparent" placeholder="输入关键字全局检索（CCF优先显示全称，内容自动换行显示完整）" onkeyup="if(event.keyCode===13) executeGlobalSearch()">
-                <button class="btn btn-primary rounded-2 px-4 ms-2" onclick="executeGlobalSearch()">全局检索</button>
-            </div>
+        <h2 class="m-0">期刊检索</h2>
+        <div class="search-box input-group input-group-sm">
+            <input type="text" id="globalSearchInput" class="form-control" placeholder="输入关键字（CCF将显示全称，自动折行）..." onkeyup="if(event.keyCode===13) executeGlobalSearch()">
+            <button class="btn btn-primary px-4" onclick="executeGlobalSearch()">全局检索</button>
         </div>
     </div>
 
     <div id="globalResult"></div>
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#panel-ajg">AJG 2024</button></li>
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#panel-ajg">AJG</button></li>
         <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-ccf">CCF 2026</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-fms">FMS 2025</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-fms">FMS</button></li>
     </ul>
 
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="panel-ajg" role="tabpanel">
+        <div class="tab-pane fade show active" id="panel-ajg">
             <div class="filter-bar row g-2 m-0">
-                <div class="col-4"><label class="small fw-bold text-muted">期刊搜索</label><input type="text" id="search-ajg" class="form-control" oninput="filterTable('ajg')"></div>
-                <div class="col-4"><label class="small fw-bold text-muted">学科分类</label><select id="field-ajg" class="form-select" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
-                <div class="col-4"><label class="small fw-bold text-muted">级别</label><select id="rank-ajg" class="form-select" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
+                <div class="col-4"><label>搜索</label><input type="text" id="search-ajg" class="form-control" oninput="filterTable('ajg')"></div>
+                <div class="col-4"><label>学科</label><select id="field-ajg" class="form-select" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
+                <div class="col-4"><label>级别</label><select id="rank-ajg" class="form-select" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
             </div>
             <div class="table-wrap"><table class="table table-hover" id="table-ajg"><thead></thead><tbody></tbody></table></div>
         </div>
 
-        <div class="tab-pane fade" id="panel-ccf" role="tabpanel">
+        <div class="tab-pane fade" id="panel-ccf">
             <div class="filter-bar row g-2 m-0">
-                <div class="col-4"><label class="small fw-bold text-muted">全称/简称关键词</label><input type="text" id="search-ccf" class="form-control" oninput="filterTable('ccf')"></div>
-                <div class="col-4"><label class="small fw-bold text-muted">研究领域</label><select id="field-ccf" class="form-select" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
-                <div class="col-4"><label class="small fw-bold text-muted">推荐等级</label><select id="rank-ccf" class="form-select" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
+                <div class="col-4"><label>全称/简称搜索</label><input type="text" id="search-ccf" class="form-control" oninput="filterTable('ccf')"></div>
+                <div class="col-4"><label>领域</label><select id="field-ccf" class="form-select" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
+                <div class="col-4"><label>级别</label><select id="rank-ccf" class="form-select" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
             </div>
-            <div class="table-wrap"><table class="table table-hover" id="table-ccf">
-                <thead>
-                    <tr>
-                        <th class="col-abbr">简称</th>
-                        <th class="col-full">期刊全称 (完整显示)</th>
-                        <th class="col-cat">分类领域</th>
-                        <th class="col-rank">级别</th>
-                        <th class="col-if">IF</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table></div>
+            <div class="table-wrap">
+                <table class="table table-hover" id="table-ccf">
+                    <thead>
+                        <tr>
+                            <th class="ccf-col-abbr">简称</th>
+                            <th class="ccf-col-full">期刊全称</th>
+                            <th class="ccf-col-cat">研究领域</th>
+                            <th class="ccf-col-rank">级别</th>
+                            <th class="ccf-col-if">IF</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
 
-        <div class="tab-pane fade" id="panel-fms" role="tabpanel">
+        <div class="tab-pane fade" id="panel-fms">
             <div class="filter-bar row g-2 m-0">
-                <div class="col-4"><label class="small fw-bold text-muted">名称搜索</label><input type="text" id="search-fms" class="form-control" oninput="filterTable('fms')"></div>
-                <div class="col-4"><label class="small fw-bold text-muted">管理学科</label><select id="field-fms" class="form-select" onchange="filterTable('fms')"><option value="">全部</option></select></div>
-                <div class="col-4"><label class="small fw-bold text-muted">等级</label><select id="rank-fms" class="form-select" onchange="filterTable('fms')"><option value="">全部</option></select></div>
+                <div class="col-4"><label>名称</label><input type="text" id="search-fms" class="form-control" oninput="filterTable('fms')"></div>
+                <div class="col-4"><label>学科</label><select id="field-fms" class="form-select" onchange="filterTable('fms')"><option value="">全部</option></select></div>
+                <div class="col-4"><label>级别</label><select id="rank-fms" class="form-select" onchange="filterTable('fms')"><option value="">全部</option></select></div>
             </div>
             <div class="table-wrap"><table class="table table-hover" id="table-fms"><thead></thead><tbody></tbody></table></div>
         </div>
@@ -127,140 +125,68 @@
 <script>
 let dataAJG = [], dataCCF = [], dataFMS = [];
 
-async function loadAllData() {
+async function loadData() {
     try {
-        const [res1, res2, res3] = await Promise.all([
-            fetch('data/ajg.json'), fetch('data/ccf.json'), fetch('data/fms.json')
-        ]);
-        dataAJG = await res1.json();
-        dataCCF = await res2.json();
-        dataFMS = await res3.json();
-        
+        const [r1, r2, r3] = await Promise.all([fetch('data/ajg.json'), fetch('data/ccf.json'), fetch('data/fms.json')]);
+        dataAJG = await r1.json(); dataCCF = await r2.json(); dataFMS = await r3.json();
         renderTable('ajg', dataAJG, ['Journal Title', 'Field', 'AJG 2024', '影响因子']);
-        // CCF 使用自定义列渲染逻辑
-        renderCCFTable(dataCCF);
+        renderCCF(dataCCF);
         renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS等级2025', '影响因子']);
-        
-        populateFilters();
-    } catch (err) { console.error("数据加载失败", err); }
-}
-
-function fuzzyMatch(item, keys, query) {
-    if (!query) return true;
-    const searchStr = keys.map(k => String(item[k] || '')).join(' ').toLowerCase();
-    const keywords = query.toLowerCase().split(/\s+/);
-    return keywords.every(kw => searchStr.includes(kw));
+        initFilters();
+    } catch (e) { console.error(e); }
 }
 
 function executeGlobalSearch() {
-    const query = document.getElementById('globalSearchInput').value.trim();
-    const resultDiv = document.getElementById('globalResult');
-    if (!query) { resultDiv.style.display = "none"; return; }
+    const q = document.getElementById('globalSearchInput').value.toLowerCase();
+    const res = document.getElementById('globalResult');
+    if (!q) { res.style.display="none"; return; }
+    res.style.display="block";
 
-    const resAJG = dataAJG.filter(i => fuzzyMatch(i, ['Journal Title'], query));
-    const resCCF = dataCCF.filter(i => fuzzyMatch(i, ['全称', '简称'], query));
-    const resFMS = dataFMS.filter(i => fuzzyMatch(i, ['期刊名称'], query));
+    const match = (d, keys) => d.filter(i => keys.some(k => String(i[k]||'').toLowerCase().includes(q)));
+    const rA = match(dataAJG, ['Journal Title']), rC = match(dataCCF, ['全称', '简称']), rF = match(dataFMS, ['期刊名称']);
 
-    const total = resAJG.length + resCCF.length + resFMS.length;
-    resultDiv.style.display = "block";
+    let h = `<table class="global-table"><thead><tr><th class="g-w-db">来源</th><th class="g-w-name">期刊全称</th><th class="g-w-field">分类</th><th class="g-w-rank">级别</th><th class="g-w-if">IF</th></tr></thead><tbody>`;
+    const add = (list, tag, cls) => list.forEach(i => {
+        const name = tag === 'CCF' ? i['全称'] : (i['Journal Title'] || i['期刊名称']);
+        const rank = i['AJG 2024'] || i['级别'] || i['FMS等级2025'] || i['FMS等级 2025'] || '-';
+        h += `<tr><td><span class="badge ${cls}">${tag}</span></td><td><b>${name}</b></td><td>${i['Field']||i['分类']||i['学科']||'-'}</td><td class="text-center text-primary fw-bold">${rank}</td><td class="text-center">${i['影响因子']||'-'}</td></tr>`;
+    });
+    add(rA, 'AJG', 'bg-dark'); add(rC, 'CCF', 'bg-success'); add(rF, 'FMS', 'bg-warning text-dark');
+    res.innerHTML = h + `</tbody></table>`;
+}
 
-    let html = `
-    <div class="bg-light p-2 d-flex justify-content-between border-bottom sticky-top">
-        <span class="ms-2">共找到 <b>${total}</b> 条结果 (点击“关闭”可看下方详情)</span>
-        <button class="btn-close btn-sm me-2" onclick="document.getElementById('globalResult').style.display='none'"></button>
-    </div>
-    <table class="table table-sm table-hover global-table">
-        <thead>
-            <tr>
-                <th class="g-col-db">来源</th>
-                <th class="g-col-name">期刊全称 (显示完整)</th>
-                <th class="g-col-field">分类/学科</th>
-                <th class="g-col-rank">级别</th>
-                <th class="g-col-if">IF</th>
-            </tr>
-        </thead>
-        <tbody>`;
+function renderCCF(list) {
+    const b = document.querySelector('#table-ccf tbody');
+    b.innerHTML = list.map(i => `<tr><td class="ccf-col-abbr">${i['简称']||'-'}</td><td class="ccf-col-full">${i['全称']||'-'}</td><td class="ccf-col-cat">${i['分类']||'-'}</td><td class="ccf-col-rank"><span class="text-primary fw-bold">${i['级别']}</span></td><td class="ccf-col-if">${i['影响因子']}</td></tr>`).join('');
+}
+
+function renderTable(id, list, cols) {
+    const h = document.querySelector(`#table-${id} thead`), b = document.querySelector(`#table-${id} tbody`);
+    h.innerHTML = `<tr>${cols.map(c => `<th>${c}</th>`).join('')}</tr>`;
+    b.innerHTML = list.map(row => `<tr>${cols.map(c => `<td>${row[c]||'-'}</td>`).join('')}</tr>`).join('');
+}
+
+function filterTable(id) {
+    const s = document.getElementById(`search-${id}`).value.toLowerCase();
+    const f = document.getElementById(`field-${id}`).value;
+    const r = document.getElementById(`rank-${id}`).value;
+    const src = id==='ajg'?dataAJG : (id==='ccf'?dataCCF:dataFMS);
+    const keys = id==='ajg'?['Journal Title'] : (id==='ccf'?['全称','简称']:['期刊名称']);
+    const fk = id==='ajg'?'Field':(id==='ccf'?'分类':'学科'), rk = id==='ajg'?'AJG 2024':(id==='ccf'?'级别':'FMS等级2025');
     
-    const pushRows = (list, db) => {
-        list.forEach(i => {
-            const badge = db === 'AJG' ? 'bg-dark' : (db === 'CCF' ? 'bg-success' : 'bg-warning text-dark');
-            const name = db === 'CCF' ? i['全称'] : (i['Journal Title'] || i['期刊名称']);
-            const field = i['Field'] || i['分类'] || i['学科'] || '-';
-            const rank = i['AJG 2024'] || i['级别'] || i['FMS等级2025'] || i['FMS等级 2025'] || '-';
-            html += `<tr>
-                <td><span class="badge ${badge}">${db}</span></td>
-                <td class="wrap-cell"><strong>${name}</strong></td>
-                <td class="wrap-cell">${field}</td>
-                <td class="g-col-rank"><span class="text-primary fw-bold">${rank}</span></td>
-                <td class="g-col-if">${i['影响因子'] || '-'}</td>
-            </tr>`;
-        });
-    };
-    pushRows(resAJG, 'AJG'); pushRows(resCCF, 'CCF'); pushRows(resFMS, 'FMS');
-    html += `</tbody></table>`;
-    resultDiv.innerHTML = html;
+    const res = src.filter(i => keys.some(k => String(i[k]||'').toLowerCase().includes(s)) && (!f || i[fk]===f) && (!r || (i[rk]||i['FMS等级 2025'])===r));
+    if(id==='ccf') renderCCF(res); else renderTable(id, res, id==='ajg'?['Journal Title','Field','AJG 2024','影响因子']:['期刊名称','学科','FMS等级2025','影响因子']);
 }
 
-function filterTable(type) {
-    const searchVal = document.getElementById(`search-${type}`).value.trim();
-    const fieldVal = document.getElementById(`field-${type}`).value;
-    const rankVal = document.getElementById(`rank-${type}`).value;
-
-    let source, keys, fKey, rKey;
-    if (type === 'ajg') {
-        source = dataAJG; keys = ['Journal Title']; fKey = 'Field'; rKey = 'AJG 2024';
-        const filtered = source.filter(i => fuzzyMatch(i, keys, searchVal) && (fieldVal==="" || i[fKey]===fieldVal) && (rankVal==="" || i[rKey]===rankVal));
-        renderTable('ajg', filtered, ['Journal Title', 'Field', 'AJG 2024', '影响因子']);
-    } else if (type === 'ccf') {
-        source = dataCCF; keys = ['全称', '简称']; fKey = '分类'; rKey = '级别';
-        const filtered = source.filter(i => fuzzyMatch(i, keys, searchVal) && (fieldVal==="" || i[fKey]===fieldVal) && (rankVal==="" || i[rKey]===rankVal));
-        renderCCFTable(filtered);
-    } else {
-        source = dataFMS; keys = ['期刊名称']; fKey = '学科'; rKey = 'FMS等级2025';
-        const filtered = source.filter(i => fuzzyMatch(i, keys, searchVal) && (fieldVal==="" || i[fKey]===fieldVal) && (rankVal==="" || (i[rKey]||i['FMS等级 2025'])===rankVal));
-        renderTable('fms', filtered, ['期刊名称', '学科', 'FMS等级2025', '影响因子']);
-    }
-}
-
-// CCF 专用渲染函数：启用换行，锁定列宽
-function renderCCFTable(data) {
-    const tbody = document.querySelector(`#table-ccf tbody`);
-    if (data.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-5">无记录</td></tr>`;
-        return;
-    }
-    tbody.innerHTML = data.map(i => `
-        <tr>
-            <td class="col-abbr">${i['简称'] || '-'}</td>
-            <td class="col-full text-wrap-content">${i['全称'] || '-'}</td>
-            <td class="col-cat text-wrap-content">${i['分类'] || '-'}</td>
-            <td class="col-rank text-center"><span class="badge bg-light text-primary border">${i['级别'] || '-'}</span></td>
-            <td class="col-if text-center">${i['影响因子'] || '-'}</td>
-        </tr>
-    `).join('');
-}
-
-function renderTable(type, data, cols) {
-    const thead = document.querySelector(`#table-${type} thead`);
-    const tbody = document.querySelector(`#table-${type} tbody`);
-    thead.innerHTML = `<tr>${cols.map(c => `<th>${c}</th>`).join('')}</tr>`;
-    tbody.innerHTML = data.length === 0 ? `<tr><td colspan="${cols.length}" class="text-center text-muted py-5">无记录</td></tr>` : 
-        data.map(row => `<tr>${cols.map(c => `<td class="${(c==='Journal Title'||c==='Field'||c==='期刊名称'||c==='学科')?'text-wrap-content':''}">${row[c]||'-'}</td>`).join('')}</tr>`).join('');
-}
-
-function populateFilters() {
-    const cfgs = [
-        { id: 'ajg', data: dataAJG, f: 'Field', r: 'AJG 2024' },
-        { id: 'ccf', data: dataCCF, f: '分类', r: '级别' },
-        { id: 'fms', data: dataFMS, f: '学科', r: 'FMS等级2025' }
-    ];
-    cfgs.forEach(c => {
-        const fS = document.getElementById(`field-${c.id}`), rS = document.getElementById(`rank-${c.id}`);
-        [...new Set(c.data.map(i => i[c.f]))].filter(Boolean).sort().forEach(v => fS.add(new Option(v, v)));
-        [...new Set(c.data.map(i => i[c.r] || i['FMS等级2025']))].filter(Boolean).sort().forEach(v => rS.add(new Option(v, v)));
+function initFilters() {
+    const confs = [{id:'ajg', d:dataAJG, f:'Field', r:'AJG 2024'}, {id:'ccf', d:dataCCF, f:'分类', r:'级别'}, {id:'fms', d:dataFMS, f:'学科', r:'FMS等级2025'}];
+    confs.forEach(c => {
+        const fs = document.getElementById(`field-${c.id}`), rs = document.getElementById(`rank-${c.id}`);
+        [...new Set(c.d.map(i => i[c.f]))].filter(Boolean).sort().forEach(v => fs.add(new Option(v,v)));
+        [...new Set(c.d.map(i => i[c.r] || i['FMS等级2025']))].filter(Boolean).sort().forEach(v => rs.add(new Option(v,v)));
     });
 }
-window.onload = loadAllData;
+window.onload = loadData;
 </script>
 </body>
 </html>
