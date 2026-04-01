@@ -2,127 +2,109 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>期刊目录综合查询系统</title>
+    <title>期刊目录查询系统</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        :root { --primary-color: #0d6efd; --bg-body: #f4f7f9; }
+        body { background-color: #f1f3f5; font-family: "Segoe UI", system-ui, sans-serif; margin: 0; padding: 10px; overflow: hidden; }
 
-        body { background-color: var(--bg-body); font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; margin: 0; padding: 10px; height: 100vh; overflow: hidden; }
-
-        /* 全屏容器 */
-        .main-wrapper {
+        /* 主白底容器 */
+        .main-card {
             background: #fff;
             height: calc(100vh - 20px);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        /* 紧凑头部 */
-        .header-section { display: flex; align-items: center; gap: 20px; margin-bottom: 12px; }
-        h2 { font-size: 1.3rem; font-weight: 700; margin: 0; color: var(--primary-color); white-space: nowrap; }
+        /* 顶部标题与全局搜索 */
+        .top-bar { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; flex-shrink: 0; }
+        h2 { font-size: 1.2rem; font-weight: bold; margin: 0; color: #0d6efd; white-space: nowrap; }
+        .search-box { flex-grow: 1; background: #f8fbff; border: 1px solid #dee2e6; border-left: 4px solid #0d6efd; border-radius: 4px; padding: 5px 10px; }
 
-        .global-search-card { flex-grow: 1; background: #f8fbff; border: 1px solid #dee2e6; border-left: 4px solid var(--primary-color); }
-        .global-search-card .card-body { padding: 6px 12px; }
-
-        /* 标签页 */
-        .nav-tabs { border-bottom: 2px solid #eee; margin-bottom: 10px; }
-        .nav-tabs .nav-link { padding: 5px 15px; font-size: 0.9rem; font-weight: 600; border: none; color: #666; }
-        .nav-tabs .nav-link.active { color: var(--primary-color); border-bottom: 3px solid var(--primary-color); background: none; }
+        /* 标签页样式 */
+        .nav-tabs .nav-link { font-size: 0.9rem; padding: 6px 15px; color: #666; border: none; font-weight: 600; }
+        .nav-tabs .nav-link.active { color: #0d6efd; border-bottom: 3px solid #0d6efd; background: none; }
 
         /* 过滤行 */
-        .filter-row { background: #f9f9f9; padding: 8px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #eee; }
-        .filter-row label { font-size: 0.75rem; font-weight: 700; color: #777; margin-bottom: 2px; display: block; }
-        .filter-row .form-control, .filter-row .form-select { font-size: 0.85rem; padding: 4px 8px; height: 32px; }
+        .filter-bar { background: #f8f9fa; padding: 8px; border-radius: 4px; margin-bottom: 10px; border: 1px solid #eee; flex-shrink: 0; }
+        .filter-bar label { font-size: 0.75rem; font-weight: bold; color: #888; margin-bottom: 2px; display: block; }
+        .filter-bar select, .filter-bar input { font-size: 0.85rem; height: 30px; padding: 2px 8px; }
 
-        /* 表格区域 - 关键修复点 */
-        .tab-content { flex-grow: 1; overflow: hidden; position: relative; }
-        .tab-pane { height: 100%; }
-
-        .table-container {
-            height: calc(100vh - 240px); /* 动态计算高度，确保滚动 */
+        /* 表格容器：这是滚动的关键 */
+        .table-wrap {
+            flex-grow: 1;
             overflow-y: auto;
             border: 1px solid #eee;
-            background: #fff;
+            position: relative;
         }
 
-        .table { table-layout: fixed; width: 100%; margin: 0; font-size: 0.85rem; }
-        .table thead th {
-            position: sticky; top: 0; background: #f1f3f5; z-index: 10;
-            padding: 8px 10px; border-bottom: 2px solid #ddd;
-        }
-        .table tbody td {
-            padding: 6px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-            border-bottom: 1px solid #f2f2f2;
-        }
+        .table { font-size: 0.85rem; width: 100%; margin: 0; table-layout: fixed; }
+        .table thead th { position: sticky; top: 0; background: #f8f9fa; z-index: 5; border-bottom: 2px solid #dee2e6; padding: 8px; }
+        .table tbody td { padding: 6px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid #f2f2f2; }
 
-        /* 列宽分配 */
-        .col-name { width: 40%; }
-        .col-field { width: 25%; }
-        .col-rank { width: 15%; text-align: center; }
-        .col-if { width: 15%; text-align: center; }
+        /* 列宽微调 */
+        .col-title { width: 40%; }
+        .col-mid { width: 25%; }
+        .col-short { width: 15%; text-align: center; }
 
-        #globalResult table { font-size: 0.85rem; margin-bottom: 10px; }
+        #globalResult { flex-shrink: 0; }
     </style>
 </head>
 <body>
 
-<div class="main-wrapper">
-    <div class="header-section">
-        <h2><i class="bi bi-database-fill"></i> 期刊查询</h2>
-        <div class="card global-search-card">
-            <div class="card-body">
-                <div class="input-group input-group-sm">
-                    <input type="text" id="globalSearchInput" class="form-control" placeholder="跨库查简称/全称..." onkeyup="if(event.keyCode===13) executeGlobalSearch()">
-                    <button class="btn btn-primary px-3" onclick="executeGlobalSearch()">匹配</button>
-                </div>
+<div class="main-card">
+    <div class="top-bar">
+        <h2><i class="bi bi-search"></i> 期刊检索</h2>
+        <div class="search-box">
+            <div class="input-group input-group-sm">
+                <input type="text" id="globalSearchInput" class="form-control" placeholder="输入简称或全称进行跨库匹配..." onkeyup="if(event.keyCode===13) executeGlobalSearch()">
+                <button class="btn btn-primary" onclick="executeGlobalSearch()">匹配</button>
             </div>
         </div>
     </div>
 
     <div id="globalResult"></div>
 
-    <ul class="nav nav-tabs" id="journalTabs" role="tablist">
-        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-ajg">AJG 2024</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-ccf">CCF 目录</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-fms">FMS 2025</button></li>
+    <ul class="nav nav-tabs mb-2" id="myTab" role="tablist">
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#panel-ajg">AJG 2024</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-ccf">CCF 目录</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-fms">FMS 2025</button></li>
     </ul>
 
-    <div class="tab-content">
-        <div class="tab-pane fade show active" id="tab-ajg">
-            <div class="filter-row row g-2">
-                <div class="col-md-4"><label>期刊搜索</label><input type="text" class="form-control" id="search-ajg" oninput="filterTable('ajg')"></div>
-                <div class="col-md-4"><label>学科分类</label><select class="form-select" id="field-ajg" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
-                <div class="col-md-4"><label>等级</label><select class="form-select" id="rank-ajg" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
+    <div class="tab-content" id="myTabContent" style="flex-grow: 1; overflow: hidden;">
+
+        <div class="tab-pane fade show active" id="panel-ajg" role="tabpanel">
+            <div class="filter-bar row g-2 m-0">
+                <div class="col-4"><label>搜索</label><input type="text" id="search-ajg" class="form-control" oninput="filterTable('ajg')"></div>
+                <div class="col-4"><label>学科</label><select id="field-ajg" class="form-select" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
+                <div class="col-4"><label>级别</label><select id="rank-ajg" class="form-select" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
             </div>
-            <div class="table-container"><table class="table table-hover table-striped" id="table-ajg"><thead></thead><tbody></tbody></table></div>
+            <div class="table-wrap"><table class="table table-hover table-striped" id="table-ajg"><thead></thead><tbody></tbody></table></div>
         </div>
 
-        <div class="tab-pane fade" id="tab-ccf">
-            <div class="filter-row row g-2">
-                <div class="col-md-4"><label>简称/全称搜索</label><input type="text" class="form-control" id="search-ccf" oninput="filterTable('ccf')"></div>
-                <div class="col-md-4"><label>领域</label><select class="form-select" id="field-ccf" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
-                <div class="col-md-4"><label>级别</label><select class="form-select" id="rank-ccf" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
+        <div class="tab-pane fade" id="panel-ccf" role="tabpanel">
+            <div class="filter-bar row g-2 m-0">
+                <div class="col-4"><label>搜索</label><input type="text" id="search-ccf" class="form-control" oninput="filterTable('ccf')"></div>
+                <div class="col-4"><label>分类</label><select id="field-ccf" class="form-select" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
+                <div class="col-4"><label>级别</label><select id="rank-ccf" class="form-select" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
             </div>
-            <div class="table-container"><table class="table table-hover table-striped" id="table-ccf"><thead></thead><tbody></tbody></table></div>
+            <div class="table-wrap"><table class="table table-hover table-striped" id="table-ccf"><thead></thead><tbody></tbody></table></div>
         </div>
 
-        <div class="tab-pane fade" id="tab-fms">
-            <div class="filter-row row g-2">
-                <div class="col-md-4"><label>期刊搜索</label><input type="text" class="form-control" id="search-fms" oninput="filterTable('fms')"></div>
-                <div class="col-md-4"><label>管理分支</label><select class="form-select" id="field-fms" onchange="filterTable('fms')"><option value="">全部</option></select></div>
-                <div class="col-md-4"><label>级别</label><select class="form-select" id="rank-fms" onchange="filterTable('fms')"><option value="">全部</option></select></div>
+        <div class="tab-pane fade" id="panel-fms" role="tabpanel">
+            <div class="filter-bar row g-2 m-0">
+                <div class="col-4"><label>搜索</label><input type="text" id="search-fms" class="form-control" oninput="filterTable('fms')"></div>
+                <div class="col-4"><label>学科</label><select id="field-fms" class="form-select" onchange="filterTable('fms')"><option value="">全部</option></select></div>
+                <div class="col-4"><label>级别</label><select id="rank-fms" class="form-select" onchange="filterTable('fms')"><option value="">全部</option></select></div>
             </div>
-            <div class="table-container"><table class="table table-hover table-striped" id="table-fms"><thead></thead><tbody></tbody></table></div>
+            <div class="table-wrap"><table class="table table-hover table-striped" id="table-fms"><thead></thead><tbody></tbody></table></div>
         </div>
+
     </div>
 </div>
-
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
