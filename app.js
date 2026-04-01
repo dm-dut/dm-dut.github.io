@@ -1,68 +1,66 @@
-let currentTab = 'ajg';
+let ajgData = [];
+        const name = normalize(item['全称']);
 
-let allData = {
-    ajg: [],
-    ccf: [],
-    fms: []
-};
-
-async function loadAllData() {
-    allData.ajg = await fetch('./data/ajg.json').then(res => res.json());
-    allData.ccf = await fetch('./data/ccf.json').then(res => res.json());
-    allData.fms = await fetch('./data/fms.json').then(res => res.json());
-
-    loadTable();
-}
-
-function switchTab(tab, button) {
-    currentTab = tab;
-
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
+        if (name.includes(keyword)) {
+            results.push({
+                source: 'CCF',
+                journal: item['全称'],
+                category: item['分类'],
+                level: item['级别'],
+                impact: item['JIF 2024'] || item['影响因子'] || ''
+            });
+        }
     });
 
-    button.classList.add('active');
+    // FMS
+    fmsData.forEach(item => {
+        const name = normalize(item['期刊名称']);
 
-    if (tab === 'search') {
-        document.getElementById('table-panel').style.display = 'none';
-        document.getElementById('search-panel').style.display = 'block';
-    } else {
-        document.getElementById('table-panel').style.display = 'block';
-        document.getElementById('search-panel').style.display = 'none';
-        loadTable();
-    }
-}
+        if (name.includes(keyword)) {
+            results.push({
+                source: 'FMS',
+                journal: item['期刊名称'],
+                category: item['学科'],
+                level: item['FMS等级 2025'],
+                impact: item['JIF 2024'] || item['影响因子'] || ''
+            });
+        }
+    });
 
-function getColumnConfig(tab) {
-    if (tab === 'ajg') {
-        return {
-            journal: 'Journal Title',
-            category: 'Field',
-            level: 'AJG 2024'
-        };
-    }
-
-    if (tab === 'ccf') {
-        return {
-            journal: '全称',
-            category: '分类',
-            level: '级别'
-        };
+    if (results.length === 0) {
+        resultDiv.innerHTML = '<p>未找到匹配结果</p>';
+        return;
     }
 
-    return {
-        journal: '期刊名称',
-        category: '学科',
-        level: 'FMS等级 2025'
-    };
+    let html = `
+        <table>
+            <thead>
+                <tr>
+                    <th>来源</th>
+                    <th>期刊名</th>
+                    <th>分类/学科</th>
+                    <th>等级</th>
+                    <th>影响因子</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    results.forEach(item => {
+        html += `
+            <tr>
+                <td>${item.source}</td>
+                <td>${item.journal}</td>
+                <td>${item.category}</td>
+                <td>${item.level}</td>
+                <td>${item.impact}</td>
+            </tr>
+        `;
+    });
+
+    html += '</tbody></table>';
+
+    resultDiv.innerHTML = html;
 }
 
-function loadTable() {
-    const data = allData[currentTab];
-    const config = getColumnConfig(currentTab);
-
-    const keyword = document.getElementById('keyword').value.toLowerCase();
-    const category = document.getElementById('category').value;
-    const level = document.getElementById('level').value;
-
-}
+window.onload = loadData;
