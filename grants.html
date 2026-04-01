@@ -1,344 +1,100 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>期刊目录查询系统</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
-        /* 1. 基础布局 */
-        body {
-            background-color: #f1f3f5;
-            font-family: "Segoe UI", system-ui, sans-serif;
-            margin: 0; padding: 10px; overflow: hidden; height: 100vh;
-        }
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="shortcut icon" href="paper_dragon.ico">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- <link rel="shortcut icon" href="paper_dragon.ico"> -->
+    <title>Zhen Zhang's Grants</title>
+    
+   <base href="./index.html">
 
-        .main-card {
-            background: #fff; max-width: 1600px; margin: 0 auto;
-            height: calc(100vh - 20px); border-radius: 12px;
-            padding: 15px 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            display: flex; flex-direction: column;
-        }
-
-        /* 2. 顶部搜索 */
-        .top-bar { display: flex; align-items: center; gap: 20px; margin-bottom: 10px; flex-shrink: 0; }
-        h2 { font-size: 1.4rem; font-weight: bold; margin: 0; color: #0d6efd; white-space: nowrap; }
-        .search-box { flex-grow: 1; background: #f8fbff; border: 1px solid #dee2e6; border-left: 5px solid #0d6efd; border-radius: 6px; padding: 4px 12px; }
-
-        /* 3. 全局检索结果区优化 */
-        #globalResult {
-            max-height: 250px;
-            overflow-y: auto;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            flex-shrink: 0;
-            display: none;
-            border: 2px solid #0d6efd;
-            background: #fff;
-        }
-
-        .global-table { table-layout: fixed; width: 100%; margin: 0; }
-        .global-table th, .global-table td { padding: 10px; vertical-align: middle; }
-        .global-table th { background-color: #0d6efd !important; color: #fff; position: sticky; top: 0; z-index: 10; }
-
-        .col-db { width: 70px; }
-        .col-name { width: auto; }
-        .col-field { width: 30%; }
-        .col-rank { width: 70px; text-align: center; }
-        .col-if { width: 70px; text-align: center; }
-
-        .global-table td.field-cell {
-            white-space: normal !important;
-            word-break: break-all;
-            line-height: 1.2;
-            font-size: 0.95rem;
-        }
-
-        /* 4. 选项卡与主表布局 */
-        .nav-tabs { flex-shrink: 0; }
-        .filter-bar { background: #f8f9fa; padding: 10px; border-radius: 8px; margin: 10px 0; border: 1px solid #eee; flex-shrink: 0; }
-        .tab-content { flex-grow: 1; overflow: hidden; display: flex; flex-direction: column; }
-        .tab-pane.active { display: flex; flex-direction: column; height: 100%; }
-        .table-wrap { flex-grow: 1; overflow-y: auto; border: 1px solid #eee; border-radius: 4px; }
-
-        /* 主表样式 */
-        .table { font-size: 0.85rem; width: 100%; margin: 0; table-layout: fixed; }
-        .table thead th {
-            position: sticky; top: 0; background: #f8f9fa; z-index: 5;
-            border-bottom: 2px solid #dee2e6; padding: 10px 6px;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-        .table tbody td {
-            padding: 8px 6px;
-            word-wrap: break-word;
-            word-break: break-word;
-            white-space: normal;
-            vertical-align: top;
-            line-height: 1.3;
-        }
-
-        /* ========= CCF 表格 - 极度压缩级别和IF ========= */
-        #table-ccf {
-            table-layout: fixed;
-        }
-        #table-ccf th:nth-child(1), #table-ccf td:nth-child(1) { width: 10%; }  /* 简称 */
-        #table-ccf th:nth-child(2), #table-ccf td:nth-child(2) { width: 55%; }  /* 全称 */
-        #table-ccf th:nth-child(3), #table-ccf td:nth-child(3) { width: 25%; }  /* 分类 - 最大宽度 */
-        #table-ccf th:nth-child(4), #table-ccf td:nth-child(4) { width: 5%; }   /* 级别 - 仅6% */
-        #table-ccf th:nth-child(5), #table-ccf td:nth-child(5) { width: 5%; }   /* 影响因子 - 仅8% */
-
-        /* 级别列居中对齐 */
-        #table-ccf td:nth-child(4) {
-            text-align: center;
-            font-weight: 600;
-        }
-
-        /* 影响因子列居中对齐 */
-        #table-ccf td:nth-child(5) {
-            text-align: center;
-        }
-
-        /* ========= AJG 表格 ========= */
-        #table-ajg {
-            table-layout: fixed;
-        }
-        #table-ajg th:nth-child(1), #table-ajg td:nth-child(1) { width: 38%; }
-        #table-ajg th:nth-child(2), #table-ajg td:nth-child(2) { width: 42%; }
-        #table-ajg th:nth-child(3), #table-ajg td:nth-child(3) { width: 8%; text-align: center; }
-        #table-ajg th:nth-child(4), #table-ajg td:nth-child(4) { width: 12%; text-align: center; }
-
-        /* ========= FMS 表格 ========= */
-        #table-fms {
-            table-layout: fixed;
-        }
-        #table-fms th:nth-child(1), #table-fms td:nth-child(1) { width: 38%; }
-        #table-fms th:nth-child(2), #table-fms td:nth-child(2) { width: 42%; }
-        #table-fms th:nth-child(3), #table-fms td:nth-child(3) { width: 8%; text-align: center; }
-        #table-fms th:nth-child(4), #table-fms td:nth-child(4) { width: 12%; text-align: center; }
-
-        .table-hover tbody tr:hover { background-color: #f1f7ff !important; }
-
-        /* 自定义滚动条 */
-        .table-wrap::-webkit-scrollbar { width: 6px; height: 6px; }
-        .table-wrap::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 3px; }
-        .table-wrap::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
-        .table-wrap::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
-
-        /* 分类标签样式 */
-        .field-tag {
-            display: inline-block;
-            background: #e9ecef;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            margin: 1px;
-            white-space: nowrap;
-        }
-
-        /* 级别徽章 */
-        .rank-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 0.75rem;
-        }
-        .rank-A { background: #d1e7dd; color: #0a5a3e; }
-        .rank-B { background: #fff3cd; color: #856404; }
-        .rank-C { background: #f8d7da; color: #721c24; }
-    </style>
 </head>
+<h1 style="padding-left: 0.5em"><a href="index.html">Dr. Zhen Zhang's Homepage</a></h1><hr>
+
 <body>
-
-<div class="main-card">
-    <div class="top-bar">
-        <h2><i class="bi bi-search"></i> 期刊查询系统</h2>
-        <div class="search-box">
-            <div class="input-group input-group-sm">
-                <input type="text" id="globalSearchInput" class="form-control border-0 bg-transparent" placeholder="搜索期刊（支持多关键词，空格分隔）" onkeyup="if(event.keyCode===13) executeGlobalSearch()">
-                <button class="btn btn-primary rounded-2 px-4 ms-2" onclick="executeGlobalSearch()">全局检索</button>
-            </div>
+<table summary="Table for page layout." id="tlayout">
+<tr valign="top">
+  <td id="layout-menu"><div class="menu-item"><a href="index.html">Home</a></div>
+    <div class="menu-item"><a href="publications.html">Publications</a></div>
+    <div class="menu-item"><a href="service.html">Service</a></div>
+    <div class="menu-item"><a href="grants.html">Grants</a></div>
+        <div class="menu-item"><a href="award.html">Awards</a></div>
+    <div class="menu-item"><a href="groups.html">Group</a></div>
+ <div class="menu-item"><a href="news.html">News</a></div>
+<td width="2072" id="layout-content">
+  
+  <h1 style="margin-top: 0em">Grants</h1>
+  <hr>
+  <div>    </div>
+  <div>
+    <p>[22] <strong>PI</strong>, Research on Consensual Sorting Models and Methods for Multi-Criteria Group Decision Making by Considering Personalized Individual Semantics, granted by<strong> National Natural Science Foundation of China</strong> (72371049), CNY390K, 2024.1 - 2027.12.</p>
+    <p>[21] <strong>PI</strong>, Consensus-Oriented Models and Methods for Multi-Criteria Sorting Problems in Group Decision Making with Heterogeneous Information, granted by <strong>National Natural Science Foundation of China</strong> (71971039), CNY480K, 2020.1 - 2023.12.</p>
+    <p>[20] <strong>PI</strong>, Research on Two-sided Matching Decision Making Methods with Incomplete Information, granted by<strong> National Natural Science Foundation of China</strong> (71501023), CNY182.8K, 2016.1 - 2018.12. </p>
+    <p>[19] <strong>PI</strong>, Data-Driven Preference Learning Methods for Multi-Criteria Sorting with Non-Monotonic Preferences, granted by<strong> Natural Science Foundation of Liaoning Province</strong> (2024-MSBA-26), CNY80K, 2024.09 – 2026.08.</p>
+    <p>[18] <strong>PI</strong>, Approaches to Two-sided Matching Decision Making with Incomplete Preference Information, granted by <strong>China Postdoctoral Science Foundation</strong> (2015M570248), CNY80K, 2015.6 - 2017.6. </p>
+    <p>[17] <strong>PI</strong>, Consensus-Driven Models and Algorithms for Group Recommender Systems under Big Data environment, granted by <strong>Dalian Science and Technology Bureau</strong> (2018RQ69), CNY100K, 2019.1 - 2020.12</p>
+    <p>[16] <strong>PI</strong>, Consensus-Based Models for Linguistic Group Decision Making and Multi-Criteria Sorting, <strong>the Funds for Xinghai Outstanding Young Talents in DUT </strong>(X20190322), CNY400K, 2020.1 - 2023.12.</p>
+    <p>[15] <strong>PI</strong>, Data-Driven Multi-Criteria Sorting Methods Considering Non-Monotonic Preferences of Decision Makers, <strong>the Fundamental Research Funds for the Central Universities of China</strong> (DUT23RW406), CNY50K, 2023.01 - 2024.12.</p>
+    <p>[14] <strong>PI</strong>, Models and Methods for Linguistic Lare-Scale Group Decision Making based on Social Network Trust, <strong>the Fundamental Research Funds for the Central Universities of China</strong> (DUT17RC(4)11), CNY50K, 2017.7 - 2018.12.</p>
+    <p>[13] <strong>PI</strong>, Matching Decision Making Methods with Heterogeneous Criteria Sets for Matching Objects, <strong>the Fundamental Research Funds for the Central Universities of China</strong> (DUT15RC(3)003), CNY50K, 2015.1 - 2016.12.</p>
+    <p>[12]<strong> PI</strong>, Group Decision Making with Uncertain Information, a Foundation for <strong>the Doctoral Student Academic Star of Dalian University of Technology</strong>, CNY10K, 2012.11 - 2013.10.</p>
+    <p>[11] <strong>Co-PI</strong>, Research on Methods and Applications for Social Network Group Decision Making With Self-Confident Preferences Considering Personalized Individual Semantics,<strong> the Funds for Humanities and Social Sciences of Ministry of Education of China </strong>(23YJC630219), CNY80K, 2023.10 - 2026.7.</p>
+    <p>[10] Participant, Electronic Medical Record Mining-based ICU Clinical Prediction Models in Smart Healthcare Scenarios, <strong>the Applied Basic Research Program of Liaoning Natural Science Foundation, China </strong>(2023JH2/101300208), CNY300K, 2023.1 - 2024.12.</p>
+    <p>[09] Participant, Big-Data Driven Intelligent Decision Making Methods and Support Techniques for Smart City Construction in Dalian, a major program granted by <strong>Dalian Science and Technology Bureau</strong> (2018J11CY009), CNY3M, 2018.1 - 2020.12</p>
+    <p>[08] Participant, Clustering Models and Algorithms for Mining Electronic Medical Records, granted by <strong>National Natural Science Foundation of China</strong> (No. 71771034), CNY560K, 2018.1 -
+      2021.12. </p>
+    <p> [07] Participant, Evolutionary Clustering Models and Algorithms for Dynamic Data Mining, granted by <strong>National Natural Science Foundation of China</strong> (No. 71171030), CNY450K, 2012.1 -
+      2015.12.</p>
+    <p> [06] Participant, Data Mining and Knowledge Discovery Based on Optimization and
+      Multivariate Statistical Analysis: Methods and Applications, <strong>the Program for New
+        Century Excellent Talents in University</strong> (NECT-11-0050), CNY300K, 2012.1 - 2014.12.</p>
+    <p> [05] Participant, Clustering Models and Algorithms for Time Series Data Mining, granted by <strong>National Natural Science Foundation of China</strong> (No. 70871015), CNY230K, 2009.1 - 2011.12.</p>
+    <p>[04] Participant, Information and Logistics Management in Emerging E-commerce, <strong>the Funds for Creative Research Groups of China </strong>(No. 71421001), CNY8.4M, 2015.1 - 2020.12.</p>
+    <p> [03] Participant, Feature Representation and Similarity Measures for Time Series, <strong>the Fundamental Research Funds for the Central Universities of China</strong> (DUT11SX04),
+      CNY100K, 2011.1 - 2012.12.</p>
+    <p> [02] Participant, Theory and Methods of Product Life Cycle-Oriented Knowledge Coordination
+      Management, <strong>the Key program of National Natural Science Foundation of China</strong> (No. 71031002), CNY1.5M, 2011.1 - 2014.12.</p>
+    <p>[01] Participant, Enterprise Knowledge Management Methods and Enterprise Ontology, <strong>the National High Technology Research and Development Program</strong> (2008AA04Z107),
+      CNY710K, 2008.10 - 2010.12.</p>
+<div id="footer" class="row">
+      <div class="col c12">
+        <p>Last updated:
+          <span id="page_save_time"></span> </p>
+        <p>
+          &copy; 2014-2026 Zhen Zhang<br />
+          </p>
         </div>
-    </div>
+      </div>
+  </div>
 
-    <div id="globalResult"></div>
+</td>
+</tr>
+</table>
 
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#panel-ajg">AJG 2024</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-ccf">CCF 2026</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-fms">FMS 2025</button></li>
-    </ul>
+<script type="text/javascript">
+        (function() {
+            // 1. 获取文件最后修改时间
+            var lastMod = new Date(document.lastModified);
 
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="panel-ajg" role="tabpanel">
-            <div class="filter-bar row g-2 m-0">
-                <div class="col-4"><label class="small fw-bold text-muted">期刊搜索</label><input type="text" id="search-ajg" class="form-control" oninput="filterTable('ajg')" placeholder="输入期刊名称关键词..."></div>
-                <div class="col-4"><label class="small fw-bold text-muted">学科分类</label><select id="field-ajg" class="form-select" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
-                <div class="col-4"><label class="small fw-bold text-muted">级别</label><select id="rank-ajg" class="form-select" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
-            </div>
-            <div class="table-wrap"><table class="table table-hover table-striped" id="table-ajg"><thead></thead><tbody></tbody></table></div>
-        </div>
+            // 2. 格式化：2026-03-27 08:40:00
+            var pad = function(n) { return n.toString().padStart(2, '0'); };
 
-        <div class="tab-pane fade" id="panel-ccf" role="tabpanel">
-            <div class="filter-bar row g-2 m-0">
-                <div class="col-4"><label class="small fw-bold text-muted">简称/全称搜索</label><input type="text" id="search-ccf" class="form-control" oninput="filterTable('ccf')" placeholder="支持简称或全称关键词..."></div>
-                <div class="col-4"><label class="small fw-bold text-muted">领域分类</label><select id="field-ccf" class="form-select" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
-                <div class="col-4"><label class="small fw-bold text-muted">级别</label><select id="rank-ccf" class="form-select" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
-            </div>
-            <div class="table-wrap"><table class="table table-hover table-striped" id="table-ccf"><thead></thead><tbody></tbody></table></div>
-        </div>
+            var formattedDate = lastMod.getFullYear() + "-" +
+                                pad(lastMod.getUTCMonth() + 1) + "-" +
+                                pad(lastMod.getDate()) + " " +
+                                pad(lastMod.getHours()) + ":" +
+                                pad(lastMod.getMinutes()) + ":" +
+                                pad(lastMod.getSeconds());
 
-        <div class="tab-pane fade" id="panel-fms" role="tabpanel">
-            <div class="filter-bar row g-2 m-0">
-                <div class="col-4"><label class="small fw-bold text-muted">期刊名称搜索</label><input type="text" id="search-fms" class="form-control" oninput="filterTable('fms')" placeholder="输入期刊名称关键词..."></div>
-                <div class="col-4"><label class="small fw-bold text-muted">管理学科</label><select id="field-fms" class="form-select" onchange="filterTable('fms')"><option value="">全部</option></select></div>
-                <div class="col-4"><label class="small fw-bold text-muted">级别</label><select id="rank-fms" class="form-select" onchange="filterTable('fms')"><option value="">全部</option></select></div>
-            </div>
-            <div class="table-wrap"><table class="table table-hover table-striped" id="table-fms"><thead></thead><tbody></tbody></table></div>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-let dataAJG = [], dataCCF = [], dataFMS = [];
-
-async function loadAllData() {
-    try {
-        const [res1, res2, res3] = await Promise.all([
-            fetch('data/ajg.json'), fetch('data/ccf.json'), fetch('data/fms.json')
-        ]);
-        dataAJG = await res1.json();
-        dataCCF = await res2.json();
-        dataFMS = await res3.json();
-
-        renderTable('ajg', dataAJG, ['Journal Title', 'Field', 'AJG 2024', '影响因子']);
-        renderTable('ccf', dataCCF, ['简称', '全称', '分类', '级别', '影响因子']);
-        renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS等级2025', '影响因子']);
-
-        populateFilters();
-    } catch (err) { console.error("数据加载失败", err); }
-}
-
-function fuzzyMatch(item, keys, query) {
-    if (!query) return true;
-    const searchStr = keys.map(k => String(item[k] || '')).join(' ').toLowerCase();
-    const keywords = query.toLowerCase().split(/\s+/);
-    return keywords.every(kw => searchStr.includes(kw));
-}
-
-function executeGlobalSearch() {
-    const query = document.getElementById('globalSearchInput').value.trim();
-    const resultDiv = document.getElementById('globalResult');
-    if (!query) { resultDiv.style.display = "none"; return; }
-
-    const resAJG = dataAJG.filter(i => fuzzyMatch(i, ['Journal Title'], query));
-    const resCCF = dataCCF.filter(i => fuzzyMatch(i, ['全称', '简称'], query));
-    const resFMS = dataFMS.filter(i => fuzzyMatch(i, ['期刊名称'], query));
-
-    const total = resAJG.length + resCCF.length + resFMS.length;
-    resultDiv.style.display = "block";
-
-    let html = `
-    <div class="bg-light p-2 d-flex justify-content-between border-bottom sticky-top">
-        <span class="ms-2">检索到 <b>${total}</b> 条结果</span>
-        <button class="btn-close btn-sm me-2" onclick="document.getElementById('globalResult').style.display='none'"></button>
-    </div>
-    <table class="table table-sm table-hover align-middle mb-0 global-table">
-        <thead>
-            <tr>
-                <th class="col-db">库</th>
-                <th class="col-name">期刊全称</th>
-                <th class="col-field">分类/学科</th>
-                <th class="col-rank">级别</th>
-                <th class="col-if">IF</th>
-            </tr>
-        </thead>
-        <tbody>`;
-
-    const pushRows = (list, db) => {
-        list.forEach(i => {
-            const badge = db === 'AJG' ? 'bg-dark' : (db === 'CCF' ? 'bg-success' : 'bg-warning text-dark');
-            const name = db === 'CCF' ? i['全称'] : (i['Journal Title'] || i['期刊名称']);
-            const field = i['Field'] || i['分类'] || i['学科'] || '-';
-            const rank = i['AJG 2024'] || i['级别'] || i['FMS等级2025'] || i['FMS等级 2025'] || '-';
-            html += `十大
-                <td><span class="badge ${badge}">${db}</span></td>
-                <td title="${name}"><strong>${name}</strong></td>
-                <td class="field-cell" title="${field}">${field}</td>
-                <td class="text-center"><b class="text-primary">${rank}</b></td>
-                <td class="text-center">${i['影响因子'] || '-'}</td>
-            </tr>`;
-        });
-    };
-    pushRows(resAJG, 'AJG'); pushRows(resCCF, 'CCF'); pushRows(resFMS, 'FMS');
-    html += `</tbody></table>`;
-    resultDiv.innerHTML = html;
-}
-
-function filterTable(type) {
-    const searchVal = document.getElementById(`search-${type}`).value.trim();
-    const fieldVal = document.getElementById(`field-${type}`).value;
-    const rankVal = document.getElementById(`rank-${type}`).value;
-
-    let source, keys, fKey, rKey, cols;
-    if (type === 'ajg') {
-        source = dataAJG; keys = ['Journal Title']; fKey = 'Field'; rKey = 'AJG 2024';
-        cols = ['Journal Title', 'Field', 'AJG 2024', '影响因子'];
-    } else if (type === 'ccf') {
-        source = dataCCF; keys = ['全称', '简称']; fKey = '分类'; rKey = '级别';
-        cols = ['简称', '全称', '分类', '级别', '影响因子'];
-    } else {
-        source = dataFMS; keys = ['期刊名称']; fKey = '学科'; rKey = 'FMS等级2025';
-        cols = ['期刊名称', '学科', 'FMS等级2025', '影响因子'];
-    }
-
-    const filtered = source.filter(i => {
-        const mName = fuzzyMatch(i, keys, searchVal);
-        const mField = (fieldVal === "" || i[fKey] === fieldVal);
-        const curRank = i[rKey] || i['FMS等级 2025'] || "";
-        const mRank = (rankVal === "" || curRank === rankVal);
-        return mName && mField && mRank;
-    });
-    renderTable(type, filtered, cols);
-}
-
-function renderTable(type, data, cols) {
-    const thead = document.querySelector(`#table-${type} thead`);
-    const tbody = document.querySelector(`#table-${type} tbody`);
-    thead.innerHTML = `</tr>${cols.map(c => `<th>${c}</th>`).join('')}</tr>`;
-
-    if (data.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="${cols.length}" class="text-center text-muted py-5">无记录</td></tr>`;
-    } else {
-        tbody.innerHTML = data.map(row => {
-            return `<tr>${cols.map(c => {
-                let value = row[c] !== undefined && row[c] !== null && row[c] !== '' ? row[c] : '-';
-                // 为长文本添加 title 提示
-                return `<td title="${String(value).replace(/"/g, '&quot;')}">${value}</td>`;
-            }).join('')}</tr>`;
-        }).join('');
-    }
-}
-
-function populateFilters() {
-    const cfgs = [
-        { id: 'ajg', data: dataAJG, f: 'Field', r: 'AJG 2024' },
-        { id: 'ccf', data: dataCCF, f: '分类', r: '级别' },
-        { id: 'fms', data: dataFMS, f: '学科', r: 'FMS等级2025' }
-    ];
-    cfgs.forEach(c => {
-        const fS = document.getElementById(`field-${c.id}`), rS = document.getElementById(`rank-${c.id}`);
-        while (fS.options.length > 1) fS.remove(1);
-        while (rS.options.length > 1) rS.remove(1);
-
-        [...new Set(c.data.map(i => i[c.f]))].filter(Boolean).sort().forEach(v => fS.add(new Option(v, v)));
-        [...new Set(c.data.map(i => i[c.r] || i['FMS等级2025']))].filter(Boolean).sort().forEach(v => rS.add(new Option(v, v)));
-    });
-}
-
-window.onload = loadAllData;
-</script>
+            // 3. 写入到 ID 为 page_save_time 的标签中
+            var element = document.getElementById('page_save_time');
+            if (element) {
+                element.innerHTML = formattedDate;
+            }
+        })();
+    </script>
 </body>
 </html>
+
