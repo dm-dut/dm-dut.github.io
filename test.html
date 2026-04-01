@@ -6,52 +6,93 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        body { background-color: #f1f3f5; font-family: "Segoe UI", system-ui, sans-serif; margin: 0; padding: 10px; overflow: hidden; }
+    /* 基础字号提升 */
+    :root {
+        --primary-color: #0d6efd;
+        --bg-body: #f1f3f5;
+        --base-font-size: 1rem; /* 从原来的 0.85rem 提升到标准 1rem (约16px) */
+    }
 
-        /* 主白底容器 */
-        .main-card {
-            background: #fff;
-            height: calc(100vh - 20px);
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-        }
+    body {
+        background-color: #f1f3f5;
+        font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        margin: 0;
+        padding: 10px;
+        overflow: hidden;
+        font-size: var(--base-font-size);
+    }
 
-        /* 顶部标题与全局搜索 */
-        .top-bar { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; flex-shrink: 0; }
-        h2 { font-size: 1.2rem; font-weight: bold; margin: 0; color: #0d6efd; white-space: nowrap; }
-        .search-box { flex-grow: 1; background: #f8fbff; border: 1px solid #dee2e6; border-left: 4px solid #0d6efd; border-radius: 4px; padding: 5px 10px; }
+    .main-card {
+        background: #fff;
+        height: calc(100vh - 20px);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+    }
 
-        /* 标签页样式 */
-        .nav-tabs .nav-link { font-size: 0.9rem; padding: 6px 15px; color: #666; border: none; font-weight: 600; }
-        .nav-tabs .nav-link.active { color: #0d6efd; border-bottom: 3px solid #0d6efd; background: none; }
+    /* 标题与搜索框 */
+    h2 { font-size: 1.4rem; font-weight: bold; margin: 0; color: #0d6efd; }
+    .search-box .form-control { font-size: 1rem; height: 38px; }
+    .search-box .btn { font-size: 1rem; }
 
-        /* 过滤行 */
-        .filter-bar { background: #f8f9fa; padding: 8px; border-radius: 4px; margin-bottom: 10px; border: 1px solid #eee; flex-shrink: 0; }
-        .filter-bar label { font-size: 0.75rem; font-weight: bold; color: #888; margin-bottom: 2px; display: block; }
-        .filter-bar select, .filter-bar input { font-size: 0.85rem; height: 30px; padding: 2px 8px; }
+    /* 标签页字号 */
+    .nav-tabs .nav-link {
+        font-size: 1.05rem; /* 标签文字调大 */
+        padding: 8px 20px;
+        color: #555;
+    }
 
-        /* 表格容器：这是滚动的关键 */
-        .table-wrap {
-            flex-grow: 1;
-            overflow-y: auto;
-            border: 1px solid #eee;
-            position: relative;
-        }
+    /* 过滤工具栏 */
+    .filter-bar label {
+        font-size: 0.9rem; /* 标签名调大 */
+        margin-bottom: 5px;
+    }
+    .filter-bar select, .filter-bar input {
+        font-size: 1rem;
+        height: 36px; /* 控件随高度增加 */
+    }
 
-        .table { font-size: 0.85rem; width: 100%; margin: 0; table-layout: fixed; }
-        .table thead th { position: sticky; top: 0; background: #f8f9fa; z-index: 5; border-bottom: 2px solid #dee2e6; padding: 8px; }
-        .table tbody td { padding: 6px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid #f2f2f2; }
+    /* 表格内容核心优化 */
+    .table-wrap {
+        flex-grow: 1;
+        overflow-y: auto;
+        border: 1px solid #eee;
+    }
 
-        /* 列宽微调 */
-        .col-title { width: 40%; }
-        .col-mid { width: 25%; }
-        .col-short { width: 15%; text-align: center; }
+    .table {
+        font-size: 1rem; /* 表格文字调大 */
+        width: 100%;
+        margin: 0;
+        table-layout: fixed;
+    }
 
-        #globalResult { flex-shrink: 0; }
-    </style>
+    .table thead th {
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 12px 10px; /* 增加表头间距 */
+        background: #f8f9fa;
+    }
+
+    .table tbody td {
+        padding: 10px 10px; /* 增加行间距，提升阅读舒适度 */
+        line-height: 1.5;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* 综合查询结果字号 */
+    #globalResult table { font-size: 1rem; }
+    #globalResult .badge { font-size: 0.9rem; padding: 5px 10px; }
+
+    /* 斑马纹增强对比度 */
+    .table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+</style>
 </head>
 <body>
 
