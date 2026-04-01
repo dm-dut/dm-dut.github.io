@@ -106,7 +106,7 @@ async function loadAllData() {
 function renderAllTables() {
     renderTable('ajg', dataAJG, ['Journal Title', 'Field', 'AJG 2024', '影响因子']);
     renderTable('ccf', dataCCF, ['简称', '全称', '分类', '级别', '影响因子']);
-    renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS等级 2025', 'FMS等级 2022', 'FMS等级 2020', '影响因子']);
+    renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS等级2025', 'FMS等级2022', 'FMS等级2020', '影响因子']);
 }
 
 function renderTable(type, data, cols) {
@@ -144,8 +144,8 @@ function filterTable(type) {
         sourceData = dataCCF; nameKey = '全称'; fieldKey = '分类'; rankKey = '级别';
         cols = ['简称', '全称', '分类', '级别', '影响因子'];
     } else {
-        sourceData = dataFMS; nameKey = '期刊名称'; fieldKey = '学科'; rankKey = 'FMS等级 2025';
-        cols = ['期刊名称', '学科', 'FMS等级 2025', '影响因子'];
+        sourceData = dataFMS; nameKey = '期刊名称'; fieldKey = '学科'; rankKey = 'FMS等级2025';
+        cols = ['期刊名称', '学科', 'FMS等级2025', '影响因子'];
     }
 
     const filtered = sourceData.filter(item => {
@@ -203,7 +203,7 @@ function populateFilters() {
     const configs = [
         { id: 'ajg', data: dataAJG, field: 'Field', rank: 'AJG 2024' },
         { id: 'ccf', data: dataCCF, field: '分类', rank: '级别' },
-        { id: 'fms', data: dataFMS, field: '学科', rank: 'FMS等级 2025' }
+        { id: 'fms', data: dataFMS, field: '学科', rank: 'FMS等级2025' }
     ];
 
     configs.forEach(conf => {
