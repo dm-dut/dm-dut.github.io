@@ -7,129 +7,142 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        :root {
-            --primary-color: #0d6efd;
-            --bg-body: #f0f2f5;
-        }
+:root {
+    --primary-color: #0d6efd;
+    --bg-body: #eef1f4;
+}
 
-        body { background-color: var(--bg-body); font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; }
+body { background-color: var(--bg-body); font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; overflow: hidden; }
 
-        /* 容器美化 */
-        .container {
-            background: #fff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-top: 40px;
-            margin-bottom: 60px;
-        }
+/* 全屏布局优化 */
+.container {
+    max-width: 98% !important;
+    height: 100vh;
+    background: #fff;
+    padding: 15px 25px; /* 大幅缩小上下内边距 */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
 
-        /* 标题样式 */
-        h2 { font-weight: 700; letter-spacing: 1px; margin-bottom: 30px; }
+/* 头部紧凑化 */
+.header-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 20px;
+}
+h2 { font-weight: 700; font-size: 1.4rem; margin: 0; white-space: nowrap; color: var(--primary-color); }
 
-        /* 搜索卡片增强 */
-        .global-search-card {
-            border: none;
-            border-left: 6px solid var(--primary-color);
-            background-color: #f8fbff;
-            transition: transform 0.2s;
-        }
-        .global-search-card:hover { transform: translateY(-2px); }
+/* 综合查询框压缩 */
+.global-search-card {
+    flex-grow: 1;
+    border: 1px solid #dee2e6;
+    border-left: 5px solid var(--primary-color);
+    background-color: #f8fbff;
+    margin-bottom: 0 !important;
+}
+.global-search-card .card-body { padding: 8px 15px; }
+.input-group-lg > .form-control { font-size: 1rem; padding: 0.5rem 1rem; }
 
-        /* 过滤区域 */
-        .filter-section {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #edf2f7;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
+/* 过滤行紧凑化 */
+.filter-section {
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+.form-label { margin-bottom: 2px; font-size: 0.8rem; font-weight: bold; color: #666; }
+.form-select, .form-control { font-size: 0.85rem; padding: 4px 8px; }
 
-        /* 选项卡美化 */
-        .nav-tabs { border-bottom: 2px solid #edf2f7; }
-        .nav-tabs .nav-link {
-            border: none;
-            padding: 12px 25px;
-            font-size: 1.05rem;
-            transition: all 0.3s;
-        }
-        .nav-tabs .nav-link:hover { background-color: #f8f9fa; }
-        .nav-tabs .nav-link.active {
-            color: var(--primary-color);
-            background: none;
-            border-bottom: 3px solid var(--primary-color);
-        }
+/* 表格容器自适应高度 */
+.table-container {
+    flex-grow: 1; /* 自动撑满剩余空间 */
+    overflow-y: auto;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+}
 
-        /* 表格列宽与样式控制 */
-        .table-container {
-            max-height: 600px;
-            overflow-y: auto;
-            border-radius: 8px;
-            border: 1px solid #edf2f7;
-        }
+/* 表格内文字极致压缩 */
+.table { table-layout: fixed; width: 100%; margin: 0; }
+.table thead th {
+    background-color: #f1f3f5;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid #dee2e6;
+}
+.table tbody td {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid #f2f2f2;
+}
 
-        .table { margin-bottom: 0; vertical-align: middle; }
-        .table thead th {
-            background-color: #f8f9fa;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            padding: 12px 10px;
-            border-bottom: 2px solid #dee2e6;
-            white-space: nowrap;
-        }
+/* 列宽分配保持不变 */
+#table-ajg th:nth-child(1) { width: 45%; }
+#table-ccf th:nth-child(2) { width: 40%; }
+#table-fms th:nth-child(1) { width: 35%; }
+.text-center-cell { text-align: center; }
 
-        /* 固定列宽逻辑 */
-        /* AJG 表格列宽 */
-        #table-ajg th:nth-child(1) { width: 45%; } /* Journal Title */
-        #table-ajg th:nth-child(2) { width: 25%; } /* Field */
-        #table-ajg th:nth-child(3) { width: 15%; } /* AJG 2024 */
-        #table-ajg th:nth-child(4) { width: 15%; } /* 影响因子 */
-
-        /* CCF 表格列宽 */
-        #table-ccf th:nth-child(1) { width: 15%; } /* 简称 */
-        #table-ccf th:nth-child(2) { width: 35%; } /* 全称 */
-        #table-ccf th:nth-child(3) { width: 20%; } /* 分类 */
-        #table-ccf th:nth-child(4) { width: 15%; } /* 级别 */
-        #table-ccf th:nth-child(5) { width: 15%; } /* 影响因子 */
-
-        /* FMS 表格列宽 */
-        #table-fms th:nth-child(1) { width: 35%; } /* 期刊名称 */
-        #table-fms th:nth-child(2) { width: 20%; } /* 学科 */
-        #table-fms th:nth-child(3),
-        #table-fms th:nth-child(4),
-        #table-fms th:nth-child(5) { width: 10%; text-align: center; } /* 等级列们 */
-        #table-fms th:nth-child(6) { width: 15%; } /* 影响因子 */
-
-        .table tbody td { padding: 12px 10px; font-size: 0.95rem; }
-
-        /* 滚动条美化 */
-        .table-container::-webkit-scrollbar { width: 6px; }
-        .table-container::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 10px; }
-        .table-container::-webkit-scrollbar-track { background: #f7fafc; }
-
-        .badge-system { padding: 5px 10px; border-radius: 6px; font-weight: 600; text-transform: uppercase; }
+/* 滚动条美化 */
+.table-container::-webkit-scrollbar { width: 6px; }
+.table-container::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2 class="text-center text-primary"><i class="bi bi-journal-bookmark-fill"></i> 期刊目录综合查询系统</h2>
-    <p class="text-center text-muted mb-5">Decision Sciences & Operations Research 专家工具</p>
+    <div class="header-section">
+        <h2><i class="bi bi-database-fill-check"></i> 期刊查询系统</h2>
 
-    <div class="card mb-5 global-search-card shadow-sm">
-        <div class="card-body p-4">
-            <h5 class="card-title mb-3"><i class="bi bi-lightning-charge"></i> 跨库综合匹配</h5>
-            <div class="input-group">
-                <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
-                <input type="text" id="globalSearchInput" class="form-control form-control-lg border-start-0" placeholder="搜索期刊全称或简称（例如：Omega 或 Management Science）" onkeyup="if(event.keyCode===13) executeGlobalSearch()">
-                <button class="btn btn-primary btn-lg px-5" onclick="executeGlobalSearch()">查询</button>
+        <div class="card global-search-card shadow-sm">
+            <div class="card-body">
+                <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                    <input type="text" id="globalSearchInput" class="form-control border-start-0" placeholder="跨库查简称/全称..." onkeyup="if(event.keyCode===13) executeGlobalSearch()">
+                    <button class="btn btn-primary btn-sm px-4" onclick="executeGlobalSearch()">匹配</button>
+                </div>
             </div>
-            <div id="globalResult" class="mt-4"></div>
         </div>
     </div>
+
+    <div id="globalResult" class="mb-2"></div>
+
+    <ul class="nav nav-tabs mb-2" id="journalTabs" role="tablist">
+        <li class="nav-item"><button class="nav-link active py-1" data-bs-toggle="tab" data-bs-target="#tab-ajg">AJG 2024</button></li>
+        <li class="nav-item"><button class="nav-link py-1" data-bs-toggle="tab" data-bs-target="#tab-ccf">CCF</button></li>
+        <li class="nav-item"><button class="nav-link py-1" data-bs-toggle="tab" data-bs-target="#tab-fms">FMS 2025</button></li>
+    </ul>
+
+    <div class="tab-content d-flex flex-column flex-grow-1" style="min-height: 0;">
+        <div class="tab-pane fade show active h-100" id="tab-ajg">
+            <div class="row g-2 filter-section">
+                <div class="col-md-4">
+                    <label class="form-label">期刊名搜索</label>
+                    <input type="text" class="form-control" id="search-ajg" oninput="filterTable('ajg')">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">学科分类</label>
+                    <select class="form-select" id="field-ajg" onchange="filterTable('ajg')"><option value="">全部</option></select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">AJG级别</label>
+                    <select class="form-select" id="rank-ajg" onchange="filterTable('ajg')"><option value="">全部</option></select>
+                </div>
+            </div>
+            <div class="table-container"><table class="table table-hover table-striped" id="table-ajg"><thead></thead><tbody></tbody></table></div>
+        </div>
+
+        </div>
+</div>
 
     <ul class="nav nav-tabs mb-4" id="journalTabs" role="tablist">
         <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-ajg"><i class="bi bi-table"></i> AJG 2024</button></li>
