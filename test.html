@@ -187,7 +187,7 @@ async function loadAllData() {
 function renderAllTables() {
     renderTable('ajg', dataAJG, ['Journal Title', 'Field', 'AJG 2024', 'AJG 2021', 'AJG 2018', '影响因子']);
     renderTable('ccf', dataCCF, ['简称', '全称', '分类', '级别', '影响因子']);
-    renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS2025', 'FMS2022', 'FMS2020', '影响因子']);
+    renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS等级2025', 'FMS等级2022', 'FMS等级2020', '影响因子']);
 }
 
 function renderTable(type, data, cols) {
@@ -220,10 +220,10 @@ function filterTable(type) {
 
     if (type === 'ajg') {
         sourceData = dataAJG; nameKey = 'Journal Title'; fieldKey = 'Field'; rankKey = 'AJG 2024';
-        cols = ['期刊名称', '学科领域', 'AJG 2024', '影响因子'];
+        cols = ['Journal Title', 'Field', 'AJG 2024', '影响因子'];
     } else if (type === 'ccf') {
         sourceData = dataCCF; nameKey = '全称'; fieldKey = '分类'; rankKey = '级别';
-        cols = ['期刊简称', '期刊名称', '分类', '级别', '影响因子'];
+        cols = ['简称', '全称', '分类', '级别', '影响因子'];
     } else {
         sourceData = dataFMS; nameKey = '期刊名称'; fieldKey = '学科'; rankKey = 'FMS等级2025';
         cols = ['期刊名称', '学科', 'FMS等级2025', '影响因子'];
