@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Journal Directory</title>
+
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
   <style>
     * {
       margin: 0;
@@ -13,226 +15,31 @@
       font-family: "Segoe UI", Arial, sans-serif;
     }
 
-body {
-  background: linear-gradient(135deg, #eef4ff 0%, #f8fbff 45%, #f4f7fc 100%);
-  color: #1e293b;
-  padding: 20px;
-}
+    body {
+      background: #edf1f5;
+      color: #1f2937;
+      padding: 20px;
+    }
 
-.container {
-  max-width: 1320px;
-  margin: 0 auto;
-}
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
 
-.header {
-  margin-bottom: 18px;
-}
+    .header {
+      margin-bottom: 18px;
+    }
 
-.header h1 {
-  font-size: 30px;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 6px;
-  letter-spacing: -0.5px;
-}
-
-.header p {
-  color: #64748b;
-  font-size: 14px;
-}
-
-.toolbar {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 18px;
-}
-
-.search-box {
-  flex: 0 0 340px;
-  width: 340px;
-  background: rgba(255,255,255,0.92);
-  border: 1px solid #d6deeb;
-  border-radius: 14px;
-  padding: 11px 16px;
-  font-size: 14px;
-  outline: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-}
-
-.filter-box {
-  flex: 0 0 220px;
-  width: 220px;
-  background: rgba(255,255,255,0.92);
-  border: 1px solid #d6deeb;
-  border-radius: 14px;
-  padding: 11px 14px;
-  font-size: 14px;
-  outline: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-}
-
-.search-box:focus,
-.filter-box:focus {
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
-  background: #ffffff;
-}
-
-.stats {
-  margin-bottom: 12px;
-  font-size: 13px;
-  color: #64748b;
-  padding-left: 4px;
-}
-
-.table-card {
-  background: rgba(255,255,255,0.9);
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(226,232,240,0.8);
-  box-shadow:
-    0 10px 30px rgba(15, 23, 42, 0.06),
-    0 2px 8px rgba(15, 23, 42, 0.04);
-  backdrop-filter: blur(8px);
-}
-
-.table-wrapper {
-  max-height: 78vh;
-  overflow-y: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-thead {
-  background: linear-gradient(90deg, #4f46e5 0%, #6366f1 100%);
-}
-
-thead th {
-  text-align: left;
-  padding: 15px 18px;
-  font-size: 13px;
-  color: #ffffff;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-tbody td {
-  padding: 14px 18px;
-  border-bottom: 1px solid #eef2f7;
-  font-size: 14px;
-  vertical-align: middle;
-}
-
-tbody tr {
-  transition: all 0.2s ease;
-}
-
-tbody tr:nth-child(even) {
-  background: rgba(248, 250, 252, 0.65);
-}
-
-tbody tr:hover {
-  background: rgba(79, 70, 229, 0.06);
-  transform: scale(1.002);
-}
-
-.journal-name {
-  font-weight: 700;
-  color: #0f172a;
-  line-height: 1.4;
-}
-
-.category-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 100%);
-  color: #3730a3;
-  font-size: 12px;
-  font-weight: 700;
-  border: 1px solid rgba(99, 102, 241, 0.12);
-}
-
-.visit-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 14px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
-  color: white;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 700;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
-}
-
-.visit-link:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.28);
-  background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
-}
-
-.empty-message {
-  text-align: center;
-  padding: 36px;
-  color: #94a3b8;
-  font-size: 14px;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #c7d2fe;
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #a5b4fc;
-}
-
-@media (max-width: 900px) {
-  .toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-box,
-  .filter-box {
-    width: 100%;
-    flex: 1 1 auto;
-  }
-
-  thead th,
-  tbody td {
-    padding: 12px 14px;
-    font-size: 13px;
-  }
-
-  .header h1 {
-    font-size: 24px;
-  }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 5px;
+      letter-spacing: -0.4px;
+    }
 
     .header p {
-      color: #64748b;
+      color: #6b7280;
       font-size: 14px;
     }
 
@@ -240,111 +47,53 @@ tbody tr:hover {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .search-box,
-    .filter-box {
-      background: white;
-      border: 1px solid #dbe2ea;
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 14px;
-      outline: none;
-      transition: 0.2s;
+      align-items: center;
+      margin-bottom: 16px;
     }
 
     .search-box {
-      flex: 1;
-      min-width: 260px;
+      width: 300px;
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 11px 14px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+      color: #111827;
     }
 
     .filter-box {
-      min-width: 220px;
+      width: 200px;
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 11px 14px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+      color: #111827;
     }
 
     .search-box:focus,
     .filter-box:focus {
-      border-color: #4f46e5;
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-    }
-
-    .table-card {
-      background: white;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
-      border: 1px solid #e5e7eb;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    thead {
-      background: #eef2ff;
-    }
-
-    thead th {
-      text-align: left;
-      padding: 14px 16px;
-      font-size: 13px;
-      color: #334155;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      border-bottom: 1px solid #dbe2ea;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-
-    tbody td {
-      padding: 12px 16px;
-      border-bottom: 1px solid #eef2f7;
-      font-size: 14px;
-      vertical-align: middle;
-    }
-
-    tbody tr:hover {
-      background: #f8fafc;
-    }
-
-    .journal-name {
-      font-weight: 600;
-      color: #1e293b;
-    }
-
-    .category-tag {
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: #e0f2fe;
-      color: #0369a1;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .visit-link {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 8px;
-      background: #4f46e5;
-      color: white;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      transition: 0.2s;
-    }
-
-    .visit-link:hover {
-      background: #4338ca;
+      border-color: #4b5563;
+      box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.12);
     }
 
     .stats {
       margin-bottom: 12px;
       font-size: 13px;
-      color: #64748b;
+      color: #6b7280;
+      padding-left: 2px;
+    }
+
+    .table-card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #dbe1e8;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
     }
 
     .table-wrapper {
@@ -352,11 +101,122 @@ tbody tr:hover {
       overflow-y: auto;
     }
 
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    thead {
+      background: #2f3a4c;
+    }
+
+    thead th {
+      text-align: left;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #f8fafc;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    thead th:nth-child(1) {
+      width: 42%;
+    }
+
+    thead th:nth-child(2) {
+      width: 38%;
+    }
+
+    thead th:nth-child(3) {
+      width: 20%;
+      text-align: center;
+    }
+
+    tbody td {
+      padding: 13px 16px;
+      border-bottom: 1px solid #edf2f7;
+      font-size: 14px;
+      vertical-align: middle;
+      color: #374151;
+      word-wrap: break-word;
+    }
+
+    tbody tr {
+      transition: background 0.18s ease;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    tbody tr:hover {
+      background: #eef2f7;
+    }
+
+    .journal-name {
+      font-weight: 600;
+      color: #111827;
+      line-height: 1.4;
+    }
+
+    .category-tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      color: #374151;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid #d1d5db;
+    }
+
+    .website-cell {
+      text-align: center;
+    }
+
+    .visit-link {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 9px;
+      background: #374151;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .visit-link:hover {
+      background: #1f2937;
+      transform: translateY(-1px);
+    }
+
     .empty-message {
       text-align: center;
-      padding: 30px;
-      color: #94a3b8;
+      padding: 36px;
+      color: #9ca3af;
       font-size: 14px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f3f4f6;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
     }
 
     @media (max-width: 900px) {
@@ -364,28 +224,34 @@ tbody tr:hover {
         padding: 14px;
       }
 
-      .header h1 {
-        font-size: 24px;
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-box,
+      .filter-box {
+        width: 100%;
       }
 
       thead th,
       tbody td {
-        padding: 10px 12px;
+        padding: 12px;
         font-size: 13px;
       }
 
-      .visit-link {
-        padding: 6px 10px;
-        font-size: 12px;
+      .header h1 {
+        font-size: 24px;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="header">
       <h1>Journal Directory</h1>
-      <p>Browse journals by publisher or category. Data is loaded automatically from the CSV file.</p>
+      <p>Browse journals, publishers, and websites from the CSV dataset.</p>
     </div>
 
     <div class="toolbar">
@@ -410,14 +276,14 @@ tbody tr:hover {
         <table>
           <thead>
             <tr>
-              <th style="width: 42%">Journal Name</th>
-              <th style="width: 28%">Publisher / Category</th>
-              <th style="width: 15%">Website</th>
+              <th>Journal Name</th>
+              <th>Publisher / Category</th>
+              <th>Website</th>
             </tr>
           </thead>
-          <tbody id="journalTableBody">
-          </tbody>
+          <tbody id="journalTableBody"></tbody>
         </table>
+
         <div class="empty-message" id="emptyMessage" style="display:none;">
           No matching journals found.
         </div>
@@ -427,7 +293,6 @@ tbody tr:hover {
 
   <script>
     const csvFilePath = "journals_directory.csv";
-
     let allData = [];
 
     function renderTable(data) {
@@ -439,7 +304,7 @@ tbody tr:hover {
 
       if (data.length === 0) {
         emptyMessage.style.display = "block";
-        statsText.textContent = "0 journals found";
+        statsText.textContent = "0 journals displayed";
         return;
       }
 
@@ -448,15 +313,17 @@ tbody tr:hover {
       data.forEach(item => {
         const row = document.createElement("tr");
 
+        const journalName = item["Journal Name"] || "";
+        const category = item["Publisher/Category"] || "Unknown";
+        const link = item["Link"] || "#";
+
         row.innerHTML = `
-          <td class="journal-name">${item["Journal Name"] || ""}</td>
+          <td class="journal-name">${journalName}</td>
           <td>
-            <span class="category-tag">
-              ${item["Publisher/Category"] || "Unknown"}
-            </span>
+            <span class="category-tag">${category}</span>
           </td>
-          <td>
-            <a class="visit-link" href="${item["Link"]}" target="_blank">
+          <td class="website-cell">
+            <a class="visit-link" href="${link}" target="_blank">
               Visit
             </a>
           </td>
@@ -514,6 +381,8 @@ tbody tr:hover {
       header: true,
       skipEmptyLines: true,
       complete: function(results) {
+        console.log(results.data);
+
         allData = results.data;
         populateCategoryFilter(allData);
         renderTable(allData);
