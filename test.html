@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期刊目录查询系统</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background-color: #f5f7fb;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+            color: #1e3a8a;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 8px;
+            background: #dbeafe;
+            color: #1e40af;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .tab-btn:hover {
+            background: #bfdbfe;
+        }
+
+        .tab-btn.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .filter-card,
+        .search-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: end;
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 220px;
+        }
+
+        .filter-group label {
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        input,
+        select {
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-btn,
+        .reset-btn {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .search-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .search-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-btn {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+        .reset-btn:hover {
+            background: #d1d5db;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .search-row input {
+            flex: 1;
+        }
+
+        .search-note {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .table-card {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: #eff6ff;
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 10px 12px;
+            text-align: left;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        tr:hover {
+            background: #eef4ff;
+        }
+
+        .empty-message {
+            padding: 30px;
+            text-align: center;
+            color: #888;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>期刊目录查询系统</h1>
+        <p>支持 AJG、CCF、FMS 三类期刊目录查询与综合检索</p>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('ajg', this)">AJG</button>
+        <button class="tab-btn" onclick="switchTab('ccf', this)">CCF</button>
+        <button class="tab-btn" onclick="switchTab('fms', this)">FMS</button>
+        <button class="tab-btn" onclick="switchTab('search', this)">综合查询</button>
+    </div>
+
+    <div id="table-panel" class="panel">
+
+        <div class="filter-card">
+
+            <div class="filter-group">
+                <label>期刊名称</label>
+                <input type="text" id="keyword" placeholder="请输入期刊名称关键词">
+            </div>
+
+            <div class="filter-group">
+                <label>分类</label>
+                <select id="category">
+                    <option value="">全部分类</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>等级</label>
+                <select id="level">
+                    <option value="">全部等级</option>
+                </select>
+            </div>
+
+            <div class="filter-actions">
+                <button class="search-btn" onclick="loadTable()">查询</button>
+                <button class="reset-btn" onclick="resetFilters()">重置</button>
+            </div>
+
+        </div>
+
+        <div id="table-container" class="table-card">
+            <div class="empty-message">请点击查询按钮加载数据</div>
+        </div>
+
+    </div>
+
+    <div id="search-panel" class="panel" style="display: none;">
+
+        <div class="search-card">
+            <div class="search-row">
+                <input type="text" id="search-journal" placeholder="请输入完整或部分期刊名称">
+                <button class="search-btn" onclick="searchJournal()">综合查询</button>
+            </div>
+
+            <div class="search-note">
+                查询结果将汇总 AJG、CCF、FMS 三个目录中的分类、等级与影响因子信息。
+            </div>
+        </div>
+
+        <div id="search-result" class="table-card">
+            <div class="empty-message">请输入期刊名称进行综合查询</div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    let currentTab = 'ajg';
+
+    function switchTab(tab, button) {
+        currentTab = tab;
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        button.classList.add('active');
+
+        if (tab === 'search') {
+            document.getElementById('table-panel').style.display = 'none';
+            document.getElementById('search-panel').style.display = 'block';
+        } else {
+            document.getElementById('table-panel').style.display = 'block';
+            document.getElementById('search-panel').style.display = 'none';
+            loadTable();
+        }
+    }
+
+    async function loadTable() {
+        const keyword = document.getElementById('keyword').value;
+        const category = document.getElementById('category').value;
+        const level = document.getElementById('level').value;
+
+        const response = await fetch(`/api/table/${currentTab}?keyword=${encodeURIComponent(keyword)}&category=${encodeURIComponent(category)}&level=${encodeURIComponent(level)}`);
+        const data = await response.json();
+
+        const categorySelect = document.getElementById('category');
+        const levelSelect = document.getElementById('level');
+
+        const currentCategory = categorySelect.value;
+        const currentLevel = levelSelect.value;
+
+        categorySelect.innerHTML = '<option value="">全部分类</option>';
+        data.categories.forEach(item => {
+            categorySelect.innerHTML += `<option value="${item}">${item}</option>`;
+        });
+        categorySelect.value = currentCategory;
+
+        levelSelect.innerHTML = '<option value="">全部等级</option>';
+        data.levels.forEach(item => {
+            levelSelect.innerHTML += `<option value="${item}">${item}</option>`;
+        });
+        levelSelect.value = currentLevel;
+
+        let html = '';
+
+        if (data.rows.length === 0) {
+            html = '<div class="empty-message">未找到符合条件的数据</div>';
+        } else {
+            html += '<table>';
+            html += '<thead><tr>';
+
+            data.columns.forEach(col => {
+                html += `<th>${col}</th>`;
+            });
+
+            html += '</tr></thead><tbody>';
+
+            data.rows.forEach(row => {
+                html += '<tr>';
+                data.columns.forEach(col => {
+                    html += `<td>${row[col] ?? ''}</td>`;
+                });
+                html += '</tr>';
+            });
+
+            html += '</tbody></table>';
+        }
+
+        document.getElementById('table-container').innerHTML = html;
+    }
+
+    function resetFilters() {
+        document.getElementById('keyword').value = '';
+        document.getElementById('category').value = '';
+        document.getElementById('level').value = '';
+        loadTable();
+    }
+
+    async function searchJournal() {
+        const keyword = document.getElementById('search-journal').value.trim();
+
+        if (keyword === '') {
+            alert('请输入期刊名称');
+            return;
+        }
+
+        const response = await fetch(`/api/search_journal?keyword=${encodeURIComponent(keyword)}`);
+        const data = await response.json();
+
+        let html = '';
+
+        if (data.length === 0) {
+            html = '<div class="empty-message">未找到相关期刊</div>';
+        } else {
+            html += '<table>';
+            html += `
+                <thead>
+                    <tr>
+                        <th>来源</th>
+                        <th>期刊名</th>
+                        <th>学科/分类</th>
+                        <th>等级</th>
+                        <th>影响因子</th>
+                    </tr>
+                </thead>
+                <tbody>
+            `;
+
+            data.forEach(row => {
+                html += `
+                    <tr>
+                        <td>${row['来源']}</td>
+                        <td>${row['期刊名']}</td>
+                        <td>${row['学科/分类']}</td>
+                        <td>${row['等级']}</td>
+                        <td>${row['影响因子']}</td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+        }
+
+        document.getElementById('search-result').innerHTML = html;
+    }
+
+    window.onload = function() {
+        loadTable();
+    };
+</script>
+
+</body>
+</html>
+```
