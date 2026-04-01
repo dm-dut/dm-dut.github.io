@@ -139,9 +139,10 @@ async function loadAllData() {
 }
 
 /** * 2. 表格渲染逻辑
+
  */
 function renderAllTables() {
-    renderTable('ajg', dataAJG, ['Journal Title', 'Field', 'AJG 2024', '影响因子']);
+    renderTable('ajg', dataAJG, ['Journal Title', 'Field', 'AJG 2024', 'AJG 2021', 'AJG 2018', '影响因子']);
     renderTable('ccf', dataCCF, ['简称', '全称', '分类', '级别', '影响因子']);
     renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS等级2025', 'FMS等级2022', 'FMS等级2020', '影响因子']);
 }
