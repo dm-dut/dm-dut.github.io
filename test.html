@@ -80,9 +80,9 @@ let dataAJG = [], dataCCF = [], dataFMS = [];
 async function loadAllData() {
     try {
         const [res1, res2, res3] = await Promise.all([
-            fetch('AJG_2024.json'), // 请确保文件名一致
-            fetch('ccf.json'),
-            fetch('FMS2025.json')
+            fetch('data/ajg.json'), // 请确保文件名一致
+            fetch('data/ccf.json'),
+            fetch('data/fms.json')
         ]);
 
         if (!res1.ok || !res2.ok || !res3.ok) throw new Error("文件读取失败，请检查路径");
