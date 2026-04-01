@@ -245,7 +245,7 @@ function populateFilters() {
     cfgs.forEach(c => {
         const fS = document.getElementById(`field-${c.id}`), rS = document.getElementById(`rank-${c.id}`);
         [...new Set(c.data.map(i => i[c.f]))].filter(Boolean).sort().forEach(v => fS.add(new Option(v, v)));
-        [...new Set(c.data.map(i => i[c.r] || i['FMS等级 2025']))].filter(Boolean).sort().forEach(v => rS.add(new Option(v, v)));
+        [...new Set(c.data.map(i => i[c.r] || i['FMS等级2025']))].filter(Boolean).sort().forEach(v => rS.add(new Option(v, v)));
     });
 }
 window.onload = loadAllData;
