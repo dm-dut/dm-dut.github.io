@@ -3,74 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>期刊目录查询系统</title>
-    <link rel="stylesheet" href="style1.css">
+    <title>期刊目录综合查询系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; font-family: "Microsoft YaHei", sans-serif; }
+        .container { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-top: 30px; margin-bottom: 50px; }
+        .filter-section { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #dee2e6; }
+        .table-container { max-height: 550px; overflow-y: auto; border: 1px solid #eee; }
+        .nav-tabs .nav-link { font-weight: bold; color: #6c757d; }
+        .nav-tabs .nav-link.active { color: #0d6efd; border-bottom: 3px solid #0d6efd; }
+        .table thead { position: sticky; top: 0; background: #fff; z-index: 10; box-shadow: 0 2px 2px -1px rgba(0,0,0,0.1); }
+        .global-search-card { border-left: 5px solid #0d6efd; background-color: #f0f7ff; }
+        .badge-rank { font-size: 0.9em; }
+    </style>
 </head>
 <body>
 
 <div class="container">
+    <h2 class="mb-4 text-center text-primary">期刊目录管理与综合查询系统</h2>
 
-    <div class="header">
-        <h1>期刊目录查询系统</h1>
-        <p>支持 AJG、CCF、FMS 三类期刊目录查询与综合检索</p>
+    <div class="card mb-4 global-search-card">
+        <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-search"></i> 跨库综合匹配</h5>
+            <p class="text-muted small">输入期刊全称或简称，自动在 AJG、CCF、FMS 三个库中检索对应级别。</p>
+            <div class="input-group">
+                <input type="text" id="globalSearchInput" class="form-control form-control-lg" placeholder="搜索期刊名称（如：Management Science）...">
+                <button class="btn btn-primary px-4" onclick="executeGlobalSearch()">点击查询</button>
+            </div>
+            <div id="globalResult" class="mt-3"></div>
+        </div>
     </div>
 
-    <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('ajg', this)">AJG</button>
-        <button class="tab-btn" onclick="switchTab('ccf', this)">CCF</button>
-        <button class="tab-btn" onclick="switchTab('fms', this)">FMS</button>
-        <button class="tab-btn" onclick="switchTab('search', this)">综合查询</button>
-    </div>
+    <ul class="nav nav-tabs mb-3" id="journalTabs" role="tablist">
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-ajg">AJG 2024 目录</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-ccf">CCF 目录</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-fms">FMS 2025 目录</button></li>
+    </ul>
 
-    <div id="table-panel" class="panel">
-
-        <div class="filter-card">
-
-            <div class="filter-group">
-                <label>期刊名称</label>
-                <input type="text" id="keyword" placeholder="请输入期刊名称关键词">
+    <div class="tab-content mt-2">
+        <div class="tab-pane fade show active" id="tab-ajg">
+            <div class="row g-2 filter-section">
+                <div class="col-md-4"><input type="text" class="form-control" id="search-ajg" placeholder="按期刊名搜索..." oninput="filterTable('ajg')"></div>
+                <div class="col-md-4"><select class="form-select" id="field-ajg" onchange="filterTable('ajg')"><option value="">所有学科 (Field)</option></select></div>
+                <div class="col-md-4"><select class="form-select" id="rank-ajg" onchange="filterTable('ajg')"><option value="">所有级别 (AJG 2024)</option></select></div>
             </div>
-
-            <div class="filter-group">
-                <label>分类</label>
-                <select id="category">
-                    <option value="">全部分类</option>
-                </select>
-            </div>
-
-            <div class="filter-group">
-                <label>等级</label>
-                <select id="level">
-                    <option value="">全部等级</option>
-                </select>
-            </div>
-
-            <div class="filter-actions">
-                <button class="search-btn" onclick="loadTable()">查询</button>
-                <button class="reset-btn" onclick="resetFilters()">重置</button>
-            </div>
-
+            <div class="table-container"><table class="table table-hover table-striped table-sm" id="table-ajg"><thead></thead><tbody></tbody></table></div>
         </div>
 
-        <div id="table-container" class="table-card"></div>
-
-    </div>
-
-    <div id="search-panel" class="panel" style="display:none;">
-
-        <div class="search-card">
-            <div class="search-row">
-                <input type="text" id="search-journal" placeholder="请输入完整或部分期刊名称">
-                <button class="search-btn" onclick="searchJournal()">综合查询</button>
+        <div class="tab-pane fade" id="tab-ccf">
+            <div class="row g-2 filter-section">
+                <div class="col-md-4"><input type="text" class="form-control" id="search-ccf" placeholder="按简称或全称搜索..." oninput="filterTable('ccf')"></div>
+                <div class="col-md-4"><select class="form-select" id="field-ccf" onchange="filterTable('ccf')"><option value="">所有分类</option></select></div>
+                <div class="col-md-4"><select class="form-select" id="rank-ccf" onchange="filterTable('ccf')"><option value="">所有级别</option></select></div>
             </div>
+            <div class="table-container"><table class="table table-hover table-striped table-sm" id="table-ccf"><thead></thead><tbody></tbody></table></div>
         </div>
 
-        <div id="search-result" class="table-card"></div>
-
+        <div class="tab-pane fade" id="tab-fms">
+            <div class="row g-2 filter-section">
+                <div class="col-md-4"><input type="text" class="form-control" id="search-fms" placeholder="按期刊名搜索..." oninput="filterTable('fms')"></div>
+                <div class="col-md-4"><select class="form-select" id="field-fms" onchange="filterTable('fms')"><option value="">所有学科</option></select></div>
+                <div class="col-md-4"><select class="form-select" id="rank-fms" onchange="filterTable('fms')"><option value="">所有级别</option></select></div>
+            </div>
+            <div class="table-container"><table class="table table-hover table-striped table-sm" id="table-fms"><thead></thead><tbody></tbody></table></div>
+        </div>
     </div>
-
 </div>
 
-<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/** * 1. 数据定义与加载
+ */
+let dataAJG = [], dataCCF = [], dataFMS = [];
+
+// 使用 Fetch API 从本地 JSON 文件加载数据
+async function loadAllData() {
+    try {
+        const [res1, res2, res3] = await Promise.all([
+            fetch('AJG_2024.json'), // 请确保文件名一致
+            fetch('ccf.json'),
+            fetch('FMS2025.json')
+        ]);
+
+        if (!res1.ok || !res2.ok || !res3.ok) throw new Error("文件读取失败，请检查路径");
+
+        dataAJG = await res1.json();
+        dataCCF = await res2.json();
+        dataFMS = await res3.json();
+
+        // 首次渲染
+        renderAllTables();
+        populateFilters();
+        console.log("所有数据加载成功！");
+    } catch (err) {
+        console.error(err);
+        document.getElementById('globalResult').innerHTML = `<div class="alert alert-danger">数据加载失败：${err.message}。请确保使用 Web Server 访问。</div>`;
+    }
+}
+
+/** * 2. 表格渲染逻辑
+ */
+function renderAllTables() {
+    renderTable('ajg', dataAJG, ['Journal Title', 'Field', 'AJG 2024', '影响因子']);
+    renderTable('ccf', dataCCF, ['简称', '全称', '分类', '级别', '影响因子']);
+    renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS等级 2025', '影响因子']);
+}
+
+function renderTable(type, data, cols) {
+    const table = document.getElementById(`table-${type}`);
+    const thead = table.querySelector('thead');
+    const tbody = table.querySelector('tbody');
+
+    // 生成表头
+    thead.innerHTML = `<tr>${cols.map(c => `<th>${c}</th>`).join('')}</tr>`;
+
+    // 生成行内容
+    if (data.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="${cols.length}" class="text-center text-muted">无匹配数据</td></tr>`;
+        return;
+    }
+
+    tbody.innerHTML = data.map(row => `
+        <tr>${cols.map(c => `<td>${row[c] || '-'}</td>`).join('')}</tr>
+    `).join('');
+}
+
+/** * 3. 过滤逻辑
+ */
+function filterTable(type) {
+    const searchVal = document.getElementById(`search-${type}`).value.toLowerCase().trim();
+    const fieldVal = document.getElementById(`field-${type}`).value;
+    const rankVal = document.getElementById(`rank-${type}`).value;
+
+    let sourceData, nameKey, fieldKey, rankKey, cols;
+
+    if (type === 'ajg') {
+        sourceData = dataAJG; nameKey = 'Journal Title'; fieldKey = 'Field'; rankKey = 'AJG 2024';
+        cols = ['Journal Title', 'Field', 'AJG 2024', '影响因子'];
+    } else if (type === 'ccf') {
+        sourceData = dataCCF; nameKey = '全称'; fieldKey = '分类'; rankKey = '级别';
+        cols = ['简称', '全称', '分类', '级别', '影响因子'];
+    } else {
+        sourceData = dataFMS; nameKey = '期刊名称'; fieldKey = '学科'; rankKey = 'FMS等级 2025';
+        cols = ['期刊名称', '学科', 'FMS等级 2025', '影响因子'];
+    }
+
+    const filtered = sourceData.filter(item => {
+        // CCF 特殊处理，同时搜简称和全称
+        const nameMatch = type === 'ccf'
+            ? (item['全称']||'').toLowerCase().includes(searchVal) || (item['简称']||'').toLowerCase().includes(searchVal)
+            : (item[nameKey]||'').toLowerCase().includes(searchVal);
+
+        const fieldMatch = fieldVal === "" || item[fieldKey] === fieldVal;
+        const rankMatch = rankVal === "" || item[rankKey] === rankVal;
+        return nameMatch && fieldMatch && rankMatch;
+    });
+
+    renderTable(type, filtered, cols);
+}
+
+/** * 4. 综合查询逻辑
+ */
+function executeGlobalSearch() {
+    const query = document.getElementById('globalSearchInput').value.toLowerCase().trim();
+    if (!query) {
+        document.getElementById('globalResult').innerHTML = "";
+        return;
+    }
+
+    // 跨表查找
+    const matchAJG = dataAJG.find(i => (i['Journal Title']||'').toLowerCase().includes(query));
+    const matchCCF = dataCCF.find(i => (i['全称']||'').toLowerCase().includes(query) || (i['简称']||'').toLowerCase().includes(query));
+    const matchFMS = dataFMS.find(i => (i['期刊名称']||'').toLowerCase().includes(query));
+
+    if (!matchAJG && !matchCCF && !matchFMS) {
+        document.getElementById('globalResult').innerHTML = `<div class="alert alert-warning mb-0">未在库中找到包含 "<strong>${query}</strong>" 的期刊。</div>`;
+        return;
+    }
+
+    let html = `
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+            <thead class="table-secondary">
+                <tr><th>体系</th><th>匹配期刊全称</th><th>学科/分类</th><th>等级/分级</th><th>影响因子</th></tr>
+            </thead>
+            <tbody>`;
+
+    if (matchAJG) html += `<tr><td><span class="badge bg-dark">AJG</span></td><td>${matchAJG['Journal Title']}</td><td>${matchAJG['Field']}</td><td><b class="text-primary">${matchAJG['AJG 2024']}</b></td><td>${matchAJG['影响因子']}</td></tr>`;
+    if (matchCCF) html += `<tr><td><span class="badge bg-success">CCF</span></td><td>${matchCCF['全称']}</td><td>${matchCCF['分类']}</td><td><b class="text-primary">${matchCCF['级别']}</b></td><td>${matchCCF['影响因子']}</td></tr>`;
+    if (matchFMS) html += `<tr><td><span class="badge bg-warning text-dark">FMS</span></td><td>${matchFMS['期刊名称']}</td><td>${matchFMS['学科']}</td><td><b class="text-primary">${matchFMS['FMS等级 2025']}</b></td><td>${matchFMS['影响因子']}</td></tr>`;
+
+    html += `</tbody></table></div>`;
+    document.getElementById('globalResult').innerHTML = html;
+}
+
+/** * 5. 下拉列表初始化
+ */
+function populateFilters() {
+    const configs = [
+        { id: 'ajg', data: dataAJG, field: 'Field', rank: 'AJG 2024' },
+        { id: 'ccf', data: dataCCF, field: '分类', rank: '级别' },
+        { id: 'fms', data: dataFMS, field: '学科', rank: 'FMS等级 2025' }
+    ];
+
+    configs.forEach(conf => {
+        const fields = [...new Set(conf.data.map(i => i[conf.field]))].filter(Boolean).sort();
+        const ranks = [...new Set(conf.data.map(i => i[conf.rank]))].filter(Boolean).sort();
+
+        const fSelect = document.getElementById(`field-${conf.id}`);
+        const rSelect = document.getElementById(`rank-${conf.id}`);
+
+        fields.forEach(f => fSelect.add(new Option(f, f)));
+        ranks.forEach(r => rSelect.add(new Option(r, r)));
+    });
+}
+
+// 启动
+window.onload = loadAllData;
+</script>
+
 </body>
 </html>
