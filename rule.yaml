@@ -17,7 +17,8 @@ payload:
   - DOMAIN-SUFFIX,emerald.com,DIRECT
   - DOMAIN-SUFFIX,nature.com,DIRECT
   - DOMAIN-SUFFIX,ebsco.com,DIRECT
-  - DOMAIN,dl.acm.org,DIRECT
+  - DOMAIN-SUFFIX,acm.org,DIRECT
+  - DOMAIN-SUFFIX,tandfonline.com,DIRECT
 
   # --- 学术工具与评价平台 ---
   - DOMAIN-SUFFIX,overleaf.com,DIRECT
