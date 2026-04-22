@@ -151,7 +151,7 @@ function render() {
                     if(p.vol) html += ', ' + p.vol;
                     if(p.no) html += '(' + p.no + ')';
                     if(p.page) html += ', ' + p.page;
-                    if(p.doi) html += '. DOI: ' + p.doi;
+                    if(p.doi) html += ', doi: ' + p.doi;
                 } else if(cat === "Conference Papers") {
                     html += 'In <em>' + source + '</em>';
                     if(p.page) html += ', pp. ' + p.page;
