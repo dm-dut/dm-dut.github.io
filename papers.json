@@ -1,6 +1,6 @@
 {
     "metadata": {
-        "last_update": "2026-04-22 21:52:01"
+        "last_update": "2026-04-28 07:47:45"
     },
     "publications": {
         "Monograph": [
@@ -28,8 +28,8 @@
         ],
         "Journal Articles": [
             {
-                "authors_en": "Qian Liang, Wenyu Yu*, Zhen Zhang*, Francisco Chiclana",
-                "authors_cn": "Qian Liang, Wenyu Yu*, Zhen Zhang*, Francisco Chiclana",
+                "authors_en": "Qian Liang, Wenyu Yu, Zhen Zhang*, Francisco Chiclana",
+                "authors_cn": "Qian Liang, Wenyu Yu, Zhen Zhang*, Francisco Chiclana",
                 "title_en": "Targeting the right person: An optimization-driven framework for persuader selection in social networks with opinion evolution",
                 "title_cn": "Targeting the right person: An optimization-driven framework for persuader selection in social networks with opinion evolution",
                 "source_en": "European Journal of Operational Research",
