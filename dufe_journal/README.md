@@ -1,14 +1,5 @@
-# 东北财经大学期刊目录查询系统（精简版）
+# 东北财经大学期刊目录查询系统（JSON网页版，修正版）
 
-## 使用方式
-1. 将整个文件夹上传到 GitHub Pages 仓库。
-2. 打开 `index.html` 即可使用。
-3. 数据来自 `data/journals_cn.json` 和 `data/journals_en.json`。
+本版本修正了外文期刊中因PDF换行导致的期刊名串联问题，例如 IEEE Transactions on Engineering Management 与 IEEE Transactions on Knowledge and Data Engineering 已分开显示。
 
-## 功能
-- 中文期刊目录 / 外文期刊目录标签切换
-- 关键词匹配查询
-- 级别筛选
-- 切换标签时自动重置当前查询条件并显示完整数据
-- 不显示“级别内序号”
-- 已删除页码、来源页、备注字段
+直接将本文件夹内容上传至 GitHub Pages 即可使用。
