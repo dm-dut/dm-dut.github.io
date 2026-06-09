@@ -6,26 +6,71 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        /* 1. 基础布局 */
         body {
-            background-color: #f1f3f5;
+            background: linear-gradient(135deg, #eef4ff 0%, #f8fafc 45%, #f3f0ff 100%);
             font-family: "Segoe UI", system-ui, sans-serif;
-            margin: 0; padding: 10px; overflow: hidden; height: 100vh;
+            margin: 0;
+            padding: 10px;
+            overflow: hidden;
+            height: 100vh;
         }
 
         .main-card {
-            background: #fff; max-width: 1600px; margin: 0 auto;
-            height: calc(100vh - 20px); border-radius: 12px;
-            padding: 15px 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            display: flex; flex-direction: column;
+            background: #fff;
+            max-width: 1600px;
+            margin: 0 auto;
+            height: calc(100vh - 20px);
+            border-radius: 12px;
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(13,110,253,0.12);
+            box-shadow: 0 10px 35px rgba(31, 45, 61, 0.12);
         }
 
-        /* 2. 顶部搜索 */
-        .top-bar { display: flex; align-items: center; gap: 20px; margin-bottom: 10px; flex-shrink: 0; }
-        h2 { font-size: 1.4rem; font-weight: bold; margin: 0; color: #0d6efd; white-space: nowrap; }
-        .search-box { flex-grow: 1; background: #f8fbff; border: 1px solid #dee2e6; border-left: 5px solid #0d6efd; border-radius: 6px; padding: 4px 12px; }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
 
-        /* 3. 全局检索结果区优化 */
+        h2 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 0;
+            color: #0b5ed7;
+            white-space: nowrap;
+        }
+
+        .quick-link-btn {
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border-width: 1.5px;
+            white-space: nowrap;
+        }
+
+        .quick-link-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        }
+
+        .quick-link-btn i {
+            margin-right: 4px;
+        }
+
+        .search-box {
+            flex-grow: 1;
+            min-width: 260px;
+            background: linear-gradient(90deg, #f7fbff, #ffffff);
+            border: 1px solid #dee2e6;
+            border-left: 5px solid #0d6efd;
+            border-radius: 6px;
+            padding: 4px 12px;
+            box-shadow: inset 0 0 0 1px rgba(13,110,253,0.08);
+        }
+
         #globalResult {
             max-height: 250px;
             overflow-y: auto;
@@ -54,21 +99,74 @@
             font-size: 0.95rem;
         }
 
-        /* 4. 选项卡与主表布局 */
-        .nav-tabs { flex-shrink: 0; }
-        .filter-bar { background: #f8f9fa; padding: 10px; border-radius: 8px; margin: 10px 0; border: 1px solid #eee; flex-shrink: 0; }
-        .tab-content { flex-grow: 1; overflow: hidden; display: flex; flex-direction: column; }
-        .tab-pane.active { display: flex; flex-direction: column; height: 100%; }
-        .table-wrap { flex-grow: 1; overflow-y: auto; border: 1px solid #eee; border-radius: 4px; }
+        .nav-tabs {
+            flex-shrink: 0;
+            border-bottom: none;
+            gap: 6px;
+        }
 
-        /* 主表样式 */
-        .table { font-size: 0.85rem; width: 100%; margin: 0; table-layout: fixed; }
+        .nav-tabs .nav-link {
+            border: none;
+            border-radius: 999px;
+            color: #495057;
+            background: #eef2f7;
+            font-weight: 600;
+            padding: 8px 18px;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: #fff;
+            background: linear-gradient(135deg, #0d6efd, #6610f2);
+            box-shadow: 0 4px 12px rgba(13,110,253,0.25);
+        }
+
+        .filter-bar {
+            background: linear-gradient(90deg, #f8fbff, #ffffff);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border: 1px solid #dbe7ff;
+            flex-shrink: 0;
+        }
+
+        .tab-content {
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        .tab-pane.active {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .table-wrap {
+            flex-grow: 1;
+            overflow-y: auto;
+            border-radius: 10px;
+            border: 1px solid #dbe7ff;
+            box-shadow: inset 0 0 0 1px rgba(13,110,253,0.03);
+        }
+
+        .table {
+            font-size: 0.85rem;
+            width: 100%;
+            margin: 0;
+            table-layout: fixed;
+        }
+
         .table thead th {
-            position: sticky; top: 0; background: #f8f9fa; z-index: 5;
-            border-bottom: 2px solid #dee2e6; padding: 10px 6px;
+            position: sticky;
+            top: 0;
+            background: #edf4ff !important;
+            color: #0b5ed7;
+            z-index: 5;
+            border-bottom: 2px solid #dee2e6;
+            padding: 10px 6px;
             font-weight: 600;
             font-size: 0.85rem;
         }
+
         .table tbody td {
             padding: 8px 6px;
             word-wrap: break-word;
@@ -78,225 +176,97 @@
             line-height: 1.3;
         }
 
-        /* ========= CCF 表格 - 极度压缩级别和IF ========= */
-        #table-ccf {
-            table-layout: fixed;
-        }
-        #table-ccf th:nth-child(1), #table-ccf td:nth-child(1) { width: 10%; }  /* 简称 */
-        #table-ccf th:nth-child(2), #table-ccf td:nth-child(2) { width: 40%; }  /* 全称 */
-        #table-ccf th:nth-child(3), #table-ccf td:nth-child(3) { width: 35%; }  /* 分类 - 最大宽度 */
-        #table-ccf th:nth-child(4), #table-ccf td:nth-child(4) { width: 7%; text-align: center;}   /* 级别 - 仅6% */
-        #table-ccf th:nth-child(5), #table-ccf td:nth-child(5) { width: 8%; text-align: center;}   /* 影响因子 - 仅8% */
+        #table-ccf th:nth-child(1), #table-ccf td:nth-child(1) { width: 10%; }
+        #table-ccf th:nth-child(2), #table-ccf td:nth-child(2) { width: 40%; }
+        #table-ccf th:nth-child(3), #table-ccf td:nth-child(3) { width: 35%; }
+        #table-ccf th:nth-child(4), #table-ccf td:nth-child(4) { width: 7%; text-align: center; }
+        #table-ccf th:nth-child(5), #table-ccf td:nth-child(5) { width: 8%; text-align: center; }
 
-        /* 级别列居中对齐 */
-        #table-ccf td:nth-child(4) {
-            text-align: center;
-            font-weight: 600;
-        }
-
-        /* 影响因子列居中对齐 */
-        #table-ccf td:nth-child(5) {
-            text-align: center;
-        }
-
-        /* ========= AJG 表格 ========= */
-        #table-ajg {
-            table-layout: fixed;
-        }
         #table-ajg th:nth-child(1), #table-ajg td:nth-child(1) { width: 48%; }
         #table-ajg th:nth-child(2), #table-ajg td:nth-child(2) { width: 32%; }
         #table-ajg th:nth-child(3), #table-ajg td:nth-child(3) { width: 8%; text-align: center; }
         #table-ajg th:nth-child(4), #table-ajg td:nth-child(4) { width: 12%; text-align: center; }
 
-        /* ========= FMS 表格 ========= */
-        #table-fms {
-            table-layout: fixed;
-        }
         #table-fms th:nth-child(1), #table-fms td:nth-child(1) { width: 48%; }
         #table-fms th:nth-child(2), #table-fms td:nth-child(2) { width: 32%; }
         #table-fms th:nth-child(3), #table-fms td:nth-child(3) { width: 8%; text-align: center; }
         #table-fms th:nth-child(4), #table-fms td:nth-child(4) { width: 12%; text-align: center; }
 
-        .table-hover tbody tr:hover { background-color: #f1f7ff !important; }
+        .table-hover tbody tr:hover {
+            background-color: #eef6ff !important;
+        }
 
-        /* 自定义滚动条 */
         .table-wrap::-webkit-scrollbar { width: 6px; height: 6px; }
         .table-wrap::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 3px; }
         .table-wrap::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
         .table-wrap::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
 
-        body {
-    background: linear-gradient(135deg, #eef4ff 0%, #f8fafc 45%, #f3f0ff 100%);
-}
+        .badge-rank {
+            display: inline-block;
+            min-width: 38px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.78rem;
+        }
 
-.main-card {
-    border: 1px solid rgba(13,110,253,0.12);
-    box-shadow: 0 10px 35px rgba(31, 45, 61, 0.12);
-}
+        .rank-a, .rank-t1, .rank-4 {
+            background: #ffe8cc;
+            color: #c2410c;
+        }
 
-h2 {
-    color: #0b5ed7;
-}
+        .rank-b, .rank-t2, .rank-3 {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
 
-.search-box {
-    background: linear-gradient(90deg, #f7fbff, #ffffff);
-    box-shadow: inset 0 0 0 1px rgba(13,110,253,0.08);
-}
+        .rank-c, .rank-2 {
+            background: #dcfce7;
+            color: #15803d;
+        }
 
-.nav-tabs {
-    border-bottom: none;
-    gap: 6px;
-}
+        .rank-d, .rank-1 {
+            background: #f1f5f9;
+            color: #475569;
+        }
 
-.nav-tabs .nav-link {
-    border: none;
-    border-radius: 999px;
-    color: #495057;
-    background: #eef2f7;
-    font-weight: 600;
-    padding: 8px 18px;
-}
+        .rank-other {
+            background: #ede9fe;
+            color: #6d28d9;
+        }
 
-.nav-tabs .nav-link.active {
-    color: #fff;
-    background: linear-gradient(135deg, #0d6efd, #6610f2);
-    box-shadow: 0 4px 12px rgba(13,110,253,0.25);
-}
+        .if-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 8px;
+            background: #fef3c7;
+            color: #92400e;
+            font-weight: 600;
+        }
 
-.filter-bar {
-    background: linear-gradient(90deg, #f8fbff, #ffffff);
-    border: 1px solid #dbe7ff;
-}
-
-.table-wrap {
-    border-radius: 10px;
-    border: 1px solid #dbe7ff;
-    box-shadow: inset 0 0 0 1px rgba(13,110,253,0.03);
-}
-
-.table thead th {
-    background: #edf4ff !important;
-    color: #0b5ed7;
-}
-
-.table-hover tbody tr:hover {
-    background-color: #eef6ff !important;
-}
-
-.badge-rank {
-    display: inline-block;
-    min-width: 38px;
-    padding: 4px 8px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 0.78rem;
-}
-
-.rank-a, .rank-t1, .rank-4 {
-    background: #ffe8cc;
-    color: #c2410c;
-}
-
-.rank-b, .rank-t2, .rank-3 {
-    background: #dbeafe;
-    color: #1d4ed8;
-}
-
-.rank-c, .rank-2 {
-    background: #dcfce7;
-    color: #15803d;
-}
-
-.rank-d, .rank-1 {
-    background: #f1f5f9;
-    color: #475569;
-}
-
-.rank-other {
-    background: #ede9fe;
-    color: #6d28d9;
-}
-
-.if-badge {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 8px;
-    background: #fef3c7;
-    color: #92400e;
-    font-weight: 600;
-}
-
-.db-ajg {
-    background: #111827;
-}
-
-.db-ccf {
-    background: #198754;
-}
-
-.db-fms {
-    background: #f59e0b;
-    color: #111827;
-}
+        .db-ajg { background: #111827; }
+        .db-ccf { background: #198754; }
+        .db-fms { background: #f59e0b; color: #111827; }
     </style>
 </head>
+
 <body>
-
-
 <div class="main-card">
+
     <div class="top-bar">
+        <h2><i class="bi bi-search"></i> 期刊查询系统</h2>
 
-    <h2>
-        <i class="bi bi-search"></i>
-        期刊查询系统
-    </h2>
+        <div class="d-flex align-items-center gap-2 flex-shrink-0">
+            <a href="dufe_journal" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 quick-link-btn">
+                <i class="bi bi-journal-text"></i> DUFE Journal List
+            </a>
 
-    <!-- ===== 快捷链接 ===== -->
-    <div class="d-flex align-items-center gap-2">
-
-        <a href="Award"
-           target="_blank"
-           class="btn btn-sm btn-outline-primary rounded-pill px-3">
-
-            <i class="bi bi-journal-text"></i>
-            第十届教育部人文社科奖
-
-        </a>
-
-        <a href="dufe_journal"
-           target="_blank"
-           class="btn btn-sm btn-outline-success rounded-pill px-3">
-
-            <i class="bi bi-bar-chart"></i>
-            DUFE Journal List
-
-        </a>
-
-    </div>
-
-    <!-- ===== 全局搜索 ===== -->
-    <div class="search-box">
-
-        <div class="input-group input-group-sm">
-
-            <input type="text"
-                   id="globalSearchInput"
-                   class="form-control border-0 bg-transparent"
-                   placeholder="搜索期刊（支持多关键词，空格分隔）"
-                   onkeyup="if(event.keyCode===13) executeGlobalSearch()">
-
-            <button class="btn btn-primary rounded-2 px-4 ms-2"
-                    onclick="executeGlobalSearch()">
-
-                全局检索
-
-            </button>
-
+            <a href="Award" target="_blank" class="btn btn-sm btn-outline-success rounded-pill px-3 quick-link-btn">
+                <i class="bi bi-award"></i> 第十届教育部人文社科奖
+            </a>
         </div>
 
-    </div>
-
-</div>
+        <div class="search-box">
             <div class="input-group input-group-sm">
                 <input type="text" id="globalSearchInput" class="form-control border-0 bg-transparent" placeholder="搜索期刊（支持多关键词，空格分隔）" onkeyup="if(event.keyCode===13) executeGlobalSearch()">
                 <button class="btn btn-primary rounded-2 px-4 ms-2" onclick="executeGlobalSearch()">全局检索</button>
@@ -313,6 +283,7 @@ h2 {
     </ul>
 
     <div class="tab-content" id="myTabContent">
+
         <div class="tab-pane fade show active" id="panel-ajg" role="tabpanel">
             <div class="filter-bar row g-2 m-0">
                 <div class="col-4"><label class="small fw-bold text-muted">期刊搜索</label><input type="text" id="search-ajg" class="form-control" oninput="filterTable('ajg')" placeholder="输入期刊名称关键词..."></div>
@@ -339,6 +310,7 @@ h2 {
             </div>
             <div class="table-wrap"><table class="table table-hover table-striped" id="table-fms"><thead></thead><tbody></tbody></table></div>
         </div>
+
     </div>
 </div>
 
@@ -347,15 +319,8 @@ h2 {
 <script>
 let dataAJG = [], dataCCF = [], dataFMS = [];
 
-// ===============================
-// 通用工具函数
-// ===============================
 function norm(v) {
-    return String(v ?? '')
-        .trim()
-        .replace(/\u3000/g, ' ')
-        .replace(/\s+/g, ' ')
-        .toLowerCase();
+    return String(v ?? '').trim().replace(/\u3000/g, ' ').replace(/\s+/g, ' ').toLowerCase();
 }
 
 function getVal(item, keys) {
@@ -392,20 +357,12 @@ function valueMatch(item, keys, selectedVal) {
 
     const actual = norm(getVal(item, keys));
     if (!actual) return false;
-
     if (actual === selected) return true;
 
-    const parts = actual
-        .split(/[;,，；、|/]/)
-        .map(s => s.trim())
-        .filter(Boolean);
-
+    const parts = actual.split(/[;,，；、|/]/).map(s => s.trim()).filter(Boolean);
     return parts.includes(selected);
 }
 
-// ===============================
-// 数据加载
-// ===============================
 async function loadAllData() {
     try {
         const [res1, res2, res3] = await Promise.all([
@@ -424,22 +381,17 @@ async function loadAllData() {
 
         populateFilters();
 
-// 切换标签时，清空该标签页筛选条件，并显示完整数据
-document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tabEl => {
-    tabEl.addEventListener('shown.bs.tab', function (event) {
-        const target = event.target.getAttribute("data-bs-target");
+        document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tabEl => {
+            tabEl.addEventListener('shown.bs.tab', function (event) {
+                const target = event.target.getAttribute("data-bs-target");
 
-        if (target === "#panel-ajg") {
-            resetAndShowFullTable("ajg");
-        } else if (target === "#panel-ccf") {
-            resetAndShowFullTable("ccf");
-        } else if (target === "#panel-fms") {
-            resetAndShowFullTable("fms");
-        }
+                if (target === "#panel-ajg") resetAndShowFullTable("ajg");
+                else if (target === "#panel-ccf") resetAndShowFullTable("ccf");
+                else if (target === "#panel-fms") resetAndShowFullTable("fms");
 
-        window.dispatchEvent(new Event("resize"));
-    });
-});
+                window.dispatchEvent(new Event("resize"));
+            });
+        });
 
     } catch (err) {
         console.error("数据加载失败", err);
@@ -447,9 +399,6 @@ document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tabEl => {
     }
 }
 
-// ===============================
-// 全局检索
-// ===============================
 function executeGlobalSearch() {
     const query = document.getElementById('globalSearchInput').value.trim();
     const resultDiv = document.getElementById('globalResult');
@@ -460,17 +409,9 @@ function executeGlobalSearch() {
         return;
     }
 
-    const resAJG = dataAJG.filter(i =>
-        fuzzyMatch(i, ['Journal Title', 'Field', 'AJG 2024', '影响因子'], query)
-    );
-
-    const resCCF = dataCCF.filter(i =>
-        fuzzyMatch(i, ['全称', '简称', '分类', '级别', '影响因子'], query)
-    );
-
-    const resFMS = dataFMS.filter(i =>
-        fuzzyMatch(i, ['期刊名称', '学科', 'FMS等级2025', 'FMS等级 2025', '影响因子'], query)
-    );
+    const resAJG = dataAJG.filter(i => fuzzyMatch(i, ['Journal Title', 'Field', 'AJG 2024', '影响因子'], query));
+    const resCCF = dataCCF.filter(i => fuzzyMatch(i, ['全称', '简称', '分类', '级别', '影响因子'], query));
+    const resFMS = dataFMS.filter(i => fuzzyMatch(i, ['期刊名称', '学科', 'FMS等级2025', 'FMS等级 2025', '影响因子'], query));
 
     const total = resAJG.length + resCCF.length + resFMS.length;
     resultDiv.style.display = "block";
@@ -494,14 +435,8 @@ function executeGlobalSearch() {
 
     const pushRows = (list, db) => {
         list.forEach(i => {
-const badge = db === 'AJG'
-    ? 'db-ajg'
-    : (db === 'CCF' ? 'db-ccf' : 'db-fms');
-
-            const name = db === 'CCF'
-                ? getVal(i, ['全称'])
-                : getVal(i, ['Journal Title', '期刊名称']);
-
+            const badge = db === 'AJG' ? 'db-ajg' : (db === 'CCF' ? 'db-ccf' : 'db-fms');
+            const name = db === 'CCF' ? getVal(i, ['全称']) : getVal(i, ['Journal Title', '期刊名称']);
             const field = getVal(i, ['Field', '分类', '学科']) || '-';
             const rank = getVal(i, ['AJG 2024', '级别', 'FMS等级2025', 'FMS等级 2025']) || '-';
             const impact = getVal(i, ['影响因子']) || '-';
@@ -529,7 +464,6 @@ const badge = db === 'AJG'
 }
 
 function resetAndShowFullTable(type) {
-    // 清空当前标签页的筛选条件
     const searchInput = document.getElementById(`search-${type}`);
     const fieldSelect = document.getElementById(`field-${type}`);
     const rankSelect = document.getElementById(`rank-${type}`);
@@ -538,19 +472,11 @@ function resetAndShowFullTable(type) {
     if (fieldSelect) fieldSelect.value = "";
     if (rankSelect) rankSelect.value = "";
 
-    // 重新显示当前标签页完整数据
-    if (type === "ajg") {
-        renderTable("ajg", dataAJG, ["Journal Title", "Field", "AJG 2024", "影响因子"]);
-    } else if (type === "ccf") {
-        renderTable("ccf", dataCCF, ["简称", "全称", "分类", "级别", "影响因子"]);
-    } else if (type === "fms") {
-        renderTable("fms", dataFMS, ["期刊名称", "学科", "FMS等级2025", "影响因子"]);
-    }
+    if (type === "ajg") renderTable("ajg", dataAJG, ["Journal Title", "Field", "AJG 2024", "影响因子"]);
+    else if (type === "ccf") renderTable("ccf", dataCCF, ["简称", "全称", "分类", "级别", "影响因子"]);
+    else if (type === "fms") renderTable("fms", dataFMS, ["期刊名称", "学科", "FMS等级2025", "影响因子"]);
 }
 
-// ===============================
-// 单库筛选
-// ===============================
 function filterTable(type) {
     const searchVal = document.getElementById(`search-${type}`).value.trim();
     const fieldVal = document.getElementById(`field-${type}`).value;
@@ -588,9 +514,6 @@ function filterTable(type) {
     renderTable(type, filtered, cols);
 }
 
-// ===============================
-// 表格渲染
-// ===============================
 function renderTable(type, data, cols) {
     const thead = document.querySelector(`#table-${type} thead`);
     const tbody = document.querySelector(`#table-${type} tbody`);
@@ -633,12 +556,7 @@ function rankClass(value) {
 function formatCell(col, value) {
     const v = value || '-';
 
-    if (
-        col === '级别' ||
-        col === 'AJG 2024' ||
-        col === 'FMS等级2025' ||
-        col === 'FMS等级 2025'
-    ) {
+    if (col === '级别' || col === 'AJG 2024' || col === 'FMS等级2025' || col === 'FMS等级 2025') {
         return `<span class="badge-rank ${rankClass(v)}">${escapeHTML(v)}</span>`;
     }
 
@@ -648,29 +566,12 @@ function formatCell(col, value) {
 
     return escapeHTML(v);
 }
-// ===============================
-// 下拉筛选项生成
-// ===============================
+
 function populateFilters() {
     const cfgs = [
-        {
-            id: 'ajg',
-            data: dataAJG,
-            fKeys: ['Field'],
-            rKeys: ['AJG 2024']
-        },
-        {
-            id: 'ccf',
-            data: dataCCF,
-            fKeys: ['分类'],
-            rKeys: ['级别']
-        },
-        {
-            id: 'fms',
-            data: dataFMS,
-            fKeys: ['学科'],
-            rKeys: ['FMS等级2025', 'FMS等级 2025']
-        }
+        { id: 'ajg', data: dataAJG, fKeys: ['Field'], rKeys: ['AJG 2024'] },
+        { id: 'ccf', data: dataCCF, fKeys: ['分类'], rKeys: ['级别'] },
+        { id: 'fms', data: dataFMS, fKeys: ['学科'], rKeys: ['FMS等级2025', 'FMS等级 2025'] }
     ];
 
     cfgs.forEach(c => {
@@ -680,20 +581,10 @@ function populateFilters() {
         while (fS.options.length > 1) fS.remove(1);
         while (rS.options.length > 1) rS.remove(1);
 
-        const fields = [...new Set(
-            c.data
-                .map(i => getVal(i, c.fKeys))
-                .filter(Boolean)
-        )].sort();
-
+        const fields = [...new Set(c.data.map(i => getVal(i, c.fKeys)).filter(Boolean))].sort();
         fields.forEach(v => fS.add(new Option(v, v)));
 
-        const ranks = [...new Set(
-            c.data
-                .map(i => getVal(i, c.rKeys))
-                .filter(Boolean)
-        )].sort();
-
+        const ranks = [...new Set(c.data.map(i => getVal(i, c.rKeys)).filter(Boolean))].sort();
         ranks.forEach(v => rS.add(new Option(v, v)));
     });
 }
