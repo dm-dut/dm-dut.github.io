@@ -177,15 +177,80 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 let dataAJG = [], dataCCF = [], dataFMS = [];
 
+// ===============================
+// 通用工具函数
+// ===============================
+function norm(v) {
+    return String(v ?? '')
+        .trim()
+        .replace(/\u3000/g, ' ')
+        .replace(/\s+/g, ' ')
+        .toLowerCase();
+}
+
+function getVal(item, keys) {
+    for (const k of keys) {
+        if (item[k] !== undefined && item[k] !== null && String(item[k]).trim() !== '') {
+            return String(item[k]).trim();
+        }
+    }
+    return '';
+}
+
+function escapeHTML(v) {
+    return String(v ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+// 多关键词模糊匹配：空格分隔，所有关键词都需要命中
+function fuzzyMatch(item, keys, query) {
+    const q = norm(query);
+    if (!q) return true;
+
+    const searchStr = norm(keys.map(k => getVal(item, [k])).join(' '));
+    const keywords = q.split(/\s+/).filter(Boolean);
+
+    return keywords.every(kw => searchStr.includes(kw));
+}
+
+// 字段/级别筛选：支持精确匹配，也支持一个单元格里多个分类的情况
+function valueMatch(item, keys, selectedVal) {
+    const selected = norm(selectedVal);
+    if (!selected) return true;
+
+    const actual = norm(getVal(item, keys));
+    if (!actual) return false;
+
+    // 先做标准化后的完全匹配
+    if (actual === selected) return true;
+
+    // 再兼容多分类字段，如 "Business and Management; Operations Research"
+    const parts = actual
+        .split(/[;,，；、|/]/)
+        .map(s => s.trim())
+        .filter(Boolean);
+
+    return parts.includes(selected);
+}
+
+// ===============================
+// 数据加载
+// ===============================
 async function loadAllData() {
     try {
         const [res1, res2, res3] = await Promise.all([
-            fetch('data/ajg.json'), fetch('data/ccf.json'), fetch('data/fms.json')
+            fetch('data/ajg.json'),
+            fetch('data/ccf.json'),
+            fetch('data/fms.json')
         ]);
+
         dataAJG = await res1.json();
         dataCCF = await res2.json();
         dataFMS = await res3.json();
@@ -195,24 +260,37 @@ async function loadAllData() {
         renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS等级2025', '影响因子']);
 
         populateFilters();
-    } catch (err) { console.error("数据加载失败", err); }
+    } catch (err) {
+        console.error("数据加载失败", err);
+        alert("数据加载失败，请检查 data/ajg.json、data/ccf.json、data/fms.json 路径是否正确。");
+    }
 }
 
-function fuzzyMatch(item, keys, query) {
-    if (!query) return true;
-    const searchStr = keys.map(k => String(item[k] || '')).join(' ').toLowerCase();
-    const keywords = query.toLowerCase().split(/\s+/);
-    return keywords.every(kw => searchStr.includes(kw));
-}
-
+// ===============================
+// 全局检索
+// ===============================
 function executeGlobalSearch() {
     const query = document.getElementById('globalSearchInput').value.trim();
     const resultDiv = document.getElementById('globalResult');
-    if (!query) { resultDiv.style.display = "none"; return; }
 
-    const resAJG = dataAJG.filter(i => fuzzyMatch(i, ['Journal Title'], query));
-    const resCCF = dataCCF.filter(i => fuzzyMatch(i, ['全称', '简称'], query));
-    const resFMS = dataFMS.filter(i => fuzzyMatch(i, ['期刊名称'], query));
+    if (!query) {
+        resultDiv.style.display = "none";
+        resultDiv.innerHTML = "";
+        return;
+    }
+
+    // 全局检索建议不仅查期刊名，也查分类、级别
+    const resAJG = dataAJG.filter(i =>
+        fuzzyMatch(i, ['Journal Title', 'Field', 'AJG 2024', '影响因子'], query)
+    );
+
+    const resCCF = dataCCF.filter(i =>
+        fuzzyMatch(i, ['全称', '简称', '分类', '级别', '影响因子'], query)
+    );
+
+    const resFMS = dataFMS.filter(i =>
+        fuzzyMatch(i, ['期刊名称', '学科', 'FMS等级2025', 'FMS等级 2025', '影响因子'], query)
+    );
 
     const total = resAJG.length + resCCF.length + resFMS.length;
     resultDiv.style.display = "block";
@@ -236,85 +314,158 @@ function executeGlobalSearch() {
 
     const pushRows = (list, db) => {
         list.forEach(i => {
-            const badge = db === 'AJG' ? 'bg-dark' : (db === 'CCF' ? 'bg-success' : 'bg-warning text-dark');
-            const name = db === 'CCF' ? i['全称'] : (i['Journal Title'] || i['期刊名称']);
-            const field = i['Field'] || i['分类'] || i['学科'] || '-';
-            const rank = i['AJG 2024'] || i['级别'] || i['FMS等级2025'] || i['FMS等级 2025'] || '-';
+            const badge = db === 'AJG'
+                ? 'bg-dark'
+                : (db === 'CCF' ? 'bg-success' : 'bg-warning text-dark');
+
+            const name = db === 'CCF'
+                ? getVal(i, ['全称'])
+                : getVal(i, ['Journal Title', '期刊名称']);
+
+            const field = getVal(i, ['Field', '分类', '学科']) || '-';
+            const rank = getVal(i, ['AJG 2024', '级别', 'FMS等级2025', 'FMS等级 2025']) || '-';
+            const impact = getVal(i, ['影响因子']) || '-';
+
             html += `<tr>
                 <td><span class="badge ${badge}">${db}</span></td>
-                <td title="${name.replace(/"/g, '&quot;')}"><strong>${name}</strong></td>
-                <td class="field-cell" title="${field.replace(/"/g, '&quot;')}">${field}</td>
-                <td class="text-center"><b class="text-primary">${rank}</b></td>
-                <td class="text-center">${i['影响因子'] || '-'}</td>
+                <td title="${escapeHTML(name)}"><strong>${escapeHTML(name)}</strong></td>
+                <td class="field-cell" title="${escapeHTML(field)}">${escapeHTML(field)}</td>
+                <td class="text-center"><b class="text-primary">${escapeHTML(rank)}</b></td>
+                <td class="text-center">${escapeHTML(impact)}</td>
             </tr>`;
         });
     };
+
     pushRows(resAJG, 'AJG');
     pushRows(resCCF, 'CCF');
     pushRows(resFMS, 'FMS');
-    html += `</tbody>
-    </table>`;
+
+    if (total === 0) {
+        html += `<tr><td colspan="5" class="text-center text-muted py-4">无记录</td></tr>`;
+    }
+
+    html += `</tbody></table>`;
     resultDiv.innerHTML = html;
 }
 
+// ===============================
+// 单库筛选
+// ===============================
 function filterTable(type) {
     const searchVal = document.getElementById(`search-${type}`).value.trim();
     const fieldVal = document.getElementById(`field-${type}`).value;
     const rankVal = document.getElementById(`rank-${type}`).value;
 
-    let source, keys, fKey, rKey, cols;
+    let source, keys, fKeys, rKeys, cols;
+
     if (type === 'ajg') {
-        source = dataAJG; keys = ['Journal Title']; fKey = 'Field'; rKey = 'AJG 2024';
+        source = dataAJG;
+        keys = ['Journal Title'];
+        fKeys = ['Field'];
+        rKeys = ['AJG 2024'];
         cols = ['Journal Title', 'Field', 'AJG 2024', '影响因子'];
     } else if (type === 'ccf') {
-        source = dataCCF; keys = ['全称', '简称']; fKey = '分类'; rKey = '级别';
+        source = dataCCF;
+        keys = ['全称', '简称'];
+        fKeys = ['分类'];
+        rKeys = ['级别'];
         cols = ['简称', '全称', '分类', '级别', '影响因子'];
     } else {
-        source = dataFMS; keys = ['期刊名称']; fKey = '学科'; rKey = 'FMS等级2025';
+        source = dataFMS;
+        keys = ['期刊名称'];
+        fKeys = ['学科'];
+        rKeys = ['FMS等级2025', 'FMS等级 2025'];
         cols = ['期刊名称', '学科', 'FMS等级2025', '影响因子'];
     }
 
     const filtered = source.filter(i => {
         const mName = fuzzyMatch(i, keys, searchVal);
-        const mField = (fieldVal === "" || i[fKey] === fieldVal);
-        const curRank = i[rKey] || i['FMS等级 2025'] || "";
-        const mRank = (rankVal === "" || curRank === rankVal);
+        const mField = valueMatch(i, fKeys, fieldVal);
+        const mRank = valueMatch(i, rKeys, rankVal);
+
         return mName && mField && mRank;
     });
+
     renderTable(type, filtered, cols);
 }
 
+// ===============================
+// 表格渲染
+// ===============================
 function renderTable(type, data, cols) {
     const thead = document.querySelector(`#table-${type} thead`);
     const tbody = document.querySelector(`#table-${type} tbody`);
-    thead.innerHTML = `<tr>${cols.map(c => `<th>${c}</th>`).join('')}</tr>`;
 
-    if (data.length === 0) {
+    thead.innerHTML = `<tr>${cols.map(c => `<th>${escapeHTML(c)}</th>`).join('')}</tr>`;
+
+    if (!data || data.length === 0) {
         tbody.innerHTML = `<tr><td colspan="${cols.length}" class="text-center text-muted py-5">无记录</td></tr>`;
-    } else {
-        tbody.innerHTML = data.map(row => {
-            return `<tr>${cols.map(c => {
-                let value = row[c] !== undefined && row[c] !== null && row[c] !== '' ? row[c] : '-';
-                return `<td title="${String(value).replace(/"/g, '&quot;')}">${value}</td>`;
-            }).join('')}</tr>`;
-        }).join('');
+        return;
     }
+
+    tbody.innerHTML = data.map(row => {
+        return `<tr>${cols.map(c => {
+            let value = getVal(row, [c]);
+
+            // 兼容 FMS 字段名有空格的情况
+            if (!value && c === 'FMS等级2025') {
+                value = getVal(row, ['FMS等级2025', 'FMS等级 2025']);
+            }
+
+            if (!value) value = '-';
+
+            return `<td title="${escapeHTML(value)}">${escapeHTML(value)}</td>`;
+        }).join('')}</tr>`;
+    }).join('');
 }
 
+// ===============================
+// 下拉筛选项生成
+// ===============================
 function populateFilters() {
     const cfgs = [
-        { id: 'ajg', data: dataAJG, f: 'Field', r: 'AJG 2024' },
-        { id: 'ccf', data: dataCCF, f: '分类', r: '级别' },
-        { id: 'fms', data: dataFMS, f: '学科', r: 'FMS等级2025' }
+        {
+            id: 'ajg',
+            data: dataAJG,
+            fKeys: ['Field'],
+            rKeys: ['AJG 2024']
+        },
+        {
+            id: 'ccf',
+            data: dataCCF,
+            fKeys: ['分类'],
+            rKeys: ['级别']
+        },
+        {
+            id: 'fms',
+            data: dataFMS,
+            fKeys: ['学科'],
+            rKeys: ['FMS等级2025', 'FMS等级 2025']
+        }
     ];
+
     cfgs.forEach(c => {
-        const fS = document.getElementById(`field-${c.id}`), rS = document.getElementById(`rank-${c.id}`);
+        const fS = document.getElementById(`field-${c.id}`);
+        const rS = document.getElementById(`rank-${c.id}`);
+
         while (fS.options.length > 1) fS.remove(1);
         while (rS.options.length > 1) rS.remove(1);
 
-        [...new Set(c.data.map(i => i[c.f]))].filter(Boolean).sort().forEach(v => fS.add(new Option(v, v)));
-        const rankValues = [...new Set(c.data.map(i => i[c.r] || i['FMS等级2025']))].filter(Boolean).sort();
-        rankValues.forEach(v => rS.add(new Option(v, v)));
+        const fields = [...new Set(
+            c.data
+                .map(i => getVal(i, c.fKeys))
+                .filter(Boolean)
+        )].sort();
+
+        fields.forEach(v => fS.add(new Option(v, v)));
+
+        const ranks = [...new Set(
+            c.data
+                .map(i => getVal(i, c.rKeys))
+                .filter(Boolean)
+        )].sort();
+
+        ranks.forEach(v => rS.add(new Option(v, v)));
     });
 }
 
