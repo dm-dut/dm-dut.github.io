@@ -208,3 +208,11 @@ tbody tr:hover {
   .status { flex-direction: column; }
   table { min-width: 900px; }
 }
+
+
+/* 精简版：删除来源页码和备注列后的列宽优化 */
+.col-serial { width: 90px; text-align: center; }
+.col-rank { width: 90px; text-align: center; }
+.col-title { width: 38%; }
+.col-publisher { width: auto; }
+.col-issn { width: 130px; text-align: center; }

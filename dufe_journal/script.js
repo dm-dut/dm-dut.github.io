@@ -11,11 +11,9 @@ const tableConfig = {
       { key: "serial", label: "总序号", cls: "col-serial" },
       { key: "rank", label: "级别", cls: "col-rank", rank: true },
       { key: "title", label: "期刊名称", cls: "col-title" },
-      { key: "publisher", label: "主办单位", cls: "col-publisher" },
-      { key: "page", label: "来源页码", cls: "col-page" },
-      { key: "note", label: "备注", cls: "col-note" }
+      { key: "publisher", label: "主办单位", cls: "col-publisher" }
     ],
-    searchKeys: ["title", "publisher", "rank", "note"]
+    searchKeys: ["title", "publisher", "rank"]
   },
   en: {
     label: "外文期刊目录",
@@ -25,11 +23,9 @@ const tableConfig = {
       { key: "rank", label: "级别", cls: "col-rank", rank: true },
       { key: "title", label: "期刊名称", cls: "col-title" },
       { key: "issn", label: "ISSN", cls: "col-issn" },
-      { key: "eissn", label: "eISSN", cls: "col-issn" },
-      { key: "page", label: "来源页码", cls: "col-page" },
-      { key: "note", label: "备注", cls: "col-note" }
+      { key: "eissn", label: "eISSN", cls: "col-issn" }
     ],
-    searchKeys: ["title", "issn", "eissn", "rank", "note"]
+    searchKeys: ["title", "issn", "eissn", "rank"]
   }
 };
 
