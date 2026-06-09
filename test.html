@@ -177,6 +177,8 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
 let dataAJG = [], dataCCF = [], dataFMS = [];
 
@@ -209,7 +211,6 @@ function escapeHTML(v) {
         .replace(/'/g, '&#039;');
 }
 
-// 多关键词模糊匹配：空格分隔，所有关键词都需要命中
 function fuzzyMatch(item, keys, query) {
     const q = norm(query);
     if (!q) return true;
@@ -220,7 +221,6 @@ function fuzzyMatch(item, keys, query) {
     return keywords.every(kw => searchStr.includes(kw));
 }
 
-// 字段/级别筛选：支持精确匹配，也支持一个单元格里多个分类的情况
 function valueMatch(item, keys, selectedVal) {
     const selected = norm(selectedVal);
     if (!selected) return true;
@@ -228,10 +228,8 @@ function valueMatch(item, keys, selectedVal) {
     const actual = norm(getVal(item, keys));
     if (!actual) return false;
 
-    // 先做标准化后的完全匹配
     if (actual === selected) return true;
 
-    // 再兼容多分类字段，如 "Business and Management; Operations Research"
     const parts = actual
         .split(/[;,，；、|/]/)
         .map(s => s.trim())
@@ -260,6 +258,14 @@ async function loadAllData() {
         renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS等级2025', '影响因子']);
 
         populateFilters();
+
+        // 确保 Bootstrap tab 正常初始化
+        document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tabEl => {
+            tabEl.addEventListener('shown.bs.tab', function () {
+                window.dispatchEvent(new Event('resize'));
+            });
+        });
+
     } catch (err) {
         console.error("数据加载失败", err);
         alert("数据加载失败，请检查 data/ajg.json、data/ccf.json、data/fms.json 路径是否正确。");
@@ -279,7 +285,6 @@ function executeGlobalSearch() {
         return;
     }
 
-    // 全局检索建议不仅查期刊名，也查分类、级别
     const resAJG = dataAJG.filter(i =>
         fuzzyMatch(i, ['Journal Title', 'Field', 'AJG 2024', '影响因子'], query)
     );
@@ -382,7 +387,6 @@ function filterTable(type) {
         const mName = fuzzyMatch(i, keys, searchVal);
         const mField = valueMatch(i, fKeys, fieldVal);
         const mRank = valueMatch(i, rKeys, rankVal);
-
         return mName && mField && mRank;
     });
 
@@ -407,7 +411,6 @@ function renderTable(type, data, cols) {
         return `<tr>${cols.map(c => {
             let value = getVal(row, [c]);
 
-            // 兼容 FMS 字段名有空格的情况
             if (!value && c === 'FMS等级2025') {
                 value = getVal(row, ['FMS等级2025', 'FMS等级 2025']);
             }
@@ -469,7 +472,7 @@ function populateFilters() {
     });
 }
 
-window.onload = loadAllData;
+window.addEventListener('load', loadAllData);
 </script>
 </body>
 </html>
