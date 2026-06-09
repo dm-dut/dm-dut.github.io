@@ -242,10 +242,61 @@ h2 {
 </head>
 <body>
 
+
 <div class="main-card">
     <div class="top-bar">
-        <h2><i class="bi bi-search"></i> 期刊查询系统</h2>
-        <div class="search-box">
+
+    <h2>
+        <i class="bi bi-search"></i>
+        期刊查询系统
+    </h2>
+
+    <!-- ===== 快捷链接 ===== -->
+    <div class="d-flex align-items-center gap-2">
+
+        <a href="Award"
+           target="_blank"
+           class="btn btn-sm btn-outline-primary rounded-pill px-3">
+
+            <i class="bi bi-journal-text"></i>
+            第十届教育部人文社科奖
+
+        </a>
+
+        <a href="dufe_journal"
+           target="_blank"
+           class="btn btn-sm btn-outline-success rounded-pill px-3">
+
+            <i class="bi bi-bar-chart"></i>
+            DUFE Journal List
+
+        </a>
+
+    </div>
+
+    <!-- ===== 全局搜索 ===== -->
+    <div class="search-box">
+
+        <div class="input-group input-group-sm">
+
+            <input type="text"
+                   id="globalSearchInput"
+                   class="form-control border-0 bg-transparent"
+                   placeholder="搜索期刊（支持多关键词，空格分隔）"
+                   onkeyup="if(event.keyCode===13) executeGlobalSearch()">
+
+            <button class="btn btn-primary rounded-2 px-4 ms-2"
+                    onclick="executeGlobalSearch()">
+
+                全局检索
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
             <div class="input-group input-group-sm">
                 <input type="text" id="globalSearchInput" class="form-control border-0 bg-transparent" placeholder="搜索期刊（支持多关键词，空格分隔）" onkeyup="if(event.keyCode===13) executeGlobalSearch()">
                 <button class="btn btn-primary rounded-2 px-4 ms-2" onclick="executeGlobalSearch()">全局检索</button>
