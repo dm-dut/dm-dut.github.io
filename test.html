@@ -259,12 +259,22 @@ async function loadAllData() {
 
         populateFilters();
 
-        // 确保 Bootstrap tab 正常初始化
-        document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tabEl => {
-            tabEl.addEventListener('shown.bs.tab', function () {
-                window.dispatchEvent(new Event('resize'));
-            });
-        });
+// 切换标签时，清空该标签页筛选条件，并显示完整数据
+document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tabEl => {
+    tabEl.addEventListener('shown.bs.tab', function (event) {
+        const target = event.target.getAttribute("data-bs-target");
+
+        if (target === "#panel-ajg") {
+            resetAndShowFullTable("ajg");
+        } else if (target === "#panel-ccf") {
+            resetAndShowFullTable("ccf");
+        } else if (target === "#panel-fms") {
+            resetAndShowFullTable("fms");
+        }
+
+        window.dispatchEvent(new Event("resize"));
+    });
+});
 
     } catch (err) {
         console.error("数据加载失败", err);
@@ -351,6 +361,26 @@ function executeGlobalSearch() {
 
     html += `</tbody></table>`;
     resultDiv.innerHTML = html;
+}
+
+function resetAndShowFullTable(type) {
+    // 清空当前标签页的筛选条件
+    const searchInput = document.getElementById(`search-${type}`);
+    const fieldSelect = document.getElementById(`field-${type}`);
+    const rankSelect = document.getElementById(`rank-${type}`);
+
+    if (searchInput) searchInput.value = "";
+    if (fieldSelect) fieldSelect.value = "";
+    if (rankSelect) rankSelect.value = "";
+
+    // 重新显示当前标签页完整数据
+    if (type === "ajg") {
+        renderTable("ajg", dataAJG, ["Journal Title", "Field", "AJG 2024", "影响因子"]);
+    } else if (type === "ccf") {
+        renderTable("ccf", dataCCF, ["简称", "全称", "分类", "级别", "影响因子"]);
+    } else if (type === "fms") {
+        renderTable("fms", dataFMS, ["期刊名称", "学科", "FMS等级2025", "影响因子"]);
+    }
 }
 
 // ===============================
