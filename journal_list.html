@@ -124,6 +124,120 @@
         .table-wrap::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 3px; }
         .table-wrap::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
         .table-wrap::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+
+        body {
+    background: linear-gradient(135deg, #eef4ff 0%, #f8fafc 45%, #f3f0ff 100%);
+}
+
+.main-card {
+    border: 1px solid rgba(13,110,253,0.12);
+    box-shadow: 0 10px 35px rgba(31, 45, 61, 0.12);
+}
+
+h2 {
+    color: #0b5ed7;
+}
+
+.search-box {
+    background: linear-gradient(90deg, #f7fbff, #ffffff);
+    box-shadow: inset 0 0 0 1px rgba(13,110,253,0.08);
+}
+
+.nav-tabs {
+    border-bottom: none;
+    gap: 6px;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-radius: 999px;
+    color: #495057;
+    background: #eef2f7;
+    font-weight: 600;
+    padding: 8px 18px;
+}
+
+.nav-tabs .nav-link.active {
+    color: #fff;
+    background: linear-gradient(135deg, #0d6efd, #6610f2);
+    box-shadow: 0 4px 12px rgba(13,110,253,0.25);
+}
+
+.filter-bar {
+    background: linear-gradient(90deg, #f8fbff, #ffffff);
+    border: 1px solid #dbe7ff;
+}
+
+.table-wrap {
+    border-radius: 10px;
+    border: 1px solid #dbe7ff;
+    box-shadow: inset 0 0 0 1px rgba(13,110,253,0.03);
+}
+
+.table thead th {
+    background: #edf4ff !important;
+    color: #0b5ed7;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #eef6ff !important;
+}
+
+.badge-rank {
+    display: inline-block;
+    min-width: 38px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.78rem;
+}
+
+.rank-a, .rank-t1, .rank-4 {
+    background: #ffe8cc;
+    color: #c2410c;
+}
+
+.rank-b, .rank-t2, .rank-3 {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.rank-c, .rank-2 {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.rank-d, .rank-1 {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.rank-other {
+    background: #ede9fe;
+    color: #6d28d9;
+}
+
+.if-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 8px;
+    background: #fef3c7;
+    color: #92400e;
+    font-weight: 600;
+}
+
+.db-ajg {
+    background: #111827;
+}
+
+.db-ccf {
+    background: #198754;
+}
+
+.db-fms {
+    background: #f59e0b;
+    color: #111827;
+}
     </style>
 </head>
 <body>
@@ -329,9 +443,9 @@ function executeGlobalSearch() {
 
     const pushRows = (list, db) => {
         list.forEach(i => {
-            const badge = db === 'AJG'
-                ? 'bg-dark'
-                : (db === 'CCF' ? 'bg-success' : 'bg-warning text-dark');
+const badge = db === 'AJG'
+    ? 'db-ajg'
+    : (db === 'CCF' ? 'db-ccf' : 'db-fms');
 
             const name = db === 'CCF'
                 ? getVal(i, ['全称'])
@@ -447,11 +561,42 @@ function renderTable(type, data, cols) {
 
             if (!value) value = '-';
 
-            return `<td title="${escapeHTML(value)}">${escapeHTML(value)}</td>`;
+            return `<td title="${escapeHTML(value)}">${formatCell(c, value)}</td>`;
         }).join('')}</tr>`;
     }).join('');
 }
 
+function rankClass(value) {
+    const v = String(value || '').trim().toLowerCase();
+
+    if (v === 't1') return 'rank-t1';
+    if (v === 't2') return 'rank-t2';
+    if (v === 'a' || v === 'a*' || v === '4' || v === '4*') return 'rank-a';
+    if (v === 'b' || v === '3') return 'rank-b';
+    if (v === 'c' || v === '2') return 'rank-c';
+    if (v === 'd' || v === '1') return 'rank-d';
+
+    return 'rank-other';
+}
+
+function formatCell(col, value) {
+    const v = value || '-';
+
+    if (
+        col === '级别' ||
+        col === 'AJG 2024' ||
+        col === 'FMS等级2025' ||
+        col === 'FMS等级 2025'
+    ) {
+        return `<span class="badge-rank ${rankClass(v)}">${escapeHTML(v)}</span>`;
+    }
+
+    if (col === '影响因子' && v !== '-') {
+        return `<span class="if-badge">${escapeHTML(v)}</span>`;
+    }
+
+    return escapeHTML(v);
+}
 // ===============================
 // 下拉筛选项生成
 // ===============================
