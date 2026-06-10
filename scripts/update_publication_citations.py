@@ -1,22 +1,35 @@
 #!/usr/bin/env python3
-"""Update per-publication Google Scholar citation counts with SerpAPI.
+"""Update per-publication Google Scholar citation counts via SerpAPI.
 
-This script is designed for the homepage workflow:
-  data/publications.json -> match Google Scholar records -> write citation fields.
+What this script does
+---------------------
+1. Reads data/publications.json.
+2. Retrieves the Google Scholar author profile articles via SerpAPI.
+3. Matches each publication using English and Chinese title fields.
+4. Writes Google Scholar citation fields back to data/publications.json.
+5. Writes data/publication_citation_debug.json so you can inspect why a paper
+   did or did not get a citation count.
 
-It uses the Google Scholar Author API first, which is efficient because it gets
-records from the user's own Google Scholar profile. It also supports matching
-against both English and Chinese titles.
+Required GitHub Secret / environment variable
+---------------------------------------------
+SERPAPI_KEY
 
-Required environment variable:
-  SERPAPI_KEY
+Optional variables
+------------------
+SCHOLAR_AUTHOR_ID=vBSJplMAAAAJ
+SCHOLAR_MATCH_THRESHOLD=0.72
+SCHOLAR_MAX_ARTICLES=500
+SCHOLAR_TITLE_FALLBACK=1
+SCHOLAR_TITLE_FALLBACK_LIMIT=100
 
-Optional environment variables:
-  SCHOLAR_AUTHOR_ID=vBSJplMAAAAJ
-  SCHOLAR_MATCH_THRESHOLD=0.72
-  SCHOLAR_MAX_ARTICLES=500
-  SCHOLAR_TITLE_FALLBACK=0   # set to 1 to query by title for unmatched records
-  SCHOLAR_TITLE_FALLBACK_LIMIT=25
+Notes
+-----
+- SerpAPI response shapes differ between google_scholar_author and
+  google_scholar search results. This script extracts citation counts from
+  both `cited_by.value` and `inline_links.cited_by.total`.
+- Citation count 0 is preserved and displayed as 0.
+- If no reliable citation count is found, a Google Scholar search link is still
+  written, but the citation count remains blank.
 """
 from __future__ import annotations
 
@@ -34,14 +47,16 @@ import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBS_JSON = ROOT / "data" / "publications.json"
+DEBUG_JSON = ROOT / "data" / "publication_citation_debug.json"
 SERPAPI_URL = "https://serpapi.com/search.json"
+
 AUTHOR_ID = os.getenv("SCHOLAR_AUTHOR_ID", "vBSJplMAAAAJ")
 API_KEY = os.getenv("SERPAPI_KEY")
 MATCH_THRESHOLD = float(os.getenv("SCHOLAR_MATCH_THRESHOLD", "0.72"))
 MAX_ARTICLES = int(os.getenv("SCHOLAR_MAX_ARTICLES", "500"))
 PAGE_SIZE = 100
-TITLE_FALLBACK = os.getenv("SCHOLAR_TITLE_FALLBACK", "0").strip().lower() in {"1", "true", "yes"}
-TITLE_FALLBACK_LIMIT = int(os.getenv("SCHOLAR_TITLE_FALLBACK_LIMIT", "25"))
+TITLE_FALLBACK = os.getenv("SCHOLAR_TITLE_FALLBACK", "1").strip().lower() in {"1", "true", "yes"}
+TITLE_FALLBACK_LIMIT = int(os.getenv("SCHOLAR_TITLE_FALLBACK_LIMIT", "100"))
 
 if not API_KEY:
     raise SystemExit(
@@ -53,6 +68,8 @@ if not API_KEY:
 def clean_value(value: Any) -> str:
     """Return a display-safe string while preserving numeric 0."""
     if value is None:
+        return ""
+    if isinstance(value, bool):
         return ""
     if isinstance(value, (int, float)):
         if int(value) == value:
@@ -68,7 +85,7 @@ def normalize_title(text: Any) -> str:
     text = str(text or "").lower()
     text = re.sub(r"[\u2010-\u2015]", "-", text)
     text = text.replace("&", " and ")
-    # Keep CJK characters so Chinese titles can be matched.
+    # Keep CJK characters for Chinese-title matching.
     text = re.sub(r"[^0-9a-z\u4e00-\u9fff]+", " ", text)
     return re.sub(r"\s+", " ", text).strip()
 
@@ -100,21 +117,28 @@ def title_candidates(pub: dict[str, Any]) -> list[str]:
     titles: list[str] = []
     for key in keys:
         value = clean_value(pub.get(key))
-        if value and value not in seen:
-            titles.append(value)
-            seen.add(value)
+        if value:
+            norm = normalize_title(value)
+            if norm and norm not in seen:
+                titles.append(value)
+                seen.add(norm)
     return titles
 
 
-def extract_citation_count(article: dict[str, Any]) -> str:
-    """Extract citation count from multiple SerpAPI response shapes.
+def parse_count(value: Any) -> str:
+    text = clean_value(value)
+    if text == "0":
+        return "0"
+    if not text:
+        return ""
+    m = re.search(r"\d[\d,]*", text)
+    if m:
+        return m.group(0).replace(",", "")
+    return ""
 
-    SerpAPI may return Author API records such as:
-      cited_by: {"value": 35, "link": "..."}
-    Search API records may instead return:
-      inline_links: {"cited_by": {"total": 35, "link": "..."}}
-    This function handles both and parses strings such as "Cited by 35".
-    """
+
+def extract_citation_count(article: dict[str, Any]) -> str:
+    """Extract citation count from SerpAPI author/search response shapes."""
     candidates: list[Any] = []
 
     cited_by = article.get("cited_by")
@@ -140,18 +164,24 @@ def extract_citation_count(article: dict[str, Any]) -> str:
         elif inline_cited_by is not None:
             candidates.append(inline_cited_by)
 
-    for value in candidates:
-        text = clean_value(value)
-        if text == "0":
-            return "0"
-        if text:
-            m = re.search(r"\d[\d,]*", text)
-            if m:
-                return m.group(0).replace(",", "")
-            return text
+    # Some SerpAPI records put citation data in resources/snippet-like fields.
+    for key in ["snippet", "result_id", "publication_info"]:
+        val = article.get(key)
+        if isinstance(val, str):
+            candidates.append(val)
+        elif isinstance(val, dict):
+            candidates.extend(val.values())
 
-    # If a Scholar record is matched but no citation block is present, treat it as 0.
-    return "0"
+    for candidate in candidates:
+        count = parse_count(candidate)
+        if count != "":
+            return count
+
+    return ""
+
+
+def has_citation_metadata(article: dict[str, Any]) -> bool:
+    return bool(article.get("cited_by") or (isinstance(article.get("inline_links"), dict) and article.get("inline_links", {}).get("cited_by")))
 
 
 def extract_record_link(article: dict[str, Any]) -> str:
@@ -169,7 +199,6 @@ def extract_cited_by_link(article: dict[str, Any]) -> str:
             link = clean_value(cited_by.get(key))
             if link:
                 return link
-
     inline_links = article.get("inline_links")
     if isinstance(inline_links, dict):
         inline_cited_by = inline_links.get("cited_by")
@@ -179,6 +208,10 @@ def extract_cited_by_link(article: dict[str, Any]) -> str:
                 if link:
                     return link
     return ""
+
+
+def google_scholar_search_url(title: str) -> str:
+    return f"https://scholar.google.com/scholar?q={quote_plus(title)}" if title else ""
 
 
 def fetch_author_articles() -> list[dict[str, Any]]:
@@ -222,10 +255,10 @@ def best_article_match(pub: dict[str, Any], articles: list[dict[str, Any]]) -> t
     return best, best_score, best_local_title
 
 
-def fetch_title_fallback(title: str) -> dict[str, Any] | None:
-    """Optional fallback: query Google Scholar by title if author profile matching fails."""
+def fetch_title_fallback(title: str) -> tuple[dict[str, Any] | None, float]:
+    """Query Google Scholar by title and return best matching organic result."""
     if not title:
-        return None
+        return None, 0.0
     params = {
         "engine": "google_scholar",
         "q": f'"{title}"',
@@ -237,8 +270,6 @@ def fetch_title_fallback(title: str) -> dict[str, Any] | None:
     response.raise_for_status()
     payload = response.json()
     organic = payload.get("organic_results") or []
-    if not organic:
-        return None
     best = None
     best_score = 0.0
     for result in organic:
@@ -247,30 +278,26 @@ def fetch_title_fallback(title: str) -> dict[str, Any] | None:
             best = result
             best_score = score
     if best and best_score >= MATCH_THRESHOLD:
-        best["_fallback_match_score"] = best_score
-        return best
-    return None
+        return best, best_score
+    return None, best_score
 
 
-def google_scholar_search_url(title: str) -> str:
-    return f"https://scholar.google.com/scholar?q={quote_plus(title)}" if title else ""
-
-
-def update_publication(pub: dict[str, Any], article: dict[str, Any], score: float, matched_title: str, today: str) -> None:
+def write_publication_fields(pub: dict[str, Any], article: dict[str, Any], score: float, matched_title: str, today: str, source: str) -> None:
+    count = extract_citation_count(article)
     record_link = extract_record_link(article) or google_scholar_search_url(matched_title)
     cited_by_url = extract_cited_by_link(article)
-    pub["google_scholar_citations"] = extract_citation_count(article)
+
+    pub["google_scholar_citations"] = count
     pub["google_scholar_url"] = record_link
-    pub["google_scholar_link"] = record_link  # compatibility with older front-end code
+    pub["google_scholar_link"] = record_link
     pub["google_scholar_cited_by_url"] = cited_by_url
     pub["citation_updated"] = today
     pub["citation_match_score"] = round(score, 3)
     pub["citation_matched_title"] = clean_value(article.get("title"))
+    pub["citation_source"] = source
 
 
 def clear_publication(pub: dict[str, Any], today: str) -> None:
-    # Keep a Scholar search link so the front end can still provide a path to Scholar,
-    # but leave citations blank because no reliable count was found.
     titles = title_candidates(pub)
     title = titles[0] if titles else ""
     search = google_scholar_search_url(title)
@@ -281,6 +308,7 @@ def clear_publication(pub: dict[str, Any], today: str) -> None:
     pub["citation_updated"] = today
     pub["citation_match_score"] = ""
     pub["citation_matched_title"] = ""
+    pub["citation_source"] = "search_link_only"
 
 
 def main() -> None:
@@ -296,48 +324,80 @@ def main() -> None:
     matched = 0
     unmatched = 0
     fallback_used = 0
+    debug_rows: list[dict[str, Any]] = []
 
     for pub in publications:
+        titles = title_candidates(pub)
+        first_title = titles[0] if titles else "Untitled"
         article, score, matched_title = best_article_match(pub, articles)
+        source = "author_profile"
 
+        # Use Author API match when reliable. If it has no citation metadata,
+        # query by title so inline_links.cited_by.total can be extracted.
+        should_try_fallback = False
         if article and score >= MATCH_THRESHOLD:
-            update_publication(pub, article, score, matched_title, today)
-            matched += 1
-            print(
-                f"MATCH {matched:03d}: citations={pub['google_scholar_citations']} "
-                f"score={score:.3f} :: {matched_title[:90]}"
-            )
-            continue
+            author_count = extract_citation_count(article)
+            if author_count != "" or has_citation_metadata(article):
+                write_publication_fields(pub, article, score, matched_title, today, source)
+                matched += 1
+                print(f"MATCH {matched:03d}: citations={pub['google_scholar_citations']} score={score:.3f} :: {matched_title[:90]}")
+                debug_rows.append({
+                    "title": first_title,
+                    "status": "matched_author_profile",
+                    "citations": pub.get("google_scholar_citations", ""),
+                    "score": round(score, 3),
+                    "matched_title": pub.get("citation_matched_title", ""),
+                    "source": source,
+                })
+                continue
+            should_try_fallback = True
+        else:
+            should_try_fallback = True
 
         used_fallback = False
-        if TITLE_FALLBACK and fallback_used < TITLE_FALLBACK_LIMIT:
-            for title in title_candidates(pub):
-                fallback_article = fetch_title_fallback(title)
+        if TITLE_FALLBACK and fallback_used < TITLE_FALLBACK_LIMIT and should_try_fallback:
+            for title in titles:
+                fallback_article, fallback_score = fetch_title_fallback(title)
                 fallback_used += 1
                 time.sleep(0.5)
                 if fallback_article:
-                    fscore = float(fallback_article.get("_fallback_match_score", MATCH_THRESHOLD))
-                    update_publication(pub, fallback_article, fscore, title, today)
+                    write_publication_fields(pub, fallback_article, fallback_score, title, today, "title_search")
                     matched += 1
                     used_fallback = True
-                    print(
-                        f"FALLBACK MATCH {matched:03d}: citations={pub['google_scholar_citations']} "
-                        f"score={fscore:.3f} :: {title[:90]}"
-                    )
+                    print(f"FALLBACK MATCH {matched:03d}: citations={pub['google_scholar_citations']} score={fallback_score:.3f} :: {title[:90]}")
+                    debug_rows.append({
+                        "title": first_title,
+                        "status": "matched_title_search",
+                        "citations": pub.get("google_scholar_citations", ""),
+                        "score": round(fallback_score, 3),
+                        "matched_title": pub.get("citation_matched_title", ""),
+                        "source": "title_search",
+                    })
+                    break
+                if fallback_used >= TITLE_FALLBACK_LIMIT:
                     break
 
         if not used_fallback:
             clear_publication(pub, today)
             unmatched += 1
-            first_title = title_candidates(pub)[0] if title_candidates(pub) else "Untitled"
             print(f"NO MATCH: {first_title[:90]}")
+            debug_rows.append({
+                "title": first_title,
+                "status": "not_matched",
+                "citations": "",
+                "score": round(score, 3) if score else "",
+                "matched_title": clean_value(article.get("title")) if article else "",
+                "source": "search_link_only",
+            })
 
     PUBS_JSON.write_text(json.dumps(publications, ensure_ascii=False, indent=2), encoding="utf-8")
+    DEBUG_JSON.write_text(json.dumps(debug_rows, ensure_ascii=False, indent=2), encoding="utf-8")
     print(
         "Updated publication Google Scholar data: "
         f"matched={matched}, unmatched={unmatched}, author_articles={len(articles)}, "
         f"title_fallback_used={fallback_used}, threshold={MATCH_THRESHOLD}"
     )
+    print(f"Debug report written to {DEBUG_JSON}")
 
 
 if __name__ == "__main__":
