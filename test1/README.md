@@ -54,3 +54,57 @@ News text is displayed as plain text. When a link is available, only a small act
 - The portrait is referenced as `images/zz.jpg`; put your photo there.
 - Switching tabs resets filters/searches to their initial state.
 - Google Scholar metrics are read from `data/scholar_stats.json`; edit it manually or use an API/script updater.
+
+
+## Google Scholar metrics
+
+The homepage reads Google Scholar metrics from `data/scholar_stats.json`. You can maintain this file manually, or set a GitHub Actions secret named `SERPAPI_KEY` to let `scripts/update_scholar.py` update the JSON automatically via SerpAPI. The optional secret `SCHOLAR_AUTHOR_ID` defaults to `vBSJplMAAAAJ`.
+
+## Google Scholar and Publication Citation Updates (v10)
+
+This version supports automatic Google Scholar updates through SerpAPI.
+
+### What is updated automatically
+
+When `SERPAPI_KEY` is configured in GitHub repository secrets, the weekly GitHub Action will:
+
+1. update `data/scholar_stats.json` for homepage-level indicators: citations, h-index, and i10-index;
+2. regenerate `data/publications.json` from `publication_database.xlsx`;
+3. query the Google Scholar author profile and add per-publication citation counts for non-Chinese publications;
+4. keep Chinese publications citation-free on the webpage, as requested.
+
+### DOI display
+
+The DOI is stored in each publication record as `doi`. The webpage displays it as:
+
+```text
+DOI: 10.xxxx/xxxxx
+```
+
+and links it to `https://doi.org/<doi>`.
+
+### Required GitHub Secret
+
+Add this repository secret:
+
+```text
+SERPAPI_KEY
+```
+
+Optional repository variable:
+
+```text
+SCHOLAR_AUTHOR_ID=vBSJplMAAAAJ
+```
+
+If `SCHOLAR_AUTHOR_ID` is not set, the scripts use `vBSJplMAAAAJ` by default.
+
+### Manual run
+
+In GitHub, go to:
+
+```text
+Actions → Update homepage data → Run workflow
+```
+
+This immediately refreshes the Scholar statistics and publication citation counts.

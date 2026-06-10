@@ -71,9 +71,9 @@ async function renderScholar(){
   $("#gs-i10").textContent = i10;
   $("#gs-updated").textContent = updated;
   const profile = SITE_CONFIG.scholar.profileUrl || "";
-  const unavailable = [citations,hindex,i10].every(v => !v || v === "—");
-  const note = s.note || fallback.note || "";
-  $("#gs-status").innerHTML = `${profile ? `<a href="${esc(profile)}" target="_blank" rel="noopener">Google Scholar profile</a>` : ""}${unavailable ? `<span>${esc(note || "Metrics are loaded from data/scholar_stats.json. Run scripts/update_scholar.py or edit this JSON to refresh them.")}</span>` : ""}`;
+  const cleanUpdated = (/^\d{4}[-/]\d{1,2}[-/]\d{1,2}$|^\d{4}[-/]\d{1,2}$/.test(String(updated))) ? updated : "";
+  const updatedText = cleanUpdated ? `<span>Updated: ${esc(cleanUpdated)}</span>` : "";
+  $("#gs-status").innerHTML = `${profile ? `<a href="${esc(profile)}" target="_blank" rel="noopener">Google Scholar profile</a>` : ""}${updatedText}`;
 }
 
 function sortByDateDesc(a,b){ return String(b.date||"").localeCompare(String(a.date||"")); }
@@ -143,13 +143,37 @@ function tagHtml(p){
   if(p.note) tags.push(p.note);
   return tags.map(t => `<span class="pub-tag">${esc(t)}</span>`).join("");
 }
+function doiUrl(doi){
+  if(!doi) return "";
+  const d = String(doi).replace(/^https?:\/\/(dx\.)?doi\.org\//i, "").trim();
+  return d ? `https://doi.org/${d}` : "";
+}
+function publicationExtraHtml(p){
+  const parts = [];
+  const doi = (p.doi || "").toString().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "").trim();
+  if(doi){
+    parts.push(`<a class="pub-doi" href="${esc(doiUrl(doi))}" target="_blank" rel="noopener">DOI: ${esc(doi)}</a>`);
+  }
+  const isChinese = String(p.language || "").toLowerCase().startsWith("zh") || String(p.language || "").includes("中文");
+  const cites = p.google_scholar_citations ?? p.citations ?? "";
+  if(!isChinese && cites !== "" && cites !== null && String(cites) !== "—"){
+    const label = `Google Scholar Citations: ${esc(cites)}`;
+    if(p.google_scholar_url){
+      parts.push(`<a class="pub-citations" href="${esc(p.google_scholar_url)}" target="_blank" rel="noopener">${label}</a>`);
+    }else{
+      parts.push(`<span class="pub-citations">${label}</span>`);
+    }
+  }
+  return parts.length ? `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div>` : "";
+}
 function formatPublication(p){
-  const link = p.link || (p.doi ? `https://doi.org/${p.doi}` : "");
+  const link = p.link || doiUrl(p.doi);
   const title = link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(p.title || "")}</a>` : esc(p.title || "");
   return `<article class="pub">
     <div class="pub-title">${title}</div>
     <div class="pub-authors">${authorHtml(p.authors)}</div>
     <div class="pub-meta">${esc(detailLine(p))}</div>
+    ${publicationExtraHtml(p)}
     ${tagHtml(p) ? `<div class="pub-tags">${tagHtml(p)}</div>` : ""}
   </article>`;
 }

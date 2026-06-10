@@ -26,6 +26,6 @@ window.SITE_CONFIG = {
   scholar: {
     statsJson: "data/scholar_stats.json",
     profileUrl: "https://scholar.google.com/citations?hl=zh-CN&user=vBSJplMAAAAJ",
-    fallbackStats: { citations: "—", h_index: "—", i10_index: "—", updated: "not updated" }
+    fallbackStats: { citations: "—", h_index: "—", i10_index: "—", updated: "" }
   }
 };

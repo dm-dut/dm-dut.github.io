@@ -2,7 +2,6 @@
   "citations": "—",
   "h_index": "—",
   "i10_index": "—",
-  "updated": "not updated",
-  "profile_url": "https://scholar.google.com/citations?hl=zh-CN&user=vBSJplMAAAAJ",
-  "note": "Google Scholar blocks direct browser-side scraping. Update this file manually or by scripts/update_scholar.py / third-party API."
+  "updated": "",
+  "profile_url": "https://scholar.google.com/citations?hl=zh-CN&user=vBSJplMAAAAJ"
 }

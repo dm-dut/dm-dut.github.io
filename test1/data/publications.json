@@ -1,6 +1,7 @@
 [
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2026",
     "title": "Tourism demand forecasting with multi-source data: a hybrid model incorporating seasonal-trend decomposition",
     "authors": [
@@ -29,6 +30,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "zh",
     "year": "2026",
     "title": "A multi-criteria preference learning method considering context-dependent decision behavior",
     "authors": [
@@ -57,6 +59,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2026",
     "title": "Targeting the right person: An optimization-driven framework for persuader selection in social networks with opinion evolution",
     "authors": [
@@ -88,6 +91,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2026",
     "title": "Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective",
     "authors": [
@@ -119,6 +123,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2026",
     "title": "KRAM: Knowledge-driven robust training against label noise for medication recommendation",
     "authors": [
@@ -146,6 +151,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2026",
     "title": "Integrating personalized individual semantics and consistency control to support consensus reaching in 2-rank group decision making",
     "authors": [
@@ -177,6 +183,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2026",
     "title": "Preference learning for multi-criteria sorting with interacting criteria: A framework integrating threshold-based value-driven sorting procedure with attention network",
     "authors": [
@@ -205,6 +212,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "Carbon price prediction for China's ETS pilots using variational mode decomposition and optimized extreme learning machine",
     "authors": [
@@ -233,6 +241,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "Dynamic nonlinear connectedness between the green bonds, clean energy, and stock price: the impact of the COVID-19 pandemic",
     "authors": [
@@ -264,6 +273,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "A stability analysis for the online retailing cyber security situation piecewise variable weight rating method",
     "authors": [
@@ -292,6 +302,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "Lexicographic optimization-based approaches to learning a representative model for multi-criteria sorting with non-monotonic criteria",
     "authors": [
@@ -321,6 +332,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "An incremental preference elicitation-based approach to learning potentially non-monotonic preferences in multi-criteria sorting",
     "authors": [
@@ -351,6 +363,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "Generation of granular-balls for clustering based on the principle of justifiable granularity",
     "authors": [
@@ -380,6 +393,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "Modeling personalized individual semantics in multicriteria decision making with incomplete linguistic preference relations: A preference disaggregation perspective",
     "authors": [
@@ -408,6 +422,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "Constructive preference elicitation for multi-criteria decision analysis using an estimate-then-select strategy",
     "authors": [
@@ -436,6 +451,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "Social network group decision making: Characterization, taxonomy, challenges and future directions from an AI and LLMs perspective",
     "authors": [
@@ -470,6 +486,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "Automatic consensus models to balance consensus cost, consistency level and consensus degree with attitudinal trust mechanism",
     "authors": [
@@ -500,6 +517,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2025",
     "title": "Integrating machine learning models to learn potentially non-monotonic preferences for multi-criteria sorting from large-scale assignment examples",
     "authors": [
@@ -530,6 +548,7 @@
   },
   {
     "type": "Monograph",
+    "language": "en",
     "year": "2024",
     "title": "Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty - Theories, Methods and Applications",
     "authors": [
@@ -554,6 +573,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2024",
     "title": "A quality function deployment model by social network and group decision making: Application to product design of e-commerce platforms",
     "authors": [
@@ -584,6 +604,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2024",
     "title": "Threshold-based value-driven method to support consensus reaching in multicriteria group sorting problems: A minimum adjustment perspective",
     "authors": [
@@ -612,6 +633,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2024",
     "title": "Mining maximum ordinal-cardinal consensus for large-scale group decision making with incomplete fuzzy preference relations",
     "authors": [
@@ -641,6 +663,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2024",
     "title": "Consensus reaching for ordinal classification-based group decision making with heterogeneous preference information",
     "authors": [
@@ -672,6 +695,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2023",
     "title": "Consensus-based TOPSIS-Sort-B for multi-criteria sorting in the context of group decision-making",
     "authors": [
@@ -700,6 +724,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2023",
     "title": "A sentiment analysis driven method based on public and personal preferences with correlated attributes to select online doctors",
     "authors": [
@@ -732,6 +757,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2023",
     "title": "Consensus-trust driven bidirectional feedback mechanism for improving consensus in social network large-group decision making",
     "authors": [
@@ -765,6 +791,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2023",
     "title": "Consensus reaching in multi-criteria social network group decision making: A stochastic multicriteria acceptability analysis-based method",
     "authors": [
@@ -796,6 +823,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "zh",
     "year": "2023",
     "title": "A consensus model for group decision making by considering personalized individual semantics and consistency",
     "authors": [
@@ -822,6 +850,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2023",
     "title": "Application of group decision making in shipping industry 4.0: Bibliometric analysis, trends, and future directions",
     "authors": [
@@ -854,6 +883,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2022",
     "title": "Consensus reaching with consistency control in group decision making with incomplete hesitant fuzzy linguistic preference relations",
     "authors": [
@@ -883,6 +913,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2022",
     "title": "Classification-based strategic weight manipulation in multiple attribute decision making",
     "authors": [
@@ -913,6 +944,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2022",
     "title": "Personalized individual semantics-based consistency control and consensus reaching in linguistic group decision making",
     "authors": [
@@ -943,6 +975,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2022",
     "title": "An adaptive group decision making framework: Individual and local world opinion based opinion dynamics",
     "authors": [
@@ -973,6 +1006,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2022",
     "title": "A stock price forecasting model integrating complementary ensemble empirical mode decomposition and independent component analysis",
     "authors": [
@@ -1003,6 +1037,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2022",
     "title": "Adaptive spectral affinity propagation clustering",
     "authors": [
@@ -1032,6 +1067,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2022",
     "title": "Consensus reaching with non-cooperative behavior management for personalized individual semantics-based social network group decision making",
     "authors": [
@@ -1063,6 +1099,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2022",
     "title": "Regional imbalances of market efficiency in China's pilot emission trading schemes (ETS): A multifractal perspective",
     "authors": [
@@ -1092,6 +1129,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2021",
     "title": "Consensus reaching for MAGDM with multi-granular hesitant fuzzy linguistic term sets: a minimum adjustment-based approach",
     "authors": [
@@ -1121,6 +1159,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2021",
     "title": "Two-sided matching decision making with multi-granular hesitant fuzzy linguistic term sets and incomplete criteria weight information",
     "authors": [
@@ -1152,6 +1191,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2021",
     "title": "Consensus reaching for group decision making with multi-granular unbalanced linguistic information: A bounded confidence and minimum adjustment-based approach",
     "authors": [
@@ -1181,6 +1221,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2021",
     "title": "Distributed linguistic representations in decision making: Taxonomy, key elements and applications, and challenges in data science and explainable artificial intelligence",
     "authors": [
@@ -1216,6 +1257,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2021",
     "title": "A simulation research towards better leverage of sales ranking",
     "authors": [
@@ -1246,6 +1288,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "zh",
     "year": "2021",
     "title": "Consensus reaching in group decision making: Research progress and prospect",
     "authors": [
@@ -1276,6 +1319,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2021",
     "title": "Consistency improvement for fuzzy preference relations with self-confidence: An application in two-sided matching decision making",
     "authors": [
@@ -1308,6 +1352,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2020",
     "title": "Volatility similarity and spillover effects in G20 stock market comovements: An ICA-based ARMA-APARCH-M approach",
     "authors": [
@@ -1338,6 +1383,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2020",
     "title": "Managing multigranular unbalanced hesitant fuzzy linguistic information in multiattribute large-scale group decision making: A linguistic distribution-based approach",
     "authors": [
@@ -1369,6 +1415,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2020",
     "title": "Consensus reaching for social network group decision making by considering leadership and bounded confidence",
     "authors": [
@@ -1398,6 +1445,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2020",
     "title": "Some models to improve the worst consistency level of hesitant fuzzy preference relations",
     "authors": [
@@ -1424,6 +1472,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2019",
     "title": "Stable two-sided matching decision making with incomplete fuzzy preference relations: A disappointment theory based approach",
     "authors": [
@@ -1455,6 +1504,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2019",
     "title": "Evaluating collaboration ability of R&D team members: A multi-granular hesitant fuzzy linguistic approach",
     "authors": [
@@ -1482,6 +1532,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2019",
     "title": "Grey group QUALIFLEX method: Application in project management",
     "authors": [
@@ -1510,6 +1561,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2019",
     "title": "Group decision making with linguistic distribution preference relations: An interval numerical scale-based approach",
     "authors": [
@@ -1537,6 +1589,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2018",
     "title": "Additive consistency analysis and improvement for hesitant fuzzy preference relations",
     "authors": [
@@ -1566,6 +1619,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2018",
     "title": "A reducibility method for the weak linear bilevel programming problems and a case study in principal-agent",
     "authors": [
@@ -1595,6 +1649,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2018",
     "title": "On priority weights and consistency for incomplete hesitant fuzzy preference relations",
     "authors": [
@@ -1626,6 +1681,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "zh",
     "year": "2018",
     "title": "Multi-granular hesitant fuzzy linguistic group decision making with incomplete weight information",
     "authors": [
@@ -1654,6 +1710,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2018",
     "title": "An optimization-based approach to aggregating multi-granular hesitant fuzzy linguistic term sets",
     "authors": [
@@ -1679,6 +1736,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2017",
     "title": "Extended TODIM for multi-criteria group decision making based on unbalanced hesitant fuzzy linguistic term sets",
     "authors": [
@@ -1710,6 +1768,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2017",
     "title": "Managing multigranular linguistic distribution assessments in large-scale multiattribute group decision making",
     "authors": [
@@ -1741,6 +1800,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2017",
     "title": "Deriving priority weights from intuitionistic multiplicative preference relations under group decision-making settings",
     "authors": [
@@ -1770,6 +1830,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2017",
     "title": "Textual topic evolution analysis based on term co-occurrence: A case study on the government work report of the State Council (1954-2017)",
     "authors": [
@@ -1798,6 +1859,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2017",
     "title": "Two-sided matching decision making based on heterogeneous incomplete preference relations",
     "authors": [
@@ -1825,6 +1887,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2017",
     "title": "A TODIM-based approach to large-scale group decision making with multi-granular unbalanced linguistic information",
     "authors": [
@@ -1852,6 +1915,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2016",
     "title": "Notes on \"Logarithmic least squares method to priority for group decision making with incomplete fuzzy preference relations\"",
     "authors": [
@@ -1879,6 +1943,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2016",
     "title": "A VIKOR-based approach to group decision making with uncertain preference ordinals and incomplete weight information",
     "authors": [
@@ -1907,6 +1972,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2016",
     "title": "Fusion of heterogeneous incomplete hesitant preference relations in group decision making",
     "authors": [
@@ -1934,6 +2000,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2016",
     "title": "Consistency and consensus models for group decision-making with uncertain 2-tuple linguistic preference relations",
     "authors": [
@@ -1962,6 +2029,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2016",
     "title": "Group decision making based on acceptably consistent interval multiplicative preference relations",
     "authors": [
@@ -1989,6 +2057,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2016",
     "title": "Fusing multi-granular unbalanced hesitant fuzzy linguistic information in group decision making",
     "authors": [
@@ -2016,6 +2085,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2016",
     "title": "Minimum adjustment-based consistency and consensus models for group decision making with interval pairwise comparison matrices",
     "authors": [
@@ -2042,6 +2112,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2015",
     "title": "New operations of hesitant fuzzy linguistic term sets with applications in multi-attribute group decision making",
     "authors": [
@@ -2068,6 +2139,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2014",
     "title": "An approach to group decision making with heterogeneous incomplete uncertain preference relations",
     "authors": [
@@ -2095,6 +2167,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2014",
     "title": "Consistency-based algorithms to estimate missing elements for uncertain 2-tuple linguistic preference relations",
     "authors": [
@@ -2122,6 +2195,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2014",
     "title": "Evolutionary community structure discovery in dynamic weighted networks",
     "authors": [
@@ -2150,6 +2224,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2013",
     "title": "A fuzzy tri-level decision making algorithm and its application in supply chain",
     "authors": [
@@ -2178,6 +2253,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "zh",
     "year": "2012",
     "title": "A multi-granularity uncertain linguistic group decision making method based on relative entropy",
     "authors": [
@@ -2203,6 +2279,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2012",
     "title": "A method for multi-granularity uncertain linguistic group decision making with incomplete weight information",
     "authors": [
@@ -2230,6 +2307,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "zh",
     "year": "2011",
     "title": "Multiple attributes group decision making method based on two-tuple linguistic information processing",
     "authors": [
@@ -2255,6 +2333,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "en",
     "year": "2011",
     "title": "Association rules evaluation by a hybrid multiple criteria decision method",
     "authors": [
@@ -2278,6 +2357,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "zh",
     "year": "2011",
     "title": "Asymmetric and heteroskedastic model of volatility of international stock index and its clustering analysis",
     "authors": [
@@ -2304,6 +2384,7 @@
   },
   {
     "type": "Journal Article",
+    "language": "zh",
     "year": "2011",
     "title": "Interestingness evaluation of association rules based on combination evaluation method",
     "authors": [
@@ -2330,6 +2411,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2011",
     "title": "A hybrid multiple attributes two-sided matching decision making method with incomplete weight information",
     "authors": [
@@ -2355,6 +2437,7 @@
   },
   {
     "type": "Conference Paper",
+    "language": "en",
     "year": "2009",
     "title": "Ranking Association Rules by TOPSIS Method with Combination Weights",
     "authors": [

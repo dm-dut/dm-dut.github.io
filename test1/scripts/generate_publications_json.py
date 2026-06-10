@@ -7,6 +7,7 @@ Rules used for the current homepage:
 - Include published and formally accepted records, including Chinese-language records
   when English title/source fields are available.
 - DOI links are generated as https://doi.org/<DOI>; records without DOI keep link empty.
+- The Language column is preserved so Chinese papers can be excluded from citation display.
 """
 from __future__ import annotations
 import json
@@ -150,8 +151,11 @@ def convert(input_xlsx: Path, output_json: Path) -> list[dict[str, Any]]:
         if not (title or venue or authors):
             continue
         doi, link = doi_link(clean(row.get("DOI")))
+        language_raw = clean(row.get("Language"))
+        language = "zh" if ("中文" in language_raw or language_raw.lower().startswith("zh")) else ("en" if ("英文" in language_raw or language_raw.lower().startswith("en")) else language_raw)
         rec = {
             "type": pub_type,
+            "language": language,
             "year": year_value(row.get("Year")),
             "title": title,
             "authors": authors,
