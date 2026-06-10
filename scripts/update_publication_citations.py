@@ -115,11 +115,17 @@ def best_match(pub: dict[str, Any], articles: list[dict[str, Any]]) -> tuple[dic
 
 
 def citation_value(article: dict[str, Any]) -> str:
+    """Return the citation count as a string.
+
+    SerpAPI/Google Scholar may omit the cited_by object for papers with zero
+    citations. In that case, keep the matched Scholar record and explicitly
+    store 0 so the website can still show the Scholar link.
+    """
     cited_by = article.get("cited_by") or {}
     if isinstance(cited_by, dict):
-        value = cited_by.get("value", "")
-        return "" if value in (None, "") else str(value)
-    return ""
+        value = cited_by.get("value", 0)
+        return "0" if value in (None, "") else str(value)
+    return "0"
 
 
 def scholar_record_link(article: dict[str, Any]) -> str:

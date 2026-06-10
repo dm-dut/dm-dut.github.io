@@ -213,13 +213,16 @@ function publicationExtraHtml(p, idx){
   if(doi){
     parts.push(`<a class="pub-doi" href="${esc(doiUrl(doi))}" target="_blank" rel="noopener">DOI: ${esc(doi)}</a>`);
   }
-  const isChinese = String(p.language || "").toLowerCase().startsWith("zh") || String(p.language || "").includes("中文");
-  const cites = p.google_scholar_citations ?? p.citations ?? "";
-  if(!isChinese && cites !== "" && cites !== null && String(cites) !== "—"){
+  const isChinese = String(p.language || "").toLowerCase().startsWith("zh") || String(p.language || "").includes("中文") || p.show_citations === false;
+  const citesRaw = p.google_scholar_citations ?? p.citations ?? "";
+  const hasScholarLink = !!p.google_scholar_url;
+  if(!isChinese && (hasScholarLink || (citesRaw !== "" && citesRaw !== null && String(citesRaw) !== "—"))){
+    const cites = (citesRaw === "" || citesRaw === null || String(citesRaw) === "—") ? "0" : citesRaw;
     const label = `Google Scholar Citations: ${esc(cites)}`;
-    // Link to the Google Scholar record for this paper when available; the separate
-    // cited-by URL is stored as google_scholar_cited_by_url for future use.
-    if(p.google_scholar_url){
+    // Always show the Google Scholar record link when available, including papers
+    // with zero citations. The cited-by URL is kept separately as
+    // google_scholar_cited_by_url for future use.
+    if(hasScholarLink){
       parts.push(`<a class="pub-citations" href="${esc(p.google_scholar_url)}" target="_blank" rel="noopener">${label}</a>`);
     }else{
       parts.push(`<span class="pub-citations">${label}</span>`);
@@ -300,6 +303,7 @@ function renderGroup(){
 
 async function init(){
   initTabs();
+  initBibtexButtons();
   renderProfile();
   renderScholar();
   const [news, awards, grants, services, group, publications] = await Promise.all([
