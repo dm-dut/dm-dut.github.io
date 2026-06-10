@@ -41,18 +41,27 @@ function renderProfile(){
 }
 
 async function renderScholar(){
-  const s = await loadJson(SITE_CONFIG.scholar.statsJson, {});
-  $("#gs-citations").textContent = s.citations || "—";
-  $("#gs-hindex").textContent = s.h_index || s.hindex || "—";
-  $("#gs-i10").textContent = s.i10_index || s.i10 || "—";
-  $("#gs-updated").textContent = s.updated || "—";
+  const fallback = SITE_CONFIG.scholar.fallbackStats || {};
+  const s = await loadJson(SITE_CONFIG.scholar.statsJson, fallback);
+  const citations = s.citations || fallback.citations || "—";
+  const hindex = s.h_index || s.hindex || fallback.h_index || "—";
+  const i10 = s.i10_index || s.i10 || fallback.i10_index || "—";
+  const updated = s.updated || fallback.updated || "not updated";
+  $("#gs-citations").textContent = citations;
+  $("#gs-hindex").textContent = hindex;
+  $("#gs-i10").textContent = i10;
+  $("#gs-updated").textContent = updated;
+  const profile = SITE_CONFIG.scholar.profileUrl || "";
+  const unavailable = [citations,hindex,i10].every(v => !v || v === "—");
+  $("#gs-status").innerHTML = `${profile ? `<a href="${esc(profile)}" target="_blank" rel="noopener">Google Scholar profile</a>` : ""}${unavailable ? `<span>Run <code>scripts/update_scholar.py</code> to refresh local metrics.</span>` : ""}`;
 }
 
 function sortByDateDesc(a,b){ return String(b.date||"").localeCompare(String(a.date||"")); }
 function yearOfDate(d){ return String(d||"").slice(0,4); }
 
 function renderNewsItem(n){
-  const link = externalLink(n.link, n.link_text || "More");
+  const isTalkDoi = String(n.category||"").toLowerCase() === "talk" && /doi\.org/i.test(String(n.link||""));
+  const link = isTalkDoi ? "" : externalLink(n.link, n.link_text || "More");
   return `<li class="item news-item"><span class="item-date">${esc(n.date)}</span><span class="tag">${esc(n.category||"News")}</span><span class="news-text">${esc(n.content)}</span>${link}</li>`;
 }
 
@@ -159,7 +168,8 @@ function renderServices(){
     <div class="service-group">
       <h3>${esc(cat)}</h3>
       <ul>${items.map(s=>{
-        const text = [s.role, s.item || s.organization, s.period].filter(Boolean).join(", ");
+        const main = s.item || [s.role, s.organization].filter(Boolean).join(", ");
+        const text = s.period ? `${main}, ${s.period}` : main;
         return `<li>${esc(text)}</li>`;
       }).join("")}</ul>
     </div>`).join("");
@@ -171,7 +181,8 @@ function renderGrants(){
   }).join("");
 }
 function renderAwards(){
-  $("#awards-list").innerHTML = (DATA.awards||[]).map(a => `<li class="item"><span class="item-date">${esc(a.year)}</span>${esc(a.title)}${a.organization ? ` — ${esc(a.organization)}` : ""}</li>`).join("");
+  const items = (DATA.awards||[]).slice().sort((a,b)=>String(b.year||"").localeCompare(String(a.year||"")));
+  $("#awards-list").innerHTML = items.map(a => `<li class="item award-item"><span class="item-date">${esc(a.year)}</span><span>${esc(a.title)}${a.organization ? ` — ${esc(a.organization)}` : ""}</span></li>`).join("");
 }
 function renderGroup(){
   const groups = {};

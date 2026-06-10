@@ -36,3 +36,13 @@ The current generator outputs English records only and keeps formally published/
 ## News links
 
 News text is displayed as plain text. When a link is available, only a small action label such as `DOI`, `Conference`, or `More` is linked.
+
+
+## v5 notes
+
+- Home keeps the full biography from the original homepage.
+- News links are rendered as small links only; talk items do not use DOI links by default.
+- Awards with year ranges are split into individual yearly records in `data/awards.json`.
+- Special-session service entries use full conference names plus abbreviations.
+- Publications are generated from `publication_database.xlsx` by `scripts/generate_publications_json.py`; working papers and non-English records are excluded. DOI links are generated as `https://doi.org/{DOI}`.
+- Scholar metrics are read from `data/scholar_stats.json`; when opened locally and fetch is blocked, the page shows a profile link and a refresh hint.

@@ -8,7 +8,7 @@ Design choices
 - Uses only Python standard library (zipfile + XML parser), so it does not require pandas/openpyxl.
 - Outputs English records only.
 - Excludes working papers (Type == 工作).
-- Keeps formally published/accepted records: journal articles, conference papers, monographs/book chapters.
+- Keeps formally published/accepted records: journal articles, conference papers, monographs/book chapters. If the database has a status field in the future, draft/rejected/under-review records will be excluded automatically.
 - Creates DOI links as https://doi.org/{DOI}; if DOI is absent, link is blank.
 """
 
@@ -117,6 +117,25 @@ def is_yes(value) -> bool:
     return clean(value) in {"是", "yes", "Yes", "YES", "1", "true", "True"}
 
 
+
+def is_formally_published_or_accepted(row: dict) -> bool:
+    """Return True for published/accepted records.
+
+    The current database does not include a status column, so all non-working
+    monograph/book-chapter/journal/conference records are treated as formal records.
+    If a future database adds Status/Publication_Status/状态, this function excludes
+    under-review, submitted, rejected, draft, and working-paper records.
+    """
+    status = clean(row.get("Status") or row.get("Publication_Status") or row.get("状态"))
+    if not status:
+        return True
+    bad = {"under review", "submitted", "rejected", "draft", "working", "工作", "投稿", "在投", "拒稿", "草稿"}
+    good = {"published", "accepted", "正式接收", "已发表", "online", "in press"}
+    s = status.lower()
+    if any(x in s for x in bad):
+        return False
+    return True if any(x in s for x in good) else True
+
 def build_indexes(row: dict) -> tuple[list[str], list[str]]:
     indexes: list[str] = []
     for field in ["SCI", "SSCI", "EI", "CSSCI", "ISTP"]:
@@ -201,6 +220,8 @@ def main() -> None:
         if clean(row.get("Type")) == "工作":
             continue
         if clean(row.get("Type")) not in {"期刊", "会议", "专著", "章节"}:
+            continue
+        if not is_formally_published_or_accepted(row):
             continue
         records.append(publication_record(row, len(records) + 1))
 
