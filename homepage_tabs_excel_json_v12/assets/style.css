@@ -163,11 +163,3 @@ a{color:#1f5fbf;text-decoration:none}a:hover{text-decoration:underline}.meta{col
   .scholar-panel .stats{grid-template-columns:1fr}
   .scholar-panel .stat{flex-direction:row;align-items:center;min-height:64px}
 }
-
-/* v14: robust BibTeX disclosure and ESI filters */
-.bibtex-box{display:none;}
-.bibtex-box.open{display:block;}
-.publication-controls select#pub-esi-filter{min-width:180px;}
-@media(max-width:720px){.publication-controls select#pub-esi-filter{min-width:0;width:100%;}}
-.toolbar select#pub-esi-filter{min-width:180px;}
-@media(max-width:720px){.toolbar select#pub-esi-filter{min-width:0;width:100%;}}

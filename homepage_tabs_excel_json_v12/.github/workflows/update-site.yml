@@ -1,0 +1,49 @@
+name: Update homepage data
+
+on:
+  push:
+    paths:
+      - "homepage_content.xlsx"
+      - "publication_database.xlsx"
+      - "scripts/**"
+      - "data/**"
+      - "assets/**"
+      - "index.html"
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pandas openpyxl requests
+      - name: Convert homepage Excel to JSON
+        run: python scripts/convert_excel_to_json.py --excel homepage_content.xlsx --out data
+      - name: Generate publications JSON from publication database
+        run: |
+          if [ -f publication_database.xlsx ]; then
+            python scripts/generate_publications_json.py publication_database.xlsx data/publications.json
+          fi
+      - name: Update Google Scholar profile stats
+        run: python scripts/update_scholar.py
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          SCHOLAR_AUTHOR_ID: ${{ vars.SCHOLAR_AUTHOR_ID || 'vBSJplMAAAAJ' }}
+      - name: Update publication citation counts
+        run: python scripts/update_publication_citations.py
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          SCHOLAR_AUTHOR_ID: ${{ vars.SCHOLAR_AUTHOR_ID || 'vBSJplMAAAAJ' }}
+      - name: Commit generated JSON
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update homepage JSON data and Scholar citations"
+          file_pattern: "data/*.json"

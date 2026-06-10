@@ -1,0 +1,200 @@
+[
+  {
+    "no": "22",
+    "role": "PI",
+    "title": "Research on Consensual Sorting Models and Methods for Multi-Criteria Group Decision Making by Considering Personalized Individual Semantics",
+    "funder": "National Natural Science Foundation of China",
+    "grant_no": "72371049",
+    "amount": "CNY390K",
+    "period": "2024.1 - 2027.12"
+  },
+  {
+    "no": "21",
+    "role": "PI",
+    "title": "Consensus-Oriented Models and Methods for Multi-Criteria Sorting Problems in Group Decision Making with Heterogeneous Information",
+    "funder": "National Natural Science Foundation of China",
+    "grant_no": "71971039",
+    "amount": "CNY480K",
+    "period": "2020.1 - 2023.12"
+  },
+  {
+    "no": "20",
+    "role": "PI",
+    "title": "Research on Two-sided Matching Decision Making Methods with Incomplete Information",
+    "funder": "National Natural Science Foundation of China",
+    "grant_no": "71501023",
+    "amount": "CNY182.8K",
+    "period": "2016.1 - 2018.12"
+  },
+  {
+    "no": "19",
+    "role": "PI",
+    "title": "Data-Driven Preference Learning Methods for Multi-Criteria Sorting with Non-Monotonic Preferences",
+    "funder": "Natural Science Foundation of Liaoning Province",
+    "grant_no": "2024-MSBA-26",
+    "amount": "CNY80K",
+    "period": "2024.09 – 2026.08"
+  },
+  {
+    "no": "18",
+    "role": "PI",
+    "title": "Approaches to Two-sided Matching Decision Making with Incomplete Preference Information",
+    "funder": "China Postdoctoral Science Foundation",
+    "grant_no": "2015M570248",
+    "amount": "CNY80K",
+    "period": "2015.6 - 2017.6"
+  },
+  {
+    "no": "17",
+    "role": "PI",
+    "title": "Consensus-Driven Models and Algorithms for Group Recommender Systems under Big Data environment",
+    "funder": "Dalian Science and Technology Bureau",
+    "grant_no": "2018RQ69",
+    "amount": "CNY100K",
+    "period": "2019.1 - 2020.12"
+  },
+  {
+    "no": "16",
+    "role": "PI",
+    "title": "Consensus-Based Models for Linguistic Group Decision Making and Multi-Criteria Sorting",
+    "funder": "Funds for Xinghai Outstanding Young Talents in DUT",
+    "grant_no": "X20190322",
+    "amount": "CNY400K",
+    "period": "2020.1 - 2023.12"
+  },
+  {
+    "no": "15",
+    "role": "PI",
+    "title": "Data-Driven Multi-Criteria Sorting Methods Considering Non-Monotonic Preferences of Decision Makers",
+    "funder": "Fundamental Research Funds for the Central Universities of China",
+    "grant_no": "DUT23RW406",
+    "amount": "CNY50K",
+    "period": "2023.01 - 2024.12"
+  },
+  {
+    "no": "14",
+    "role": "PI",
+    "title": "Models and Methods for Linguistic Large-Scale Group Decision Making based on Social Network Trust",
+    "funder": "Fundamental Research Funds for the Central Universities of China",
+    "grant_no": "DUT17RC(4)11",
+    "amount": "CNY50K",
+    "period": "2017.7 - 2018.12"
+  },
+  {
+    "no": "13",
+    "role": "PI",
+    "title": "Matching Decision Making Methods with Heterogeneous Criteria Sets for Matching Objects",
+    "funder": "Fundamental Research Funds for the Central Universities of China",
+    "grant_no": "DUT15RC(3)003",
+    "amount": "CNY50K",
+    "period": "2015.1 - 2016.12"
+  },
+  {
+    "no": "12",
+    "role": "PI",
+    "title": "Group Decision Making with Uncertain Information",
+    "funder": "Foundation for the Doctoral Student Academic Star of Dalian University of Technology",
+    "grant_no": "",
+    "amount": "CNY10K",
+    "period": "2012.11 - 2013.10"
+  },
+  {
+    "no": "11",
+    "role": "Co-PI",
+    "title": "Research on Methods and Applications for Social Network Group Decision Making With Self-Confident Preferences Considering Personalized Individual Semantics",
+    "funder": "Funds for Humanities and Social Sciences of Ministry of Education of China",
+    "grant_no": "23YJC630219",
+    "amount": "CNY80K",
+    "period": "2023.10 - 2026.7"
+  },
+  {
+    "no": "10",
+    "role": "Participant",
+    "title": "Electronic Medical Record Mining-based ICU Clinical Prediction Models in Smart Healthcare Scenarios",
+    "funder": "Applied Basic Research Program of Liaoning Natural Science Foundation, China",
+    "grant_no": "2023JH2/101300208",
+    "amount": "CNY300K",
+    "period": "2023.1 - 2024.12"
+  },
+  {
+    "no": "09",
+    "role": "Participant",
+    "title": "Big-Data Driven Intelligent Decision Making Methods and Support Techniques for Smart City Construction in Dalian",
+    "funder": "Dalian Science and Technology Bureau",
+    "grant_no": "2018J11CY009",
+    "amount": "CNY3M",
+    "period": "2018.1 - 2020.12"
+  },
+  {
+    "no": "08",
+    "role": "Participant",
+    "title": "Clustering Models and Algorithms for Mining Electronic Medical Records",
+    "funder": "National Natural Science Foundation of China",
+    "grant_no": "71771034",
+    "amount": "CNY560K",
+    "period": "2018.1 - 2021.12"
+  },
+  {
+    "no": "07",
+    "role": "Participant",
+    "title": "Evolutionary Clustering Models and Algorithms for Dynamic Data Mining",
+    "funder": "National Natural Science Foundation of China",
+    "grant_no": "71171030",
+    "amount": "CNY450K",
+    "period": "2012.1 - 2015.12"
+  },
+  {
+    "no": "06",
+    "role": "Participant",
+    "title": "Data Mining and Knowledge Discovery Based on Optimization and Multivariate Statistical Analysis: Methods and Applications",
+    "funder": "Program for New Century Excellent Talents in University",
+    "grant_no": "NECT-11-0050",
+    "amount": "CNY300K",
+    "period": "2012.1 - 2014.12"
+  },
+  {
+    "no": "05",
+    "role": "Participant",
+    "title": "Clustering Models and Algorithms for Time Series Data Mining",
+    "funder": "National Natural Science Foundation of China",
+    "grant_no": "70871015",
+    "amount": "CNY230K",
+    "period": "2009.1 - 2011.12"
+  },
+  {
+    "no": "04",
+    "role": "Participant",
+    "title": "Information and Logistics Management in Emerging E-commerce",
+    "funder": "Funds for Creative Research Groups of China",
+    "grant_no": "71421001",
+    "amount": "CNY8.4M",
+    "period": "2015.1 - 2020.12"
+  },
+  {
+    "no": "03",
+    "role": "Participant",
+    "title": "Feature Representation and Similarity Measures for Time Series",
+    "funder": "Fundamental Research Funds for the Central Universities of China",
+    "grant_no": "DUT11SX04",
+    "amount": "CNY100K",
+    "period": "2011.1 - 2012.12"
+  },
+  {
+    "no": "02",
+    "role": "Participant",
+    "title": "Theory and Methods of Product Life Cycle-Oriented Knowledge Coordination Management",
+    "funder": "Key program of National Natural Science Foundation of China",
+    "grant_no": "71031002",
+    "amount": "CNY1.5M",
+    "period": "2011.1 - 2014.12"
+  },
+  {
+    "no": "01",
+    "role": "Participant",
+    "title": "Enterprise Knowledge Management Methods and Enterprise Ontology",
+    "funder": "National High Technology Research and Development Program",
+    "grant_no": "2008AA04Z107",
+    "amount": "CNY710K",
+    "period": "2008.10 - 2010.12"
+  }
+]

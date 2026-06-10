@@ -17,10 +17,9 @@ async function loadJson(path, fallback=[]){
 
 function resetTabState(tab){
   if(tab === "publications"){
-    const y = $("#pub-year-filter"), t = $("#pub-type-filter"), e = $("#pub-esi-filter"), q = $("#pub-search");
+    const y = $("#pub-year-filter"), t = $("#pub-type-filter"), q = $("#pub-search");
     if(y) y.value = "all";
     if(t) t.value = "all";
-    if(e) e.value = "all";
     if(q) q.value = "";
     if(DATA.publications) renderPublications();
   }
@@ -42,67 +41,19 @@ function activateTab(tab){
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
-function copyTextFallback(text){
-  const ta = document.createElement("textarea");
-  ta.value = text;
-  ta.setAttribute("readonly", "");
-  ta.style.position = "fixed";
-  ta.style.left = "-9999px";
-  document.body.appendChild(ta);
-  ta.select();
-  try{ document.execCommand("copy"); }catch(err){}
-  document.body.removeChild(ta);
-}
-
-function copyTextToClipboard(text){
-  if(navigator.clipboard && window.isSecureContext){
-    return navigator.clipboard.writeText(text);
-  }
-  return new Promise((resolve, reject) => {
-    try{
-      const ta = document.createElement("textarea");
-      ta.value = text;
-      ta.setAttribute("readonly", "");
-      ta.style.position = "fixed";
-      ta.style.left = "-9999px";
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-      resolve();
-    }catch(err){ reject(err); }
-  });
-}
-
 function initBibtexButtons(){
-  // Use delegated events because publication entries are rendered dynamically.
   document.addEventListener("click", async (e) => {
     const btn = e.target.closest(".bib-btn");
     if(!btn) return;
-    e.preventDefault();
-    e.stopPropagation();
-
-    const targetId = btn.getAttribute("data-target");
-    const box = targetId ? document.getElementById(targetId) : null;
+    const box = document.getElementById(`bib-${btn.dataset.bib}`);
     if(!box) return;
-
-    const isOpen = box.classList.toggle("open");
-    box.setAttribute("aria-hidden", isOpen ? "false" : "true");
-    btn.textContent = isOpen ? "Hide BibTeX" : "BibTeX";
-
-    if(isOpen){
-      try{
-        await copyTextToClipboard(box.textContent || "");
-        btn.classList.add("copied");
-        btn.textContent = "BibTeX copied";
-        setTimeout(() => {
-          btn.classList.remove("copied");
-          if(box.classList.contains("open")) btn.textContent = "Hide BibTeX";
-        }, 1200);
-      }catch(err){
-        // Keep the BibTeX box visible even if clipboard permission is unavailable.
-      }
-    }
+    box.hidden = !box.hidden;
+    btn.textContent = box.hidden ? "BibTeX" : "Hide BibTeX";
+    try{
+      await navigator.clipboard.writeText(box.textContent);
+      btn.classList.add("copied");
+      setTimeout(()=>btn.classList.remove("copied"), 1000);
+    }catch(err){}
   });
 }
 
@@ -236,9 +187,6 @@ function bibtexKey(p, idx){
   const titleWord = (String(p.title||"").match(/[A-Za-z0-9]+/) || ["paper"])[0];
   return `${first}${year}${titleWord}${idx}`.replace(/[^A-Za-z0-9_:-]/g, "");
 }
-function bibtexDomId(idx){
-  return `bibtex-${String(idx).replace(/[^A-Za-z0-9_-]/g, "_")}`;
-}
 function bibtexEntry(p, idx){
   const type = bibtexType(p);
   const authors = Array.isArray(p.authors) ? p.authors.join(" and ").replace(/\*/g, "") : String(p.authors||"").replace(/;/g, " and ").replace(/\*/g, "");
@@ -280,8 +228,8 @@ function publicationExtraHtml(p, idx){
       parts.push(`<span class="pub-citations">${label}</span>`);
     }
   }
-  parts.push(`<button class="bib-btn" type="button">BibTeX</button>`);
-  return `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div><pre class="bibtex-box" hidden>${esc(bibtexEntry(p, idx))}</pre>`;
+  parts.push(`<button class="bib-btn" type="button" data-bib="${idx}">BibTeX</button>`);
+  return `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div><pre class="bibtex-box" id="bib-${idx}" hidden>${esc(bibtexEntry(p, idx))}</pre>`;
 }
 function formatPublication(p, idx=0){
   const link = p.link || doiUrl(p.doi);
@@ -303,14 +251,10 @@ function renderPublications(){
   const all = (DATA.publications||[]).slice().sort(sortPublications);
   buildSelect("#pub-year-filter", [...new Set(all.map(p=>String(p.year||"")).filter(Boolean))].sort((a,b)=>b.localeCompare(a)), "All years");
   buildSelect("#pub-type-filter", [...new Set(all.map(p=>p.type||"Other"))].sort((a,b)=>TYPE_ORDER.indexOf(a)-TYPE_ORDER.indexOf(b)), "All types");
-  const yr = $("#pub-year-filter").value, type = $("#pub-type-filter").value, esi = $("#pub-esi-filter") ? $("#pub-esi-filter").value : "all", q = ($("#pub-search").value||"").toLowerCase();
+  const yr = $("#pub-year-filter").value, type = $("#pub-type-filter").value, q = ($("#pub-search").value||"").toLowerCase();
   const items = all.filter(p => {
-    const tagsText = [arrayText(p.indexes), arrayText(p.labels), p.note].join(" ").toLowerCase();
-    const text = [arrayText(p.authors),p.title,p.venue,tagsText,p.conference_address,p.conference_date].join(" ").toLowerCase();
-    const matchEsi = esi === "all" ||
-      (esi === "highly" && tagsText.includes("esi highly cited")) ||
-      (esi === "hot" && tagsText.includes("esi hot"));
-    return (yr==="all" || String(p.year)===yr) && (type==="all" || (p.type||"Other")===type) && matchEsi && (!q || text.includes(q));
+    const text = [arrayText(p.authors),p.title,p.venue,arrayText(p.indexes),arrayText(p.labels),p.note,p.conference_address,p.conference_date].join(" ").toLowerCase();
+    return (yr==="all" || String(p.year)===yr) && (type==="all" || (p.type||"Other")===type) && (!q || text.includes(q));
   });
   $("#pub-count").textContent = `${items.length} / ${all.length} records`;
   if(!items.length){
@@ -369,7 +313,7 @@ async function init(){
   Object.assign(DATA, {news, awards, grants, services, group, publications});
   renderHomeNews(); renderNews(); renderPublications(); renderServices(); renderGrants(); renderAwards(); renderGroup();
   ["#news-year-filter","#news-category-filter"].forEach(s => $(s).addEventListener("change", renderNews));
-  ["#pub-year-filter","#pub-type-filter","#pub-esi-filter"].forEach(s => $(s).addEventListener("change", renderPublications));
+  ["#pub-year-filter","#pub-type-filter"].forEach(s => $(s).addEventListener("change", renderPublications));
   $("#pub-search").addEventListener("input", renderPublications);
 }
 init();
