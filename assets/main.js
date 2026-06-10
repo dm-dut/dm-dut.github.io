@@ -417,20 +417,20 @@ function renderServiceRecord(s, cat){
   const item = s.item || "";
   const parsed = parseServiceItem(item);
   const role = s.role || parsed.role || "";
-  const organization = s.organization || s.journal || s.series || parsed.organization || item || "";
+  const organization = s.organization || s.journal || s.series || parsed.organization || "";
   const period = s.period || parsed.period || "";
   const note = s.note || parsed.note || "";
 
+  // Editorial Boards are intentionally rendered as a normal text list,
+  // not as a two-column/table layout. Prefer the curated item text because
+  // it already preserves role, journal/series, period, and past role notes.
   if(String(cat || "").toLowerCase().includes("editorial")){
-    const periodHtml = period ? `<span class="service-period-text">${esc(period)}</span>` : "";
-    const noteHtml = note ? `<span class="service-note-text">${esc(note)}</span>` : "";
-    return `<li class="service-entry editorial-entry">
-      <div class="service-role-cell">${esc(role || "—")}</div>
-      <div class="service-main-cell">
-        <div class="service-org-name">${esc(organization)}</div>
-        ${periodHtml || noteHtml ? `<div class="service-extra">${[periodHtml, noteHtml].filter(Boolean).join("; ")}</div>` : ""}
-      </div>
-    </li>`;
+    const text = item || [
+      [role, organization].filter(Boolean).join(" of "),
+      period,
+      note
+    ].filter(Boolean).join("; ");
+    return `<li>${esc(text)}</li>`;
   }
 
   const main = item || [role, organization].filter(Boolean).join(", ");
@@ -444,7 +444,6 @@ function renderServices(){
   $("#services-list").innerHTML = Object.entries(groups).map(([cat,items]) => `
     <div class="service-group">
       <h3>${esc(cat)}</h3>
-      ${String(cat || "").toLowerCase().includes("editorial") ? `<div class="editorial-head"><span>Role</span><span>Journal / Series and Period</span></div>` : ""}
       <ul>${items.map(s=>renderServiceRecord(s, cat)).join("")}</ul>
     </div>`).join("");
 }
