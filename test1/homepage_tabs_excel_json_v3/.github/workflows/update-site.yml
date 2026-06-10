@@ -1,0 +1,41 @@
+name: Update homepage data
+
+on:
+  push:
+    paths:
+      - "homepage_content.xlsx"
+      - "publications.xlsx"
+      - "scripts/**"
+      - "data/**"
+      - "assets/**"
+      - "index.html"
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pandas openpyxl
+      - name: Convert Excel to JSON
+        run: |
+          if [ -f publications.xlsx ]; then
+            python scripts/convert_excel_to_json.py --excel homepage_content.xlsx --publications-xlsx publications.xlsx --out data
+          else
+            python scripts/convert_excel_to_json.py --excel homepage_content.xlsx --out data
+          fi
+      - name: Update Scholar stats placeholder
+        run: python scripts/update_scholar.py
+      - name: Commit generated JSON
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update homepage JSON data"
+          file_pattern: "data/*.json"

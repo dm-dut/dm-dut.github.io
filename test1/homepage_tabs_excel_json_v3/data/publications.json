@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2026,
+    "type": "Journal",
+    "authors": "Wenyu Yu, Zhen Zhang, Francisco Chiclana",
+    "title": "Targeting the right person: an optimization-driven framework for persuader selection in social networks with opinion evolution",
+    "venue": "European Journal of Operational Research",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "doi": "10.xxxx/example",
+    "link": "",
+    "indexes": "SCI; EI",
+    "labels": "ABS 4; FMS A; IF=6.0",
+    "note": "in press"
+  },
+  {
+    "year": 2026,
+    "type": "Journal",
+    "authors": "Zhen Zhang, Zhuolin Li, Yucheng Dong",
+    "title": "Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective",
+    "venue": "Expert Systems with Applications",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "doi": "10.xxxx/example",
+    "link": "",
+    "indexes": "SCI; EI",
+    "labels": "IF=7.5",
+    "note": "in press"
+  },
+  {
+    "year": 2024,
+    "type": "Book",
+    "authors": "Zhen Zhang, Wenyu Yu, Zhuolin Li",
+    "title": "Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty",
+    "venue": "Springer Nature, Singapore",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "doi": "",
+    "link": "",
+    "indexes": "",
+    "labels": "ISBN: 978-981-97-3583-9",
+    "note": ""
+  }
+]
