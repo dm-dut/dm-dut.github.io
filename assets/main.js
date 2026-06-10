@@ -360,7 +360,7 @@ function publicationExtraHtml(p, idx){
   const gsUrl = directGsUrl || googleScholarSearchUrl(p);
   const cites = citationValueForDisplay(p);
   if(gsUrl){
-    const label = cites !== "" ? `GS Citations: ${esc(cites)}` : "Google Scholar";
+    const label = cites !== "" ? `Google Scholar Citations: ${esc(cites)}` : "Google Scholar";
     parts.push(`<a class="pub-citations" href="${esc(gsUrl)}" target="_blank" rel="noopener">${label}</a>`);
   }else if(cites !== ""){
     parts.push(`<span class="pub-citations">GS Citations: ${esc(cites)}</span>`);
