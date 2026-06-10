@@ -380,18 +380,22 @@ function renderPublications(){
 
 function parseServiceItem(item){
   const raw = String(item || "").trim();
-  if(!raw) return {role:"", organization:"", period:""};
+  if(!raw) return {role:"", organization:"", period:"", note:""};
 
-  // Separate the current period first, while keeping previous-role notes together.
-  // Examples:
-  //   Associate Editor of Information Fusion (SCI), since May 2026; Editorial Board Member, Jul. 2023-May 2026
-  //   Editor of the "Artificial Intelligence and Decision Making" book series, Springer Nature, since Jul. 2025
-  let main = raw;
+  let first = raw;
+  let note = "";
+  if(raw.includes(";")){
+    const parts = raw.split(";");
+    first = parts.shift().trim();
+    note = parts.join("; ").trim();
+  }
+
+  let main = first;
   let period = "";
-  const sinceMatch = raw.match(/,\s*(since\s+.+)$/i);
-  if(sinceMatch){
-    main = raw.slice(0, sinceMatch.index).trim();
-    period = sinceMatch[1].trim();
+  const periodMatch = first.match(/,\s*((?:since\s+)?(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\.?(?:\s+\d{4})?(?:\s*[-–]\s*(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\.?(?:\s+\d{4})?|\s*[-–]\s*Present)?|since\s+.+)$/i);
+  if(periodMatch){
+    period = periodMatch[1].trim();
+    main = first.slice(0, periodMatch.index).trim();
   }
 
   let role = "";
@@ -400,25 +404,27 @@ function parseServiceItem(item){
   if(ofMatch){
     role = ofMatch[1].trim();
     organization = ofMatch[2].trim();
+  }else if(main.includes(",")){
+    const pieces = main.split(/,(.+)/).map(x=>x.trim()).filter(Boolean);
+    role = pieces[0] || "";
+    organization = pieces[1] || "";
   }
 
-  return {role, organization, period};
+  return {role, organization, period, note};
 }
 
 function renderServiceRecord(s, cat){
   const item = s.item || "";
   const parsed = parseServiceItem(item);
   const role = s.role || parsed.role || "";
-  const organization = s.organization || parsed.organization || item || "";
+  const organization = s.organization || s.journal || s.series || parsed.organization || item || "";
   const period = s.period || parsed.period || "";
-  const note = s.note || "";
+  const note = s.note || parsed.note || "";
 
-  // Editorial Board records are easier to read when Role / Journal / Period are visually separated.
-  // This also ensures the explicit `role` field is displayed even when an `item` field exists.
-  if(String(cat || "").toLowerCase().includes("editorial") && (role || organization)){
+  if(String(cat || "").toLowerCase().includes("editorial")){
     return `<li class="service-entry editorial-entry">
-      ${role ? `<span class="service-role">${esc(role)}</span>` : ""}
-      ${organization ? `<span class="service-org">${esc(organization)}</span>` : ""}
+      <span class="service-role">${esc(role || "Role")}</span>
+      <span class="service-org">${esc(organization)}</span>
       ${period ? `<span class="service-period">${esc(period)}</span>` : ""}
       ${note ? `<span class="service-note">${esc(note)}</span>` : ""}
     </li>`;
@@ -435,6 +441,7 @@ function renderServices(){
   $("#services-list").innerHTML = Object.entries(groups).map(([cat,items]) => `
     <div class="service-group">
       <h3>${esc(cat)}</h3>
+      ${String(cat || "").toLowerCase().includes("editorial") ? `<div class="editorial-head"><span>Role</span><span>Journal / Series</span></div>` : ""}
       <ul>${items.map(s=>renderServiceRecord(s, cat)).join("")}</ul>
     </div>`).join("");
 }

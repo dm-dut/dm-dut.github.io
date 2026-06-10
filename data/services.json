@@ -1,870 +1,566 @@
 [
   {
     "category": "Editorial Boards",
+    "item": "Editor of the \"Artificial Intelligence and Decision Making\" book series, Springer Nature, since Jul. 2025",
     "role": "Editor",
-    "organization": "Artificial Intelligence and Decision Making book series (Springer Nature)",
-    "item": "Artificial Intelligence and Decision Making book series (Springer Nature)",
+    "organization": "the \"Artificial Intelligence and Decision Making\" book series, Springer Nature",
     "period": "since Jul. 2025"
   },
   {
     "category": "Editorial Boards",
+    "item": "Associate Editor of Information Fusion (SCI, IF: 15.5), since May 2026; Editorial Board Member, Jul. 2023-May 2026",
     "role": "Associate Editor",
-    "organization": "Information Fusion (SCI)",
-    "item": "Information Fusion (SCI)",
-    "period": "since May 2026; Editorial Board Member, Jul. 2023 - May 2026"
+    "organization": "Information Fusion (SCI, IF: 15.5)",
+    "period": "since May 2026",
+    "note": "Editorial Board Member, Jul. 2023-May 2026"
   },
   {
     "category": "Editorial Boards",
+    "item": "Associate Editor of Group Decision and Negotiation (ABS 2, FMS-B, SSCI, IF: 2.5), since Jan. 2024",
     "role": "Associate Editor",
-    "organization": "Group Decision and Negotiation (ABS 2, FMS-B, SSCI)",
-    "item": "Group Decision and Negotiation (ABS 2, FMS-B, SSCI)",
+    "organization": "Group Decision and Negotiation (ABS 2, FMS-B, SSCI, IF: 2.5)",
     "period": "since Jan. 2024"
   },
   {
     "category": "Editorial Boards",
-    "role": "Senior Editor",
-    "organization": "International Journal of Computational Intelligence Systems (SCI)",
-    "item": "International Journal of Computational Intelligence Systems (SCI)",
-    "period": "since Feb. 2026; Area editor, Jul. 2024 - Feb. 2026; Editorial Board Member, Nov. 2019 - Jul. 2024"
-  },
-  {
-    "category": "Editorial Boards",
+    "item": "Associate Editor of Journal of Ambient Intelligence and Humanized Computing (IF: 3.662), since Jul. 2022",
     "role": "Associate Editor",
-    "organization": "Journal of Ambient Intelligence and Humanized Computing",
-    "item": "Journal of Ambient Intelligence and Humanized Computing",
+    "organization": "Journal of Ambient Intelligence and Humanized Computing (IF: 3.662)",
     "period": "since Jul. 2022"
   },
   {
     "category": "Editorial Boards",
-    "role": "Editorial Review Board Member",
-    "organization": "IEEE Transactions on Engineering Management (ABS 3, FMS-A, SCI/SSCI)",
-    "item": "IEEE Transactions on Engineering Management (ABS 3, FMS-A, SCI/SSCI)",
-    "period": "since Jan. 2024"
-  },
-  {
-    "category": "Editorial Boards",
-    "role": "Editorial Advisory Board Member",
-    "organization": "Kybernetes (SCI)",
-    "item": "Kybernetes (SCI)",
-    "period": "since Apr. 2025; Associate Editor, Jan. 2019 - Apr. 2025"
-  },
-  {
-    "category": "Editorial Boards",
-    "role": "Academic Editor",
-    "organization": "Complexity (SCI)",
-    "item": "Complexity (SCI)",
-    "period": "since Jan. 2021"
-  },
-  {
-    "category": "Editorial Boards",
-    "role": "Youth Editorial Board Member",
-    "organization": "CAAI Transactions on Intelligence Technology (SCI)",
-    "item": "CAAI Transactions on Intelligence Technology (SCI)",
-    "period": "since Jul. 2025"
-  },
-  {
-    "category": "Editorial Boards",
-    "role": "Guest Editor",
-    "organization": "Group Decision and Negotiation (ABS 2, FMS-B, SSCI)",
-    "item": "Group Decision and Negotiation (ABS 2, FMS-B, SSCI)",
-    "period": "Nov. 2022-Mar. 2024"
-  },
-  {
-    "category": "Editorial Boards",
-    "role": "Guest Editor",
-    "organization": "Systems (SSCI)",
-    "item": "Systems (SSCI)",
-    "period": "Nov. 2022-Dec. 2023; May 2024-Dec. 2024"
-  },
-  {
-    "category": "Editorial Boards",
-    "role": "Guest Editor",
-    "organization": "Applied Sciences (SCI, IF: 2.5)",
-    "item": "Applied Sciences (SCI, IF: 2.5)",
-    "period": "Sep. 2024-Sep. 2025"
-  },
-  {
-    "category": "Editorial Boards",
+    "item": "Associate Editor of Frontiers in Applied Mathematics and Statistics (IF: 1.5), since May 2020",
     "role": "Associate Editor",
-    "organization": "Frontiers in Artificial Intelligence (Logic and Reasoning in AI Section, ESCI)",
-    "item": "Frontiers in Artificial Intelligence (Logic and Reasoning in AI Section, ESCI)",
-    "period": "since Jan. 2020"
-  },
-  {
-    "category": "Editorial Boards",
-    "role": "Associate Editor",
-    "organization": "Frontiers in Applied Mathematics and Statistics (Optimization Section, ESCI)",
-    "item": "Frontiers in Applied Mathematics and Statistics (Optimization Section, ESCI)",
+    "organization": "Frontiers in Applied Mathematics and Statistics (IF: 1.5)",
     "period": "since May 2020"
   },
   {
     "category": "Editorial Boards",
+    "item": "Associate Editor of Frontiers in Artificial Intelligence (IF: 4.7), since Jan. 2020",
     "role": "Associate Editor",
-    "organization": "Frontiers in Big Data (ESCI)",
-    "item": "Frontiers in Big Data (ESCI)",
+    "organization": "Frontiers in Artificial Intelligence (IF: 4.7)",
+    "period": "since Jan. 2020"
+  },
+  {
+    "category": "Editorial Boards",
+    "item": "Associate Editor of Frontiers in Big Data (IF: 2.3), since May 2023",
+    "role": "Associate Editor",
+    "organization": "Frontiers in Big Data (IF: 2.3)",
     "period": "since May 2023"
   },
   {
     "category": "Editorial Boards",
-    "role": "Editorial Board Member",
-    "organization": "Systems (SSCI)",
-    "item": "Systems (SSCI)",
-    "period": "since Feb. 2026; Topical Advisory Panel Member, Aug. 2021 - Feb. 2026; Topics Board Editor, Mar. 2021-Aug. 2021"
+    "item": "Area Editor of International Journal of Computational Intelligence Systems (SCI, IF: 3.0), since Feb. 2026; Area Editor, Jul. 2024-Feb. 2026; Editorial Board Member, Nov. 2019-Jul. 2024",
+    "role": "Area Editor",
+    "organization": "International Journal of Computational Intelligence Systems (SCI, IF: 3.0)",
+    "period": "since Feb. 2026",
+    "note": "Area Editor, Jul. 2024-Feb. 2026; Editorial Board Member, Nov. 2019-Jul. 2024"
   },
   {
     "category": "Editorial Boards",
+    "item": "Editorial Board Member of IEEE Transactions on Engineering Management (ABS 3, FMS-A, SCI/SSCI, IF: 5.2), since Jan. 2024",
+    "role": "Editorial Board Member",
+    "organization": "IEEE Transactions on Engineering Management (ABS 3, FMS-A, SCI/SSCI, IF: 5.2)",
+    "period": "since Jan. 2024"
+  },
+  {
+    "category": "Editorial Boards",
+    "item": "Editorial Board Member of Systems (SSCI, IF: 3.1), since Feb. 2026; Topical Advisory Panel Member, Aug. 2021-Feb. 2026; Topics Board Editor, Mar. 2021-Aug. 2021",
+    "role": "Editorial Board Member",
+    "organization": "Systems (SSCI, IF: 3.1)",
+    "period": "since Feb. 2026",
+    "note": "Topical Advisory Panel Member, Aug. 2021-Feb. 2026; Topics Board Editor, Mar. 2021-Aug. 2021"
+  },
+  {
+    "category": "Editorial Boards",
+    "item": "Editorial Advisory Board Member of Kybernetes (SCI, IF: 2.9), since Apr. 2025; Associate Editor, Jan. 2019-Apr. 2025",
+    "role": "Editorial Advisory Board Member",
+    "organization": "Kybernetes (SCI, IF: 2.9)",
+    "period": "since Apr. 2025",
+    "note": "Associate Editor, Jan. 2019-Apr. 2025"
+  },
+  {
+    "category": "Editorial Boards",
+    "item": "Academic Editor of Complexity (SCI, IF: 1.7), since Jan. 2021",
+    "role": "Academic Editor",
+    "organization": "Complexity (SCI, IF: 1.7)",
+    "period": "since Jan. 2021"
+  },
+  {
+    "category": "Editorial Boards",
+    "item": "Youth Editorial Board Member of CAAI Transactions on Intelligence Technology (SCI), since Jul. 2025",
+    "role": "Youth Editorial Board Member",
+    "organization": "CAAI Transactions on Intelligence Technology (SCI)",
+    "period": "since Jul. 2025"
+  },
+  {
+    "category": "Editorial Boards",
+    "item": "Topical Advisory Panel Member of Mathematics (SCI), since Jun. 2022",
     "role": "Topical Advisory Panel Member",
     "organization": "Mathematics (SCI)",
-    "item": "Mathematics (SCI)",
-    "period": "since June 2022"
+    "period": "since Jun. 2022"
   },
   {
     "category": "Editorial Boards",
+    "item": "Topical Advisory Panel Member of Information (ESCI), since May 2022",
     "role": "Topical Advisory Panel Member",
     "organization": "Information (ESCI)",
-    "item": "Information (ESCI)",
     "period": "since May 2022"
   },
   {
     "category": "Editorial Boards",
-    "role": "Review Editor",
-    "organization": "Frontiers in Big Data (ESCI)",
-    "item": "Frontiers in Big Data (ESCI)",
-    "period": "Jan. 2019-May 2023"
-  },
-  {
-    "category": "Editorial Boards",
+    "item": "Editorial Board Member of Data & Metadata, since Apr. 2023",
     "role": "Editorial Board Member",
     "organization": "Data & Metadata",
-    "item": "Data & Metadata",
     "period": "since Apr. 2023"
   },
   {
     "category": "Editorial Boards",
+    "item": "Editor of ICSES Transactions on Neural and Fuzzy Computing, since Apr. 2019",
     "role": "Editor",
     "organization": "ICSES Transactions on Neural and Fuzzy Computing",
-    "item": "ICSES Transactions on Neural and Fuzzy Computing",
-    "period": "since April 2019"
+    "period": "since Apr. 2019"
   },
   {
     "category": "Editorial Boards",
+    "item": "Guest Editor of Group Decision and Negotiation (ABS 2, FMS-B, SSCI), Nov. 2022-Mar. 2024",
+    "role": "Guest Editor",
+    "organization": "Group Decision and Negotiation (ABS 2, FMS-B, SSCI)",
+    "period": "Nov. 2022-Mar. 2024"
+  },
+  {
+    "category": "Editorial Boards",
+    "item": "Guest Editor of Systems (SSCI, IF: 3.1), Nov. 2022-Dec. 2023; May 2024-Dec. 2024",
+    "role": "Guest Editor",
+    "organization": "Systems (SSCI, IF: 3.1)",
+    "period": "Nov. 2022-Dec. 2023",
+    "note": "May 2024-Dec. 2024"
+  },
+  {
+    "category": "Editorial Boards",
+    "item": "Guest Editor of Applied Sciences (SCI, IF: 2.5), Sep. 2024-Sep. 2025",
+    "role": "Guest Editor",
+    "organization": "Applied Sciences (SCI, IF: 2.5)",
+    "period": "Sep. 2024-Sep. 2025"
+  },
+  {
+    "category": "Editorial Boards",
+    "item": "Secretary of the Big Data and Knowledge Management Branch Editorial Board, Management Science and Engineering Volume, Encyclopedia of China (The 3rd edition)",
     "role": "Secretary",
-    "organization": "Big Data and Knowledge Management Branch Editorial Board, Management Science and Engineering Volume, Encyclopedia of China (The 3rd edition)",
-    "item": "Big Data and Knowledge Management Branch Editorial Board, Management Science and Engineering Volume, Encyclopedia of China (The 3rd edition)",
+    "organization": "the Big Data and Knowledge Management Branch Editorial Board, Management Science and Engineering Volume, Encyclopedia of China (The 3rd edition)",
     "period": ""
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Senior Member, Institute of Electrical and Electronics Engineers (IEEE)",
-    "period": ""
+    "item": "Senior Member, Institute of Electrical and Electronics Engineers (IEEE)"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Member, IEEE Computational Intelligence Society",
-    "period": ""
+    "item": "Member, IEEE Computational Intelligence Society"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Member, IEEE Systems, Man, and Cybernetics Society",
-    "period": ""
+    "item": "Member, IEEE Systems, Man, and Cybernetics Society"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Member, European Society for Fuzzy Logic and Technology (EUSFLAT)",
-    "period": ""
+    "item": "Member, European Society for Fuzzy Logic and Technology (EUSFLAT)"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Member, Systems Engineering Society of China (SESC)",
-    "period": ""
+    "item": "Member, Systems Engineering Society of China (SESC)"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Member, Operations Research Society of China (ORSC)",
-    "period": ""
+    "item": "Member, Operations Research Society of China (ORSC)"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Member, China Computer Federation (CCF)",
-    "period": ""
+    "item": "Member, China Computer Federation (CCF)"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Member, Chinese Association of Automation of China (CAA)",
-    "period": ""
+    "item": "Member, Chinese Association of Automation of China (CAA)"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Member, Chinese Society of Optimization, Overall Planning and Economic Mathematics (CSOOPEM)",
-    "period": ""
+    "item": "Member, Chinese Society of Optimization, Overall Planning and Economic Mathematics (CSOOPEM)"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Member, Chinese Association for Artificial Intelligence (CAAI)",
-    "period": ""
+    "item": "Member, Chinese Association for Artificial Intelligence (CAAI)"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Committee member and Vice secretary-general, Data Science and Knowledge Systems Engineering Branch, SESC",
-    "period": ""
+    "item": "Committee member and Vice secretary-general, Data Science and Knowledge Systems Engineering Branch, SESC"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Committee member, the Youth Working Committee, CSOOPEM",
-    "period": ""
+    "item": "Committee member, the Youth Working Committee, CSOOPEM"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Executive board member, Intelligent Decision Making and Game Branch, CSOOPEM",
-    "period": ""
+    "item": "Executive board member, Intelligent Decision Making and Game Branch, CSOOPEM"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Board member, Uncertain Systems, ORSC",
-    "period": ""
+    "item": "Board member, Uncertain Systems, ORSC"
   },
   {
     "category": "Professional Memberships",
-    "role": "",
-    "organization": "",
-    "item": "Vice secretary-general, Business Intelligence Professional Committee of the Chinese Society for Management Modernization (CSMM)",
-    "period": ""
+    "item": "Vice secretary-general, Business Intelligence Professional Committee of the Chinese Society for Management Modernization (CSMM)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Annals of Operations Research (SCI)",
-    "period": ""
+    "item": "Annals of Operations Research (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Applied Soft Computing (SCI)",
-    "period": ""
+    "item": "Applied Soft Computing (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Asia-Pacific Journal of Operational Research (SCI)",
-    "period": ""
+    "item": "Asia-Pacific Journal of Operational Research (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "CAAI Transactions on Intelligence Technology (SCI)",
-    "period": ""
+    "item": "CAAI Transactions on Intelligence Technology (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Computers & Industrial Engineering (SCI)",
-    "period": ""
+    "item": "Computers & Industrial Engineering (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Computers & Operations Research (SCI)",
-    "period": ""
+    "item": "Computers & Operations Research (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Decision Sciences (SSCI)",
-    "period": ""
+    "item": "Decision Sciences (SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Engineering Applications of Artificial Intelligence (SCI)",
-    "period": ""
+    "item": "Engineering Applications of Artificial Intelligence (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "European Journal of Operational Research (SCI)",
-    "period": ""
+    "item": "European Journal of Operational Research (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Expert Systems with Applications (SCI)",
-    "period": ""
+    "item": "Expert Systems with Applications (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Financial Innovation (SSCI)",
-    "period": ""
+    "item": "Financial Innovation (SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Fuzzy Optimization and Decision Making (SCI)",
-    "period": ""
+    "item": "Fuzzy Optimization and Decision Making (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Fuzzy Sets and Systems (SCI)",
-    "period": ""
+    "item": "Fuzzy Sets and Systems (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Group Decision and Negotiation (SSCI)",
-    "period": ""
+    "item": "Group Decision and Negotiation (SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE/CAA Journal of Automatica Sinica (SCI)",
-    "period": ""
+    "item": "IEEE/CAA Journal of Automatica Sinica (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Artificial Intelligence (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Artificial Intelligence"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Computational Social Systems (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Artificial Intelligence (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Consumer Electronics (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Computational Social Systems (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Cybernetics (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Consumer Electronics (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Emerging Topics in Computational Intelligence (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Cybernetics (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Engineering Management (SCI/SSCI)",
-    "period": ""
+    "item": "IEEE Transactions on Emerging Topics in Computational Intelligence (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Fuzzy Systems (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Engineering Management (SCI/SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Industrial Informatics (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Fuzzy Systems (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Intelligent Transportation Systems (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Industrial Informatics (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Knowledge and Data Engineering (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Intelligent Transportation Systems (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Network Science and Engineering (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Knowledge and Data Engineering (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Neural Networks and Learning Systems (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Network Science and Engineering (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Reliability (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Neural Networks and Learning Systems (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Services Computing (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Reliability (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IEEE Transactions on Systems, Man, and Cybernetics: Systems (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Services Computing (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "IISE Transactions (SCI)",
-    "period": ""
+    "item": "IEEE Transactions on Systems, Man, and Cybernetics: Systems (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Information Fusion (SCI)",
-    "period": ""
+    "item": "IISE Transactions (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Information Processing and Management (SCI)",
-    "period": ""
+    "item": "Information Fusion (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Information Sciences (SCI)",
-    "period": ""
+    "item": "Information Processing and Management (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Information Systems Frontiers (SCI)",
-    "period": ""
+    "item": "Information Sciences (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "International Journal of Hospitality Management (SSCI)",
-    "period": ""
+    "item": "Information Systems Frontiers (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "International Journal of Information Technology & Decision Making (SCI)",
-    "period": ""
+    "item": "International Journal of Hospitality Management (SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "International Journal of Production Research (SCI)",
-    "period": ""
+    "item": "International Journal of Information Technology & Decision Making (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "International Transactions in Operational Research (SCI/SSCI)",
-    "period": ""
+    "item": "International Journal of Production Research (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Journal of Forecasting (SSCI)",
-    "period": ""
+    "item": "International Transactions in Operational Research (SCI/SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Journal of Management Analytics (SSCI)",
-    "period": ""
+    "item": "Journal of Forecasting (SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Journal of the Operational Research Society (SCI/SSCI)",
-    "period": ""
+    "item": "Journal of Management Analytics (SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Knowledge–Based Systems (SCI)",
-    "period": ""
+    "item": "Journal of the Operational Research Society (SCI/SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Neurocomputing (SCI)",
-    "period": ""
+    "item": "Knowledge–Based Systems (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Omega (SCI/SSCI)",
-    "period": ""
+    "item": "Neurocomputing (SCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Risk Analysis (SCI/SSCI)",
-    "period": ""
+    "item": "Omega (SCI/SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Socio-Economic Planning Sciences (SSCI)",
-    "period": ""
+    "item": "Risk Analysis (SCI/SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Chinese Journal of Management Science (Chinese Journal)",
-    "period": ""
+    "item": "Socio-Economic Planning Sciences (SSCI)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Chinese Journal of Management (Chinese Journal)",
-    "period": ""
+    "item": "Chinese Journal of Management Science (Chinese Journal)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Control and Decision (Chinese Journal)",
-    "period": ""
+    "item": "Chinese Journal of Management (Chinese Journal)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Systems Engineering (Chinese Journal)",
-    "period": ""
+    "item": "Control and Decision (Chinese Journal)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Systems Engineering - Theory & Practice (Chinese Journal)",
-    "period": ""
+    "item": "Systems Engineering (Chinese Journal)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Journal of Industrial Engineering and Engineering Management (Chinese Journal)",
-    "period": ""
+    "item": "Systems Engineering - Theory & Practice (Chinese Journal)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Nankai Business Review (Chinese Journal)",
-    "period": ""
+    "item": "Journal of Industrial Engineering and Engineering Management (Chinese Journal)"
   },
   {
     "category": "Selected Journal Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Operations Research and Management Science (Chinese Journal)",
-    "period": ""
+    "item": "Nankai Business Review (Chinese Journal)"
+  },
+  {
+    "category": "Selected Journal Reviewers",
+    "item": "Operations Research and Management Science (Chinese Journal)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The IEEE Conference on Artificial Intelligence (IEEE CAI 2024)",
-    "period": ""
+    "item": "The IEEE Conference on Artificial Intelligence (IEEE CAI 2024)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The International Conference on Distributed Computing and Artificial Intelligence (DCAI, 2020-2024, 2026)",
-    "period": ""
+    "item": "The International Conference on Distributed Computing and Artificial Intelligence (DCAI, 2020-2024, 2026)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The IEEE International Conference on Fuzzy Systems (FUZZ-IEEE, 2017, 2019, 2021-2023)",
-    "period": ""
+    "item": "The IEEE International Conference on Fuzzy Systems (FUZZ-IEEE, 2017, 2019, 2021-2023)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The International Conference on Group Decision and Negotiation (GDN, 2018, 2020-2023, 2025, 2026)",
-    "period": ""
+    "item": "The International Conference on Group Decision and Negotiation (GDN, 2018, 2020-2023, 2025, 2026)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The International Symposium on Knowledge and Systems Sciences (KSS, 2015-2019, 2024-2025)",
-    "period": ""
+    "item": "The International Symposium on Knowledge and Systems Sciences (KSS, 2015-2019, 2024-2025)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The International Conference on Intelligent Systems and Knowledge Engineering (ISKE, 2013, 2017, 2019)",
-    "period": ""
+    "item": "The International Conference on Intelligent Systems and Knowledge Engineering (ISKE, 2013, 2017, 2019)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The IEEE World Congress on Computational Intelligence (WCCI, 2016, 2018, 2020)",
-    "period": ""
+    "item": "The IEEE World Congress on Computational Intelligence (WCCI, 2016, 2018, 2020)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The IEEE International Conference on Systems, Man, and Cybernetics (SMC 2018, 2025)",
-    "period": ""
+    "item": "The IEEE International Conference on Systems, Man, and Cybernetics (SMC 2018, 2025)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 15th International FLINS Conference on Machine learning, Multi agent and Cyber physical systems (FLINS 2022)",
-    "period": ""
+    "item": "The 15th International FLINS Conference on Machine learning, Multi agent and Cyber physical systems (FLINS 2022)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 14th International FLINS Conference on Robotics and Artificial Intelligence (FLINS 2020)",
-    "period": ""
+    "item": "The 14th International FLINS Conference on Robotics and Artificial Intelligence (FLINS 2020)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 13th International FLINS Conference on Data Science and Knowledge Engineering for Sensing Decision Support (FLINS 2018)",
-    "period": ""
+    "item": "The 13th International FLINS Conference on Data Science and Knowledge Engineering for Sensing Decision Support (FLINS 2018)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 12th International FLINS Conference on Decision Making and Soft Computing (FLINS 2016)",
-    "period": ""
+    "item": "The 12th International FLINS Conference on Decision Making and Soft Computing (FLINS 2016)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 11th International FLINS Conference on Decision Making and Soft Computing (FLINS 2014)",
-    "period": ""
+    "item": "The 11th International FLINS Conference on Decision Making and Soft Computing (FLINS 2014)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Joint 17th World Congress of International Fuzzy Systems Association and 9th International Conference on Soft Computing and Intelligent Systems (IFSA-SCIS 2017)",
-    "period": ""
+    "item": "Joint 17th World Congress of International Fuzzy Systems Association and 9th International Conference on Soft Computing and Intelligent Systems (IFSA-SCIS 2017)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 16th World Congress of the International Fuzzy Systems Association and the 9th Conference of the European Society for Fuzzy Logic and Technology (IFSA-EUSFLAT 2015)",
-    "period": ""
+    "item": "The 16th World Congress of the International Fuzzy Systems Association and the 9th Conference of the European Society for Fuzzy Logic and Technology (IFSA-EUSFLAT 2015)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 15th IFSA World Congress and 32nd Annual Meeting of NAFIPS (IFSA-NAFIPS 2013)",
-    "period": ""
+    "item": "The 15th IFSA World Congress and 32nd Annual Meeting of NAFIPS (IFSA-NAFIPS 2013)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "Joint 10th International Conference on Soft Computing and Intelligent Systems and 19th International Symposium on Advanced Intelligent Systems in conjunction with Intelligent Systems Workshop 2018 (SCIS-ISIS2018)",
-    "period": ""
+    "item": "Joint 10th International Conference on Soft Computing and Intelligent Systems and 19th International Symposium on Advanced Intelligent Systems in conjunction with Intelligent Systems Workshop 2018 (SCIS-ISIS2018)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 1st International Alan Turing Conference on Decision Support and Recommender Systems (DSRS-Turing 2019)",
-    "period": ""
+    "item": "The 1st International Alan Turing Conference on Decision Support and Recommender Systems (DSRS-Turing 2019)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 2018 IEEE International Conference on Technology Management, Operations and Decisions (IEEE ICTMOD 2018)",
-    "period": ""
+    "item": "The 2018 IEEE International Conference on Technology Management, Operations and Decisions (IEEE ICTMOD 2018)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 37th North American Fuzzy Information Processing Society Annual Conference (NAFIPS 2018)",
-    "period": ""
+    "item": "The 37th North American Fuzzy Information Processing Society Annual Conference (NAFIPS 2018)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 2013 International Conference on Knowledge Science, Engineering and Management (KSEM 2013)",
-    "period": ""
+    "item": "The 2013 International Conference on Knowledge Science, Engineering and Management (KSEM 2013)"
   },
   {
     "category": "PC Members & Conference Reviewers",
-    "role": "",
-    "organization": "",
-    "item": "The 12th International Workshop on Meta-synthesis & Complex Systems (MCS 2012)",
-    "period": ""
+    "item": "The 12th International Workshop on Meta-synthesis & Complex Systems (MCS 2012)"
   },
   {
     "category": "Special Session Organizers",
-    "role": "",
-    "organization": "",
-    "item": "\"Artificial Intelligence for Optimization and Decision Making\", in FLINS-ISKE 2026, co-organized by Zhen Zhang, Lijun Sun, Jiapeng Liu and Yucheng Dong.",
-    "period": ""
+    "item": "\"Artificial Intelligence for Optimization and Decision Making\", in the 17th FLINS Conference & the 21st ISKE Conference: Machine Learning and Knowledge Engineering for Decision Making (FLINS-ISKE 2026), co-organized by Zhen Zhang, Lijun Sun, Jiapeng Liu and Yucheng Dong."
   },
   {
     "category": "Special Session Organizers",
-    "role": "",
-    "organization": "",
-    "item": "\"Intelligent Group Decision Making and Consensus Process\", in GDN 2021, GDN 2022, GDN 2023, GDN 2025, GDN 2026, co-organized by Zhen Zhang, Yucheng Dong, Francisco Chiclana and Enrique Herrera-Viedma.",
-    "period": ""
+    "item": "\"Intelligent Group Decision Making and Consensus Process\", in the International Conference on Group Decision and Negotiation (GDN 2021, GDN 2022, GDN 2023, GDN 2025, GDN 2026), co-organized by Zhen Zhang, Yucheng Dong, Francisco Chiclana and Enrique Herrera-Viedma."
   },
   {
     "category": "Special Session Organizers",
-    "role": "",
-    "organization": "",
-    "item": "\"Data and Network-Driven Decision Analysis\", in Annual Conference on Data Science and Knowledge Systems Engineering, SESC, 2022, 2025, co-organized by Zhen Zhang, Jian Wu and Yucheng Dong.",
-    "period": ""
+    "item": "\"Data and Network-Driven Decision Analysis\", in the Annual Conference on Data Science and Knowledge Systems Engineering, Systems Engineering Society of China, 2022, 2025, co-organized by Zhen Zhang, Jian Wu and Yucheng Dong."
   },
   {
     "category": "Special Session Organizers",
-    "role": "",
-    "organization": "",
-    "item": "\"Data and Network-Driven Decision Analysis\", in the 2021 Annual Conference on Data Science and Knowledge Systems Engineering, SESC, co-organized by Zhen Zhang and Yucheng Dong.",
-    "period": ""
+    "item": "\"Data and Network-Driven Decision Analysis\", in the 2021 Annual Conference on Data Science and Knowledge Systems Engineering, Systems Engineering Society of China, co-organized by Zhen Zhang and Yucheng Dong."
   },
   {
     "category": "Special Session Organizers",
-    "role": "",
-    "organization": "",
-    "item": "\"Consensus for large-scale Group Decision Making\", in ICSSE 2020, co-organized by Jian Wu, Yucheng Dong, Zaiwu Gong, Yejun Xu, and Zhen Zhang.",
-    "period": ""
+    "item": "“Consensus for large-scale Group Decision Making”, in the 2020 International Conference on System Science and Engineering (ICSSE 2020), co-organized by Jian Wu, Yucheng Dong, Zaiwu Gong, Yejun Xu, and Zhen Zhang."
   },
   {
     "category": "Special Session Organizers",
-    "role": "",
-    "organization": "",
-    "item": "\"Managing Uncertainty in Data-Driven Decision Making\", in FLINS 2020, co-organized by Zhen Zhang, Yucheng Dong and Yejun Xu.",
-    "period": ""
+    "item": "“Managing Uncertainty in Data-Driven Decision Making”, in the 14th International FLINS Conference on Robotics and Artificial Intelligence (FLINS 2020), co-organized by Zhen Zhang, Yucheng Dong and Yejun Xu."
   },
   {
     "category": "Special Session Organizers",
-    "role": "",
-    "organization": "",
-    "item": "\"Data-Driven Decision Making with Uncertainty\", in ISKE 2019, co-organized by Luis Martínez, Yucheng Dong and Zhen Zhang.",
-    "period": ""
+    "item": "\"Data-Driven Decision Making with Uncertainty\", in the 14th International Conference on Intelligent Systems and Knowledge Engineering (ISKE 2019), co-organized by Luis Martínez, Yucheng Dong and Zhen Zhang."
   },
   {
     "category": "Special Session Organizers",
-    "role": "",
-    "organization": "",
-    "item": "\"Group Decision Making in Social Networks\", in CIE 49, co-organized by Jian Wu, Yucheng Dong, Zaiwu Gong, Yejun Xu and Zhen Zhang.",
-    "period": ""
+    "item": "\"Group Decision Making in Social Networks\", in the 49th International Conference on Computers & Industrial Engineering (CIE 49), co-organized by Jian Wu, Yucheng Dong, Zaiwu Gong, Yejun Xu and Zhen Zhang."
   },
   {
     "category": "Special Session Organizers",
-    "role": "",
-    "organization": "",
-    "item": "\"Consensus Process Decision Making\", in GDN 2018, co-organized by Yucheng Dong, Zaiwu Gong, Jian Wu, Zhen Zhang and Haiming Liang.",
-    "period": ""
+    "item": "\"Consensus Process Decision Making\", in the 18th International Conference on Group Decision and Negotiation (GDN 2018), co-organized by Yucheng Dong, Zaiwu Gong, Jian Wu, Zhen Zhang and Haiming Liang."
   },
   {
     "category": "Special Session Organizers",
-    "role": "",
-    "organization": "",
-    "item": "\"Intelligent Decision Support Systems: Models, Methods and Applications\", in ISKE 2017, co-organized by Zhen Zhang and Jialin Han.",
-    "period": ""
+    "item": "\"Intelligent Decision Support Systems: Models, Methods and Applications\", in the 12th International Conference on Intelligent Systems and Knowledge Engineering (ISKE 2017), co-organized by Zhen Zhang and Jialin Han."
   }
 ]
