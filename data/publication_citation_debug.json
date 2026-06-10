@@ -1,0 +1,666 @@
+[
+  {
+    "title": "Tourism demand forecasting with multi-source data: a hybrid model incorporating seasonal-trend decomposition",
+    "status": "matched_title_search",
+    "citations": "3",
+    "score": 1.0,
+    "matched_title": "Tourism demand forecasting with multi-source data: a hybrid model incorporating seasonal-trend decomposition",
+    "source": "title_search"
+  },
+  {
+    "title": "A multi-criteria preference learning method considering context-dependent decision behavior",
+    "status": "not_matched",
+    "citations": "",
+    "score": "",
+    "matched_title": "",
+    "source": "search_link_only"
+  },
+  {
+    "title": "Targeting the right person: An optimization-driven framework for persuader selection in social networks with opinion evolution",
+    "status": "matched_title_search",
+    "citations": "2026",
+    "score": 0.969,
+    "matched_title": "Targeting the right person: An optimization-driven framework for optimal persuader selection in social networks with opinion evolution",
+    "source": "title_search"
+  },
+  {
+    "title": "Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective",
+    "status": "matched_title_search",
+    "citations": "81",
+    "score": 1.0,
+    "matched_title": "Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective",
+    "source": "title_search"
+  },
+  {
+    "title": "KRAM: Knowledge-driven robust training against label noise for medication recommendation",
+    "status": "matched_title_search",
+    "citations": "9",
+    "score": 1.0,
+    "matched_title": "KRAM: Knowledge-driven robust training against label noise for medication recommendation",
+    "source": "title_search"
+  },
+  {
+    "title": "Integrating personalized individual semantics and consistency control to support consensus reaching in 2-rank group decision making",
+    "status": "matched_title_search",
+    "citations": "6",
+    "score": 1.0,
+    "matched_title": "Integrating Personalized Individual Semantics and Consistency Control to Support Consensus Reaching in 2-Rank Group Decision Making",
+    "source": "title_search"
+  },
+  {
+    "title": "Preference learning for multi-criteria sorting with interacting criteria: A framework integrating threshold-based value-driven sorting procedure with attention network",
+    "status": "matched_title_search",
+    "citations": "5",
+    "score": 1.0,
+    "matched_title": "Preference learning for multi-criteria sorting with interacting criteria: A framework integrating threshold-based value-driven sorting procedure with attention network",
+    "source": "title_search"
+  },
+  {
+    "title": "Carbon price prediction for China's ETS pilots using variational mode decomposition and optimized extreme learning machine",
+    "status": "matched_title_search",
+    "citations": "57",
+    "score": 1.0,
+    "matched_title": "Carbon price prediction for China's ETS pilots using variational mode decomposition and optimized extreme learning machine",
+    "source": "title_search"
+  },
+  {
+    "title": "Dynamic nonlinear connectedness between the green bonds, clean energy, and stock price: the impact of the COVID-19 pandemic",
+    "status": "matched_title_search",
+    "citations": "147",
+    "score": 1.0,
+    "matched_title": "Dynamic nonlinear connectedness between the green bonds, clean energy, and stock price: the impact of the COVID-19 pandemic",
+    "source": "title_search"
+  },
+  {
+    "title": "A stability analysis for the online retailing cyber security situation piecewise variable weight rating method",
+    "status": "matched_title_search",
+    "citations": "1",
+    "score": 1.0,
+    "matched_title": "A stability analysis for the online retailing cyber security situation piecewise variable weight rating method",
+    "source": "title_search"
+  },
+  {
+    "title": "Lexicographic optimization-based approaches to learning a representative model for multi-criteria sorting with non-monotonic criteria",
+    "status": "matched_title_search",
+    "citations": "12",
+    "score": 1.0,
+    "matched_title": "Lexicographic optimization-based approaches to learning a representative model for multi-criteria sorting with non-monotonic criteria",
+    "source": "title_search"
+  },
+  {
+    "title": "An incremental preference elicitation-based approach to learning potentially non-monotonic preferences in multi-criteria sorting",
+    "status": "matched_title_search",
+    "citations": "22",
+    "score": 1.0,
+    "matched_title": "An incremental preference elicitation-based approach to learning potentially non-monotonic preferences in multi-criteria sorting",
+    "source": "title_search"
+  },
+  {
+    "title": "Generation of granular-balls for clustering based on the principle of justifiable granularity",
+    "status": "matched_title_search",
+    "citations": "29",
+    "score": 1.0,
+    "matched_title": "Generation of granular-balls for clustering based on the principle of justifiable granularity",
+    "source": "title_search"
+  },
+  {
+    "title": "Modeling personalized individual semantics in multicriteria decision making with incomplete linguistic preference relations: A preference disaggregation perspective",
+    "status": "matched_title_search",
+    "citations": "25",
+    "score": 1.0,
+    "matched_title": "Modeling personalized individual semantics in multicriteria decision making with incomplete linguistic preference relations: A preference disaggregation perspective",
+    "source": "title_search"
+  },
+  {
+    "title": "Constructive preference elicitation for multi-criteria decision analysis using an estimate-then-select strategy",
+    "status": "matched_title_search",
+    "citations": "17",
+    "score": 1.0,
+    "matched_title": "Constructive preference elicitation for multi-criteria decision analysis using an estimate-then-select strategy",
+    "source": "title_search"
+  },
+  {
+    "title": "Social network group decision making: Characterization, taxonomy, challenges and future directions from an AI and LLMs perspective",
+    "status": "matched_title_search",
+    "citations": "79",
+    "score": 1.0,
+    "matched_title": "Social network group decision making: Characterization, taxonomy, challenges and future directions from an AI and LLMs perspective",
+    "source": "title_search"
+  },
+  {
+    "title": "Automatic consensus models to balance consensus cost, consistency level and consensus degree with attitudinal trust mechanism",
+    "status": "matched_title_search",
+    "citations": "2",
+    "score": 1.0,
+    "matched_title": "Automatic consensus models to balance consensus cost, consistency level and consensus degree with attitudinal trust mechanism",
+    "source": "title_search"
+  },
+  {
+    "title": "Integrating machine learning models to learn potentially non-monotonic preferences for multi-criteria sorting from large-scale assignment examples",
+    "status": "matched_title_search",
+    "citations": "16",
+    "score": 1.0,
+    "matched_title": "Integrating machine learning models to learn potentially non-monotonic preferences for multi-criteria sorting from large-scale assignment examples",
+    "source": "title_search"
+  },
+  {
+    "title": "Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty - Theories, Methods and Applications",
+    "status": "matched_title_search",
+    "citations": "2",
+    "score": 1.0,
+    "matched_title": "Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty: Theories, Methods and Applications",
+    "source": "title_search"
+  },
+  {
+    "title": "A quality function deployment model by social network and group decision making: Application to product design of e-commerce platforms",
+    "status": "matched_title_search",
+    "citations": "53",
+    "score": 1.0,
+    "matched_title": "A quality function deployment model by social network and group decision making: Application to product design of e-commerce platforms",
+    "source": "title_search"
+  },
+  {
+    "title": "Threshold-based value-driven method to support consensus reaching in multicriteria group sorting problems: A minimum adjustment perspective",
+    "status": "matched_title_search",
+    "citations": "83",
+    "score": 1.0,
+    "matched_title": "Threshold-based value-driven method to support consensus reaching in multicriteria group sorting problems: A minimum adjustment perspective",
+    "source": "title_search"
+  },
+  {
+    "title": "Mining maximum ordinal-cardinal consensus for large-scale group decision making with incomplete fuzzy preference relations",
+    "status": "matched_title_search",
+    "citations": "43",
+    "score": 1.0,
+    "matched_title": "Mining maximum ordinal–cardinal consensus for large-scale group decision making with incomplete fuzzy preference relations",
+    "source": "title_search"
+  },
+  {
+    "title": "Consensus reaching for ordinal classification-based group decision making with heterogeneous preference information",
+    "status": "matched_title_search",
+    "citations": "83",
+    "score": 1.0,
+    "matched_title": "Consensus reaching for ordinal classification-based group decision making with heterogeneous preference information",
+    "source": "title_search"
+  },
+  {
+    "title": "Consensus-based TOPSIS-Sort-B for multi-criteria sorting in the context of group decision-making",
+    "status": "matched_title_search",
+    "citations": "141",
+    "score": 1.0,
+    "matched_title": "Consensus-based TOPSIS-Sort-B for multi-criteria sorting in the context of group decision-making",
+    "source": "title_search"
+  },
+  {
+    "title": "A sentiment analysis driven method based on public and personal preferences with correlated attributes to select online doctors",
+    "status": "matched_title_search",
+    "citations": "25",
+    "score": 1.0,
+    "matched_title": "A sentiment analysis driven method based on public and personal preferences with correlated attributes to select online doctors",
+    "source": "title_search"
+  },
+  {
+    "title": "Consensus-trust driven bidirectional feedback mechanism for improving consensus in social network large-group decision making",
+    "status": "matched_title_search",
+    "citations": "169",
+    "score": 1.0,
+    "matched_title": "Consensus-trust driven bidirectional feedback mechanism for improving consensus in social network large-group decision making",
+    "source": "title_search"
+  },
+  {
+    "title": "Consensus reaching in multi-criteria social network group decision making: A stochastic multicriteria acceptability analysis-based method",
+    "status": "matched_title_search",
+    "citations": "82",
+    "score": 1.0,
+    "matched_title": "Consensus reaching in multi-criteria social network group decision making: A stochastic multicriteria acceptability analysis-based method",
+    "source": "title_search"
+  },
+  {
+    "title": "A consensus model for group decision making by considering personalized individual semantics and consistency",
+    "status": "not_matched",
+    "citations": "",
+    "score": "",
+    "matched_title": "",
+    "source": "search_link_only"
+  },
+  {
+    "title": "Application of group decision making in shipping industry 4.0: Bibliometric analysis, trends, and future directions",
+    "status": "matched_title_search",
+    "citations": "63",
+    "score": 1.0,
+    "matched_title": "Application of group decision making in shipping industry 4.0: bibliometric analysis, trends, and future directions",
+    "source": "title_search"
+  },
+  {
+    "title": "Consensus reaching with consistency control in group decision making with incomplete hesitant fuzzy linguistic preference relations",
+    "status": "matched_title_search",
+    "citations": "93",
+    "score": 1.0,
+    "matched_title": "Consensus reaching with consistency control in group decision making with incomplete hesitant fuzzy linguistic preference relations",
+    "source": "title_search"
+  },
+  {
+    "title": "Classification-based strategic weight manipulation in multiple attribute decision making",
+    "status": "matched_title_search",
+    "citations": "33",
+    "score": 1.0,
+    "matched_title": "Classification-based strategic weight manipulation in multiple attribute decision making",
+    "source": "title_search"
+  },
+  {
+    "title": "Personalized individual semantics-based consistency control and consensus reaching in linguistic group decision making",
+    "status": "matched_title_search",
+    "citations": "174",
+    "score": 1.0,
+    "matched_title": "Personalized individual semantics-based consistency control and consensus reaching in linguistic group decision making",
+    "source": "title_search"
+  },
+  {
+    "title": "An adaptive group decision making framework: Individual and local world opinion based opinion dynamics",
+    "status": "matched_title_search",
+    "citations": "89",
+    "score": 1.0,
+    "matched_title": "An adaptive group decision making framework: Individual and local world opinion based opinion dynamics",
+    "source": "title_search"
+  },
+  {
+    "title": "A stock price forecasting model integrating complementary ensemble empirical mode decomposition and independent component analysis",
+    "status": "matched_title_search",
+    "citations": "24",
+    "score": 1.0,
+    "matched_title": "A stock price forecasting model integrating complementary ensemble empirical mode decomposition and independent component analysis",
+    "source": "title_search"
+  },
+  {
+    "title": "Adaptive spectral affinity propagation clustering",
+    "status": "matched_title_search",
+    "citations": "17",
+    "score": 1.0,
+    "matched_title": "Adaptive spectral affinity propagation clustering",
+    "source": "title_search"
+  },
+  {
+    "title": "Consensus reaching with non-cooperative behavior management for personalized individual semantics-based social network group decision making",
+    "status": "matched_title_search",
+    "citations": "161",
+    "score": 1.0,
+    "matched_title": "Consensus reaching with non-cooperative behavior management for personalized individual semantics-based social network group decision making",
+    "source": "title_search"
+  },
+  {
+    "title": "Regional imbalances of market efficiency in China's pilot emission trading schemes (ETS): A multifractal perspective",
+    "status": "matched_title_search",
+    "citations": "30",
+    "score": 1.0,
+    "matched_title": "Regional imbalances of market efficiency in China's pilot emission trading schemes (ETS): A multifractal perspective",
+    "source": "title_search"
+  },
+  {
+    "title": "Consensus reaching for MAGDM with multi-granular hesitant fuzzy linguistic term sets: a minimum adjustment-based approach",
+    "status": "matched_title_search",
+    "citations": "226",
+    "score": 1.0,
+    "matched_title": "Consensus reaching for MAGDM with multi-granular hesitant fuzzy linguistic term sets: a minimum adjustment-based approach",
+    "source": "title_search"
+  },
+  {
+    "title": "Two-sided matching decision making with multi-granular hesitant fuzzy linguistic term sets and incomplete criteria weight information",
+    "status": "matched_title_search",
+    "citations": "168",
+    "score": 1.0,
+    "matched_title": "Two-sided matching decision making with multi-granular hesitant fuzzy linguistic term sets and incomplete criteria weight information",
+    "source": "title_search"
+  },
+  {
+    "title": "Consensus reaching for group decision making with multi-granular unbalanced linguistic information: A bounded confidence and minimum adjustment-based approach",
+    "status": "matched_title_search",
+    "citations": "223",
+    "score": 0.97,
+    "matched_title": "Consensus reaching for group decision making with multi-granular unbalanced linguistic information: A bounded confidence and minimum adjustment-based …",
+    "source": "title_search"
+  },
+  {
+    "title": "Distributed linguistic representations in decision making: Taxonomy, key elements and applications, and challenges in data science and explainable artificial intelligence",
+    "status": "matched_title_search",
+    "citations": "203",
+    "score": 0.96,
+    "matched_title": "Distributed linguistic representations in decision making: Taxonomy, key elements and applications, and challenges in data science and explainable artificial …",
+    "source": "title_search"
+  },
+  {
+    "title": "A simulation research towards better leverage of sales ranking",
+    "status": "matched_title_search",
+    "citations": "4",
+    "score": 1.0,
+    "matched_title": "A Simulation Research Towards Better Leverage of Sales Ranking",
+    "source": "title_search"
+  },
+  {
+    "title": "Consensus reaching in group decision making: Research progress and prospect",
+    "status": "matched_title_search",
+    "citations": "17",
+    "score": 0.935,
+    "matched_title": "Consensus in group decision making: Research progress and prospect",
+    "source": "title_search"
+  },
+  {
+    "title": "Consistency improvement for fuzzy preference relations with self-confidence: An application in two-sided matching decision making",
+    "status": "matched_title_search",
+    "citations": "147",
+    "score": 1.0,
+    "matched_title": "Consistency improvement for fuzzy preference relations with self-confidence: An application in two-sided matching decision making",
+    "source": "title_search"
+  },
+  {
+    "title": "Volatility similarity and spillover effects in G20 stock market comovements: An ICA-based ARMA-APARCH-M approach",
+    "status": "matched_title_search",
+    "citations": "6",
+    "score": 1.0,
+    "matched_title": "Volatility Similarity and Spillover Effects in G20 Stock Market Comovements: An ICA‐Based ARMA‐APARCH‐M Approach",
+    "source": "title_search"
+  },
+  {
+    "title": "Managing multigranular unbalanced hesitant fuzzy linguistic information in multiattribute large-scale group decision making: A linguistic distribution-based approach",
+    "status": "matched_title_search",
+    "citations": "246",
+    "score": 1.0,
+    "matched_title": "Managing multigranular unbalanced hesitant fuzzy linguistic information in multiattribute large-scale group decision making: A linguistic distribution-based approach",
+    "source": "title_search"
+  },
+  {
+    "title": "Consensus reaching for social network group decision making by considering leadership and bounded confidence",
+    "status": "matched_title_search",
+    "citations": "254",
+    "score": 1.0,
+    "matched_title": "Consensus reaching for social network group decision making by considering leadership and bounded confidence",
+    "source": "title_search"
+  },
+  {
+    "title": "Some models to improve the worst consistency level of hesitant fuzzy preference relations",
+    "status": "matched_title_search",
+    "citations": "1",
+    "score": 1.0,
+    "matched_title": "Some models to improve the worst consistency level of hesitant fuzzy preference relations",
+    "source": "title_search"
+  },
+  {
+    "title": "Stable two-sided matching decision making with incomplete fuzzy preference relations: A disappointment theory based approach",
+    "status": "matched_title_search",
+    "citations": "69",
+    "score": 1.0,
+    "matched_title": "Stable two-sided matching decision making with incomplete fuzzy preference relations: A disappointment theory based approach",
+    "source": "title_search"
+  },
+  {
+    "title": "Evaluating collaboration ability of R&D team members: A multi-granular hesitant fuzzy linguistic approach",
+    "status": "matched_title_search",
+    "citations": "2",
+    "score": 1.0,
+    "matched_title": "Evaluating Collaboration Ability of R&D Team Members: A Multi-Granular Hesitant Fuzzy Linguistic Approach",
+    "source": "title_search"
+  },
+  {
+    "title": "Grey group QUALIFLEX method: Application in project management",
+    "status": "matched_title_search",
+    "citations": "12",
+    "score": 1.0,
+    "matched_title": "Grey group QUALIFLEX method: application in project management",
+    "source": "title_search"
+  },
+  {
+    "title": "Group decision making with linguistic distribution preference relations: An interval numerical scale-based approach",
+    "status": "matched_title_search",
+    "citations": "1",
+    "score": 1.0,
+    "matched_title": "Group Decision Making with Linguistic Distribution Preference Relations: An Interval Numerical Scale-Based Approach",
+    "source": "title_search"
+  },
+  {
+    "title": "Additive consistency analysis and improvement for hesitant fuzzy preference relations",
+    "status": "matched_title_search",
+    "citations": "136",
+    "score": 1.0,
+    "matched_title": "Additive consistency analysis and improvement for hesitant fuzzy preference relations",
+    "source": "title_search"
+  },
+  {
+    "title": "A reducibility method for the weak linear bilevel programming problems and a case study in principal-agent",
+    "status": "matched_title_search",
+    "citations": "10",
+    "score": 1.0,
+    "matched_title": "A reducibility method for the weak linear bilevel programming problems and a case study in principal-agent",
+    "source": "title_search"
+  },
+  {
+    "title": "On priority weights and consistency for incomplete hesitant fuzzy preference relations",
+    "status": "matched_title_search",
+    "citations": "129",
+    "score": 1.0,
+    "matched_title": "On priority weights and consistency for incomplete hesitant fuzzy preference relations",
+    "source": "title_search"
+  },
+  {
+    "title": "Multi-granular hesitant fuzzy linguistic group decision making with incomplete weight information",
+    "status": "matched_title_search",
+    "citations": "14",
+    "score": 1.0,
+    "matched_title": "Multi-granular hesitant fuzzy linguistic group decision making with incomplete weight information",
+    "source": "title_search"
+  },
+  {
+    "title": "An optimization-based approach to aggregating multi-granular hesitant fuzzy linguistic term sets",
+    "status": "matched_title_search",
+    "citations": "4",
+    "score": 1.0,
+    "matched_title": "An optimization-based approach to aggregating multi-granular hesitant fuzzy linguistic term sets",
+    "source": "title_search"
+  },
+  {
+    "title": "Extended TODIM for multi-criteria group decision making based on unbalanced hesitant fuzzy linguistic term sets",
+    "status": "matched_title_search",
+    "citations": "180",
+    "score": 1.0,
+    "matched_title": "Extended TODIM for multi-criteria group decision making based on unbalanced hesitant fuzzy linguistic term sets",
+    "source": "title_search"
+  },
+  {
+    "title": "Managing multigranular linguistic distribution assessments in large-scale multiattribute group decision making",
+    "status": "matched_title_search",
+    "citations": "373",
+    "score": 1.0,
+    "matched_title": "Managing multigranular linguistic distribution assessments in large-scale multiattribute group decision making",
+    "source": "title_search"
+  },
+  {
+    "title": "Deriving priority weights from intuitionistic multiplicative preference relations under group decision-making settings",
+    "status": "matched_title_search",
+    "citations": "101",
+    "score": 1.0,
+    "matched_title": "Deriving priority weights from intuitionistic multiplicative preference relations under group decision-making settings",
+    "source": "title_search"
+  },
+  {
+    "title": "Textual topic evolution analysis based on term co-occurrence: A case study on the government work report of the State Council (1954-2017)",
+    "status": "matched_title_search",
+    "citations": "15",
+    "score": 1.0,
+    "matched_title": "Textual topic evolution analysis based on term co-occurrence: A case study on the government work report of the State Council (1954–2017)",
+    "source": "title_search"
+  },
+  {
+    "title": "Two-sided matching decision making based on heterogeneous incomplete preference relations",
+    "status": "matched_title_search",
+    "citations": "5",
+    "score": 1.0,
+    "matched_title": "Two-sided matching decision making based on heterogeneous incomplete preference relations",
+    "source": "title_search"
+  },
+  {
+    "title": "A TODIM-based approach to large-scale group decision making with multi-granular unbalanced linguistic information",
+    "status": "matched_title_search",
+    "citations": "14",
+    "score": 1.0,
+    "matched_title": "A TODIM-based approach to large-scale group decision making with multi-granular unbalanced linguistic information",
+    "source": "title_search"
+  },
+  {
+    "title": "Notes on \"Logarithmic least squares method to priority for group decision making with incomplete fuzzy preference relations\"",
+    "status": "matched_title_search",
+    "citations": "3",
+    "score": 1.0,
+    "matched_title": "Notes on “Logarithmic least squares method to priority for group decision making with incomplete fuzzy preference relations”",
+    "source": "title_search"
+  },
+  {
+    "title": "A VIKOR-based approach to group decision making with uncertain preference ordinals and incomplete weight information",
+    "status": "matched_title_search",
+    "citations": "13",
+    "score": 1.0,
+    "matched_title": "A VIKOR-based approach to group decision making with uncertain preference ordinals and incomplete weight information",
+    "source": "title_search"
+  },
+  {
+    "title": "Fusion of heterogeneous incomplete hesitant preference relations in group decision making",
+    "status": "matched_title_search",
+    "citations": "30",
+    "score": 1.0,
+    "matched_title": "Fusion of heterogeneous incomplete hesitant preference relations in group decision making",
+    "source": "title_search"
+  },
+  {
+    "title": "Consistency and consensus models for group decision-making with uncertain 2-tuple linguistic preference relations",
+    "status": "matched_title_search",
+    "citations": "70",
+    "score": 1.0,
+    "matched_title": "Consistency and consensus models for group decision-making with uncertain 2-tuple linguistic preference relations",
+    "source": "title_search"
+  },
+  {
+    "title": "Group decision making based on acceptably consistent interval multiplicative preference relations",
+    "status": "matched_title_search",
+    "citations": "1",
+    "score": 1.0,
+    "matched_title": "Group decision making based on acceptably consistent interval multiplicative preference relations",
+    "source": "title_search"
+  },
+  {
+    "title": "Fusing multi-granular unbalanced hesitant fuzzy linguistic information in group decision making",
+    "status": "matched_title_search",
+    "citations": "10",
+    "score": 1.0,
+    "matched_title": "Fusing multi-granular unbalanced hesitant fuzzy linguistic information in group decision making",
+    "source": "title_search"
+  },
+  {
+    "title": "Minimum adjustment-based consistency and consensus models for group decision making with interval pairwise comparison matrices",
+    "status": "matched_title_search",
+    "citations": "3",
+    "score": 1.0,
+    "matched_title": "Minimum adjustment-based consistency and consensus models for group decision making with interval pairwise comparison matrices",
+    "source": "title_search"
+  },
+  {
+    "title": "New operations of hesitant fuzzy linguistic term sets with applications in multi-attribute group decision making",
+    "status": "matched_title_search",
+    "citations": "22",
+    "score": 1.0,
+    "matched_title": "New operations of hesitant fuzzy linguistic term sets with applications in multi-attribute group decision making",
+    "source": "title_search"
+  },
+  {
+    "title": "An approach to group decision making with heterogeneous incomplete uncertain preference relations",
+    "status": "matched_title_search",
+    "citations": "45",
+    "score": 1.0,
+    "matched_title": "An approach to group decision making with heterogeneous incomplete uncertain preference relations",
+    "source": "title_search"
+  },
+  {
+    "title": "Consistency-based algorithms to estimate missing elements for uncertain 2-tuple linguistic preference relations",
+    "status": "matched_title_search",
+    "citations": "34",
+    "score": 1.0,
+    "matched_title": "Consistency-based algorithms to estimate missing elements for uncertain 2-tuple linguistic preference relations",
+    "source": "title_search"
+  },
+  {
+    "title": "Evolutionary community structure discovery in dynamic weighted networks",
+    "status": "matched_title_search",
+    "citations": "65",
+    "score": 1.0,
+    "matched_title": "Evolutionary community structure discovery in dynamic weighted networks",
+    "source": "title_search"
+  },
+  {
+    "title": "A fuzzy tri-level decision making algorithm and its application in supply chain",
+    "status": "matched_title_search",
+    "citations": "10",
+    "score": 1.0,
+    "matched_title": "A fuzzy tri-level decision making algorithm and its application in supply chain",
+    "source": "title_search"
+  },
+  {
+    "title": "A multi-granularity uncertain linguistic group decision making method based on relative entropy",
+    "status": "matched_title_search",
+    "citations": "5",
+    "score": 1.0,
+    "matched_title": "A multi-granularity uncertain linguistic group decision-making method based on relative entropy",
+    "source": "title_search"
+  },
+  {
+    "title": "A method for multi-granularity uncertain linguistic group decision making with incomplete weight information",
+    "status": "matched_title_search",
+    "citations": "122",
+    "score": 1.0,
+    "matched_title": "A method for multi-granularity uncertain linguistic group decision making with incomplete weight information",
+    "source": "title_search"
+  },
+  {
+    "title": "Multiple attributes group decision making method based on two-tuple linguistic information processing",
+    "status": "matched_title_search",
+    "citations": "8",
+    "score": 1.0,
+    "matched_title": "Multiple attributes group decision making method based on two-tuple linguistic information processing",
+    "source": "title_search"
+  },
+  {
+    "title": "Association rules evaluation by a hybrid multiple criteria decision method",
+    "status": "matched_title_search",
+    "citations": "6",
+    "score": 1.0,
+    "matched_title": "Association rules evaluation by a hybrid multiple criteria decision method",
+    "source": "title_search"
+  },
+  {
+    "title": "Asymmetric and heteroskedastic model of volatility of international stock index and its clustering analysis",
+    "status": "matched_title_search",
+    "citations": "1",
+    "score": 1.0,
+    "matched_title": "国际股指波动性的非对称效应异方差模型及聚类分析",
+    "source": "title_search"
+  },
+  {
+    "title": "Interestingness evaluation of association rules based on combination evaluation method",
+    "status": "matched_title_search",
+    "citations": "4",
+    "score": 1.0,
+    "matched_title": "基于组合评价方法的关联规则兴趣度评价",
+    "source": "title_search"
+  },
+  {
+    "title": "A hybrid multiple attributes two-sided matching decision making method with incomplete weight information",
+    "status": "matched_title_search",
+    "citations": "11",
+    "score": 1.0,
+    "matched_title": "A hybrid multiple attributes two-sided matching decision making method with incomplete weight information",
+    "source": "title_search"
+  },
+  {
+    "title": "Ranking Association Rules by TOPSIS Method with Combination Weights",
+    "status": "matched_title_search",
+    "citations": "9",
+    "score": 1.0,
+    "matched_title": "RANKING ASSOCIATION RULES BY TOPSIS METHOD WITH COMBINATION WEIGHTS",
+    "source": "title_search"
+  }
+]
