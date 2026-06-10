@@ -18,14 +18,14 @@ window.SITE_CONFIG = {
   links: [
     {label:"HP@DUT", url:"https://faculty.dlut.edu.cn/zzhang/en"},
     {label:"HP@DUT, in Chinese", url:"https://faculty.dlut.edu.cn/zzhang/zh_CN/index.htm"},
-    {label:"Google Scholar", url:"https://scholar.google.com/citations?hl=zh-CN&user=vBSJplMAAAAJ"},
+    {label:"Google Scholar", url:"https://scholar.google.com/citations?user=vBSJplMAAAAJ"},
     {label:"WOS", url:"https://www.webofscience.com/wos/author/record/286926"},
     {label:"ORCID", url:"https://orcid.org/0000-0002-6512-1458"},
     {label:"RG", url:"https://www.researchgate.net/profile/Zhen-Zhang-21"}
   ],
   scholar: {
     statsJson: "data/scholar_stats.json",
-    profileUrl: "https://scholar.google.com/citations?hl=zh-CN&user=vBSJplMAAAAJ",
+    profileUrl: "https://scholar.google.com/citations?user=vBSJplMAAAAJ",
     fallbackStats: { citations: "—", h_index: "—", i10_index: "—", updated: "" }
   }
 };

@@ -65,12 +65,11 @@ async function renderScholar(){
   const citations = s.citations || fallback.citations || "—";
   const hindex = s.h_index || s.hindex || fallback.h_index || "—";
   const i10 = s.i10_index || s.i10 || fallback.i10_index || "—";
-  const updated = s.updated || fallback.updated || "not updated";
+  const updated = s.updated || fallback.updated || "";
   $("#gs-citations").textContent = citations;
   $("#gs-hindex").textContent = hindex;
   $("#gs-i10").textContent = i10;
-  $("#gs-updated").textContent = updated;
-  const profile = SITE_CONFIG.scholar.profileUrl || "";
+  const profile = s.profile_url || SITE_CONFIG.scholar.profileUrl || "";
   const cleanUpdated = (/^\d{4}[-/]\d{1,2}[-/]\d{1,2}$|^\d{4}[-/]\d{1,2}$/.test(String(updated))) ? updated : "";
   const updatedText = cleanUpdated ? `<span>Updated: ${esc(cleanUpdated)}</span>` : "";
   $("#gs-status").innerHTML = `${profile ? `<a href="${esc(profile)}" target="_blank" rel="noopener">Google Scholar profile</a>` : ""}${updatedText}`;

@@ -108,3 +108,11 @@ Actions → Update homepage data → Run workflow
 ```
 
 This immediately refreshes the Scholar statistics and publication citation counts.
+
+
+## v11 notes
+
+- Google Scholar links use `https://scholar.google.com/citations?user=vBSJplMAAAAJ` without `hl=zh-CN`.
+- The homepage displays Citations, h-index and i10-index; the update date appears only in the small Scholar footer.
+- `scripts/update_publication_citations.py` requires `SERPAPI_KEY` from GitHub Secrets and skips Chinese-language publications.
+- DOI is displayed in each publication entry when the `doi` field is available.

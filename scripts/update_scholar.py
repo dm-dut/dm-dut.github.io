@@ -20,7 +20,7 @@ from urllib.request import urlopen
 
 OUT = Path("data/scholar_stats.json")
 DEFAULT_AUTHOR_ID = "vBSJplMAAAAJ"
-PROFILE_URL = "https://scholar.google.com/citations?hl=zh-CN&user="
+PROFILE_URL = "https://scholar.google.com/citations?user="
 
 def load_existing():
     if OUT.exists():
