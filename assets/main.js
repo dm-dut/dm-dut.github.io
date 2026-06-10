@@ -61,18 +61,28 @@ function renderProfile(){
 
 async function renderScholar(){
   const fallback = SITE_CONFIG.scholar.fallbackStats || {};
-  const s = await loadJson(SITE_CONFIG.scholar.statsJson, fallback);
+  let s = {};
+
+  try {
+    s = await loadJson(SITE_CONFIG.scholar.statsJson, {});
+  } catch (err) {
+    s = {};
+  }
+
   const citations = s.citations || fallback.citations || "—";
   const hindex = s.h_index || s.hindex || fallback.h_index || "—";
   const i10 = s.i10_index || s.i10 || fallback.i10_index || "—";
   const updated = s.updated || fallback.updated || "";
+
   $("#gs-citations").textContent = citations;
   $("#gs-hindex").textContent = hindex;
   $("#gs-i10").textContent = i10;
-  const profile = s.profile_url || SITE_CONFIG.scholar.profileUrl || "";
+
+  // Keep this area intentionally minimal. Do not show default placeholder
+  // text such as "Google Scholar profile" when the JSON request is blocked
+  // by browser cache, local file preview, or network restrictions.
   const cleanUpdated = (/^\d{4}[-/]\d{1,2}[-/]\d{1,2}$|^\d{4}[-/]\d{1,2}$/.test(String(updated))) ? updated : "";
-  const updatedText = cleanUpdated ? `<span>Updated: ${esc(cleanUpdated)}</span>` : "";
-  $("#gs-status").innerHTML = `${profile ? `<a href="${esc(profile)}" target="_blank" rel="noopener">Google Scholar profile</a>` : ""}${updatedText}`;
+  $("#gs-status").innerHTML = cleanUpdated ? `<span>Last updated: ${esc(cleanUpdated)}</span>` : "";
 }
 
 function sortByDateDesc(a,b){ return String(b.date||"").localeCompare(String(a.date||"")); }
