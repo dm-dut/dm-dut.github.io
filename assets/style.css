@@ -70,3 +70,96 @@ a{color:#1f5fbf;text-decoration:none}a:hover{text-decoration:underline}.meta{col
 .pub-extra .sep{color:#cbd5e1;font-weight:400}
 
 @media (max-width: 640px){.stats{grid-template-columns:1fr 1fr}.scholar-panel .stats{grid-template-columns:1fr}}
+
+/* v12 refinements: more elegant Scholar cards and BibTeX controls */
+.scholar-panel{
+  position:relative;
+  overflow:hidden;
+}
+.scholar-panel:before{
+  content:"";
+  position:absolute;
+  right:-44px;
+  top:-54px;
+  width:150px;
+  height:150px;
+  border-radius:999px;
+  background:radial-gradient(circle, rgba(31,95,191,.13), rgba(15,118,110,.04) 58%, transparent 70%);
+  pointer-events:none;
+}
+.scholar-panel .stats{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  position:relative;
+  z-index:1;
+}
+.scholar-panel .stat{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  min-height:72px;
+  padding:13px 15px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ffffff 0%,#f7fbff 100%);
+  border:1px solid #dce8f7;
+  box-shadow:0 10px 22px rgba(15,23,42,.045);
+}
+.scholar-panel .stat-label{
+  font-size:13px;
+  letter-spacing:.02em;
+  text-transform:none;
+  color:#536179;
+  font-weight:760;
+  white-space:nowrap;
+}
+.scholar-panel .stat-value{
+  margin:0;
+  font-size:31px;
+  line-height:1;
+  color:#173f91;
+  letter-spacing:-.03em;
+}
+.scholar-foot{
+  position:relative;
+  z-index:1;
+  font-size:12px;
+  color:#7b8798;
+}
+.pub-extra .bib-btn{
+  appearance:none;
+  border:1px solid #dbe7f5;
+  background:#f8fbff;
+  color:#1f5fbf;
+  border-radius:999px;
+  padding:2px 9px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  line-height:1.45;
+}
+.pub-extra .bib-btn:hover{background:#eef6ff;text-decoration:none}
+.pub-extra .bib-btn.copied{background:#ecfdf5;border-color:#99f6e4;color:#0f766e}
+.bibtex-box{
+  margin:8px 0 0;
+  padding:11px 12px;
+  border:1px solid #dce8f7;
+  border-radius:12px;
+  background:#f8fafc;
+  color:#263244;
+  font-size:12px;
+  line-height:1.48;
+  white-space:pre-wrap;
+  overflow:auto;
+}
+@media(max-width:860px){
+  .scholar-panel .stats{grid-template-columns:1fr 1fr 1fr}
+  .scholar-panel .stat{flex-direction:column;align-items:flex-start;min-height:86px}
+  .scholar-panel .stat-value{font-size:28px}
+}
+@media(max-width:640px){
+  .scholar-panel .stats{grid-template-columns:1fr}
+  .scholar-panel .stat{flex-direction:row;align-items:center;min-height:64px}
+}

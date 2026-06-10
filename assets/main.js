@@ -40,6 +40,23 @@ function activateTab(tab){
   history.replaceState(null, "", `#${tab}`);
   window.scrollTo({top:0, behavior:"smooth"});
 }
+
+function initBibtexButtons(){
+  document.addEventListener("click", async (e) => {
+    const btn = e.target.closest(".bib-btn");
+    if(!btn) return;
+    const box = document.getElementById(`bib-${btn.dataset.bib}`);
+    if(!box) return;
+    box.hidden = !box.hidden;
+    btn.textContent = box.hidden ? "BibTeX" : "Hide BibTeX";
+    try{
+      await navigator.clipboard.writeText(box.textContent);
+      btn.classList.add("copied");
+      setTimeout(()=>btn.classList.remove("copied"), 1000);
+    }catch(err){}
+  });
+}
+
 function initTabs(){
   $$(".nav button").forEach(btn => btn.addEventListener("click", () => activateTab(btn.dataset.tab)));
   $$('[data-jump]').forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.jump)));
@@ -157,7 +174,40 @@ function doiUrl(doi){
   const d = String(doi).replace(/^https?:\/\/(dx\.)?doi\.org\//i, "").trim();
   return d ? `https://doi.org/${d}` : "";
 }
-function publicationExtraHtml(p){
+function bibtexType(p){
+  if(p.type === "Conference Paper") return "inproceedings";
+  if(p.type === "Monograph") return "book";
+  if(p.type === "Book Chapter") return "incollection";
+  return "article";
+}
+function bibtexKey(p, idx){
+  const authors = Array.isArray(p.authors) ? p.authors.join(" ") : String(p.authors||"");
+  const first = (authors.replace(/\*/g, "").match(/[A-Za-z]+/) || ["Zhang"])[0];
+  const year = String(p.year || "n.d.").replace(/\D/g, "") || "nd";
+  const titleWord = (String(p.title||"").match(/[A-Za-z0-9]+/) || ["paper"])[0];
+  return `${first}${year}${titleWord}${idx}`.replace(/[^A-Za-z0-9_:-]/g, "");
+}
+function bibtexEntry(p, idx){
+  const type = bibtexType(p);
+  const authors = Array.isArray(p.authors) ? p.authors.join(" and ").replace(/\*/g, "") : String(p.authors||"").replace(/;/g, " and ").replace(/\*/g, "");
+  const fields = [];
+  if(authors) fields.push(["author", authors]);
+  if(p.title) fields.push(["title", p.title]);
+  if(p.year) fields.push(["year", String(p.year)]);
+  if(p.venue){
+    const name = type === "inproceedings" ? "booktitle" : (type === "book" ? "publisher" : "journal");
+    fields.push([name, p.venue]);
+  }
+  if(p.volume) fields.push(["volume", String(p.volume)]);
+  if(p.issue) fields.push(["number", String(p.issue)]);
+  if(p.pages) fields.push(["pages", String(p.pages).replace(/–/g, "--")]);
+  const doi = (p.doi || "").toString().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "").trim();
+  if(doi) fields.push(["doi", doi]);
+  if(p.isbn) fields.push(["isbn", p.isbn]);
+  const body = fields.map(([k,v]) => `  ${k} = {${String(v).replace(/[{}]/g, "")}}`).join(",\n");
+  return `@${type}{${bibtexKey(p, idx)},\n${body}\n}`;
+}
+function publicationExtraHtml(p, idx){
   const parts = [];
   const doi = (p.doi || "").toString().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "").trim();
   if(doi){
@@ -167,22 +217,25 @@ function publicationExtraHtml(p){
   const cites = p.google_scholar_citations ?? p.citations ?? "";
   if(!isChinese && cites !== "" && cites !== null && String(cites) !== "—"){
     const label = `Google Scholar Citations: ${esc(cites)}`;
+    // Link to the Google Scholar record for this paper when available; the separate
+    // cited-by URL is stored as google_scholar_cited_by_url for future use.
     if(p.google_scholar_url){
       parts.push(`<a class="pub-citations" href="${esc(p.google_scholar_url)}" target="_blank" rel="noopener">${label}</a>`);
     }else{
       parts.push(`<span class="pub-citations">${label}</span>`);
     }
   }
-  return parts.length ? `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div>` : "";
+  parts.push(`<button class="bib-btn" type="button" data-bib="${idx}">BibTeX</button>`);
+  return `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div><pre class="bibtex-box" id="bib-${idx}" hidden>${esc(bibtexEntry(p, idx))}</pre>`;
 }
-function formatPublication(p){
+function formatPublication(p, idx=0){
   const link = p.link || doiUrl(p.doi);
   const title = link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(p.title || "")}</a>` : esc(p.title || "");
   return `<article class="pub">
     <div class="pub-title">${title}</div>
     <div class="pub-authors">${authorHtml(p.authors)}</div>
     <div class="pub-meta">${esc(detailLine(p))}</div>
-    ${publicationExtraHtml(p)}
+    ${publicationExtraHtml(p, idx)}
     ${tagHtml(p) ? `<div class="pub-tags">${tagHtml(p)}</div>` : ""}
   </article>`;
 }
@@ -208,9 +261,9 @@ function renderPublications(){
   if(type === "all"){
     const groups = {};
     items.forEach(p => (groups[p.type || "Other"] ||= []).push(p));
-    $("#publication-list").innerHTML = TYPE_ORDER.filter(t=>groups[t]).map(t => `<section class="pub-group"><h3>${esc(t)} <span>${groups[t].length}</span></h3>${groups[t].map(formatPublication).join("")}</section>`).join("");
+    $("#publication-list").innerHTML = TYPE_ORDER.filter(t=>groups[t]).map(t => `<section class="pub-group"><h3>${esc(t)} <span>${groups[t].length}</span></h3>${groups[t].map((p,i)=>formatPublication(p, `${t}-${i}`)).join("")}</section>`).join("");
   }else{
-    $("#publication-list").innerHTML = items.map(formatPublication).join("");
+    $("#publication-list").innerHTML = items.map((p,i)=>formatPublication(p, i)).join("");
   }
 }
 

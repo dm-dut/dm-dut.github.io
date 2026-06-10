@@ -122,11 +122,17 @@ def citation_value(article: dict[str, Any]) -> str:
     return ""
 
 
-def citation_link(article: dict[str, Any]) -> str:
+def scholar_record_link(article: dict[str, Any]) -> str:
+    """Return the Google Scholar record/detail link for this paper, not the cited-by list."""
+    return str(article.get("link", "") or "")
+
+
+def cited_by_link(article: dict[str, Any]) -> str:
+    """Return the cited-by list link, kept separately for future display if needed."""
     cited_by = article.get("cited_by") or {}
     if isinstance(cited_by, dict) and cited_by.get("link"):
         return str(cited_by["link"])
-    return str(article.get("link", "") or "")
+    return ""
 
 
 def main() -> None:
@@ -143,7 +149,7 @@ def main() -> None:
 
     for pub in publications:
         if is_chinese_publication(pub):
-            for key in ["google_scholar_citations", "google_scholar_url", "citation_updated", "citation_match_score"]:
+            for key in ["google_scholar_citations", "google_scholar_url", "google_scholar_cited_by_url", "citation_updated", "citation_match_score"]:
                 pub.pop(key, None)
             pub["show_citations"] = False
             skipped += 1
@@ -156,11 +162,13 @@ def main() -> None:
 
         if article and score >= MATCH_THRESHOLD:
             pub["google_scholar_citations"] = citation_value(article)
-            pub["google_scholar_url"] = citation_link(article)
+            pub["google_scholar_url"] = scholar_record_link(article)
+            pub["google_scholar_cited_by_url"] = cited_by_link(article)
             matched += 1
         else:
             pub["google_scholar_citations"] = ""
             pub["google_scholar_url"] = ""
+            pub["google_scholar_cited_by_url"] = ""
             unmatched += 1
 
     PUBS_JSON.write_text(json.dumps(publications, ensure_ascii=False, indent=2), encoding="utf-8")
