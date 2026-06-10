@@ -204,9 +204,20 @@ function normalizeNewsLinks(n){
     .filter(u => !(String(n.category||"").toLowerCase() === "talk" && /doi\.org/i.test(u)));
 }
 
+function newsCategoryClass(category){
+  return String(category || "News").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "news";
+}
+
 function renderNewsItem(n){
+  const category = n.category || "News";
   const links = normalizeNewsLinks(n).map((url) => externalLink(url, "↗")).join("");
-  return `<li class="item news-item"><span class="item-date">${esc(n.date)}</span><span class="news-category"><span class="tag">${esc(n.category||"News")}</span></span><span class="news-body"><span class="news-text">${esc(n.content)}</span>${links}</span></li>`;
+  return `<li class="item news-item news-card">
+    <div class="news-date-box">${esc(n.date || "")}</div>
+    <div class="news-main">
+      <div class="news-head"><span class="news-tag news-tag-${esc(newsCategoryClass(category))}">${esc(category)}</span></div>
+      <div class="news-body"><span class="news-text">${esc(n.content)}</span>${links}</div>
+    </div>
+  </li>`;
 }
 
 function renderHomeNews(){
@@ -360,10 +371,10 @@ function publicationExtraHtml(p, idx){
   const gsUrl = directGsUrl || googleScholarSearchUrl(p);
   const cites = citationValueForDisplay(p);
   if(gsUrl){
-    const label = cites !== "" ? `Google Scholar Citations: ${esc(cites)}` : "Google Scholar";
+    const label = cites !== "" ? `Google Scholar Citation: ${esc(cites)}` : "Google Scholar";
     parts.push(`<a class="pub-citations" href="${esc(gsUrl)}" target="_blank" rel="noopener">${label}</a>`);
   }else if(cites !== ""){
-    parts.push(`<span class="pub-citations">Google Scholar Citations: ${esc(cites)}</span>`);
+    parts.push(`<span class="pub-citations">Google Scholar Citation: ${esc(cites)}</span>`);
   }
 
   const bibId = `bibtex-${idx}-${Math.random().toString(36).slice(2, 8)}`;
