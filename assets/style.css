@@ -199,3 +199,8 @@ a{color:#1f5fbf;text-decoration:none}a:hover{text-decoration:underline}.meta{col
 [data-theme="dark"] .pub-lang-switch{background:#0f172a;border-color:var(--line)}
 [data-theme="dark"] .pub-lang-switch button{color:#d4dbe9}
 @media(max-width:860px){.nav-wrap{gap:10px}.theme-toggle{align-self:flex-start}}
+
+/* v18: structured Editorial Board display */
+.editorial-entry{display:grid;grid-template-columns:minmax(170px,.38fr) minmax(260px,1fr);gap:6px 14px;align-items:baseline;padding:7px 0;border-bottom:1px dashed rgba(148,163,184,.28)}
+.editorial-entry:last-child{border-bottom:0}.service-role{font-weight:800;color:var(--brand);line-height:1.45}.service-org{color:var(--ink);line-height:1.45}.service-period,.service-note{grid-column:2;color:var(--muted);font-size:13px;line-height:1.35}.service-period:before{content:"Period: ";font-weight:700;color:#64748b}.service-note:before{content:"Note: ";font-weight:700;color:#64748b}
+@media(max-width:720px){.editorial-entry{grid-template-columns:1fr}.service-period,.service-note{grid-column:1}.service-role{margin-bottom:-2px}}
