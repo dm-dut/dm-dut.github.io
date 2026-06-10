@@ -469,8 +469,23 @@ function renderGrants(){
   }).join("");
 }
 function renderAwards(){
-  const items = (DATA.awards||[]).slice().sort((a,b)=>String(b.year||"").localeCompare(String(a.year||"")));
-  $("#awards-list").innerHTML = items.map(a => `<li class="item award-item"><span class="item-date">${esc(a.year)}</span><span>${esc(a.title)}${a.organization ? ` — ${esc(a.organization)}` : ""}</span></li>`).join("");
+  const items = (DATA.awards||[]).slice().sort((a,b)=>{
+    const ay = parseInt(String(a.year||"").match(/\d{4}/)?.[0] || "0", 10);
+    const by = parseInt(String(b.year||"").match(/\d{4}/)?.[0] || "0", 10);
+    if (by !== ay) return by - ay;
+    return String(a.title||"").localeCompare(String(b.title||""));
+  });
+
+  $("#awards-list").innerHTML = items.map(a => {
+    const org = a.organization ? `<div class="award-org">${esc(a.organization)}</div>` : "";
+    return `<li class="award-card">
+      <div class="award-year">${esc(a.year)}</div>
+      <div class="award-main">
+        <div class="award-title">${esc(a.title)}</div>
+        ${org}
+      </div>
+    </li>`;
+  }).join("");
 }
 function renderGroup(){
   const groups = {};

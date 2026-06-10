@@ -125,6 +125,35 @@ def normalize_publications(pub_xlsx):
     all_records.sort(key=sort_key)
     return all_records
 
+def expand_award_years(records):
+    """Return award records one by one.
+
+    If an Excel row contains a year range such as 2020-2025 or a comma/semicolon
+    separated year list, it is expanded into independent rows. This prevents
+    visually merged awards after regenerating JSON from Excel.
+    """
+    expanded = []
+    for rec in records:
+        year_raw = str(rec.get("year", "")).strip()
+        years = []
+        # Ranges such as 2020-2025, 2020–2025, 2020—2025
+        m = re.fullmatch(r"(\d{4})\s*[-–—]\s*(\d{4})", year_raw)
+        if m:
+            a, b = int(m.group(1)), int(m.group(2))
+            if a <= b and b - a <= 20:
+                years = [str(y) for y in range(a, b + 1)]
+        if not years:
+            found = re.findall(r"\d{4}", year_raw)
+            if len(found) > 1:
+                years = found
+        if not years:
+            years = [year_raw]
+        for y in years:
+            new_rec = dict(rec)
+            new_rec["year"] = y
+            expanded.append(new_rec)
+    return expanded
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--excel", required=True, help="Homepage content Excel, e.g., homepage_content.xlsx")
@@ -137,6 +166,8 @@ def main():
 
     for sheet, cols in SHEETS.items():
         records = records_from_sheet(args.excel, sheet, cols)
+        if sheet == "Awards":
+            records = expand_award_years(records)
         # projects are optional; skip empty file if no records
         if records or sheet != "Projects":
             (out / f"{sheet.lower()}.json").write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8")
