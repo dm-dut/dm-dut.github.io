@@ -328,10 +328,23 @@ function googleScholarSearchUrl(p){
 }
 function citationValueForDisplay(p){
   // Important: citation value may be numeric 0. Do not treat 0 as empty.
-  const raw = p.google_scholar_citations ?? p.google_scholar_citation ?? p.scholar_citations ?? p.citations ?? "";
-  if(raw === null || raw === undefined) return "";
-  const value = String(raw).trim();
-  return (value === "" || value === "—" || value.toLowerCase() === "nan") ? "" : value;
+  const candidates = [
+    p.google_scholar_citations,
+    p.google_scholar_citation,
+    p.google_scholar_cited_by_count,
+    p.scholar_citations,
+    p.scholar_citation_count,
+    p.citations
+  ];
+  if(p.cited_by && typeof p.cited_by === "object"){
+    candidates.push(p.cited_by.value, p.cited_by.total, p.cited_by.count);
+  }
+  for(const raw of candidates){
+    if(raw === null || raw === undefined) continue;
+    const value = String(raw).trim();
+    if(value !== "" && value !== "—" && value.toLowerCase() !== "nan") return value;
+  }
+  return "";
 }
 function publicationExtraHtml(p, idx){
   const parts = [];
