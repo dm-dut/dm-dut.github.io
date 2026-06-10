@@ -3,22 +3,22 @@
     "date": "2026-04-18",
     "category": "Publication",
     "content": "Our paper titled \"Targeting the right person: an optimization-driven framework for persuader selection in social networks with opinion evolution\" was accepted by European Journal of Operational Research (SCI, EI, 2024 IF=6.0, ABS 4, FMS A).",
-    "link": "https://doi.org/",
+    "link": "https://doi.org/10.1016/j.ejor.2026.04.023",
     "link_text": "↗",
     "show_on_home": "yes",
     "links": [
-      "https://doi.org/"
+      "https://doi.org/10.1016/j.ejor.2026.04.023"
     ]
   },
   {
     "date": "2026-02-26",
     "category": "Publication",
     "content": "Our paper titled \"Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective\" was accepted by Expert Systems with Applications (SCI, EI, 2024 IF=7.5).",
-    "link": "https://doi.org/",
+    "link": "https://doi.org/10.1016/j.eswa.2026.131876",
     "link_text": "↗",
     "show_on_home": "yes",
     "links": [
-      "https://doi.org/"
+      "https://doi.org/10.1016/j.eswa.2026.131876"
     ]
   },
   {
@@ -36,11 +36,11 @@
     "date": "2026-01-23",
     "category": "Publication",
     "content": "Our paper titled \"KRAM: Knowledge-driven robust training against label noise for medication recommendation\" was accepted by Expert Systems with Applications (SCI, EI, 2024 IF=7.5).",
-    "link": "https://dx.doi.org/",
+    "link": "https://doi.org/10.1016/j.eswa.2026.131330",
     "link_text": "↗",
     "show_on_home": "yes",
     "links": [
-      "https://dx.doi.org/"
+      "https://doi.org/10.1016/j.eswa.2026.131330"
     ]
   },
   {
@@ -69,33 +69,45 @@
     "date": "2025-12-15",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"An Incremental Preference Elicitation-Based Approach to Learning Potentially Non-Monotonic Preferences in Multi-Criteria Sorting\" at South China Normal University.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://em.scnu.edu.cn/a/20251215/10970.html",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://em.scnu.edu.cn/a/20251215/10970.html"
+    ]
   },
   {
     "date": "2025-12-15",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Guangzhou University.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://bas.gzhu.edu.cn/info/1129/8564.htm",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://bas.gzhu.edu.cn/info/1129/8564.htm"
+    ]
   },
   {
     "date": "2025-12-14",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Shantou University.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://mp.weixin.qq.com/s/A1uUGGaqqp9XP88res0Y5A",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://mp.weixin.qq.com/s/A1uUGGaqqp9XP88res0Y5A"
+    ]
   },
   {
     "date": "2025-12-13",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"Multi-Granularity Granular-Ball Clustering with Its Applications in Low-Altitude Economy\" at the First Forum on Low-Altitude Economy and Management, hosted by Shandong University, Weihai.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://shxy.wh.sdu.edu.cn/info/1006/26883.htm",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://shxy.wh.sdu.edu.cn/info/1006/26883.htm"
+    ]
   },
   {
     "date": "2025-12-07",
@@ -109,57 +121,79 @@
     "date": "2025-12-06",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"An Incremental Preference Elicitation-Based Approach to Learning Potentially Non-Monotonic Preferences in Multi-Criteria Sorting\" at the 2nd Symposium on Digital Decision-Making, hosted by Shanghai University.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://mp.weixin.qq.com/s/R4Ugr5Srivu8rRrIzh5fug",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://mp.weixin.qq.com/s/R4Ugr5Srivu8rRrIzh5fug"
+    ]
   },
   {
     "date": "2025-11-21",
     "category": "Award",
     "content": "Our paper titled \"Integrating machine learning models to learn potentially non-monotonic preferences for multi-criteria sorting from large-scale assignment examples\" has been selected as one of the recipients of the 2025 Best Paper Award.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://doi.org/10.1016/j.omega.2024.103219",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://doi.org/10.1016/j.omega.2024.103219",
+      "https://mp.weixin.qq.com/s/Liq8EAxapEYQYNvHwTHHiA"
+    ]
   },
   {
     "date": "2025-11-13",
     "category": "Group",
     "content": "Congratulations to Zhuolin Li on successfully completing her Ph.D. thesis defense.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://mp.weixin.qq.com/s/GyFnl6HYnp43uVc8vZzroA",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://mp.weixin.qq.com/s/GyFnl6HYnp43uVc8vZzroA"
+    ]
   },
   {
     "date": "2025-11-10",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Zhejiang Gongshang University.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://mp.weixin.qq.com/s/Hh7PnDXhOo5fzGd_rze09g",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://mp.weixin.qq.com/s/Hh7PnDXhOo5fzGd_rze09g"
+    ]
   },
   {
     "date": "2025-11-10",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"Non-Monotonic Preference Learning for Multi-Criteria Sorting\" at the Second Forum on Intelligent Management, hosted by Shanghai University of Finance and Economics Zhejiang College.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://mp.weixin.qq.com/s/18rIJnSriWPEOhUmGIad4g",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://mp.weixin.qq.com/s/18rIJnSriWPEOhUmGIad4g"
+    ]
   },
   {
     "date": "2025-11-07",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at Shanghai Maritime University.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://sem.shmtu.edu.cn/2025/1030/c7485a281201/page.htm",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://sem.shmtu.edu.cn/2025/1030/c7485a281201/page.htm"
+    ]
   },
   {
     "date": "2025-11-01",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at the Forum on Game Theory and Intelligent Decision Making, hosted by Northwestern Polytechnical University.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://mp.weixin.qq.com/s/Vt4Wy0A7quXG9JPOOVX1dQ",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://mp.weixin.qq.com/s/Vt4Wy0A7quXG9JPOOVX1dQ"
+    ]
   },
   {
     "date": "2025-10-31",
@@ -173,17 +207,23 @@
     "date": "2025-10-31",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Xi'an University of Technology.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "yes"
+    "link": "https://sba.xaut.edu.cn/info/1142/7123.htm",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://sba.xaut.edu.cn/info/1142/7123.htm"
+    ]
   },
   {
     "date": "2025-08-28",
     "category": "Publication",
     "content": "A new paper was accepted by Annals of Operations Research (SCI, IF: 4.5).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1007/s10479-025-06832-0",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1007/s10479-025-06832-0"
+    ]
   },
   {
     "date": "2025-08-17",
@@ -197,17 +237,23 @@
     "date": "2025-08-10",
     "category": "Publication",
     "content": "A new paper was accepted by IEEE Transactions on Systems, Man, and Cybernetics: Systems (SCI, IF: 8.7).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1109/TSMC.2025.3597963",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1109/TSMC.2025.3597963"
+    ]
   },
   {
     "date": "2025-08-01",
     "category": "Publication",
     "content": "A new paper was accepted by Chinese Journal of Management Science (FMS T1).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://link.cnki.net/doi/10.16381/j.cnki.issn1003-207x.2024.1896",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://link.cnki.net/doi/10.16381/j.cnki.issn1003-207x.2024.1896"
+    ]
   },
   {
     "date": "2025-07-08",
@@ -221,17 +267,23 @@
     "date": "2025-06-17",
     "category": "Publication",
     "content": "A new paper was accepted by Information Fusion (SCI, IF: 14.8).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1016/j.inffus.2025.103443",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1016/j.inffus.2025.103443"
+    ]
   },
   {
     "date": "2025-05-29",
     "category": "Award",
     "content": "I was awarded the Springer Nature Editor of Distinction Award 2025 — Author Service Award.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://mp.weixin.qq.com/s/jxDvUlkNr-VsZ7J5sA4k5g",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://mp.weixin.qq.com/s/jxDvUlkNr-VsZ7J5sA4k5g"
+    ]
   },
   {
     "date": "2025-05-10",
@@ -245,81 +297,111 @@
     "date": "2025-05-09",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"Modeling Personalized Individual Semantics in Multi-Criteria Decision Making\" at Nanjing University of Information Science and Technology.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://smse.nuist.edu.cn/info/1081/6992.htm",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://smse.nuist.edu.cn/info/1081/6992.htm"
+    ]
   },
   {
     "date": "2025-04-18",
     "category": "Publication",
     "content": "A new paper was accepted by Information Sciences (SCI, IF: 8.1).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1016/j.ins.2025.122222",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1016/j.ins.2025.122222"
+    ]
   },
   {
     "date": "2025-03-10",
     "category": "Publication",
     "content": "A new paper was accepted by Information Fusion (SCI, IF: 14.8).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1016/j.inffus.2025.103107",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1016/j.inffus.2025.103107"
+    ]
   },
   {
     "date": "2025-01-23",
     "category": "Publication",
     "content": "A new paper was accepted by IEEE Transactions on Cybernetics (SCI, IF: 9.4, ABS 3).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1109/TCYB.2025.3534195",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1109/TCYB.2025.3534195"
+    ]
   },
   {
     "date": "2024-12-30",
     "category": "Publication",
     "content": "A new paper was accepted by Information Fusion (SCI, IF: 14.8).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1016/j.inffus.2024.102926",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1016/j.inffus.2024.102926"
+    ]
   },
   {
     "date": "2024-11-28",
     "category": "Publication",
     "content": "A new paper was accepted by European Journal of Operational Research (SCI, IF: 6.0, ABS 4).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1016/j.ejor.2024.11.047",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1016/j.ejor.2024.11.047"
+    ]
   },
   {
     "date": "2024-11-16",
     "category": "Publication",
     "content": "A new paper was accepted by Computers & Operations Research (SCI, IF: 4.1).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1016/j.cor.2024.106917",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1016/j.cor.2024.106917"
+    ]
   },
   {
     "date": "2024-10-18",
     "category": "Publication",
     "content": "A new paper was accepted by Omega: The International Journal of Management Science (SCI, IF: 6.7).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1016/j.omega.2024.103219",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1016/j.omega.2024.103219"
+    ]
   },
   {
     "date": "2024-09-30",
     "category": "Publication",
     "content": "A new paper was accepted by IEEE Transactions on Systems, Man, and Cybernetics: Systems (SCI, IF: 8.6).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1109/TSMC.2024.3472699",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1109/TSMC.2024.3472699"
+    ]
   },
   {
     "date": "2024-09-24",
     "category": "Service",
     "content": "I will be a guest editor for the special issue \"AI-supported Decision Making and Recommender Systems\" on Applied Sciences Journal (SCI, IF: 2.5).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://www.mdpi.com/journal/applsci/special_issues/9FBJS45XR9",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://www.mdpi.com/journal/applsci/special_issues/9FBJS45XR9"
+    ]
   },
   {
     "date": "2024-09-01",
@@ -333,57 +415,78 @@
     "date": "2024-07-24",
     "category": "Service",
     "content": "I was invited to join in the editorial board of International Journal of Computational Intelligence Systems (SCI, IF: 2.5) as an Area Editor.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://link.springer.com/journal/44196/editors",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://link.springer.com/journal/44196/editors"
+    ]
   },
   {
     "date": "2024-04-29",
     "category": "Book",
     "content": "A monograph entitled \"Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty\" will be published by Springer Nature.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1007/978-981-97-3584-6",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1007/978-981-97-3584-6"
+    ]
   },
   {
     "date": "2024-04-23",
     "category": "Publication",
     "content": "A paper was accepted by Engineering Applications of Artificial Intelligence (2022 IF: 8).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1016/j.engappai.2024.108509",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1016/j.engappai.2024.108509"
+    ]
   },
   {
     "date": "2024-03-08",
     "category": "Publication",
     "content": "A paper was accepted by IEEE Transactions on Fuzzy Systems (2022 IF: 11.9).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1109/TFUZZ.2024.3375863",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1109/TFUZZ.2024.3375863"
+    ]
   },
   {
     "date": "2024-01-24",
     "category": "Service",
     "content": "I joined in the editorial review board of IEEE Transactions on Engineering Management (ABS 3, FMS-A, SCI/SSCI, IF: 5.8).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10356850&tp=",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10356850&tp="
+    ]
   },
   {
     "date": "2023-12-19",
     "category": "Award",
     "content": "I was selected as an outstanding reviewer of Journal of the Operational Research Society for the second time.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://www.tandfonline.com/journals/tjor20",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://www.tandfonline.com/journals/tjor20"
+    ]
   },
   {
     "date": "2023-11-16",
     "category": "Service",
     "content": "I was invited to join in the editorial board of Group Decision & Negotiation as an Associate Editor from 1 January 2024.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://link.springer.com/journal/10726/editorial-board",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://link.springer.com/journal/10726/editorial-board"
+    ]
   },
   {
     "date": "2023-10-11",
@@ -405,65 +508,89 @@
     "date": "2023-07-10",
     "category": "Service",
     "content": "I was invited to join in the editorial board of Information Fusion Journal (2022 IF: 18.6).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://www.sciencedirect.com/journal/information-fusion/about/editorial-board",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://www.sciencedirect.com/journal/information-fusion/about/editorial-board"
+    ]
   },
   {
     "date": "2023-04-26",
     "category": "Publication",
     "content": "A paper was accepted by Information Fusion (2022 IF: 18.6).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1016/j.inffus.2023.101825",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1016/j.inffus.2023.101825"
+    ]
   },
   {
     "date": "2023-02-26",
     "category": "Publication",
     "content": "A paper was accepted by Journal of the Operational Research Society (2022 IF: 3.6).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1080/01605682.2023.2186806",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1080/01605682.2023.2186806"
+    ]
   },
   {
     "date": "2023-02-24",
     "category": "Publication",
     "content": "A paper was accepted by IEEE Transactions on Computational Social Systems (2022 IF: 5).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1109/TCSS.2023.3251351",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1109/TCSS.2023.3251351"
+    ]
   },
   {
     "date": "2023-01-29",
     "category": "Publication",
     "content": "A paper was accepted by Systems Journal (2022 IF: 1.9).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://www.mdpi.com/2079-8954/11/2/69",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://www.mdpi.com/2079-8954/11/2/69"
+    ]
   },
   {
     "date": "2023-01-23",
     "category": "Publication",
     "content": "A paper was accepted by Applied Intelligence (2022 IF: 5.3).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://doi.org/10.1007/s10489-023-04485-9",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://doi.org/10.1007/s10489-023-04485-9"
+    ]
   },
   {
     "date": "2022-12-20",
     "category": "Award",
     "content": "I was selected as an outstanding reviewer for Journal of the Operational Research Society.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://www.tandfonline.com/journals/tjor20",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://www.tandfonline.com/journals/tjor20"
+    ]
   },
   {
     "date": "2022-11-28",
     "category": "Service",
     "content": "I will organize a special issue entitled \"Preference and Consensus Modeling in Group Decision Making under Complex Contexts\" in Systems with Prof. Jian Wu, Prof. Hengjie Zhang and Dr. Wenyu Yu.",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://www.mdpi.com/journal/systems/special_issues/ZN51HVWR9N",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://www.mdpi.com/journal/systems/special_issues/ZN51HVWR9N"
+    ]
   },
   {
     "date": "2022-11-11",
@@ -485,17 +612,23 @@
     "date": "2022-09-06",
     "category": "Publication",
     "content": "A paper was accepted by Annals of Operations Research (SCI, 2022 IF: 4.8).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://link.springer.com/10.1007/s10479-022-04985-w",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://link.springer.com/10.1007/s10479-022-04985-w"
+    ]
   },
   {
     "date": "2022-08-24",
     "category": "Publication",
     "content": "A paper was accepted by Group Decision and Negotiation (SSCI, 2022 IF: 3.0).",
-    "link": "",
-    "link_text": "",
-    "show_on_home": "no"
+    "link": "https://link.springer.com/10.1007/s10726-022-09798-7",
+    "link_text": "↗",
+    "show_on_home": "no",
+    "links": [
+      "https://link.springer.com/10.1007/s10726-022-09798-7"
+    ]
   },
   {
     "date": "2022-04-21",
