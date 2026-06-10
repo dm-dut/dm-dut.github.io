@@ -7,6 +7,7 @@ Usage:
   python scripts/convert_excel_to_json.py --excel homepage_content.xlsx --publications-xlsx publications.xlsx --out data
 
 Notes:
+- Awards are exported record by record; year ranges or repeated titles are not merged.
 - profile / links / scholar settings are intentionally NOT maintained in Excel.
 - Publications are read from your existing publication Excel and normalized to data/publications.json.
 """
@@ -15,7 +16,7 @@ from pathlib import Path
 import pandas as pd
 
 SHEETS = {
-    "News": ["date","category","content","link","show_on_home"],
+    "News": ["date","category","content","link","link_text","links_json","show_on_home"],
     "Awards": ["year","title","organization"],
     "Grants": ["no","role","title","funder","grant_no","amount","period"],
     "Services": ["category","role","organization","item","period"],
@@ -58,6 +59,23 @@ def records_from_sheet(xlsx, sheet, columns):
     out = []
     for _, row in df.iterrows():
         rec = {c: clean_value(row.get(c, "")) for c in columns}
+        if sheet == "News":
+            raw_links = rec.pop("links_json", "")
+            links = []
+            if raw_links:
+                try:
+                    parsed = json.loads(raw_links)
+                    if isinstance(parsed, list):
+                        links = [clean_value(x) for x in parsed if clean_value(x)]
+                except Exception:
+                    links = [x.strip() for x in str(raw_links).split(";") if x.strip()]
+            if not links and rec.get("link"):
+                links = [rec.get("link")]
+            if links:
+                rec["links"] = links
+                rec["link"] = links[0]
+            if not rec.get("link_text"):
+                rec["link_text"] = "↗" if links else ""
         if any(rec.values()):
             out.append(rec)
     return out

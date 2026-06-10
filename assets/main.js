@@ -77,31 +77,50 @@ function copyTextToClipboard(text){
 
 function initBibtexButtons(){
   // Use delegated events because publication entries are rendered dynamically.
+  // This version does not depend on element IDs; it finds the BibTeX box inside
+  // the same publication entry, so it remains stable after filtering / language switching.
   document.addEventListener("click", async (e) => {
     const btn = e.target.closest(".bib-btn");
     if(!btn) return;
     e.preventDefault();
     e.stopPropagation();
 
-    const targetId = btn.getAttribute("data-target");
-    const box = targetId ? document.getElementById(targetId) : null;
+    const pub = btn.closest(".pub");
+    const box = pub ? pub.querySelector(".bibtex-box") : null;
     if(!box) return;
 
-    const isOpen = box.classList.toggle("open");
+    const wasOpen = box.classList.contains("open");
+    document.querySelectorAll(".bibtex-box.open").forEach(el => {
+      if(el !== box){
+        el.classList.remove("open");
+        el.setAttribute("aria-hidden", "true");
+      }
+    });
+    document.querySelectorAll(".bib-btn").forEach(b => {
+      if(b !== btn){
+        b.classList.remove("copied");
+        b.textContent = "BibTeX";
+      }
+    });
+
+    const isOpen = !wasOpen;
+    box.classList.toggle("open", isOpen);
     box.setAttribute("aria-hidden", isOpen ? "false" : "true");
     btn.textContent = isOpen ? "Hide BibTeX" : "BibTeX";
 
     if(isOpen){
       try{
-        await copyTextToClipboard(box.textContent || "");
+        const bib = box.textContent || box.innerText || "";
+        await copyTextToClipboard(bib);
         btn.classList.add("copied");
-        btn.textContent = "BibTeX copied";
+        btn.textContent = "Copied";
         setTimeout(() => {
           btn.classList.remove("copied");
           if(box.classList.contains("open")) btn.textContent = "Hide BibTeX";
         }, 1200);
       }catch(err){
-        // Keep the BibTeX box visible even if clipboard permission is unavailable.
+        // Clipboard permission may be unavailable on non-HTTPS/local previews.
+        // The BibTeX box still opens, so users can select/copy manually.
       }
     }
   });
@@ -313,7 +332,7 @@ function publicationExtraHtml(p, idx){
     }
   }
   parts.push(`<button class="bib-btn" type="button">BibTeX</button>`);
-  return `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div><pre class="bibtex-box">${esc(bibtexEntry(p, idx))}</pre>`;
+  return `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div><pre class="bibtex-box" aria-hidden="true">${esc(bibtexEntry(p, idx))}</pre>`;
 }
 function formatPublication(p, idx=0){
   const link = p.link || doiUrl(p.doi);
