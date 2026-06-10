@@ -46,3 +46,11 @@ News text is displayed as plain text. When a link is available, only a small act
 - Special-session service entries use full conference names plus abbreviations.
 - Publications are generated from `publication_database.xlsx` by `scripts/generate_publications_json.py`; working papers and non-English records are excluded. DOI links are generated as `https://doi.org/{DOI}`.
 - Scholar metrics are read from `data/scholar_stats.json`; when opened locally and fetch is blocked, the page shows a profile link and a refresh hint.
+
+
+## v6 notes
+- Publications are generated from `publication_database.xlsx` with `python scripts/generate_publications_json.py`.
+- Working papers are excluded. Chinese-language published records are included using English display fields.
+- The portrait is referenced as `images/zz.jpg`; put your photo there.
+- Switching tabs resets filters/searches to their initial state.
+- Google Scholar metrics are read from `data/scholar_stats.json`; edit it manually or use an API/script updater.

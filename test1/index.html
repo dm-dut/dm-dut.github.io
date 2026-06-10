@@ -17,10 +17,10 @@
     <nav class="nav" aria-label="Main navigation">
       <button class="active" data-tab="home">Home</button>
       <button data-tab="publications">Publications</button>
-      <button data-tab="news">News</button>
       <button data-tab="services">Service</button>
       <button data-tab="grants">Grants</button>
       <button data-tab="awards">Awards</button>
+      <button data-tab="news">News</button>
       <button data-tab="group">Group</button>
     </nav>
   </div>
@@ -35,6 +35,7 @@
         <div class="title" id="profile-title"></div>
         <div class="meta" id="profile-affiliation"></div>
         <div class="meta" id="profile-contact"></div>
+        <div class="keyword-row hero-keywords" id="keywords"></div>
         <div class="link-row" id="profile-links"></div>
       </div>
     </div>
@@ -43,7 +44,6 @@
       <section class="panel bio-panel">
         <h2>Biography</h2>
         <div id="profile-bio"></div>
-        <div class="keyword-row" id="keywords"></div>
       </section>
       <section class="panel scholar-panel">
         <h2>Google Scholar</h2>
@@ -79,16 +79,6 @@
     </section>
   </section>
 
-  <section id="news" class="tab">
-    <section class="panel">
-      <h2>News</h2>
-      <div class="toolbar">
-        <select id="news-year-filter"><option value="all">All years</option></select>
-        <select id="news-category-filter"><option value="all">All categories</option></select>
-      </div>
-      <ul class="item-list full-news" id="news-list"></ul>
-    </section>
-  </section>
 
   <section id="services" class="tab">
     <section class="panel">
@@ -108,6 +98,16 @@
     <section class="panel">
       <h2>Awards</h2>
       <ul class="item-list" id="awards-list"></ul>
+    </section>
+  </section>
+  <section id="news" class="tab">
+    <section class="panel">
+      <h2>News</h2>
+      <div class="toolbar">
+        <select id="news-year-filter"><option value="all">All years</option></select>
+        <select id="news-category-filter"><option value="all">All categories</option></select>
+      </div>
+      <ul class="item-list full-news" id="news-list"></ul>
     </section>
   </section>
 

@@ -15,9 +15,26 @@ async function loadJson(path, fallback=[]){
   }catch(e){ return fallback; }
 }
 
+function resetTabState(tab){
+  if(tab === "publications"){
+    const y = $("#pub-year-filter"), t = $("#pub-type-filter"), q = $("#pub-search");
+    if(y) y.value = "all";
+    if(t) t.value = "all";
+    if(q) q.value = "";
+    if(DATA.publications) renderPublications();
+  }
+  if(tab === "news"){
+    const y = $("#news-year-filter"), c = $("#news-category-filter");
+    if(y) y.value = "all";
+    if(c) c.value = "all";
+    if(DATA.news) renderNews();
+  }
+}
 function activateTab(tab){
+  const current = ($$(".tab").find(t => t.classList.contains("active")) || {}).id;
   $$(".nav button").forEach(b=>b.classList.toggle("active", b.dataset.tab===tab));
   $$(".tab").forEach(t=>t.classList.toggle("active", t.id===tab));
+  if(current !== tab) resetTabState(tab);
   history.replaceState(null, "", `#${tab}`);
   window.scrollTo({top:0, behavior:"smooth"});
 }
@@ -53,7 +70,8 @@ async function renderScholar(){
   $("#gs-updated").textContent = updated;
   const profile = SITE_CONFIG.scholar.profileUrl || "";
   const unavailable = [citations,hindex,i10].every(v => !v || v === "—");
-  $("#gs-status").innerHTML = `${profile ? `<a href="${esc(profile)}" target="_blank" rel="noopener">Google Scholar profile</a>` : ""}${unavailable ? `<span>Run <code>scripts/update_scholar.py</code> to refresh local metrics.</span>` : ""}`;
+  const note = s.note || fallback.note || "";
+  $("#gs-status").innerHTML = `${profile ? `<a href="${esc(profile)}" target="_blank" rel="noopener">Google Scholar profile</a>` : ""}${unavailable ? `<span>${esc(note || "Metrics are loaded from data/scholar_stats.json. Run scripts/update_scholar.py or edit this JSON to refresh them.")}</span>` : ""}`;
 }
 
 function sortByDateDesc(a,b){ return String(b.date||"").localeCompare(String(a.date||"")); }
@@ -62,7 +80,7 @@ function yearOfDate(d){ return String(d||"").slice(0,4); }
 function renderNewsItem(n){
   const isTalkDoi = String(n.category||"").toLowerCase() === "talk" && /doi\.org/i.test(String(n.link||""));
   const link = isTalkDoi ? "" : externalLink(n.link, n.link_text || "More");
-  return `<li class="item news-item"><span class="item-date">${esc(n.date)}</span><span class="tag">${esc(n.category||"News")}</span><span class="news-text">${esc(n.content)}</span>${link}</li>`;
+  return `<li class="item news-item"><span class="item-date">${esc(n.date)}</span><span class="news-body"><span class="tag">${esc(n.category||"News")}</span><span class="news-text">${esc(n.content)}</span>${link}</span></li>`;
 }
 
 function renderHomeNews(){
