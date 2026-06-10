@@ -1,5 +1,13 @@
 [
   {
+    "date": "2026-05-26",
+    "category": "Award",
+    "content": "I was awarded the Springer Nature Editor of Distinction Award 2026 — Author Service Award.",
+    "link": "",
+    "link_text": "",
+    "show_on_home": "yes"
+  },
+  {
     "date": "2026-04-18",
     "category": "Publication",
     "content": "Our paper titled \"Targeting the right person: an optimization-driven framework for persuader selection in social networks with opinion evolution\" was accepted by European Journal of Operational Research (SCI, EI, 2024 IF=6.0, ABS 4, FMS A).",
@@ -104,7 +112,7 @@
     "content": "I was invited to deliver a talk entitled \"Multi-Granularity Granular-Ball Clustering with Its Applications in Low-Altitude Economy\" at the First Forum on Low-Altitude Economy and Management, hosted by Shandong University, Weihai.",
     "link": "https://shxy.wh.sdu.edu.cn/info/1006/26883.htm",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://shxy.wh.sdu.edu.cn/info/1006/26883.htm"
     ]
@@ -115,7 +123,7 @@
     "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at University of Shanghai for Science and Technology (USST).",
     "link": "",
     "link_text": "",
-    "show_on_home": "yes"
+    "show_on_home": "no"
   },
   {
     "date": "2025-12-06",
@@ -123,7 +131,7 @@
     "content": "I was invited to deliver a talk entitled \"An Incremental Preference Elicitation-Based Approach to Learning Potentially Non-Monotonic Preferences in Multi-Criteria Sorting\" at the 2nd Symposium on Digital Decision-Making, hosted by Shanghai University.",
     "link": "https://mp.weixin.qq.com/s/R4Ugr5Srivu8rRrIzh5fug",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://mp.weixin.qq.com/s/R4Ugr5Srivu8rRrIzh5fug"
     ]
@@ -134,7 +142,7 @@
     "content": "Our paper titled \"Integrating machine learning models to learn potentially non-monotonic preferences for multi-criteria sorting from large-scale assignment examples\" has been selected as one of the recipients of the 2025 Best Paper Award.",
     "link": "https://doi.org/10.1016/j.omega.2024.103219",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://doi.org/10.1016/j.omega.2024.103219",
       "https://mp.weixin.qq.com/s/Liq8EAxapEYQYNvHwTHHiA"
@@ -146,7 +154,7 @@
     "content": "Congratulations to Zhuolin Li on successfully completing her Ph.D. thesis defense.",
     "link": "https://mp.weixin.qq.com/s/GyFnl6HYnp43uVc8vZzroA",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://mp.weixin.qq.com/s/GyFnl6HYnp43uVc8vZzroA"
     ]
@@ -157,7 +165,7 @@
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Zhejiang Gongshang University.",
     "link": "https://mp.weixin.qq.com/s/Hh7PnDXhOo5fzGd_rze09g",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://mp.weixin.qq.com/s/Hh7PnDXhOo5fzGd_rze09g"
     ]
@@ -168,7 +176,7 @@
     "content": "I was invited to deliver a talk entitled \"Non-Monotonic Preference Learning for Multi-Criteria Sorting\" at the Second Forum on Intelligent Management, hosted by Shanghai University of Finance and Economics Zhejiang College.",
     "link": "https://mp.weixin.qq.com/s/18rIJnSriWPEOhUmGIad4g",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://mp.weixin.qq.com/s/18rIJnSriWPEOhUmGIad4g"
     ]
@@ -179,7 +187,7 @@
     "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at Shanghai Maritime University.",
     "link": "https://sem.shmtu.edu.cn/2025/1030/c7485a281201/page.htm",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://sem.shmtu.edu.cn/2025/1030/c7485a281201/page.htm"
     ]
@@ -190,7 +198,7 @@
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at the Forum on Game Theory and Intelligent Decision Making, hosted by Northwestern Polytechnical University.",
     "link": "https://mp.weixin.qq.com/s/Vt4Wy0A7quXG9JPOOVX1dQ",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://mp.weixin.qq.com/s/Vt4Wy0A7quXG9JPOOVX1dQ"
     ]
@@ -201,7 +209,7 @@
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Xidian University.",
     "link": "",
     "link_text": "",
-    "show_on_home": "yes"
+    "show_on_home": "no"
   },
   {
     "date": "2025-10-31",
@@ -209,7 +217,7 @@
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Xi'an University of Technology.",
     "link": "https://sba.xaut.edu.cn/info/1142/7123.htm",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://sba.xaut.edu.cn/info/1142/7123.htm"
     ]
@@ -424,7 +432,7 @@
   },
   {
     "date": "2024-04-29",
-    "category": "Book",
+    "category": "Publication",
     "content": "A monograph entitled \"Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty\" will be published by Springer Nature.",
     "link": "https://doi.org/10.1007/978-981-97-3584-6",
     "link_text": "↗",
