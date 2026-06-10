@@ -1,28 +1,34 @@
 #!/usr/bin/env python3
 """Update Google Scholar citation counts for publication records using SerpAPI.
 
+This script updates both homepage-level Scholar metrics and per-publication
+citation counts when used together with update_scholar.py in the workflow.
+
 Inputs:
   data/publications.json
 
 Outputs:
-  data/publications.json, with these extra fields for English/non-Chinese records:
+  data/publications.json, with these extra fields:
     google_scholar_citations
     google_scholar_url
+    google_scholar_cited_by_url
     citation_updated
     citation_match_score
-    show_citations
 
-Rules:
-- Chinese-language publications are skipped and will not display citation counts.
-- DOI display is handled by assets/main.js from each record's doi field.
-- Requires SERPAPI_KEY in the environment. Optional: SCHOLAR_AUTHOR_ID.
+Matching strategy:
+- Fetch the author's Google Scholar article list through SerpAPI.
+- Match each local publication against Scholar records using both English and
+  Chinese titles when available: title, title_en, title_zh/title_cn.
+- Chinese-language publications are no longer skipped; they can display Google
+  Scholar citations and BibTeX when a Scholar record is matched.
+
+Requires SERPAPI_KEY in the environment. Optional: SCHOLAR_AUTHOR_ID.
 """
 from __future__ import annotations
 
 import json
 import os
 import re
-import sys
 from datetime import date
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -38,20 +44,13 @@ MATCH_THRESHOLD = float(os.getenv("SCHOLAR_MATCH_THRESHOLD", "0.75"))
 MAX_ARTICLES = int(os.getenv("SCHOLAR_MAX_ARTICLES", "500"))
 PAGE_SIZE = 100
 
-CHINESE_VENUES = {
-    "chinese journal of management science",
-    "systems engineering",
-    "journal of systems engineering",
-    "operations research and management science",
-    "journal of industrial engineering and engineering management",
-}
-
 
 def normalize_title(text: str) -> str:
     text = str(text or "").lower()
     text = re.sub(r"[\u2010-\u2015]", "-", text)
-    text = re.sub(r"&", " and ", text)
-    text = re.sub(r"[^a-z0-9]+", " ", text)
+    text = text.replace("&", " and ")
+    # Keep CJK characters so Chinese titles can be matched.
+    text = re.sub(r"[^0-9a-z\u4e00-\u9fff]+", " ", text)
     return re.sub(r"\s+", " ", text).strip()
 
 
@@ -66,15 +65,16 @@ def similarity(a: str, b: str) -> float:
     return max(SequenceMatcher(None, na, nb).ratio(), contain_score)
 
 
-def is_chinese_publication(pub: dict[str, Any]) -> bool:
-    lang = str(pub.get("language", "")).strip().lower()
-    if lang in {"chinese", "cn", "zh", "zh-cn"} or lang.startswith("zh") or "中文" in lang:
-        return True
-    indexes = [str(x).upper() for x in pub.get("indexes", [])]
-    if "CSSCI" in indexes:
-        return True
-    venue = str(pub.get("venue", "")).strip().lower()
-    return venue in CHINESE_VENUES
+def title_candidates(pub: dict[str, Any]) -> list[str]:
+    keys = ["title", "title_en", "title_english", "title_zh", "title_cn", "title_chinese"]
+    seen: set[str] = set()
+    out: list[str] = []
+    for key in keys:
+        value = str(pub.get(key, "") or "").strip()
+        if value and value not in seen:
+            seen.add(value)
+            out.append(value)
+    return out
 
 
 def fetch_author_articles(api_key: str) -> list[dict[str, Any]]:
@@ -102,25 +102,22 @@ def fetch_author_articles(api_key: str) -> list[dict[str, Any]]:
     return articles[:MAX_ARTICLES]
 
 
-def best_match(pub: dict[str, Any], articles: list[dict[str, Any]]) -> tuple[dict[str, Any] | None, float]:
-    title = pub.get("title", "")
+def best_match(pub: dict[str, Any], articles: list[dict[str, Any]]) -> tuple[dict[str, Any] | None, float, str]:
+    titles = title_candidates(pub)
     best = None
     best_score = 0.0
-    for article in articles:
-        score = similarity(title, article.get("title", ""))
-        if score > best_score:
-            best_score = score
-            best = article
-    return best, best_score
+    best_local_title = ""
+    for local_title in titles:
+        for article in articles:
+            score = similarity(local_title, article.get("title", ""))
+            if score > best_score:
+                best_score = score
+                best = article
+                best_local_title = local_title
+    return best, best_score, best_local_title
 
 
 def citation_value(article: dict[str, Any]) -> str:
-    """Return the citation count as a string.
-
-    SerpAPI/Google Scholar may omit the cited_by object for papers with zero
-    citations. In that case, keep the matched Scholar record and explicitly
-    store 0 so the website can still show the Scholar link.
-    """
     cited_by = article.get("cited_by") or {}
     if isinstance(cited_by, dict):
         value = cited_by.get("value", 0)
@@ -129,12 +126,10 @@ def citation_value(article: dict[str, Any]) -> str:
 
 
 def scholar_record_link(article: dict[str, Any]) -> str:
-    """Return the Google Scholar record/detail link for this paper, not the cited-by list."""
     return str(article.get("link", "") or "")
 
 
 def cited_by_link(article: dict[str, Any]) -> str:
-    """Return the cited-by list link, kept separately for future display if needed."""
     cited_by = article.get("cited_by") or {}
     if isinstance(cited_by, dict) and cited_by.get("link"):
         return str(cited_by["link"])
@@ -151,20 +146,13 @@ def main() -> None:
     publications = json.loads(PUBS_JSON.read_text(encoding="utf-8"))
     articles = fetch_author_articles(api_key)
     today = str(date.today())
-    matched = skipped = unmatched = 0
+    matched = unmatched = 0
 
     for pub in publications:
-        if is_chinese_publication(pub):
-            for key in ["google_scholar_citations", "google_scholar_url", "google_scholar_cited_by_url", "citation_updated", "citation_match_score"]:
-                pub.pop(key, None)
-            pub["show_citations"] = False
-            skipped += 1
-            continue
-
-        pub["show_citations"] = True
-        article, score = best_match(pub, articles)
+        article, score, matched_title = best_match(pub, articles)
         pub["citation_updated"] = today
         pub["citation_match_score"] = round(score, 3) if article else ""
+        pub["citation_matched_title"] = matched_title
 
         if article and score >= MATCH_THRESHOLD:
             pub["google_scholar_citations"] = citation_value(article)
@@ -180,8 +168,8 @@ def main() -> None:
     PUBS_JSON.write_text(json.dumps(publications, ensure_ascii=False, indent=2), encoding="utf-8")
     print(
         "Updated publication citations: "
-        f"matched={matched}, unmatched={unmatched}, chinese_skipped={skipped}, "
-        f"articles_fetched={len(articles)}, threshold={MATCH_THRESHOLD}"
+        f"matched={matched}, unmatched={unmatched}, articles_fetched={len(articles)}, "
+        f"threshold={MATCH_THRESHOLD}"
     )
 
 

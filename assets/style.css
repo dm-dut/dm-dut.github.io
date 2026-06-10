@@ -171,3 +171,31 @@ a{color:#1f5fbf;text-decoration:none}a:hover{text-decoration:underline}.meta{col
 @media(max-width:720px){.publication-controls select#pub-esi-filter{min-width:0;width:100%;}}
 .toolbar select#pub-esi-filter{min-width:180px;}
 @media(max-width:720px){.toolbar select#pub-esi-filter{min-width:0;width:100%;}}
+
+/* v16: dark mode, publication language switch, and funding refinements */
+[data-theme="dark"]{
+  --bg:#0f172a;--paper:#111827;--ink:#e5e7eb;--muted:#a3adc2;--line:#293548;
+  --brand:#6ea8ff;--brand-dark:#93c5fd;--brand2:#5eead4;--soft:#172033;--gold:#fbbf24;
+  --shadow:0 20px 48px rgba(0,0,0,.28);--shadow-soft:0 10px 30px rgba(0,0,0,.22);
+}
+[data-theme="dark"] body{background:radial-gradient(circle at top left, rgba(74,144,226,.20), transparent 32rem),linear-gradient(180deg,#0b1220 0%,#111827 46%,#0f172a 100%);color:var(--ink)}
+[data-theme="dark"] .topbar{background:rgba(15,23,42,.88);border-bottom-color:var(--line)}
+[data-theme="dark"] .brand,[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] .pub-title,[data-theme="dark"] .pub-title a{color:#f8fafc}
+[data-theme="dark"] .title,[data-theme="dark"] .pub-authors{color:#d4dbe9}
+[data-theme="dark"] .hero,[data-theme="dark"] .panel,[data-theme="dark"] .pill,[data-theme="dark"] .toolbar,[data-theme="dark"] .stat,[data-theme="dark"] .scholar-panel .stat{background:linear-gradient(135deg,#111827 0%,#172033 100%);border-color:var(--line)}
+[data-theme="dark"] .toolbar select,[data-theme="dark"] .toolbar input{background:#0f172a;color:#e5e7eb;border-color:var(--line)}
+[data-theme="dark"] .nav button{color:#d4dbe9}[data-theme="dark"] .nav button:hover{background:#1f2937}
+[data-theme="dark"] .tag,[data-theme="dark"] .keyword{background:#172554;border-color:#1d4ed8;color:#dbeafe}
+[data-theme="dark"] .pub-tag{background:#33250f;border-color:#8a5b18;color:#fdecc8}
+[data-theme="dark"] .mini-link,[data-theme="dark"] .pub-extra .bib-btn{background:#172033;border-color:var(--line);color:#bfdbfe}
+[data-theme="dark"] .bibtex-box{background:#0b1220;border-color:var(--line);color:#e5e7eb}
+[data-theme="dark"] .pub:hover{background:#111d2f}
+.theme-toggle{border:1px solid var(--line);background:#fff;color:#1e3a8a;padding:7px 12px;border-radius:999px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(15,23,42,.045)}
+.theme-toggle:hover{background:#f8fbff}
+[data-theme="dark"] .theme-toggle{background:#172033;color:#dbeafe;border-color:#314157}
+.pub-lang-switch{display:inline-flex;gap:6px;background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:5px;margin:0 0 13px}
+.pub-lang-switch button{border:0;background:transparent;color:#475569;padding:6px 13px;border-radius:999px;font-weight:800;cursor:pointer}
+.pub-lang-switch button.active{background:linear-gradient(135deg,var(--brand),#174a95);color:#fff;box-shadow:0 8px 18px rgba(31,95,191,.18)}
+[data-theme="dark"] .pub-lang-switch{background:#0f172a;border-color:var(--line)}
+[data-theme="dark"] .pub-lang-switch button{color:#d4dbe9}
+@media(max-width:860px){.nav-wrap{gap:10px}.theme-toggle{align-self:flex-start}}

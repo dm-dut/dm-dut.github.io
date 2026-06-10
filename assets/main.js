@@ -2,6 +2,7 @@ const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 const DATA = {};
 const TYPE_ORDER = ["Monograph", "Book Chapter", "Journal Article", "Conference Paper", "Other"];
+let PUB_DISPLAY_LANG = "en";
 
 function esc(s){ return (s ?? "").toString().replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
 function externalLink(url, label="Link"){
@@ -106,7 +107,23 @@ function initBibtexButtons(){
   });
 }
 
+function initTheme(){
+  const btn = $("#theme-toggle");
+  const saved = localStorage.getItem("homepage-theme") || "light";
+  document.documentElement.setAttribute("data-theme", saved);
+  if(btn) btn.textContent = saved === "dark" ? "Light" : "Dark";
+  if(btn){
+    btn.addEventListener("click", () => {
+      const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("homepage-theme", next);
+      btn.textContent = next === "dark" ? "Light" : "Dark";
+    });
+  }
+}
+
 function initTabs(){
+  initTheme();
   $$(".nav button").forEach(btn => btn.addEventListener("click", () => activateTab(btn.dataset.tab)));
   $$('[data-jump]').forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.jump)));
   const hash = location.hash.replace("#", "");
@@ -154,10 +171,18 @@ async function renderScholar(){
 function sortByDateDesc(a,b){ return String(b.date||"").localeCompare(String(a.date||"")); }
 function yearOfDate(d){ return String(d||"").slice(0,4); }
 
+function normalizeNewsLinks(n){
+  const raw = Array.isArray(n.links) ? n.links : (n.link ? [n.link] : []);
+  const seen = new Set();
+  return raw
+    .map(u => String(u || "").trim())
+    .filter(u => u && !seen.has(u) && seen.add(u))
+    .filter(u => !(String(n.category||"").toLowerCase() === "talk" && /doi\.org/i.test(u)));
+}
+
 function renderNewsItem(n){
-  const isTalkDoi = String(n.category||"").toLowerCase() === "talk" && /doi\.org/i.test(String(n.link||""));
-  const link = isTalkDoi ? "" : externalLink(n.link, n.link_text || "↗");
-  return `<li class="item news-item"><span class="item-date">${esc(n.date)}</span><span class="news-category"><span class="tag">${esc(n.category||"News")}</span></span><span class="news-body"><span class="news-text">${esc(n.content)}</span>${link}</span></li>`;
+  const links = normalizeNewsLinks(n).map((url) => externalLink(url, "↗")).join("");
+  return `<li class="item news-item"><span class="item-date">${esc(n.date)}</span><span class="news-category"><span class="tag">${esc(n.category||"News")}</span></span><span class="news-body"><span class="news-text">${esc(n.content)}</span>${links}</span></li>`;
 }
 
 function renderHomeNews(){
@@ -182,40 +207,52 @@ function renderNews(){
 }
 
 function arrayText(x){ return Array.isArray(x) ? x.join(", ") : (x || ""); }
-function authorHtml(authors){
-  const list = Array.isArray(authors) ? authors : String(authors||"").split(/;|,/).map(x=>x.trim()).filter(Boolean);
+function pickLang(p, base){
+  if(PUB_DISPLAY_LANG === "zh") return p[`${base}_zh`] || p[`${base}_cn`] || p[base] || p[`${base}_en`] || "";
+  return p[`${base}_en`] || p[base] || p[`${base}_zh`] || p[`${base}_cn`] || "";
+}
+function displayTitle(p){ return pickLang(p, "title"); }
+function displayVenue(p){ return pickLang(p, "venue"); }
+function displayAuthors(p){
+  const field = PUB_DISPLAY_LANG === "zh" ? (p.authors_zh || p.authors_cn || p.authors || p.authors_en) : (p.authors_en || p.authors || p.authors_zh || p.authors_cn);
+  return Array.isArray(field) ? field : String(field||"").split(/;|,/).map(x=>x.trim()).filter(Boolean);
+}
+function authorHtml(pub){
+  const list = displayAuthors(pub);
   return list.map(a => {
     const clean = String(a);
     const starred = clean.endsWith("*");
     const base = starred ? clean.slice(0,-1) : clean;
-    const strong = base === "Zhen Zhang" ? `<strong>${esc(base)}</strong>` : esc(base);
+    const strong = (base === "Zhen Zhang" || base === "张震") ? `<strong>${esc(base)}</strong>` : esc(base);
     return strong + (starred ? "*" : "");
-  }).join(", ");
+  }).join(PUB_DISPLAY_LANG === "zh" ? "，" : ", ");
 }
 function detailLine(p){
   const bits = [];
+  const venue = displayVenue(p);
   if(p.type === "Monograph" || p.type === "Book Chapter"){
-    if(p.venue) bits.push(p.venue);
+    if(venue) bits.push(venue);
     if(p.address) bits.push(p.address);
     if(p.isbn) bits.push(`ISBN: ${p.isbn}`);
   }else if(p.type === "Conference Paper"){
-    if(p.venue) bits.push(p.venue);
+    if(venue) bits.push(venue);
     if(p.conference_date) bits.push(p.conference_date);
     if(p.conference_address) bits.push(p.conference_address);
     const proc = [p.volume ? `Vol. ${p.volume}` : "", p.pages ? `pp. ${p.pages}` : ""].filter(Boolean).join(", ");
     if(proc) bits.push(proc);
   }else{
-    if(p.venue) bits.push(p.venue);
+    if(venue) bits.push(venue);
     const volumeIssue = `${p.volume || ""}${p.issue ? `(${p.issue})` : ""}`;
     if(volumeIssue) bits.push(volumeIssue);
     if(p.pages) bits.push(p.pages);
   }
   if(p.year) bits.push(p.year);
-  return bits.filter(Boolean).join(", ");
+  return bits.filter(Boolean).join(PUB_DISPLAY_LANG === "zh" ? "，" : ", ");
 }
 function tagHtml(p){
   const tags = [...(Array.isArray(p.indexes) ? p.indexes : []), ...(Array.isArray(p.labels) ? p.labels : [])];
-  if(p.note) tags.push(p.note);
+  const note = PUB_DISPLAY_LANG === "zh" ? (p.note_zh || p.note_cn || p.note) : (p.note_en || p.note);
+  if(note) tags.push(note);
   return tags.map(t => `<span class="pub-tag">${esc(t)}</span>`).join("");
 }
 function doiUrl(doi){
@@ -230,25 +267,24 @@ function bibtexType(p){
   return "article";
 }
 function bibtexKey(p, idx){
-  const authors = Array.isArray(p.authors) ? p.authors.join(" ") : String(p.authors||"");
+  const authors = displayAuthors(p).join(" ");
   const first = (authors.replace(/\*/g, "").match(/[A-Za-z]+/) || ["Zhang"])[0];
   const year = String(p.year || "n.d.").replace(/\D/g, "") || "nd";
-  const titleWord = (String(p.title||"").match(/[A-Za-z0-9]+/) || ["paper"])[0];
+  const titleWord = (displayTitle(p).match(/[A-Za-z0-9]+/) || ["paper"])[0];
   return `${first}${year}${titleWord}${idx}`.replace(/[^A-Za-z0-9_:-]/g, "");
-}
-function bibtexDomId(idx){
-  return `bibtex-${String(idx).replace(/[^A-Za-z0-9_-]/g, "_")}`;
 }
 function bibtexEntry(p, idx){
   const type = bibtexType(p);
-  const authors = Array.isArray(p.authors) ? p.authors.join(" and ").replace(/\*/g, "") : String(p.authors||"").replace(/;/g, " and ").replace(/\*/g, "");
+  const authors = displayAuthors(p).join(" and ").replace(/\*/g, "");
   const fields = [];
   if(authors) fields.push(["author", authors]);
-  if(p.title) fields.push(["title", p.title]);
+  const title = displayTitle(p);
+  if(title) fields.push(["title", title]);
   if(p.year) fields.push(["year", String(p.year)]);
-  if(p.venue){
+  const venue = displayVenue(p);
+  if(venue){
     const name = type === "inproceedings" ? "booktitle" : (type === "book" ? "publisher" : "journal");
-    fields.push([name, p.venue]);
+    fields.push([name, venue]);
   }
   if(p.volume) fields.push(["volume", String(p.volume)]);
   if(p.issue) fields.push(["number", String(p.issue)]);
@@ -265,15 +301,11 @@ function publicationExtraHtml(p, idx){
   if(doi){
     parts.push(`<a class="pub-doi" href="${esc(doiUrl(doi))}" target="_blank" rel="noopener">DOI: ${esc(doi)}</a>`);
   }
-  const isChinese = String(p.language || "").toLowerCase().startsWith("zh") || String(p.language || "").includes("中文") || p.show_citations === false;
   const citesRaw = p.google_scholar_citations ?? p.citations ?? "";
   const hasScholarLink = !!p.google_scholar_url;
-  if(!isChinese && (hasScholarLink || (citesRaw !== "" && citesRaw !== null && String(citesRaw) !== "—"))){
+  if(hasScholarLink || (citesRaw !== "" && citesRaw !== null && String(citesRaw) !== "—")){
     const cites = (citesRaw === "" || citesRaw === null || String(citesRaw) === "—") ? "0" : citesRaw;
     const label = `Google Scholar Citations: ${esc(cites)}`;
-    // Always show the Google Scholar record link when available, including papers
-    // with zero citations. The cited-by URL is kept separately as
-    // google_scholar_cited_by_url for future use.
     if(hasScholarLink){
       parts.push(`<a class="pub-citations" href="${esc(p.google_scholar_url)}" target="_blank" rel="noopener">${label}</a>`);
     }else{
@@ -281,14 +313,15 @@ function publicationExtraHtml(p, idx){
     }
   }
   parts.push(`<button class="bib-btn" type="button">BibTeX</button>`);
-  return `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div><pre class="bibtex-box" hidden>${esc(bibtexEntry(p, idx))}</pre>`;
+  return `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div><pre class="bibtex-box">${esc(bibtexEntry(p, idx))}</pre>`;
 }
 function formatPublication(p, idx=0){
   const link = p.link || doiUrl(p.doi);
-  const title = link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(p.title || "")}</a>` : esc(p.title || "");
+  const titleText = displayTitle(p);
+  const title = link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(titleText || "")}</a>` : esc(titleText || "");
   return `<article class="pub">
     <div class="pub-title">${title}</div>
-    <div class="pub-authors">${authorHtml(p.authors)}</div>
+    <div class="pub-authors">${authorHtml(p)}</div>
     <div class="pub-meta">${esc(detailLine(p))}</div>
     ${publicationExtraHtml(p, idx)}
     ${tagHtml(p) ? `<div class="pub-tags">${tagHtml(p)}</div>` : ""}
@@ -305,8 +338,8 @@ function renderPublications(){
   buildSelect("#pub-type-filter", [...new Set(all.map(p=>p.type||"Other"))].sort((a,b)=>TYPE_ORDER.indexOf(a)-TYPE_ORDER.indexOf(b)), "All types");
   const yr = $("#pub-year-filter").value, type = $("#pub-type-filter").value, esi = $("#pub-esi-filter") ? $("#pub-esi-filter").value : "all", q = ($("#pub-search").value||"").toLowerCase();
   const items = all.filter(p => {
-    const tagsText = [arrayText(p.indexes), arrayText(p.labels), p.note].join(" ").toLowerCase();
-    const text = [arrayText(p.authors),p.title,p.venue,tagsText,p.conference_address,p.conference_date].join(" ").toLowerCase();
+    const tagsText = [arrayText(p.indexes), arrayText(p.labels), p.note, p.note_en, p.note_zh, p.note_cn].join(" ").toLowerCase();
+    const text = [arrayText(p.authors), arrayText(p.authors_en), arrayText(p.authors_zh), p.title, p.title_en, p.title_zh, p.title_cn, p.venue, p.venue_en, p.venue_zh, p.venue_cn, tagsText, p.conference_address, p.conference_date].join(" ").toLowerCase();
     const matchEsi = esi === "all" ||
       (esi === "highly" && tagsText.includes("esi highly cited")) ||
       (esi === "hot" && tagsText.includes("esi hot"));
@@ -339,10 +372,24 @@ function renderServices(){
       }).join("")}</ul>
     </div>`).join("");
 }
+function formatFundingAmount(amount){
+  const raw = String(amount || "").trim();
+  if(!raw) return "";
+  const m = raw.match(/^\s*(CNY|RMB|¥)?\s*([0-9]+(?:\.[0-9]+)?)\s*([KkMm])?\s*$/);
+  if(!m) return raw;
+  const currency = (m[1] || "CNY").toUpperCase() === "RMB" ? "RMB" : "CNY";
+  let value = parseFloat(m[2]);
+  const unit = (m[3] || "").toUpperCase();
+  if(unit === "K") value *= 1000;
+  if(unit === "M") value *= 1000000;
+  const formatted = Math.round(value).toLocaleString("en-US");
+  return `${currency} ${formatted}`;
+}
 function renderGrants(){
   $("#grants-list").innerHTML = (DATA.grants||[]).map(g => {
-    const text = `[${g.no}] ${g.role}, ${g.title}, granted by ${g.funder}${g.grant_no ? " ("+g.grant_no+")" : ""}, ${g.amount || ""}, ${g.period || ""}.`;
-    return `<li class="item">${esc(text)}</li>`;
+    const amount = formatFundingAmount(g.amount);
+    const parts = [`[${g.no}] ${g.role}`, g.title, `granted by ${g.funder}${g.grant_no ? " ("+g.grant_no+")" : ""}`, amount, g.period].filter(Boolean);
+    return `<li class="item">${esc(parts.join(", "))}.</li>`;
   }).join("");
 }
 function renderAwards(){
@@ -370,6 +417,11 @@ async function init(){
   renderHomeNews(); renderNews(); renderPublications(); renderServices(); renderGrants(); renderAwards(); renderGroup();
   ["#news-year-filter","#news-category-filter"].forEach(s => $(s).addEventListener("change", renderNews));
   ["#pub-year-filter","#pub-type-filter","#pub-esi-filter"].forEach(s => $(s).addEventListener("change", renderPublications));
+  $$("[data-pub-lang]").forEach(btn => btn.addEventListener("click", () => {
+    PUB_DISPLAY_LANG = btn.dataset.pubLang || "en";
+    $$("[data-pub-lang]").forEach(b => b.classList.toggle("active", b === btn));
+    renderPublications();
+  }));
   $("#pub-search").addEventListener("input", renderPublications);
 }
 init();

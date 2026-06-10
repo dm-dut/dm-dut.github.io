@@ -2,7 +2,7 @@
 """Generate data/publications.json from the homepage publication Excel database.
 
 Rules used for the current homepage:
-- Use English display fields only.
+- Preserve both English and Chinese fields; the website can switch display language.
 - Exclude working papers (Type == 工作 / Working / Working Paper).
 - Include published and formally accepted records, including Chinese-language records
   when English title/source fields are available.
@@ -145,9 +145,15 @@ def convert(input_xlsx: Path, output_json: Path) -> list[dict[str, Any]]:
         if not raw_type or raw_type in WORKING_TYPES:
             continue
         pub_type = TYPE_MAP.get(raw_type, TYPE_MAP.get(clean(row.get("Type")), "Other"))
-        title = clean(row.get("Title_English")) or clean(row.get("Title_Chinese"))
-        venue = clean(row.get("Source_English")) or clean(row.get("Source_Chinese"))
-        authors = parse_authors(clean(row.get("Author_English")) or clean(row.get("Author_Chinese")), clean(row.get("Corresponding_Author")))
+        title_en = clean(row.get("Title_English"))
+        title_zh = clean(row.get("Title_Chinese"))
+        title = title_en or title_zh
+        venue_en = clean(row.get("Source_English"))
+        venue_zh = clean(row.get("Source_Chinese"))
+        venue = venue_en or venue_zh
+        authors_en = parse_authors(clean(row.get("Author_English")), clean(row.get("Corresponding_Author")))
+        authors_zh = parse_authors(clean(row.get("Author_Chinese")), clean(row.get("Corresponding_Author")))
+        authors = authors_en or authors_zh
         if not (title or venue or authors):
             continue
         doi, link = doi_link(clean(row.get("DOI")))
@@ -158,8 +164,14 @@ def convert(input_xlsx: Path, output_json: Path) -> list[dict[str, Any]]:
             "language": language,
             "year": year_value(row.get("Year")),
             "title": title,
+            "title_en": title_en,
+            "title_zh": title_zh,
             "authors": authors,
+            "authors_en": authors_en,
+            "authors_zh": authors_zh,
             "venue": venue,
+            "venue_en": venue_en,
+            "venue_zh": venue_zh,
             "volume": clean(row.get("Volume")),
             "issue": clean(row.get("Number")),
             "pages": clean(row.get("Page")),
@@ -168,6 +180,8 @@ def convert(input_xlsx: Path, output_json: Path) -> list[dict[str, Any]]:
             "indexes": build_indexes(row),
             "labels": [],
             "note": clean(row.get("Note_English")),
+            "note_en": clean(row.get("Note_English")),
+            "note_zh": clean(row.get("Note_Chinese")),
             "isbn": clean(row.get("ISBN")),
             "address": clean(row.get("Address")),
             "conference_date": clean(row.get("Conference_Date")),
