@@ -363,7 +363,7 @@ function publicationExtraHtml(p, idx){
     const label = cites !== "" ? `Google Scholar Citations: ${esc(cites)}` : "Google Scholar";
     parts.push(`<a class="pub-citations" href="${esc(gsUrl)}" target="_blank" rel="noopener">${label}</a>`);
   }else if(cites !== ""){
-    parts.push(`<span class="pub-citations">GS Citations: ${esc(cites)}</span>`);
+    parts.push(`<span class="pub-citations">Google Scholar Citations: ${esc(cites)}</span>`);
   }
 
   const bibId = `bibtex-${idx}-${Math.random().toString(36).slice(2, 8)}`;
