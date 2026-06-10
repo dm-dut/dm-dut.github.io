@@ -208,3 +208,9 @@ a{color:#1f5fbf;text-decoration:none}a:hover{text-decoration:underline}.meta{col
 .editorial-head{display:grid;grid-template-columns:minmax(170px,.38fr) minmax(260px,1fr);gap:6px 14px;margin:8px 0 2px;padding:8px 0;border-bottom:1px solid rgba(37,99,235,.22);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}
 .editorial-entry .service-role{display:block}
 @media(max-width:720px){.editorial-head{display:none}}
+
+/* v20: Editorial Boards structured display fix */
+.editorial-entry{display:grid;grid-template-columns:minmax(190px,.34fr) minmax(280px,1fr);gap:8px 18px;align-items:start;padding:10px 0;border-bottom:1px dashed rgba(148,163,184,.32)}
+.editorial-entry:last-child{border-bottom:0}.service-role-cell{font-weight:800;color:var(--brand);line-height:1.45}.service-main-cell{line-height:1.45}.service-org-name{color:var(--ink);font-weight:650}.service-extra{margin-top:2px;color:var(--muted);font-size:13px}.service-note-text{color:var(--muted)}
+.editorial-head{display:grid;grid-template-columns:minmax(190px,.34fr) minmax(280px,1fr);gap:8px 18px;margin:8px 0 2px;padding:8px 0;border-bottom:1px solid rgba(37,99,235,.22);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}
+@media(max-width:720px){.editorial-entry,.editorial-head{grid-template-columns:1fr}.editorial-head{display:none}.service-role-cell{margin-bottom:-3px}}

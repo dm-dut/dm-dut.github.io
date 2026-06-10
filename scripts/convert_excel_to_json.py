@@ -76,6 +76,20 @@ def records_from_sheet(xlsx, sheet, columns):
                 rec["link"] = links[0]
             if not rec.get("link_text"):
                 rec["link_text"] = "↗" if links else ""
+        if sheet == "Services":
+            # Keep a complete fallback text in `item`, so the role is still visible
+            # even if an older frontend only renders the item field.
+            role = rec.get("role", "").strip()
+            org = rec.get("organization", "").strip()
+            period = rec.get("period", "").strip()
+            item = rec.get("item", "").strip()
+            if role and org:
+                rec["item"] = f"{role} of {org}" + (f", {period}" if period else "")
+            elif role and item and role.lower() not in item.lower():
+                rec["item"] = f"{role}, {item}" + (f", {period}" if period and period not in item else "")
+            elif not item and (role or org or period):
+                rec["item"] = ", ".join([x for x in [role, org, period] if x])
+
         if any(rec.values()):
             out.append(rec)
     return out

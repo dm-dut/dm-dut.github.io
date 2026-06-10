@@ -422,11 +422,14 @@ function renderServiceRecord(s, cat){
   const note = s.note || parsed.note || "";
 
   if(String(cat || "").toLowerCase().includes("editorial")){
+    const periodHtml = period ? `<span class="service-period-text">${esc(period)}</span>` : "";
+    const noteHtml = note ? `<span class="service-note-text">${esc(note)}</span>` : "";
     return `<li class="service-entry editorial-entry">
-      <span class="service-role">${esc(role || "Role")}</span>
-      <span class="service-org">${esc(organization)}</span>
-      ${period ? `<span class="service-period">${esc(period)}</span>` : ""}
-      ${note ? `<span class="service-note">${esc(note)}</span>` : ""}
+      <div class="service-role-cell">${esc(role || "—")}</div>
+      <div class="service-main-cell">
+        <div class="service-org-name">${esc(organization)}</div>
+        ${periodHtml || noteHtml ? `<div class="service-extra">${[periodHtml, noteHtml].filter(Boolean).join("; ")}</div>` : ""}
+      </div>
     </li>`;
   }
 
@@ -441,7 +444,7 @@ function renderServices(){
   $("#services-list").innerHTML = Object.entries(groups).map(([cat,items]) => `
     <div class="service-group">
       <h3>${esc(cat)}</h3>
-      ${String(cat || "").toLowerCase().includes("editorial") ? `<div class="editorial-head"><span>Role</span><span>Journal / Series</span></div>` : ""}
+      ${String(cat || "").toLowerCase().includes("editorial") ? `<div class="editorial-head"><span>Role</span><span>Journal / Series and Period</span></div>` : ""}
       <ul>${items.map(s=>renderServiceRecord(s, cat)).join("")}</ul>
     </div>`).join("");
 }
