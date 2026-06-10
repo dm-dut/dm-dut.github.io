@@ -76,20 +76,23 @@ function copyTextToClipboard(text){
 }
 
 function initBibtexButtons(){
-  // Use delegated events because publication entries are rendered dynamically.
-  // This version does not depend on element IDs; it finds the BibTeX box inside
-  // the same publication entry, so it remains stable after filtering / language switching.
+  // Delegated click handler: publication entries are re-rendered after filters,
+  // so binding to document is more stable than binding individual buttons.
+  if(window.__homepageBibtexHandlerInstalled) return;
+  window.__homepageBibtexHandlerInstalled = true;
+
   document.addEventListener("click", async (e) => {
     const btn = e.target.closest(".bib-btn");
     if(!btn) return;
     e.preventDefault();
     e.stopPropagation();
 
-    const pub = btn.closest(".pub");
-    const box = pub ? pub.querySelector(".bibtex-box") : null;
+    const targetId = btn.getAttribute("data-bib-target");
+    const box = targetId ? document.getElementById(targetId) : btn.closest(".pub")?.querySelector(".bibtex-box");
     if(!box) return;
 
     const wasOpen = box.classList.contains("open");
+
     document.querySelectorAll(".bibtex-box.open").forEach(el => {
       if(el !== box){
         el.classList.remove("open");
@@ -100,17 +103,19 @@ function initBibtexButtons(){
       if(b !== btn){
         b.classList.remove("copied");
         b.textContent = "BibTeX";
+        b.setAttribute("aria-expanded", "false");
       }
     });
 
     const isOpen = !wasOpen;
     box.classList.toggle("open", isOpen);
     box.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
     btn.textContent = isOpen ? "Hide BibTeX" : "BibTeX";
 
     if(isOpen){
+      const bib = box.textContent || box.innerText || "";
       try{
-        const bib = box.textContent || box.innerText || "";
         await copyTextToClipboard(bib);
         btn.classList.add("copied");
         btn.textContent = "Copied";
@@ -119,8 +124,8 @@ function initBibtexButtons(){
           if(box.classList.contains("open")) btn.textContent = "Hide BibTeX";
         }, 1200);
       }catch(err){
-        // Clipboard permission may be unavailable on non-HTTPS/local previews.
-        // The BibTeX box still opens, so users can select/copy manually.
+        // Clipboard may be blocked in local file previews. The BibTeX block
+        // remains visible so users can still select and copy it manually.
       }
     }
   });
@@ -314,25 +319,37 @@ function bibtexEntry(p, idx){
   const body = fields.map(([k,v]) => `  ${k} = {${String(v).replace(/[{}]/g, "")}}`).join(",\n");
   return `@${type}{${bibtexKey(p, idx)},\n${body}\n}`;
 }
+function scholarUrl(p){
+  return (p.google_scholar_url || p.google_scholar_link || p.scholar_url || p.scholar_link || "").toString().trim();
+}
+function citationValueForDisplay(p){
+  const raw = p.google_scholar_citations ?? p.citations ?? "";
+  if(raw === null || raw === undefined) return "";
+  const value = String(raw).trim();
+  return (value === "" || value === "—") ? "" : value;
+}
 function publicationExtraHtml(p, idx){
   const parts = [];
   const doi = (p.doi || "").toString().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "").trim();
   if(doi){
     parts.push(`<a class="pub-doi" href="${esc(doiUrl(doi))}" target="_blank" rel="noopener">DOI: ${esc(doi)}</a>`);
   }
-  const citesRaw = p.google_scholar_citations ?? p.citations ?? "";
-  const hasScholarLink = !!p.google_scholar_url;
-  if(hasScholarLink || (citesRaw !== "" && citesRaw !== null && String(citesRaw) !== "—")){
-    const cites = (citesRaw === "" || citesRaw === null || String(citesRaw) === "—") ? "0" : citesRaw;
-    const label = `Google Scholar Citations: ${esc(cites)}`;
-    if(hasScholarLink){
-      parts.push(`<a class="pub-citations" href="${esc(p.google_scholar_url)}" target="_blank" rel="noopener">${label}</a>`);
+
+  const gsUrl = scholarUrl(p);
+  const cites = citationValueForDisplay(p);
+  if(gsUrl || cites !== ""){
+    const label = cites !== "" ? `Google Scholar Citations: ${esc(cites)}` : "Google Scholar";
+    if(gsUrl){
+      parts.push(`<a class="pub-citations" href="${esc(gsUrl)}" target="_blank" rel="noopener">${label}</a>`);
     }else{
       parts.push(`<span class="pub-citations">${label}</span>`);
     }
   }
-  parts.push(`<button class="bib-btn" type="button">BibTeX</button>`);
-  return `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div><pre class="bibtex-box" aria-hidden="true">${esc(bibtexEntry(p, idx))}</pre>`;
+
+  const bibId = `bibtex-${idx}-${Math.random().toString(36).slice(2, 8)}`;
+  const bib = bibtexEntry(p, idx);
+  parts.push(`<button class="bib-btn" type="button" data-bib-target="${esc(bibId)}" aria-expanded="false">BibTeX</button>`);
+  return `<div class="pub-extra">${parts.join(`<span class="sep">|</span>`)}</div><pre id="${esc(bibId)}" class="bibtex-box" aria-hidden="true">${esc(bib)}</pre>`;
 }
 function formatPublication(p, idx=0){
   const link = p.link || doiUrl(p.doi);
