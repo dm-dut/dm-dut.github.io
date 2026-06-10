@@ -1,47 +1,2262 @@
 [
   {
+    "id": "pub-001",
+    "type": "Journal Article",
     "year": 2026,
-    "type": "Journal",
-    "authors": "Wenyu Yu, Zhen Zhang, Francisco Chiclana",
-    "title": "Targeting the right person: an optimization-driven framework for persuader selection in social networks with opinion evolution",
-    "venue": "European Journal of Operational Research",
+    "authors": [
+      "Zhen Zhang",
+      "Ziyu Xu",
+      "Wenyu Yu*"
+    ],
+    "title": "Tourism demand forecasting with multi-source data: a hybrid model incorporating seasonal-trend decomposition",
+    "venue": "Annals of Operations Research",
     "volume": "",
     "issue": "",
     "pages": "",
-    "doi": "10.xxxx/example",
-    "link": "",
-    "indexes": "SCI; EI",
-    "labels": "ABS 4; FMS A; IF=6.0",
-    "note": "in press"
+    "doi": "10.1007/s10479-025-06832-0",
+    "link": "https://doi.org/10.1007/s10479-025-06832-0",
+    "indexes": [
+      "SCI",
+      "ABS 3",
+      "IF=4.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
   },
   {
+    "id": "pub-002",
+    "type": "Journal Article",
     "year": 2026,
-    "type": "Journal",
-    "authors": "Zhen Zhang, Zhuolin Li, Yucheng Dong",
+    "authors": [
+      "Qian Liang",
+      "Wenyu Yu*",
+      "Zhen Zhang",
+      "Francisco Chiclana"
+    ],
+    "title": "Targeting the right person: An optimization-driven framework for persuader selection in social networks with opinion evolution",
+    "venue": "European Journal of Operational Research",
+    "volume": "334",
+    "issue": "1",
+    "pages": "216-235",
+    "doi": "10.1016/j.ejor.2026.04.023",
+    "link": "https://doi.org/10.1016/j.ejor.2026.04.023",
+    "indexes": [
+      "SCI",
+      "EI",
+      "FMS A",
+      "ABS 4",
+      "IF=6"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-003",
+    "type": "Journal Article",
+    "year": 2026,
+    "authors": [
+      "Yaya Liu",
+      "Jiaming Li",
+      "Zhen Zhang*",
+      "Jian Wu",
+      "Rosa M Rodríguez",
+      "Luis Martínez"
+    ],
     "title": "Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective",
     "venue": "Expert Systems with Applications",
+    "volume": "316",
+    "issue": "",
+    "pages": "131876",
+    "doi": "10.1016/j.eswa.2026.131876",
+    "link": "https://doi.org/10.1016/j.eswa.2026.131876",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=7.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-004",
+    "type": "Journal Article",
+    "year": 2026,
+    "authors": [
+      "Yuan Jin",
+      "Zhen Zhang*"
+    ],
+    "title": "KRAM: Knowledge-driven robust training against label noise for medication recommendation",
+    "venue": "Expert Systems with Applications",
+    "volume": "310",
+    "issue": "",
+    "pages": "131330",
+    "doi": "10.1016/j.eswa.2026.131330",
+    "link": "https://doi.org/10.1016/j.eswa.2026.131330",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=7.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-005",
+    "type": "Journal Article",
+    "year": 2026,
+    "authors": [
+      "Zhen Zhang",
+      "Jize Luo",
+      "Wenyu Yu*",
+      "Zhuolin Li",
+      "Francisco Chiclana"
+    ],
+    "title": "Integrating personalized individual semantics and consistency control to support consensus reaching in 2-rank group decision making",
+    "venue": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+    "volume": "56",
+    "issue": "2",
+    "pages": "800-811",
+    "doi": "10.1109/TSMC.2025.3597963",
+    "link": "https://doi.org/10.1109/TSMC.2025.3597963",
+    "indexes": [
+      "SCI",
+      "EI",
+      "ABS 3",
+      "IF=8.7"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "Singapore",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-006",
+    "type": "Journal Article",
+    "year": 2026,
+    "authors": [
+      "Yuan Gao",
+      "Zhen Zhang*",
+      "Wenyu Yu*"
+    ],
+    "title": "Preference learning for multi-criteria sorting with interacting criteria: A framework integrating threshold-based value-driven sorting procedure with attention network",
+    "venue": "Information Fusion",
+    "volume": "125",
+    "issue": "",
+    "pages": "103443",
+    "doi": "10.1016/j.inffus.2025.103443",
+    "link": "https://doi.org/10.1016/j.inffus.2025.103443",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=15.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-007",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Zhuolin Li",
+      "Zhen Zhang*",
+      "Witold Pedrycz"
+    ],
+    "title": "An incremental preference elicitation-based approach to learning potentially non-monotonic preferences in multi-criteria sorting",
+    "venue": "European Journal of Operational Research",
+    "volume": "323",
+    "issue": "2",
+    "pages": "553-570",
+    "doi": "10.1016/j.ejor.2024.11.047",
+    "link": "https://doi.org/10.1016/j.ejor.2024.11.047",
+    "indexes": [
+      "SCI",
+      "EI",
+      "FMS A",
+      "ABS 4",
+      "IF=6"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-008",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Zhuolin Li",
+      "Zhen Zhang*",
+      "Witold Pedrycz"
+    ],
+    "title": "Integrating machine learning models to learn potentially non-monotonic preferences for multi-criteria sorting from large-scale assignment examples",
+    "venue": "Omega",
+    "volume": "131",
+    "issue": "",
+    "pages": "103219",
+    "doi": "10.1016/j.omega.2024.103219",
+    "link": "https://doi.org/10.1016/j.omega.2024.103219",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "ABS 3",
+      "IF=7.2"
+    ],
+    "labels": [],
+    "note": "2025 Best Paper Award of Omega",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-009",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Zhen Zhang",
+      "Zhuolin Li*",
+      "Wenyu Yu*"
+    ],
+    "title": "Lexicographic optimization-based approaches to learning a representative model for multi-criteria sorting with non-monotonic criteria",
+    "venue": "Computers & Operations Research",
+    "volume": "175",
+    "issue": "",
+    "pages": "106917",
+    "doi": "10.1016/j.cor.2024.106917",
+    "link": "https://doi.org/10.1016/j.cor.2024.106917",
+    "indexes": [
+      "SCI",
+      "EI",
+      "ABS 3",
+      "IF=4.3"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-010",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Zhuolin Li",
+      "Zhen Zhang*"
+    ],
+    "title": "Modeling personalized individual semantics in multicriteria decision making with incomplete linguistic preference relations: A preference disaggregation perspective",
+    "venue": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+    "volume": "55",
+    "issue": "1",
+    "pages": "390-403",
+    "doi": "10.1109/TSMC.2024.3472699",
+    "link": "https://doi.org/10.1109/TSMC.2024.3472699",
+    "indexes": [
+      "SCI",
+      "EI",
+      "ABS 3",
+      "IF=8.7"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-011",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Zihang Jia",
+      "Zhen Zhang*",
+      "Witold Pedrycz"
+    ],
+    "title": "Generation of granular-balls for clustering based on the principle of justifiable granularity",
+    "venue": "IEEE Transactions on Cybernetics",
+    "volume": "55",
+    "issue": "4",
+    "pages": "1687-1700",
+    "doi": "10.1109/TCYB.2025.3534195",
+    "link": "https://doi.org/10.1109/TCYB.2025.3534195",
+    "indexes": [
+      "SCI",
+      "EI",
+      "ABS 3",
+      "IF=10.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-012",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Yaya Liu",
+      "Yue Wang",
+      "Rosa M Rodríguez",
+      "Zhen Zhang*",
+      "Luis Martínez"
+    ],
+    "title": "Automatic consensus models to balance consensus cost, consistency level and consensus degree with attitudinal trust mechanism",
+    "venue": "Information Sciences",
+    "volume": "716",
+    "issue": "",
+    "pages": "122222",
+    "doi": "10.1016/j.ins.2025.122222",
+    "link": "https://doi.org/10.1016/j.ins.2025.122222",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=6.8"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-013",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Qian Liang",
+      "Zhen Zhang*",
+      "Yingsheng Su"
+    ],
+    "title": "Constructive preference elicitation for multi-criteria decision analysis using an estimate-then-select strategy",
+    "venue": "Information Fusion",
+    "volume": "118",
+    "issue": "",
+    "pages": "102926",
+    "doi": "10.1016/j.inffus.2024.102926",
+    "link": "https://doi.org/10.1016/j.inffus.2024.102926",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=15.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-014",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Mingshuo Cao",
+      "Tiantian Gai",
+      "Jian Wu*",
+      "Francisco Chiclana",
+      "Zhen Zhang",
+      "Yucheng Dong",
+      "Enrique Herrera-Viedma",
+      "Francisco Herrera"
+    ],
+    "title": "Social network group decision making: Characterization, taxonomy, challenges and future directions from an AI and LLMs perspective",
+    "venue": "Information Fusion",
+    "volume": "120",
+    "issue": "",
+    "pages": "103107",
+    "doi": "10.1016/j.inffus.2025.103107",
+    "link": "https://doi.org/10.1016/j.inffus.2025.103107",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=15.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-015",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Shanglei Chai",
+      "Zixuan Zhang",
+      "Zhen Zhang*"
+    ],
+    "title": "Carbon price prediction for China's ETS pilots using variational mode decomposition and optimized extreme learning machine",
+    "venue": "Annals of Operations Research",
+    "volume": "345",
+    "issue": "2-3",
+    "pages": "809-830",
+    "doi": "10.1007/s10479-021-04392-7",
+    "link": "https://doi.org/10.1007/s10479-021-04392-7",
+    "indexes": [
+      "SCI",
+      "ABS 3",
+      "IF=4.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-016",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Shanglei Chai",
+      "Wenjun Chu",
+      "Zhen Zhang",
+      "Zhilong Li",
+      "Mohammad Zoynul Abedin*"
+    ],
+    "title": "Dynamic nonlinear connectedness between the green bonds, clean energy, and stock price: the impact of the COVID-19 pandemic",
+    "venue": "Annals of Operations Research",
+    "volume": "345",
+    "issue": "2-3",
+    "pages": "1137-1164",
+    "doi": "10.1007/s10479-021-04452-y",
+    "link": "https://doi.org/10.1007/s10479-021-04452-y",
+    "indexes": [
+      "SCI",
+      "ABS 3",
+      "IF=4.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-017",
+    "type": "Journal Article",
+    "year": 2025,
+    "authors": [
+      "Gaofeng Yu",
+      "Zhen Zhang",
+      "Jian Wu*"
+    ],
+    "title": "A stability analysis for the online retailing cyber security situation piecewise variable weight rating method",
+    "venue": "Applied Intelligence",
+    "volume": "55",
+    "issue": "18",
+    "pages": "1144",
+    "doi": "10.1007/s10489-025-06860-0",
+    "link": "https://doi.org/10.1007/s10489-025-06860-0",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=3.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-018",
+    "type": "Monograph",
+    "year": 2024,
+    "authors": [
+      "Zhen Zhang",
+      "Wenyu Yu",
+      "Zhuolin Li"
+    ],
+    "title": "Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty - Theories, Methods and Applications",
+    "venue": "Springer Nature",
     "volume": "",
     "issue": "",
     "pages": "",
-    "doi": "10.xxxx/example",
-    "link": "",
-    "indexes": "SCI; EI",
-    "labels": "IF=7.5",
-    "note": "in press"
+    "doi": "10.1007/978-981-97-3584-6",
+    "link": "https://doi.org/10.1007/978-981-97-3584-6",
+    "indexes": [],
+    "labels": [],
+    "note": "",
+    "isbn": "978-981-97-3583-9",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "Singapore",
+    "corresponding_author_note": ""
   },
   {
+    "id": "pub-019",
+    "type": "Journal Article",
     "year": 2024,
-    "type": "Book",
-    "authors": "Zhen Zhang, Wenyu Yu, Zhuolin Li",
-    "title": "Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty",
-    "venue": "Springer Nature, Singapore",
+    "authors": [
+      "Tiantian Gai",
+      "Jian Wu*",
+      "Changyong Liang",
+      "Mingshuo Cao",
+      "Zhen Zhang"
+    ],
+    "title": "A quality function deployment model by social network and group decision making: Application to product design of e-commerce platforms",
+    "venue": "Engineering Applications of Artificial Intelligence",
+    "volume": "133",
+    "issue": "",
+    "pages": "108509",
+    "doi": "10.1016/j.engappai.2024.108509",
+    "link": "https://doi.org/10.1016/j.engappai.2024.108509",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=8"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-020",
+    "type": "Journal Article",
+    "year": 2024,
+    "authors": [
+      "Qian Liang",
+      "Chenyu Luo",
+      "Zhen Zhang",
+      "Dong Cheng*"
+    ],
+    "title": "Mining maximum ordinal-cardinal consensus for large-scale group decision making with incomplete fuzzy preference relations",
+    "venue": "IEEE Transactions on Fuzzy Systems",
+    "volume": "32",
+    "issue": "6",
+    "pages": "3542-3555",
+    "doi": "10.1109/TFUZZ.2024.3375863",
+    "link": "https://doi.org/10.1109/TFUZZ.2024.3375863",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=11.9"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-021",
+    "type": "Journal Article",
+    "year": 2024,
+    "authors": [
+      "Zhuolin Li",
+      "Zhen Zhang",
+      "Wenyu Yu*"
+    ],
+    "title": "Consensus reaching for ordinal classification-based group decision making with heterogeneous preference information",
+    "venue": "Journal of the Operational Research Society",
+    "volume": "75",
+    "issue": "2",
+    "pages": "224-245",
+    "doi": "10.1080/01605682.2023.2186806",
+    "link": "https://doi.org/10.1080/01605682.2023.2186806",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "ABS 3",
+      "IF=2.7"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-022",
+    "type": "Journal Article",
+    "year": 2024,
+    "authors": [
+      "Zhuolin Li",
+      "Zhen Zhang*"
+    ],
+    "title": "Threshold-based value-driven method to support consensus reaching in multicriteria group sorting problems: A minimum adjustment perspective",
+    "venue": "IEEE Transactions on Computational Social Systems",
+    "volume": "11",
+    "issue": "1",
+    "pages": "1230-1243",
+    "doi": "10.1109/TCSS.2023.3251351",
+    "link": "https://doi.org/10.1109/TCSS.2023.3251351",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=4.9"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-023",
+    "type": "Journal Article",
+    "year": 2023,
+    "authors": [
+      "Peng Li",
+      "Zhiwei Xu",
+      "Zhen Zhang*",
+      "Zhuolin Li",
+      "Cuiping Wei"
+    ],
+    "title": "Consensus reaching in multi-criteria social network group decision making: A stochastic multicriteria acceptability analysis-based method",
+    "venue": "Information Fusion",
+    "volume": "97",
+    "issue": "",
+    "pages": "101825",
+    "doi": "10.1016/j.inffus.2023.101825",
+    "link": "https://doi.org/10.1016/j.inffus.2023.101825",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=15.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-024",
+    "type": "Journal Article",
+    "year": 2023,
+    "authors": [
+      "Jian Wu",
+      "Guangyin Zhang",
+      "Yumei Xing",
+      "Yujia Liu*",
+      "Zhen Zhang",
+      "Yucheng Dong",
+      "Enrique Herrera-Viedma"
+    ],
+    "title": "A sentiment analysis driven method based on public and personal preferences with correlated attributes to select online doctors",
+    "venue": "Applied Intelligence",
+    "volume": "53",
+    "issue": "16",
+    "pages": "19093-19114",
+    "doi": "10.1007/s10489-023-04485-9",
+    "link": "https://doi.org/10.1007/s10489-023-04485-9",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=3.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-025",
+    "type": "Journal Article",
+    "year": 2023,
+    "authors": [
+      "Yiling Yang",
+      "Tiantian Gai",
+      "Mingshuo Cao",
+      "Zhen Zhang",
+      "Hengjie Zhang",
+      "Jian Wu*"
+    ],
+    "title": "Application of group decision making in shipping industry 4.0: Bibliometric analysis, trends, and future directions",
+    "venue": "Systems",
+    "volume": "11",
+    "issue": "2",
+    "pages": "69",
+    "doi": "10.3390/systems11020069",
+    "link": "https://doi.org/10.3390/systems11020069",
+    "indexes": [
+      "SSCI",
+      "IF=3.1"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper",
+      "ESI Hot Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-026",
+    "type": "Journal Article",
+    "year": 2023,
+    "authors": [
+      "Zhen Zhang*",
+      "Zhuolin Li"
+    ],
+    "title": "Consensus-based TOPSIS-Sort-B for multi-criteria sorting in the context of group decision-making",
+    "venue": "Annals of Operations Research",
+    "volume": "325",
+    "issue": "2",
+    "pages": "911-938",
+    "doi": "10.1007/s10479-022-04985-w",
+    "link": "https://doi.org/10.1007/s10479-022-04985-w",
+    "indexes": [
+      "SCI",
+      "ABS 3",
+      "IF=4.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-027",
+    "type": "Journal Article",
+    "year": 2023,
+    "authors": [
+      "Tiantian Gai",
+      "Mingshuo Cao",
+      "Francisco Chiclana",
+      "Zhen Zhang",
+      "Yucheng Dong",
+      "Enrique Herrera-Viedma",
+      "Jian Wu*"
+    ],
+    "title": "Consensus-trust driven bidirectional feedback mechanism for improving consensus in social network large-group decision making",
+    "venue": "Group Decision and Negotiation",
+    "volume": "32",
+    "issue": "1",
+    "pages": "45-74",
+    "doi": "10.1007/s10726-022-09798-7",
+    "link": "https://doi.org/10.1007/s10726-022-09798-7",
+    "indexes": [
+      "SSCI",
+      "IF=2.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper",
+      "ESI Hot Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-028",
+    "type": "Journal Article",
+    "year": 2022,
+    "authors": [
+      "Youwei Chen*",
+      "Pengwei Zhao",
+      "Zhen Zhang",
+      "Juncheng Bai",
+      "Yuqi Guo"
+    ],
+    "title": "A stock price forecasting model integrating complementary ensemble empirical mode decomposition and independent component analysis",
+    "venue": "International Journal of Computational Intelligence Systems",
+    "volume": "15",
+    "issue": "1",
+    "pages": "75",
+    "doi": "10.1007/s44196-022-00140-2",
+    "link": "https://doi.org/10.1007/s44196-022-00140-2",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=3"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-029",
+    "type": "Journal Article",
+    "year": 2022,
+    "authors": [
+      "Shanglei Chai",
+      "Xiaoli Yang",
+      "Zhen Zhang",
+      "Mohammad Zoynul Abedin*",
+      "Brian Lucey"
+    ],
+    "title": "Regional imbalances of market efficiency in China's pilot emission trading schemes (ETS): A multifractal perspective",
+    "venue": "Research in International Business and Finance",
+    "volume": "",
+    "issue": "",
+    "pages": "101758",
+    "doi": "10.1016/j.ribaf.2022.101758",
+    "link": "https://doi.org/10.1016/j.ribaf.2022.101758",
+    "indexes": [
+      "SSCI",
+      "IF=6.9"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-030",
+    "type": "Journal Article",
+    "year": 2022,
+    "authors": [
+      "Lin Tang",
+      "Leilei Sun",
+      "Chonghui Guo*",
+      "Zhen Zhang"
+    ],
+    "title": "Adaptive spectral affinity propagation clustering",
+    "venue": "Journal of Systems Engineering and Electronics",
+    "volume": "33",
+    "issue": "3",
+    "pages": "647-664",
+    "doi": "10.23919/JSEE.2022.000060",
+    "link": "https://doi.org/10.23919/JSEE.2022.000060",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=2.1"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-031",
+    "type": "Journal Article",
+    "year": 2022,
+    "authors": [
+      "Zhuolin Li",
+      "Zhen Zhang",
+      "Wenyu Yu*"
+    ],
+    "title": "Consensus reaching with consistency control in group decision making with incomplete hesitant fuzzy linguistic preference relations",
+    "venue": "Computers & Industrial Engineering",
+    "volume": "170",
+    "issue": "",
+    "pages": "108311",
+    "doi": "10.1016/j.cie.2022.108311",
+    "link": "https://doi.org/10.1016/j.cie.2022.108311",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=6.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-032",
+    "type": "Journal Article",
+    "year": 2022,
+    "authors": [
+      "Yating Liu",
+      "Yao Li",
+      "Zhen Zhang*",
+      "Yi Xu",
+      "Yucheng Dong"
+    ],
+    "title": "Classification-based strategic weight manipulation in multiple attribute decision making",
+    "venue": "Expert Systems with Applications",
+    "volume": "197",
+    "issue": "",
+    "pages": "116781",
+    "doi": "10.1016/j.eswa.2022.116781",
+    "link": "https://doi.org/10.1016/j.eswa.2022.116781",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=7.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-033",
+    "type": "Journal Article",
+    "year": 2022,
+    "authors": [
+      "Zhen Zhang*",
+      "Zhuolin Li"
+    ],
+    "title": "Personalized individual semantics-based consistency control and consensus reaching in linguistic group decision making",
+    "venue": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+    "volume": "52",
+    "issue": "9",
+    "pages": "5623-5635",
+    "doi": "10.1109/TSMC.2021.3129510",
+    "link": "https://doi.org/10.1109/TSMC.2021.3129510",
+    "indexes": [
+      "SCI",
+      "EI",
+      "ABS 3",
+      "IF=8.7"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper",
+      "ESI Hot Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-034",
+    "type": "Journal Article",
+    "year": 2022,
+    "authors": [
+      "Yuan Gao",
+      "Zhen Zhang*"
+    ],
+    "title": "Consensus reaching with non-cooperative behavior management for personalized individual semantics-based social network group decision making",
+    "venue": "Journal of the Operational Research Society",
+    "volume": "73",
+    "issue": "11",
+    "pages": "2518-2535",
+    "doi": "10.1080/01605682.2021.1997654",
+    "link": "https://doi.org/10.1080/01605682.2021.1997654",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "ABS 3",
+      "IF=2.7"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper",
+      "ESI Hot Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-035",
+    "type": "Journal Article",
+    "year": 2022,
+    "authors": [
+      "Qingxing Dong*",
+      "Qi Sheng",
+      "Luis Martínez",
+      "Zhen Zhang*"
+    ],
+    "title": "An adaptive group decision making framework: Individual and local world opinion based opinion dynamics",
+    "venue": "Information Fusion",
+    "volume": "78",
+    "issue": "",
+    "pages": "218-231",
+    "doi": "10.1016/j.inffus.2021.09.013",
+    "link": "https://doi.org/10.1016/j.inffus.2021.09.013",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "IF=15.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-036",
+    "type": "Journal Article",
+    "year": 2021,
+    "authors": [
+      "Zhen Zhang*",
+      "Zhuolin Li",
+      "Yuan Gao"
+    ],
+    "title": "Consensus reaching for group decision making with multi-granular unbalanced linguistic information: A bounded confidence and minimum adjustment-based approach",
+    "venue": "Information Fusion",
+    "volume": "74",
+    "issue": "",
+    "pages": "96-110",
+    "doi": "10.1016/j.inffus.2021.04.006",
+    "link": "https://doi.org/10.1016/j.inffus.2021.04.006",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=15.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-037",
+    "type": "Journal Article",
+    "year": 2021,
+    "authors": [
+      "Lin Tang",
+      "Leilei Sun",
+      "Chonghui Guo*",
+      "Yuqian Zuo",
+      "Zhen Zhang"
+    ],
+    "title": "A simulation research towards better leverage of sales ranking",
+    "venue": "Journal of Systems Science and Systems Engineering",
+    "volume": "30",
+    "issue": "1",
+    "pages": "105-122",
+    "doi": "10.1007/s11518-021-5478-4",
+    "link": "https://doi.org/10.1007/s11518-021-5478-4",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=2"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-038",
+    "type": "Journal Article",
+    "year": 2020,
+    "authors": [
+      "Shanglei Chai",
+      "Zhen Zhang*",
+      "Mo Du",
+      "Lei Jiang"
+    ],
+    "title": "Volatility similarity and spillover effects in G20 stock market comovements: An ICA-based ARMA-APARCH-M approach",
+    "venue": "Complexity",
+    "volume": "2020",
+    "issue": "",
+    "pages": "8872307",
+    "doi": "10.1155/2020/8872307",
+    "link": "https://doi.org/10.1155/2020/8872307",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "IF=1.7"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-039",
+    "type": "Journal Article",
+    "year": 2021,
+    "authors": [
+      "Zhen Zhang",
+      "Junliang Gao",
+      "Yuan Gao",
+      "Wenyu Yu*"
+    ],
+    "title": "Two-sided matching decision making with multi-granular hesitant fuzzy linguistic term sets and incomplete criteria weight information",
+    "venue": "Expert Systems with Applications",
+    "volume": "168",
+    "issue": "",
+    "pages": "114311",
+    "doi": "10.1016/j.eswa.2020.114311",
+    "link": "https://doi.org/10.1016/j.eswa.2020.114311",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "IF=7.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-040",
+    "type": "Journal Article",
+    "year": 2021,
+    "authors": [
+      "Yuzhu Wu",
+      "Zhen Zhang",
+      "Gang Kou",
+      "Hengjie Zhang",
+      "Xiangrui Chao",
+      "Cong-Cong Li",
+      "Yucheng Dong*",
+      "Francisco Herrera"
+    ],
+    "title": "Distributed linguistic representations in decision making: Taxonomy, key elements and applications, and challenges in data science and explainable artificial intelligence",
+    "venue": "Information Fusion",
+    "volume": "65",
+    "issue": "",
+    "pages": "165-178",
+    "doi": "10.1016/j.inffus.2020.08.018",
+    "link": "https://doi.org/10.1016/j.inffus.2020.08.018",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "IF=15.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-041",
+    "type": "Journal Article",
+    "year": 2021,
+    "authors": [
+      "Zhen Zhang",
+      "Xinyue Kou",
+      "Wenyu Yu*",
+      "Yuan Gao"
+    ],
+    "title": "Consistency improvement for fuzzy preference relations with self-confidence: An application in two-sided matching decision making",
+    "venue": "Journal of the Operational Research Society",
+    "volume": "72",
+    "issue": "8",
+    "pages": "1914-1927",
+    "doi": "10.1080/01605682.2020.1748529",
+    "link": "https://doi.org/10.1080/01605682.2020.1748529",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "ABS 3",
+      "IF=2.7"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-042",
+    "type": "Journal Article",
+    "year": 2021,
+    "authors": [
+      "Wenyu Yu",
+      "Zhen Zhang*",
+      "Qiuyan Zhong"
+    ],
+    "title": "Consensus reaching for MAGDM with multi-granular hesitant fuzzy linguistic term sets: a minimum adjustment-based approach",
+    "venue": "Annals of Operations Research",
+    "volume": "300",
+    "issue": "2",
+    "pages": "443-466",
+    "doi": "10.1007/s10479-019-03432-7",
+    "link": "https://doi.org/10.1007/s10479-019-03432-7",
+    "indexes": [
+      "SCI",
+      "ABS 3",
+      "IF=4.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-043",
+    "type": "Conference Paper",
+    "year": 2020,
+    "authors": [
+      "Zhen Zhang",
+      "Zhuolin Li",
+      "Wenyu Yu*"
+    ],
+    "title": "Some models to improve the worst consistency level of hesitant fuzzy preference relations",
+    "venue": "the 14th International FLINS Conference on Robotics and Artificial Intelligence (FLINS 2020)",
+    "volume": "",
+    "issue": "",
+    "pages": "327-335",
+    "doi": "doi:10.1142/9789811223334_0040",
+    "link": "https://doi.org/doi:10.1142/9789811223334_0040",
+    "indexes": [
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "18-21 August 2020",
+    "conference_address": "Cologne, Germany",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-044",
+    "type": "Journal Article",
+    "year": 2020,
+    "authors": [
+      "Zhen Zhang*",
+      "Yuan Gao",
+      "Zhuolin Li"
+    ],
+    "title": "Consensus reaching for social network group decision making by considering leadership and bounded confidence",
+    "venue": "Knowledge-Based Systems",
+    "volume": "204",
+    "issue": "",
+    "pages": "106240",
+    "doi": "10.1016/j.knosys.2020.106240",
+    "link": "https://doi.org/10.1016/j.knosys.2020.106240",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=7.6"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-045",
+    "type": "Journal Article",
+    "year": 2020,
+    "authors": [
+      "Zhen Zhang",
+      "Wenyu Yu*",
+      "Luis Martínez",
+      "Yuan Gao"
+    ],
+    "title": "Managing multigranular unbalanced hesitant fuzzy linguistic information in multiattribute large-scale group decision making: A linguistic distribution-based approach",
+    "venue": "IEEE Transactions on Fuzzy Systems",
+    "volume": "28",
+    "issue": "11",
+    "pages": "2875-2889",
+    "doi": "10.1109/TFUZZ.2019.2949758",
+    "link": "https://doi.org/10.1109/TFUZZ.2019.2949758",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=11.9"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper",
+      "ESI Hot Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-046",
+    "type": "Conference Paper",
+    "year": 2019,
+    "authors": [
+      "Amin Mahmoudi",
+      "Saad Ahmed Javed",
+      "Zhen Zhang*",
+      "Xiaopeng Deng"
+    ],
+    "title": "Grey group QUALIFLEX method: Application in project management",
+    "venue": "the 14th International Conference on Intelligent Systems and Knowledge Engineering (ISKE)",
+    "volume": "",
+    "issue": "",
+    "pages": "189-195",
+    "doi": "10.1109/ISKE47853.2019.9170357",
+    "link": "https://doi.org/10.1109/ISKE47853.2019.9170357",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "14-16 November, 2019",
+    "conference_address": "Dalian, China",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-047",
+    "type": "Conference Paper",
+    "year": 2019,
+    "authors": [
+      "Zhen Zhang",
+      "Yuan Gao",
+      "Wenyu Yu*"
+    ],
+    "title": "Group decision making with linguistic distribution preference relations: An interval numerical scale-based approach",
+    "venue": "the 14th International Conference on Intelligent Systems and Knowledge Engineering (ISKE)",
+    "volume": "",
+    "issue": "",
+    "pages": "125-128",
+    "doi": "10.1109/ISKE47853.2019.9170205",
+    "link": "https://doi.org/10.1109/ISKE47853.2019.9170205",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "14-16 November, 2019",
+    "conference_address": "Dalian, China",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-048",
+    "type": "Journal Article",
+    "year": 2019,
+    "authors": [
+      "Zhen Zhang",
+      "Xinyue Kou",
+      "Iván Palomares",
+      "Wenyu Yu*",
+      "Junliang Gao"
+    ],
+    "title": "Stable two-sided matching decision making with incomplete fuzzy preference relations: A disappointment theory based approach",
+    "venue": "Applied Soft Computing",
+    "volume": "84",
+    "issue": "",
+    "pages": "105730",
+    "doi": "10.1016/j.asoc.2019.105730",
+    "link": "https://doi.org/10.1016/j.asoc.2019.105730",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "IF=6.6"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-049",
+    "type": "Conference Paper",
+    "year": 2019,
+    "authors": [
+      "Zhen Zhang",
+      "Junliang Gao",
+      "Wenyu Yu*"
+    ],
+    "title": "Evaluating collaboration ability of R&D team members: A multi-granular hesitant fuzzy linguistic approach",
+    "venue": "the 11th Conference of the European Society for Fuzzy Logic and Technology (EUSFLAT 2019)",
+    "volume": "",
+    "issue": "",
+    "pages": "30-36",
+    "doi": "10.2991/eusflat-19.2019.5",
+    "link": "https://doi.org/10.2991/eusflat-19.2019.5",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "9-13 September, 2019",
+    "conference_address": "Prague, Czech",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-050",
+    "type": "Journal Article",
+    "year": 2018,
+    "authors": [
+      "Yue Zheng",
+      "Guangquan Zhang",
+      "Zhen Zhang",
+      "Jie Lu*"
+    ],
+    "title": "A reducibility method for the weak linear bilevel programming problems and a case study in principal-agent",
+    "venue": "Information Sciences",
+    "volume": "454-455",
+    "issue": "",
+    "pages": "46-58",
+    "doi": "10.1016/j.ins.2018.04.045",
+    "link": "https://doi.org/10.1016/j.ins.2018.04.045",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=6.8"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-051",
+    "type": "Conference Paper",
+    "year": 2018,
+    "authors": [
+      "Zhen Zhang",
+      "Wenyu Yu"
+    ],
+    "title": "An optimization-based approach to aggregating multi-granular hesitant fuzzy linguistic term sets",
+    "venue": "the 13th International FLINS Conference on Data Science and Knowledge Engineering for Sensing Decision Support (FLINS 2018)",
+    "volume": "",
+    "issue": "",
+    "pages": "205-212",
+    "doi": "10.1142/9789813273238_0028",
+    "link": "https://doi.org/10.1142/9789813273238_0028",
+    "indexes": [
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "21-24, August 2018",
+    "conference_address": "Belfast, Northern Ireland, UK",
+    "address": "",
+    "corresponding_author_note": ""
+  },
+  {
+    "id": "pub-052",
+    "type": "Journal Article",
+    "year": 2018,
+    "authors": [
+      "Zhen Zhang",
+      "Xinyue Kou",
+      "Qingxing Dong*"
+    ],
+    "title": "Additive consistency analysis and improvement for hesitant fuzzy preference relations",
+    "venue": "Expert Systems with Applications",
+    "volume": "98",
+    "issue": "",
+    "pages": "118-128",
+    "doi": "10.1016/j.eswa.2018.01.016",
+    "link": "https://doi.org/10.1016/j.eswa.2018.01.016",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=7.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-053",
+    "type": "Journal Article",
+    "year": 2018,
+    "authors": [
+      "Zhen Zhang",
+      "Xinyue Kou",
+      "Wenyu Yu*",
+      "Chonghui Guo"
+    ],
+    "title": "On priority weights and consistency for incomplete hesitant fuzzy preference relations",
+    "venue": "Knowledge-Based Systems",
+    "volume": "143",
+    "issue": "",
+    "pages": "115-126",
+    "doi": "10.1016/j.knosys.2017.12.010",
+    "link": "https://doi.org/10.1016/j.knosys.2017.12.010",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=7.6"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper",
+      "ESI Hot Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-054",
+    "type": "Journal Article",
+    "year": 2017,
+    "authors": [
+      "Wenyu Yu",
+      "Zhen Zhang*",
+      "Qiuyan Zhong",
+      "Leilei Sun"
+    ],
+    "title": "Extended TODIM for multi-criteria group decision making based on unbalanced hesitant fuzzy linguistic term sets",
+    "venue": "Computers & Industrial Engineering",
+    "volume": "114",
+    "issue": "",
+    "pages": "316-328",
+    "doi": "10.1016/j.cie.2017.10.029",
+    "link": "https://doi.org/10.1016/j.cie.2017.10.029",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "IF=6.5"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-055",
+    "type": "Conference Paper",
+    "year": 2017,
+    "authors": [
+      "Zhen Zhang",
+      "Xinyue Kou",
+      "Wenyu Yu"
+    ],
+    "title": "Two-sided matching decision making based on heterogeneous incomplete preference relations",
+    "venue": "the 12th International Conference on Intelligent Systems and Knowledge Engineering (ISKE2017)",
+    "volume": "",
+    "issue": "",
+    "pages": "1-6",
+    "doi": "10.1109/ISKE.2017.8258739",
+    "link": "https://doi.org/10.1109/ISKE.2017.8258739",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "24-26 November, 2017",
+    "conference_address": "Nanjing, China",
+    "address": "",
+    "corresponding_author_note": ""
+  },
+  {
+    "id": "pub-056",
+    "type": "Conference Paper",
+    "year": 2017,
+    "authors": [
+      "Wei Wei",
+      "Chonghui Guo",
+      "Jingfeng Chen",
+      "Zhen Zhang"
+    ],
+    "title": "Textual topic evolution analysis based on term co-occurrence: A case study on the government work report of the State Council (1954-2017)",
+    "venue": "the 12th International Conference on Intelligent Systems and Knowledge Engineering (ISKE2017)",
+    "volume": "",
+    "issue": "",
+    "pages": "1-6",
+    "doi": "10.1109/ISKE.2017.8258735",
+    "link": "https://doi.org/10.1109/ISKE.2017.8258735",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "24-26 November, 2017",
+    "conference_address": "Nanjing, China",
+    "address": "",
+    "corresponding_author_note": ""
+  },
+  {
+    "id": "pub-057",
+    "type": "Conference Paper",
+    "year": 2017,
+    "authors": [
+      "Wenyu Yu",
+      "Zhen Zhang*",
+      "Qiuyan Zhong"
+    ],
+    "title": "A TODIM-based approach to large-scale group decision making with multi-granular unbalanced linguistic information",
+    "venue": "the 2017 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
+    "volume": "",
+    "issue": "",
+    "pages": "1-6",
+    "doi": "10.1109/FUZZ-IEEE.2017.8015576",
+    "link": "https://doi.org/10.1109/FUZZ-IEEE.2017.8015576",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "9-12 July, 2017",
+    "conference_address": "Naples, Italy",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-058",
+    "type": "Journal Article",
+    "year": 2017,
+    "authors": [
+      "Zhen Zhang*",
+      "Chonghui Guo"
+    ],
+    "title": "Deriving priority weights from intuitionistic multiplicative preference relations under group decision-making settings",
+    "venue": "Journal of the Operational Research Society",
+    "volume": "68",
+    "issue": "12",
+    "pages": "1582-1599",
+    "doi": "10.1057/s41274-016-0171-6",
+    "link": "https://doi.org/10.1057/s41274-016-0171-6",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "ABS 3",
+      "IF=2.7"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-059",
+    "type": "Journal Article",
+    "year": 2017,
+    "authors": [
+      "Zhen Zhang",
+      "Chonghui Guo",
+      "Luis Martínez"
+    ],
+    "title": "Managing multigranular linguistic distribution assessments in large-scale multiattribute group decision making",
+    "venue": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+    "volume": "47",
+    "issue": "11",
+    "pages": "3063-3076",
+    "doi": "10.1109/TSMC.2016.2560521",
+    "link": "https://doi.org/10.1109/TSMC.2016.2560521",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "ABS 3",
+      "IF=8.7"
+    ],
+    "labels": [
+      "ESI Highly Cited Paper"
+    ],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": ""
+  },
+  {
+    "id": "pub-060",
+    "type": "Conference Paper",
+    "year": 2016,
+    "authors": [
+      "Zhen Zhang*",
+      "Wenyu Yu",
+      "Chonghui Guo"
+    ],
+    "title": "Group decision making based on acceptably consistent interval multiplicative preference relations",
+    "venue": "the 17th International Symposium on Knowledge and Systems Sciences (KSS 2016)",
+    "volume": "",
+    "issue": "",
+    "pages": "165-174",
+    "doi": "10.1007/978-981-10-2857-1_14",
+    "link": "https://doi.org/10.1007/978-981-10-2857-1_14",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "4-6 November, 2016",
+    "conference_address": "Kobe, Japan",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-061",
+    "type": "Conference Paper",
+    "year": 2016,
+    "authors": [
+      "Zhen Zhang",
+      "Chonghui Guo"
+    ],
+    "title": "Minimum adjustment-based consistency and consensus models for group decision making with interval pairwise comparison matrices",
+    "venue": "the 2016 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
+    "volume": "",
+    "issue": "",
+    "pages": "1701-1708",
+    "doi": "10.1109/FUZZ-IEEE.2016.7737895",
+    "link": "https://doi.org/10.1109/FUZZ-IEEE.2016.7737895",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "24-29 July, 2016",
+    "conference_address": "Vancouver, Canada",
+    "address": "",
+    "corresponding_author_note": ""
+  },
+  {
+    "id": "pub-062",
+    "type": "Conference Paper",
+    "year": 2016,
+    "authors": [
+      "Wenyu Yu",
+      "Qiuyan Zhong",
+      "Zhen Zhang*"
+    ],
+    "title": "Fusing multi-granular unbalanced hesitant fuzzy linguistic information in group decision making",
+    "venue": "the 2016 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
+    "volume": "",
+    "issue": "",
+    "pages": "872-879",
+    "doi": "10.1109/FUZZ-IEEE.2016.7737780",
+    "link": "https://doi.org/10.1109/FUZZ-IEEE.2016.7737780",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "24-29 July, 2016",
+    "conference_address": "Vancouver, Canada",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-063",
+    "type": "Journal Article",
+    "year": 2016,
+    "authors": [
+      "Zhen Zhang*",
+      "Chonghui Guo"
+    ],
+    "title": "Fusion of heterogeneous incomplete hesitant preference relations in group decision making",
+    "venue": "International Journal of Computational Intelligence Systems",
+    "volume": "9",
+    "issue": "2",
+    "pages": "245-262",
+    "doi": "10.1080/18756891.2016.1149999",
+    "link": "https://doi.org/10.1080/18756891.2016.1149999",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=3"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-064",
+    "type": "Journal Article",
+    "year": 2016,
+    "authors": [
+      "Zhen Zhang*",
+      "Chonghui Guo"
+    ],
+    "title": "Notes on \"Logarithmic least squares method to priority for group decision making with incomplete fuzzy preference relations\"",
+    "venue": "Applied Mathematical Modelling",
+    "volume": "40",
+    "issue": "3",
+    "pages": "1788-1792",
+    "doi": "10.1016/j.apm.2015.07.024",
+    "link": "https://doi.org/10.1016/j.apm.2015.07.024",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=5.1"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-065",
+    "type": "Journal Article",
+    "year": 2016,
+    "authors": [
+      "Zhen Zhang*",
+      "Chonghui Guo"
+    ],
+    "title": "A VIKOR-based approach to group decision making with uncertain preference ordinals and incomplete weight information",
+    "venue": "Informatica",
+    "volume": "27",
+    "issue": "3",
+    "pages": "689-708",
+    "doi": "10.15388/Informatica.2016.106",
+    "link": "https://doi.org/10.15388/Informatica.2016.106",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "IF=2.8"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-066",
+    "type": "Conference Paper",
+    "year": 2015,
+    "authors": [
+      "Zhen Zhang",
+      "Chonghui Guo"
+    ],
+    "title": "New operations of hesitant fuzzy linguistic term sets with applications in multi-attribute group decision making",
+    "venue": "the 2015 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
+    "volume": "",
+    "issue": "",
+    "pages": "1-8",
+    "doi": "10.1109/FUZZ-IEEE.2015.7337835",
+    "link": "https://doi.org/10.1109/FUZZ-IEEE.2015.7337835",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "2-5 August, 2015",
+    "conference_address": "Istanbul, Turkey",
+    "address": "",
+    "corresponding_author_note": ""
+  },
+  {
+    "id": "pub-067",
+    "type": "Journal Article",
+    "year": 2016,
+    "authors": [
+      "Zhen Zhang*",
+      "Chonghui Guo"
+    ],
+    "title": "Consistency and consensus models for group decision-making with uncertain 2-tuple linguistic preference relations",
+    "venue": "International Journal of Systems Science",
+    "volume": "47",
+    "issue": "11",
+    "pages": "2572-2587",
+    "doi": "10.1080/00207721.2014.999732",
+    "link": "https://doi.org/10.1080/00207721.2014.999732",
+    "indexes": [
+      "SCI",
+      "SSCI",
+      "EI",
+      "IF=4.6"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-068",
+    "type": "Journal Article",
+    "year": 2014,
+    "authors": [
+      "Chonghui Guo*",
+      "Jiajia Wang",
+      "Zhen Zhang"
+    ],
+    "title": "Evolutionary community structure discovery in dynamic weighted networks",
+    "venue": "Physica A: Statistical Mechanics and its Applications",
+    "volume": "413",
+    "issue": "",
+    "pages": "565-576",
+    "doi": "10.1016/j.physa.2014.07.004",
+    "link": "https://doi.org/10.1016/j.physa.2014.07.004",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=3.1"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-069",
+    "type": "Journal Article",
+    "year": 2014,
+    "authors": [
+      "Zhen Zhang",
+      "Chonghui Guo*"
+    ],
+    "title": "An approach to group decision making with heterogeneous incomplete uncertain preference relations",
+    "venue": "Computers & Industrial Engineering",
+    "volume": "71",
+    "issue": "",
+    "pages": "27-36",
+    "doi": "10.1016/j.cie.2014.02.004",
+    "link": "https://doi.org/10.1016/j.cie.2014.02.004",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=6.5"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-070",
+    "type": "Journal Article",
+    "year": 2014,
+    "authors": [
+      "Zhen Zhang",
+      "Chonghui Guo*"
+    ],
+    "title": "Consistency-based algorithms to estimate missing elements for uncertain 2-tuple linguistic preference relations",
+    "venue": "International Journal of Computational Intelligence Systems",
+    "volume": "7",
+    "issue": "5",
+    "pages": "924-936",
+    "doi": "10.1080/18756891.2013.856254",
+    "link": "https://doi.org/10.1080/18756891.2013.856254",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=3"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-071",
+    "type": "Conference Paper",
+    "year": 2013,
+    "authors": [
+      "Zhen Zhang",
+      "Guangquan Zhang",
+      "Jie Lu",
+      "Chonghui Guo"
+    ],
+    "title": "A fuzzy tri-level decision making algorithm and its application in supply chain",
+    "venue": "the 8th conference of the Euro-pean Society for Fuzzy Logic and Technology (EUSFLAT 2013)",
+    "volume": "",
+    "issue": "",
+    "pages": "154-160",
+    "doi": "10.2991/eusflat.2013.22",
+    "link": "https://doi.org/10.2991/eusflat.2013.22",
+    "indexes": [
+      "EI",
+      "ISTP"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "11-13 September, 2013",
+    "conference_address": "Milan, Italy",
+    "address": "",
+    "corresponding_author_note": ""
+  },
+  {
+    "id": "pub-072",
+    "type": "Journal Article",
+    "year": 2012,
+    "authors": [
+      "Zhen Zhang",
+      "Chonghui Guo*"
+    ],
+    "title": "A method for multi-granularity uncertain linguistic group decision making with incomplete weight information",
+    "venue": "Knowledge-Based Systems",
+    "volume": "26",
+    "issue": "",
+    "pages": "111-119",
+    "doi": "10.1016/j.knosys.2011.07.009",
+    "link": "https://doi.org/10.1016/j.knosys.2011.07.009",
+    "indexes": [
+      "SCI",
+      "EI",
+      "IF=7.6"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-073",
+    "type": "Conference Paper",
+    "year": 2011,
+    "authors": [
+      "Zhen Zhang",
+      "Chong-Hui Guo*"
+    ],
+    "title": "A hybrid multiple attributes two-sided matching decision making method with incomplete weight information",
+    "venue": "the 11th International Workshop on Meta-synthesis and Complex Systems (MCS 2011)",
+    "volume": "6889",
+    "issue": "",
+    "pages": "272-283",
+    "doi": "10.1007/978-3-642-23605-1_28",
+    "link": "https://doi.org/10.1007/978-3-642-23605-1_28",
+    "indexes": [
+      "EI"
+    ],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "7-9 September, 2011",
+    "conference_address": "Lanzhou, China",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
+  },
+  {
+    "id": "pub-074",
+    "type": "Journal Article",
+    "year": 2011,
+    "authors": [
+      "Zhen Zhang",
+      "Chonghui Guo"
+    ],
+    "title": "Association rules evaluation by a hybrid multiple criteria decision method",
+    "venue": "International Journal of Knowledge and Systems Science",
+    "volume": "2",
+    "issue": "3",
+    "pages": "14-25",
+    "doi": "10.4018/jkss.2011070102",
+    "link": "https://doi.org/10.4018/jkss.2011070102",
+    "indexes": [],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "",
+    "conference_address": "",
+    "address": "",
+    "corresponding_author_note": ""
+  },
+  {
+    "id": "pub-075",
+    "type": "Conference Paper",
+    "year": 2009,
+    "authors": [
+      "Zhen Zhang",
+      "Chonghui Guo*"
+    ],
+    "title": "Ranking Association Rules by TOPSIS Method with Combination Weights",
+    "venue": "the 10th International Symposium on Knowledge and Systems Sciences (KSS 2009)",
     "volume": "",
     "issue": "",
     "pages": "",
     "doi": "",
     "link": "",
-    "indexes": "",
-    "labels": "ISBN: 978-981-97-3583-9",
-    "note": ""
+    "indexes": [],
+    "labels": [],
+    "note": "",
+    "isbn": "",
+    "conference_date": "3-4 December 2009",
+    "conference_address": "Hong Kong, China",
+    "address": "",
+    "corresponding_author_note": "* corresponding author"
   }
 ]

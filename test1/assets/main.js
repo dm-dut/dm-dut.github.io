@@ -1,11 +1,11 @@
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 const DATA = {};
+const TYPE_ORDER = ["Monograph", "Book Chapter", "Journal Article", "Conference Paper", "Other"];
 
 function esc(s){ return (s ?? "").toString().replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
-function linkify(text, url){
-  const safe = esc(text);
-  return url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${safe}</a>` : safe;
+function externalLink(url, label="Link"){
+  return url ? `<a class="mini-link" href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>` : "";
 }
 async function loadJson(path, fallback=[]){
   try{
@@ -18,11 +18,14 @@ async function loadJson(path, fallback=[]){
 function activateTab(tab){
   $$(".nav button").forEach(b=>b.classList.toggle("active", b.dataset.tab===tab));
   $$(".tab").forEach(t=>t.classList.toggle("active", t.id===tab));
+  history.replaceState(null, "", `#${tab}`);
   window.scrollTo({top:0, behavior:"smooth"});
 }
 function initTabs(){
   $$(".nav button").forEach(btn => btn.addEventListener("click", () => activateTab(btn.dataset.tab)));
   $$('[data-jump]').forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.jump)));
+  const hash = location.hash.replace("#", "");
+  if(hash && document.getElementById(hash)) activateTab(hash);
 }
 
 function renderProfile(){
@@ -48,9 +51,14 @@ async function renderScholar(){
 function sortByDateDesc(a,b){ return String(b.date||"").localeCompare(String(a.date||"")); }
 function yearOfDate(d){ return String(d||"").slice(0,4); }
 
+function renderNewsItem(n){
+  const link = externalLink(n.link, n.link_text || "More");
+  return `<li class="item news-item"><span class="item-date">${esc(n.date)}</span><span class="tag">${esc(n.category||"News")}</span><span class="news-text">${esc(n.content)}</span>${link}</li>`;
+}
+
 function renderHomeNews(){
   const items = (DATA.news||[]).filter(n => String(n.show_on_home||"").toLowerCase() !== "no").sort(sortByDateDesc).slice(0,12);
-  $("#home-news").innerHTML = items.map(n => `<li class="item"><span class="item-date">${esc(n.date)}</span><span class="tag">${esc(n.category||"News")}</span>${linkify(n.content,n.link)}</li>`).join("");
+  $("#home-news").innerHTML = items.map(renderNewsItem).join("");
 }
 
 function buildSelect(select, values, allLabel){
@@ -66,33 +74,82 @@ function renderNews(){
   buildSelect("#news-category-filter", [...new Set(all.map(n=>n.category||"News"))].sort(), "All categories");
   const yr = $("#news-year-filter").value, cat = $("#news-category-filter").value;
   const items = all.filter(n => (yr==="all" || yearOfDate(n.date)===yr) && (cat==="all" || (n.category||"News")===cat));
-  $("#news-list").innerHTML = items.map(n => `<li class="item"><span class="item-date">${esc(n.date)}</span><span class="tag">${esc(n.category||"News")}</span>${linkify(n.content,n.link)}</li>`).join("");
+  $("#news-list").innerHTML = items.map(renderNewsItem).join("");
 }
 
+function arrayText(x){ return Array.isArray(x) ? x.join(", ") : (x || ""); }
+function authorHtml(authors){
+  const list = Array.isArray(authors) ? authors : String(authors||"").split(/;|,/).map(x=>x.trim()).filter(Boolean);
+  return list.map(a => {
+    const clean = String(a);
+    const starred = clean.endsWith("*");
+    const base = starred ? clean.slice(0,-1) : clean;
+    const strong = base === "Zhen Zhang" ? `<strong>${esc(base)}</strong>` : esc(base);
+    return strong + (starred ? "*" : "");
+  }).join(", ");
+}
+function detailLine(p){
+  const bits = [];
+  if(p.type === "Monograph" || p.type === "Book Chapter"){
+    if(p.venue) bits.push(p.venue);
+    if(p.address) bits.push(p.address);
+    if(p.isbn) bits.push(`ISBN: ${p.isbn}`);
+  }else if(p.type === "Conference Paper"){
+    if(p.venue) bits.push(p.venue);
+    if(p.conference_date) bits.push(p.conference_date);
+    if(p.conference_address) bits.push(p.conference_address);
+    const proc = [p.volume ? `Vol. ${p.volume}` : "", p.pages ? `pp. ${p.pages}` : ""].filter(Boolean).join(", ");
+    if(proc) bits.push(proc);
+  }else{
+    if(p.venue) bits.push(p.venue);
+    const volumeIssue = `${p.volume || ""}${p.issue ? `(${p.issue})` : ""}`;
+    if(volumeIssue) bits.push(volumeIssue);
+    if(p.pages) bits.push(p.pages);
+  }
+  if(p.year) bits.push(p.year);
+  return bits.filter(Boolean).join(", ");
+}
+function tagHtml(p){
+  const tags = [...(Array.isArray(p.indexes) ? p.indexes : []), ...(Array.isArray(p.labels) ? p.labels : [])];
+  if(p.note) tags.push(p.note);
+  return tags.map(t => `<span class="pub-tag">${esc(t)}</span>`).join("");
+}
 function formatPublication(p){
-  const doiUrl = p.doi ? (String(p.doi).startsWith("http") ? p.doi : `https://doi.org/${p.doi}`) : (p.link||"");
-  const meta = [p.venue, p.volume, p.issue ? `(${p.issue})` : "", p.pages].filter(Boolean).join(" ");
-  const tags = [p.indexes, p.labels, p.note].filter(Boolean).join("; ");
-  return `<div class="pub">
-    <span class="pub-meta">${esc(p.authors || "")}.</span>
-    <span class="pub-title"> ${linkify(p.title || "", doiUrl)}</span>
-    <span class="pub-meta"> ${esc(meta)}${p.year ? ", " + esc(p.year) : ""}.</span>
-    ${tags ? `<div class="pub-note">${esc(tags)}</div>` : ""}
-  </div>`;
+  const link = p.link || (p.doi ? `https://doi.org/${p.doi}` : "");
+  const title = link ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(p.title || "")}</a>` : esc(p.title || "");
+  return `<article class="pub">
+    <div class="pub-title">${title}</div>
+    <div class="pub-authors">${authorHtml(p.authors)}</div>
+    <div class="pub-meta">${esc(detailLine(p))}</div>
+    ${tagHtml(p) ? `<div class="pub-tags">${tagHtml(p)}</div>` : ""}
+  </article>`;
 }
-
+function sortPublications(a,b){
+  const ya = Number(a.year || 0), yb = Number(b.year || 0);
+  if(yb !== ya) return yb - ya;
+  return TYPE_ORDER.indexOf(a.type||"Other") - TYPE_ORDER.indexOf(b.type||"Other");
+}
 function renderPublications(){
-  const all = (DATA.publications||[]).slice().sort((a,b)=> Number(b.year||0)-Number(a.year||0));
+  const all = (DATA.publications||[]).slice().sort(sortPublications);
   buildSelect("#pub-year-filter", [...new Set(all.map(p=>String(p.year||"")).filter(Boolean))].sort((a,b)=>b.localeCompare(a)), "All years");
-  buildSelect("#pub-type-filter", [...new Set(all.map(p=>p.type||p.category||"Other"))].sort(), "All types");
+  buildSelect("#pub-type-filter", [...new Set(all.map(p=>p.type||"Other"))].sort((a,b)=>TYPE_ORDER.indexOf(a)-TYPE_ORDER.indexOf(b)), "All types");
   const yr = $("#pub-year-filter").value, type = $("#pub-type-filter").value, q = ($("#pub-search").value||"").toLowerCase();
   const items = all.filter(p => {
-    const ptype = p.type || p.category || "Other";
-    const text = [p.authors,p.title,p.venue,p.indexes,p.labels,p.note].join(" ").toLowerCase();
-    return (yr==="all" || String(p.year)===yr) && (type==="all" || ptype===type) && (!q || text.includes(q));
+    const text = [arrayText(p.authors),p.title,p.venue,arrayText(p.indexes),arrayText(p.labels),p.note,p.conference_address,p.conference_date].join(" ").toLowerCase();
+    return (yr==="all" || String(p.year)===yr) && (type==="all" || (p.type||"Other")===type) && (!q || text.includes(q));
   });
   $("#pub-count").textContent = `${items.length} / ${all.length} records`;
-  $("#publication-list").innerHTML = items.map(formatPublication).join("") || `<div class="item">No publications to display. Generate <code>data/publications.json</code> from your publication Excel.</div>`;
+  if(!items.length){
+    $("#publication-list").innerHTML = `<div class="item">No publications to display.</div>`;
+    return;
+  }
+  if(type === "all"){
+    const groups = {};
+    items.forEach(p => (groups[p.type || "Other"] ||= []).push(p));
+    $("#publication-list").innerHTML = TYPE_ORDER.filter(t=>groups[t]).map(t => `<section class="pub-group"><h3>${esc(t)} <span>${groups[t].length}</span></h3>${groups[t].map(formatPublication).join("")}</section>`).join("");
+  }else{
+    $("#publication-list").innerHTML = items.map(formatPublication).join("");
+  }
 }
 
 function renderServices(){
@@ -107,24 +164,21 @@ function renderServices(){
       }).join("")}</ul>
     </div>`).join("");
 }
-
 function renderGrants(){
   $("#grants-list").innerHTML = (DATA.grants||[]).map(g => {
     const text = `[${g.no}] ${g.role}, ${g.title}, granted by ${g.funder}${g.grant_no ? " ("+g.grant_no+")" : ""}, ${g.amount || ""}, ${g.period || ""}.`;
     return `<li class="item">${esc(text)}</li>`;
   }).join("");
 }
-
 function renderAwards(){
   $("#awards-list").innerHTML = (DATA.awards||[]).map(a => `<li class="item"><span class="item-date">${esc(a.year)}</span>${esc(a.title)}${a.organization ? ` — ${esc(a.organization)}` : ""}</li>`).join("");
 }
-
 function renderGroup(){
   const groups = {};
   (DATA.group||[]).forEach(g => (groups[g.category||"Member"] ||= []).push(g));
   $("#group-list").innerHTML = Object.entries(groups).map(([cat,items]) => `
     <h3>${esc(cat)}</h3>
-    <ul>${items.map(m => `<li>${linkify(m.name,m.link)}${m.note ? ` <span class="meta">(${esc(m.note)})</span>` : ""}</li>`).join("")}</ul>`).join("");
+    <ul>${items.map(m => `<li>${m.link ? `<a href="${esc(m.link)}" target="_blank" rel="noopener">${esc(m.name)}</a>` : esc(m.name)}${m.note ? ` <span class="meta">(${esc(m.note)})</span>` : ""}</li>`).join("")}</ul>`).join("");
 }
 
 async function init(){

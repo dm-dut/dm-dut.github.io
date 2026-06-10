@@ -1,67 +1,38 @@
-# Excel → JSON driven personal homepage
+# Zhen Zhang Homepage Package
 
-This package follows your preferred design:
+This package uses a stable homepage template plus JSON data files.
 
-- The visual style is based on the earlier `homepage_tabs_integrated.html`.
-- Only the **Home** tab displays profile/personal information.
-- Other tabs directly display their own content.
-- `profile`, `links`, and `scholar` settings are stable and stored in `assets/site.config.js`, not in Excel.
-- Dynamic/maintainable content is maintained in `homepage_content.xlsx` and converted to JSON.
-- Publications are loaded from `data/publications.json` and support filtering by year, type/category, and keyword.
-
-## Files
-
-```text
-index.html
-assets/
-  style.css
-  main.js
-  site.config.js
-data/
-  news.json
-  awards.json
-  grants.json
-  services.json
-  group.json
-  publications.json
-  scholar_stats.json
-scripts/
-  convert_excel_to_json.py
-  update_scholar.py
-.github/workflows/update-site.yml
-homepage_content.xlsx
-```
-
-## How to update non-publication content
-
-Edit `homepage_content.xlsx`, then run:
+## Main workflow
 
 ```bash
-python scripts/convert_excel_to_json.py --excel homepage_content.xlsx --out data
+# 1) Convert homepage content Excel to JSON
+python scripts/convert_excel_to_json.py --input homepage_content.xlsx --output data
+
+# 2) Convert publication Excel database to JSON
+python scripts/generate_publications_json.py --input publication_database.xlsx --output data/publications.json
+
+# 3) Commit and push to GitHub Pages
 ```
 
-## How to update publications
+## Data maintenance
 
-Put your existing publication Excel in the repository as `publications.xlsx`, then run:
+- Stable profile, links, and Google Scholar profile URL are stored in `assets/site.config.js`.
+- News, grants, awards, services, group members, and publications are stored in `data/*.json`.
+- Publications are generated from `publication_database.xlsx`.
+- Working papers are intentionally excluded from `data/publications.json`.
+- DOI links are generated automatically as `https://doi.org/{DOI}`. Records without DOI keep an empty link.
 
-```bash
-python scripts/convert_excel_to_json.py --excel homepage_content.xlsx --publications-xlsx publications.xlsx --out data
-```
+## Publications tab
 
-The converter tries to recognize common English field names such as:
+The Publications tab reads `data/publications.json` and supports:
 
-```text
-Year, Type, Authors, Authors_EN, Title, Title_EN, Journal, Venue, Volume, Issue, Pages, DOI, Link, Indexes, Labels, Note
-```
+- displaying all records;
+- filtering by year;
+- filtering by publication category;
+- keyword search across title, venue, author, index labels, and conference information.
 
-The webpage displays all publication records by default, and supports filters for year and publication type.
+The current generator outputs English records only and keeps formally published/accepted records: journal articles, conference papers, monographs, and book chapters.
 
-## Scholar stats
+## News links
 
-`data/scholar_stats.json` is read automatically by the homepage.
-
-Because Google Scholar does not provide an official public frontend API and automated scraping may be unstable, the package keeps this file as a safe JSON source. You can update it manually, use SerpAPI, or adapt `scripts/update_scholar.py` later.
-
-
-## Layout note
-This version uses the top tab-switching layout inspired by `homepage_tabs_integrated.html`; there is no left sidebar. Only Home shows the profile block; other tabs show their own content directly.
+News text is displayed as plain text. When a link is available, only a small action label such as `DOI`, `Conference`, or `More` is linked.

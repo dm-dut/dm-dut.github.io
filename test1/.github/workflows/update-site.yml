@@ -6,9 +6,9 @@ on:
       - "homepage_content.xlsx"
       - "publications.xlsx"
       - "scripts/**"
-      - "../../../data"
+      - "data/**"
       - "assets/**"
-      - "../../../index.html"
+      - "index.html"
   workflow_dispatch:
   schedule:
     - cron: "0 2 * * 1"
