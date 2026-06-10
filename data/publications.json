@@ -31,7 +31,6 @@
     "link": "https://doi.org/10.1007/s10479-025-06832-0",
     "indexes": [
       "SCI",
-      "FMS B",
       "ABS 3",
       "IF=4.5"
     ],
@@ -43,13 +42,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 26,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 26
   },
   {
     "type": "Journal Article",
@@ -96,13 +89,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 27,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 27
   },
   {
     "type": "Journal Article",
@@ -152,13 +139,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 28,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 28
   },
   {
     "type": "Journal Article",
@@ -212,13 +193,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 29,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 29
   },
   {
     "type": "Journal Article",
@@ -260,13 +235,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 30,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 30
   },
   {
     "type": "Journal Article",
@@ -307,7 +276,6 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=8.7"
     ],
@@ -316,16 +284,10 @@
     "note_en": "",
     "note_zh": "",
     "isbn": "",
-    "address": "",
+    "address": "Singapore",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 31,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 31
   },
   {
     "type": "Journal Article",
@@ -370,13 +332,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 32,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 32
   },
   {
     "type": "Journal Article",
@@ -410,7 +366,6 @@
     "link": "https://doi.org/10.1007/s10479-021-04392-7",
     "indexes": [
       "SCI",
-      "FMS B",
       "ABS 3",
       "IF=4.5"
     ],
@@ -422,13 +377,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 41,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 41
   },
   {
     "type": "Journal Article",
@@ -468,7 +417,6 @@
     "link": "https://doi.org/10.1007/s10479-021-04452-y",
     "indexes": [
       "SCI",
-      "FMS B",
       "ABS 3",
       "IF=4.5",
       "ESI Highly Cited Paper"
@@ -481,13 +429,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 42,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 42
   },
   {
     "type": "Journal Article",
@@ -532,13 +474,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 43,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 43
   },
   {
     "type": "Journal Article",
@@ -573,7 +509,6 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=4.3"
     ],
@@ -585,13 +520,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 35,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 35
   },
   {
     "type": "Journal Article",
@@ -638,13 +567,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 33,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 33
   },
   {
     "type": "Journal Article",
@@ -679,7 +602,6 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=10.5"
     ],
@@ -691,13 +613,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 37,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 37
   },
   {
     "type": "Journal Article",
@@ -729,7 +645,6 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=8.7"
     ],
@@ -741,13 +656,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 36,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 36
   },
   {
     "type": "Journal Article",
@@ -792,13 +701,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 39,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 39
   },
   {
     "type": "Journal Article",
@@ -859,13 +762,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 40,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 40
   },
   {
     "type": "Journal Article",
@@ -906,7 +803,6 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B",
       "IF=6.8"
     ],
     "labels": [],
@@ -917,13 +813,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 38,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 38
   },
   {
     "type": "Journal Article",
@@ -959,7 +849,6 @@
       "SCI",
       "SSCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=7.2"
     ],
@@ -971,13 +860,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 34,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 34
   },
   {
     "type": "Monograph",
@@ -1018,13 +901,7 @@
     "address": "Singapore",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 44,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 44
   },
   {
     "type": "Journal Article",
@@ -1075,13 +952,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 45,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 45
   },
   {
     "type": "Journal Article",
@@ -1124,13 +995,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 48,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 48
   },
   {
     "type": "Journal Article",
@@ -1178,13 +1043,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 46,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 46
   },
   {
     "type": "Journal Article",
@@ -1220,7 +1079,6 @@
       "SCI",
       "SSCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=2.7",
       "ESI Highly Cited Paper"
@@ -1233,13 +1091,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 47,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 47
   },
   {
     "type": "Journal Article",
@@ -1270,7 +1122,6 @@
     "link": "https://doi.org/10.1007/s10479-022-04985-w",
     "indexes": [
       "SCI",
-      "FMS B",
       "ABS 3",
       "IF=4.5",
       "ESI Highly Cited Paper"
@@ -1283,13 +1134,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 52,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 52
   },
   {
     "type": "Journal Article",
@@ -1346,13 +1191,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 50,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 50
   },
   {
     "type": "Journal Article",
@@ -1398,8 +1237,6 @@
     "link": "https://doi.org/10.1007/s10726-022-09798-7",
     "indexes": [
       "SSCI",
-      "FMS B",
-      "ABS 2",
       "IF=2.5",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
@@ -1412,13 +1249,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 53,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 53
   },
   {
     "type": "Journal Article",
@@ -1470,13 +1301,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 49,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 49
   },
   {
     "type": "Journal Article",
@@ -1517,13 +1342,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 54,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 54
   },
   {
     "type": "Journal Article",
@@ -1578,13 +1397,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 51,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 51
   },
   {
     "type": "Journal Article",
@@ -1619,8 +1432,6 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B",
-      "ABS 2",
       "IF=6.5",
       "ESI Highly Cited Paper"
     ],
@@ -1632,13 +1443,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 58,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 58
   },
   {
     "type": "Journal Article",
@@ -1689,13 +1494,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 59,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 59
   },
   {
     "type": "Journal Article",
@@ -1727,7 +1526,6 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=8.7",
       "ESI Highly Cited Paper",
@@ -1741,13 +1539,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 60,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 60
   },
   {
     "type": "Journal Article",
@@ -1796,13 +1588,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 62,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 62
   },
   {
     "type": "Journal Article",
@@ -1853,13 +1639,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 55,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 55
   },
   {
     "type": "Journal Article",
@@ -1907,13 +1687,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 57,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 57
   },
   {
     "type": "Journal Article",
@@ -1946,7 +1720,6 @@
       "SCI",
       "SSCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=2.7",
       "ESI Highly Cited Paper",
@@ -1960,13 +1733,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 61,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 61
   },
   {
     "type": "Journal Article",
@@ -2006,7 +1773,6 @@
     "link": "https://doi.org/10.1016/j.ribaf.2022.101758",
     "indexes": [
       "SSCI",
-      "ABS 2",
       "IF=6.9"
     ],
     "labels": [],
@@ -2017,13 +1783,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 56,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 56
   },
   {
     "type": "Journal Article",
@@ -2057,7 +1817,6 @@
     "link": "https://doi.org/10.1007/s10479-019-03432-7",
     "indexes": [
       "SCI",
-      "FMS B",
       "ABS 3",
       "IF=4.5",
       "ESI Highly Cited Paper"
@@ -2070,13 +1829,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 70,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 70
   },
   {
     "type": "Journal Article",
@@ -2126,13 +1879,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 67,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 67
   },
   {
     "type": "Journal Article",
@@ -2178,13 +1925,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 63,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 63
   },
   {
     "type": "Journal Article",
@@ -2246,13 +1987,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 68,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 68
   },
   {
     "type": "Journal Article",
@@ -2303,13 +2038,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 65,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 65
   },
   {
     "type": "Journal Article",
@@ -2368,13 +2097,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 64,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 64
   },
   {
     "type": "Journal Article",
@@ -2413,7 +2136,6 @@
       "SCI",
       "SSCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=2.7",
       "ESI Highly Cited Paper"
@@ -2426,13 +2148,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 69,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 69
   },
   {
     "type": "Journal Article",
@@ -2481,13 +2197,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 66,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 66
   },
   {
     "type": "Journal Article",
@@ -2537,13 +2247,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 73,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 73
   },
   {
     "type": "Journal Article",
@@ -2589,13 +2293,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 72,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 72
   },
   {
     "type": "Conference Paper",
@@ -2638,13 +2336,7 @@
     "address": "",
     "conference_date": "18-21 August 2020",
     "conference_address": "Cologne, Germany",
-    "source_row": 71,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 71
   },
   {
     "type": "Journal Article",
@@ -2696,13 +2388,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 76,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 76
   },
   {
     "type": "Conference Paper",
@@ -2746,13 +2432,7 @@
     "address": "",
     "conference_date": "9-13 September, 2019",
     "conference_address": "Prague, Czech",
-    "source_row": 77,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 77
   },
   {
     "type": "Conference Paper",
@@ -2799,13 +2479,7 @@
     "address": "",
     "conference_date": "14-16 November, 2019",
     "conference_address": "Dalian, China",
-    "source_row": 74,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 74
   },
   {
     "type": "Conference Paper",
@@ -2849,13 +2523,7 @@
     "address": "",
     "conference_date": "14-16 November, 2019",
     "conference_address": "Dalian, China",
-    "source_row": 75,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 75
   },
   {
     "type": "Journal Article",
@@ -2901,13 +2569,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 81,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 81
   },
   {
     "type": "Journal Article",
@@ -2945,7 +2607,6 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B",
       "IF=6.8"
     ],
     "labels": [],
@@ -2956,13 +2617,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 78,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 78
   },
   {
     "type": "Journal Article",
@@ -3012,13 +2667,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 82,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 82
   },
   {
     "type": "Journal Article",
@@ -3063,13 +2712,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 80,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 80
   },
   {
     "type": "Conference Paper",
@@ -3109,13 +2752,7 @@
     "address": "",
     "conference_date": "21-24, August 2018",
     "conference_address": "Belfast, Northern Ireland, UK",
-    "source_row": 79,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 79
   },
   {
     "type": "Journal Article",
@@ -3154,8 +2791,6 @@
       "SCI",
       "SSCI",
       "EI",
-      "FMS B",
-      "ABS 2",
       "IF=6.5",
       "ESI Highly Cited Paper"
     ],
@@ -3167,13 +2802,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 83,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 83
   },
   {
     "type": "Journal Article",
@@ -3209,7 +2838,6 @@
       "SCI",
       "SSCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=8.7",
       "ESI Highly Cited Paper"
@@ -3222,13 +2850,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 88,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 88
   },
   {
     "type": "Journal Article",
@@ -3261,7 +2883,6 @@
       "SCI",
       "SSCI",
       "EI",
-      "FMS B",
       "ABS 3",
       "IF=2.7"
     ],
@@ -3273,13 +2894,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 87,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 87
   },
   {
     "type": "Conference Paper",
@@ -3326,13 +2941,7 @@
     "address": "",
     "conference_date": "24-26 November, 2017",
     "conference_address": "Nanjing, China",
-    "source_row": 85,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 85
   },
   {
     "type": "Conference Paper",
@@ -3376,13 +2985,7 @@
     "address": "",
     "conference_date": "24-26 November, 2017",
     "conference_address": "Nanjing, China",
-    "source_row": 84,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 84
   },
   {
     "type": "Conference Paper",
@@ -3426,13 +3029,7 @@
     "address": "",
     "conference_date": "9-12 July, 2017",
     "conference_address": "Naples, Italy",
-    "source_row": 86,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 86
   },
   {
     "type": "Journal Article",
@@ -3474,13 +3071,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 93,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 93
   },
   {
     "type": "Journal Article",
@@ -3523,13 +3114,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 94,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 94
   },
   {
     "type": "Journal Article",
@@ -3571,13 +3156,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 92,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 92
   },
   {
     "type": "Journal Article",
@@ -3620,13 +3199,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 96,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 96
   },
   {
     "type": "Conference Paper",
@@ -3670,13 +3243,7 @@
     "address": "",
     "conference_date": "4-6 November, 2016",
     "conference_address": "Kobe, Japan",
-    "source_row": 89,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 89
   },
   {
     "type": "Conference Paper",
@@ -3720,13 +3287,7 @@
     "address": "",
     "conference_date": "24-29 July, 2016",
     "conference_address": "Vancouver, Canada",
-    "source_row": 91,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 91
   },
   {
     "type": "Conference Paper",
@@ -3767,13 +3328,7 @@
     "address": "",
     "conference_date": "24-29 July, 2016",
     "conference_address": "Vancouver, Canada",
-    "source_row": 90,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 90
   },
   {
     "type": "Conference Paper",
@@ -3814,13 +3369,7 @@
     "address": "",
     "conference_date": "2-5 August, 2015",
     "conference_address": "Istanbul, Turkey",
-    "source_row": 95,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 95
   },
   {
     "type": "Journal Article",
@@ -3852,8 +3401,6 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B",
-      "ABS 2",
       "IF=6.5"
     ],
     "labels": [],
@@ -3864,13 +3411,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 98,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 98
   },
   {
     "type": "Journal Article",
@@ -3912,13 +3453,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 99,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 99
   },
   {
     "type": "Journal Article",
@@ -3963,13 +3498,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 97,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 97
   },
   {
     "type": "Conference Paper",
@@ -4016,13 +3545,7 @@
     "address": "",
     "conference_date": "11-13 September, 2013",
     "conference_address": "Milan, Italy",
-    "source_row": 100,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 100
   },
   {
     "type": "Journal Article",
@@ -4062,13 +3585,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 101,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 101
   },
   {
     "type": "Journal Article",
@@ -4110,13 +3627,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 102,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 102
   },
   {
     "type": "Journal Article",
@@ -4156,13 +3667,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 107,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 107
   },
   {
     "type": "Journal Article",
@@ -4200,13 +3705,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 105,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 105
   },
   {
     "type": "Journal Article",
@@ -4249,13 +3748,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 106,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 106
   },
   {
     "type": "Journal Article",
@@ -4296,13 +3789,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 104,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 104
   },
   {
     "type": "Conference Paper",
@@ -4342,13 +3829,7 @@
     "address": "",
     "conference_date": "7-9 September, 2011",
     "conference_address": "Lanzhou, China",
-    "source_row": 103,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 103
   },
   {
     "type": "Conference Paper",
@@ -4386,12 +3867,6 @@
     "address": "",
     "conference_date": "3-4 December 2009",
     "conference_address": "Hong Kong, China",
-    "source_row": 108,
-    "citation_updated": "2026-06-10",
-    "citation_match_score": "",
-    "citation_matched_title": "",
-    "google_scholar_citations": "",
-    "google_scholar_url": "",
-    "google_scholar_cited_by_url": ""
+    "source_row": 108
   }
 ]

@@ -1,13 +1,18 @@
 [
   {
     "year": "2025",
-    "title": "2025 Best Paper Award of Omega Journal",
-    "organization": "Omega Journal"
+    "title": "Best Paper Award of Omega Journal",
+    "organization": ""
   },
   {
     "year": "2025",
     "title": "Springer Nature Editor of Distinction Award — Author Service Award",
     "organization": "Springer Nature"
+  },
+  {
+    "year": "2025",
+    "title": "World’s Top 2% Scientists",
+    "organization": "Stanford University"
   },
   {
     "year": "2024",
@@ -20,69 +25,64 @@
     "organization": "Journal of Systems Science & Complexity"
   },
   {
+    "year": "2024",
+    "title": "Outstanding Reviewer",
+    "organization": "Journal of the Operational Research Society"
+  },
+  {
+    "year": "2024",
+    "title": "World’s Top 2% Scientists",
+    "organization": "Stanford University"
+  },
+  {
     "year": "2023",
     "title": "Senior Member",
     "organization": "IEEE"
   },
   {
-    "year": "2022",
-    "title": "Outstanding Reviewer",
-    "organization": "Journal of the Operational Research Society"
-  },
-  {
     "year": "2023",
     "title": "Outstanding Reviewer",
     "organization": "Journal of the Operational Research Society"
   },
   {
-    "year": "2024",
+    "year": "2023",
+    "title": "World’s Top 2% Scientists",
+    "organization": "Stanford University"
+  },
+  {
+    "year": "2023",
+    "title": "Outstanding Reviewer",
+    "organization": "Journal of Industrial Engineering and Engineering Management"
+  },
+  {
+    "year": "2022",
     "title": "Outstanding Reviewer",
     "organization": "Journal of the Operational Research Society"
+  },
+  {
+    "year": "2022",
+    "title": "World’s Top 2% Scientists",
+    "organization": "Stanford University"
+  },
+  {
+    "year": "2022",
+    "title": "Outstanding Reviewer",
+    "organization": "Journal of Industrial Engineering and Engineering Management"
+  },
+  {
+    "year": "2021",
+    "title": "World’s Top 2% Scientists",
+    "organization": "Stanford University"
+  },
+  {
+    "year": "2021",
+    "title": "Outstanding Reviewer",
+    "organization": "Journal of Industrial Engineering and Engineering Management"
   },
   {
     "year": "2020",
     "title": "World’s Top 2% Scientists",
     "organization": "Stanford University"
-  },
-  {
-    "year": "2021",
-    "title": "World’s Top 2% Scientists",
-    "organization": "Stanford University"
-  },
-  {
-    "year": "2022",
-    "title": "World’s Top 2% Scientists",
-    "organization": "Stanford University"
-  },
-  {
-    "year": "2023",
-    "title": "World’s Top 2% Scientists",
-    "organization": "Stanford University"
-  },
-  {
-    "year": "2024",
-    "title": "World’s Top 2% Scientists",
-    "organization": "Stanford University"
-  },
-  {
-    "year": "2025",
-    "title": "World’s Top 2% Scientists",
-    "organization": "Stanford University"
-  },
-  {
-    "year": "2021",
-    "title": "Outstanding Reviewer",
-    "organization": "Journal of Industrial Engineering and Engineering Management"
-  },
-  {
-    "year": "2022",
-    "title": "Outstanding Reviewer",
-    "organization": "Journal of Industrial Engineering and Engineering Management"
-  },
-  {
-    "year": "2023",
-    "title": "Outstanding Reviewer",
-    "organization": "Journal of Industrial Engineering and Engineering Management"
   },
   {
     "year": "2020",
@@ -92,7 +92,7 @@
   {
     "year": "2019",
     "title": "Publons Global Peer Review Awards, top 1% of reviewers in Computer Science and Cross-Field",
-    "organization": "Clarivate Analytics / Publons"
+    "organization": "Clarivate Analytics"
   },
   {
     "year": "2019",
