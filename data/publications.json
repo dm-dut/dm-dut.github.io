@@ -31,6 +31,7 @@
     "link": "https://doi.org/10.1007/s10479-025-06832-0",
     "indexes": [
       "SCI",
+      "FMS B",
       "ABS 3",
       "IF=4.5"
     ],
@@ -306,6 +307,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=8.7"
     ],
@@ -314,7 +316,7 @@
     "note_en": "",
     "note_zh": "",
     "isbn": "",
-    "address": "Singapore",
+    "address": "",
     "conference_date": "",
     "conference_address": "",
     "source_row": 31,
@@ -408,6 +410,7 @@
     "link": "https://doi.org/10.1007/s10479-021-04392-7",
     "indexes": [
       "SCI",
+      "FMS B",
       "ABS 3",
       "IF=4.5"
     ],
@@ -465,6 +468,7 @@
     "link": "https://doi.org/10.1007/s10479-021-04452-y",
     "indexes": [
       "SCI",
+      "FMS B",
       "ABS 3",
       "IF=4.5",
       "ESI Highly Cited Paper"
@@ -569,6 +573,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=4.3"
     ],
@@ -674,6 +679,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=10.5"
     ],
@@ -723,6 +729,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=8.7"
     ],
@@ -899,6 +906,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "FMS B",
       "IF=6.8"
     ],
     "labels": [],
@@ -951,6 +959,7 @@
       "SCI",
       "SSCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=7.2"
     ],
@@ -1211,6 +1220,7 @@
       "SCI",
       "SSCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=2.7",
       "ESI Highly Cited Paper"
@@ -1260,6 +1270,7 @@
     "link": "https://doi.org/10.1007/s10479-022-04985-w",
     "indexes": [
       "SCI",
+      "FMS B",
       "ABS 3",
       "IF=4.5",
       "ESI Highly Cited Paper"
@@ -1387,6 +1398,8 @@
     "link": "https://doi.org/10.1007/s10726-022-09798-7",
     "indexes": [
       "SSCI",
+      "FMS B",
+      "ABS 2",
       "IF=2.5",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
@@ -1606,6 +1619,8 @@
     "indexes": [
       "SCI",
       "EI",
+      "FMS B",
+      "ABS 2",
       "IF=6.5",
       "ESI Highly Cited Paper"
     ],
@@ -1712,6 +1727,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=8.7",
       "ESI Highly Cited Paper",
@@ -1930,6 +1946,7 @@
       "SCI",
       "SSCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=2.7",
       "ESI Highly Cited Paper",
@@ -1989,6 +2006,7 @@
     "link": "https://doi.org/10.1016/j.ribaf.2022.101758",
     "indexes": [
       "SSCI",
+      "ABS 2",
       "IF=6.9"
     ],
     "labels": [],
@@ -2039,6 +2057,7 @@
     "link": "https://doi.org/10.1007/s10479-019-03432-7",
     "indexes": [
       "SCI",
+      "FMS B",
       "ABS 3",
       "IF=4.5",
       "ESI Highly Cited Paper"
@@ -2394,6 +2413,7 @@
       "SCI",
       "SSCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=2.7",
       "ESI Highly Cited Paper"
@@ -2925,6 +2945,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "FMS B",
       "IF=6.8"
     ],
     "labels": [],
@@ -3133,6 +3154,8 @@
       "SCI",
       "SSCI",
       "EI",
+      "FMS B",
+      "ABS 2",
       "IF=6.5",
       "ESI Highly Cited Paper"
     ],
@@ -3186,6 +3209,7 @@
       "SCI",
       "SSCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=8.7",
       "ESI Highly Cited Paper"
@@ -3237,6 +3261,7 @@
       "SCI",
       "SSCI",
       "EI",
+      "FMS B",
       "ABS 3",
       "IF=2.7"
     ],
@@ -3827,6 +3852,8 @@
     "indexes": [
       "SCI",
       "EI",
+      "FMS B",
+      "ABS 2",
       "IF=6.5"
     ],
     "labels": [],
