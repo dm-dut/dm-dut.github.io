@@ -34,7 +34,9 @@ function activateTab(tab){
   const current = ($$(".tab").find(t => t.classList.contains("active")) || {}).id;
   $$(".nav button").forEach(b=>b.classList.toggle("active", b.dataset.tab===tab));
   $$(".tab").forEach(t=>t.classList.toggle("active", t.id===tab));
-  if(current !== tab) resetTabState(tab);
+  // Always restore filterable tabs to their default view when a tab button is activated.
+  // This keeps Publications/News from retaining stale filters after navigation.
+  if(current !== tab || ["publications", "news"].includes(tab)) resetTabState(tab);
   history.replaceState(null, "", `#${tab}`);
   window.scrollTo({top:0, behavior:"smooth"});
 }
@@ -79,8 +81,8 @@ function yearOfDate(d){ return String(d||"").slice(0,4); }
 
 function renderNewsItem(n){
   const isTalkDoi = String(n.category||"").toLowerCase() === "talk" && /doi\.org/i.test(String(n.link||""));
-  const link = isTalkDoi ? "" : externalLink(n.link, n.link_text || "More");
-  return `<li class="item news-item"><span class="item-date">${esc(n.date)}</span><span class="news-body"><span class="tag">${esc(n.category||"News")}</span><span class="news-text">${esc(n.content)}</span>${link}</span></li>`;
+  const link = isTalkDoi ? "" : externalLink(n.link, n.link_text || "↗");
+  return `<li class="item news-item"><span class="item-date">${esc(n.date)}</span><span class="news-category"><span class="tag">${esc(n.category||"News")}</span></span><span class="news-body"><span class="news-text">${esc(n.content)}</span>${link}</span></li>`;
 }
 
 function renderHomeNews(){

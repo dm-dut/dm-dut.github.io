@@ -16,7 +16,7 @@ window.SITE_CONFIG = {
       "Since 2010, he has been a peer reviewer for more than 100 ISI-indexed international journals and 20 international conferences, such as EJOR, Omega, IISE Transactions, IEEE-TFS, IEEE-TSMC, IEEE-TCYB, IEEE-TKDE, IEEE-TEM, IEEE-TCSS, IEEE-TNNLS, IEEE-TAI, ANOR, JORS and INFFUS.",
       "He is also a senior member of IEEE, a member of INFORMS, EUSFLAT, Operations Research Society of China (ORSC), Chinese Society of Optimization, Overall Planning and Economic Mathematics (CSOOPEM), Chinese Association for Artificial Intelligence (CAAI), Chinese Association of Automation of China (CAA), China Computer Federation (CCF) and SESC. Dr. Zhang was awarded the Publons Global Peer Review Awards sponsored by Clarivate Analytics in Sep. 2019, and the Springer Nature Editor of Distinction Award in 2025."
     ],
-    researchKeywords: ["Computing with words", "Group decision making", "Multi-criteria decision making", "Preference learning", "Complex network"]
+    researchKeywords: ["multi-criteria decision analysis", "group decision making", "data-driven decision analysis", "preference learning", "granular computing", "granular-ball computing", "clustering", "forecasting", "multi-modal information fusion"]
   },
   links: [
     {label:"HP@DUT", url:"https://faculty.dlut.edu.cn/zz"},

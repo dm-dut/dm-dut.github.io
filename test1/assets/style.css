@@ -27,3 +27,36 @@ a{color:#1f5fbf;text-decoration:none}a:hover{text-decoration:underline}.meta{col
 /* v6 refinements: cleaner news rows, hero keywords, stable tabs */
 .hero-keywords{margin:14px 0 10px}.hero-keywords .keyword{background:#eef7ff;border-color:#d5e8ff;color:#1e4f98}.bio-panel #keywords{display:none}.news-item{display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px;align-items:start}.news-body{display:block;line-height:1.62}.news-body .tag{margin-right:8px;vertical-align:baseline}.news-body .mini-link{margin-left:8px;white-space:nowrap;vertical-align:baseline}.full-news .news-item{grid-template-columns:112px minmax(0,1fr)}.news-text{overflow-wrap:anywhere}.nav{gap:6px}.nav button{white-space:nowrap}.scholar-foot a{font-weight:800}.scholar-foot span{line-height:1.5}.service-group ul{columns:1}.service-group:nth-of-type(3) ul{columns:2;column-gap:34px}.service-group:nth-of-type(4) ul{columns:2;column-gap:34px}.service-group li{break-inside:avoid}.award-item{grid-template-columns:90px 1fr}.portrait{object-fit:cover}
 @media(max-width:860px){.news-item,.full-news .news-item{grid-template-columns:1fr}.service-group:nth-of-type(3) ul,.service-group:nth-of-type(4) ul{columns:1}}
+
+
+/* v7 refinements: aligned News category column; inline links after text; reliable default view after tab switching */
+.news-item, .full-news .news-item{
+  display:grid;
+  grid-template-columns:112px 132px minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+}
+.news-category{display:block;}
+.news-category .tag{
+  display:inline-flex;
+  min-width:96px;
+  justify-content:center;
+  margin:0;
+}
+.news-body{display:block;line-height:1.62;min-width:0;}
+.news-body .mini-link{
+  display:inline-flex;
+  margin-left:7px;
+  padding:0 6px;
+  min-width:0;
+  height:20px;
+  align-items:center;
+  justify-content:center;
+  vertical-align:baseline;
+  transform:translateY(-1px);
+}
+.news-text{overflow-wrap:anywhere;}
+@media(max-width:860px){
+  .news-item,.full-news .news-item{grid-template-columns:1fr;gap:5px;}
+  .news-category .tag{min-width:0;justify-content:flex-start;}
+}
