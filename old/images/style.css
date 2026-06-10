@@ -1,0 +1,28 @@
+body {
+    font-family: Arial;
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+h1 {
+    border-bottom: 2px solid #333;
+}
+
+h2 {
+    margin-top: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.esi {
+    color: blue;
+    font-weight: bold;
+}
+
+.controls {
+    margin-bottom: 20px;
+}

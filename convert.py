@@ -145,7 +145,7 @@ def run_conversion():
     }
 
     # 写入 JSON
-    with open('papers.json', 'w', encoding='utf-8') as f:
+    with open('old/papers.json', 'w', encoding='utf-8') as f:
         json.dump(output_payload, f, ensure_ascii=False, indent=4)
 
     print(f"转换成功！'papers.json' 已更新。")

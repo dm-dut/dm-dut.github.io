@@ -4,10 +4,10 @@ from difflib import get_close_matches
 # =========================
 # 文件名
 # =========================
-ajg_file = "AJG2024.xlsx"
-ccf_file = "CCF2026.xlsx"
-fms_file = "FMS2025.xlsx"
-if_file = "2025IF.xlsx"
+ajg_file = "../AJG2024.xlsx"
+ccf_file = "../CCF2026.xlsx"
+fms_file = "../FMS2025.xlsx"
+if_file = "../2025IF.xlsx"
 
 # =========================
 # 读取影响因子文件

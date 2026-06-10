@@ -6,7 +6,7 @@ For more information, see http://andreasviklund.com/templates/the-grid-v2/
 *{margin:0; padding:0;}
 
 /* General styles */
-body {background:#fff url(images/background.png) top center no-repeat; color:#303030; font:84% Helvetica,Tahoma,sans-serif; line-height:1.4em;}
+body {background:#fff url(../old/images/background.png) top center no-repeat; color:#303030; font:84% Helvetica,Tahoma,sans-serif; line-height:1.4em;}
 a {color:#2a5a9a; text-decoration:none; font-weight:700;}
 a:hover {text-decoration:underline;}
 p,ul,ol,dl {
@@ -57,7 +57,7 @@ body.wider #layout {margin:20px auto 0; width:1200px;}
 .c12 {width:940px;}
 
 /* Grid classes, fixed width, 1200px with 12 columns - add class="wider" to the <body> element to use this */
-body.wider {background:#fff url(images/background-1200.png) top center no-repeat;}
+body.wider {background:#fff url(../old/images/background-1200.png) top center no-repeat;}
 body.wider .row {
 	width: 1200px;
 }
