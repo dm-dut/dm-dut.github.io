@@ -1,120 +1,137 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Journal List</title>
 <style>
 :root{
-  --bg0:#f6f9ff;
-  --bg1:#edf5ff;
+  --bg:#f5f8fc;
   --panel:#ffffff;
-  --panel2:#f8fbff;
-  --text:#172033;
-  --muted:#68758c;
-  --primary:#2454a6;
-  --primary-deep:#183b79;
-  --primary-soft:#e7f0ff;
-  --cyan:#2b8fb8;
-  --line:#d9e5f5;
-  --line2:#e8eef8;
-  --shadow:0 18px 45px rgba(33, 72, 132, .10);
-  --shadow-soft:0 10px 24px rgba(33,72,132,.075);
-  --radius:22px;
+  --ink:#1f2937;
+  --muted:#667085;
+  --blue:#22577a;
+  --blue2:#2f6f9f;
+  --cyan:#e8f3fb;
+  --line:#d9e5ef;
+  --hover:#f0f7ff;
+  --shadow:0 10px 25px rgba(31,78,121,.08);
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box;}
 body{
   margin:0;
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(circle at 12% 8%, rgba(79,139,221,.18), transparent 32%),
-    radial-gradient(circle at 88% 4%, rgba(43,143,184,.12), transparent 30%),
-    linear-gradient(180deg,var(--bg0) 0%,#ffffff 52%,#f7faff 100%);
-  min-height:100vh;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  color:var(--ink);
+  background:radial-gradient(circle at top left,#eaf4ff 0,#f5f8fc 36%,#f8fafc 100%);
 }
-a{color:inherit}
-.container{max-width:1320px;margin:0 auto;padding:42px 26px 58px}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 22px 46px;}
 .hero{
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(248,251,255,.92));
-  border:1px solid rgba(217,229,245,.95);
-  border-radius:30px;
-  box-shadow:var(--shadow);
-  padding:32px 36px 28px;
+  background:linear-gradient(135deg,#1f4e79 0%,#2a6f97 60%,#4a90a4 100%);
+  color:#fff;border-radius:24px;padding:28px 30px;box-shadow:var(--shadow);
 }
-.hero:after{
-  content:"";
-  position:absolute;
-  right:-90px;top:-120px;
-  width:280px;height:280px;
-  border-radius:50%;
-  background:linear-gradient(135deg,rgba(36,84,166,.13),rgba(43,143,184,.08));
-}
-.title-row{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap}
-h1{margin:0;font-size:40px;line-height:1.08;letter-spacing:-.035em;font-weight:760;color:#10223f}
-.badge{font-size:13px;color:var(--primary-deep);background:var(--primary-soft);border:1px solid #cfe0fb;padding:8px 12px;border-radius:999px;font-weight:650;white-space:nowrap}
-.toolbar{position:relative;z-index:1;display:flex;gap:14px;align-items:center;justify-content:space-between;margin-top:26px;flex-wrap:wrap}
-.search{position:relative;flex:1 1 420px;max-width:680px}.search input{
-  width:100%;height:50px;border:1px solid #cfddf0;border-radius:17px;padding:0 18px 0 48px;font-size:15px;outline:none;background:#fff;color:#13213a;
-  box-shadow:0 8px 20px rgba(36,84,166,.055);transition:.18s;
-}
-.search input:focus{border-color:#84aee8;box-shadow:0 0 0 4px rgba(36,84,166,.10)}
-.search svg{position:absolute;left:17px;top:14px;width:21px;height:21px;color:#54709a}
-.count{font-size:14px;color:#526176;padding:12px 15px;border-radius:15px;background:#fff;border:1px solid var(--line2);box-shadow:0 8px 18px rgba(33,72,132,.045)}
-.tabs-wrap{margin:22px 0 24px;background:rgba(255,255,255,.68);border:1px solid rgba(217,229,245,.9);border-radius:22px;padding:10px;box-shadow:0 10px 26px rgba(33,72,132,.055);backdrop-filter:blur(8px)}
-.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{
-  border:1px solid transparent;background:transparent;color:#485872;padding:10px 14px;border-radius:15px;cursor:pointer;font-size:14px;font-weight:680;transition:.18s;
-}
-.tab:hover{background:#f3f7ff;color:#1e407d}.tab.active{background:linear-gradient(135deg,#254f9b,#2b86b2);color:white;box-shadow:0 10px 22px rgba(36,84,166,.22)}
-.category{margin-top:20px}.category-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 2px 16px;padding:0 2px}
-h2{font-size:23px;margin:0;color:#13213a;letter-spacing:-.015em}.category-count{font-size:13px;color:#748095;background:#fff;border:1px solid var(--line2);border-radius:999px;padding:7px 10px;white-space:nowrap}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 20px}.journal{
-  min-height:104px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#fbfdff);border-radius:20px;padding:19px 19px 17px;display:flex;align-items:center;box-shadow:var(--shadow-soft);transition:.18s;position:relative;overflow:hidden;
-}
-.journal:before{content:"";position:absolute;left:0;top:0;height:100%;width:4px;background:linear-gradient(180deg,#4a7fd1,#49a5bd);opacity:.68}.journal:hover{transform:translateY(-3px);border-color:#b6cceb;box-shadow:0 18px 34px rgba(33,72,132,.13)}
-.journal a.main{font-size:15.5px;line-height:1.42;font-weight:700;color:#20324f;text-decoration:none}.journal a.main:hover{color:var(--primary)}
-.extra{margin-top:10px;display:flex;gap:7px;flex-wrap:wrap}.extra a{font-size:11.5px;color:#2454a6;text-decoration:none;border:1px solid #d4e2f5;border-radius:999px;padding:4px 8px;background:#f5f9ff;font-weight:650}.extra a:hover{background:#eaf2ff}
-.empty{display:none;text-align:center;color:#69778e;background:#fff;border:1px dashed #bdd0ea;border-radius:20px;padding:34px;margin-top:20px;box-shadow:var(--shadow-soft)}
-.footer{margin-top:28px;color:#97a3b6;font-size:12px;text-align:center}
-mark{background:#fff1b8;color:#172033;border-radius:5px;padding:0 2px}
-@media(max-width:1180px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.container{max-width:1080px}}
-@media(max-width:820px){.container{padding:28px 16px 44px}.hero{padding:26px 20px;border-radius:24px}h1{font-size:32px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.journal{min-height:96px;padding:17px}.tabs-wrap{border-radius:18px}.tab{padding:9px 12px}}
-@media(max-width:540px){.grid{grid-template-columns:1fr}.toolbar{display:block}.count{display:inline-block;margin-top:12px}.title-row{display:block}.badge{display:inline-block;margin-top:12px}.search{max-width:none}.category-head{align-items:flex-start;flex-direction:column}}
+.hero h1{margin:0 0 8px;font-size:32px;letter-spacing:.2px;font-weight:760;}
+.hero .meta{display:flex;gap:16px;flex-wrap:wrap;color:#eaf6ff;font-size:14px;}
+.controls{margin-top:18px;background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.65);border-radius:18px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow);}
+.search{position:relative;flex:1;min-width:260px;}
+.search input{width:100%;height:44px;border:1px solid var(--line);border-radius:14px;padding:0 16px 0 42px;font-size:15px;outline:none;background:#fff;color:var(--ink);}
+.search input:focus{border-color:#8bb9d6;box-shadow:0 0 0 4px rgba(47,111,159,.12);}
+.search:before{content:'⌕';position:absolute;left:16px;top:9px;color:#789;font-size:19px;}
+.clear{height:44px;padding:0 16px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--blue);font-weight:650;cursor:pointer;}
+.clear:hover{background:var(--hover);}
+.tabs{display:flex;gap:9px;flex-wrap:wrap;margin:22px 0 16px;}
+.tab{border:1px solid var(--line);background:#fff;color:#335;cursor:pointer;border-radius:999px;padding:9px 14px;font-size:14px;font-weight:650;box-shadow:0 3px 12px rgba(31,78,121,.04);transition:.18s ease;}
+.tab:hover{background:var(--hover);transform:translateY(-1px);}
+.tab.active{background:var(--blue);border-color:var(--blue);color:white;}
+.summary{display:flex;align-items:center;justify-content:space-between;margin:8px 2px 18px;color:var(--muted);font-size:14px;}
+.category{margin:22px 0 30px;}
+.category-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.category h2{margin:0;color:#183b56;font-size:19px;font-weight:760;}
+.count{font-size:13px;color:#5d7285;background:#eaf2f9;border:1px solid #d6e7f2;border-radius:999px;padding:4px 10px;}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+.card{min-height:48px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:0;box-shadow:0 4px 14px rgba(31,78,121,.045);transition:.18s ease;overflow:hidden;}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(31,78,121,.10);border-color:#bcd4e6;background:#fbfdff;}
+.card a.title{display:flex;align-items:center;min-height:48px;padding:11px 14px;color:#243447;text-decoration:none;font-weight:640;line-height:1.25;font-size:14.5px;}
+.card a.title:hover{color:#1f4e79;}
+.card mark{background:#fff0b8;color:inherit;border-radius:4px;padding:0 2px;}
+.empty{display:none;background:#fff;border:1px dashed var(--line);border-radius:16px;padding:28px;text-align:center;color:var(--muted);}
+.footer{margin-top:24px;color:#7b8794;font-size:13px;text-align:center;}
+@media(max-width:1040px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:760px){.wrap{padding:18px 14px 34px}.hero{border-radius:20px;padding:22px}.hero h1{font-size:26px}.controls{flex-direction:column}.search{width:100%}.clear{width:100%}.grid{grid-template-columns:repeat(2,minmax(0,1fr));}.card a.title{font-size:14px;}}
+@media(max-width:480px){.grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-<div class="container">
-  <header class="hero">
-    <div class="title-row">
-      <h1>Journal List</h1>
-      <div class="badge" id="badge">Excel → JSON driven</div>
-    </div>
-    <div class="toolbar">
-      <div class="search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-        <input id="search" type="search" placeholder="Search journal name..." autocomplete="off">
-      </div>
-      <div class="count" id="count">Loading...</div>
-    </div>
-  </header>
-  <div class="tabs-wrap"><nav class="tabs" id="tabs"></nav></div>
+<div class="wrap">
+  <section class="hero">
+    <h1>Journal List</h1>
+    <div class="meta"><span id="totalText">Loading...</span><span>Excel → JSON driven</span></div>
+  </section>
+  <div class="controls">
+    <div class="search"><input id="searchInput" type="text" placeholder="Search journal names or categories..." autocomplete="off" /></div>
+    <button class="clear" id="clearBtn">Clear</button>
+  </div>
+  <nav class="tabs" id="tabs"></nav>
+  <div class="summary"><span id="filterText">All categories</span><span id="matchText"></span></div>
   <main id="content"></main>
-  <div class="empty" id="empty">No journals found.</div>
-  <div class="footer">Data source: journals.json</div>
+  <div class="empty" id="empty">No matching journals found.</div>
+  <div class="footer">Update <strong>journal_list.xlsx</strong>, run <strong>update_journals.bat</strong>, and refresh this page.</div>
 </div>
 <script>
-let DATA={categories:[],journals:[]};
-let active="All";
-const tabs=document.getElementById('tabs'), content=document.getElementById('content'), search=document.getElementById('search'), count=document.getElementById('count'), empty=document.getElementById('empty'), badge=document.getElementById('badge');
-function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-function highlight(text,q){const t=esc(text); if(!q) return t; const safe=q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); return t.replace(new RegExp(`(${safe})`,'ig'),'<mark>$1</mark>');}
-function renderTabs(){const cats=['All',...DATA.categories];tabs.innerHTML=cats.map(c=>`<button class="tab ${c===active?'active':''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');tabs.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{active=b.dataset.cat;render();});}
-function card(j,q){return `<article class="journal"><div><a class="main" href="${esc(j.url)}" target="_blank" rel="noopener">${highlight(j.journal,q)}</a>${(j.extra_links||[]).length?`<div class="extra">${j.extra_links.map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>`).join('')}</div>`:''}</div></article>`}
-function render(){renderTabs();const q=search.value.trim().toLowerCase();content.innerHTML='';let total=0;DATA.categories.forEach(cat=>{if(active!=='All'&&active!==cat)return;let list=DATA.journals.filter(j=>j.category===cat);if(q)list=list.filter(j=>String(j.journal).toLowerCase().includes(q));if(!list.length)return;total+=list.length;const sec=document.createElement('section');sec.className='category';sec.innerHTML=`<div class="category-head"><h2>${esc(cat)}</h2><span class="category-count">${list.length} journals</span></div><div class="grid">${list.map(j=>card(j,q)).join('')}</div>`;content.appendChild(sec);});count.textContent=`${total} journal${total===1?'':'s'}`;badge.textContent=`${DATA.categories.length} categories`;empty.style.display=total?'none':'block';}
-fetch('journals.json').then(r=>{if(!r.ok)throw new Error('Cannot load journals.json');return r.json();}).then(json=>{DATA=json;render();}).catch(err=>{count.textContent='Cannot load data';content.innerHTML='<div class="empty" style="display:block">Cannot load journals.json. Please keep index.html and journals.json in the same folder.</div>';});
-search.addEventListener('input',render);
+let DATA = {categories:[], journals:[]};
+let activeCategory = 'All';
+const $ = id => document.getElementById(id);
+
+function escapeHTML(s){return String(s||'').replace(/[&<>'"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+function highlight(text, q){
+  const safe = escapeHTML(text);
+  if(!q) return safe;
+  const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'ig');
+  return safe.replace(re, m=>`<mark>${m}</mark>`);
+}
+function countByCat(cat){return DATA.journals.filter(j=>j.category===cat).length;}
+function buildTabs(){
+  const tabs = ['All', ...DATA.categories];
+  $('tabs').innerHTML = tabs.map(cat=>`<button class="tab ${cat===activeCategory?'active':''}" data-cat="${escapeHTML(cat)}">${escapeHTML(cat)} <span>${cat==='All'?DATA.journals.length:countByCat(cat)}</span></button>`).join('');
+  document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{activeCategory=btn.dataset.cat; render();}));
+}
+function render(){
+  const q = $('searchInput').value.trim().toLowerCase();
+  buildTabs();
+  const cats = activeCategory === 'All' ? DATA.categories : [activeCategory];
+  let html = '', total = 0;
+  cats.forEach(cat=>{
+    const items = DATA.journals
+      .filter(j=>j.category===cat)
+      .filter(j=>!q || (j.journal||'').toLowerCase().includes(q) || (j.category||'').toLowerCase().includes(q));
+    if(!items.length) return;
+    total += items.length;
+    html += `<section class="category" data-category="${escapeHTML(cat)}"><div class="category-head"><h2>${escapeHTML(cat)}</h2><span class="count">${items.length}</span></div><div class="grid">`;
+    items.forEach(j=>{
+      const href = j.url ? escapeHTML(j.url) : '#';
+      html += `<article class="card"><a class="title" href="${href}" target="_blank" rel="noopener">${highlight(j.journal,q)}</a></article>`;
+    });
+    html += `</div></section>`;
+  });
+  $('content').innerHTML = html;
+  $('empty').style.display = total ? 'none' : 'block';
+  $('totalText').textContent = `${DATA.journals.length} journals · ${DATA.categories.length} categories`;
+  $('filterText').textContent = activeCategory === 'All' ? 'All categories' : activeCategory;
+  $('matchText').textContent = q ? `${total} matched` : `${total} shown`;
+}
+async function load(){
+  try{
+    const res = await fetch('journals.json', {cache:'no-store'});
+    DATA = await res.json();
+    if(!DATA.categories || !DATA.journals) throw new Error('Invalid journals.json');
+    render();
+  }catch(e){
+    $('totalText').textContent = 'Could not load journals.json';
+    $('content').innerHTML = '<div class="empty" style="display:block">Please keep index.html and journals.json in the same folder. If opening locally is blocked by your browser, use a local server or GitHub Pages.</div>';
+  }
+}
+$('searchInput').addEventListener('input', render);
+$('clearBtn').addEventListener('click',()=>{$('searchInput').value='';activeCategory='All';render();});
+load();
 </script>
 </body>
 </html>

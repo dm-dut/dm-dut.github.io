@@ -1,6 +1,6 @@
-import os, time, subprocess, sys
+# -*- coding: utf-8 -*-
+import os, time, subprocess
 EXCEL = 'journal_list.xlsx'
-SCRIPT = 'convert_journal_excel_to_json.py'
 last = None
 print('Watching journal_list.xlsx. Press Ctrl+C to stop.')
 while True:
@@ -10,9 +10,8 @@ while True:
             last = m
         elif m != last:
             last = m
-            print('Excel updated. Regenerating journals.json ...')
-            subprocess.run([sys.executable, SCRIPT], check=False)
-            print('Done.')
+            print('Excel changed. Updating journals.json...')
+            subprocess.run(['python','convert_journal_excel_to_json.py','--excel',EXCEL,'--out','journals.json'], check=False)
     except FileNotFoundError:
         print('journal_list.xlsx not found.')
     time.sleep(2)
