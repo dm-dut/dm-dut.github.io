@@ -55,9 +55,15 @@ def norm_key(v: Any) -> str:
 
 
 def norm_name(name: str) -> str:
+    """Normalize English-style names for display.
+
+    - Removes existing asterisks.
+    - Converts inverted English names, e.g., ``Zhang, Zhen`` -> ``Zhen Zhang``.
+    - Leaves Chinese names unchanged.
+    """
     s = clean(name).replace("*", "")
-    s = re.sub(r"\s+", " ", s)
-    if "," in s:
+    s = re.sub(r"\s+", " ", s).strip()
+    if "," in s and not re.search(r"[\u4e00-\u9fff]", s):
         parts = [p.strip() for p in s.split(",", 1)]
         if len(parts) == 2 and parts[0] and parts[1]:
             s = f"{parts[1]} {parts[0]}"
@@ -65,24 +71,89 @@ def norm_name(name: str) -> str:
 
 
 def name_key(name: str) -> str:
+    """ASCII-only key for English names."""
     return re.sub(r"[^a-z]", "", norm_name(name).lower())
 
 
+def zh_key(name: str) -> str:
+    """Chinese-name key; keeps only CJK characters."""
+    return "".join(re.findall(r"[\u4e00-\u9fff]", clean(name)))
+
+
+def split_author_cell(authors: str) -> list[str]:
+    return [p.strip() for p in re.split(r";|；", clean(authors)) if p.strip()]
+
+
+def split_corresponding_cell(corresponding: str) -> list[str]:
+    """Split corresponding-author cells safely.
+
+    The publication database may contain both English and Chinese forms, e.g.
+    ``Yu, Wenyu;于文玉``. We split primarily by semicolon/Chinese semicolon.
+    We intentionally do NOT split on a simple comma, because English names are
+    stored as ``Family, Given``.
+    """
+    s = clean(corresponding)
+    if not s:
+        return []
+    return [p.strip() for p in re.split(r";|；|\band\b|,\s+and\s+", s) if p.strip()]
+
+
+def mark_corresponding_authors(authors_en: str, authors_zh: str, corresponding: str) -> tuple[list[str], list[str]]:
+    """Return English and Chinese author lists with correct ``*`` marks.
+
+    The old logic used the same corresponding-author key for both English and
+    Chinese author lists. This caused Chinese author asterisks to be misplaced
+    when ``Corresponding_Author`` contained English names only, Chinese names
+    only, or mixed English/Chinese names.
+
+    The fixed logic uses parallel English/Chinese author positions. If a
+    corresponding author matches either the English name or the Chinese name at
+    the same position, both display lists mark that position.
+    """
+    en_raw = split_author_cell(authors_en)
+    zh_raw = split_author_cell(authors_zh)
+    corr_tokens = split_corresponding_cell(corresponding)
+
+    corr_en_keys = {name_key(x) for x in corr_tokens if name_key(x)}
+    corr_zh_keys = {zh_key(x) for x in corr_tokens if zh_key(x)}
+
+    max_len = max(len(en_raw), len(zh_raw))
+    corr_indices: set[int] = set()
+
+    for i in range(max_len):
+        en = en_raw[i] if i < len(en_raw) else ""
+        zh = zh_raw[i] if i < len(zh_raw) else ""
+        if en and name_key(en) in corr_en_keys:
+            corr_indices.add(i)
+        if zh and zh_key(zh) in corr_zh_keys:
+            corr_indices.add(i)
+
+    # Fallback for records without parallel Chinese names.
+    if not corr_indices:
+        for i, en in enumerate(en_raw):
+            if name_key(en) in corr_en_keys:
+                corr_indices.add(i)
+        for i, zh in enumerate(zh_raw):
+            if zh_key(zh) in corr_zh_keys:
+                corr_indices.add(i)
+
+    def fmt_en(i: int, raw: str) -> str:
+        n = norm_name(raw)
+        return n + "*" if i in corr_indices and not n.endswith("*") else n
+
+    def fmt_zh(i: int, raw: str) -> str:
+        n = clean(raw).replace("*", "").strip()
+        return n + "*" if i in corr_indices and not n.endswith("*") else n
+
+    authors_en_out = [fmt_en(i, a) for i, a in enumerate(en_raw)]
+    authors_zh_out = [fmt_zh(i, a) for i, a in enumerate(zh_raw)]
+    return authors_en_out, authors_zh_out
+
+
 def parse_authors(authors: str, corresponding: str) -> list[str]:
-    parts = [p.strip() for p in re.split(r";", clean(authors)) if p.strip()]
-    corr_keys = {name_key(p) for p in re.split(r";|, and | and ", clean(corresponding)) if p.strip()}
-    # If corresponding_author contains comma-inverted names, splitting by comma can over-split.
-    if clean(corresponding):
-        corr_keys.add(name_key(corresponding))
-        for p in clean(corresponding).split(';'):
-            corr_keys.add(name_key(p))
-    out = []
-    for p in parts:
-        n = norm_name(p)
-        if name_key(n) in corr_keys and not n.endswith("*"):
-            n += "*"
-        out.append(n)
-    return out
+    # Backward-compatible helper for other callers.
+    en, _ = mark_corresponding_authors(authors, "", corresponding)
+    return en
 
 
 def split_tags(v: Any) -> list[str]:
@@ -151,8 +222,11 @@ def convert(input_xlsx: Path, output_json: Path) -> list[dict[str, Any]]:
         venue_en = clean(row.get("Source_English"))
         venue_zh = clean(row.get("Source_Chinese"))
         venue = venue_en or venue_zh
-        authors_en = parse_authors(clean(row.get("Author_English")), clean(row.get("Corresponding_Author")))
-        authors_zh = parse_authors(clean(row.get("Author_Chinese")), clean(row.get("Corresponding_Author")))
+        authors_en, authors_zh = mark_corresponding_authors(
+            clean(row.get("Author_English")),
+            clean(row.get("Author_Chinese")),
+            clean(row.get("Corresponding_Author")),
+        )
         authors = authors_en or authors_zh
         if not (title or venue or authors):
             continue
