@@ -127,3 +127,32 @@ https://example.com/page1; https://example.com/page2
 ```
 
 After running `python scripts/convert_excel_to_json.py --excel homepage_content.xlsx --out data`, the website will display them after the news text as `↗1` and `↗2`.
+
+
+## News: multiple links in one Excel cell
+
+In the `News` sheet, the `link` column supports multiple URLs separated by English or Chinese semicolons. For example:
+
+```text
+https://example.com/page1; https://example.com/page2
+```
+
+After running:
+
+```bash
+python scripts/convert_excel_to_json.py --excel homepage_content.xlsx --out data
+```
+
+the generated `data/news.json` will contain both fields:
+
+```json
+{
+  "link": "https://example.com/page1",
+  "links": [
+    "https://example.com/page1",
+    "https://example.com/page2"
+  ]
+}
+```
+
+`link` is kept as the first URL for backward compatibility, while `links` is the canonical multi-link field used by the current webpage.

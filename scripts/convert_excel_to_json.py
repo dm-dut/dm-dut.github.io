@@ -50,6 +50,40 @@ def clean_value(x):
         s = s[:-2]
     return s
 
+
+def split_link_cell(value):
+    """Split one Excel link cell into one or more URLs.
+
+    Method 1: write multiple links in the same `link` cell separated by
+    semicolons, for example:
+      https://a.com; https://b.com
+
+    The parser also accepts Chinese semicolons, vertical bars, and new lines,
+    but semicolons are recommended for consistency.
+    """
+    if pd.isna(value):
+        return []
+    if isinstance(value, list):
+        raw_parts = value
+    else:
+        raw = str(value).strip()
+        if not raw:
+            return []
+        raw_parts = re.split(r"[;；|\n\r]+", raw)
+    links = []
+    seen = set()
+    for part in raw_parts:
+        u = str(part).strip()
+        if not u:
+            continue
+        # Remove optional markdown-like wrapping: <https://...>
+        u = u.strip("<>")
+        if u and u not in seen:
+            seen.add(u)
+            links.append(u)
+    return links
+
+
 def records_from_sheet(xlsx, sheet, columns):
     try:
         df = pd.read_excel(xlsx, sheet_name=sheet, dtype=object)
@@ -60,26 +94,52 @@ def records_from_sheet(xlsx, sheet, columns):
     for _, row in df.iterrows():
         rec = {c: clean_value(row.get(c, "")) for c in columns}
         if sheet == "News":
-            raw_links = rec.pop("links_json", "")
-            links = []
-            if raw_links:
+            raw_links_json = rec.pop("links_json", "")
+
+            # Recommended input: put one or more URLs in the `link` cell,
+            # separated by English/Chinese semicolons.
+            #
+            # IMPORTANT: `link` is treated as the canonical user-maintained field.
+            # `links_json` is only used as a fallback when `link` is empty, because
+            # otherwise old/stale links_json values may override or pollute newly
+            # edited links in Excel.
+            links = split_link_cell(rec.get("link", ""))
+
+            if not links and raw_links_json:
                 try:
-                    parsed = json.loads(raw_links)
+                    parsed = json.loads(str(raw_links_json))
                     if isinstance(parsed, list):
-                        links = [clean_value(x) for x in parsed if clean_value(x)]
+                        for v in parsed:
+                            links.extend(split_link_cell(v))
+                    else:
+                        links.extend(split_link_cell(parsed))
                 except Exception:
-                    links = [x.strip() for x in str(raw_links).split(";") if x.strip()]
-            if not links and rec.get("link"):
-                # Method 1 for multiple links in Excel: put URLs in the `link` cell
-                # separated by semicolons, e.g. `https://a.com; https://b.com`.
-                links = [x.strip() for x in re.split(r"[;；]", str(rec.get("link"))) if x.strip()]
-            if links:
-                # Keep all links in `links`, while preserving `link` as the first URL
-                # for backward compatibility with older frontends.
-                rec["links"] = links
-                rec["link"] = links[0]
+                    links.extend(split_link_cell(raw_links_json))
+
+            # Deduplicate while preserving order.
+            clean_links = []
+            seen = set()
+            for u in links:
+                if u and u not in seen:
+                    seen.add(u)
+                    clean_links.append(u)
+
+            # IMPORTANT:
+            # - `links` is the canonical multi-link field used by the current frontend.
+            # - `link` is kept as the first URL only for backward compatibility.
+            # Therefore, a two-link Excel cell should become:
+            #   "link": "first-url",
+            #   "links": ["first-url", "second-url"]
+            if clean_links:
+                rec["links"] = clean_links
+                rec["link"] = clean_links[0]
+            else:
+                rec["links"] = []
+                rec["link"] = ""
+
             if not rec.get("link_text"):
-                rec["link_text"] = "↗" if links else ""
+                rec["link_text"] = "↗" if clean_links else ""
+
         if sheet == "Services":
             # Keep a complete fallback text in `item`, so the role is still visible
             # even if an older frontend only renders the item field.
