@@ -70,8 +70,12 @@ def records_from_sheet(xlsx, sheet, columns):
                 except Exception:
                     links = [x.strip() for x in str(raw_links).split(";") if x.strip()]
             if not links and rec.get("link"):
-                links = [rec.get("link")]
+                # Method 1 for multiple links in Excel: put URLs in the `link` cell
+                # separated by semicolons, e.g. `https://a.com; https://b.com`.
+                links = [x.strip() for x in re.split(r"[;；]", str(rec.get("link"))) if x.strip()]
             if links:
+                # Keep all links in `links`, while preserving `link` as the first URL
+                # for backward compatibility with older frontends.
                 rec["links"] = links
                 rec["link"] = links[0]
             if not rec.get("link_text"):

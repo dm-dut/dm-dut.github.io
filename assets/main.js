@@ -43,13 +43,6 @@ function activateTab(tab){
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
-document.addEventListener("click", (event) => {
-  const tabLink = event.target.closest("[data-tab-link]");
-  if(!tabLink) return;
-  event.preventDefault();
-  activateTab(tabLink.dataset.tabLink || "home");
-});
-
 function copyTextFallback(text){
   const ta = document.createElement("textarea");
   ta.value = text;
@@ -202,27 +195,26 @@ async function renderScholar(){
 function sortByDateDesc(a,b){ return String(b.date||"").localeCompare(String(a.date||"")); }
 function yearOfDate(d){ return String(d||"").slice(0,4); }
 
+function splitNewsLinkField(value){
+  if(Array.isArray(value)){
+    return value.flatMap(v => splitNewsLinkField(v));
+  }
+  return String(value || "")
+    .split(/[;；]/)
+    .map(u => u.trim())
+    .filter(Boolean);
+}
+
 function normalizeNewsLinks(n){
-  const raw = Array.isArray(n.links) ? n.links : (n.link ? [n.link] : []);
+  const raw = [
+    ...splitNewsLinkField(n.links),
+    ...splitNewsLinkField(n.link)
+  ];
   const seen = new Set();
   return raw
-    .map((entry, idx) => {
-      if(entry && typeof entry === "object"){
-        return {
-          url: String(entry.url || entry.href || entry.link || "").trim(),
-          label: String(entry.label || entry.text || entry.title || `Link ${idx + 1}`).trim()
-        };
-      }
-      return {url: String(entry || "").trim(), label: raw.length > 1 ? `Link ${idx + 1}` : "More"};
-    })
-    .filter(obj => obj.url)
-    .filter(obj => !(String(n.category||"").toLowerCase() === "talk" && /doi\.org/i.test(obj.url)))
-    .filter(obj => {
-      const key = obj.url.toLowerCase();
-      if(seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
+    .map(u => String(u || "").trim())
+    .filter(u => u && !seen.has(u) && seen.add(u))
+    .filter(u => !(String(n.category||"").toLowerCase() === "talk" && /doi\.org/i.test(u)));
 }
 
 function newsCategoryClass(category){
@@ -231,10 +223,8 @@ function newsCategoryClass(category){
 
 function renderNewsItem(n){
   const category = n.category || "News";
-  const linkItems = normalizeNewsLinks(n);
-  const links = linkItems.length
-    ? `<span class="news-links-inline">${linkItems.map((item) => externalLink(item.url, item.label || "More")).join("")}</span>`
-    : "";
+  const linkList = normalizeNewsLinks(n);
+  const links = linkList.map((url, idx) => externalLink(url, linkList.length > 1 ? `↗${idx + 1}` : "↗")).join("");
   return `<li class="item news-item news-card">
     <div class="news-date-box">${esc(n.date || "")}</div>
     <div class="news-main">

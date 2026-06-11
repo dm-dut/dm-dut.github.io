@@ -116,3 +116,14 @@ This immediately refreshes the Scholar statistics and publication citation count
 - The homepage displays Citations, h-index and i10-index; the update date appears only in the small Scholar footer.
 - `scripts/update_publication_citations.py` requires `SERPAPI_KEY` from GitHub Secrets and skips Chinese-language publications.
 - DOI is displayed in each publication entry when the `doi` field is available.
+
+
+## Multiple links in one News record
+
+In the `News` sheet of `homepage_content.xlsx`, put multiple URLs in the `link` column separated by semicolons:
+
+```text
+https://example.com/page1; https://example.com/page2
+```
+
+After running `python scripts/convert_excel_to_json.py --excel homepage_content.xlsx --out data`, the website will display them after the news text as `↗1` and `↗2`.
