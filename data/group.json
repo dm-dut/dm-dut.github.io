@@ -2,7 +2,7 @@
   {
     "category": "Director",
     "name": "Zhen Zhang",
-    "note": "",
+    "note": "Professor, Institute of Systems Engineering, DUT",
     "link": "https://dm-dut.github.io/"
   },
   {
@@ -12,32 +12,50 @@
     "link": "https://scholar.google.com/citations?user=O1SESW8AAAAJ"
   },
   {
+    "category": "Core Member",
+    "name": "Zhuolin Li",
+    "note": "Assitant Professor, School of Econimics and Management, SWJTU; Former PhD Student and Master Student",
+    "link": "https://lzlloveys.github.io/"
+  },
+  {
+    "category": "PhD Students",
+    "name": "Yijun Chen",
+    "note": "",
+    "link": ""
+  },
+  {
     "category": "PhD Students",
     "name": "Qianqian Chen",
-    "note": "1 Multimedia Systems, 1 TEM, 1 INS",
+    "note": "",
+    "link": ""
+  },
+  {
+    "category": "PhD Students",
+    "name": "Zihang Jia",
+    "note": "",
     "link": ""
   },
   {
     "category": "PhD Students",
     "name": "Yuan Gao",
-    "note": "1 TFS, 1 KBS, 2 JORS, 1 ASOC, 2 INFFUS, 1 ESWA, excellent graduate of Dalian City, and excellent master thesis of Liaoning Province",
-    "link": ""
-  },
-  {
-    "category": "PhD Students",
-    "name": "Zhuolin Li",
-    "note": "1 EJOR, 3 TSMC, 1 Omega, 1 TCSS, 1 COR, 1 JORS, 1 ANOR, 1 KBS, 2 INFFUS, 1 CAIE, 4 National Scholarships, excellent graduate of Dalian City, and excellent master thesis of Liaoning Province",
-    "link": "https://lzlloveys.github.io/"
-  },
-  {
-    "category": "PhD Students",
-    "name": "Zihang Jia",
-    "note": "1 TCYB, 1 FSS, 1 ESWA, 1 AIRE, 1 SOCO, 1 IJFS",
+    "note": "",
     "link": ""
   },
   {
     "category": "Master Students",
-    "name": "Xiaotong Wu",
+    "name": "Xu Zou",
+    "note": "",
+    "link": ""
+  },
+  {
+    "category": "Master Students",
+    "name": "Shufei Peng",
+    "note": "",
+    "link": ""
+  },
+  {
+    "category": "Master Students",
+    "name": "Luanyu Kong",
     "note": "",
     "link": ""
   },
@@ -50,6 +68,30 @@
   {
     "category": "Master Students",
     "name": "Junting Guo",
+    "note": "",
+    "link": ""
+  },
+  {
+    "category": "Master Students",
+    "name": "Xiaotong Wu",
+    "note": "",
+    "link": ""
+  },
+  {
+    "category": "Master Students",
+    "name": "Xiaoqi Zhai",
+    "note": "",
+    "link": ""
+  },
+  {
+    "category": "Master Students",
+    "name": "Zhihe Yu",
+    "note": "",
+    "link": ""
+  },
+  {
+    "category": "Master Students",
+    "name": "Fu Xing",
     "note": "",
     "link": ""
   },
@@ -68,7 +110,7 @@
   {
     "category": "Master Students",
     "name": "Ziyu Xu",
-    "note": "1 ANOR, 1 National Scholarship",
+    "note": "",
     "link": ""
   },
   {
@@ -80,7 +122,7 @@
   {
     "category": "Master Students",
     "name": "Jize Luo",
-    "note": "1 TSMC",
+    "note": "",
     "link": ""
   },
   {
@@ -116,37 +158,37 @@
   {
     "category": "Master Students",
     "name": "Siyuan Ji",
-    "note": "currently working in Tencent",
+    "note": "",
     "link": ""
   },
   {
     "category": "Master Students",
     "name": "Zhuolin Li",
-    "note": "1 EJOR, 2 TSMC, 1 Omega, 1 TCSS, 1 COR, 1 JORS, 1 ANOR, 1 KBS, 2 INFFUS, 1 CAIE, 3 National Scholarships, excellent graduate of Dalian City, and excellent master thesis of Liaoning Province",
+    "note": "",
     "link": ""
   },
   {
     "category": "Master Students",
     "name": "Nan Wang",
-    "note": "Ph. D. student in DUT",
+    "note": "",
     "link": ""
   },
   {
     "category": "Master Students",
     "name": "Yuan Gao",
-    "note": "1 TFS, 1 KBS, 2 JORS, 1 ASOC, 1 INFFUS, 1 ESWA, excellent graduate of Dalian City, and excellent master thesis of Liaoning Province, Ph. D. student in DUT",
+    "note": "",
     "link": ""
   },
   {
     "category": "Master Students",
     "name": "Junliang Gao",
-    "note": "1 ESWA, 1 ASOC, currently working in ICBC",
+    "note": "",
     "link": ""
   },
   {
     "category": "Master Students",
     "name": "Xinyue Kou",
-    "note": "1 JORS 1 KBS, 1 ESWA, 1 ASOC, National Scholarship, Master Student Academic Star of DUT, excellent graduate and excellent master thesis of Liaoning Province, currently working in China UnionPay",
+    "note": "",
     "link": ""
   }
 ]
