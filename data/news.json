@@ -27,7 +27,8 @@
     "content": "I was awarded the Springer Nature Editor of Distinction Award 2026 — Author Service Award.",
     "link": "",
     "link_text": "",
-    "show_on_home": "yes"
+    "show_on_home": "yes",
+    "links": []
   },
   {
     "date": "2026-04-18",
@@ -55,11 +56,11 @@
     "date": "2026-02-14",
     "category": "Service",
     "content": "I was invited to join in the editorial board of Systems (SSCI, IF: 3.1) as an editorial board member.",
-    "link": "https://www.mdpi.com/journal/systems",
+    "link": "https://www.mdpi.com/journal/systems/editors?search=zhen+zhang",
     "link_text": "↗",
     "show_on_home": "yes",
     "links": [
-      "https://www.mdpi.com/journal/systems"
+      "https://www.mdpi.com/journal/systems/editors?search=zhen+zhang"
     ]
   },
   {
@@ -77,22 +78,24 @@
     "date": "2026-01-01",
     "category": "Call for Papers",
     "content": "Call For Papers & Abstracts for the Special Session: Artificial Intelligence for Optimization and Decision Making in FLINS-ISKE 2026, July 15-19, 2026, Sydney, Australia.",
-    "link": "https://2026.flins.cc/",
+    "link": "https://2026.flins.cc",
     "link_text": "↗",
     "show_on_home": "yes",
     "links": [
-      "https://2026.flins.cc/"
+      "https://2026.flins.cc",
+      "https://mp.weixin.qq.com/s/GUZPlg6vh_RwemYuF6XweQ"
     ]
   },
   {
     "date": "2025-12-25",
     "category": "Call for Papers",
     "content": "Call For Papers & Abstracts for the Stream: Intelligent Group Decision Making and Consensus Process in GDN 2026, Katowice, Poland, June 28 – July 1, 2026.",
-    "link": "https://gdnconference.org/",
+    "link": "http://gdnconference.org/gdn2026/streams/?sessionid=-391327434",
     "link_text": "↗",
     "show_on_home": "yes",
     "links": [
-      "https://gdnconference.org/"
+      "http://gdnconference.org/gdn2026/streams/?sessionid=-391327434",
+      "https://mp.weixin.qq.com/s/w84ZGOoEh2Ok39vvi-dpjQ"
     ]
   },
   {
@@ -145,7 +148,8 @@
     "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at University of Shanghai for Science and Technology (USST).",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   },
   {
     "date": "2025-12-06",
@@ -166,8 +170,7 @@
     "link_text": "↗",
     "show_on_home": "no",
     "links": [
-      "https://doi.org/10.1016/j.omega.2024.103219",
-      "https://mp.weixin.qq.com/s/Liq8EAxapEYQYNvHwTHHiA"
+      "https://doi.org/10.1016/j.omega.2024.103219"
     ]
   },
   {
@@ -231,7 +234,8 @@
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Xidian University.",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   },
   {
     "date": "2025-10-31",
@@ -261,7 +265,8 @@
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at the 27th Chinese Conference on Management Sciences, Harbin.",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   },
   {
     "date": "2025-08-10",
@@ -291,7 +296,8 @@
     "content": "I will serve as an editor for the newly launched book series by Springer Nature, entitled \"Artificial Intelligence and Decision Making.\"",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   },
   {
     "date": "2025-06-17",
@@ -321,7 +327,8 @@
     "content": "I was invited to deliver a talk entitled \"An Incremental Preference Elicitation-Based Approach to Learning Potentially Non-Monotonic Preferences in Multi-Criteria Sorting\" at the Sixth Annual Conference of Intelligent Decision Making and Game Branch, CSOOPEM, Hefei.",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   },
   {
     "date": "2025-05-09",
@@ -439,7 +446,8 @@
     "content": "A new project was granted by the Natural Science Foundation of Liaoning Province.",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   },
   {
     "date": "2024-07-24",
@@ -524,7 +532,8 @@
     "content": "I was elevated to be a senior member of IEEE.",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   },
   {
     "date": "2023-08-24",
@@ -532,7 +541,8 @@
     "content": "A new research project was granted by the National Natural Science Foundation of China (NSFC).",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   },
   {
     "date": "2023-07-10",
@@ -628,7 +638,8 @@
     "content": "I will organize a special issue entitled \"New Trends in Intelligent Group Decision Making and Consensus Modelling (IGDM-CM)\" in Group Decision and Negotiation with Prof. Francisco Chiclana, Prof. Yucheng Dong, Prof. Enrique Herrera-Viedma and Dr. Congcong Li.",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   },
   {
     "date": "2022-10-28",
@@ -636,7 +647,8 @@
     "content": "I was invited to deliver a talk entitled \"Managing personalized individual semantics and non-cooperative behaviors in social network group decision making\" at the First Symposium on Complex Management Systems hosted by Tianjin University.",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   },
   {
     "date": "2022-09-06",
@@ -666,6 +678,7 @@
     "content": "I was invited to deliver a talk entitled \"Modeling consensus in linguistic group decision making: A personalized individual semantics-based perspective\" at Anhui University.",
     "link": "",
     "link_text": "",
-    "show_on_home": "no"
+    "show_on_home": "no",
+    "links": []
   }
 ]
