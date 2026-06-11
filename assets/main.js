@@ -43,6 +43,13 @@ function activateTab(tab){
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
+document.addEventListener("click", (event) => {
+  const tabLink = event.target.closest("[data-tab-link]");
+  if(!tabLink) return;
+  event.preventDefault();
+  activateTab(tabLink.dataset.tabLink || "home");
+});
+
 function copyTextFallback(text){
   const ta = document.createElement("textarea");
   ta.value = text;
@@ -199,9 +206,23 @@ function normalizeNewsLinks(n){
   const raw = Array.isArray(n.links) ? n.links : (n.link ? [n.link] : []);
   const seen = new Set();
   return raw
-    .map(u => String(u || "").trim())
-    .filter(u => u && !seen.has(u) && seen.add(u))
-    .filter(u => !(String(n.category||"").toLowerCase() === "talk" && /doi\.org/i.test(u)));
+    .map((entry, idx) => {
+      if(entry && typeof entry === "object"){
+        return {
+          url: String(entry.url || entry.href || entry.link || "").trim(),
+          label: String(entry.label || entry.text || entry.title || `Link ${idx + 1}`).trim()
+        };
+      }
+      return {url: String(entry || "").trim(), label: raw.length > 1 ? `Link ${idx + 1}` : "More"};
+    })
+    .filter(obj => obj.url)
+    .filter(obj => !(String(n.category||"").toLowerCase() === "talk" && /doi\.org/i.test(obj.url)))
+    .filter(obj => {
+      const key = obj.url.toLowerCase();
+      if(seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
 }
 
 function newsCategoryClass(category){
@@ -210,7 +231,10 @@ function newsCategoryClass(category){
 
 function renderNewsItem(n){
   const category = n.category || "News";
-  const links = normalizeNewsLinks(n).map((url) => externalLink(url, "↗")).join("");
+  const linkItems = normalizeNewsLinks(n);
+  const links = linkItems.length
+    ? `<span class="news-links-inline">${linkItems.map((item) => externalLink(item.url, item.label || "More")).join("")}</span>`
+    : "";
   return `<li class="item news-item news-card">
     <div class="news-date-box">${esc(n.date || "")}</div>
     <div class="news-main">
