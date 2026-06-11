@@ -1,5 +1,27 @@
 [
   {
+    "date": "2026-06-11",
+    "category": "Talk",
+    "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at Hebei University (HBU).",
+    "link": "http://dm-dut.github.io/images/hbu.jpg",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "http://dm-dut.github.io/images/hbu.jpg"
+    ]
+  },
+  {
+    "date": "2026-06-04",
+    "category": "Talk",
+    "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at Nanjing University of Information Science and Technology (NUIST).",
+    "link": "https://smse.nuist.edu.cn/info/1081/7426.htm",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://smse.nuist.edu.cn/info/1081/7426.htm"
+    ]
+  },
+  {
     "date": "2026-05-26",
     "category": "Award",
     "content": "I was awarded the Springer Nature Editor of Distinction Award 2026 — Author Service Award.",
@@ -90,7 +112,7 @@
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Guangzhou University.",
     "link": "https://bas.gzhu.edu.cn/info/1129/8564.htm",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://bas.gzhu.edu.cn/info/1129/8564.htm"
     ]
@@ -101,7 +123,7 @@
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Shantou University.",
     "link": "https://mp.weixin.qq.com/s/A1uUGGaqqp9XP88res0Y5A",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://mp.weixin.qq.com/s/A1uUGGaqqp9XP88res0Y5A"
     ]
