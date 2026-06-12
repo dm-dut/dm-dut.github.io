@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>期刊投稿系统链接</title>
+  <style>
+    *{box-sizing:border-box}
+    :root{
+      --panel:#ffffff;
+      --text:#263247;
+      --muted:#7a8494;
+      --line:#e4ebf4;
+      --line-soft:#eef3f8;
+      --primary:#3f73c8;
+      --blue:#3f73c8;
+      --purple:#7658bf;
+      --green:#3f8a63;
+      --orange:#b06a2d;
+      --blue-soft:#f2f7ff;
+      --purple-soft:#f7f4ff;
+      --green-soft:#f2faf5;
+      --orange-soft:#fff7ee;
+      --hover:#f8fbff;
+      --shadow:0 8px 24px rgba(42, 63, 92, .065);
+    }
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(83,137,214,.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(118,88,191,.08), transparent 24%),
+        linear-gradient(180deg,#fbfdff 0%,#f5f8fc 100%);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+      font-size:14px;
+    }
+    .wrap{max-width:1080px;margin:0 auto;padding:30px 20px 46px}
+    h1{
+      margin:0 0 16px;
+      font-size:27px;
+      line-height:1.25;
+      font-weight:700;
+      color:#23304a;
+      letter-spacing:.01em;
+    }
+    .toolbar{
+      background:rgba(255,255,255,.94);
+      border:1px solid var(--line);
+      border-radius:17px;
+      padding:14px 16px 10px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(8px);
+    }
+    input{
+      width:100%;
+      height:42px;
+      border:1px solid #dce4ef;
+      border-radius:11px;
+      padding:0 13px;
+      font-size:14px;
+      color:var(--text);
+      outline:none;
+      background:#fff;
+    }
+    input:focus{
+      border-color:#9fbbe8;
+      box-shadow:0 0 0 3px rgba(63,115,200,.10);
+    }
+    .filters{
+      display:flex;
+      flex-wrap:wrap;
+      gap:22px;
+      margin-top:14px;
+      padding:0 2px;
+      border-bottom:1px solid var(--line-soft);
+    }
+    button{
+      position:relative;
+      border:0;
+      background:transparent;
+      color:#66758b;
+      padding:0 0 10px;
+      margin:0;
+      font-size:14px;
+      font-weight:560;
+      cursor:pointer;
+      transition:color .18s ease;
+    }
+    button:hover{color:#3f5f91}
+    button.active{color:var(--primary);font-weight:680}
+    button.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-1px;
+      height:2px;
+      border-radius:2px;
+      background:linear-gradient(90deg,#3f73c8,#77a8ec);
+    }
+    main{margin-top:24px}
+    section{
+      margin-top:26px;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:17px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .section-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      border-bottom:1px solid var(--line-soft);
+    }
+    section.cat-0 .section-head{background:linear-gradient(90deg,var(--blue-soft),#fff)}
+    section.cat-1 .section-head{background:linear-gradient(90deg,var(--purple-soft),#fff)}
+    section.cat-2 .section-head{background:linear-gradient(90deg,var(--green-soft),#fff)}
+    section.cat-3 .section-head{background:linear-gradient(90deg,var(--orange-soft),#fff)}
+    h2{
+      margin:0;
+      font-size:16.5px;
+      font-weight:700;
+      color:#2a3850;
+    }
+    .count{
+      font-size:12px;
+      color:var(--muted);
+      background:rgba(255,255,255,.65);
+      border:1px solid rgba(215,225,238,.82);
+      border-radius:999px;
+      padding:4px 9px;
+    }
+    .list{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:0;
+    }
+    .journal-link{
+      display:block;
+      min-width:0;
+      height:46px;
+      line-height:46px;
+      padding:0 15px;
+      text-decoration:none;
+      font-size:14.5px;
+      font-weight:560;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      border-right:1px solid var(--line-soft);
+      border-bottom:1px solid var(--line-soft);
+      transition:background .16s ease,color .16s ease,padding-left .16s ease;
+    }
+    .journal-link:nth-child(3n){border-right:0}
+    section.cat-0 .journal-link{color:var(--blue)}
+    section.cat-1 .journal-link{color:var(--purple)}
+    section.cat-2 .journal-link{color:var(--green)}
+    section.cat-3 .journal-link{color:var(--orange)}
+    section.cat-0 .journal-link:hover{background:var(--blue-soft);color:#2f5fa9}
+    section.cat-1 .journal-link:hover{background:var(--purple-soft);color:#6549a9}
+    section.cat-2 .journal-link:hover{background:var(--green-soft);color:#2f744f}
+    section.cat-3 .journal-link:hover{background:var(--orange-soft);color:#93551f}
+    .journal-link:hover{padding-left:18px}
+    .empty,.loading{
+      background:#fff;
+      border:1px dashed #cbd6e5;
+      border-radius:16px;
+      padding:40px 18px;
+      text-align:center;
+      color:var(--muted);
+      box-shadow:var(--shadow);
+    }
+    .error{
+      background:#fff;
+      border:1px solid #f0d5d5;
+      border-radius:16px;
+      padding:24px 18px;
+      color:#9a3b3b;
+      box-shadow:var(--shadow);
+      line-height:1.7;
+    }
+    code{
+      background:#f7f3f3;
+      border:1px solid #ecdada;
+      border-radius:6px;
+      padding:2px 6px;
+      color:#7d3030;
+    }
+    @media(max-width:920px){
+      .list{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .journal-link:nth-child(3n){border-right:1px solid var(--line-soft)}
+      .journal-link:nth-child(2n){border-right:0}
+    }
+    @media(max-width:640px){
+      .wrap{padding:24px 14px 40px}
+      h1{font-size:24px}
+      .filters{gap:16px}
+      .list{grid-template-columns:1fr}
+      .journal-link{border-right:0!important}
+      .section-head{padding:13px 14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>期刊投稿系统链接</h1>
+    <div class="toolbar">
+      <input id="search" placeholder="搜索期刊名或链接" />
+      <div class="filters" id="filters"></div>
+    </div>
+    <main id="content">
+      <div class="loading">正在读取 journal_submission_systems.json ...</div>
+    </main>
+  </div>
+
+<script>
+const JSON_FILE = 'journal_submission_systems.json';
+const categoryOrder = ["Editorial Manager","ScholarOne Manuscripts","出版商/综合投稿平台","中文期刊投稿系统"];
+let links = [];
+let active = "全部";
+
+function normalizeItem(x){
+  return {
+    category: x.category || "",
+    name: x.name || x.name_cn || x.name_en || x.original_title || "未命名",
+    url: x.url || ""
+  };
+}
+
+async function loadData(){
+  try{
+    const res = await fetch(`${JSON_FILE}?v=${Date.now()}`, {cache:'no-store'});
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const raw = await res.json();
+    links = (raw.links || []).map(normalizeItem).filter(x => x.name && x.url);
+    renderFilters();
+    render();
+  }catch(e){
+    document.getElementById('content').innerHTML = `
+      <div class="error">
+        无法读取 <code>${JSON_FILE}</code>。请确认该 JSON 文件与本网页放在同一目录。<br>
+        如果是在本地直接双击打开 HTML，浏览器可能会限制读取本地 JSON。建议在当前目录运行
+        <code>python -m http.server 8000</code> 后通过浏览器访问。
+      </div>`;
+  }
+}
+
+function renderFilters(){
+  const cats = ["全部", ...categoryOrder.filter(c => links.some(x => x.category === c))];
+  const filterBox = document.getElementById('filters');
+  filterBox.innerHTML = cats.map(c => `<button class="${c===active?'active':''}" data-cat="${c}">${c}</button>`).join('');
+  filterBox.querySelectorAll('button').forEach(btn => {
+    btn.onclick = () => {
+      active = btn.dataset.cat;
+      renderFilters();
+      render();
+    };
+  });
+}
+
+function hit(x, q){
+  if(!q) return true;
+  return [x.name, x.url].join(' ').toLowerCase().includes(q.toLowerCase());
+}
+
+function card(x){
+  return `<a class="journal-link" href="${x.url}" target="_blank" rel="noopener" title="${x.name}">${x.name}</a>`;
+}
+
+function render(){
+  const q = document.getElementById('search').value.trim();
+  const data = links.filter(x => (active === '全部' || x.category === active) && hit(x, q));
+  const html = categoryOrder.map((cat, idx) => {
+    const items = data.filter(x => x.category === cat);
+    if(!items.length) return '';
+    return `<section class="cat-${idx}">
+      <div class="section-head">
+        <h2>${cat}</h2>
+        <span class="count">${items.length} 个</span>
+      </div>
+      <div class="list">${items.map(card).join('')}</div>
+    </section>`;
+  }).join('');
+  document.getElementById('content').innerHTML = html || '<div class="empty">没有找到匹配结果。</div>';
+}
+
+document.getElementById('search').addEventListener('input', render);
+loadData();
+</script>
+</body>
+</html>
