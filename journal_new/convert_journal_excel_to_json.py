@@ -19,6 +19,63 @@ from pathlib import Path
 NS = {'x':'http://schemas.openxmlformats.org/spreadsheetml/2006/main',
       'r':'http://schemas.openxmlformats.org/officeDocument/2006/relationships'}
 
+GENERIC_EXTRA_URLS = {
+    'https://ieeexplore.ieee.org',
+    'https://www.nature.com',
+    'https://journals.vilniustech.lt',
+    'https://www.sciengine.com',
+}
+
+def normalize_url(url):
+    return str(url or '').strip().rstrip('/')
+
+def is_generic_extra_url(url):
+    return normalize_url(url) in GENERIC_EXTRA_URLS
+
+
+
+def resolve_target_path(target):
+    target = str(target or '').strip()
+    if target.startswith('/'):
+        return target.lstrip('/')
+    if target.startswith('xl/'):
+        return target
+    return 'xl/' + target.lstrip('/')
+
+def load_shared_strings(z):
+    try:
+        root = ET.fromstring(z.read('xl/sharedStrings.xml'))
+    except KeyError:
+        return []
+    strings = []
+    for si in root.findall('x:si', NS):
+        texts = []
+        # Plain string or rich text runs
+        t = si.find('x:t', NS)
+        if t is not None and t.text is not None:
+            texts.append(t.text)
+        for rt in si.findall('.//x:t', NS):
+            if rt is not t and rt.text is not None:
+                texts.append(rt.text)
+        strings.append(''.join(texts))
+    return strings
+
+def cell_value(c, shared_strings):
+    t = c.attrib.get('t')
+    if t == 'inlineStr':
+        inline = c.find('x:is/x:t', NS)
+        return '' if inline is None or inline.text is None else inline.text
+    v = c.find('x:v', NS)
+    if v is None or v.text is None:
+        return ''
+    raw = v.text
+    if t == 's':
+        try:
+            return shared_strings[int(raw)]
+        except Exception:
+            return raw
+    return raw
+
 def col_to_index(cell_ref):
     letters = re.match(r'([A-Z]+)', cell_ref).group(1)
     n = 0
@@ -40,8 +97,8 @@ def read_xlsx_first_sheet(path):
                 break
         if target is None:
             raise RuntimeError('Cannot locate the first worksheet.')
-        if not target.startswith('xl/'):
-            target = 'xl/' + target.lstrip('/')
+        target = resolve_target_path(target)
+        shared_strings = load_shared_strings(z)
         root = ET.fromstring(z.read(target))
         rows = []
         for row in root.findall('x:sheetData/x:row', NS):
@@ -51,8 +108,7 @@ def read_xlsx_first_sheet(path):
                 ref = c.attrib.get('r','A1')
                 idx = col_to_index(ref)
                 max_col = max(max_col, idx)
-                v = c.find('x:v', NS)
-                cells[idx] = '' if v is None or v.text is None else v.text
+                cells[idx] = cell_value(c, shared_strings)
             rows.append([cells.get(i,'') for i in range(max_col+1)])
         return rows
 
@@ -69,7 +125,7 @@ def parse_extra_links(s):
             label, url = label.strip(), url.strip()
         else:
             label, url = 'Link', part
-        if url:
+        if url and not is_generic_extra_url(url):
             result.append({'label': label or 'Link', 'url': url})
     return result
 
