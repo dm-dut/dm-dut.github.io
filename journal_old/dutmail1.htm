@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0041)http://oldmail.dlut.edu.cn/home/h7/index.jsp -->
+<HTML><HEAD><TITLE>大连理工大学校园电子邮件系统</TITLE>
+<META content=大连理工大学校园电子邮件系统 name=Description>
+<META content=大连理工大学校园电子邮件系统 name=Keywords>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<STYLE type=text/css>.font {
+	FONT-SIZE: 12px; COLOR: #4c4c4c; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.input {
+	FONT-SIZE: 12px; COLOR: #4c4c4c; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+BODY {
+	MARGIN: 0px
+}
+</STYLE>
+
+<SCRIPT>
+try{
+
+if (top.location !== self.location) {
+top.location=self.location;
+}
+
+}catch(e){}
+try{
+  self.moveTo(0,0);
+}catch(e){}
+try{
+self.resizeTo(screen.availWidth,screen.availHeight);
+}catch(e){}
+</SCRIPT>
+
+<SCRIPT language=JavaScript>
+<!--
+
+function window_onload() {
+	loginform.username.focus();
+}
+
+    var bikky = document.cookie;
+
+    function getCookie(name) {
+      name += "=";
+      var i = 0;
+      while (i < bikky.length) {
+        var offset = i + name.length;
+        if (bikky.substring(i, offset) == name) {
+          var endstr = bikky.indexOf(";", offset);
+          if (endstr == -1) endstr = bikky.length;
+            return unescape(bikky.substring(offset, endstr));
+          }
+          i = bikky.indexOf(" ", i) + 1;
+          if (i == 0) break;
+        }
+      return null;
+  }
+
+
+function onload(){
+var nn=getCookie("bm");
+
+for(var i=1;i<loginform.maillang.options.length;i++){
+	if(loginform.maillang.options[i].value==nn){
+		loginform.maillang.selectedIndex=i;
+                loginform.de.checked=true;
+		break;
+	}
+}
+
+
+}
+
+function doLoginNow(loginform){
+
+if(loginform.de.checked){
+var expdate = new Date((new Date()).getTime() + (24 * 60 * 60 * 1000 * 90));
+document.cookie="bm="+loginform.maillang.options[loginform.maillang.selectedIndex].value+"; expires=" + expdate.toGMTString() + "; path=/;"
+
+}else{
+document.cookie = "";
+}
+
+
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="common"){
+    loginform.action="http://oldmail.dlut.edu.cn/common/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmailxp"){
+    loginform.action="http://oldmail.dlut.edu.cn/webmailxp/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmailgov"){
+    loginform.action="http://oldmail.dlut.edu.cn/webmailgov/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmailsea"){
+    loginform.action="http://oldmail.dlut.edu.cn/webmailsea/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="zh_GB"){
+    loginform.action="http://oldmail.dlut.edu.cn/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="zh_TW"){
+    loginform.action="http://oldmail.dlut.edu.cn/zh_TW/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="en_US"){
+   loginform.action="http://oldmail.dlut.edu.cn/en_US/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmaildplan"){
+   loginform.action="http://oldmail.dlut.edu.cn/webmaildplan/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmail126"){
+   loginform.action="http://oldmail.dlut.edu.cn/webmail126/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmailgmail"){
+   loginform.action="http://oldmail.dlut.edu.cn/webmailgmail/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmailhm"){
+   loginform.action="http://oldmail.dlut.edu.cn/webmailhm/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmailyh"){
+   loginform.action="http://oldmail.dlut.edu.cn/webmailyh/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmailyh2"){
+   loginform.action="http://oldmail.dlut.edu.cn/webmailyh2/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmail163"){
+   loginform.action="http://oldmail.dlut.edu.cn/webmail163/login_submit.jsp";
+  }
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmailwinlive"){
+   loginform.action="http://oldmail.dlut.edu.cn/webmailwinlive/login_submit.jsp";
+  }
+
+
+  if(loginform.maillang.options[loginform.maillang.selectedIndex].value=="webmailxy"){
+   loginform.action="http://oldmail.dlut.edu.cn/webmailxy/login_submit.jsp";
+  }
+  return true;
+}
+
+//-->
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.5880" name=GENERATOR><NOSCRIPT></HEAD>
+<BODY><FONT face=arial>应启用 JavaScript，才能正常使用 YMailserver。然而，JavaScript 
+似乎已被禁用，要么就是您的浏览器不支持 JavaScript。要使用，请更改您的浏览器选项以启用 JavaScript（注意浏览器的安全设置），然后<A 
+href="http://oldmail.dlut.edu.cn/home/h7/">重试</A>。</FONT></NOSCRIPT> 
+<FORM name=loginform onsubmit="javascript:return doLoginNow(loginform);" 
+action=/webmail126/login_submit.jsp method=post target=_top><INPUT type=hidden 
+value=true name=doLogin> <INPUT type=hidden value=Index name=redirectStr> 
+<TABLE height=549 cellSpacing=0 cellPadding=0 width=995 align=center>
+  <TBODY>
+  <TR>
+    <TD width=285 rowSpan=3><IMG height=549 src="dutmail1.files/pic_zuo.gif" 
+      width=289></TD>
+    <TD height=121><IMG height=121 src="dutmail1.files/pic_shang.gif" 
+      width=418></TD>
+    <TD width=288 rowSpan=3><IMG height=549 src="dutmail1.files/pic_you.gif" 
+      width=288></TD></TR>
+  <TR>
+    <TD background=dutmail1.files/pic_zhong.gif height=308>
+      <TABLE cellSpacing=7 cellPadding=0 width="60%" align=center>
+        <TBODY>
+        <TR>
+          <TD class=font align=right width="25%">用户名：</TD>
+          <TD width="75%">
+			<INPUT class=input size=18 name=username></TD></TR>
+        <TR>
+          <TD class=font align=right>@</TD>
+          <TD><SELECT style="WIDTH: 125px" name=hostname size="1">
+			<OPTION 
+              value=dlut.edu.cn>dlut.edu.cn</OPTION>
+			<OPTION 
+              value=mail.dlut.edu.cn selected>mail.dlut.edu.cn</OPTION></SELECT> </TD></TR>
+        <TR>
+          <TD class=font align=right>密　码：</TD>
+          <TD>
+			<INPUT class=input type=password size=18 name=password></TD></TR>
+        <TR>
+          <TD class=font align=right>版　面：</TD>
+          <TD><SELECT class=input style="WIDTH: 125px" name=maillang> 
+              <OPTION value=webmail126 selected>请选择版面</OPTION> <OPTION 
+              value=webmail126>极速版</OPTION> <OPTION 
+              value=webmailgov>政务办公</OPTION> <OPTION value=webmailxp>易邮 
+              XP</OPTION> <OPTION value=webmailsea>休闲假日</OPTION> <OPTION 
+              value=common>普通版面</OPTION> <OPTION value=zh_GB>简体OUTLOOK</OPTION> 
+              <OPTION value=zh_TW>繁体OUTLOOK</OPTION> <OPTION 
+              value=en_US>英文OUTLOOK</OPTION></SELECT></TD></TR>
+        <TR>
+          <TD class=font align=middle colSpan=2 height=25><INPUT type=checkbox 
+            CHECKED name=de> <SPAN class=style7>默认</SPAN> <A 
+            href="http://oldmail.dlut.edu.cn/webmailgov/getpass.jsp" 
+            target=_blank>找回密码</A> <A href="http://oldmail.dlut.edu.cn/smtp.html" 
+            target=_blank>SMTP设置</A></TD></TR>
+        <TR>
+          <TD height=25>　</TD>
+          <TD><INPUT type=image cache src="dutmail1.files/menu2.gif" border=0 
+            name=log_in></TD></TR>
+        <TR>
+          <TD class=font align=middle colSpan=2 height=25><FONT 
+            color=#666666><A href="http://www.dlut.edu.cn/" target=_blank><FONT 
+            color=#666666>大连理工大学网络与信息化中心</FONT></A></FONT></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD height=120><IMG height=120 src="dutmail1.files/pic_xia.gif" 
+    width=418></TD></TR></TBODY></TABLE></FORM>
+<SCRIPT>
+						onload();
+						</SCRIPT>
+
+<CENTER><A href="http://www.ymailserver.com/"><IMG height=1 
+alt="易邮 YMailserver 坚持完美用户体验,致力于提供最优秀电子邮件系统" src="dutmail1.files/spacer.gif" 
+width=1 border=0></A></CENTER></BODY></HTML>

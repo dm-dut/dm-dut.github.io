@@ -485,7 +485,7 @@ function renderServiceRecord(s, cat){
 
   // Editorial Boards are intentionally rendered as a normal text list,
   // not as a two-column/table layout. Prefer the curated item text because
-  // it already preserves role, journal/series, period, and past role notes.
+  // it already preserves role, journal_old/series, period, and past role notes.
   if(String(cat || "").toLowerCase().includes("editorial")){
     const text = item || [
       [role, organization].filter(Boolean).join(" of "),
