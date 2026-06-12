@@ -6,333 +6,333 @@
     "IEEE/INFORMS/ACM",
     "Wiley/Taylor/WorldScientific",
     "Others",
-    "中文期刊"
+    "中文"
   ],
   "journals": [
     {
       "category": "Elsevier",
       "order": 1,
-      "journal": "Applied Soft Computing",
-      "url": "https://www.sciencedirect.com/journal/applied-soft-computing",
+      "journal_old": "Applied Soft Computing",
+      "url": "https://www.sciencedirect.com/journal/applied-soft-computing/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 2,
-      "journal": "Computers & Industrial Engineering",
-      "url": "https://www.sciencedirect.com/journal/computers-and-industrial-engineering",
+      "journal_old": "Computers & Industrial Engineering",
+      "url": "https://www.sciencedirect.com/journal/computers-and-industrial-engineering/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 3,
-      "journal": "Computers & Operations Research",
-      "url": "https://www.sciencedirect.com/journal/computers-and-operations-research",
+      "journal_old": "Computers & Operations Research",
+      "url": "https://www.sciencedirect.com/journal/computers-and-operations-research/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 4,
-      "journal": "Decision Support Systems",
-      "url": "https://www.sciencedirect.com/journal/decision-support-systems",
+      "journal_old": "Decision Support Systems",
+      "url": "https://www.sciencedirect.com/journal/decision-support-systems/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 5,
-      "journal": "European Journal of Operational Research",
-      "url": "https://www.sciencedirect.com/journal/european-j-of-operational-research",
+      "journal_old": "European Journal of Operational Research",
+      "url": "https://www.sciencedirect.com/journal/european-journal-of-operational-research/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 6,
-      "journal": "Expert Systems with Applications",
-      "url": "https://www.sciencedirect.com/journal/expert-systems-with-applications",
+      "journal_old": "Expert Systems with Applications",
+      "url": "https://www.sciencedirect.com/journal/expert-systems-with-applications/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 7,
-      "journal": "Fuzzy Sets and Systems",
-      "url": "https://www.sciencedirect.com/journal/fuzzy-sets-and-systems",
+      "journal_old": "Fuzzy Sets and Systems",
+      "url": "https://www.sciencedirect.com/journal/fuzzy-sets-and-systems/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 8,
-      "journal": "Information Fusion",
-      "url": "https://www.sciencedirect.com/journal/information-fusion",
+      "journal_old": "Information Fusion",
+      "url": "https://www.sciencedirect.com/journal/information-fusion/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 9,
-      "journal": "Information Sciences",
-      "url": "https://www.sciencedirect.com/journal/information-sciences",
+      "journal_old": "Information Sciences",
+      "url": "https://www.sciencedirect.com/journal/information-sciences/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 10,
-      "journal": "International Journal of Approximate Reasoning",
-      "url": "https://www.sciencedirect.com/journal/int-j-of-approximate-reasoning",
+      "journal_old": "International Journal of Approximate Reasoning",
+      "url": "https://www.sciencedirect.com/journal/international-journal-of-approximate-reasoning/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 11,
-      "journal": "International Journal of Production Economics",
-      "url": "https://www.sciencedirect.com/journal/int-j-of-production-economics",
+      "journal_old": "International Journal of Production Economics",
+      "url": "https://www.sciencedirect.com/journal/international-journal-of-production-economics/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 12,
-      "journal": "Knowledge-Based Systems",
-      "url": "https://www.sciencedirect.com/journal/knowledge-based-systems",
+      "journal_old": "Knowledge-Based Systems",
+      "url": "https://www.sciencedirect.com/journal/knowledge-based-systems/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 13,
-      "journal": "Omega",
-      "url": "https://www.sciencedirect.com/journal/omega",
+      "journal_old": "Omega",
+      "url": "https://www.sciencedirect.com/journal/omega/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 14,
-      "journal": "Engineering Applications of Artificial Intelligence",
-      "url": "https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence",
+      "journal_old": "Engineering Applications of Artificial Intelligence",
+      "url": "https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 15,
-      "journal": "Journal of Management Science and Engineering",
-      "url": "https://www.sciencedirect.com/journal/journal-of-management-science-and-engineering",
+      "journal_old": "Journal of Management Science and Engineering",
+      "url": "https://www.sciencedirect.com/journal/journal-of-management-science-and-engineering/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 16,
-      "journal": "Electronic Commerce Research and Applications",
-      "url": "https://www.sciencedirect.com/journal/electronic-commerce-research-and-applications",
+      "journal_old": "Electronic Commerce Research and Applications",
+      "url": "https://www.sciencedirect.com/journal/electronic-commerce-research-and-applications/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 17,
-      "journal": "International Journal of Forecasting",
-      "url": "https://www.sciencedirect.com/journal/international-journal-of-forecasting",
+      "journal_old": "International Journal of Forecasting",
+      "url": "https://www.sciencedirect.com/journal/international-journal-of-forecasting/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 18,
-      "journal": "Information & Management",
-      "url": "https://www.sciencedirect.com/journal/information-and-management",
+      "journal_old": "Information & Management",
+      "url": "https://www.sciencedirect.com/journal/information-and-management/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 19,
-      "journal": "Information Systems",
-      "url": "https://www.sciencedirect.com/journal/information-systems",
+      "journal_old": "Information Systems",
+      "url": "https://www.sciencedirect.com/journal/information-systems/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 20,
-      "journal": "Artificial Intelligence",
-      "url": "https://www.sciencedirect.com/journal/artificial-intelligence",
+      "journal_old": "Artificial Intelligence",
+      "url": "https://www.sciencedirect.com/journal/artificial-intelligence/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 21,
-      "journal": "Pattern Recognition",
-      "url": "https://www.sciencedirect.com/journal/pattern-recognition",
+      "journal_old": "Pattern Recognition",
+      "url": "https://www.sciencedirect.com/journal/pattern-recognition/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 22,
-      "journal": "Pattern Recognition Letters",
-      "url": "https://www.sciencedirect.com/journal/pattern-recognition-letters",
+      "journal_old": "Pattern Recognition Letters",
+      "url": "https://www.sciencedirect.com/journal/pattern-recognition-letters/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 23,
-      "journal": "Neurocomputing",
-      "url": "https://www.sciencedirect.com/journal/neurocomputing",
+      "journal_old": "Neurocomputing",
+      "url": "https://www.sciencedirect.com/journal/neurocomputing/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 24,
-      "journal": "Physica A: Statistical Mechanics and its Applications",
-      "url": "https://www.sciencedirect.com/journal/physica-a",
+      "journal_old": "Physica A: Statistical Mechanics and its Applications",
+      "url": "https://www.sciencedirect.com/journal/physica-a-statistical-mechanics-and-its-applications/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 25,
-      "journal": "Journal of Cleaner Production",
-      "url": "https://www.sciencedirect.com/journal/journal-of-cleaner-production",
+      "journal_old": "Reliability Engineering & System Safety",
+      "url": "https://www.sciencedirect.com/journal/reliability-engineering-and-system-safety/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 26,
-      "journal": "Energy",
-      "url": "https://www.sciencedirect.com/journal/energy",
+      "journal_old": "Journal of Biomedical Informatics",
+      "url": "https://www.sciencedirect.com/journal/journal-of-biomedical-informatics/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 27,
-      "journal": "Reliability Engineering & System Safety",
-      "url": "https://www.sciencedirect.com/journal/reliability-engineering-and-system-safety",
+      "journal_old": "AI Open",
+      "url": "https://www.sciencedirect.com/journal/ai-open/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 28,
-      "journal": "Journal of Biomedical Informatics",
-      "url": "https://www.sciencedirect.com/journal/journal-of-biomedical-informatics",
+      "journal_old": "Neural Networks",
+      "url": "https://www.sciencedirect.com/journal/neural-networks/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 29,
-      "journal": "AI Open",
-      "url": "https://www.sciencedirect.com/journal/ai-open",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Elsevier",
-      "order": 30,
-      "journal": "Neural Networks",
-      "url": "https://www.sciencedirect.com/journal/neural-networks",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Elsevier",
-      "order": 31,
-      "journal": "Advanced Engineering Informatics",
+      "journal_old": "Advanced Engineering Informatics",
       "url": "https://www.sciencedirect.com/journal/advanced-engineering-informatics",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
+      "order": 30,
+      "journal_old": "Computers in Industry",
+      "url": "https://www.sciencedirect.com/journal/computers-in-industry/articles-in-press",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Elsevier",
+      "order": 31,
+      "journal_old": "Chaos, Solitons & Fractals",
+      "url": "https://www.sciencedirect.com/journal/chaos-solitons-and-fractals/articles-in-press",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Elsevier",
       "order": 32,
-      "journal": "Computers in Industry",
-      "url": "https://www.sciencedirect.com/journal/computers-in-industry",
+      "journal_old": "Safety Science",
+      "url": "https://www.sciencedirect.com/journal/safety-science/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 33,
-      "journal": "Chaos, Solitons & Fractals",
-      "url": "https://www.sciencedirect.com/journal/chaos-solitons-and-fractals",
+      "journal_old": "Technological Forecasting and Social Change",
+      "url": "https://www.sciencedirect.com/journal/technological-forecasting-and-social-change/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 34,
-      "journal": "Safety Science",
-      "url": "https://www.sciencedirect.com/journal/safety-science",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Elsevier",
-      "order": 35,
-      "journal": "Technological Forecasting and Social Change",
-      "url": "https://www.sciencedirect.com/journal/technological-forecasting-and-social-change",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Elsevier",
-      "order": 36,
-      "journal": "Automation in Construction",
+      "journal_old": "Automation in Construction",
       "url": "https://www.sciencedirect.com/journal/automation-in-construction",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
+      "order": 35,
+      "journal_old": "Annual Reviews in Control",
+      "url": "https://www.sciencedirect.com/journal/annual-reviews-in-control/articles-in-press",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Elsevier",
+      "order": 36,
+      "journal_old": "Journal of Cleaner Production",
+      "url": "https://www.sciencedirect.com/journal/journal-of-cleaner-production/articles-in-press",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Elsevier",
       "order": 37,
-      "journal": "Annual Reviews in Control",
-      "url": "https://www.sciencedirect.com/journal/annual-reviews-in-control",
+      "journal_old": "Energy",
+      "url": "https://www.sciencedirect.com/journal/energy/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 38,
-      "journal": "Journal of Environmental Economics and Management",
-      "url": "https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management",
+      "journal_old": "Journal of Environmental Economics and Management",
+      "url": "https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 39,
-      "journal": "Journal of Retailing and Consumer Services",
-      "url": "https://www.sciencedirect.com/journal/journal-of-retailing-and-consumer-services",
+      "journal_old": "Journal of Retailing and Consumer Services",
+      "url": "https://www.sciencedirect.com/journal/journal-of-retailing-and-consumer-services/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 40,
-      "journal": "Transportation Research, Series B: Methodological",
-      "url": "https://www.sciencedirect.com/journal/transportation-research-series-b-methodological",
+      "journal_old": "Transportation Research, Series B: Methodological",
+      "url": "https://www.sciencedirect.com/journal/transportation-research-part-b-methodological/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 41,
-      "journal": "Transportation Research, Part D: Transport and Environment",
+      "journal_old": "Transportation Research, Part D: Transport and Environment",
       "url": "https://www.sciencedirect.com/journal/transportation-research-part-d-transport-and-environment",
       "extra_links": [],
       "note": ""
@@ -340,7 +340,7 @@
     {
       "category": "Elsevier",
       "order": 42,
-      "journal": "Transportation Research, Part E: Logistics and Transportation Review",
+      "journal_old": "Transportation Research, Part E: Logistics and Transportation Review",
       "url": "https://www.sciencedirect.com/journal/transportation-research-part-e-logistics-and-transportation-review",
       "extra_links": [],
       "note": ""
@@ -348,1020 +348,1035 @@
     {
       "category": "Elsevier",
       "order": 43,
-      "journal": "EURO Journal on Decision Processes",
-      "url": "https://www.sciencedirect.com/journal/euro-journal-on-decision-processes",
+      "journal_old": "EURO Journal on Decision Processes",
+      "url": "https://www.sciencedirect.com/journal/euro-journal-on-decision-processes/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 1,
-      "journal": "Tourism Management",
-      "url": "https://www.sciencedirect.com/journal/tourism-management",
+      "journal_old": "Tourism Management",
+      "url": "https://www.sciencedirect.com/journal/tourism-management/latest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 2,
-      "journal": "Annals of Tourism Research",
-      "url": "https://www.sciencedirect.com/journal/annals-of-tourism-research",
+      "journal_old": "Annals of Tourism Research",
+      "url": "https://www.sciencedirect.com/journal/annals-of-tourism-research/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 3,
-      "journal": "Journal of Travel Research",
-      "url": "https://journals.sagepub.com/action/doSearch?AllField=Journal%20of%20Travel%20Research",
+      "journal_old": "Journal of Travel Research",
+      "url": "https://journals.sagepub.com/toc/JTR/0/0",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 4,
-      "journal": "Journal of Service Research",
-      "url": "https://journals.sagepub.com/action/doSearch?AllField=Journal%20of%20Service%20Research",
+      "journal_old": "Journal of Service Research",
+      "url": "https://journals.sagepub.com/toc/JSR/0/0",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 5,
-      "journal": "International Journal of Hospitality Management",
-      "url": "https://www.sciencedirect.com/journal/international-journal-of-hospitality-management",
+      "journal_old": "International Journal of Hospitality Management",
+      "url": "https://www.sciencedirect.com/journal/international-journal-of-hospitality-management/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 6,
-      "journal": "International Journal of Contemporary Hospitality Management",
-      "url": "https://www.emerald.com/insight/search?q=International%20Journal%20of%20Contemporary%20Hospitality%20Management",
+      "journal_old": "Journal of Hospitality and Tourism Management",
+      "url": "https://www.sciencedirect.com/journal/journal-of-hospitality-and-tourism-management/articles-in-press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 7,
-      "journal": "Journal of Sustainable Tourism",
-      "url": "https://www.tandfonline.com/action/doSearch?AllField=Journal%20of%20Sustainable%20Tourism",
+      "journal_old": "Current Issues in Tourism",
+      "url": "https://www.tandfonline.com/action/showAxaArticles?journalCode=rcit20",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 8,
-      "journal": "Tourism Management Perspectives",
-      "url": "https://www.sciencedirect.com/journal/tourism-management-perspectives",
+      "journal_old": "International Journal of Contemporary Hospitality Management",
+      "url": "https://www.emerald.com/insight/publication/issn/0959-6119#earlycite",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 9,
-      "journal": "Current Issues in Tourism",
-      "url": "https://www.tandfonline.com/action/doSearch?AllField=Current%20Issues%20in%20Tourism",
+      "journal_old": "Information Technology & Tourism",
+      "url": "https://link.springer.com/journal/40558/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 10,
-      "journal": "International Journal of Tourism Research",
-      "url": "https://onlinelibrary.wiley.com/action/doSearch?AllField=International%20Journal%20of%20Tourism%20Research",
+      "journal_old": "Journal of Sustainable Tourism",
+      "url": "https://www.tandfonline.com/action/showAxaArticles?journalCode=rsus20",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 11,
-      "journal": "Tourism Planning and Development",
-      "url": "https://www.tandfonline.com/action/doSearch?AllField=Tourism%20Planning%20and%20Development",
+      "journal_old": "Tourism Management Perspectives",
+      "url": "https://www.sciencedirect.com/journal/tourism-management-perspectives/latest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 12,
-      "journal": "Journal of Hospitality & Tourism Research",
-      "url": "https://journals.sagepub.com/action/doSearch?AllField=Journal%20of%20Hospitality%20%26%20Tourism%20Research",
+      "journal_old": "International Journal of Tourism Research",
+      "url": "https://onlinelibrary.wiley.com/toc/15221970/0/0",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 13,
-      "journal": "Tourism Economics",
-      "url": "https://journals.sagepub.com/action/doSearch?AllField=Tourism%20Economics",
+      "journal_old": "Tourism Planning and Development",
+      "url": "https://www.tandfonline.com/action/showAxaArticles?journalCode=rthp21",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 14,
-      "journal": "Journal of Hospitality and Tourism Management",
-      "url": "https://www.sciencedirect.com/journal/journal-of-hospitality-and-tourism-management",
+      "journal_old": "Journal of Hospitality & Tourism Research",
+      "url": "https://journals.sagepub.com/toc/JHT/0/0",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Tourism Related",
       "order": 15,
-      "journal": "Tourism and Hospitality Research",
-      "url": "https://journals.sagepub.com/action/doSearch?AllField=Tourism%20and%20Hospitality%20Research",
+      "journal_old": "Tourism Economics",
+      "url": "https://journals.sagepub.com/toc/TEU/0/0",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Tourism Related",
+      "order": 16,
+      "journal_old": "Tourism and Hospitality Research",
+      "url": "https://journals.sagepub.com/toc/THR/0/0",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 1,
-      "journal": "Annals of Operations Research",
-      "url": "https://link.springer.com/search?query=Annals%20of%20Operations%20Research",
+      "journal_old": "Annals of Operations Research",
+      "url": "http://link.springer.com/journal/10479/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 2,
-      "journal": "Fuzzy Optimization and Decision Making",
-      "url": "https://link.springer.com/search?query=Fuzzy%20Optimization%20and%20Decision%20Making",
+      "journal_old": "Fuzzy Optimization and Decision Making",
+      "url": "http://link.springer.com/journal/10700/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 3,
-      "journal": "Group Decision and Negotiation",
-      "url": "https://link.springer.com/search?query=Group%20Decision%20and%20Negotiation",
+      "journal_old": "Group Decision and Negotiation",
+      "url": "http://link.springer.com/journal/10726/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 4,
-      "journal": "Soft Computing",
-      "url": "https://link.springer.com/search?query=Soft%20Computing",
+      "journal_old": "Soft Computing",
+      "url": "http://link.springer.com/journal/500/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 5,
-      "journal": "International Journal of Machine Learning and Cybernetics",
-      "url": "https://link.springer.com/search?query=International%20Journal%20of%20Machine%20Learning%20and%20Cybernetics",
+      "journal_old": "International Journal of Machine Learning and Cybernetics",
+      "url": "http://link.springer.com/journal/13042/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 6,
-      "journal": "Knowledge and Information Systems",
-      "url": "https://link.springer.com/search?query=Knowledge%20and%20Information%20Systems",
+      "journal_old": "Knowledge and Information Systems",
+      "url": "http://link.springer.com/journal/10115/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 7,
-      "journal": "Neural Computing and Applications",
-      "url": "https://link.springer.com/search?query=Neural%20Computing%20and%20Applications",
+      "journal_old": "Neural Computing and Applications",
+      "url": "http://link.springer.com/journal/521/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 8,
-      "journal": "Applied Intelligence",
-      "url": "https://link.springer.com/search?query=Applied%20Intelligence",
+      "journal_old": "Applied Intelligence",
+      "url": "http://link.springer.com/journal/10489/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 9,
-      "journal": "Cognitive Computation",
-      "url": "https://link.springer.com/search?query=Cognitive%20Computation",
+      "journal_old": "Cognitive Computation",
+      "url": "http://link.springer.com/journal/12559/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 10,
-      "journal": "Complex & Intelligent Systems",
-      "url": "https://link.springer.com/search?query=Complex%20%26%20Intelligent%20Systems",
+      "journal_old": "Complex & Intelligent Systems",
+      "url": "http://link.springer.com/journal/40747/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 11,
-      "journal": "International Journal of Fuzzy Systems",
-      "url": "https://link.springer.com/search?query=International%20Journal%20of%20Fuzzy%20Systems",
+      "journal_old": "International Journal of Fuzzy Systems",
+      "url": "http://link.springer.com/journal/40815/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 12,
-      "journal": "OR Spectrum",
-      "url": "https://link.springer.com/search?query=OR%20Spectrum",
+      "journal_old": "OR Spectrum",
+      "url": "http://link.springer.com/journal/291/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 13,
-      "journal": "Artificial Intelligence Review",
-      "url": "https://link.springer.com/search?query=Artificial%20Intelligence%20Review",
+      "journal_old": "Artificial Intelligence Review",
+      "url": "https://link.springer.com/journal/10462/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 14,
-      "journal": "Journal of Ambient Intelligence and Humanized Computing",
-      "url": "https://link.springer.com/search?query=Journal%20of%20Ambient%20Intelligence%20and%20Humanized%20Computing",
-      "extra_links": [],
+      "journal_old": "Frontiers of Engineering Management",
+      "url": "https://link.springer.com/journal/42524/articles",
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "http://journal.hep.com.cn/fem/EN/article/showAsap.do"
+        }
+      ],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 15,
-      "journal": "Frontiers of Engineering Management",
-      "url": "https://link.springer.com/search?query=Frontiers%20of%20Engineering%20Management",
+      "journal_old": "Journal of Systems Science and Systems Engineering",
+      "url": "http://link.springer.com/journal/11518/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 16,
-      "journal": "Journal of Data, Information and Management",
-      "url": "https://link.springer.com/search?query=Journal%20of%20Data%2C%20Information%20and%20Management",
-      "extra_links": [],
+      "journal_old": "Journal of Systems Science and Complexity",
+      "url": "http://link.springer.com/journal/11424/articles",
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "http://sysmath.com/jssc"
+        }
+      ],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 17,
-      "journal": "Journal of Systems Science and Systems Engineering",
-      "url": "https://link.springer.com/search?query=Journal%20of%20Systems%20Science%20and%20Systems%20Engineering",
+      "journal_old": "Data Mining & Knowledge Discovery",
+      "url": "http://link.springer.com/journal/10618/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 18,
-      "journal": "Journal of Systems Science and Complexity",
-      "url": "https://link.springer.com/search?query=Journal%20of%20Systems%20Science%20and%20Complexity",
+      "journal_old": "Social Network Analysis and Mining",
+      "url": "https://link.springer.com/journal/13278/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 19,
-      "journal": "Data Mining & Knowledge Discovery",
-      "url": "https://link.springer.com/search?query=Data%20Mining%20%26%20Knowledge%20Discovery",
+      "journal_old": "Health Care Management Science",
+      "url": "http://link.springer.com/journal/10729/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 20,
-      "journal": "Social Network Analysis and Mining",
-      "url": "https://link.springer.com/search?query=Social%20Network%20Analysis%20and%20Mining",
+      "journal_old": "Electronic Commerce Research",
+      "url": "http://link.springer.com/journal/10660/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 21,
-      "journal": "Health Care Management Science",
-      "url": "https://link.springer.com/search?query=Health%20Care%20Management%20Science",
+      "journal_old": "Operational Research",
+      "url": "http://link.springer.com/journal/12351/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 22,
-      "journal": "Electronic Commerce Research",
-      "url": "https://link.springer.com/search?query=Electronic%20Commerce%20Research",
+      "journal_old": "TOP",
+      "url": "http://link.springer.com/journal/11750/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 23,
-      "journal": "Operational Research",
-      "url": "https://link.springer.com/search?query=Operational%20Research",
+      "journal_old": "Theory and Decision",
+      "url": "http://link.springer.com/journal/11238/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 24,
-      "journal": "Information Technology & Tourism",
-      "url": "https://link.springer.com/search?query=Information%20Technology%20%26%20Tourism",
+      "journal_old": "Central European Journal of Operations Research",
+      "url": "http://link.springer.com/journal/10100/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 25,
-      "journal": "TOP",
-      "url": "https://link.springer.com/search?query=TOP",
+      "journal_old": "SCIENCE CHINA Information Sciences",
+      "url": "https://www.sciengine.com/publisher/scp/journal/SCIS?slug=firstpublish",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 26,
-      "journal": "Theory and Decision",
-      "url": "https://link.springer.com/search?query=Theory%20and%20Decision",
+      "journal_old": "Nature Computational Science",
+      "url": "https://www.nature.com/natcomputsci/research-articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 27,
-      "journal": "Annals of Data Science",
-      "url": "https://link.springer.com/search?query=Annals%20of%20Data%20Science",
+      "journal_old": "Nature Machine Intelligence",
+      "url": "https://www.nature.com/natmachintell/research-articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 28,
-      "journal": "Central European Journal of Operations Research",
-      "url": "https://link.springer.com/search?query=Central%20European%20Journal%20of%20Operations%20Research",
+      "journal_old": "Nature Communications",
+      "url": "https://www.nature.com/ncomms/research-articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 29,
-      "journal": "SCIENCE CHINA Information Sciences",
-      "url": "https://www.sciengine.com/search?field=title&query=SCIENCE%20CHINA%20Information%20Sciences",
+      "journal_old": "npj Artificial Intelligence",
+      "url": "https://www.nature.com/npjai/research-articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 30,
-      "journal": "Progress in Artificial Intelligence",
-      "url": "https://link.springer.com/search?query=Progress%20in%20Artificial%20Intelligence",
+      "journal_old": "Annals of Data Science",
+      "url": "http://link.springer.com/journal/40745/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 31,
-      "journal": "Granular Computing",
-      "url": "https://link.springer.com/search?query=Granular%20Computing",
+      "journal_old": "Journal of Intelligent Manufacturing",
+      "url": "https://link.springer.com/journal/10845/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 32,
-      "journal": "Journal of Intelligent Manufacturing",
-      "url": "https://link.springer.com/search?query=Journal%20of%20Intelligent%20Manufacturing",
+      "journal_old": "Journal of Data, Information and Management",
+      "url": "https://link.springer.com/journal/42488/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 33,
-      "journal": "Nature Computational Science",
-      "url": "https://www.nature.com/search?q=Nature%20Computational%20Science",
+      "journal_old": "Journal of Ambient Intelligence and Humanized Computing",
+      "url": "https://link.springer.com/journal/12652/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 34,
-      "journal": "Nature Machine Intelligence",
-      "url": "https://www.nature.com/search?q=Nature%20Machine%20Intelligence",
+      "journal_old": "Progress in Artificial Intelligence",
+      "url": "http://link.springer.com/journal/13748/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 35,
-      "journal": "npj Artificial Intelligence",
-      "url": "https://www.nature.com/search?q=npj%20Artificial%20Intelligence",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Springer",
-      "order": 36,
-      "journal": "Nature Communications",
-      "url": "https://www.nature.com/search?q=Nature%20Communications",
+      "journal_old": "Granular Computing",
+      "url": "http://link.springer.com/journal/41066/articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 1,
-      "journal": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Systems%2C%20Man%2C%20and%20Cybernetics%3A%20Systems",
+      "journal_old": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6376248&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 2,
-      "journal": "IEEE Transactions on Cybernetics",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Cybernetics",
+      "journal_old": "IEEE Transactions on Cybernetics",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6352949&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 3,
-      "journal": "IEEE Transactions on Computational Social Systems",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Computational%20Social%20Systems",
+      "journal_old": "IEEE Transactions on Computational Social Systems",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6780646&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 4,
-      "journal": "IEEE Transactions on Fuzzy Systems",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Fuzzy%20Systems",
+      "journal_old": "IEEE Transactions on Fuzzy Systems",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4358784&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 5,
-      "journal": "IEEE Transactions on Reliability",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Reliability",
+      "journal_old": "IEEE Transactions on Reliability",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4378406&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 6,
-      "journal": "IEEE Transactions on Engineering Management",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Engineering%20Management",
+      "journal_old": "IEEE Transactions on Engineering Management",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4429834&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 7,
-      "journal": "IEEE Transactions on Artificial Intelligence",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Artificial%20Intelligence",
+      "journal_old": "IEEE Transactions on Artificial Intelligence",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=9184921",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 8,
-      "journal": "IEEE Transactions on Knowledge and Data Engineering",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Knowledge%20and%20Data%20Engineering",
+      "journal_old": "IEEE Transactions on Knowledge and Data Engineering",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4358933&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 9,
-      "journal": "IEEE Transactions on Evolutionary Computation",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Evolutionary%20Computation",
+      "journal_old": "IEEE Transactions on Evolutionary Computation",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4358751&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 10,
-      "journal": "IEEE Transactions on Neural Networks and Learning Systems",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Neural%20Networks%20and%20Learning%20Systems",
+      "journal_old": "IEEE Transactions on Neural Networks and Learning Systems",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6104215&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 11,
-      "journal": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Pattern%20Analysis%20and%20Machine%20Intelligence",
+      "journal_old": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4359286",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 12,
-      "journal": "IEEE Transactions on Big Data",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Big%20Data",
+      "journal_old": "IEEE Transactions on Big Data",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7153538&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 13,
-      "journal": "IEEE Transactions on Network Science and Engineering",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Network%20Science%20and%20Engineering",
+      "journal_old": "IEEE Transactions on Network Science and Engineering",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6930788&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 14,
-      "journal": "IEEE/CAA Journal of Automatica Sinica",
-      "url": "https://www.ieee-jas.net",
-      "extra_links": [],
+      "journal_old": "IEEE/CAA Journal of Automatica Sinica",
+      "url": "https://www.ieee-jas.net/en/article/latest_all",
+      "extra_links": [
+        {
+          "label": "IEEE",
+          "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7725587"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 15,
-      "journal": "IEEE Transactions on Cognitive and Developmental Systems",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Cognitive%20and%20Developmental%20Systems",
+      "journal_old": "IEEE Transactions on Cognitive and Developmental Systems",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7422051",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 16,
-      "journal": "IEEE Transactions on Emerging Topics in Computational Intelligence",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Emerging%20Topics%20in%20Computational%20Intelligence",
+      "journal_old": "IEEE Transactions on Emerging Topics in Computational Intelligence",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7777658",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 17,
-      "journal": "IEEE Systems Journal",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Systems%20Journal",
+      "journal_old": "IEEE Systems Journal",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4357939",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 18,
-      "journal": "IEEE Intelligent Systems",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Intelligent%20Systems",
+      "journal_old": "IEEE Intelligent Systems",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=5196652",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 19,
-      "journal": "Journal of Systems Engineering and Electronics",
-      "url": "https://www.jseepub.com",
+      "journal_old": "Journal of Systems Engineering and Electronics",
+      "url": "http://www.jseepub.com/EN/1004-4132/home.shtml",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 20,
-      "journal": "IEEE Transactions on Automation Science and Engineering",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Automation%20Science%20and%20Engineering",
+      "journal_old": "IEEE Transactions on Automation Science and Engineering",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4358066&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 21,
-      "journal": "IEEE Transactions on Automatic Control",
-      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Automatic%20Control",
+      "journal_old": "IEEE Transactions on Automatic Control",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4601496&sortType=newest",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 22,
-      "journal": "Management Science",
-      "url": "https://pubsonline.informs.org/action/doSearch?AllField=Management%20Science",
+      "journal_old": "Management Science",
+      "url": "https://pubsonline.informs.org/journal/mnsc",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 23,
-      "journal": "Operations Research",
-      "url": "https://pubsonline.informs.org/action/doSearch?AllField=Operations%20Research",
+      "journal_old": "Operations Research",
+      "url": "https://pubsonline.informs.org/journal/opre",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 24,
-      "journal": "INFORMS Journal on Computing",
-      "url": "https://pubsonline.informs.org/action/doSearch?AllField=INFORMS%20Journal%20on%20Computing",
+      "journal_old": "INFORMS Journal on Computing",
+      "url": "https://pubsonline.informs.org/journal/ijoc",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 25,
-      "journal": "Information Systems Research",
-      "url": "https://pubsonline.informs.org/action/doSearch?AllField=Information%20Systems%20Research",
+      "journal_old": "Information Systems Research",
+      "url": "https://pubsonline.informs.org/journal/isre",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 26,
-      "journal": "Manufacturing & Service Operations Management",
-      "url": "https://pubsonline.informs.org/action/doSearch?AllField=Manufacturing%20%26%20Service%20Operations%20Management",
+      "journal_old": "Manufacturing & Service Operations Management",
+      "url": "https://pubsonline.informs.org/journal/msom",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 27,
-      "journal": "Decision Analysis",
-      "url": "https://pubsonline.informs.org/action/doSearch?AllField=Decision%20Analysis",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 28,
-      "journal": "Production and Operations Management",
-      "url": "https://journals.sagepub.com/action/doSearch?AllField=Production%20and%20Operations%20Management",
+      "journal_old": "Decision Analysis",
+      "url": "https://pubsonline.informs.org/journal/deca",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 29,
-      "journal": "INFORMS Journal on Data Science",
-      "url": "https://pubsonline.informs.org/action/doSearch?AllField=INFORMS%20Journal%20on%20Data%20Science",
+      "journal_old": "INFORMS Journal on Data Science",
+      "url": "https://pubsonline.informs.org/journal/ijds",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
+      "order": 28,
+      "journal_old": "Production and Operations Management",
+      "url": "https://journals.sagepub.com/action/doSearch?AllField=Production+and+Operations+Management&SeriesKey=paoa&startPage=0&sortBy=FullEpubDateField",
+      "extra_links": [
+        {
+          "label": "Wiley",
+          "url": "https://onlinelibrary.wiley.com/toc/19375956/0/0"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "category": "IEEE/INFORMS/ACM",
       "order": 30,
-      "journal": "ACM Computing Surveys",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM%20Computing%20Surveys",
+      "journal_old": "ACM Computing Surveys",
+      "url": "https://dl.acm.org/toc/csur/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 31,
-      "journal": "ACM Transactions on Intelligent Systems and Technology",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM%20Transactions%20on%20Intelligent%20Systems%20and%20Technology",
+      "journal_old": "ACM Transactions on Intelligent Systems and Technology",
+      "url": "https://dl.acm.org/toc/tist/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 32,
-      "journal": "ACM Transactions on Knowledge Discovery from Data",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM%20Transactions%20on%20Knowledge%20Discovery%20from%20Data",
+      "journal_old": "ACM Transactions on Knowledge Discovery from Data",
+      "url": "https://dl.acm.org/toc/tkdd/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 33,
-      "journal": "ACM Transactions on Management Information Systems",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM%20Transactions%20on%20Management%20Information%20Systems",
+      "journal_old": "ACM Transactions on Management Information Systems",
+      "url": "https://dl.acm.org/toc/tmis/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 34,
-      "journal": "ACM Transactions on Information Systems",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM%20Transactions%20on%20Information%20Systems",
+      "journal_old": "ACM Transactions on Information Systems",
+      "url": "https://dl.acm.org/toc/tois/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 35,
-      "journal": "ACM Transactions on Internet Technology",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM%20Transactions%20on%20Internet%20Technology",
+      "journal_old": "ACM Transactions on the Web",
+      "url": "https://dl.acm.org/toc/tweb/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 36,
-      "journal": "ACM Transactions on Modeling and Computer Simulation",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM%20Transactions%20on%20Modeling%20and%20Computer%20Simulation",
+      "journal_old": "ACM Transactions on Recommender Systems",
+      "url": "https://dl.acm.org/toc/tors/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 37,
-      "journal": "ACM Transactions on Social Computing",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM%20Transactions%20on%20Social%20Computing",
+      "journal_old": "ACM Transactions on Internet Technology",
+      "url": "https://dl.acm.org/toc/toit/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 38,
-      "journal": "ACM Transactions on the Web",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM%20Transactions%20on%20the%20Web",
+      "journal_old": "ACM Transactions on Modeling and Computer Simulation",
+      "url": "https://dl.acm.org/toc/tomacs/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 39,
-      "journal": "ACM Transactions on Recommender Systems",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM%20Transactions%20on%20Recommender%20Systems",
+      "journal_old": "ACM Transactions on Social Computing",
+      "url": "https://dl.acm.org/toc/tsc/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 40,
-      "journal": "ACM/IMS Transactions on Data Science",
-      "url": "https://dl.acm.org/action/doSearch?AllField=ACM/IMS%20Transactions%20on%20Data%20Science",
+      "journal_old": "ACM/IMS Transactions on Data Science",
+      "url": "https://dl.acm.org/toc/tds/current",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 1,
-      "journal": "Journal of Forecasting",
-      "url": "https://onlinelibrary.wiley.com/action/doSearch?AllField=Journal%20of%20Forecasting",
+      "journal_old": "International Journal of Intelligent Systems",
+      "url": "https://onlinelibrary.wiley.com/journal/1098111x",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 2,
-      "journal": "International Journal of Intelligent Systems",
-      "url": "https://www.hindawi.com/search/all/International%20Journal%20of%20Intelligent%20Systems/",
-      "extra_links": [
-        {
-          "label": "Hindawi",
-          "url": "https://www.hindawi.com"
-        }
-      ],
+      "journal_old": "Expert Systems",
+      "url": "https://onlinelibrary.wiley.com/journal/14680394",
+      "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 3,
-      "journal": "Expert Systems",
-      "url": "https://onlinelibrary.wiley.com/action/doSearch?AllField=Expert%20Systems",
+      "journal_old": "International Transactions in Operational Research",
+      "url": "https://onlinelibrary.wiley.com/journal/14753995",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 4,
-      "journal": "International Transactions in Operational Research",
-      "url": "https://onlinelibrary.wiley.com/action/doSearch?AllField=International%20Transactions%20in%20Operational%20Research",
+      "journal_old": "Journal of Multi-Criteria Decision Analysis",
+      "url": "https://onlinelibrary.wiley.com/journal/10991360",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 5,
-      "journal": "Journal of Multi-Criteria Decision Analysis",
-      "url": "https://onlinelibrary.wiley.com/action/doSearch?AllField=Journal%20of%20Multi-Criteria%20Decision%20Analysis",
+      "journal_old": "Decision Sciences Journal",
+      "url": "https://onlinelibrary.wiley.com/journal/15405915",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 6,
-      "journal": "Decision Sciences Journal",
-      "url": "https://onlinelibrary.wiley.com/action/doSearch?AllField=Decision%20Sciences%20Journal",
+      "journal_old": "Risk Analysis",
+      "url": "https://onlinelibrary.wiley.com/journal/15396924",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 7,
-      "journal": "Risk Analysis",
-      "url": "https://onlinelibrary.wiley.com/action/doSearch?AllField=Risk%20Analysis",
+      "journal_old": "International Journal of Finance & Economics",
+      "url": "https://onlinelibrary.wiley.com/toc/10991158/0/0",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 8,
-      "journal": "International Journal of Finance & Economics",
-      "url": "https://onlinelibrary.wiley.com/action/doSearch?AllField=International%20Journal%20of%20Finance%20%26%20Economics",
+      "journal_old": "Journal of Forecasting",
+      "url": "https://onlinelibrary.wiley.com/toc/1099131x/0/0",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 9,
-      "journal": "Quality and Reliability Engineering International",
-      "url": "https://onlinelibrary.wiley.com/action/doSearch?AllField=Quality%20and%20Reliability%20Engineering%20International",
+      "journal_old": "Quality and Reliability Engineering International",
+      "url": "https://onlinelibrary.wiley.com/toc/10991638/0/0",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 10,
-      "journal": "IISE Transactions",
-      "url": "https://www.tandfonline.com/action/doSearch?AllField=IISE%20Transactions",
+      "journal_old": "IISE Transactions",
+      "url": "https://www.tandfonline.com/toc/uiie21/0/ja",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 11,
-      "journal": "Journal of the Operational Research Society",
-      "url": "https://www.tandfonline.com/action/doSearch?AllField=Journal%20of%20the%20Operational%20Research%20Society",
+      "journal_old": "Journal of the Operational Research Society",
+      "url": "http://www.tandfonline.com/action/showAxaArticles?journalCode=tjor20",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 12,
-      "journal": "International Journal of Production Research",
-      "url": "https://www.tandfonline.com/action/doSearch?AllField=International%20Journal%20of%20Production%20Research",
+      "journal_old": "International Journal of Production Research",
+      "url": "http://www.tandfonline.com/action/showAxaArticles?journalCode=tprs20",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 13,
-      "journal": "International Journal of Systems Science",
-      "url": "https://www.tandfonline.com/action/doSearch?AllField=International%20Journal%20of%20Systems%20Science",
+      "journal_old": "International Journal of Systems Science",
+      "url": "http://www.tandfonline.com/action/showAxaArticles?journalCode=tsys20",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 14,
-      "journal": "International Journal of General Systems",
-      "url": "https://www.tandfonline.com/action/doSearch?AllField=International%20Journal%20of%20General%20Systems",
+      "journal_old": "International Journal of General Systems",
+      "url": "http://www.tandfonline.com/action/showAxaArticles?journalCode=ggen20",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 15,
-      "journal": "International Journal of Information Technology & Decision Making",
-      "url": "https://www.worldscientific.com/action/doSearch?AllField=International%20Journal%20of%20Information%20Technology%20%26%20Decision%20Making",
+      "journal_old": "International Journal of Information Technology & Decision Making",
+      "url": "http://www.worldscientific.com/worldscinet/ijitdm",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 16,
-      "journal": "International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems",
-      "url": "https://www.worldscientific.com/action/doSearch?AllField=International%20Journal%20of%20Uncertainty%2C%20Fuzziness%20and%20Knowledge-Based%20Systems",
+      "journal_old": "International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems",
+      "url": "http://www.worldscientific.com/worldscinet/ijufks",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 17,
-      "journal": "Asia-Pacific Journal of Operational Research",
-      "url": "https://www.worldscientific.com/action/doSearch?AllField=Asia-Pacific%20Journal%20of%20Operational%20Research",
+      "journal_old": "Asia-Pacific Journal of Operational Research",
+      "url": "http://www.worldscientific.com/toc/apjor/0/0",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 18,
-      "journal": "Economic Research",
-      "url": "https://www.tandfonline.com/action/doSearch?AllField=Economic%20Research",
+      "journal_old": "Economic Research",
+      "url": "https://www.tandfonline.com/action/showAxaArticles?journalCode=rero20",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 19,
-      "journal": "Journal of Management Analytics",
-      "url": "https://www.tandfonline.com/action/doSearch?AllField=Journal%20of%20Management%20Analytics",
+      "journal_old": "Journal of Management Analytics",
+      "url": "https://www.tandfonline.com/action/showAxaArticles?journalCode=tjma20",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 1,
-      "journal": "International Journal of Computational Intelligence Systems",
-      "url": "https://www.springer.com/search?query=International%20Journal%20of%20Computational%20Intelligence%20Systems",
+      "journal_old": "International Journal of Computational Intelligence Systems",
+      "url": "https://www.springer.com/journal/44196",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 2,
-      "journal": "Technological and Economic Development of Economy",
-      "url": "https://journals.vilniustech.lt/index.php?search=Technological%20and%20Economic%20Development%20of%20Economy",
+      "journal_old": "Technological and Economic Development of Economy",
+      "url": "https://journals.vgtu.lt/index.php/TEDE",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 3,
-      "journal": "INFORMATICA",
-      "url": "https://informatica.vu.lt",
+      "journal_old": "INFORMATICA",
+      "url": "https://informatica.vu.lt/journal/INFORMATICA/to-appear",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 4,
-      "journal": "International Journal of Computers Communications & Control",
-      "url": "https://univagora.ro",
+      "journal_old": "International Journal of Computers Communications & Control",
+      "url": "http://univagora.ro/jour/index.php/ijccc/",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 5,
-      "journal": "International Journal of Strategic Property Management",
-      "url": "https://journals.vilniustech.lt/index.php?search=International%20Journal%20of%20Strategic%20Property%20Management",
+      "journal_old": "International Journal of Strategic Property Management",
+      "url": "https://journals.vgtu.lt/index.php/IJSPM",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 6,
-      "journal": "Transport",
-      "url": "https://journals.vilniustech.lt/index.php?search=Transport",
+      "journal_old": "Transport",
+      "url": "https://journals.vgtu.lt/index.php/Transport",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 7,
-      "journal": "Transformations in Business & Economics",
-      "url": "https://www.transformations.knf.vu.lt",
+      "journal_old": "Transformations in Business & Economics",
+      "url": "http://www.transformations.knf.vu.lt/",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 8,
-      "journal": "Scientia Iranica",
-      "url": "https://scientiairanica.sharif.edu",
+      "journal_old": "Scientia Iranica",
+      "url": "http://scientiairanica.sharif.edu/?_action=current&_is=Current%20Issue",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 9,
-      "journal": "Iranian Journal of Fuzzy Systems",
-      "url": "https://ijfs.usb.ac.ir",
+      "journal_old": "Iranian Journal of Fuzzy Systems",
+      "url": "http://ijfs.usb.ac.ir/?_action=press&issue=-1&_is=Articles%20in%20Press",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 10,
-      "journal": "Kybernetes",
-      "url": "https://www.emerald.com/insight/search?q=Kybernetes",
+      "journal_old": "Kybernetes",
+      "url": "https://www.emerald.com/insight/publication/issn/0368-492X",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 11,
-      "journal": "Intelligent Decision Technologies",
-      "url": "https://content.iospress.com/search?q=Intelligent%20Decision%20Technologies",
+      "journal_old": "Intelligent Decision Technologies",
+      "url": "http://content.iospress.com/journals/intelligent-decision-technologies",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 12,
-      "journal": "Fundamenta Informaticae",
-      "url": "https://content.iospress.com/search?q=Fundamenta%20Informaticae",
+      "journal_old": "Fundamenta Informaticae",
+      "url": "http://content.iospress.com/journals/fundamenta-informaticae",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 13,
-      "journal": "Intelligent Data Analysis",
-      "url": "https://content.iospress.com/search?q=Intelligent%20Data%20Analysis",
+      "journal_old": "Intelligent Data Analysis",
+      "url": "http://content.iospress.com/journals/intelligent-data-analysis",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 14,
-      "journal": "Journal of Smart Environments and Green Computing",
-      "url": "https://segcjournal.com",
+      "journal_old": "Journal of Smart Environments and Green Computing",
+      "url": "https://segcjournal.com/journal/archives",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Others",
       "order": 15,
-      "journal": "Journal of Civil Engineering and Management",
-      "url": "https://journals.vilniustech.lt/index.php?search=Journal%20of%20Civil%20Engineering%20and%20Management",
+      "journal_old": "Journal of Civil Engineering and Management",
+      "url": "https://journals.vgtu.lt/index.php/JCEM/issue/current",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 1,
-      "journal": "管理科学学报",
+      "journal_old": "管理科学学报",
       "url": "http://jmsc.tju.edu.cn/ch/index.aspx",
       "extra_links": [
         {
@@ -1372,9 +1387,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 2,
-      "journal": "系统工程理论与实践",
+      "journal_old": "系统工程理论与实践",
       "url": "http://www.sysengi.com/",
       "extra_links": [
         {
@@ -1385,9 +1400,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 3,
-      "journal": "管理世界",
+      "journal_old": "管理世界",
       "url": "http://www.mwm.net.cn/web/",
       "extra_links": [
         {
@@ -1398,9 +1413,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 4,
-      "journal": "中国管理科学",
+      "journal_old": "中国管理科学",
       "url": "http://www.zgglkx.com",
       "extra_links": [
         {
@@ -1411,9 +1426,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 5,
-      "journal": "系统工程学报",
+      "journal_old": "系统工程学报",
       "url": "http://jse.tju.edu.cn",
       "extra_links": [
         {
@@ -1424,9 +1439,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 6,
-      "journal": "系统管理学报",
+      "journal_old": "系统管理学报",
       "url": "http://xtglxb.sjtu.edu.cn/",
       "extra_links": [
         {
@@ -1437,9 +1452,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 7,
-      "journal": "管理科学",
+      "journal_old": "管理科学",
       "url": "http://glkx.hit.edu.cn/glkxcn/ch/index.aspx",
       "extra_links": [
         {
@@ -1450,9 +1465,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 8,
-      "journal": "管理评论",
+      "journal_old": "管理评论",
       "url": "http://www.glplzz.com/",
       "extra_links": [
         {
@@ -1463,9 +1478,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 9,
-      "journal": "管理工程学报",
+      "journal_old": "管理工程学报",
       "url": "http://glgcxb.zju.edu.cn/",
       "extra_links": [
         {
@@ -1480,9 +1495,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 10,
-      "journal": "南开管理评论",
+      "journal_old": "南开管理评论",
       "url": "http://www.nbronline.cn/ch/index.aspx",
       "extra_links": [
         {
@@ -1493,9 +1508,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 11,
-      "journal": "科研管理",
+      "journal_old": "科研管理",
       "url": "http://www.kygl.net.cn/CN/volumn/current.shtml",
       "extra_links": [
         {
@@ -1506,9 +1521,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 12,
-      "journal": "情报学报",
+      "journal_old": "情报学报",
       "url": "http://c.g.wanfangdata.com.cn/Periodical-qbxb.aspx",
       "extra_links": [
         {
@@ -1519,9 +1534,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 13,
-      "journal": "工程管理科技前沿",
+      "journal_old": "工程管理科技前沿",
       "url": "https://navi.cnki.net/knavi/detail?p=lKTCeAGFZh-GAv0jPFKFXS8SEP2Ah0gRdsS1WKdacP65L7Jt8Llj4s_mjmxb0WQ1lZ8cjqzqp-aMY6vqJmqbd4XiZF25Ocq4q4DcD50p7qpvTJKltS_NFw==&uniplatform=NZKPT",
       "extra_links": [
         {
@@ -1532,9 +1547,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 14,
-      "journal": "运筹与管理",
+      "journal_old": "运筹与管理",
       "url": "http://www.jorms.net/CN/1007-3221/home.shtml",
       "extra_links": [
         {
@@ -1549,9 +1564,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 15,
-      "journal": "管理学报",
+      "journal_old": "管理学报",
       "url": "http://manu68.magtech.com.cn/Jwk_glxb/CN/volumn/current.shtml",
       "extra_links": [
         {
@@ -1562,9 +1577,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 16,
-      "journal": "工业工程与管理",
+      "journal_old": "工业工程与管理",
       "url": "https://gygc.cbpt.cnki.net/WKB2/WebPublication/index.aspx?mid=gygc",
       "extra_links": [
         {
@@ -1575,9 +1590,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 17,
-      "journal": "系统工程",
+      "journal_old": "系统工程",
       "url": "http://www.xitonggongcheng.cn/",
       "extra_links": [
         {
@@ -1588,9 +1603,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 18,
-      "journal": "控制与决策",
+      "journal_old": "控制与决策",
       "url": "http://kzyjc.alljournals.cn/ch/index.aspx",
       "extra_links": [
         {
@@ -1601,9 +1616,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 19,
-      "journal": "系统工程与电子技术",
+      "journal_old": "系统工程与电子技术",
       "url": "http://www.sys-ele.com/CN/1001-506X/home.shtml",
       "extra_links": [
         {
@@ -1614,9 +1629,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 20,
-      "journal": "中国软科学",
+      "journal_old": "中国软科学",
       "url": "http://www.cssm.com.cn/ch/index.aspx",
       "extra_links": [
         {
@@ -1627,9 +1642,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 21,
-      "journal": "系统科学与数学",
+      "journal_old": "系统科学与数学",
       "url": "http://sysmath.com/jweb_xtkxysx",
       "extra_links": [
         {
@@ -1640,9 +1655,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 22,
-      "journal": "计量经济学报",
+      "journal_old": "计量经济学报",
       "url": "http://www.cjoe.ac.cn/CN/2096-9732/home.shtml",
       "extra_links": [
         {
@@ -1653,9 +1668,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 23,
-      "journal": "自动化学报",
+      "journal_old": "自动化学报",
       "url": "http://www.aas.net.cn/CN/volumn/current.shtml",
       "extra_links": [
         {
@@ -1666,9 +1681,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 24,
-      "journal": "计算机学报",
+      "journal_old": "计算机学报",
       "url": "http://cjc.ict.ac.cn/",
       "extra_links": [
         {
@@ -1679,9 +1694,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 25,
-      "journal": "计算机研究与发展",
+      "journal_old": "计算机研究与发展",
       "url": "http://crad.ict.ac.cn/",
       "extra_links": [
         {
@@ -1692,9 +1707,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 26,
-      "journal": "电子学报",
+      "journal_old": "电子学报",
       "url": "http://www.ejournal.org.cn/CN/volumn/current.shtml",
       "extra_links": [
         {
@@ -1705,9 +1720,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 27,
-      "journal": "软件学报",
+      "journal_old": "软件学报",
       "url": "http://www.jos.org.cn/",
       "extra_links": [
         {
@@ -1718,9 +1733,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 28,
-      "journal": "中国科学: 信息科学",
+      "journal_old": "中国科学: 信息科学",
       "url": "https://www.sciengine.com/publisher/scp/journal/SSI?slug=firstpublish",
       "extra_links": [
         {
@@ -1731,9 +1746,9 @@
       "note": ""
     },
     {
-      "category": "中文期刊",
+      "category": "中文",
       "order": 29,
-      "journal": "数据分析与知识发现",
+      "journal_old": "数据分析与知识发现",
       "url": "https://manu44.magtech.com.cn/Jwk_infotech_wk3/CN/2096-3467/home.shtml",
       "extra_links": [
         {
