@@ -1,36 +1,38 @@
 # -*- coding: utf-8 -*-
 """Convert journal_list.xlsx to journals.json.
-Usage:
-    python convert_journal_excel_to_json.py
-    python convert_journal_excel_to_json.py --excel journal_list.xlsx --out journals.json
+
+Excel columns:
+Category | Order | Journal | URL | Extra Links (label|url; ...) | Note
+
+Example for extra links:
+CNKI|https://example.com; Wanfang|https://example.com
 """
-import argparse, json, re
+import argparse
+import json
 from pathlib import Path
 from openpyxl import load_workbook
 
+EXTRA_COL = 'Extra Links (label|url; ...)'
+
+def clean(value):
+    if value is None:
+        return ''
+    return str(value).strip()
 
 def split_extra_links(text):
     links = []
+    text = clean(text)
     if not text:
         return links
-    parts = [p.strip() for p in str(text).split(';') if p.strip()]
-    for p in parts:
-        if '|' in p:
-            label, url = p.split('|', 1)
+    for part in [p.strip() for p in text.split(';') if p.strip()]:
+        if '|' in part:
+            label, url = part.split('|', 1)
         else:
-            label, url = 'Link', p
-        label, url = label.strip(), url.strip()
+            label, url = 'Link', part
+        label, url = clean(label), clean(url)
         if url:
             links.append({'label': label or 'Link', 'url': url})
     return links
-
-
-def cell_value(row, header_map, name):
-    idx = header_map.get(name.lower())
-    if idx is None:
-        return None
-    return row[idx]
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -43,39 +45,43 @@ def main():
     rows = list(ws.iter_rows(values_only=True))
     if not rows:
         raise SystemExit('No data found in Excel.')
-    headers = [str(h).strip() if h is not None else '' for h in rows[0]]
+
+    headers = [clean(h) for h in rows[0]]
     hmap = {h.lower(): i for i, h in enumerate(headers)}
     required = ['category', 'journal', 'url']
     missing = [r for r in required if r not in hmap]
     if missing:
         raise SystemExit('Missing columns: ' + ', '.join(missing))
 
-    journals = []
-    categories = []
+    def get(row, col):
+        idx = hmap.get(col.lower())
+        return row[idx] if idx is not None and idx < len(row) else ''
+
+    categories, journals = [], []
+    per_cat_counter = {}
     for row in rows[1:]:
         if not any(row):
             continue
-        category = (cell_value(row, hmap, 'Category') or '').strip() if isinstance(cell_value(row, hmap, 'Category'), str) else cell_value(row, hmap, 'Category')
-        journal = (cell_value(row, hmap, 'Journal') or '').strip() if isinstance(cell_value(row, hmap, 'Journal'), str) else cell_value(row, hmap, 'Journal')
-        url = (cell_value(row, hmap, 'URL') or '').strip() if isinstance(cell_value(row, hmap, 'URL'), str) else cell_value(row, hmap, 'URL')
+        category = clean(get(row, 'Category'))
+        journal = clean(get(row, 'Journal'))
+        url = clean(get(row, 'URL'))
         if not category or not journal:
             continue
         if category not in categories:
             categories.append(category)
-        order = cell_value(row, hmap, 'Order')
+        per_cat_counter[category] = per_cat_counter.get(category, 0) + 1
+        order_raw = clean(get(row, 'Order'))
         try:
-            order = int(order) if order is not None and str(order).strip() != '' else len([x for x in journals if x['category']==category]) + 1
+            order = int(float(order_raw)) if order_raw else per_cat_counter[category]
         except Exception:
-            order = len([x for x in journals if x['category']==category]) + 1
-        extra_text = cell_value(row, hmap, 'Extra Links (label|url; ...)')
-        note = cell_value(row, hmap, 'Note') or ''
+            order = per_cat_counter[category]
         journals.append({
-            'category': str(category).strip(),
+            'category': category,
             'order': order,
-            'journal': str(journal).strip(),
-            'url': str(url).strip() if url else '',
-            'extra_links': split_extra_links(extra_text),
-            'note': str(note).strip() if note else ''
+            'journal': journal,
+            'url': url,
+            'extra_links': split_extra_links(get(row, EXTRA_COL)),
+            'note': clean(get(row, 'Note'))
         })
 
     journals.sort(key=lambda x: (categories.index(x['category']) if x['category'] in categories else 999, x['order']))

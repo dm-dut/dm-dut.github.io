@@ -44,7 +44,7 @@
     {
       "category": "Elsevier",
       "order": 5,
-      "journal": "European J of Operational Research",
+      "journal": "European Journal of Operational Research",
       "url": "https://www.sciencedirect.com/journal/european-j-of-operational-research",
       "extra_links": [],
       "note": ""
@@ -84,7 +84,7 @@
     {
       "category": "Elsevier",
       "order": 10,
-      "journal": "Int J of Approximate Reasoning",
+      "journal": "International Journal of Approximate Reasoning",
       "url": "https://www.sciencedirect.com/journal/int-j-of-approximate-reasoning",
       "extra_links": [],
       "note": ""
@@ -92,7 +92,7 @@
     {
       "category": "Elsevier",
       "order": 11,
-      "journal": "Int J of Production Economics",
+      "journal": "International Journal of Production Economics",
       "url": "https://www.sciencedirect.com/journal/int-j-of-production-economics",
       "extra_links": [],
       "note": ""
@@ -196,7 +196,7 @@
     {
       "category": "Elsevier",
       "order": 24,
-      "journal": "Physica A",
+      "journal": "Physica A: Statistical Mechanics and its Applications",
       "url": "https://www.sciencedirect.com/journal/physica-a",
       "extra_links": [],
       "note": ""
@@ -324,7 +324,7 @@
     {
       "category": "Elsevier",
       "order": 40,
-      "journal": "Transportation Research, Series B: Methodological",
+      "journal": "Transportation Research Part B: Methodological",
       "url": "https://www.sciencedirect.com/journal/transportation-research-series-b-methodological",
       "extra_links": [],
       "note": ""
@@ -700,7 +700,7 @@
     {
       "category": "Springer",
       "order": 29,
-      "journal": "SCIENCE CHINA Information Sciences",
+      "journal": "Science China Information Sciences",
       "url": "https://www.sciengine.com",
       "extra_links": [],
       "note": ""
@@ -1468,7 +1468,7 @@
           "url": "https://navi.cnki.net/knavi/detail?p=lKTCeAGFZh-of79BoeSNOewUhIo96ZMAjN8mFut9UoGSjZTP2iEpFABYwcruA3SHWcybncpeXPbpyxidSxZmHELrN_sWz_TwKPS7pW14Bd4_6sV_an3TIw==&uniplatform=NZKPT"
         },
         {
-          "label": "万方",
+          "label": "Wanfang",
           "url": "http://c.wanfangdata.com.cn/Periodical-glgcxb.aspx"
         }
       ],
@@ -1537,7 +1537,7 @@
           "url": "https://navi.cnki.net/knavi/detail?p=lKTCeAGFZh-imVfP0-dYeXXBrc_IVJAxvFZOMzq3jmwCdvsMpISPOot7nrWj97vgMsjF53RRn6g8m1XptEIkO8hZpt33WgwzXUX2oAJdEwD1eWfkhpcbTQ==&uniplatform=NZKPT"
         },
         {
-          "label": "万方",
+          "label": "Wanfang",
           "url": "http://c.wanfangdata.com.cn/Periodical-ycygl.aspx"
         }
       ],
