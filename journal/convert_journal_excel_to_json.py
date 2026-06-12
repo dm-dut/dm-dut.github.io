@@ -150,7 +150,7 @@ def main():
         journals.append({
             'category': category,
             'order': order_val,
-            'journal_old': journal,
+            'journal': journal,
             'url': url,
             'extra_links': parse_extra_links(extra),
             'note': note or ''
