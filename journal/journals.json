@@ -6,7 +6,7 @@
     "IEEE/INFORMS/ACM",
     "Wiley/Taylor/WorldScientific",
     "Others",
-    "中文"
+    "中文期刊"
   ],
   "journals": [
     {
@@ -592,7 +592,7 @@
       "url": "https://link.springer.com/journal/42524/articles",
       "extra_links": [
         {
-          "label": "Web",
+          "label": "AAAA",
           "url": "http://journal.hep.com.cn/fem/EN/article/showAsap.do"
         }
       ],
@@ -882,7 +882,7 @@
       "url": "https://www.ieee-jas.net/en/article/latest_all",
       "extra_links": [
         {
-          "label": "IEEE",
+          "label": "AAA",
           "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7725587"
         }
       ],
@@ -1007,7 +1007,7 @@
       "url": "https://journals.sagepub.com/action/doSearch?AllField=Production+and+Operations+Management&SeriesKey=paoa&startPage=0&sortBy=FullEpubDateField",
       "extra_links": [
         {
-          "label": "Wiley",
+          "label": "Past",
           "url": "https://onlinelibrary.wiley.com/toc/19375956/0/0"
         }
       ],
@@ -1105,8 +1105,13 @@
       "category": "Wiley/Taylor/WorldScientific",
       "order": 1,
       "journal": "International Journal of Intelligent Systems",
-      "url": "https://onlinelibrary.wiley.com/journal/1098111x",
-      "extra_links": [],
+      "url": "https://www.hindawi.com/journals/ijis/contents/",
+      "extra_links": [
+        {
+          "label": "AAA",
+          "url": "https://onlinelibrary.wiley.com/journal/1098111x"
+        }
+      ],
       "note": ""
     },
     {
@@ -1374,7 +1379,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 1,
       "journal": "管理科学学报",
       "url": "http://jmsc.tju.edu.cn/ch/index.aspx",
@@ -1387,7 +1392,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 2,
       "journal": "系统工程理论与实践",
       "url": "http://www.sysengi.com/",
@@ -1400,7 +1405,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 3,
       "journal": "管理世界",
       "url": "http://www.mwm.net.cn/web/",
@@ -1413,7 +1418,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 4,
       "journal": "中国管理科学",
       "url": "http://www.zgglkx.com",
@@ -1426,7 +1431,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 5,
       "journal": "系统工程学报",
       "url": "http://jse.tju.edu.cn",
@@ -1439,7 +1444,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 6,
       "journal": "系统管理学报",
       "url": "http://xtglxb.sjtu.edu.cn/",
@@ -1452,7 +1457,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 7,
       "journal": "管理科学",
       "url": "http://glkx.hit.edu.cn/glkxcn/ch/index.aspx",
@@ -1465,7 +1470,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 8,
       "journal": "管理评论",
       "url": "http://www.glplzz.com/",
@@ -1478,7 +1483,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 9,
       "journal": "管理工程学报",
       "url": "http://glgcxb.zju.edu.cn/",
@@ -1495,7 +1500,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 10,
       "journal": "南开管理评论",
       "url": "http://www.nbronline.cn/ch/index.aspx",
@@ -1508,7 +1513,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 11,
       "journal": "科研管理",
       "url": "http://www.kygl.net.cn/CN/volumn/current.shtml",
@@ -1521,7 +1526,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 12,
       "journal": "情报学报",
       "url": "http://c.g.wanfangdata.com.cn/Periodical-qbxb.aspx",
@@ -1534,20 +1539,15 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 13,
       "journal": "工程管理科技前沿",
       "url": "https://navi.cnki.net/knavi/detail?p=lKTCeAGFZh-GAv0jPFKFXS8SEP2Ah0gRdsS1WKdacP65L7Jt8Llj4s_mjmxb0WQ1lZ8cjqzqp-aMY6vqJmqbd4XiZF25Ocq4q4DcD50p7qpvTJKltS_NFw==&uniplatform=NZKPT",
-      "extra_links": [
-        {
-          "label": "CNKI",
-          "url": "https://navi.cnki.net/knavi/detail?p=lKTCeAGFZh-GAv0jPFKFXS8SEP2Ah0gRdsS1WKdacP65L7Jt8Llj4s_mjmxb0WQ1lZ8cjqzqp-aMY6vqJmqbd4XiZF25Ocq4q4DcD50p7qpvTJKltS_NFw==&uniplatform=NZKPT"
-        }
-      ],
+      "extra_links": [],
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 14,
       "journal": "运筹与管理",
       "url": "http://www.jorms.net/CN/1007-3221/home.shtml",
@@ -1564,7 +1564,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 15,
       "journal": "管理学报",
       "url": "http://manu68.magtech.com.cn/Jwk_glxb/CN/volumn/current.shtml",
@@ -1577,7 +1577,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 16,
       "journal": "工业工程与管理",
       "url": "https://gygc.cbpt.cnki.net/WKB2/WebPublication/index.aspx?mid=gygc",
@@ -1590,7 +1590,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 17,
       "journal": "系统工程",
       "url": "http://www.xitonggongcheng.cn/",
@@ -1603,7 +1603,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 18,
       "journal": "控制与决策",
       "url": "http://kzyjc.alljournals.cn/ch/index.aspx",
@@ -1616,7 +1616,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 19,
       "journal": "系统工程与电子技术",
       "url": "http://www.sys-ele.com/CN/1001-506X/home.shtml",
@@ -1629,7 +1629,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 20,
       "journal": "中国软科学",
       "url": "http://www.cssm.com.cn/ch/index.aspx",
@@ -1642,7 +1642,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 21,
       "journal": "系统科学与数学",
       "url": "http://sysmath.com/jweb_xtkxysx",
@@ -1655,7 +1655,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 22,
       "journal": "计量经济学报",
       "url": "http://www.cjoe.ac.cn/CN/2096-9732/home.shtml",
@@ -1668,7 +1668,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 23,
       "journal": "自动化学报",
       "url": "http://www.aas.net.cn/CN/volumn/current.shtml",
@@ -1681,7 +1681,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 24,
       "journal": "计算机学报",
       "url": "http://cjc.ict.ac.cn/",
@@ -1694,7 +1694,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 25,
       "journal": "计算机研究与发展",
       "url": "http://crad.ict.ac.cn/",
@@ -1707,7 +1707,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 26,
       "journal": "电子学报",
       "url": "http://www.ejournal.org.cn/CN/volumn/current.shtml",
@@ -1720,7 +1720,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 27,
       "journal": "软件学报",
       "url": "http://www.jos.org.cn/",
@@ -1733,7 +1733,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 28,
       "journal": "中国科学: 信息科学",
       "url": "https://www.sciengine.com/publisher/scp/journal/SSI?slug=firstpublish",
@@ -1746,7 +1746,7 @@
       "note": ""
     },
     {
-      "category": "中文",
+      "category": "中文期刊",
       "order": 29,
       "journal": "数据分析与知识发现",
       "url": "https://manu44.magtech.com.cn/Jwk_infotech_wk3/CN/2096-3467/home.shtml",

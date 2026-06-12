@@ -56,15 +56,15 @@ h1{margin:0;font-size:30px;letter-spacing:.2px;color:#183b61;font-weight:760}
 .journal-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 12px}
 .category-section[data-category="中文期刊"] .journal-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .journal-card{
-  min-width:0;display:flex;align-items:center;gap:6px;min-height:36px;padding:7px 10px;
+  min-width:0;display:flex;align-items:center;gap:6px;min-height:38px;padding:7px 11px;
   border:1px solid var(--line-soft);border-radius:12px;background:linear-gradient(180deg,#fff 0%,#fbfdff 100%);
   transition:border .18s, box-shadow .18s, transform .18s, background .18s;
 }
 .journal-card:hover{border-color:#b7d3ea;box-shadow:0 8px 18px rgba(25,71,110,.08);transform:translateY(-1px);background:#fff}
-.journal-link{min-width:0;flex:1 1 auto;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-decoration:none;color:var(--link);font-size:14px;line-height:1.25;font-weight:620}
-.category-section[data-category="中文期刊"] .journal-link{font-size:13.5px}
+.journal-link{min-width:0;flex:1 1 auto;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-decoration:none;color:var(--link);font-size:15px;line-height:1.25;font-weight:520}
+.category-section[data-category="中文期刊"] .journal-link{font-size:14.5px;font-weight:520}
 .journal-link:hover{color:var(--blue-2)}
-.extra-link{flex:0 0 auto;padding:3px 7px;border-radius:999px;background:var(--blue-soft);color:#286093;border:1px solid #cce0f2;text-decoration:none;font-size:11px;line-height:1;font-weight:700}
+.extra-link{flex:0 0 auto;padding:3px 7px;border-radius:999px;background:var(--blue-soft);color:#286093;border:1px solid #cce0f2;text-decoration:none;font-size:11.5px;line-height:1;font-weight:700}
 .extra-link:hover{background:#dceeff;color:#174f85}
 .empty{display:none;color:var(--muted);text-align:center;padding:34px 0;font-size:15px}
 @media (max-width:1050px){.journal-grid,.category-section[data-category="中文期刊"] .journal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -94,17 +94,42 @@ function norm(s){ return String(s??'').toLowerCase().trim(); }
 function cleanUrl(url){ return String(url||'').trim().replace(/\/$/,''); }
 function isDuplicate(url, mainUrl){ return cleanUrl(url) === cleanUrl(mainUrl); }
 function isGenericExtra(url){ return genericExtras.has(cleanUrl(url)); }
+function normalizeJournal(j){
+  const category = j.category ?? j.Category ?? j['类别'] ?? '';
+  const journal = j.journal ?? j.Journal ?? j['Journal Name'] ?? j['期刊名'] ?? j.name ?? '';
+  const url = j.url ?? j.URL ?? j['Main Link'] ?? j['Website'] ?? j.website ?? '';
+  let extra = j.extra_links ?? j.extraLinks ?? j['Extra Links'] ?? j['Extra Link'] ?? j.extra ?? [];
+  if (typeof extra === 'string') {
+    extra = extra.split(';').map(part => {
+      const v = part.trim();
+      if(!v) return null;
+      if(v.includes('|')){ const [label, ...rest] = v.split('|'); return {label: label.trim() || 'Link', url: rest.join('|').trim()}; }
+      return {label:'Link', url:v};
+    }).filter(Boolean);
+  }
+  if(!Array.isArray(extra)) extra = [];
+  const note = j.note ?? j.Note ?? j['备注'] ?? '';
+  return {category, journal, url, extra_links: extra, note};
+}
+function allJournals(){
+  return (state.data?.journals||state.data?.Journals||[]).map(normalizeJournal).filter(j => j.category && j.journal);
+}
+function getCategories(){
+  const raw = state.data?.categories || state.data?.Categories;
+  if (Array.isArray(raw) && raw.length) return raw;
+  return Array.from(new Set(allJournals().map(j=>j.category)));
+}
 function renderTabs(){
   const tabs = document.getElementById('tabs');
-  const cats = ['All', ...(state.data?.categories||[])];
+  const cats = ['All', ...getCategories()];
   tabs.innerHTML = cats.map(c => `<button class="tab ${c===state.category?'active':''}" data-cat="${esc(c)}">${esc(c==='All'?'全部':c)}</button>`).join('');
   tabs.querySelectorAll('.tab').forEach(btn => { btn.onclick = () => { state.category = btn.dataset.cat; render(); }; });
 }
 function filteredItems(cat){
   const q = norm(state.query);
-  return (state.data?.journals||[]).filter(j => {
+  return allJournals().filter(j => {
     const inCat = cat === 'All' || j.category === cat;
-    const text = norm([j.journal, j.category, j.note, j.url, ...(j.extra_links||[]).map(x=>x.label)].join(' '));
+    const text = norm([j.journal, j.category, j.note, j.url, ...(j.extra_links||[]).map(x=>x.label+' '+x.url)].join(' '));
     return inCat && (!q || text.includes(q));
   });
 }
@@ -119,7 +144,7 @@ function cardHtml(j){
 function render(){
   renderTabs();
   const content = document.getElementById('content');
-  const cats = state.category === 'All' ? (state.data.categories||[]) : [state.category];
+  const cats = state.category === 'All' ? getCategories() : [state.category];
   const sections = cats.map(cat => {
     const items = filteredItems(cat);
     if(state.category === 'All' && items.length === 0) return '';
