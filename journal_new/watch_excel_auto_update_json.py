@@ -1,22 +1,18 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
-import time
-import subprocess
-from pathlib import Path
-
-excel = Path('journal_list.xlsx')
-script = Path('convert_journal_excel_to_json.py')
+import os, time, subprocess, sys
+excel = 'journal_list.xlsx'
 last = None
 print('Watching journal_list.xlsx. Press Ctrl+C to stop.')
 while True:
     try:
-        mtime = excel.stat().st_mtime
+        m = os.path.getmtime(excel)
         if last is None:
-            last = mtime
-        elif mtime != last:
-            last = mtime
-            subprocess.run(['python', str(script), '--excel', str(excel), '--out', 'journals.json'], check=False)
+            last = m
+        elif m != last:
+            last = m
+            subprocess.run([sys.executable, 'convert_journal_excel_to_json.py', excel, 'journals.json'], check=False)
             print('journals.json updated.')
     except FileNotFoundError:
-        print('journal_list.xlsx not found.')
+        pass
     time.sleep(2)

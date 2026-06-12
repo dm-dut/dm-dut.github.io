@@ -1,160 +1,288 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Journal List</title>
 <style>
 :root{
-  --bg:#f5f8fc;
+  --bg:#f4f8fc;
   --panel:#ffffff;
-  --ink:#223243;
-  --muted:#6b7c8f;
-  --primary:#245f91;
-  --primary-deep:#16486f;
-  --primary-soft:#edf5fb;
-  --line:#d9e5ef;
-  --line-soft:#e7eef6;
-  --shadow:0 8px 20px rgba(28,83,128,.07);
+  --panel-2:#f8fbfe;
+  --line:#d8e5f0;
+  --line-soft:#eaf1f7;
+  --text:#1e3144;
+  --muted:#6b7f93;
+  --blue:#245f9f;
+  --blue-2:#2f7abf;
+  --blue-soft:#e8f3ff;
+  --link:#183b61;
+  --shadow:0 10px 28px rgba(25,71,110,.08);
 }
-*{box-sizing:border-box;}
+*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Noto Sans SC",sans-serif;
-  color:var(--ink);
-  background:linear-gradient(180deg,#f9fbfe 0%,#f3f7fb 48%,#f8fafc 100%);
+  min-height:100vh;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","Noto Sans SC",Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 8% -8%, rgba(47,122,191,.13), transparent 32%),
+    linear-gradient(180deg,#f8fbff 0%, var(--bg) 54%, #eef5fb 100%);
 }
-.wrap{max-width:1240px;margin:0 auto;padding:28px 22px 44px;}
-.hero{
-  background:linear-gradient(135deg,#1b4f7c 0%,#2c6f9f 62%,#73a9c5 100%);
-  color:#fff;border-radius:20px;padding:22px 26px;box-shadow:var(--shadow);
+.container{
+  max-width:1280px;
+  margin:0 auto;
+  padding:34px 24px 46px;
 }
-.hero h1{margin:0;font-size:30px;letter-spacing:.2px;font-weight:760;}
-.controls{margin:16px 0 16px;display:flex;gap:10px;align-items:center;}
-.search{position:relative;flex:1;min-width:260px;}
-.search input{
-  width:100%;height:42px;border:1px solid var(--line);border-radius:13px;
-  padding:0 14px 0 40px;font-size:14.5px;outline:none;background:#fff;color:var(--ink);
-  box-shadow:0 5px 14px rgba(28,83,128,.045);
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+  margin-bottom:22px;
 }
-.search input:focus{border-color:#94bdd8;box-shadow:0 0 0 4px rgba(36,95,145,.10);}
-.search:before{content:'⌕';position:absolute;left:14px;top:7px;color:#7f9caf;font-size:20px;}
-.clear{
-  height:42px;padding:0 16px;border:1px solid var(--line);border-radius:13px;background:#fff;
-  color:var(--primary);font-weight:680;cursor:pointer;box-shadow:0 5px 14px rgba(28,83,128,.04);
+h1{
+  margin:0;
+  font-size:30px;
+  letter-spacing:.2px;
+  color:#183b61;
+  font-weight:760;
 }
-.clear:hover{background:var(--primary-soft);}
-.tabs{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 18px;}
+.searchbar{
+  flex:0 1 420px;
+  position:relative;
+}
+.searchbar input{
+  width:100%;
+  height:42px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.92);
+  color:var(--text);
+  padding:0 16px 0 40px;
+  outline:none;
+  box-shadow:0 4px 14px rgba(34,90,140,.05);
+  transition:border .2s, box-shadow .2s, background .2s;
+}
+.searchbar input:focus{
+  border-color:#92bbe3;
+  box-shadow:0 0 0 4px rgba(47,122,191,.11);
+  background:#fff;
+}
+.searchbar:before{
+  content:"";
+  position:absolute;
+  left:15px;
+  top:50%;
+  width:13px;
+  height:13px;
+  border:2px solid #6f8eaa;
+  border-radius:50%;
+  transform:translateY(-50%);
+}
+.searchbar:after{
+  content:"";
+  position:absolute;
+  left:27px;
+  top:27px;
+  width:7px;
+  height:2px;
+  background:#6f8eaa;
+  transform:rotate(45deg);
+  border-radius:2px;
+}
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin:8px 0 20px;
+}
 .tab{
-  border:1px solid var(--line);background:#fff;color:#29465d;cursor:pointer;border-radius:999px;
-  padding:8px 14px;font-size:13.5px;font-weight:680;box-shadow:0 4px 10px rgba(28,83,128,.035);transition:.16s ease;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.75);
+  color:#315a80;
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:14px;
+  font-weight:650;
+  cursor:pointer;
+  transition:all .18s ease;
 }
-.tab:hover{background:#f2f7fb;border-color:#bdd5e7;}
-.tab.active{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 7px 16px rgba(36,95,145,.15);}
-.category{margin:20px 0 28px;}
-.category-title{margin:0 0 11px;color:#22384a;font-size:17px;font-weight:760;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:10px;}
-.grid.zh{grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;}
-.card{
-  background:var(--panel);border:1px solid var(--line-soft);border-radius:11px;box-shadow:0 4px 12px rgba(28,83,128,.045);
-  padding:8px 10px;min-height:42px;display:flex;align-items:center;gap:7px;overflow:hidden;transition:.16s ease;
+.tab:hover{
+  border-color:#9cc3e4;
+  background:#fff;
+  transform:translateY(-1px);
 }
-.grid.zh .card{min-height:38px;padding:7px 9px;gap:6px;}
-.card:hover{box-shadow:0 10px 22px rgba(28,83,128,.10);border-color:#bdd4e5;background:#fbfdff;transform:translateY(-1px);}
-.title{
-  min-width:0;flex:1;color:#24384b;text-decoration:none;font-weight:630;line-height:1.25;font-size:13.8px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+.tab.active{
+  background:linear-gradient(135deg,#245f9f,#2f7abf);
+  color:#fff;
+  border-color:transparent;
+  box-shadow:0 8px 18px rgba(36,95,159,.18);
 }
-.grid.zh .title{font-size:13.6px;}
-.title:hover{color:var(--primary-deep);}
-.links{display:flex;align-items:center;gap:5px;flex:0 0 auto;line-height:1;}
-.links a{
-  color:var(--primary);text-decoration:none;font-size:11.3px;font-weight:680;border:1px solid #d2e1ed;
-  background:#f5f9fd;border-radius:999px;padding:3px 6px;white-space:nowrap;
+.content{
+  background:rgba(255,255,255,.72);
+  border:1px solid var(--line-soft);
+  box-shadow:var(--shadow);
+  border-radius:22px;
+  padding:18px;
 }
-.links a:hover{background:#e7f1f8;border-color:#adc9dc;color:#123f64;}
-mark{background:#fff1b8;color:inherit;border-radius:4px;padding:0 2px;}
-.empty{display:none;background:#fff;border:1px dashed var(--line);border-radius:15px;padding:24px;text-align:center;color:var(--muted);}
-@media(min-width:1130px){.grid:not(.zh){grid-template-columns:repeat(4,minmax(0,1fr));}}
-@media(max-width:1129px){.grid:not(.zh){grid-template-columns:repeat(3,minmax(0,1fr));}.grid.zh{grid-template-columns:repeat(4,minmax(0,1fr));}}
-@media(max-width:820px){.wrap{padding:20px 14px 36px}.hero{border-radius:18px;padding:20px 22px}.hero h1{font-size:27px}.controls{flex-direction:column}.search,.clear{width:100%;}.grid:not(.zh),.grid.zh{grid-template-columns:repeat(2,minmax(0,1fr));}.card,.grid.zh .card{min-height:42px}}
-@media(max-width:520px){.grid:not(.zh),.grid.zh{grid-template-columns:1fr;}.title{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}}
+.category-section{display:none}
+.category-section.active{display:block}
+.journal-grid{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px 12px;
+}
+.category-section[data-category="中文期刊"] .journal-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+.journal-card{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  min-height:38px;
+  padding:8px 10px;
+  border:1px solid var(--line-soft);
+  border-radius:12px;
+  background:linear-gradient(180deg,#fff 0%,#fbfdff 100%);
+  transition:border .18s, box-shadow .18s, transform .18s, background .18s;
+}
+.journal-card:hover{
+  border-color:#b7d3ea;
+  box-shadow:0 8px 18px rgba(25,71,110,.08);
+  transform:translateY(-1px);
+  background:#fff;
+}
+.journal-link{
+  min-width:0;
+  flex:1 1 auto;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  text-decoration:none;
+  color:var(--link);
+  font-size:14px;
+  line-height:1.25;
+  font-weight:620;
+}
+.journal-link:hover{color:var(--blue-2)}
+.extra-link{
+  flex:0 0 auto;
+  padding:3px 7px;
+  border-radius:999px;
+  background:var(--blue-soft);
+  color:#286093;
+  border:1px solid #cce0f2;
+  text-decoration:none;
+  font-size:11px;
+  line-height:1;
+  font-weight:700;
+}
+.extra-link:hover{
+  background:#dceeff;
+  color:#174f85;
+}
+.empty{
+  display:none;
+  color:var(--muted);
+  text-align:center;
+  padding:34px 0;
+  font-size:15px;
+}
+@media (max-width:1050px){
+  .journal-grid,
+  .category-section[data-category="中文期刊"] .journal-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+@media (max-width:760px){
+  .container{padding:24px 14px 34px}
+  .header{display:block}
+  h1{font-size:26px;margin-bottom:14px}
+  .searchbar{width:100%;max-width:none}
+  .content{padding:12px;border-radius:18px}
+  .journal-grid,
+  .category-section[data-category="中文期刊"] .journal-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media (max-width:520px){
+  .journal-grid,
+  .category-section[data-category="中文期刊"] .journal-grid{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <section class="hero"><h1>Journal List</h1></section>
-  <div class="controls">
-    <div class="search"><input id="searchInput" type="text" placeholder="Search journal names..." autocomplete="off" /></div>
-    <button class="clear" id="clearBtn">Clear</button>
+<div class="container">
+  <div class="header">
+    <h1>Journal List</h1>
+    <div class="searchbar"><input id="searchInput" type="search" placeholder="Search journals..." autocomplete="off"></div>
   </div>
-  <nav class="tabs" id="tabs"></nav>
-  <main id="content"></main>
-  <div class="empty" id="empty">No matching journals found.</div>
+  <div class="tabs" id="tabs"></div>
+  <div class="content" id="content"></div>
 </div>
 <script>
-let DATA={categories:[],journals:[]};
-let activeCategory='All';
-const $=id=>document.getElementById(id);
-function esc(s){return String(s||'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
-function highlight(text,q){const safe=esc(text); if(!q) return safe; const re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'ig'); return safe.replace(re,m=>`<mark>${m}</mark>`);}
-function buildTabs(){
-  const tabs=['All',...DATA.categories];
-  $('tabs').innerHTML=tabs.map(cat=>`<button class="tab ${cat===activeCategory?'active':''}" data-cat="${esc(cat)}">${esc(cat)}</button>`).join('');
-  document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{activeCategory=btn.dataset.cat;render();}));
-}
-function normalizeUrl(u){return String(u||'').trim().replace(/\/$/,'');}
-function extraLinks(j){
-  const main=normalizeUrl(j.url);
-  const seen=new Set();
-  const out=[];
-  (j.extra_links||[]).forEach(e=>{
-    const url=normalizeUrl(e.url);
-    const label=String(e.label||'Link').trim()||'Link';
-    if(!url || url===main || seen.has(url)) return;
-    seen.add(url);
-    out.push({label,url});
+const state = { data:null, category:'All', query:'' };
+
+function esc(s){ return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+function norm(s){ return String(s??'').toLowerCase().trim(); }
+function isDuplicate(url, mainUrl){ return String(url||'').trim().replace(/\/$/,'') === String(mainUrl||'').trim().replace(/\/$/,''); }
+
+function renderTabs(){
+  const tabs = document.getElementById('tabs');
+  const cats = ['All', ...(state.data?.categories||[])];
+  tabs.innerHTML = cats.map(c => `<button class="tab ${c===state.category?'active':''}" data-cat="${esc(c)}">${esc(c==='All'?'全部':c)}</button>`).join('');
+  tabs.querySelectorAll('.tab').forEach(btn => {
+    btn.onclick = () => { state.category = btn.dataset.cat; render(); };
   });
-  return out;
 }
-function linkRow(j){
-  const links=extraLinks(j);
-  if(!links.length) return '';
-  return `<span class="links">${links.map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>`).join('')}</span>`;
+
+function filteredItems(cat){
+  const q = norm(state.query);
+  return (state.data?.journals||[]).filter(j => {
+    const inCat = cat === 'All' || j.category === cat;
+    const text = norm([j.journal, j.category, j.note, j.url, ...(j.extra_links||[]).map(x=>x.label)].join(' '));
+    return inCat && (!q || text.includes(q));
+  });
 }
-function card(j,q){
-  const href=j.url?esc(j.url):'#';
-  return `<article class="card"><a class="title" title="${esc(j.journal)}" href="${href}" target="_blank" rel="noopener">${highlight(j.journal,q)}</a>${linkRow(j)}</article>`;
-}
+
 function render(){
-  buildTabs();
-  const q=$('searchInput').value.trim().toLowerCase();
-  const cats=activeCategory==='All'?DATA.categories:[activeCategory];
-  let html='',total=0;
-  cats.forEach(cat=>{
-    const items=DATA.journals.filter(j=>j.category===cat).filter(j=>!q||(j.journal||'').toLowerCase().includes(q));
-    if(!items.length) return;
-    total+=items.length;
-    const zh=cat==='中文期刊';
-    const title=(activeCategory==='All')?`<h2 class="category-title">${esc(cat)}</h2>`:'';
-    html+=`<section class="category">${title}<div class="grid ${zh?'zh':''}">${items.map(j=>card(j,q)).join('')}</div></section>`;
+  renderTabs();
+  const content = document.getElementById('content');
+  const cats = state.category === 'All' ? (state.data.categories||[]) : [state.category];
+  content.innerHTML = cats.map(cat => {
+    const items = filteredItems(cat);
+    const cards = items.map(j => {
+      const extras = (j.extra_links||[]).filter(x => x && x.url && !isDuplicate(x.url, j.url)).slice(0,2);
+      return `<li class="journal-card" data-title="${esc(norm(j.journal))}">
+        <a class="journal-link" href="${esc(j.url)}" title="${esc(j.journal)}" target="_blank" rel="noopener">${esc(j.journal)}</a>
+        ${extras.map(x=>`<a class="extra-link" href="${esc(x.url)}" title="${esc(x.label)}" target="_blank" rel="noopener">${esc(x.label)}</a>`).join('')}
+      </li>`;
+    }).join('');
+    return `<section class="category-section active" data-category="${esc(cat)}">
+      <ul class="journal-grid">${cards}</ul>
+      <div class="empty" style="${items.length?'display:none':'display:block'}">No matching journals.</div>
+    </section>`;
+  }).join('');
+}
+
+fetch('journals.json')
+  .then(r => r.json())
+  .then(data => { state.data = data; render(); })
+  .catch(() => {
+    document.getElementById('content').innerHTML = '<div class="empty" style="display:block">Unable to load journals.json.</div>';
   });
-  $('content').innerHTML=html;
-  $('empty').style.display=total?'none':'block';
-}
-async function load(){
-  try{
-    const res=await fetch('journals.json',{cache:'no-store'});
-    DATA=await res.json();
-    if(!DATA.categories||!DATA.journals) throw new Error('Invalid journals.json');
-    render();
-  }catch(e){
-    $('content').innerHTML='<div class="empty" style="display:block">journals.json could not be loaded.</div>';
-  }
-}
-$('searchInput').addEventListener('input',render);
-$('clearBtn').addEventListener('click',()=>{$('searchInput').value='';activeCategory='All';render();});
-load();
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  state.query = e.target.value;
+  render();
+});
 </script>
 </body>
 </html>

@@ -1,20 +1,21 @@
 Journal List Web Package
 
-Files
-- index.html: journal list webpage.
-- journals.json: data loaded by the webpage.
-- journal_list.xlsx: source Excel file.
-- convert_journal_excel_to_json.py: converts Excel to JSON.
-- update_journals.bat: double-click to regenerate journals.json after editing Excel.
-- update_and_preview.bat: regenerate JSON and preview locally.
-- watch_excel_auto_update_json.py / .bat: optional watcher for automatic JSON updates.
+Files:
+- index.html: journal list page
+- journal_list.xlsx: editable journal data
+- journals.json: generated data file used by index.html
+- convert_journal_excel_to_json.py: convert Excel to JSON
+- update_journals.bat: update journals.json after editing Excel
+- update_and_preview.bat: update JSON and open the page
+- watch_excel_auto_update_json.py / .bat: automatically watch Excel changes and update JSON
 
-Usage
+Usage:
 1. Edit journal_list.xlsx.
-2. Run update_journals.bat to update journals.json.
-3. Open index.html or upload all files to the same website folder.
+2. Run update_journals.bat.
+3. Upload index.html and journals.json to your website, or keep all files in the same folder for local use.
 
-Display rules
-- Journal names open the main website link.
-- Extra links are shown only when they are different from the main website link, avoiding duplicate Website buttons.
-- English journals use a compact 3–4 column layout; Chinese journals use a compact 5-column layout on wide screens.
+Display rules:
+- English categories use a three-column layout on wide screens.
+- 中文期刊 uses a four-column layout on wide screens.
+- Click the journal name to open the main link.
+- Supplemental links are shown only when distinct additional links exist, such as CNKI/Wanfang or publisher portals.

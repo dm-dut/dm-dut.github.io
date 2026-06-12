@@ -324,7 +324,7 @@
     {
       "category": "Elsevier",
       "order": 40,
-      "journal": "Transportation Research Part B: Methodological",
+      "journal": "Transportation Research, Series B: Methodological",
       "url": "https://www.sciencedirect.com/journal/transportation-research-series-b-methodological",
       "extra_links": [],
       "note": ""
@@ -700,9 +700,14 @@
     {
       "category": "Springer",
       "order": 29,
-      "journal": "Science China Information Sciences",
-      "url": "https://www.sciengine.com",
-      "extra_links": [],
+      "journal": "SCIENCE CHINA Information Sciences",
+      "url": "https://www.sciengine.com/search?field=title&query=SCIENCE%20CHINA%20Information%20Sciences",
+      "extra_links": [
+        {
+          "label": "SciEngine",
+          "url": "https://www.sciengine.com"
+        }
+      ],
       "note": ""
     },
     {
@@ -733,136 +738,221 @@
       "category": "Springer",
       "order": 33,
       "journal": "Nature Computational Science",
-      "url": "https://www.nature.com",
-      "extra_links": [],
+      "url": "https://www.nature.com/search?q=Nature%20Computational%20Science",
+      "extra_links": [
+        {
+          "label": "Nature",
+          "url": "https://www.nature.com"
+        }
+      ],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 34,
       "journal": "Nature Machine Intelligence",
-      "url": "https://www.nature.com",
-      "extra_links": [],
+      "url": "https://www.nature.com/search?q=Nature%20Machine%20Intelligence",
+      "extra_links": [
+        {
+          "label": "Nature",
+          "url": "https://www.nature.com"
+        }
+      ],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 35,
       "journal": "npj Artificial Intelligence",
-      "url": "https://www.nature.com",
-      "extra_links": [],
+      "url": "https://www.nature.com/search?q=npj%20Artificial%20Intelligence",
+      "extra_links": [
+        {
+          "label": "Nature",
+          "url": "https://www.nature.com"
+        }
+      ],
       "note": ""
     },
     {
       "category": "Springer",
       "order": 36,
       "journal": "Nature Communications",
-      "url": "https://www.nature.com",
-      "extra_links": [],
+      "url": "https://www.nature.com/search?q=Nature%20Communications",
+      "extra_links": [
+        {
+          "label": "Nature",
+          "url": "https://www.nature.com"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 1,
       "journal": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Systems%2C%20Man%2C%20and%20Cybernetics%3A%20Systems",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 2,
       "journal": "IEEE Transactions on Cybernetics",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Cybernetics",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 3,
       "journal": "IEEE Transactions on Computational Social Systems",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Computational%20Social%20Systems",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 4,
       "journal": "IEEE Transactions on Fuzzy Systems",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Fuzzy%20Systems",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 5,
       "journal": "IEEE Transactions on Reliability",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Reliability",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 6,
       "journal": "IEEE Transactions on Engineering Management",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Engineering%20Management",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 7,
       "journal": "IEEE Transactions on Artificial Intelligence",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Artificial%20Intelligence",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 8,
       "journal": "IEEE Transactions on Knowledge and Data Engineering",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Knowledge%20and%20Data%20Engineering",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 9,
       "journal": "IEEE Transactions on Evolutionary Computation",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Evolutionary%20Computation",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 10,
       "journal": "IEEE Transactions on Neural Networks and Learning Systems",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Neural%20Networks%20and%20Learning%20Systems",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 11,
       "journal": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Pattern%20Analysis%20and%20Machine%20Intelligence",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 12,
       "journal": "IEEE Transactions on Big Data",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Big%20Data",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 13,
       "journal": "IEEE Transactions on Network Science and Engineering",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Network%20Science%20and%20Engineering",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
@@ -877,32 +967,52 @@
       "category": "IEEE/INFORMS/ACM",
       "order": 15,
       "journal": "IEEE Transactions on Cognitive and Developmental Systems",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Cognitive%20and%20Developmental%20Systems",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 16,
       "journal": "IEEE Transactions on Emerging Topics in Computational Intelligence",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Emerging%20Topics%20in%20Computational%20Intelligence",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 17,
       "journal": "IEEE Systems Journal",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Systems%20Journal",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 18,
       "journal": "IEEE Intelligent Systems",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Intelligent%20Systems",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
@@ -917,16 +1027,26 @@
       "category": "IEEE/INFORMS/ACM",
       "order": 20,
       "journal": "IEEE Transactions on Automation Science and Engineering",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Automation%20Science%20and%20Engineering",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
       "category": "IEEE/INFORMS/ACM",
       "order": 21,
       "journal": "IEEE Transactions on Automatic Control",
-      "url": "https://ieeexplore.ieee.org",
-      "extra_links": [],
+      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=IEEE%20Transactions%20on%20Automatic%20Control",
+      "extra_links": [
+        {
+          "label": "IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org"
+        }
+      ],
       "note": ""
     },
     {
@@ -1093,8 +1213,13 @@
       "category": "Wiley/Taylor/WorldScientific",
       "order": 2,
       "journal": "International Journal of Intelligent Systems",
-      "url": "https://www.hindawi.com",
-      "extra_links": [],
+      "url": "https://www.hindawi.com/search/all/International%20Journal%20of%20Intelligent%20Systems/",
+      "extra_links": [
+        {
+          "label": "Hindawi",
+          "url": "https://www.hindawi.com"
+        }
+      ],
       "note": ""
     },
     {
@@ -1245,8 +1370,13 @@
       "category": "Others",
       "order": 2,
       "journal": "Technological and Economic Development of Economy",
-      "url": "https://journals.vgtu.lt",
-      "extra_links": [],
+      "url": "https://journals.vilniustech.lt/index.php?search=Technological%20and%20Economic%20Development%20of%20Economy",
+      "extra_links": [
+        {
+          "label": "VILNIUS TECH Journals",
+          "url": "https://journals.vilniustech.lt"
+        }
+      ],
       "note": ""
     },
     {
@@ -1269,16 +1399,26 @@
       "category": "Others",
       "order": 5,
       "journal": "International Journal of Strategic Property Management",
-      "url": "https://journals.vgtu.lt",
-      "extra_links": [],
+      "url": "https://journals.vilniustech.lt/index.php?search=International%20Journal%20of%20Strategic%20Property%20Management",
+      "extra_links": [
+        {
+          "label": "VILNIUS TECH Journals",
+          "url": "https://journals.vilniustech.lt"
+        }
+      ],
       "note": ""
     },
     {
       "category": "Others",
       "order": 6,
       "journal": "Transport",
-      "url": "https://journals.vgtu.lt",
-      "extra_links": [],
+      "url": "https://journals.vilniustech.lt/index.php?search=Transport",
+      "extra_links": [
+        {
+          "label": "VILNIUS TECH Journals",
+          "url": "https://journals.vilniustech.lt"
+        }
+      ],
       "note": ""
     },
     {
@@ -1349,8 +1489,13 @@
       "category": "Others",
       "order": 15,
       "journal": "Journal of Civil Engineering and Management",
-      "url": "https://journals.vgtu.lt",
-      "extra_links": [],
+      "url": "https://journals.vilniustech.lt/index.php?search=Journal%20of%20Civil%20Engineering%20and%20Management",
+      "extra_links": [
+        {
+          "label": "VILNIUS TECH Journals",
+          "url": "https://journals.vilniustech.lt"
+        }
+      ],
       "note": ""
     },
     {
