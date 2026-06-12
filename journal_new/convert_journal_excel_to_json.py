@@ -19,9 +19,11 @@ def clean(value):
         return ''
     return str(value).strip()
 
-def split_extra_links(text):
+def split_extra_links(text, main_url=''):
     links = []
+    seen = set()
     text = clean(text)
+    main = clean(main_url).rstrip('/')
     if not text:
         return links
     for part in [p.strip() for p in text.split(';') if p.strip()]:
@@ -30,8 +32,10 @@ def split_extra_links(text):
         else:
             label, url = 'Link', part
         label, url = clean(label), clean(url)
-        if url:
+        key = url.rstrip('/')
+        if url and key != main and key not in seen:
             links.append({'label': label or 'Link', 'url': url})
+            seen.add(key)
     return links
 
 def main():
@@ -80,7 +84,7 @@ def main():
             'order': order,
             'journal': journal,
             'url': url,
-            'extra_links': split_extra_links(get(row, EXTRA_COL)),
+            'extra_links': split_extra_links(get(row, EXTRA_COL), url),
             'note': clean(get(row, 'Note'))
         })
 
