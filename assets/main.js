@@ -272,7 +272,7 @@ function authorHtml(pub){
     const clean = String(a);
     const starred = clean.endsWith("*");
     const base = starred ? clean.slice(0,-1) : clean;
-    const strong = (base === "Zhen Zhang" || base === "张震") ? `<strong>${esc(base)}</strong>` : esc(base);
+    const strong = (base === "Zhang, Zhen" || base === "Zhen Zhang" || base === "张震") ? `<strong>${esc(base)}</strong>` : esc(base);
     return strong + (starred ? "*" : "");
   }).join(PUB_DISPLAY_LANG === "zh" ? "，" : ", ");
 }
@@ -485,7 +485,7 @@ function renderServiceRecord(s, cat){
 
   // Editorial Boards are intentionally rendered as a normal text list,
   // not as a two-column/table layout. Prefer the curated item text because
-  // it already preserves role, journal_old/series, period, and past role notes.
+  // it already preserves role, journal/series, period, and past role notes.
   if(String(cat || "").toLowerCase().includes("editorial")){
     const text = item || [
       [role, organization].filter(Boolean).join(" of "),

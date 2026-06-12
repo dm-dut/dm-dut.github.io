@@ -29,8 +29,8 @@ TYPE_MAP = {
     "章节": "Book Chapter",
     "book chapter": "Book Chapter",
     "期刊": "Journal Article",
-    "journal_old": "Journal Article",
-    "journal_old article": "Journal Article",
+    "journal": "Journal Article",
+    "journal article": "Journal Article",
     "会议": "Conference Paper",
     "conference": "Conference Paper",
     "conference paper": "Conference Paper",
@@ -57,22 +57,44 @@ def norm_key(v: Any) -> str:
 def norm_name(name: str) -> str:
     """Normalize English-style names for display.
 
-    - Removes existing asterisks.
-    - Converts inverted English names, e.g., ``Zhang, Zhen`` -> ``Zhen Zhang``.
-    - Leaves Chinese names unchanged.
+    The homepage now uses the inverted author-name style consistently for
+    English names, e.g., ``Zhang, Zhen``. Chinese names are left unchanged.
+    Existing inverted names are preserved; non-inverted English names such as
+    ``Zhen Zhang`` are converted to ``Zhang, Zhen`` when possible.
     """
     s = clean(name).replace("*", "")
     s = re.sub(r"\s+", " ", s).strip()
-    if "," in s and not re.search(r"[\u4e00-\u9fff]", s):
-        parts = [p.strip() for p in s.split(",", 1)]
-        if len(parts) == 2 and parts[0] and parts[1]:
-            s = f"{parts[1]} {parts[0]}"
+    if not s or re.search(r"[\u4e00-\u9fff]", s):
+        return s
+    if "," in s:
+        family, given = [p.strip() for p in s.split(",", 1)]
+        return f"{family}, {given}" if family and given else s
+    parts = s.split()
+    if len(parts) >= 2:
+        family = parts[-1]
+        given = " ".join(parts[:-1])
+        return f"{family}, {given}"
     return s
 
 
 def name_key(name: str) -> str:
-    """ASCII-only key for English names."""
-    return re.sub(r"[^a-z]", "", norm_name(name).lower())
+    """Canonical ASCII key for English names.
+
+    This key treats ``Zhang, Zhen`` and ``Zhen Zhang`` as the same person, so
+    corresponding-author matching remains robust while the displayed style is
+    always inverted.
+    """
+    s = clean(name).replace("*", "")
+    s = re.sub(r"\s+", " ", s).strip().lower()
+    if not s:
+        return ""
+    if "," in s:
+        family, given = [p.strip() for p in s.split(",", 1)]
+        canonical = family + given
+    else:
+        parts = s.split()
+        canonical = (parts[-1] + "".join(parts[:-1])) if len(parts) >= 2 else s
+    return re.sub(r"[^a-z]", "", canonical)
 
 
 def zh_key(name: str) -> str:
