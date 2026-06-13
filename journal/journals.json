@@ -901,16 +901,16 @@
     {
       "category": "IEEE",
       "order": 15,
-      "journal": "IEEE Transactions on Cognitive and Developmental Systems",
-      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7422051",
+      "journal": "IEEE Transactions on Emerging Topics in Computational Intelligence",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7777658",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "IEEE",
       "order": 16,
-      "journal": "IEEE Transactions on Emerging Topics in Computational Intelligence",
-      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7777658",
+      "journal": "IEEE Transactions on Cognitive and Developmental Systems",
+      "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7422051",
       "extra_links": [],
       "note": ""
     },
@@ -1499,19 +1499,6 @@
     {
       "category": "中文期刊",
       "order": 10,
-      "journal": "南开管理评论",
-      "url": "http://www.nbronline.cn/ch/index.aspx",
-      "extra_links": [
-        {
-          "label": "CNKI",
-          "url": "https://navi.cnki.net/knavi/detail?p=lKTCeAGFZh9Ue16OTUg-5EwLDyLEfx1_wPrOxIGe2xH33y5mqsDNofkcaL-y2W7K3uP1LsvOBXr20eEhJFLOhUI4gKsH11k050omDbMZlN9CsaeGMhwMBA==&uniplatform=NZKPT"
-        }
-      ],
-      "note": ""
-    },
-    {
-      "category": "中文期刊",
-      "order": 11,
       "journal": "科研管理",
       "url": "http://www.kygl.net.cn/CN/volumn/current.shtml",
       "extra_links": [
@@ -1524,7 +1511,7 @@
     },
     {
       "category": "中文期刊",
-      "order": 12,
+      "order": 11,
       "journal": "情报学报",
       "url": "http://c.g.wanfangdata.com.cn/Periodical-qbxb.aspx",
       "extra_links": [
@@ -1537,7 +1524,7 @@
     },
     {
       "category": "中文期刊",
-      "order": 13,
+      "order": 12,
       "journal": "工程管理科技前沿",
       "url": "https://navi.cnki.net/knavi/detail?p=lKTCeAGFZh-GAv0jPFKFXS8SEP2Ah0gRdsS1WKdacP65L7Jt8Llj4s_mjmxb0WQ1lZ8cjqzqp-aMY6vqJmqbd4XiZF25Ocq4q4DcD50p7qpvTJKltS_NFw==&uniplatform=NZKPT",
       "extra_links": [],
@@ -1545,7 +1532,7 @@
     },
     {
       "category": "中文期刊",
-      "order": 14,
+      "order": 13,
       "journal": "运筹与管理",
       "url": "http://www.jorms.net/CN/1007-3221/home.shtml",
       "extra_links": [
@@ -1556,6 +1543,19 @@
         {
           "label": "Wanfang",
           "url": "http://c.wanfangdata.com.cn/Periodical-ycygl.aspx"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "category": "中文期刊",
+      "order": 10,
+      "journal": "南开管理评论",
+      "url": "http://www.nbronline.cn/ch/index.aspx",
+      "extra_links": [
+        {
+          "label": "CNKI",
+          "url": "https://navi.cnki.net/knavi/detail?p=lKTCeAGFZh9Ue16OTUg-5EwLDyLEfx1_wPrOxIGe2xH33y5mqsDNofkcaL-y2W7K3uP1LsvOBXr20eEhJFLOhUI4gKsH11k050omDbMZlN9CsaeGMhwMBA==&uniplatform=NZKPT"
         }
       ],
       "note": ""
