@@ -6,17 +6,17 @@
 <title>Journal List</title>
 <style>
 :root{
-  --bg:#f4f8fc;
+  --bg:#f6f9fc;
   --panel:#ffffff;
-  --line:#d7e5f2;
-  --line-soft:#e8f1f8;
-  --text:#203246;
-  --muted:#6f8296;
-  --blue:#245f9f;
-  --blue-2:#2f7abf;
-  --blue-soft:#eaf4ff;
-  --link:#183b61;
-  --shadow:0 12px 30px rgba(25,71,110,.075);
+  --line:#e9f0f6;
+  --line-soft:#eef4f8;
+  --text:#26384a;
+  --muted:#8191a2;
+  --blue:#2f6f9f;
+  --blue-2:#3f82b4;
+  --blue-soft:#edf6ff;
+  --link:#3e5f7a;
+  --shadow:0 14px 34px rgba(30,70,110,.045);
 }
 *{box-sizing:border-box}
 body{
@@ -25,85 +25,178 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","Noto Sans SC",Arial,sans-serif;
   color:var(--text);
   background:
-    radial-gradient(circle at 10% -6%, rgba(47,122,191,.14), transparent 33%),
-    radial-gradient(circle at 92% 2%, rgba(36,95,159,.08), transparent 30%),
-    linear-gradient(180deg,#f9fcff 0%, var(--bg) 54%, #eef5fb 100%);
+    radial-gradient(circle at 8% -8%, rgba(66,126,180,.055), transparent 34%),
+    radial-gradient(circle at 94% 0%, rgba(80,150,170,.035), transparent 30%),
+    linear-gradient(180deg,#fbfdff 0%,#f7fafc 52%,#f2f6fa 100%);
 }
-.container{max-width:1280px;margin:0 auto;padding:34px 24px 46px}
-.header{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:22px}
+
+.container{max-width:1280px;margin:0 auto;padding:34px 24px 48px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:20px}
 .title-group{display:flex;align-items:center;gap:16px;min-width:0;flex:1 1 auto}
-h1{margin:0;font-size:30px;letter-spacing:.2px;color:#183b61;font-weight:760}
-.header-link{display:inline-flex;align-items:center;white-space:nowrap;text-decoration:none;border:1px solid #bad8e4;background:linear-gradient(180deg,#eef9fb 0%,#e6f3f8 100%);color:#246173;border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:680;box-shadow:0 5px 14px rgba(36,97,115,.08);transition:all .18s ease}
-.header-link:hover{background:#dff2f7;border-color:#8fc4d4;color:#164d5d;transform:translateY(-1px)}
+h1{margin:0;font-size:30px;letter-spacing:.2px;color:#1f3f5d;font-weight:720}
+.header-link{
+  display:inline-flex;align-items:center;white-space:nowrap;text-decoration:none;
+  border:1px solid #d5e7ec;background:linear-gradient(180deg,#f4fbfc 0%,#edf7f9 100%);
+  color:#3c6d79;border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:620;
+  box-shadow:0 4px 12px rgba(50,105,120,.055);transition:all .18s ease
+}
+.header-link:hover{background:#e8f6f8;border-color:#badce4;color:#2d6470;transform:translateY(-1px)}
 .searchbar{flex:0 1 420px;position:relative}
 .searchbar input{
-  width:100%;height:42px;border:1px solid var(--line);border-radius:14px;
-  background:rgba(255,255,255,.94);color:var(--text);padding:0 16px 0 40px;outline:none;
-  box-shadow:0 4px 14px rgba(34,90,140,.05);transition:border .2s, box-shadow .2s, background .2s;
+  width:100%;height:42px;border:1px solid #dfeaf3;border-radius:14px;
+  background:rgba(255,255,255,.96);color:var(--text);padding:0 16px 0 40px;outline:none;
+  box-shadow:0 4px 14px rgba(34,90,140,.035);transition:border .2s, box-shadow .2s, background .2s;
 }
-.searchbar input:focus{border-color:#91bbe2;box-shadow:0 0 0 4px rgba(47,122,191,.11);background:#fff}
-.searchbar:before{content:"";position:absolute;left:15px;top:50%;width:13px;height:13px;border:2px solid #6f8eaa;border-radius:50%;transform:translateY(-50%)}
-.searchbar:after{content:"";position:absolute;left:27px;top:27px;width:7px;height:2px;background:#6f8eaa;transform:rotate(45deg);border-radius:2px}
+.searchbar input:focus{border-color:#a8cce6;box-shadow:0 0 0 4px rgba(63,130,180,.085);background:#fff}
+.searchbar:before{content:"";position:absolute;left:15px;top:50%;width:13px;height:13px;border:2px solid #8199ad;border-radius:50%;transform:translateY(-50%)}
+.searchbar:after{content:"";position:absolute;left:27px;top:27px;width:7px;height:2px;background:#8199ad;transform:rotate(45deg);border-radius:2px}
+
 .tabs{display:flex;flex-wrap:wrap;gap:9px;margin:8px 0 22px}
 .tab{
-  --tab-accent:#4b89c3;
-  border:1px solid color-mix(in srgb,var(--tab-accent) 18%, var(--line));
-  background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(248,252,255,.92));
-  color:color-mix(in srgb,var(--tab-accent) 66%, #263d55);
+  --tab-accent:#5c8db8;
+  border:1px solid color-mix(in srgb,var(--tab-accent) 14%, #dfe9f2);
+  background:rgba(255,255,255,.82);
+  color:color-mix(in srgb,var(--tab-accent) 56%, #4a5f73);
   border-radius:999px;
-  padding:8px 14px;font-size:14px;font-weight:650;cursor:pointer;
-  box-shadow:0 3px 10px rgba(30,76,120,.035);
+  padding:8px 14px;font-size:14px;font-weight:600;cursor:pointer;
+  box-shadow:0 2px 8px rgba(30,76,120,.02);
   transition:all .18s ease;
 }
-.tab:hover{border-color:color-mix(in srgb,var(--tab-accent) 36%, #9cc3e4);background:#fff;transform:translateY(-1px)}
-.tab.active{background:linear-gradient(135deg,color-mix(in srgb,var(--tab-accent) 86%, #245f9f),color-mix(in srgb,var(--tab-accent) 66%, #6aa5d8));color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(36,95,159,.16)}
-.tab[data-cat="Elsevier"]{--tab-accent:#3b82c4}
-.tab[data-cat="Tourism Related"]{--tab-accent:#2f9a8f}
-.tab[data-cat="Springer"]{--tab-accent:#4d7bc7}
-.tab[data-cat="IEEE/INFORMS/ACM"]{--tab-accent:#6e78c9}
-.tab[data-cat="Wiley/Taylor/WorldScientific"]{--tab-accent:#3f97b2}
-.tab[data-cat="Others"]{--tab-accent:#6d8fb3}
-.tab[data-cat="中文期刊"]{--tab-accent:#2f8f75}
-.content{background:rgba(255,255,255,.78);border:1px solid var(--line-soft);box-shadow:var(--shadow);border-radius:24px;padding:18px}
+.tab:hover{border-color:color-mix(in srgb,var(--tab-accent) 28%, #c8d9e8);background:#fff;transform:translateY(-1px)}
+.tab.active{
+  background:linear-gradient(135deg,color-mix(in srgb,var(--tab-accent) 78%, #426f9c),color-mix(in srgb,var(--tab-accent) 52%, #86b7d8));
+  color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(36,95,159,.13)
+}
+.tab[data-cat="Elsevier"]{--tab-accent:#5e8fb9}
+.tab[data-cat="Tourism Related"]{--tab-accent:#5b9b93}
+.tab[data-cat="Springer"]{--tab-accent:#7787b7}
+.tab[data-cat="IEEE/INFORMS/ACM"]{--tab-accent:#7c84b8}
+.tab[data-cat="Wiley/Taylor/WorldScientific"]{--tab-accent:#5d98a8}
+.tab[data-cat="Others"]{--tab-accent:#8997a8}
+.tab[data-cat="中文期刊"]{--tab-accent:#5a987f}
+
+.content{
+  background:rgba(255,255,255,.68);
+  border:1px solid #edf3f8;
+  box-shadow:var(--shadow);
+  border-radius:24px;
+  padding:18px;
+}
 .category-section{
-  --accent:#4f86c6;
-  --accent-soft:#dcecff;
-  --section-bg:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(248,251,255,.96) 100%);
-  padding:15px 15px 17px;margin:0 0 18px;border:1px solid #e5eef7;border-radius:19px;background:var(--section-bg);
-  box-shadow:0 8px 22px rgba(28,78,120,.045);
+  --accent:#7c96ae;
+  --accent-soft:#f6f9fb;
+  --section-bg:linear-gradient(180deg,#ffffff 0%,#fcfdfe 100%);
+  --name-color:#2e5575;
+  --name-hover:#215f8f;
+  --heading-bg:#f3f7fb;
+  --heading-border:#e2edf5;
+  padding:18px 18px 20px;
+  margin:0 0 24px;
+  border:1px solid color-mix(in srgb,var(--accent) 8%, #eef3f8);
+  border-radius:20px;
+  background:var(--section-bg);
+  box-shadow:0 5px 15px rgba(28,78,120,.022);
 }
 .category-section:last-child{margin-bottom:0}
-.category-heading{display:flex;align-items:center;gap:10px;margin:0 0 12px;color:#183b61;font-size:17px;font-weight:760;letter-spacing:.1px}
-.category-heading:before{content:"";width:5px;height:18px;border-radius:999px;background:var(--accent);display:inline-block}
-.category-heading:after{content:"";flex:1 1 auto;height:1px;background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 24%, white),rgba(255,255,255,0));margin-left:6px}
-.journal-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px 12px}
+.category-heading{
+  display:flex;align-items:center;gap:10px;margin:0 0 15px;
+  color:color-mix(in srgb,var(--accent) 50%, #31455c);
+  font-size:16px;font-weight:700;letter-spacing:.1px;
+  background:var(--heading-bg);
+  border:1px solid var(--heading-border);
+  border-radius:12px;
+  padding:8px 12px;
+}
+.category-heading:before{
+  content:"";width:4px;height:18px;border-radius:999px;
+  background:var(--accent);
+  display:inline-block
+}
+.category-heading:after{content:none}
+.category-heading span{
+  display:inline-flex;align-items:center;padding:0;border-radius:0;
+  color:inherit;background:transparent;border:0;box-shadow:none;
+}
+
+.journal-grid{
+  list-style:none;padding:0;margin:0;display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px 15px
+}
 .category-section[data-category="中文期刊"] .journal-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .journal-card{
-  min-width:0;display:flex;align-items:center;gap:6px;min-height:38px;padding:7px 11px;
-  border:1px solid color-mix(in srgb,var(--accent) 16%, #dde9f4);border-radius:12px;background:rgba(255,255,255,.96);
-  box-shadow:0 1px 0 rgba(255,255,255,.7) inset;
+  min-width:0;display:flex;align-items:center;gap:6px;
+  min-height:43px;padding:8px 12px;
+  border:1px solid rgba(222,232,241,.76);
+  border-radius:14px;
+  background:rgba(255,255,255,.86);
+  box-shadow:none;
   transition:border .18s, box-shadow .18s, transform .18s, background .18s;
 }
-.journal-card:hover{
-  border-color:color-mix(in srgb,var(--accent) 42%, #b7d3ea);
-  box-shadow:0 9px 20px rgba(25,71,110,.08),0 0 0 3px color-mix(in srgb,var(--accent) 8%, transparent);
-  transform:translateY(-1px);background:#fff;
+.journal-card:nth-child(6n+2),.journal-card:nth-child(6n+5){
+  background:color-mix(in srgb,var(--accent-soft) 10%, white)
 }
-.category-section[data-category="Elsevier"]{--accent:#3b82c4;--accent-soft:#dfeeff;--section-bg:linear-gradient(180deg,#fafdff 0%,#f3f8fd 100%)}
-.category-section[data-category="Tourism Related"]{--accent:#2f9a8f;--accent-soft:#def6f1;--section-bg:linear-gradient(180deg,#fbfffe 0%,#f1faf8 100%)}
-.category-section[data-category="Springer"]{--accent:#4d7bc7;--accent-soft:#e2ebff;--section-bg:linear-gradient(180deg,#fbfcff 0%,#f4f7fe 100%)}
-.category-section[data-category="IEEE/INFORMS/ACM"]{--accent:#6e78c9;--accent-soft:#e7e9ff;--section-bg:linear-gradient(180deg,#fcfcff 0%,#f5f6fe 100%)}
-.category-section[data-category="Wiley/Taylor/WorldScientific"]{--accent:#3f97b2;--accent-soft:#def3fa;--section-bg:linear-gradient(180deg,#fbfeff 0%,#f2f9fc 100%)}
-.category-section[data-category="Others"]{--accent:#6d8fb3;--accent-soft:#e7f0fa;--section-bg:linear-gradient(180deg,#fcfdff 0%,#f4f7fb 100%)}
-.category-section[data-category="中文期刊"]{--accent:#2f8f75;--accent-soft:#def5ed;--section-bg:linear-gradient(180deg,#fbfffd 0%,#f1faf6 100%)}
-.journal-link{min-width:0;flex:1 1 auto;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-decoration:none;color:var(--link);font-size:15px;line-height:1.25;font-weight:520}
-.category-section[data-category="中文期刊"] .journal-link{font-size:14.5px;font-weight:520}
-.journal-link:hover{color:var(--blue-2)}
-.extra-link{flex:0 0 auto;padding:3px 7px;border-radius:999px;background:var(--accent-soft);color:color-mix(in srgb,var(--accent) 90%, #214562);border:1px solid color-mix(in srgb,var(--accent) 22%, #cce0f2);text-decoration:none;font-size:11.5px;line-height:1;font-weight:700}
-.extra-link:hover{background:color-mix(in srgb,var(--accent-soft) 62%, white);color:color-mix(in srgb,var(--accent) 96%, #174f85)}
+.journal-card:hover{
+  border-color:color-mix(in srgb,var(--accent) 23%, #d7e5f0);
+  box-shadow:0 7px 16px rgba(25,71,110,.055);
+  transform:translateY(-1px);
+  background:#fff
+}
+.journal-link{
+  min-width:0;flex:1 1 auto;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-decoration:none;
+  color:var(--name-color);font-size:15.2px;line-height:1.34;font-weight:500;
+  letter-spacing:.002px;
+}
+.category-section[data-category="中文期刊"] .journal-link{font-size:14.8px;font-weight:500}
+.journal-link:hover{color:var(--name-hover)}
+.extra-link{
+  flex:0 0 auto;padding:3px 7px;border-radius:999px;
+  background:color-mix(in srgb,var(--accent-soft) 68%, white);
+  color:color-mix(in srgb,var(--accent) 72%, #3d5368);
+  border:1px solid color-mix(in srgb,var(--accent) 13%, #dce8f2);
+  text-decoration:none;font-size:11.5px;line-height:1;font-weight:620
+}
+.extra-link:hover{background:#fff;color:color-mix(in srgb,var(--accent) 88%, #245f9f)}
 .empty{display:none;color:var(--muted);text-align:center;padding:34px 0;font-size:15px}
+
+.category-section[data-category="Elsevier"]{--heading-bg:#edf5fc;--heading-border:#d7e8f5;
+  --accent:#6c95b9;--accent-soft:#f4f8fc;--name-color:#244f72;--name-hover:#184f82;
+  --section-bg:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%)
+}
+.category-section[data-category="Tourism Related"]{--heading-bg:#edf8f6;--heading-border:#d5ebe7;
+  --accent:#6aa099;--accent-soft:#f4faf8;--name-color:#2d5d58;--name-hover:#1d6d64;
+  --section-bg:linear-gradient(180deg,#ffffff 0%,#fbfdfc 100%)
+}
+.category-section[data-category="Springer"]{--heading-bg:#f0f3fb;--heading-border:#dde4f4;
+  --accent:#8490ba;--accent-soft:#f6f7fc;--name-color:#444f78;--name-hover:#435d94;
+  --section-bg:linear-gradient(180deg,#ffffff 0%,#fcfcfe 100%)
+}
+.category-section[data-category="IEEE/INFORMS/ACM"]{--heading-bg:#f0f1fb;--heading-border:#dfe2f3;
+  --accent:#858bbb;--accent-soft:#f6f7fc;--name-color:#444d7b;--name-hover:#4c5898;
+  --section-bg:linear-gradient(180deg,#ffffff 0%,#fcfcfe 100%)
+}
+.category-section[data-category="Wiley/Taylor/WorldScientific"]{--heading-bg:#edf8fb;--heading-border:#d5e9ef;
+  --accent:#6da0ac;--accent-soft:#f4fafb;--name-color:#2e5f70;--name-hover:#276f85;
+  --section-bg:linear-gradient(180deg,#ffffff 0%,#fbfdfd 100%)
+}
+.category-section[data-category="Others"]{--heading-bg:#f2f5f8;--heading-border:#dde6ee;
+  --accent:#919dab;--accent-soft:#f6f8fa;--name-color:#4b5d6f;--name-hover:#4d6a84;
+  --section-bg:linear-gradient(180deg,#ffffff 0%,#fcfdfe 100%)
+}
+.category-section[data-category="中文期刊"]{--heading-bg:#edf8f2;--heading-border:#d6eadf;
+  --accent:#6aa188;--accent-soft:#f4faf7;--name-color:#2d5f4e;--name-hover:#246f59;
+  --section-bg:linear-gradient(180deg,#ffffff 0%,#fbfdfc 100%)
+}
 @media (max-width:1050px){.journal-grid,.category-section[data-category="中文期刊"] .journal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:760px){.container{padding:24px 14px 34px}.header{display:block}.title-group{margin-bottom:14px;gap:10px;flex-wrap:wrap}h1{font-size:26px}.header-link{font-size:13px;padding:7px 12px}.searchbar{order:2;width:100%;max-width:none;flex-basis:100%}.content{padding:12px;border-radius:18px}.category-section{padding:12px;margin-bottom:14px}.journal-grid,.category-section[data-category="中文期刊"] .journal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-heading{font-size:16px}}
+@media (max-width:760px){.container{padding:24px 14px 34px}.header{display:block}.title-group{margin-bottom:14px;gap:10px;flex-wrap:wrap}h1{font-size:26px}.header-link{font-size:13px;padding:7px 12px}.searchbar{order:2;width:100%;max-width:none;flex-basis:100%}.content{padding:12px;border-radius:18px}.category-section{padding:14px;margin-bottom:16px}.journal-grid,.category-section[data-category="中文期刊"] .journal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-heading{
+  display:flex;align-items:center;gap:10px;margin:0 0 15px;
+  color:color-mix(in srgb,var(--accent) 50%, #31455c);
+  font-size:16px;font-weight:700;letter-spacing:.1px;
+  background:var(--heading-bg);
+  border:1px solid var(--heading-border);
+  border-radius:12px;
+  padding:8px 12px;
+}}
 @media (max-width:520px){.journal-grid,.category-section[data-category="中文期刊"] .journal-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -186,7 +279,7 @@ function render(){
   const sections = cats.map(cat => {
     const items = filteredItems(cat);
     if(state.category === 'All' && items.length === 0) return '';
-    const heading = state.category === 'All' ? `<div class="category-heading">${esc(cat)}</div>` : '';
+    const heading = state.category === 'All' ? `<div class="category-heading"><span>${esc(cat)}</span></div>` : '';
     const cards = items.map(cardHtml).join('');
     return `<section class="category-section" data-category="${esc(cat)}">
       ${heading}

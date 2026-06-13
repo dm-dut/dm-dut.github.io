@@ -592,7 +592,7 @@
       "url": "https://link.springer.com/journal/42524/articles",
       "extra_links": [
         {
-          "label": "AAAA",
+          "label": "Web",
           "url": "http://journal.hep.com.cn/fem/EN/article/showAsap.do"
         }
       ],
@@ -882,7 +882,7 @@
       "url": "https://www.ieee-jas.net/en/article/latest_all",
       "extra_links": [
         {
-          "label": "AAA",
+          "label": "IEEE",
           "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7725587"
         }
       ],
@@ -1007,7 +1007,7 @@
       "url": "https://journals.sagepub.com/action/doSearch?AllField=Production+and+Operations+Management&SeriesKey=paoa&startPage=0&sortBy=FullEpubDateField",
       "extra_links": [
         {
-          "label": "Past",
+          "label": "Wiley",
           "url": "https://onlinelibrary.wiley.com/toc/19375956/0/0"
         }
       ],
@@ -1105,13 +1105,8 @@
       "category": "Wiley/Taylor/WorldScientific",
       "order": 1,
       "journal": "International Journal of Intelligent Systems",
-      "url": "https://www.hindawi.com/journals/ijis/contents/",
-      "extra_links": [
-        {
-          "label": "AAA",
-          "url": "https://onlinelibrary.wiley.com/journal/1098111x"
-        }
-      ],
+      "url": "https://onlinelibrary.wiley.com/journal/1098111x",
+      "extra_links": [],
       "note": ""
     },
     {
