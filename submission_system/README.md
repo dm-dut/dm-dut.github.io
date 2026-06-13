@@ -2,10 +2,11 @@
 
 文件说明：
 
-- `index.html`：网页入口，只负责显示页面，不再内嵌 JSON 数据
+- `index.html`：网页入口，只负责显示页面，不内嵌 JSON 数据
 - `journal_submission_systems.xlsx`：需要维护的 Excel 数据
 - `journal_submission_systems.json`：网页自动读取的数据文件
 - `convert_excel_to_json.py`：Excel 转 JSON 程序
+- `journal/`：期刊列表目录，网页右上角“期刊列表”链接指向这里
 
 ## 更新流程
 
@@ -19,7 +20,7 @@ python convert_excel_to_json.py --excel journal_submission_systems.xlsx --out jo
 
 ## 本地预览
 
-如果直接双击 `index.html` 后无法读取 JSON，请在本目录运行：
+如果直接双击 `index.html` 无法读取 JSON，请运行：
 
 ```bash
 python -m http.server 8000
@@ -30,5 +31,3 @@ python -m http.server 8000
 ```text
 http://localhost:8000/
 ```
-
-部署到 GitHub Pages 或普通网站时，只需要保证 `index.html` 和 `journal_submission_systems.json` 在同一目录。

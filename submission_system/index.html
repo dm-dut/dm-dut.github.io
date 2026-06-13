@@ -35,8 +35,15 @@
       font-size:14px;
     }
     .wrap{max-width:1080px;margin:0 auto;padding:30px 20px 46px}
-    h1{
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
       margin:0 0 16px;
+    }
+    h1{
+      margin:0;
       font-size:27px;
       line-height:1.25;
       font-weight:700;
@@ -98,6 +105,33 @@
       border-radius:2px;
       background:linear-gradient(90deg,#3f73c8,#77a8ec);
     }
+
+    .journal-list-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      height:38px;
+      padding:0 14px;
+      border-radius:11px;
+      text-decoration:none;
+      color:#3f73c8;
+      background:#eef5ff;
+      border:1px solid #cfe0f8;
+      font-size:14px;
+      font-weight:650;
+      transition:background .16s ease,color .16s ease,transform .16s ease;
+    }
+    .journal-list-link:hover{
+      background:#e3efff;
+      color:#2f5fa9;
+      transform:translateY(-1px);
+    }
+    @media(max-width:640px){
+      .topbar{align-items:flex-start;flex-direction:column;gap:10px}
+      .journal-list-link{height:36px}
+    }
+
     main{margin-top:24px}
     section{
       margin-top:26px;
@@ -206,7 +240,10 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>期刊投稿系统链接</h1>
+    <div class="topbar">
+      <h1>期刊投稿/审稿系统链接合集</h1>
+      <a class="journal-list-link" href="../journal/">期刊列表 ↗</a>
+    </div>
     <div class="toolbar">
       <input id="search" placeholder="搜索期刊名或链接" />
       <div class="filters" id="filters"></div>
