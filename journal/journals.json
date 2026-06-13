@@ -1114,14 +1114,6 @@
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 1,
-      "journal": "International Journal of Intelligent Systems",
-      "url": "https://onlinelibrary.wiley.com/journal/1098111x",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Wiley/Taylor/WorldScientific",
-      "order": 2,
       "journal": "Expert Systems",
       "url": "https://onlinelibrary.wiley.com/journal/14680394",
       "extra_links": [],
@@ -1129,7 +1121,7 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
-      "order": 3,
+      "order": 2,
       "journal": "International Transactions in Operational Research",
       "url": "https://onlinelibrary.wiley.com/journal/14753995",
       "extra_links": [],
@@ -1137,7 +1129,7 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
-      "order": 4,
+      "order": 3,
       "journal": "Journal of Multi-Criteria Decision Analysis",
       "url": "https://onlinelibrary.wiley.com/journal/10991360",
       "extra_links": [],
@@ -1145,7 +1137,7 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
-      "order": 5,
+      "order": 4,
       "journal": "Decision Sciences Journal",
       "url": "https://onlinelibrary.wiley.com/journal/15405915",
       "extra_links": [],
@@ -1153,7 +1145,7 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
-      "order": 6,
+      "order": 5,
       "journal": "Risk Analysis",
       "url": "https://onlinelibrary.wiley.com/journal/15396924",
       "extra_links": [],
@@ -1161,7 +1153,7 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
-      "order": 7,
+      "order": 6,
       "journal": "International Journal of Finance & Economics",
       "url": "https://onlinelibrary.wiley.com/toc/10991158/0/0",
       "extra_links": [],
@@ -1169,7 +1161,7 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
-      "order": 8,
+      "order": 7,
       "journal": "Journal of Forecasting",
       "url": "https://onlinelibrary.wiley.com/toc/1099131x/0/0",
       "extra_links": [],
@@ -1177,9 +1169,17 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
-      "order": 9,
+      "order": 8,
       "journal": "Quality and Reliability Engineering International",
       "url": "https://onlinelibrary.wiley.com/toc/10991638/0/0",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Wiley/Taylor/WorldScientific",
+      "order": 9,
+      "journal": "International Journal of Intelligent Systems",
+      "url": "https://onlinelibrary.wiley.com/journal/1098111x",
       "extra_links": [],
       "note": ""
     },
@@ -1226,30 +1226,14 @@
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 15,
-      "journal": "International Journal of Information Technology & Decision Making",
-      "url": "http://www.worldscientific.com/worldscinet/ijitdm",
+      "journal": "Journal of Management Analytics",
+      "url": "https://www.tandfonline.com/action/showAxaArticles?journalCode=tjma20",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 16,
-      "journal": "International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems",
-      "url": "http://www.worldscientific.com/worldscinet/ijufks",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Wiley/Taylor/WorldScientific",
-      "order": 17,
-      "journal": "Asia-Pacific Journal of Operational Research",
-      "url": "http://www.worldscientific.com/toc/apjor/0/0",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Wiley/Taylor/WorldScientific",
-      "order": 18,
       "journal": "Economic Research",
       "url": "https://www.tandfonline.com/action/showAxaArticles?journalCode=rero20",
       "extra_links": [],
@@ -1257,9 +1241,25 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
+      "order": 17,
+      "journal": "International Journal of Information Technology & Decision Making",
+      "url": "http://www.worldscientific.com/worldscinet/ijitdm",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Wiley/Taylor/WorldScientific",
+      "order": 18,
+      "journal": "International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems",
+      "url": "http://www.worldscientific.com/worldscinet/ijufks",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Wiley/Taylor/WorldScientific",
       "order": 19,
-      "journal": "Journal of Management Analytics",
-      "url": "https://www.tandfonline.com/action/showAxaArticles?journalCode=tjma20",
+      "journal": "Asia-Pacific Journal of Operational Research",
+      "url": "http://www.worldscientific.com/toc/apjor/0/0",
       "extra_links": [],
       "note": ""
     },
