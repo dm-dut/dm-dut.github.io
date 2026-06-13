@@ -12,13 +12,13 @@
       --muted:#7a8494;
       --line:#e4ebf4;
       --line-soft:#eef3f8;
-      --primary:#5d789e;
-      --blue:#5d789e;
-      --purple:#786a97;
+      --primary:#43566f;
+      --blue:#3a332d;
+      --purple:#34495f;
       --green:#3f8a63;
       --orange:#b06a2d;
-      --blue-soft:#f5f8fc;
-      --purple-soft:#f7f5fb;
+      --blue-soft:#faf8f5;
+      --purple-soft:#f3f7fb;
       --green-soft:#f2faf5;
       --orange-soft:#fff7ee;
       --hover:#f8fbff;
@@ -27,8 +27,8 @@
     body{
       margin:0;
       background:
-        radial-gradient(circle at top left, rgba(93,120,158,.08), transparent 28%),
-        radial-gradient(circle at top right, rgba(120,106,151,.06), transparent 24%),
+        radial-gradient(circle at top left, rgba(88,72,54,.045), transparent 28%),
+        radial-gradient(circle at top right, rgba(52,73,95,.055), transparent 24%),
         linear-gradient(180deg,#fbfdff 0%,#f5f8fc 100%);
       color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
@@ -70,8 +70,8 @@
       background:#fff;
     }
     input:focus{
-      border-color:#b4c4d9;
-      box-shadow:0 0 0 3px rgba(93,120,158,.10);
+      border-color:#b9c5d4;
+      box-shadow:0 0 0 3px rgba(67,86,111,.09);
     }
     .filters{
       display:flex;
@@ -93,7 +93,7 @@
       cursor:pointer;
       transition:color .18s ease;
     }
-    button:hover{color:#516985}
+    button:hover{color:#43566f}
     button.active{color:var(--primary);font-weight:680}
     button.active::after{
       content:"";
@@ -103,7 +103,7 @@
       bottom:-1px;
       height:2px;
       border-radius:2px;
-      background:linear-gradient(90deg,#5d789e,#9aadc8);
+      background:linear-gradient(90deg,#43566f,#8ea2bb);
     }
 
     .journal-list-link{
@@ -124,7 +124,7 @@
     }
     .journal-list-link:hover{
       background:#e3efff;
-      color:#4f6d92;
+      color:#3e6379;
       transform:translateY(-1px);
     }
     @media(max-width:640px){
@@ -149,8 +149,8 @@
       padding:14px 16px;
       border-bottom:1px solid var(--line-soft);
     }
-    section.cat-0 .section-head{background:linear-gradient(90deg,var(--blue-soft),#fff)}
-    section.cat-1 .section-head{background:linear-gradient(90deg,var(--purple-soft),#fff)}
+    section.cat-0 .section-head{background:linear-gradient(90deg,var(--blue-soft),#fff);border-left:4px solid #d7cabb}
+    section.cat-1 .section-head{background:linear-gradient(90deg,var(--purple-soft),#fff);border-left:4px solid #c8d6e6}
     section.cat-2 .section-head{background:linear-gradient(90deg,var(--green-soft),#fff)}
     section.cat-3 .section-head{background:linear-gradient(90deg,var(--orange-soft),#fff)}
     h2{
@@ -159,6 +159,9 @@
       font-weight:700;
       color:#2a3850;
     }
+
+    section.cat-0 h2{color:#3a332d}
+    section.cat-1 h2{color:#34495f}
     .count{
       font-size:12px;
       color:var(--muted);
@@ -189,12 +192,12 @@
       transition:background .16s ease,color .16s ease,padding-left .16s ease;
     }
     .journal-link:nth-child(3n){border-right:0}
-    section.cat-0 .journal-link{color:var(--blue)}
-    section.cat-1 .journal-link{color:var(--purple)}
+    section.cat-0 .journal-link{color:#3a332d}
+    section.cat-1 .journal-link{color:#34495f}
     section.cat-2 .journal-link{color:var(--green)}
     section.cat-3 .journal-link{color:var(--orange)}
-    section.cat-0 .journal-link:hover{background:var(--blue-soft);color:#4f6d92}
-    section.cat-1 .journal-link:hover{background:var(--purple-soft);color:#675a85}
+    section.cat-0 .journal-link:hover{background:#faf8f5;color:#2e2924}
+    section.cat-1 .journal-link:hover{background:#f3f7fb;color:#263f58}
     section.cat-2 .journal-link:hover{background:var(--green-soft);color:#2f744f}
     section.cat-3 .journal-link:hover{background:var(--orange-soft);color:#93551f}
     .journal-link:hover{padding-left:18px}
