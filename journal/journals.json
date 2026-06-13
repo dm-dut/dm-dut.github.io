@@ -2,8 +2,10 @@
   "categories": [
     "Elsevier",
     "Tourism Related",
-    "Springer",
-    "IEEE/INFORMS/ACM",
+    "Springer Nature",
+    "IEEE",
+    "UTD/INFORMS",
+    "ACM",
     "Wiley/Taylor/WorldScientific",
     "Others",
     "中文期刊"
@@ -482,7 +484,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 1,
       "journal": "Annals of Operations Research",
       "url": "http://link.springer.com/journal/10479/articles",
@@ -490,7 +492,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 2,
       "journal": "Fuzzy Optimization and Decision Making",
       "url": "http://link.springer.com/journal/10700/articles",
@@ -498,7 +500,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 3,
       "journal": "Group Decision and Negotiation",
       "url": "http://link.springer.com/journal/10726/articles",
@@ -506,7 +508,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 4,
       "journal": "Soft Computing",
       "url": "http://link.springer.com/journal/500/articles",
@@ -514,7 +516,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 5,
       "journal": "International Journal of Machine Learning and Cybernetics",
       "url": "http://link.springer.com/journal/13042/articles",
@@ -522,7 +524,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 6,
       "journal": "Knowledge and Information Systems",
       "url": "http://link.springer.com/journal/10115/articles",
@@ -530,7 +532,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 7,
       "journal": "Neural Computing and Applications",
       "url": "http://link.springer.com/journal/521/articles",
@@ -538,7 +540,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 8,
       "journal": "Applied Intelligence",
       "url": "http://link.springer.com/journal/10489/articles",
@@ -546,7 +548,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 9,
       "journal": "Cognitive Computation",
       "url": "http://link.springer.com/journal/12559/articles",
@@ -554,7 +556,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 10,
       "journal": "Complex & Intelligent Systems",
       "url": "http://link.springer.com/journal/40747/articles",
@@ -562,7 +564,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 11,
       "journal": "International Journal of Fuzzy Systems",
       "url": "http://link.springer.com/journal/40815/articles",
@@ -570,7 +572,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 12,
       "journal": "OR Spectrum",
       "url": "http://link.springer.com/journal/291/articles",
@@ -578,7 +580,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 13,
       "journal": "Artificial Intelligence Review",
       "url": "https://link.springer.com/journal/10462/articles",
@@ -586,7 +588,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 14,
       "journal": "Frontiers of Engineering Management",
       "url": "https://link.springer.com/journal/42524/articles",
@@ -599,7 +601,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 15,
       "journal": "Journal of Systems Science and Systems Engineering",
       "url": "http://link.springer.com/journal/11518/articles",
@@ -607,7 +609,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 16,
       "journal": "Journal of Systems Science and Complexity",
       "url": "http://link.springer.com/journal/11424/articles",
@@ -620,7 +622,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 17,
       "journal": "Data Mining & Knowledge Discovery",
       "url": "http://link.springer.com/journal/10618/articles",
@@ -628,7 +630,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 18,
       "journal": "Social Network Analysis and Mining",
       "url": "https://link.springer.com/journal/13278/articles",
@@ -636,7 +638,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 19,
       "journal": "Health Care Management Science",
       "url": "http://link.springer.com/journal/10729/articles",
@@ -644,7 +646,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 20,
       "journal": "Electronic Commerce Research",
       "url": "http://link.springer.com/journal/10660/articles",
@@ -652,7 +654,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 21,
       "journal": "Operational Research",
       "url": "http://link.springer.com/journal/12351/articles",
@@ -660,7 +662,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 22,
       "journal": "TOP",
       "url": "http://link.springer.com/journal/11750/articles",
@@ -668,7 +670,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 23,
       "journal": "Theory and Decision",
       "url": "http://link.springer.com/journal/11238/articles",
@@ -676,7 +678,7 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 24,
       "journal": "Central European Journal of Operations Research",
       "url": "http://link.springer.com/journal/10100/articles",
@@ -684,95 +686,103 @@
       "note": ""
     },
     {
-      "category": "Springer",
+      "category": "Springer Nature",
       "order": 25,
+      "journal": "International Journal of Computational Intelligence Systems",
+      "url": "https://www.springer.com/journal/44196",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Springer Nature",
+      "order": 26,
       "journal": "SCIENCE CHINA Information Sciences",
       "url": "https://www.sciengine.com/publisher/scp/journal/SCIS?slug=firstpublish",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "Springer",
-      "order": 26,
+      "category": "Springer Nature",
+      "order": 27,
       "journal": "Nature Computational Science",
       "url": "https://www.nature.com/natcomputsci/research-articles",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "Springer",
-      "order": 27,
+      "category": "Springer Nature",
+      "order": 28,
       "journal": "Nature Machine Intelligence",
       "url": "https://www.nature.com/natmachintell/research-articles",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "Springer",
-      "order": 28,
+      "category": "Springer Nature",
+      "order": 29,
       "journal": "Nature Communications",
       "url": "https://www.nature.com/ncomms/research-articles",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "Springer",
-      "order": 29,
+      "category": "Springer Nature",
+      "order": 30,
       "journal": "npj Artificial Intelligence",
       "url": "https://www.nature.com/npjai/research-articles",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "Springer",
-      "order": 30,
+      "category": "Springer Nature",
+      "order": 31,
       "journal": "Annals of Data Science",
       "url": "http://link.springer.com/journal/40745/articles",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "Springer",
-      "order": 31,
+      "category": "Springer Nature",
+      "order": 32,
       "journal": "Journal of Intelligent Manufacturing",
       "url": "https://link.springer.com/journal/10845/articles",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "Springer",
-      "order": 32,
+      "category": "Springer Nature",
+      "order": 33,
       "journal": "Journal of Data, Information and Management",
       "url": "https://link.springer.com/journal/42488/articles",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "Springer",
-      "order": 33,
+      "category": "Springer Nature",
+      "order": 34,
       "journal": "Journal of Ambient Intelligence and Humanized Computing",
       "url": "https://link.springer.com/journal/12652/articles",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "Springer",
-      "order": 34,
+      "category": "Springer Nature",
+      "order": 35,
       "journal": "Progress in Artificial Intelligence",
       "url": "http://link.springer.com/journal/13748/articles",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "Springer",
-      "order": 35,
+      "category": "Springer Nature",
+      "order": 36,
       "journal": "Granular Computing",
       "url": "http://link.springer.com/journal/41066/articles",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 1,
       "journal": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6376248&sortType=newest",
@@ -780,7 +790,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 2,
       "journal": "IEEE Transactions on Cybernetics",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6352949&sortType=newest",
@@ -788,7 +798,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 3,
       "journal": "IEEE Transactions on Computational Social Systems",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6780646&sortType=newest",
@@ -796,7 +806,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 4,
       "journal": "IEEE Transactions on Fuzzy Systems",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4358784&sortType=newest",
@@ -804,7 +814,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 5,
       "journal": "IEEE Transactions on Reliability",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4378406&sortType=newest",
@@ -812,7 +822,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 6,
       "journal": "IEEE Transactions on Engineering Management",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4429834&sortType=newest",
@@ -820,7 +830,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 7,
       "journal": "IEEE Transactions on Artificial Intelligence",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=9184921",
@@ -828,7 +838,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 8,
       "journal": "IEEE Transactions on Knowledge and Data Engineering",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4358933&sortType=newest",
@@ -836,7 +846,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 9,
       "journal": "IEEE Transactions on Evolutionary Computation",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4358751&sortType=newest",
@@ -844,7 +854,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 10,
       "journal": "IEEE Transactions on Neural Networks and Learning Systems",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6104215&sortType=newest",
@@ -852,7 +862,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 11,
       "journal": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4359286",
@@ -860,7 +870,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 12,
       "journal": "IEEE Transactions on Big Data",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7153538&sortType=newest",
@@ -868,7 +878,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 13,
       "journal": "IEEE Transactions on Network Science and Engineering",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6930788&sortType=newest",
@@ -876,7 +886,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 14,
       "journal": "IEEE/CAA Journal of Automatica Sinica",
       "url": "https://www.ieee-jas.net/en/article/latest_all",
@@ -889,7 +899,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 15,
       "journal": "IEEE Transactions on Cognitive and Developmental Systems",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7422051",
@@ -897,7 +907,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 16,
       "journal": "IEEE Transactions on Emerging Topics in Computational Intelligence",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=7777658",
@@ -905,7 +915,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 17,
       "journal": "IEEE Systems Journal",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4357939",
@@ -913,7 +923,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 18,
       "journal": "IEEE Intelligent Systems",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=5196652",
@@ -921,7 +931,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 19,
       "journal": "Journal of Systems Engineering and Electronics",
       "url": "http://www.jseepub.com/EN/1004-4132/home.shtml",
@@ -929,7 +939,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 20,
       "journal": "IEEE Transactions on Automation Science and Engineering",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4358066&sortType=newest",
@@ -937,7 +947,7 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
+      "category": "IEEE",
       "order": 21,
       "journal": "IEEE Transactions on Automatic Control",
       "url": "https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=4601496&sortType=newest",
@@ -945,64 +955,64 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 22,
+      "category": "UTD/INFORMS",
+      "order": 1,
       "journal": "Management Science",
       "url": "https://pubsonline.informs.org/journal/mnsc",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 23,
+      "category": "UTD/INFORMS",
+      "order": 2,
       "journal": "Operations Research",
       "url": "https://pubsonline.informs.org/journal/opre",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 24,
+      "category": "UTD/INFORMS",
+      "order": 3,
       "journal": "INFORMS Journal on Computing",
       "url": "https://pubsonline.informs.org/journal/ijoc",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 25,
+      "category": "UTD/INFORMS",
+      "order": 4,
       "journal": "Information Systems Research",
       "url": "https://pubsonline.informs.org/journal/isre",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 26,
+      "category": "UTD/INFORMS",
+      "order": 5,
       "journal": "Manufacturing & Service Operations Management",
       "url": "https://pubsonline.informs.org/journal/msom",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 27,
+      "category": "UTD/INFORMS",
+      "order": 6,
       "journal": "Decision Analysis",
       "url": "https://pubsonline.informs.org/journal/deca",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 29,
+      "category": "UTD/INFORMS",
+      "order": 7,
       "journal": "INFORMS Journal on Data Science",
       "url": "https://pubsonline.informs.org/journal/ijds",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 28,
+      "category": "UTD/INFORMS",
+      "order": 8,
       "journal": "Production and Operations Management",
       "url": "https://journals.sagepub.com/action/doSearch?AllField=Production+and+Operations+Management&SeriesKey=paoa&startPage=0&sortBy=FullEpubDateField",
       "extra_links": [
@@ -1014,88 +1024,88 @@
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 30,
+      "category": "ACM",
+      "order": 1,
       "journal": "ACM Computing Surveys",
       "url": "https://dl.acm.org/toc/csur/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 31,
+      "category": "ACM",
+      "order": 2,
       "journal": "ACM Transactions on Intelligent Systems and Technology",
       "url": "https://dl.acm.org/toc/tist/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 32,
+      "category": "ACM",
+      "order": 3,
       "journal": "ACM Transactions on Knowledge Discovery from Data",
       "url": "https://dl.acm.org/toc/tkdd/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 33,
+      "category": "ACM",
+      "order": 4,
       "journal": "ACM Transactions on Management Information Systems",
       "url": "https://dl.acm.org/toc/tmis/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 34,
+      "category": "ACM",
+      "order": 5,
       "journal": "ACM Transactions on Information Systems",
       "url": "https://dl.acm.org/toc/tois/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 35,
+      "category": "ACM",
+      "order": 6,
       "journal": "ACM Transactions on the Web",
       "url": "https://dl.acm.org/toc/tweb/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 36,
+      "category": "ACM",
+      "order": 7,
       "journal": "ACM Transactions on Recommender Systems",
       "url": "https://dl.acm.org/toc/tors/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 37,
+      "category": "ACM",
+      "order": 8,
       "journal": "ACM Transactions on Internet Technology",
       "url": "https://dl.acm.org/toc/toit/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 38,
+      "category": "ACM",
+      "order": 9,
       "journal": "ACM Transactions on Modeling and Computer Simulation",
       "url": "https://dl.acm.org/toc/tomacs/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 39,
+      "category": "ACM",
+      "order": 10,
       "journal": "ACM Transactions on Social Computing",
       "url": "https://dl.acm.org/toc/tsc/justaccepted",
       "extra_links": [],
       "note": ""
     },
     {
-      "category": "IEEE/INFORMS/ACM",
-      "order": 40,
+      "category": "ACM",
+      "order": 11,
       "journal": "ACM/IMS Transactions on Data Science",
       "url": "https://dl.acm.org/toc/tds/current",
       "extra_links": [],
@@ -1256,14 +1266,6 @@
     {
       "category": "Others",
       "order": 1,
-      "journal": "International Journal of Computational Intelligence Systems",
-      "url": "https://www.springer.com/journal/44196",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Others",
-      "order": 2,
       "journal": "Technological and Economic Development of Economy",
       "url": "https://journals.vgtu.lt/index.php/TEDE",
       "extra_links": [],
@@ -1271,7 +1273,7 @@
     },
     {
       "category": "Others",
-      "order": 3,
+      "order": 2,
       "journal": "INFORMATICA",
       "url": "https://informatica.vu.lt/journal/INFORMATICA/to-appear",
       "extra_links": [],
@@ -1279,7 +1281,7 @@
     },
     {
       "category": "Others",
-      "order": 4,
+      "order": 3,
       "journal": "International Journal of Computers Communications & Control",
       "url": "http://univagora.ro/jour/index.php/ijccc/",
       "extra_links": [],
@@ -1287,7 +1289,7 @@
     },
     {
       "category": "Others",
-      "order": 5,
+      "order": 4,
       "journal": "International Journal of Strategic Property Management",
       "url": "https://journals.vgtu.lt/index.php/IJSPM",
       "extra_links": [],
@@ -1295,7 +1297,7 @@
     },
     {
       "category": "Others",
-      "order": 6,
+      "order": 5,
       "journal": "Transport",
       "url": "https://journals.vgtu.lt/index.php/Transport",
       "extra_links": [],
@@ -1303,7 +1305,7 @@
     },
     {
       "category": "Others",
-      "order": 7,
+      "order": 6,
       "journal": "Transformations in Business & Economics",
       "url": "http://www.transformations.knf.vu.lt/",
       "extra_links": [],
@@ -1311,7 +1313,7 @@
     },
     {
       "category": "Others",
-      "order": 8,
+      "order": 7,
       "journal": "Scientia Iranica",
       "url": "http://scientiairanica.sharif.edu/?_action=current&_is=Current%20Issue",
       "extra_links": [],
@@ -1319,7 +1321,7 @@
     },
     {
       "category": "Others",
-      "order": 9,
+      "order": 8,
       "journal": "Iranian Journal of Fuzzy Systems",
       "url": "http://ijfs.usb.ac.ir/?_action=press&issue=-1&_is=Articles%20in%20Press",
       "extra_links": [],
@@ -1327,7 +1329,7 @@
     },
     {
       "category": "Others",
-      "order": 10,
+      "order": 9,
       "journal": "Kybernetes",
       "url": "https://www.emerald.com/insight/publication/issn/0368-492X",
       "extra_links": [],
@@ -1335,7 +1337,7 @@
     },
     {
       "category": "Others",
-      "order": 11,
+      "order": 10,
       "journal": "Intelligent Decision Technologies",
       "url": "http://content.iospress.com/journals/intelligent-decision-technologies",
       "extra_links": [],
@@ -1343,7 +1345,7 @@
     },
     {
       "category": "Others",
-      "order": 12,
+      "order": 11,
       "journal": "Fundamenta Informaticae",
       "url": "http://content.iospress.com/journals/fundamenta-informaticae",
       "extra_links": [],
@@ -1351,7 +1353,7 @@
     },
     {
       "category": "Others",
-      "order": 13,
+      "order": 12,
       "journal": "Intelligent Data Analysis",
       "url": "http://content.iospress.com/journals/intelligent-data-analysis",
       "extra_links": [],
@@ -1359,7 +1361,7 @@
     },
     {
       "category": "Others",
-      "order": 14,
+      "order": 13,
       "journal": "Journal of Smart Environments and Green Computing",
       "url": "https://segcjournal.com/journal/archives",
       "extra_links": [],
@@ -1367,7 +1369,7 @@
     },
     {
       "category": "Others",
-      "order": 15,
+      "order": 14,
       "journal": "Journal of Civil Engineering and Management",
       "url": "https://journals.vgtu.lt/index.php/JCEM/issue/current",
       "extra_links": [],
