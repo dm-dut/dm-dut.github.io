@@ -12,13 +12,13 @@
       --muted:#7a8494;
       --line:#e4ebf4;
       --line-soft:#eef3f8;
-      --primary:#3f73c8;
-      --blue:#3f73c8;
-      --purple:#7658bf;
+      --primary:#5d789e;
+      --blue:#5d789e;
+      --purple:#786a97;
       --green:#3f8a63;
       --orange:#b06a2d;
-      --blue-soft:#f2f7ff;
-      --purple-soft:#f7f4ff;
+      --blue-soft:#f5f8fc;
+      --purple-soft:#f7f5fb;
       --green-soft:#f2faf5;
       --orange-soft:#fff7ee;
       --hover:#f8fbff;
@@ -27,8 +27,8 @@
     body{
       margin:0;
       background:
-        radial-gradient(circle at top left, rgba(83,137,214,.10), transparent 28%),
-        radial-gradient(circle at top right, rgba(118,88,191,.08), transparent 24%),
+        radial-gradient(circle at top left, rgba(93,120,158,.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(120,106,151,.06), transparent 24%),
         linear-gradient(180deg,#fbfdff 0%,#f5f8fc 100%);
       color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
@@ -70,8 +70,8 @@
       background:#fff;
     }
     input:focus{
-      border-color:#9fbbe8;
-      box-shadow:0 0 0 3px rgba(63,115,200,.10);
+      border-color:#b4c4d9;
+      box-shadow:0 0 0 3px rgba(93,120,158,.10);
     }
     .filters{
       display:flex;
@@ -93,7 +93,7 @@
       cursor:pointer;
       transition:color .18s ease;
     }
-    button:hover{color:#3f5f91}
+    button:hover{color:#516985}
     button.active{color:var(--primary);font-weight:680}
     button.active::after{
       content:"";
@@ -103,7 +103,7 @@
       bottom:-1px;
       height:2px;
       border-radius:2px;
-      background:linear-gradient(90deg,#3f73c8,#77a8ec);
+      background:linear-gradient(90deg,#5d789e,#9aadc8);
     }
 
     .journal-list-link{
@@ -124,7 +124,7 @@
     }
     .journal-list-link:hover{
       background:#e3efff;
-      color:#2f5fa9;
+      color:#4f6d92;
       transform:translateY(-1px);
     }
     @media(max-width:640px){
@@ -193,8 +193,8 @@
     section.cat-1 .journal-link{color:var(--purple)}
     section.cat-2 .journal-link{color:var(--green)}
     section.cat-3 .journal-link{color:var(--orange)}
-    section.cat-0 .journal-link:hover{background:var(--blue-soft);color:#2f5fa9}
-    section.cat-1 .journal-link:hover{background:var(--purple-soft);color:#6549a9}
+    section.cat-0 .journal-link:hover{background:var(--blue-soft);color:#4f6d92}
+    section.cat-1 .journal-link:hover{background:var(--purple-soft);color:#675a85}
     section.cat-2 .journal-link:hover{background:var(--green-soft);color:#2f744f}
     section.cat-3 .journal-link:hover{background:var(--orange-soft);color:#93551f}
     .journal-link:hover{padding-left:18px}
@@ -241,7 +241,7 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <h1>期刊投稿/审稿系统链接合集</h1>
+      <h1>期刊投稿系统链接</h1>
       <a class="journal-list-link" href="../journal/">期刊列表 ↗</a>
     </div>
     <div class="toolbar">
