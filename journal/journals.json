@@ -4,7 +4,7 @@
     "Tourism Related",
     "Springer Nature",
     "IEEE",
-    "UTD/INFORMS",
+    "UTD/INFORMS/FT",
     "ACM",
     "Wiley/Taylor/WorldScientific",
     "Others",
@@ -719,17 +719,17 @@
     },
     {
       "category": "Springer Nature",
-      "order": 29,
-      "journal": "Nature Communications",
-      "url": "https://www.nature.com/ncomms/research-articles",
+      "order": 30,
+      "journal": "npj Artificial Intelligence",
+      "url": "https://www.nature.com/npjai/research-articles",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Springer Nature",
-      "order": 30,
-      "journal": "npj Artificial Intelligence",
-      "url": "https://www.nature.com/npjai/research-articles",
+      "order": 29,
+      "journal": "Nature Communications",
+      "url": "https://www.nature.com/ncomms/research-articles",
       "extra_links": [],
       "note": ""
     },
@@ -955,63 +955,98 @@
       "note": ""
     },
     {
-      "category": "UTD/INFORMS",
+      "category": "UTD/INFORMS/FT",
       "order": 1,
       "journal": "Management Science",
       "url": "https://pubsonline.informs.org/journal/mnsc",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=MGS&scope=site"
+        }
+      ],
       "note": ""
     },
     {
-      "category": "UTD/INFORMS",
+      "category": "UTD/INFORMS/FT",
       "order": 2,
       "journal": "Operations Research",
       "url": "https://pubsonline.informs.org/journal/opre",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=OPR&scope=site"
+        }
+      ],
       "note": ""
     },
     {
-      "category": "UTD/INFORMS",
+      "category": "UTD/INFORMS/FT",
       "order": 3,
       "journal": "INFORMS Journal on Computing",
       "url": "https://pubsonline.informs.org/journal/ijoc",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=7EE&scope=site"
+        }
+      ],
       "note": ""
     },
     {
-      "category": "UTD/INFORMS",
+      "category": "UTD/INFORMS/FT",
       "order": 4,
       "journal": "Information Systems Research",
       "url": "https://pubsonline.informs.org/journal/isre",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=1LD&scope=site"
+        }
+      ],
       "note": ""
     },
     {
-      "category": "UTD/INFORMS",
+      "category": "UTD/INFORMS/FT",
       "order": 5,
       "journal": "Manufacturing & Service Operations Management",
       "url": "https://pubsonline.informs.org/journal/msom",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=5YY&scope=site"
+        }
+      ],
       "note": ""
     },
     {
-      "category": "UTD/INFORMS",
+      "category": "UTD/INFORMS/FT",
       "order": 6,
       "journal": "Decision Analysis",
       "url": "https://pubsonline.informs.org/journal/deca",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=RD0&scope=site"
+        }
+      ],
       "note": ""
     },
     {
-      "category": "UTD/INFORMS",
+      "category": "UTD/INFORMS/FT",
       "order": 7,
       "journal": "INFORMS Journal on Data Science",
       "url": "https://pubsonline.informs.org/journal/ijds",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=N81C&scope=site"
+        }
+      ],
       "note": ""
     },
     {
-      "category": "UTD/INFORMS",
+      "category": "UTD/INFORMS/FT",
       "order": 8,
       "journal": "Production and Operations Management",
       "url": "https://journals.sagepub.com/action/doSearch?AllField=Production+and+Operations+Management&SeriesKey=paoa&startPage=0&sortBy=FullEpubDateField",
@@ -1019,6 +1054,92 @@
         {
           "label": "Wiley",
           "url": "https://onlinelibrary.wiley.com/toc/19375956/0/0"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "category": "UTD/INFORMS/FT",
+      "order": 9,
+      "journal": "Marketing Science",
+      "url": "https://pubsonline.informs.org/journal/mksc",
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=MKS&scope=site"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "category": "UTD/INFORMS/FT",
+      "order": 10,
+      "journal": "Transportation Science",
+      "url": "https://pubsonline.informs.org/journal/trsc",
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=2HN&scope=site"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "category": "UTD/INFORMS/FT",
+      "order": 11,
+      "journal": "MIS Quarterly",
+      "url": "https://misq.umn.edu/",
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=MIS&scope=site"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "category": "UTD/INFORMS/FT",
+      "order": 12,
+      "journal": "Journal of Marketing Research(JMR)",
+      "url": "https://journals.sagepub.com/action/doSearch?AllField=Journal+of+Marketing+Research&startPage=0&sortBy=FullEpubDateField",
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=MKR&scope=site"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "category": "UTD/INFORMS/FT",
+      "order": 13,
+      "journal": "Journal of Consumer Research",
+      "url": "https://academic.oup.com/jcr/issue",
+      "extra_links": [
+        {
+          "label": "EBSCO",
+          "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=JCR&scope=site"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "category": "UTD/INFORMS/FT",
+      "order": 14,
+      "journal": "Harvard Business Review",
+      "url": "https://search.ebscohost.com/direct.asp?db=bth&jid=HBR&scope=site",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "UTD/INFORMS/FT",
+      "order": 15,
+      "journal": "Journal of Management Information Systems",
+      "url": "https://research.ebsco.com/c/ueifeu/search/advanced/publications/JOU?autocorrect=y&selectedDb=bthjnh",
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.jmis-web.org/"
         }
       ],
       "note": ""
@@ -1177,14 +1298,6 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
-      "order": 9,
-      "journal": "International Journal of Intelligent Systems",
-      "url": "https://onlinelibrary.wiley.com/journal/1098111x",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Wiley/Taylor/WorldScientific",
       "order": 10,
       "journal": "IISE Transactions",
       "url": "https://www.tandfonline.com/toc/uiie21/0/ja",
@@ -1266,6 +1379,14 @@
     {
       "category": "Others",
       "order": 1,
+      "journal": "PNAS",
+      "url": "https://www.pnas.org/",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Others",
+      "order": 2,
       "journal": "Technological and Economic Development of Economy",
       "url": "https://journals.vgtu.lt/index.php/TEDE",
       "extra_links": [],
@@ -1273,7 +1394,7 @@
     },
     {
       "category": "Others",
-      "order": 2,
+      "order": 3,
       "journal": "INFORMATICA",
       "url": "https://informatica.vu.lt/journal/INFORMATICA/to-appear",
       "extra_links": [],
@@ -1281,7 +1402,7 @@
     },
     {
       "category": "Others",
-      "order": 3,
+      "order": 4,
       "journal": "International Journal of Computers Communications & Control",
       "url": "http://univagora.ro/jour/index.php/ijccc/",
       "extra_links": [],
@@ -1289,7 +1410,7 @@
     },
     {
       "category": "Others",
-      "order": 4,
+      "order": 5,
       "journal": "International Journal of Strategic Property Management",
       "url": "https://journals.vgtu.lt/index.php/IJSPM",
       "extra_links": [],
@@ -1297,7 +1418,7 @@
     },
     {
       "category": "Others",
-      "order": 5,
+      "order": 6,
       "journal": "Transport",
       "url": "https://journals.vgtu.lt/index.php/Transport",
       "extra_links": [],
@@ -1305,7 +1426,7 @@
     },
     {
       "category": "Others",
-      "order": 6,
+      "order": 7,
       "journal": "Transformations in Business & Economics",
       "url": "http://www.transformations.knf.vu.lt/",
       "extra_links": [],
@@ -1313,7 +1434,7 @@
     },
     {
       "category": "Others",
-      "order": 7,
+      "order": 8,
       "journal": "Scientia Iranica",
       "url": "http://scientiairanica.sharif.edu/?_action=current&_is=Current%20Issue",
       "extra_links": [],
@@ -1321,7 +1442,7 @@
     },
     {
       "category": "Others",
-      "order": 8,
+      "order": 9,
       "journal": "Iranian Journal of Fuzzy Systems",
       "url": "http://ijfs.usb.ac.ir/?_action=press&issue=-1&_is=Articles%20in%20Press",
       "extra_links": [],
@@ -1329,7 +1450,7 @@
     },
     {
       "category": "Others",
-      "order": 9,
+      "order": 10,
       "journal": "Kybernetes",
       "url": "https://www.emerald.com/insight/publication/issn/0368-492X",
       "extra_links": [],
@@ -1337,7 +1458,7 @@
     },
     {
       "category": "Others",
-      "order": 10,
+      "order": 11,
       "journal": "Intelligent Decision Technologies",
       "url": "http://content.iospress.com/journals/intelligent-decision-technologies",
       "extra_links": [],
@@ -1345,7 +1466,7 @@
     },
     {
       "category": "Others",
-      "order": 11,
+      "order": 12,
       "journal": "Fundamenta Informaticae",
       "url": "http://content.iospress.com/journals/fundamenta-informaticae",
       "extra_links": [],
@@ -1353,7 +1474,7 @@
     },
     {
       "category": "Others",
-      "order": 12,
+      "order": 13,
       "journal": "Intelligent Data Analysis",
       "url": "http://content.iospress.com/journals/intelligent-data-analysis",
       "extra_links": [],
@@ -1361,7 +1482,7 @@
     },
     {
       "category": "Others",
-      "order": 13,
+      "order": 14,
       "journal": "Journal of Smart Environments and Green Computing",
       "url": "https://segcjournal.com/journal/archives",
       "extra_links": [],
@@ -1369,7 +1490,7 @@
     },
     {
       "category": "Others",
-      "order": 14,
+      "order": 15,
       "journal": "Journal of Civil Engineering and Management",
       "url": "https://journals.vgtu.lt/index.php/JCEM/issue/current",
       "extra_links": [],
