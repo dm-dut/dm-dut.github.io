@@ -3,11 +3,11 @@
     "date": "2026-06-11",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at Hebei University (HBU).",
-    "link": "http://dm-dut.github.io/images/hbu.jpg",
+    "link": "http://dm-dut.github.io/images/HBU260611.jpg",
     "link_text": "↗",
     "show_on_home": "yes",
     "links": [
-      "http://dm-dut.github.io/images/hbu.jpg"
+      "http://dm-dut.github.io/images/HBU260611.jpg"
     ]
   },
   {
@@ -232,10 +232,12 @@
     "date": "2025-10-31",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Xidian University.",
-    "link": "",
-    "link_text": "",
+    "link": "http://dm-dut.github.io/images/XIDIAN251031.jpg",
+    "link_text": "↗",
     "show_on_home": "no",
-    "links": []
+    "links": [
+      "http://dm-dut.github.io/images/XIDIAN251031.jpg"
+    ]
   },
   {
     "date": "2025-10-31",
