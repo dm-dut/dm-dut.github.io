@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-06-16",
+    "category": "Service",
+    "content": "I was invited to join in the editorial board of Decision Making and Analysis as an editorial board member.",
+    "link": "https://ojs.luminescience.cn/DMA/about/editorialTeam",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://ojs.luminescience.cn/DMA/about/editorialTeam"
+    ]
+  },
+  {
     "date": "2026-06-11",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at Hebei University (HBU).",
@@ -104,7 +115,7 @@
     "content": "I was invited to deliver a talk entitled \"An Incremental Preference Elicitation-Based Approach to Learning Potentially Non-Monotonic Preferences in Multi-Criteria Sorting\" at South China Normal University.",
     "link": "https://em.scnu.edu.cn/a/20251215/10970.html",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://em.scnu.edu.cn/a/20251215/10970.html"
     ]
