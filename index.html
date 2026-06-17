@@ -43,7 +43,14 @@
 
     <div class="grid two-col">
       <section class="panel bio-panel">
-        <h2>Biography</h2>
+        <div class="bio-header">
+    <h2>Biography</h2>
+    <div class="bio-switch">
+        <span onclick="renderBio('en')">EN</span>
+        |
+        <span onclick="renderBio('zh')">中文</span>
+    </div>
+</div>
         <div id="profile-bio"></div>
       </section>
       <section class="panel scholar-panel">
