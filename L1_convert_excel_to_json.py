@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-os.makedirs("old/data", exist_ok=True)
+os.makedirs("data", exist_ok=True)
 
 # AJG
 ajg_df = pd.read_excel("AJG2024.xlsx").fillna("")
