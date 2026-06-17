@@ -33,7 +33,7 @@
       "SCI",
       "FMS B",
       "ABS 3",
-      "IF=4.5"
+      "IF=4.1"
     ],
     "labels": [],
     "note": "",
@@ -146,7 +146,7 @@
       "EI",
       "FMS A",
       "ABS 4",
-      "IF=6.0"
+      "IF=7.0"
     ],
     "labels": [],
     "note": "",
@@ -208,7 +208,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=7.5"
+      "IF=9.4"
     ],
     "labels": [],
     "note": "",
@@ -258,7 +258,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=7.5"
+      "IF=9.4"
     ],
     "labels": [],
     "note": "",
@@ -319,7 +319,7 @@
       "EI",
       "FMS B",
       "ABS 3",
-      "IF=8.7"
+      "IF=8.4"
     ],
     "labels": [],
     "note": "",
@@ -372,7 +372,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=15.5"
+      "IF=17.4"
     ],
     "labels": [],
     "note": "",
@@ -426,7 +426,7 @@
       "SCI",
       "FMS B",
       "ABS 3",
-      "IF=4.5"
+      "IF=4.1"
     ],
     "labels": [],
     "note": "",
@@ -486,7 +486,7 @@
       "SCI",
       "FMS B",
       "ABS 3",
-      "IF=4.5",
+      "IF=4.1",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -595,7 +595,7 @@
       "EI",
       "FMS B",
       "ABS 3",
-      "IF=4.3"
+      "IF=4.6"
     ],
     "labels": [],
     "note": "",
@@ -650,7 +650,7 @@
       "EI",
       "FMS A",
       "ABS 4",
-      "IF=6.0"
+      "IF=7.0"
     ],
     "labels": [],
     "note": "",
@@ -705,7 +705,7 @@
       "EI",
       "FMS B",
       "ABS 3",
-      "IF=10.5"
+      "IF=11.3"
     ],
     "labels": [],
     "note": "",
@@ -757,7 +757,7 @@
       "EI",
       "FMS B",
       "ABS 3",
-      "IF=8.7"
+      "IF=8.4"
     ],
     "labels": [],
     "note": "",
@@ -810,7 +810,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=15.5"
+      "IF=17.4"
     ],
     "labels": [],
     "note": "",
@@ -878,7 +878,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=15.5",
+      "IF=17.4",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -939,7 +939,7 @@
       "SCI",
       "EI",
       "FMS B",
-      "IF=6.8"
+      "IF=6.0"
     ],
     "labels": [],
     "note": "",
@@ -995,7 +995,7 @@
       "EI",
       "FMS B",
       "ABS 3",
-      "IF=7.2"
+      "IF=6.9"
     ],
     "labels": [],
     "note": "2025 Best Paper Award of Omega",
@@ -1103,7 +1103,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=8.0"
+      "IF=9.0"
     ],
     "labels": [],
     "note": "",
@@ -1153,7 +1153,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=4.9",
+      "IF=4.6",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1210,7 +1210,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=11.9"
+      "IF=10.2"
     ],
     "labels": [],
     "note": "",
@@ -1266,7 +1266,7 @@
       "EI",
       "FMS B",
       "ABS 3",
-      "IF=2.7",
+      "IF=2.6",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1318,7 +1318,7 @@
       "SCI",
       "FMS B",
       "ABS 3",
-      "IF=4.5",
+      "IF=4.1",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1450,7 +1450,7 @@
       "SSCI",
       "FMS B",
       "ABS 2",
-      "IF=2.5",
+      "IF=2.8",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -1511,7 +1511,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=15.5",
+      "IF=17.4",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1622,7 +1622,7 @@
     "link": "https://doi.org/10.3390/systems11020069",
     "indexes": [
       "SSCI",
-      "IF=3.1",
+      "IF=3.8",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -1679,7 +1679,7 @@
       "EI",
       "FMS B",
       "ABS 2",
-      "IF=6.5",
+      "IF=7.3",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1739,7 +1739,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=7.5"
+      "IF=9.4"
     ],
     "labels": [],
     "note": "",
@@ -1791,7 +1791,7 @@
       "EI",
       "FMS B",
       "ABS 3",
-      "IF=8.7",
+      "IF=8.4",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -1909,7 +1909,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=3.0"
+      "IF=4.0"
     ],
     "labels": [],
     "note": "",
@@ -1965,7 +1965,7 @@
     "indexes": [
       "SCI",
       "EI",
-      "IF=2.1"
+      "IF=2.6"
     ],
     "labels": [],
     "note": "",
@@ -2018,7 +2018,7 @@
       "EI",
       "FMS B",
       "ABS 3",
-      "IF=2.7",
+      "IF=2.6",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -2079,7 +2079,7 @@
     "indexes": [
       "SSCI",
       "ABS 2",
-      "IF=6.9"
+      "IF=7.6"
     ],
     "labels": [],
     "note": "",
