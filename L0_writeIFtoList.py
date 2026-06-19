@@ -115,16 +115,16 @@ def update_if_column(df, journal_col, if_col_name="影响因子"):
 # =========================
 # AJG
 # =========================
-ajg_df = pd.read_excel(ajg_file)
-
-ajg_df = update_if_column(
-    ajg_df,
-    journal_col="Journal Title",
-    if_col_name="影响因子"
-)
-
-ajg_df.to_excel("AJG2024.xlsx", index=False)
-print("已生成: AJG2024.xlsx")
+# ajg_df = pd.read_excel(ajg_file)
+#
+# ajg_df = update_if_column(
+#     ajg_df,
+#     journal_col="Journal Title",
+#     if_col_name="影响因子"
+# )
+#
+# ajg_df.to_excel("AJG2024.xlsx", index=False)
+# print("已生成: AJG2024.xlsx")
 
 
 # =========================
@@ -142,25 +142,25 @@ ccf_df.to_excel("CCF2026.xlsx", index=False)
 print("已生成: CCF2026.xlsx")
 
 
-# =========================
-# FMS
-# =========================
-fms_df = pd.read_excel(fms_file)
-
-fms_df = update_if_column(
-    fms_df,
-    journal_col="期刊名称",
-    if_col_name="影响因子"
-)
-
-fms_df.to_excel("FMS2025.xlsx", index=False)
-print("已生成: FMS2025.xlsx")
+# # =========================
+# # FMS
+# # =========================
+# fms_df = pd.read_excel(fms_file)
+#
+# fms_df = update_if_column(
+#     fms_df,
+#     journal_col="期刊名称",
+#     if_col_name="影响因子"
+# )
+#
+# fms_df.to_excel("FMS2025.xlsx", index=False)
+# print("已生成: FMS2025.xlsx")
 
 
 # =========================
 # 统计
 # =========================
 print("\n更新完成：")
-print("AJG:", ajg_df["影响因子"].notna().sum(), "/", len(ajg_df))
+#print("AJG:", ajg_df["影响因子"].notna().sum(), "/", len(ajg_df))
 print("CCF:", ccf_df["影响因子"].notna().sum(), "/", len(ccf_df))
-print("FMS:", fms_df["影响因子"].notna().sum(), "/", len(fms_df))
+#print("FMS:", fms_df["影响因子"].notna().sum(), "/", len(fms_df))

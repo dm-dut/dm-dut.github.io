@@ -802,7 +802,7 @@
   {
     "serial": 101,
     "rank": "B",
-    "title": "外国文学评论外国语（上海外国语大学学",
+    "title": "外国文学评论",
     "publisher": "中国社会科学院外国文学研究所",
     "issn": "",
     "eissn": ""
@@ -1090,7 +1090,7 @@
   {
     "serial": 137,
     "rank": "C",
-    "title": "北京电影学院学报北京师范大学学报（社会科学",
+    "title": "北京电影学院学报",
     "publisher": "北京电影学院",
     "issn": "",
     "eissn": ""
@@ -1298,7 +1298,7 @@
   {
     "serial": 163,
     "rank": "C",
-    "title": "东方法学法律科学（西北政法大学学",
+    "title": "东方法学",
     "publisher": "上海市法学会、上海人民出版社",
     "issn": "",
     "eissn": ""
@@ -1522,7 +1522,7 @@
   {
     "serial": 191,
     "rank": "C",
-    "title": "湖南大学学报（自然科学版）湖南大学华东师范大学学报（教育科学",
+    "title": "湖南大学学报（自然科学版）湖南大学",
     "publisher": "",
     "issn": "",
     "eissn": ""
@@ -1530,7 +1530,7 @@
   {
     "serial": 192,
     "rank": "C",
-    "title": "华东师范大学学报（教育科学版）华中科技大学学报（自然科学",
+    "title": "华东师范大学学报（教育科学版）",
     "publisher": "华东师范大学",
     "issn": "",
     "eissn": ""
@@ -1538,7 +1538,7 @@
   {
     "serial": 193,
     "rank": "C",
-    "title": "华中科技大学学报（自然科学版）华中师范大学学报（人文社会",
+    "title": "华中科技大学学报（自然科学版）",
     "publisher": "华中科技大学",
     "issn": "",
     "eissn": ""
@@ -1586,7 +1586,7 @@
   {
     "serial": 199,
     "rank": "C",
-    "title": "计量经济学报计算机辅助设计与图形学学",
+    "title": "计量经济学报",
     "publisher": "中国科学院数学与系统科学研究院",
     "issn": "",
     "eissn": ""
@@ -2010,7 +2010,7 @@
   {
     "serial": 252,
     "rank": "C",
-    "title": "人文杂志厦门大学学报（哲学社会科学",
+    "title": "人文杂志",
     "publisher": "陕西省社会科学院",
     "issn": "",
     "eissn": ""
@@ -2442,7 +2442,7 @@
   {
     "serial": 306,
     "rank": "C",
-    "title": "武汉体育学院学报西安交通大学学报（社会科学",
+    "title": "武汉体育学院学报",
     "publisher": "武汉体育学院",
     "issn": "",
     "eissn": ""
@@ -2490,7 +2490,7 @@
   {
     "serial": 312,
     "rank": "C",
-    "title": "系统科学与数学现代传播（中国传媒大学学",
+    "title": "系统科学与数学",
     "publisher": "中国科学院数学与系统科学研究院",
     "issn": "",
     "eissn": ""
@@ -2762,7 +2762,7 @@
   {
     "serial": 346,
     "rank": "C",
-    "title": "制度经济学研究中共中央党校（国家行政学",
+    "title": "制度经济学研究",
     "publisher": "山东大学经济研究院",
     "issn": "",
     "eissn": ""
@@ -2866,7 +2866,7 @@
   {
     "serial": 359,
     "rank": "C",
-    "title": "中国农村研究中国农业大学学报（社会科学",
+    "title": "中国农村研究",
     "publisher": "华中师范大学中国农村问题研究中心",
     "issn": "",
     "eissn": ""
@@ -2986,7 +2986,7 @@
   {
     "serial": 374,
     "rank": "C",
-    "title": "中外文化与文论中央民族大学学报（哲学社会",
+    "title": "中外文化与文论",
     "publisher": "中国中外文艺理论学会等",
     "issn": "",
     "eissn": ""
@@ -3024,7 +3024,16 @@
     "eissn": ""
   },
   {
-    "serial": "",
+    "serial": 379,
+    "rank": "D",
+    "title": "除T1、T2、A、B和C之外的CSSCI（来源期刊、集刊和扩展版）、CSCD（来源期刊和扩展库）和北大核心期刊",
+    "publisher": "",
+    "issn": "",
+    "eissn": "",
+    "IF": "特殊条目/说明"
+  },
+  {
+    "serial": 380,
     "rank": "D",
     "title": "东北财经大学学报",
     "publisher": "东北财经大学",
@@ -3032,31 +3041,7 @@
     "eissn": ""
   },
   {
-    "serial": "",
-    "rank": "D",
-    "title": "中国物价",
-    "publisher": "国家发展和改革委员会",
-    "issn": "",
-    "eissn": ""
-  },
-  {
-    "serial": "",
-    "rank": "D",
-    "title": "中国经济预测与展望",
-    "publisher": "中国科学院数学与系统科学研究院预测科学研究中心",
-    "issn": "",
-    "eissn": ""
-  },
-  {
-    "serial": "",
-    "rank": "D",
-    "title": "中国资产评估",
-    "publisher": "中国资产评估协会",
-    "issn": "",
-    "eissn": ""
-  },
-  {
-    "serial": "",
+    "serial": 381,
     "rank": "D",
     "title": "会计与控制评论",
     "publisher": "东北财经大学",
@@ -3064,7 +3049,7 @@
     "eissn": ""
   },
   {
-    "serial": "",
+    "serial": 382,
     "rank": "D",
     "title": "语言教育",
     "publisher": "大连外国语大学",
@@ -3072,19 +3057,36 @@
     "eissn": ""
   },
   {
-    "serial": "",
+    "serial": 383,
     "rank": "D",
-    "title": "除T1、T2、A、B和C之外的CSSCI（来源期刊、集刊和扩展版）、CSCD（来源期刊和扩展库）和北大核心期刊",
-    "publisher": "",
+    "title": "中国经济预测与展望",
+    "publisher": "中国科学院数学与系统科学研究院预测科学研究中心",
     "issn": "",
     "eissn": ""
   },
   {
-    "serial": "",
+    "serial": 384,
+    "rank": "D",
+    "title": "中国物价",
+    "publisher": "国家发展和改革委员会",
+    "issn": "",
+    "eissn": ""
+  },
+  {
+    "serial": 385,
+    "rank": "D",
+    "title": "中国资产评估",
+    "publisher": "中国资产评估协会",
+    "issn": "",
+    "eissn": ""
+  },
+  {
+    "serial": 386,
     "rank": "其他",
     "title": "除T1、T2、A、B、C、D之外的正式出版期刊",
     "publisher": "",
     "issn": "",
-    "eissn": ""
+    "eissn": "",
+    "IF": "特殊条目/说明"
   }
 ]

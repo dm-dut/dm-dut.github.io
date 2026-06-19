@@ -216,3 +216,18 @@ tbody tr:hover {
 .col-title { width: 38%; }
 .col-publisher { width: auto; }
 .col-issn { width: 130px; text-align: center; }
+
+.col-if {
+    width: 110px;
+    text-align: center;
+}
+
+.if-badge {
+    display: inline-block;
+    min-width: 52px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #fff7ed;
+    color: #c2410c;
+    font-weight: 800;
+}
