@@ -107,11 +107,27 @@
             z-index: 10;
         }
 
-        .col-db { width: 70px; }
-        .col-name { width: auto; }
-        .col-field { width: 30%; }
-        .col-rank { width: 70px; text-align: center; }
-        .col-if { width: 70px; text-align: center; }
+        .col-db {
+            width: 70px;
+        }
+
+        .col-name {
+            width: auto;
+        }
+
+        .col-field {
+            width: 30%;
+        }
+
+        .col-rank {
+            width: 70px;
+            text-align: center;
+        }
+
+        .col-if {
+            width: 70px;
+            text-align: center;
+        }
 
         .global-table td.field-cell {
             white-space: normal !important;
@@ -197,40 +213,151 @@
             line-height: 1.3;
         }
 
-        #table-ccf th:nth-child(1), #table-ccf td:nth-child(1) { width: 10%; }
-        #table-ccf th:nth-child(2), #table-ccf td:nth-child(2) { width: 40%; }
-        #table-ccf th:nth-child(3), #table-ccf td:nth-child(3) { width: 35%; }
-        #table-ccf th:nth-child(4), #table-ccf td:nth-child(4) { width: 7%; text-align: center; }
-        #table-ccf th:nth-child(5), #table-ccf td:nth-child(5) { width: 8%; text-align: center; }
+        #table-ccf th:nth-child(1),
+        #table-ccf td:nth-child(1) {
+            width: 10%;
+        }
 
-        #table-ajg th:nth-child(1), #table-ajg td:nth-child(1) { width: 48%; }
-        #table-ajg th:nth-child(2), #table-ajg td:nth-child(2) { width: 32%; }
-        #table-ajg th:nth-child(3), #table-ajg td:nth-child(3) { width: 8%; text-align: center; }
-        #table-ajg th:nth-child(4), #table-ajg td:nth-child(4) { width: 12%; text-align: center; }
+        #table-ccf th:nth-child(2),
+        #table-ccf td:nth-child(2) {
+            width: 40%;
+        }
 
-        #table-fms th:nth-child(1), #table-fms td:nth-child(1) { width: 48%; }
-        #table-fms th:nth-child(2), #table-fms td:nth-child(2) { width: 32%; }
-        #table-fms th:nth-child(3), #table-fms td:nth-child(3) { width: 8%; text-align: center; }
-        #table-fms th:nth-child(4), #table-fms td:nth-child(4) { width: 12%; text-align: center; }
+        #table-ccf th:nth-child(3),
+        #table-ccf td:nth-child(3) {
+            width: 35%;
+        }
 
-        #table-jcr th:nth-child(1), #table-jcr td:nth-child(1) { width: 25%; }
-        #table-jcr th:nth-child(2), #table-jcr td:nth-child(2) { width: 8%; text-align: center; }
-        #table-jcr th:nth-child(3), #table-jcr td:nth-child(3) { width: 8%; text-align: center; }
-        #table-jcr th:nth-child(4), #table-jcr td:nth-child(4) { width: 24%; }
-        #table-jcr th:nth-child(5), #table-jcr td:nth-child(5) { width: 7%; text-align: center; }
-        #table-jcr th:nth-child(6), #table-jcr td:nth-child(6) { width: 7%; text-align: center; }
-        #table-jcr th:nth-child(7), #table-jcr td:nth-child(7) { width: 8%; text-align: center; }
-        #table-jcr th:nth-child(8), #table-jcr td:nth-child(8) { width: 7%; text-align: center; }
-        #table-jcr th:nth-child(9), #table-jcr td:nth-child(9) { width: 6%; text-align: center; }
+        #table-ccf th:nth-child(4),
+        #table-ccf td:nth-child(4) {
+            width: 7%;
+            text-align: center;
+        }
+
+        #table-ccf th:nth-child(5),
+        #table-ccf td:nth-child(5) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-ajg th:nth-child(1),
+        #table-ajg td:nth-child(1) {
+            width: 48%;
+        }
+
+        #table-ajg th:nth-child(2),
+        #table-ajg td:nth-child(2) {
+            width: 32%;
+        }
+
+        #table-ajg th:nth-child(3),
+        #table-ajg td:nth-child(3) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-ajg th:nth-child(4),
+        #table-ajg td:nth-child(4) {
+            width: 12%;
+            text-align: center;
+        }
+
+        #table-fms th:nth-child(1),
+        #table-fms td:nth-child(1) {
+            width: 48%;
+        }
+
+        #table-fms th:nth-child(2),
+        #table-fms td:nth-child(2) {
+            width: 32%;
+        }
+
+        #table-fms th:nth-child(3),
+        #table-fms td:nth-child(3) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-fms th:nth-child(4),
+        #table-fms td:nth-child(4) {
+            width: 12%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(1),
+        #table-jcr td:nth-child(1) {
+            width: 25%;
+        }
+
+        #table-jcr th:nth-child(2),
+        #table-jcr td:nth-child(2) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(3),
+        #table-jcr td:nth-child(3) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(4),
+        #table-jcr td:nth-child(4) {
+            width: 24%;
+        }
+
+        #table-jcr th:nth-child(5),
+        #table-jcr td:nth-child(5) {
+            width: 7%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(6),
+        #table-jcr td:nth-child(6) {
+            width: 7%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(7),
+        #table-jcr td:nth-child(7) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(8),
+        #table-jcr td:nth-child(8) {
+            width: 7%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(9),
+        #table-jcr td:nth-child(9) {
+            width: 6%;
+            text-align: center;
+        }
 
         .table-hover tbody tr:hover {
             background-color: #eef6ff !important;
         }
 
-        .table-wrap::-webkit-scrollbar { width: 6px; height: 6px; }
-        .table-wrap::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 3px; }
-        .table-wrap::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
-        .table-wrap::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+        .table-wrap::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .table-wrap::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .table-wrap::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+
+        .table-wrap::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
 
         .badge-rank {
             display: inline-block;
@@ -241,22 +368,32 @@
             font-size: 0.78rem;
         }
 
-        .rank-a, .rank-t1, .rank-4, .rank-q1 {
+        .rank-a,
+        .rank-t1,
+        .rank-4,
+        .rank-q1 {
             background: #ffe8cc;
             color: #c2410c;
         }
 
-        .rank-b, .rank-t2, .rank-3, .rank-q2 {
+        .rank-b,
+        .rank-t2,
+        .rank-3,
+        .rank-q2 {
             background: #dbeafe;
             color: #1d4ed8;
         }
 
-        .rank-c, .rank-2, .rank-q3 {
+        .rank-c,
+        .rank-2,
+        .rank-q3 {
             background: #dcfce7;
             color: #15803d;
         }
 
-        .rank-d, .rank-1, .rank-q4 {
+        .rank-d,
+        .rank-1,
+        .rank-q4 {
             background: #f1f5f9;
             color: #475569;
         }
@@ -285,9 +422,18 @@
             font-size: 0.76rem;
         }
 
-        .db-ajg { background: #111827; }
-        .db-ccf { background: #198754; }
-        .db-fms { background: #f59e0b; color: #111827; }
+        .db-ajg {
+            background: #111827;
+        }
+
+        .db-ccf {
+            background: #198754;
+        }
+
+        .db-fms {
+            background: #f59e0b;
+            color: #111827;
+        }
 
         .page-info-bar {
             display: flex;
@@ -577,7 +723,7 @@
             </div>
 
             <div class="page-info-bar">
-                <div id="jcrResultInfo">请选择 JCR Category 或输入期刊名 / ISSN / eISSN</div>
+                <div id="jcrResultInfo">可直接输入期刊名 / ISSN / eISSN 进行全局查询，也可选择 JCR Category 浏览分类</div>
                 <div class="page-pagination">
                     <button id="jcrPrevBtn" onclick="changePage('jcr', -1)">上一页</button>
                     <span id="jcrPageInfo">第 1 / 1 页</span>
@@ -650,10 +796,6 @@ function norm(v) {
         .toLowerCase();
 }
 
-function normSearch(v) {
-    return norm(v).replace(/-/g, '');
-}
-
 function normCategory(v) {
     return norm(v).replace(/&/g, 'and');
 }
@@ -686,12 +828,12 @@ function fuzzyMatch(item, keys, query) {
 
     const searchStr = norm(keys.map(k => getVal(item, [k])).join(' '));
     const searchStrNoHyphen = searchStr.replace(/-/g, '');
-
     const keywords = q.split(/\s+/).filter(Boolean);
 
     return keywords.every(kw => {
         const kwNorm = norm(kw);
         const kwNoHyphen = kwNorm.replace(/-/g, '');
+
         return searchStr.includes(kwNorm) || searchStrNoHyphen.includes(kwNoHyphen);
     });
 }
@@ -1044,7 +1186,7 @@ function renderJCRPrompt() {
     const nextBtn = document.getElementById('jcrNextBtn');
 
     if (info) {
-        info.innerHTML = `请选择 JCR Category 或输入期刊名 / ISSN / eISSN`;
+        info.innerHTML = `可直接输入期刊名 / ISSN / eISSN 进行全局查询，也可选择 JCR Category 浏览分类`;
     }
 
     if (pageInfo) {
@@ -1142,25 +1284,50 @@ async function filterJCRTable() {
 
     let source = [];
 
-    if (categoryVal) {
-        source = await loadJCRCategory(categoryVal);
-    } else if (searchVal || rankVal) {
-        const indexData = await loadJCRIndex();
-        source = expandJCRIndex(indexData);
-    } else {
+    if (!categoryVal && !searchVal && !rankVal) {
         renderJCRPrompt();
         return;
     }
 
-    const filtered = source.filter(item => {
-        const mName = fuzzyMatch(item, ['Journal name', 'ISSN', 'eISSN'], searchVal);
-        const mCategory = categoryMatch(item, categoryVal);
-        const mRank = valueMatch(item, ['JIF quartile'], rankVal);
+    if (categoryVal) {
+        source = await loadJCRCategory(categoryVal);
 
-        return mName && mCategory && mRank;
-    });
+        const filtered = source.filter(item => {
+            const mName = fuzzyMatch(item, ['Journal name', 'ISSN', 'eISSN'], searchVal);
+            const mRank = valueMatch(item, ['JIF quartile'], rankVal);
 
-    renderPagedTable('jcr', filtered, 1);
+            return mName && mRank;
+        });
+
+        renderPagedTable('jcr', filtered, 1);
+        return;
+    }
+
+    if (searchVal) {
+        const indexData = await loadJCRIndex();
+        const expandedRows = expandJCRIndex(indexData);
+
+        const filtered = expandedRows.filter(item => {
+            const mName = fuzzyMatch(item, ['Journal name', 'ISSN', 'eISSN'], searchVal);
+            const mRank = valueMatch(item, ['JIF quartile'], rankVal);
+
+            return mName && mRank;
+        });
+
+        renderPagedTable('jcr', filtered, 1);
+        return;
+    }
+
+    if (rankVal) {
+        const indexData = await loadJCRIndex();
+        const expandedRows = expandJCRIndex(indexData);
+
+        const filtered = expandedRows.filter(item => {
+            return valueMatch(item, ['JIF quartile'], rankVal);
+        });
+
+        renderPagedTable('jcr', filtered, 1);
+    }
 }
 
 function renderTable(type, data, cols) {
