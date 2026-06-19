@@ -1,0 +1,1272 @@
+[
+  {
+    "Category": "OPERATIONS RESEARCH & MANAGEMENT SCIENCE",
+    "file": "category/operations_research_and_management_science.json",
+    "count": 109
+  },
+  {
+    "Category": "ACOUSTICS",
+    "file": "category/acoustics.json",
+    "count": 42
+  },
+  {
+    "Category": "AGRICULTURAL ECONOMICS & POLICY",
+    "file": "category/agricultural_economics_and_policy.json",
+    "count": 45
+  },
+  {
+    "Category": "AGRICULTURAL ENGINEERING",
+    "file": "category/agricultural_engineering.json",
+    "count": 22
+  },
+  {
+    "Category": "AGRICULTURE, DAIRY & ANIMAL SCIENCE",
+    "file": "category/agriculture_dairy_and_animal_science.json",
+    "count": 87
+  },
+  {
+    "Category": "AGRICULTURE, MULTIDISCIPLINARY",
+    "file": "category/agriculture_multidisciplinary.json",
+    "count": 95
+  },
+  {
+    "Category": "AGRONOMY",
+    "file": "category/agronomy.json",
+    "count": 133
+  },
+  {
+    "Category": "ALLERGY",
+    "file": "category/allergy.json",
+    "count": 40
+  },
+  {
+    "Category": "ANATOMY & MORPHOLOGY",
+    "file": "category/anatomy_and_morphology.json",
+    "count": 25
+  },
+  {
+    "Category": "ANDROLOGY",
+    "file": "category/andrology.json",
+    "count": 8
+  },
+  {
+    "Category": "ANESTHESIOLOGY",
+    "file": "category/anesthesiology.json",
+    "count": 72
+  },
+  {
+    "Category": "ANTHROPOLOGY",
+    "file": "category/anthropology.json",
+    "count": 143
+  },
+  {
+    "Category": "ARCHAEOLOGY",
+    "file": "category/archaeology.json",
+    "count": 171
+  },
+  {
+    "Category": "ARCHITECTURE",
+    "file": "category/architecture.json",
+    "count": 101
+  },
+  {
+    "Category": "AREA STUDIES",
+    "file": "category/area_studies.json",
+    "count": 184
+  },
+  {
+    "Category": "ART",
+    "file": "category/art.json",
+    "count": 151
+  },
+  {
+    "Category": "ASIAN STUDIES",
+    "file": "category/asian_studies.json",
+    "count": 106
+  },
+  {
+    "Category": "ASTRONOMY & ASTROPHYSICS",
+    "file": "category/astronomy_and_astrophysics.json",
+    "count": 86
+  },
+  {
+    "Category": "AUDIOLOGY & SPEECH-LANGUAGE PATHOLOGY",
+    "file": "category/audiology_and_speech_language_pathology.json",
+    "count": 35
+  },
+  {
+    "Category": "AUTOMATION & CONTROL SYSTEMS",
+    "file": "category/automation_and_control_systems.json",
+    "count": 88
+  },
+  {
+    "Category": "BEHAVIORAL SCIENCES",
+    "file": "category/behavioral_sciences.json",
+    "count": 57
+  },
+  {
+    "Category": "BIOCHEMICAL RESEARCH METHODS",
+    "file": "category/biochemical_research_methods.json",
+    "count": 86
+  },
+  {
+    "Category": "BIOCHEMISTRY & MOLECULAR BIOLOGY",
+    "file": "category/biochemistry_and_molecular_biology.json",
+    "count": 329
+  },
+  {
+    "Category": "BIODIVERSITY CONSERVATION",
+    "file": "category/biodiversity_conservation.json",
+    "count": 77
+  },
+  {
+    "Category": "BIOLOGY",
+    "file": "category/biology.json",
+    "count": 107
+  },
+  {
+    "Category": "BIOPHYSICS",
+    "file": "category/biophysics.json",
+    "count": 81
+  },
+  {
+    "Category": "BIOTECHNOLOGY & APPLIED MICROBIOLOGY",
+    "file": "category/biotechnology_and_applied_microbiology.json",
+    "count": 180
+  },
+  {
+    "Category": "BUSINESS",
+    "file": "category/business.json",
+    "count": 324
+  },
+  {
+    "Category": "BUSINESS, FINANCE",
+    "file": "category/business_finance.json",
+    "count": 243
+  },
+  {
+    "Category": "CARDIAC & CARDIOVASCULAR SYSTEMS",
+    "file": "category/cardiac_and_cardiovascular_systems.json",
+    "count": 237
+  },
+  {
+    "Category": "CELL & TISSUE ENGINEERING",
+    "file": "category/cell_and_tissue_engineering.json",
+    "count": 32
+  },
+  {
+    "Category": "CELL BIOLOGY",
+    "file": "category/cell_biology.json",
+    "count": 208
+  },
+  {
+    "Category": "CHEMISTRY, ANALYTICAL",
+    "file": "category/chemistry_analytical.json",
+    "count": 111
+  },
+  {
+    "Category": "CHEMISTRY, APPLIED",
+    "file": "category/chemistry_applied.json",
+    "count": 78
+  },
+  {
+    "Category": "CHEMISTRY, INORGANIC & NUCLEAR",
+    "file": "category/chemistry_inorganic_and_nuclear.json",
+    "count": 45
+  },
+  {
+    "Category": "CHEMISTRY, MEDICINAL",
+    "file": "category/chemistry_medicinal.json",
+    "count": 72
+  },
+  {
+    "Category": "CHEMISTRY, MULTIDISCIPLINARY",
+    "file": "category/chemistry_multidisciplinary.json",
+    "count": 251
+  },
+  {
+    "Category": "CHEMISTRY, ORGANIC",
+    "file": "category/chemistry_organic.json",
+    "count": 58
+  },
+  {
+    "Category": "CHEMISTRY, PHYSICAL",
+    "file": "category/chemistry_physical.json",
+    "count": 191
+  },
+  {
+    "Category": "CLASSICS",
+    "file": "category/classics.json",
+    "count": 65
+  },
+  {
+    "Category": "CLINICAL NEUROLOGY",
+    "file": "category/clinical_neurology.json",
+    "count": 296
+  },
+  {
+    "Category": "COMMUNICATION",
+    "file": "category/communication.json",
+    "count": 227
+  },
+  {
+    "Category": "COMPUTER SCIENCE, ARTIFICIAL INTELLIGENCE",
+    "file": "category/computer_science_artificial_intelligence.json",
+    "count": 211
+  },
+  {
+    "Category": "COMPUTER SCIENCE, CYBERNETICS",
+    "file": "category/computer_science_cybernetics.json",
+    "count": 34
+  },
+  {
+    "Category": "COMPUTER SCIENCE, HARDWARE & ARCHITECTURE",
+    "file": "category/computer_science_hardware_and_architecture.json",
+    "count": 61
+  },
+  {
+    "Category": "COMPUTER SCIENCE, INFORMATION SYSTEMS",
+    "file": "category/computer_science_information_systems.json",
+    "count": 266
+  },
+  {
+    "Category": "COMPUTER SCIENCE, INTERDISCIPLINARY APPLICATIONS",
+    "file": "category/computer_science_interdisciplinary_applications.json",
+    "count": 186
+  },
+  {
+    "Category": "COMPUTER SCIENCE, SOFTWARE ENGINEERING",
+    "file": "category/computer_science_software_engineering.json",
+    "count": 128
+  },
+  {
+    "Category": "COMPUTER SCIENCE, THEORY & METHODS",
+    "file": "category/computer_science_theory_and_methods.json",
+    "count": 147
+  },
+  {
+    "Category": "CONSTRUCTION & BUILDING TECHNOLOGY",
+    "file": "category/construction_and_building_technology.json",
+    "count": 104
+  },
+  {
+    "Category": "CRIMINOLOGY & PENOLOGY",
+    "file": "category/criminology_and_penology.json",
+    "count": 113
+  },
+  {
+    "Category": "CRITICAL CARE MEDICINE",
+    "file": "category/critical_care_medicine.json",
+    "count": 66
+  },
+  {
+    "Category": "CRYSTALLOGRAPHY",
+    "file": "category/crystallography.json",
+    "count": 31
+  },
+  {
+    "Category": "CULTURAL STUDIES",
+    "file": "category/cultural_studies.json",
+    "count": 66
+  },
+  {
+    "Category": "DANCE",
+    "file": "category/dance.json",
+    "count": 10
+  },
+  {
+    "Category": "DEMOGRAPHY",
+    "file": "category/demography.json",
+    "count": 51
+  },
+  {
+    "Category": "DENTISTRY, ORAL SURGERY & MEDICINE",
+    "file": "category/dentistry_oral_surgery_and_medicine.json",
+    "count": 165
+  },
+  {
+    "Category": "DERMATOLOGY",
+    "file": "category/dermatology.json",
+    "count": 99
+  },
+  {
+    "Category": "DEVELOPMENT STUDIES",
+    "file": "category/development_studies.json",
+    "count": 66
+  },
+  {
+    "Category": "DEVELOPMENTAL BIOLOGY",
+    "file": "category/developmental_biology.json",
+    "count": 41
+  },
+  {
+    "Category": "ECOLOGY",
+    "file": "category/ecology.json",
+    "count": 205
+  },
+  {
+    "Category": "ECONOMICS",
+    "file": "category/economics.json",
+    "count": 627
+  },
+  {
+    "Category": "EDUCATION & EDUCATIONAL RESEARCH",
+    "file": "category/education_and_educational_research.json",
+    "count": 762
+  },
+  {
+    "Category": "EDUCATION, SCIENTIFIC DISCIPLINES",
+    "file": "category/education_scientific_disciplines.json",
+    "count": 90
+  },
+  {
+    "Category": "EDUCATION, SPECIAL",
+    "file": "category/education_special.json",
+    "count": 63
+  },
+  {
+    "Category": "ELECTROCHEMISTRY",
+    "file": "category/electrochemistry.json",
+    "count": 44
+  },
+  {
+    "Category": "EMERGENCY MEDICINE",
+    "file": "category/emergency_medicine.json",
+    "count": 55
+  },
+  {
+    "Category": "ENDOCRINOLOGY & METABOLISM",
+    "file": "category/endocrinology_and_metabolism.json",
+    "count": 200
+  },
+  {
+    "Category": "ENERGY & FUELS",
+    "file": "category/energy_and_fuels.json",
+    "count": 194
+  },
+  {
+    "Category": "ENGINEERING, AEROSPACE",
+    "file": "category/engineering_aerospace.json",
+    "count": 59
+  },
+  {
+    "Category": "ENGINEERING, BIOMEDICAL",
+    "file": "category/engineering_biomedical.json",
+    "count": 131
+  },
+  {
+    "Category": "ENGINEERING, CHEMICAL",
+    "file": "category/engineering_chemical.json",
+    "count": 184
+  },
+  {
+    "Category": "ENGINEERING, CIVIL",
+    "file": "category/engineering_civil.json",
+    "count": 194
+  },
+  {
+    "Category": "ENGINEERING, ELECTRICAL & ELECTRONIC",
+    "file": "category/engineering_electrical_and_electronic.json",
+    "count": 372
+  },
+  {
+    "Category": "ENGINEERING, ENVIRONMENTAL",
+    "file": "category/engineering_environmental.json",
+    "count": 88
+  },
+  {
+    "Category": "ENGINEERING, GEOLOGICAL",
+    "file": "category/engineering_geological.json",
+    "count": 68
+  },
+  {
+    "Category": "ENGINEERING, INDUSTRIAL",
+    "file": "category/engineering_industrial.json",
+    "count": 69
+  },
+  {
+    "Category": "ENGINEERING, MANUFACTURING",
+    "file": "category/engineering_manufacturing.json",
+    "count": 71
+  },
+  {
+    "Category": "ENGINEERING, MARINE",
+    "file": "category/engineering_marine.json",
+    "count": 26
+  },
+  {
+    "Category": "ENGINEERING, MECHANICAL",
+    "file": "category/engineering_mechanical.json",
+    "count": 184
+  },
+  {
+    "Category": "ENGINEERING, MULTIDISCIPLINARY",
+    "file": "category/engineering_multidisciplinary.json",
+    "count": 179
+  },
+  {
+    "Category": "ENGINEERING, OCEAN",
+    "file": "category/engineering_ocean.json",
+    "count": 18
+  },
+  {
+    "Category": "ENGINEERING, PETROLEUM",
+    "file": "category/engineering_petroleum.json",
+    "count": 22
+  },
+  {
+    "Category": "ENTOMOLOGY",
+    "file": "category/entomology.json",
+    "count": 110
+  },
+  {
+    "Category": "ENVIRONMENTAL SCIENCES",
+    "file": "category/environmental_sciences.json",
+    "count": 395
+  },
+  {
+    "Category": "ENVIRONMENTAL STUDIES",
+    "file": "category/environmental_studies.json",
+    "count": 202
+  },
+  {
+    "Category": "ERGONOMICS",
+    "file": "category/ergonomics.json",
+    "count": 24
+  },
+  {
+    "Category": "ETHICS",
+    "file": "category/ethics.json",
+    "count": 78
+  },
+  {
+    "Category": "ETHNIC STUDIES",
+    "file": "category/ethnic_studies.json",
+    "count": 40
+  },
+  {
+    "Category": "EVOLUTIONARY BIOLOGY",
+    "file": "category/evolutionary_biology.json",
+    "count": 55
+  },
+  {
+    "Category": "FAMILY STUDIES",
+    "file": "category/family_studies.json",
+    "count": 66
+  },
+  {
+    "Category": "FILM, RADIO, TELEVISION",
+    "file": "category/film_radio_television.json",
+    "count": 62
+  },
+  {
+    "Category": "FISHERIES",
+    "file": "category/fisheries.json",
+    "count": 63
+  },
+  {
+    "Category": "FOLKLORE",
+    "file": "category/folklore.json",
+    "count": 20
+  },
+  {
+    "Category": "FOOD SCIENCE & TECHNOLOGY",
+    "file": "category/food_science_and_technology.json",
+    "count": 187
+  },
+  {
+    "Category": "FORESTRY",
+    "file": "category/forestry.json",
+    "count": 92
+  },
+  {
+    "Category": "GASTROENTEROLOGY & HEPATOLOGY",
+    "file": "category/gastroenterology_and_hepatology.json",
+    "count": 153
+  },
+  {
+    "Category": "GENETICS & HEREDITY",
+    "file": "category/genetics_and_heredity.json",
+    "count": 192
+  },
+  {
+    "Category": "GEOCHEMISTRY & GEOPHYSICS",
+    "file": "category/geochemistry_and_geophysics.json",
+    "count": 103
+  },
+  {
+    "Category": "GEOGRAPHY",
+    "file": "category/geography.json",
+    "count": 174
+  },
+  {
+    "Category": "GEOGRAPHY, PHYSICAL",
+    "file": "category/geography_physical.json",
+    "count": 71
+  },
+  {
+    "Category": "GEOLOGY",
+    "file": "category/geology.json",
+    "count": 61
+  },
+  {
+    "Category": "GEOSCIENCES, MULTIDISCIPLINARY",
+    "file": "category/geosciences_multidisciplinary.json",
+    "count": 259
+  },
+  {
+    "Category": "GERIATRICS & GERONTOLOGY",
+    "file": "category/geriatrics_and_gerontology.json",
+    "count": 74
+  },
+  {
+    "Category": "GERONTOLOGY",
+    "file": "category/gerontology.json",
+    "count": 49
+  },
+  {
+    "Category": "GREEN & SUSTAINABLE SCIENCE & TECHNOLOGY",
+    "file": "category/green_and_sustainable_science_and_technology.json",
+    "count": 114
+  },
+  {
+    "Category": "HEALTH CARE SCIENCES & SERVICES",
+    "file": "category/health_care_sciences_and_services.json",
+    "count": 194
+  },
+  {
+    "Category": "HEALTH POLICY & SERVICES",
+    "file": "category/health_policy_and_services.json",
+    "count": 125
+  },
+  {
+    "Category": "HEMATOLOGY",
+    "file": "category/hematology.json",
+    "count": 103
+  },
+  {
+    "Category": "HISTORY",
+    "file": "category/history.json",
+    "count": 554
+  },
+  {
+    "Category": "HISTORY & PHILOSOPHY OF SCIENCE",
+    "file": "category/history_and_philosophy_of_science.json",
+    "count": 111
+  },
+  {
+    "Category": "HISTORY OF SOCIAL SCIENCES",
+    "file": "category/history_of_social_sciences.json",
+    "count": 45
+  },
+  {
+    "Category": "HORTICULTURE",
+    "file": "category/horticulture.json",
+    "count": 45
+  },
+  {
+    "Category": "HOSPITALITY, LEISURE, SPORT & TOURISM",
+    "file": "category/hospitality_leisure_sport_and_tourism.json",
+    "count": 141
+  },
+  {
+    "Category": "HUMANITIES, MULTIDISCIPLINARY",
+    "file": "category/humanities_multidisciplinary.json",
+    "count": 404
+  },
+  {
+    "Category": "IMAGING SCIENCE & PHOTOGRAPHIC TECHNOLOGY",
+    "file": "category/imaging_science_and_photographic_technology.json",
+    "count": 39
+  },
+  {
+    "Category": "IMMUNOLOGY",
+    "file": "category/immunology.json",
+    "count": 183
+  },
+  {
+    "Category": "INDUSTRIAL RELATIONS & LABOR",
+    "file": "category/industrial_relations_and_labor.json",
+    "count": 54
+  },
+  {
+    "Category": "INFECTIOUS DISEASES",
+    "file": "category/infectious_diseases.json",
+    "count": 141
+  },
+  {
+    "Category": "INFORMATION SCIENCE & LIBRARY SCIENCE",
+    "file": "category/information_science_and_library_science.json",
+    "count": 172
+  },
+  {
+    "Category": "INSTRUMENTS & INSTRUMENTATION",
+    "file": "category/instruments_and_instrumentation.json",
+    "count": 81
+  },
+  {
+    "Category": "INTEGRATIVE & COMPLEMENTARY MEDICINE",
+    "file": "category/integrative_and_complementary_medicine.json",
+    "count": 49
+  },
+  {
+    "Category": "INTERNATIONAL RELATIONS",
+    "file": "category/international_relations.json",
+    "count": 173
+  },
+  {
+    "Category": "LANGUAGE & LINGUISTICS",
+    "file": "category/language_and_linguistics.json",
+    "count": 408
+  },
+  {
+    "Category": "LAW",
+    "file": "category/law.json",
+    "count": 443
+  },
+  {
+    "Category": "LIMNOLOGY",
+    "file": "category/limnology.json",
+    "count": 21
+  },
+  {
+    "Category": "LINGUISTICS",
+    "file": "category/linguistics.json",
+    "count": 312
+  },
+  {
+    "Category": "LITERARY REVIEWS",
+    "file": "category/literary_reviews.json",
+    "count": 44
+  },
+  {
+    "Category": "LITERARY THEORY & CRITICISM",
+    "file": "category/literary_theory_and_criticism.json",
+    "count": 58
+  },
+  {
+    "Category": "LITERATURE",
+    "file": "category/literature.json",
+    "count": 200
+  },
+  {
+    "Category": "LITERATURE, AFRICAN, AUSTRALIAN, CANADIAN",
+    "file": "category/literature_african_australian_canadian.json",
+    "count": 9
+  },
+  {
+    "Category": "LITERATURE, AMERICAN",
+    "file": "category/literature_american.json",
+    "count": 23
+  },
+  {
+    "Category": "LITERATURE, BRITISH ISLES",
+    "file": "category/literature_british_isles.json",
+    "count": 21
+  },
+  {
+    "Category": "LITERATURE, GERMAN, DUTCH, SCANDINAVIAN",
+    "file": "category/literature_german_dutch_scandinavian.json",
+    "count": 27
+  },
+  {
+    "Category": "LITERATURE, ROMANCE",
+    "file": "category/literature_romance.json",
+    "count": 117
+  },
+  {
+    "Category": "LITERATURE, SLAVIC",
+    "file": "category/literature_slavic.json",
+    "count": 16
+  },
+  {
+    "Category": "LOGIC",
+    "file": "category/logic.json",
+    "count": 27
+  },
+  {
+    "Category": "MANAGEMENT",
+    "file": "category/management.json",
+    "count": 426
+  },
+  {
+    "Category": "MARINE & FRESHWATER BIOLOGY",
+    "file": "category/marine_and_freshwater_biology.json",
+    "count": 124
+  },
+  {
+    "Category": "MATERIALS SCIENCE, BIOMATERIALS",
+    "file": "category/materials_science_biomaterials.json",
+    "count": 58
+  },
+  {
+    "Category": "MATERIALS SCIENCE, CERAMICS",
+    "file": "category/materials_science_ceramics.json",
+    "count": 34
+  },
+  {
+    "Category": "MATERIALS SCIENCE, CHARACTERIZATION & TESTING",
+    "file": "category/materials_science_characterization_and_testing.json",
+    "count": 37
+  },
+  {
+    "Category": "MATERIALS SCIENCE, COATINGS & FILMS",
+    "file": "category/materials_science_coatings_and_films.json",
+    "count": 25
+  },
+  {
+    "Category": "MATERIALS SCIENCE, COMPOSITES",
+    "file": "category/materials_science_composites.json",
+    "count": 35
+  },
+  {
+    "Category": "MATERIALS SCIENCE, MULTIDISCIPLINARY",
+    "file": "category/materials_science_multidisciplinary.json",
+    "count": 474
+  },
+  {
+    "Category": "MATERIALS SCIENCE, PAPER & WOOD",
+    "file": "category/materials_science_paper_and_wood.json",
+    "count": 24
+  },
+  {
+    "Category": "MATERIALS SCIENCE, TEXTILES",
+    "file": "category/materials_science_textiles.json",
+    "count": 31
+  },
+  {
+    "Category": "MATHEMATICAL & COMPUTATIONAL BIOLOGY",
+    "file": "category/mathematical_and_computational_biology.json",
+    "count": 67
+  },
+  {
+    "Category": "MATHEMATICS",
+    "file": "category/mathematics.json",
+    "count": 493
+  },
+  {
+    "Category": "MATHEMATICS, APPLIED",
+    "file": "category/mathematics_applied.json",
+    "count": 345
+  },
+  {
+    "Category": "MATHEMATICS, INTERDISCIPLINARY APPLICATIONS",
+    "file": "category/mathematics_interdisciplinary_applications.json",
+    "count": 138
+  },
+  {
+    "Category": "MECHANICS",
+    "file": "category/mechanics.json",
+    "count": 172
+  },
+  {
+    "Category": "MEDICAL ETHICS",
+    "file": "category/medical_ethics.json",
+    "count": 22
+  },
+  {
+    "Category": "MEDICAL INFORMATICS",
+    "file": "category/medical_informatics.json",
+    "count": 55
+  },
+  {
+    "Category": "MEDICAL LABORATORY TECHNOLOGY",
+    "file": "category/medical_laboratory_technology.json",
+    "count": 33
+  },
+  {
+    "Category": "MEDICINE, GENERAL & INTERNAL",
+    "file": "category/medicine_general_and_internal.json",
+    "count": 336
+  },
+  {
+    "Category": "MEDICINE, LEGAL",
+    "file": "category/medicine_legal.json",
+    "count": 24
+  },
+  {
+    "Category": "MEDICINE, RESEARCH & EXPERIMENTAL",
+    "file": "category/medicine_research_and_experimental.json",
+    "count": 191
+  },
+  {
+    "Category": "MEDIEVAL & RENAISSANCE STUDIES",
+    "file": "category/medieval_and_renaissance_studies.json",
+    "count": 85
+  },
+  {
+    "Category": "METALLURGY & METALLURGICAL ENGINEERING",
+    "file": "category/metallurgy_and_metallurgical_engineering.json",
+    "count": 97
+  },
+  {
+    "Category": "METEOROLOGY & ATMOSPHERIC SCIENCES",
+    "file": "category/meteorology_and_atmospheric_sciences.json",
+    "count": 114
+  },
+  {
+    "Category": "MICROBIOLOGY",
+    "file": "category/microbiology.json",
+    "count": 167
+  },
+  {
+    "Category": "MICROSCOPY",
+    "file": "category/microscopy.json",
+    "count": 8
+  },
+  {
+    "Category": "MINERALOGY",
+    "file": "category/mineralogy.json",
+    "count": 30
+  },
+  {
+    "Category": "MINING & MINERAL PROCESSING",
+    "file": "category/mining_and_mineral_processing.json",
+    "count": 35
+  },
+  {
+    "Category": "MULTIDISCIPLINARY SCIENCES",
+    "file": "category/multidisciplinary_sciences.json",
+    "count": 140
+  },
+  {
+    "Category": "MUSIC",
+    "file": "category/music.json",
+    "count": 109
+  },
+  {
+    "Category": "MYCOLOGY",
+    "file": "category/mycology.json",
+    "count": 33
+  },
+  {
+    "Category": "NANOSCIENCE & NANOTECHNOLOGY",
+    "file": "category/nanoscience_and_nanotechnology.json",
+    "count": 148
+  },
+  {
+    "Category": "NEUROIMAGING",
+    "file": "category/neuroimaging.json",
+    "count": 18
+  },
+  {
+    "Category": "NEUROSCIENCES",
+    "file": "category/neurosciences.json",
+    "count": 333
+  },
+  {
+    "Category": "NUCLEAR SCIENCE & TECHNOLOGY",
+    "file": "category/nuclear_science_and_technology.json",
+    "count": 42
+  },
+  {
+    "Category": "NURSING",
+    "file": "category/nursing.json",
+    "count": 194
+  },
+  {
+    "Category": "NUTRITION & DIETETICS",
+    "file": "category/nutrition_and_dietetics.json",
+    "count": 114
+  },
+  {
+    "Category": "OBSTETRICS & GYNECOLOGY",
+    "file": "category/obstetrics_and_gynecology.json",
+    "count": 143
+  },
+  {
+    "Category": "OCEANOGRAPHY",
+    "file": "category/oceanography.json",
+    "count": 67
+  },
+  {
+    "Category": "ONCOLOGY",
+    "file": "category/oncology.json",
+    "count": 333
+  },
+  {
+    "Category": "OPHTHALMOLOGY",
+    "file": "category/ophthalmology.json",
+    "count": 98
+  },
+  {
+    "Category": "OPTICS",
+    "file": "category/optics.json",
+    "count": 129
+  },
+  {
+    "Category": "ORNITHOLOGY",
+    "file": "category/ornithology.json",
+    "count": 29
+  },
+  {
+    "Category": "ORTHOPEDICS",
+    "file": "category/orthopedics.json",
+    "count": 147
+  },
+  {
+    "Category": "OTORHINOLARYNGOLOGY",
+    "file": "category/otorhinolaryngology.json",
+    "count": 67
+  },
+  {
+    "Category": "PALEONTOLOGY",
+    "file": "category/paleontology.json",
+    "count": 58
+  },
+  {
+    "Category": "PARASITOLOGY",
+    "file": "category/parasitology.json",
+    "count": 47
+  },
+  {
+    "Category": "PATHOLOGY",
+    "file": "category/pathology.json",
+    "count": 90
+  },
+  {
+    "Category": "PEDIATRICS",
+    "file": "category/pediatrics.json",
+    "count": 192
+  },
+  {
+    "Category": "PERIPHERAL VASCULAR DISEASE",
+    "file": "category/peripheral_vascular_disease.json",
+    "count": 100
+  },
+  {
+    "Category": "PHARMACOLOGY & PHARMACY",
+    "file": "category/pharmacology_and_pharmacy.json",
+    "count": 356
+  },
+  {
+    "Category": "PHILOSOPHY",
+    "file": "category/philosophy.json",
+    "count": 336
+  },
+  {
+    "Category": "PHYSICS, APPLIED",
+    "file": "category/physics_applied.json",
+    "count": 191
+  },
+  {
+    "Category": "PHYSICS, ATOMIC, MOLECULAR & CHEMICAL",
+    "file": "category/physics_atomic_molecular_and_chemical.json",
+    "count": 38
+  },
+  {
+    "Category": "PHYSICS, CONDENSED MATTER",
+    "file": "category/physics_condensed_matter.json",
+    "count": 81
+  },
+  {
+    "Category": "PHYSICS, FLUIDS & PLASMAS",
+    "file": "category/physics_fluids_and_plasmas.json",
+    "count": 43
+  },
+  {
+    "Category": "PHYSICS, MATHEMATICAL",
+    "file": "category/physics_mathematical.json",
+    "count": 61
+  },
+  {
+    "Category": "PHYSICS, MULTIDISCIPLINARY",
+    "file": "category/physics_multidisciplinary.json",
+    "count": 112
+  },
+  {
+    "Category": "PHYSICS, NUCLEAR",
+    "file": "category/physics_nuclear.json",
+    "count": 22
+  },
+  {
+    "Category": "PHYSICS, PARTICLES & FIELDS",
+    "file": "category/physics_particles_and_fields.json",
+    "count": 31
+  },
+  {
+    "Category": "PHYSIOLOGY",
+    "file": "category/physiology.json",
+    "count": 89
+  },
+  {
+    "Category": "PLANT SCIENCES",
+    "file": "category/plant_sciences.json",
+    "count": 287
+  },
+  {
+    "Category": "POETRY",
+    "file": "category/poetry.json",
+    "count": 15
+  },
+  {
+    "Category": "POLITICAL SCIENCE",
+    "file": "category/political_science.json",
+    "count": 332
+  },
+  {
+    "Category": "POLYMER SCIENCE",
+    "file": "category/polymer_science.json",
+    "count": 96
+  },
+  {
+    "Category": "PRIMARY HEALTH CARE",
+    "file": "category/primary_health_care.json",
+    "count": 29
+  },
+  {
+    "Category": "PSYCHIATRY",
+    "file": "category/psychiatry.json",
+    "count": 296
+  },
+  {
+    "Category": "PSYCHOLOGY",
+    "file": "category/psychology.json",
+    "count": 94
+  },
+  {
+    "Category": "PSYCHOLOGY, APPLIED",
+    "file": "category/psychology_applied.json",
+    "count": 116
+  },
+  {
+    "Category": "PSYCHOLOGY, BIOLOGICAL",
+    "file": "category/psychology_biological.json",
+    "count": 17
+  },
+  {
+    "Category": "PSYCHOLOGY, CLINICAL",
+    "file": "category/psychology_clinical.json",
+    "count": 185
+  },
+  {
+    "Category": "PSYCHOLOGY, DEVELOPMENTAL",
+    "file": "category/psychology_developmental.json",
+    "count": 96
+  },
+  {
+    "Category": "PSYCHOLOGY, EDUCATIONAL",
+    "file": "category/psychology_educational.json",
+    "count": 73
+  },
+  {
+    "Category": "PSYCHOLOGY, EXPERIMENTAL",
+    "file": "category/psychology_experimental.json",
+    "count": 104
+  },
+  {
+    "Category": "PSYCHOLOGY, MATHEMATICAL",
+    "file": "category/psychology_mathematical.json",
+    "count": 13
+  },
+  {
+    "Category": "PSYCHOLOGY, MULTIDISCIPLINARY",
+    "file": "category/psychology_multidisciplinary.json",
+    "count": 223
+  },
+  {
+    "Category": "PSYCHOLOGY, PSYCHOANALYSIS",
+    "file": "category/psychology_psychoanalysis.json",
+    "count": 24
+  },
+  {
+    "Category": "PSYCHOLOGY, SOCIAL",
+    "file": "category/psychology_social.json",
+    "count": 77
+  },
+  {
+    "Category": "PUBLIC ADMINISTRATION",
+    "file": "category/public_administration.json",
+    "count": 97
+  },
+  {
+    "Category": "PUBLIC, ENVIRONMENTAL & OCCUPATIONAL HEALTH",
+    "file": "category/public_environmental_and_occupational_health.json",
+    "count": 443
+  },
+  {
+    "Category": "QUANTUM SCIENCE & TECHNOLOGY",
+    "file": "category/quantum_science_and_technology.json",
+    "count": 28
+  },
+  {
+    "Category": "RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",
+    "file": "category/radiology_nuclear_medicine_and_medical_imaging.json",
+    "count": 217
+  },
+  {
+    "Category": "REGIONAL & URBAN PLANNING",
+    "file": "category/regional_and_urban_planning.json",
+    "count": 58
+  },
+  {
+    "Category": "REHABILITATION",
+    "file": "category/rehabilitation.json",
+    "count": 177
+  },
+  {
+    "Category": "RELIGION",
+    "file": "category/religion.json",
+    "count": 340
+  },
+  {
+    "Category": "REMOTE SENSING",
+    "file": "category/remote_sensing.json",
+    "count": 66
+  },
+  {
+    "Category": "REPRODUCTIVE BIOLOGY",
+    "file": "category/reproductive_biology.json",
+    "count": 44
+  },
+  {
+    "Category": "RESPIRATORY SYSTEM",
+    "file": "category/respiratory_system.json",
+    "count": 107
+  },
+  {
+    "Category": "RHEUMATOLOGY",
+    "file": "category/rheumatology.json",
+    "count": 58
+  },
+  {
+    "Category": "ROBOTICS",
+    "file": "category/robotics.json",
+    "count": 48
+  },
+  {
+    "Category": "SOCIAL ISSUES",
+    "file": "category/social_issues.json",
+    "count": 72
+  },
+  {
+    "Category": "SOCIAL SCIENCES, BIOMEDICAL",
+    "file": "category/social_sciences_biomedical.json",
+    "count": 48
+  },
+  {
+    "Category": "SOCIAL SCIENCES, INTERDISCIPLINARY",
+    "file": "category/social_sciences_interdisciplinary.json",
+    "count": 276
+  },
+  {
+    "Category": "SOCIAL SCIENCES, MATHEMATICAL METHODS",
+    "file": "category/social_sciences_mathematical_methods.json",
+    "count": 70
+  },
+  {
+    "Category": "SOCIAL WORK",
+    "file": "category/social_work.json",
+    "count": 99
+  },
+  {
+    "Category": "SOCIOLOGY",
+    "file": "category/sociology.json",
+    "count": 222
+  },
+  {
+    "Category": "SOIL SCIENCE",
+    "file": "category/soil_science.json",
+    "count": 48
+  },
+  {
+    "Category": "SPECTROSCOPY",
+    "file": "category/spectroscopy.json",
+    "count": 44
+  },
+  {
+    "Category": "SPORT SCIENCES",
+    "file": "category/sport_sciences.json",
+    "count": 137
+  },
+  {
+    "Category": "STATISTICS & PROBABILITY",
+    "file": "category/statistics_and_probability.json",
+    "count": 171
+  },
+  {
+    "Category": "SUBSTANCE ABUSE",
+    "file": "category/substance_abuse.json",
+    "count": 61
+  },
+  {
+    "Category": "SURGERY",
+    "file": "category/surgery.json",
+    "count": 321
+  },
+  {
+    "Category": "TELECOMMUNICATIONS",
+    "file": "category/telecommunications.json",
+    "count": 128
+  },
+  {
+    "Category": "THEATER",
+    "file": "category/theater.json",
+    "count": 48
+  },
+  {
+    "Category": "THERMODYNAMICS",
+    "file": "category/thermodynamics.json",
+    "count": 78
+  },
+  {
+    "Category": "TOXICOLOGY",
+    "file": "category/toxicology.json",
+    "count": 106
+  },
+  {
+    "Category": "TRANSPLANTATION",
+    "file": "category/transplantation.json",
+    "count": 30
+  },
+  {
+    "Category": "TRANSPORTATION",
+    "file": "category/transportation.json",
+    "count": 66
+  },
+  {
+    "Category": "TRANSPORTATION SCIENCE & TECHNOLOGY",
+    "file": "category/transportation_science_and_technology.json",
+    "count": 80
+  },
+  {
+    "Category": "TROPICAL MEDICINE",
+    "file": "category/tropical_medicine.json",
+    "count": 27
+  },
+  {
+    "Category": "URBAN STUDIES",
+    "file": "category/urban_studies.json",
+    "count": 86
+  },
+  {
+    "Category": "UROLOGY & NEPHROLOGY",
+    "file": "category/urology_and_nephrology.json",
+    "count": 134
+  },
+  {
+    "Category": "VETERINARY SCIENCES",
+    "file": "category/veterinary_sciences.json",
+    "count": 170
+  },
+  {
+    "Category": "VIROLOGY",
+    "file": "category/virology.json",
+    "count": 44
+  },
+  {
+    "Category": "WATER RESOURCES",
+    "file": "category/water_resources.json",
+    "count": 132
+  },
+  {
+    "Category": "WOMENS STUDIES",
+    "file": "category/womens_studies.json",
+    "count": 71
+  },
+  {
+    "Category": "ZOOLOGY",
+    "file": "category/zoology.json",
+    "count": 183
+  }
+]
