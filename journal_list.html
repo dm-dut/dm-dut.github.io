@@ -2,13 +2,15 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>期刊目录查询系统</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
     <style>
         body {
             background: linear-gradient(135deg, #eef4ff 0%, #f8fafc 45%, #f3f0ff 100%);
-            font-family: "Segoe UI", system-ui, sans-serif;
+            font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Microsoft YaHei", sans-serif;
             margin: 0;
             padding: 10px;
             overflow: hidden;
@@ -17,7 +19,7 @@
 
         .main-card {
             background: #fff;
-            max-width: 1600px;
+            max-width: 1700px;
             margin: 0 auto;
             height: calc(100vh - 20px);
             border-radius: 12px;
@@ -38,7 +40,7 @@
 
         h2 {
             font-size: 1.4rem;
-            font-weight: bold;
+            font-weight: 700;
             margin: 0;
             color: #0b5ed7;
             white-space: nowrap;
@@ -82,19 +84,51 @@
             background: #fff;
         }
 
-        .global-table { table-layout: fixed; width: 100%; margin: 0; }
-        .global-table th, .global-table td { padding: 10px; vertical-align: middle; }
-        .global-table th { background-color: #0d6efd !important; color: #fff; position: sticky; top: 0; z-index: 10; }
+        .global-table {
+            table-layout: fixed;
+            width: 100%;
+            margin: 0;
+        }
 
-        .col-db { width: 70px; }
-        .col-name { width: auto; }
-        .col-field { width: 30%; }
-        .col-rank { width: 70px; text-align: center; }
-        .col-if { width: 70px; text-align: center; }
+        .global-table th,
+        .global-table td {
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        .global-table th {
+            background-color: #0d6efd !important;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .col-db {
+            width: 70px;
+        }
+
+        .col-name {
+            width: auto;
+        }
+
+        .col-field {
+            width: 30%;
+        }
+
+        .col-rank {
+            width: 70px;
+            text-align: center;
+        }
+
+        .col-if {
+            width: 70px;
+            text-align: center;
+        }
 
         .global-table td.field-cell {
             white-space: normal !important;
-            word-break: break-all;
+            word-break: break-word;
             line-height: 1.2;
             font-size: 0.95rem;
         }
@@ -176,30 +210,151 @@
             line-height: 1.3;
         }
 
-        #table-ccf th:nth-child(1), #table-ccf td:nth-child(1) { width: 10%; }
-        #table-ccf th:nth-child(2), #table-ccf td:nth-child(2) { width: 40%; }
-        #table-ccf th:nth-child(3), #table-ccf td:nth-child(3) { width: 35%; }
-        #table-ccf th:nth-child(4), #table-ccf td:nth-child(4) { width: 7%; text-align: center; }
-        #table-ccf th:nth-child(5), #table-ccf td:nth-child(5) { width: 8%; text-align: center; }
+        #table-ccf th:nth-child(1),
+        #table-ccf td:nth-child(1) {
+            width: 10%;
+        }
 
-        #table-ajg th:nth-child(1), #table-ajg td:nth-child(1) { width: 48%; }
-        #table-ajg th:nth-child(2), #table-ajg td:nth-child(2) { width: 32%; }
-        #table-ajg th:nth-child(3), #table-ajg td:nth-child(3) { width: 8%; text-align: center; }
-        #table-ajg th:nth-child(4), #table-ajg td:nth-child(4) { width: 12%; text-align: center; }
+        #table-ccf th:nth-child(2),
+        #table-ccf td:nth-child(2) {
+            width: 40%;
+        }
 
-        #table-fms th:nth-child(1), #table-fms td:nth-child(1) { width: 48%; }
-        #table-fms th:nth-child(2), #table-fms td:nth-child(2) { width: 32%; }
-        #table-fms th:nth-child(3), #table-fms td:nth-child(3) { width: 8%; text-align: center; }
-        #table-fms th:nth-child(4), #table-fms td:nth-child(4) { width: 12%; text-align: center; }
+        #table-ccf th:nth-child(3),
+        #table-ccf td:nth-child(3) {
+            width: 35%;
+        }
+
+        #table-ccf th:nth-child(4),
+        #table-ccf td:nth-child(4) {
+            width: 7%;
+            text-align: center;
+        }
+
+        #table-ccf th:nth-child(5),
+        #table-ccf td:nth-child(5) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-ajg th:nth-child(1),
+        #table-ajg td:nth-child(1) {
+            width: 48%;
+        }
+
+        #table-ajg th:nth-child(2),
+        #table-ajg td:nth-child(2) {
+            width: 32%;
+        }
+
+        #table-ajg th:nth-child(3),
+        #table-ajg td:nth-child(3) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-ajg th:nth-child(4),
+        #table-ajg td:nth-child(4) {
+            width: 12%;
+            text-align: center;
+        }
+
+        #table-fms th:nth-child(1),
+        #table-fms td:nth-child(1) {
+            width: 48%;
+        }
+
+        #table-fms th:nth-child(2),
+        #table-fms td:nth-child(2) {
+            width: 32%;
+        }
+
+        #table-fms th:nth-child(3),
+        #table-fms td:nth-child(3) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-fms th:nth-child(4),
+        #table-fms td:nth-child(4) {
+            width: 12%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(1),
+        #table-jcr td:nth-child(1) {
+            width: 25%;
+        }
+
+        #table-jcr th:nth-child(2),
+        #table-jcr td:nth-child(2) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(3),
+        #table-jcr td:nth-child(3) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(4),
+        #table-jcr td:nth-child(4) {
+            width: 24%;
+        }
+
+        #table-jcr th:nth-child(5),
+        #table-jcr td:nth-child(5) {
+            width: 7%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(6),
+        #table-jcr td:nth-child(6) {
+            width: 7%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(7),
+        #table-jcr td:nth-child(7) {
+            width: 8%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(8),
+        #table-jcr td:nth-child(8) {
+            width: 7%;
+            text-align: center;
+        }
+
+        #table-jcr th:nth-child(9),
+        #table-jcr td:nth-child(9) {
+            width: 6%;
+            text-align: center;
+        }
 
         .table-hover tbody tr:hover {
             background-color: #eef6ff !important;
         }
 
-        .table-wrap::-webkit-scrollbar { width: 6px; height: 6px; }
-        .table-wrap::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 3px; }
-        .table-wrap::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
-        .table-wrap::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+        .table-wrap::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .table-wrap::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .table-wrap::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+
+        .table-wrap::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
 
         .badge-rank {
             display: inline-block;
@@ -210,22 +365,32 @@
             font-size: 0.78rem;
         }
 
-        .rank-a, .rank-t1, .rank-4 {
+        .rank-a,
+        .rank-t1,
+        .rank-4,
+        .rank-q1 {
             background: #ffe8cc;
             color: #c2410c;
         }
 
-        .rank-b, .rank-t2, .rank-3 {
+        .rank-b,
+        .rank-t2,
+        .rank-3,
+        .rank-q2 {
             background: #dbeafe;
             color: #1d4ed8;
         }
 
-        .rank-c, .rank-2 {
+        .rank-c,
+        .rank-2,
+        .rank-q3 {
             background: #dcfce7;
             color: #15803d;
         }
 
-        .rank-d, .rank-1 {
+        .rank-d,
+        .rank-1,
+        .rank-q4 {
             background: #f1f5f9;
             color: #475569;
         }
@@ -244,9 +409,100 @@
             font-weight: 600;
         }
 
-        .db-ajg { background: #111827; }
-        .db-ccf { background: #198754; }
-        .db-fms { background: #f59e0b; color: #111827; }
+        .edition-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-weight: 700;
+            font-size: 0.76rem;
+        }
+
+        .db-ajg {
+            background: #111827;
+        }
+
+        .db-ccf {
+            background: #198754;
+        }
+
+        .db-fms {
+            background: #f59e0b;
+            color: #111827;
+        }
+
+        .page-info-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8fbff;
+            border: 1px solid #dbe7ff;
+            border-radius: 8px;
+            padding: 6px 10px;
+            margin: 0 0 8px 0;
+            font-size: 0.86rem;
+            color: #475569;
+            flex-shrink: 0;
+        }
+
+        .page-info-bar .count {
+            font-weight: 700;
+            color: #0b5ed7;
+        }
+
+        .page-pagination {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .page-pagination button {
+            border: 1px solid #d0ddf5;
+            background: #ffffff;
+            color: #0b5ed7;
+            border-radius: 999px;
+            padding: 3px 10px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .page-pagination button:hover:not(:disabled) {
+            background: #edf4ff;
+        }
+
+        .page-pagination button:disabled {
+            color: #adb5bd;
+            background: #f1f3f5;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 1100px) {
+            body {
+                overflow: auto;
+                height: auto;
+            }
+
+            .main-card {
+                height: auto;
+                min-height: calc(100vh - 20px);
+            }
+
+            .top-bar {
+                flex-wrap: wrap;
+                align-items: stretch;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .page-info-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+        }
     </style>
 </head>
 
@@ -268,8 +524,16 @@
 
         <div class="search-box">
             <div class="input-group input-group-sm">
-                <input type="text" id="globalSearchInput" class="form-control border-0 bg-transparent" placeholder="搜索期刊（支持多关键词，空格分隔）" onkeyup="if(event.keyCode===13) executeGlobalSearch()">
-                <button class="btn btn-primary rounded-2 px-4 ms-2" onclick="executeGlobalSearch()">全局检索</button>
+                <input type="text"
+                       id="globalSearchInput"
+                       class="form-control border-0 bg-transparent"
+                       placeholder="搜索期刊（仅检索 AJG / CCF / FMS，支持多关键词，空格分隔）"
+                       onkeyup="if(event.keyCode===13) executeGlobalSearch()">
+
+                <button class="btn btn-primary rounded-2 px-4 ms-2"
+                        onclick="executeGlobalSearch()">
+                    全局检索
+                </button>
             </div>
         </div>
     </div>
@@ -277,38 +541,199 @@
     <div id="globalResult"></div>
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#panel-ajg">AJG 2024</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-ccf">CCF 2026</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-fms">FMS 2025</button></li>
+        <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#panel-ajg">AJG 2024</button>
+        </li>
+
+        <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-ccf">CCF 2026</button>
+        </li>
+
+        <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-fms">FMS 2025</button>
+        </li>
+
+        <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-jcr">JCR IF 2025</button>
+        </li>
     </ul>
 
     <div class="tab-content" id="myTabContent">
 
         <div class="tab-pane fade show active" id="panel-ajg" role="tabpanel">
             <div class="filter-bar row g-2 m-0">
-                <div class="col-4"><label class="small fw-bold text-muted">期刊搜索</label><input type="text" id="search-ajg" class="form-control" oninput="filterTable('ajg')" placeholder="输入期刊名称关键词..."></div>
-                <div class="col-4"><label class="small fw-bold text-muted">学科分类</label><select id="field-ajg" class="form-select" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
-                <div class="col-4"><label class="small fw-bold text-muted">级别</label><select id="rank-ajg" class="form-select" onchange="filterTable('ajg')"><option value="">全部</option></select></div>
+                <div class="col-4">
+                    <label class="small fw-bold text-muted">期刊搜索</label>
+                    <input type="text"
+                           id="search-ajg"
+                           class="form-control"
+                           oninput="debouncedFilterTable('ajg')"
+                           placeholder="输入期刊名称关键词...">
+                </div>
+
+                <div class="col-4">
+                    <label class="small fw-bold text-muted">学科分类</label>
+                    <select id="field-ajg" class="form-select" onchange="filterTable('ajg')">
+                        <option value="">全部</option>
+                    </select>
+                </div>
+
+                <div class="col-4">
+                    <label class="small fw-bold text-muted">级别</label>
+                    <select id="rank-ajg" class="form-select" onchange="filterTable('ajg')">
+                        <option value="">全部</option>
+                    </select>
+                </div>
             </div>
-            <div class="table-wrap"><table class="table table-hover table-striped" id="table-ajg"><thead></thead><tbody></tbody></table></div>
+
+            <div class="page-info-bar">
+                <div id="ajgResultInfo">数据加载中...</div>
+                <div class="page-pagination">
+                    <button id="ajgPrevBtn" onclick="changePage('ajg', -1)">上一页</button>
+                    <span id="ajgPageInfo">第 1 / 1 页</span>
+                    <button id="ajgNextBtn" onclick="changePage('ajg', 1)">下一页</button>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table table-hover table-striped" id="table-ajg">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
 
         <div class="tab-pane fade" id="panel-ccf" role="tabpanel">
             <div class="filter-bar row g-2 m-0">
-                <div class="col-4"><label class="small fw-bold text-muted">简称/全称搜索</label><input type="text" id="search-ccf" class="form-control" oninput="filterTable('ccf')" placeholder="支持简称或全称关键词..."></div>
-                <div class="col-4"><label class="small fw-bold text-muted">领域分类</label><select id="field-ccf" class="form-select" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
-                <div class="col-4"><label class="small fw-bold text-muted">级别</label><select id="rank-ccf" class="form-select" onchange="filterTable('ccf')"><option value="">全部</option></select></div>
+                <div class="col-4">
+                    <label class="small fw-bold text-muted">简称 / 全称搜索</label>
+                    <input type="text"
+                           id="search-ccf"
+                           class="form-control"
+                           oninput="debouncedFilterTable('ccf')"
+                           placeholder="支持简称或全称关键词...">
+                </div>
+
+                <div class="col-4">
+                    <label class="small fw-bold text-muted">领域分类</label>
+                    <select id="field-ccf" class="form-select" onchange="filterTable('ccf')">
+                        <option value="">全部</option>
+                    </select>
+                </div>
+
+                <div class="col-4">
+                    <label class="small fw-bold text-muted">级别</label>
+                    <select id="rank-ccf" class="form-select" onchange="filterTable('ccf')">
+                        <option value="">全部</option>
+                    </select>
+                </div>
             </div>
-            <div class="table-wrap"><table class="table table-hover table-striped" id="table-ccf"><thead></thead><tbody></tbody></table></div>
+
+            <div class="page-info-bar">
+                <div id="ccfResultInfo">数据加载中...</div>
+                <div class="page-pagination">
+                    <button id="ccfPrevBtn" onclick="changePage('ccf', -1)">上一页</button>
+                    <span id="ccfPageInfo">第 1 / 1 页</span>
+                    <button id="ccfNextBtn" onclick="changePage('ccf', 1)">下一页</button>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table table-hover table-striped" id="table-ccf">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
 
         <div class="tab-pane fade" id="panel-fms" role="tabpanel">
             <div class="filter-bar row g-2 m-0">
-                <div class="col-4"><label class="small fw-bold text-muted">期刊名称搜索</label><input type="text" id="search-fms" class="form-control" oninput="filterTable('fms')" placeholder="输入期刊名称关键词..."></div>
-                <div class="col-4"><label class="small fw-bold text-muted">管理学科</label><select id="field-fms" class="form-select" onchange="filterTable('fms')"><option value="">全部</option></select></div>
-                <div class="col-4"><label class="small fw-bold text-muted">级别</label><select id="rank-fms" class="form-select" onchange="filterTable('fms')"><option value="">全部</option></select></div>
+                <div class="col-4">
+                    <label class="small fw-bold text-muted">期刊名称搜索</label>
+                    <input type="text"
+                           id="search-fms"
+                           class="form-control"
+                           oninput="debouncedFilterTable('fms')"
+                           placeholder="输入期刊名称关键词...">
+                </div>
+
+                <div class="col-4">
+                    <label class="small fw-bold text-muted">管理学科</label>
+                    <select id="field-fms" class="form-select" onchange="filterTable('fms')">
+                        <option value="">全部</option>
+                    </select>
+                </div>
+
+                <div class="col-4">
+                    <label class="small fw-bold text-muted">级别</label>
+                    <select id="rank-fms" class="form-select" onchange="filterTable('fms')">
+                        <option value="">全部</option>
+                    </select>
+                </div>
             </div>
-            <div class="table-wrap"><table class="table table-hover table-striped" id="table-fms"><thead></thead><tbody></tbody></table></div>
+
+            <div class="page-info-bar">
+                <div id="fmsResultInfo">数据加载中...</div>
+                <div class="page-pagination">
+                    <button id="fmsPrevBtn" onclick="changePage('fms', -1)">上一页</button>
+                    <span id="fmsPageInfo">第 1 / 1 页</span>
+                    <button id="fmsNextBtn" onclick="changePage('fms', 1)">下一页</button>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table table-hover table-striped" id="table-fms">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="panel-jcr" role="tabpanel">
+            <div class="filter-bar row g-2 m-0">
+                <div class="col-4">
+                    <label class="small fw-bold text-muted">期刊 / ISSN / eISSN 搜索</label>
+                    <input type="text"
+                           id="search-jcr"
+                           class="form-control"
+                           oninput="debouncedFilterTable('jcr')"
+                           placeholder="Journal name / ISSN / eISSN">
+                </div>
+
+                <div class="col-5">
+                    <label class="small fw-bold text-muted">JCR Category</label>
+                    <select id="field-jcr" class="form-select" onchange="filterTable('jcr')">
+                        <option value="">全部分类</option>
+                    </select>
+                </div>
+
+                <div class="col-3">
+                    <label class="small fw-bold text-muted">JIF Quartile</label>
+                    <select id="rank-jcr" class="form-select" onchange="filterTable('jcr')">
+                        <option value="">全部</option>
+                        <option value="Q1">Q1</option>
+                        <option value="Q2">Q2</option>
+                        <option value="Q3">Q3</option>
+                        <option value="Q4">Q4</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="page-info-bar">
+                <div id="jcrResultInfo">数据加载中...</div>
+                <div class="page-pagination">
+                    <button id="jcrPrevBtn" onclick="changePage('jcr', -1)">上一页</button>
+                    <span id="jcrPageInfo">第 1 / 1 页</span>
+                    <button id="jcrNextBtn" onclick="changePage('jcr', 1)">下一页</button>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table table-hover table-striped" id="table-jcr">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
 
     </div>
@@ -317,10 +742,55 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-let dataAJG = [], dataCCF = [], dataFMS = [];
+let dataAJG = [], dataCCF = [], dataFMS = [], dataJCR = [];
+
+let currentPageData = {
+    ajg: [],
+    ccf: [],
+    fms: [],
+    jcr: []
+};
+
+let currentPageNo = {
+    ajg: 1,
+    ccf: 1,
+    fms: 1,
+    jcr: 1
+};
+
+const PAGE_SIZE = {
+    ajg: 200,
+    ccf: 200,
+    fms: 200,
+    jcr: 200
+};
+
+let filterTimers = {};
+
+const PRIORITY_JCR_CATEGORY = "OPERATIONS RESEARCH & MANAGEMENT SCIENCE";
+
+const JCR_COLS = [
+    'Journal name',
+    'ISSN',
+    'eISSN',
+    'Category',
+    'Edition',
+    '2025 JIF',
+    '5-year JIF',
+    'JIF quartile',
+    'JIF rank'
+];
 
 function norm(v) {
-    return String(v ?? '').trim().replace(/\u3000/g, ' ').replace(/\s+/g, ' ').toLowerCase();
+    return String(v ?? '')
+        .trim()
+        .replace(/\u3000/g, ' ')
+        .replace(/\s+/g, ' ')
+        .toLowerCase();
+}
+
+function normCategory(v) {
+    return norm(v).replace(/&/g, 'and');
 }
 
 function getVal(item, keys) {
@@ -329,6 +799,7 @@ function getVal(item, keys) {
             return String(item[k]).trim();
         }
     }
+
     return '';
 }
 
@@ -343,7 +814,10 @@ function escapeHTML(v) {
 
 function fuzzyMatch(item, keys, query) {
     const q = norm(query);
-    if (!q) return true;
+
+    if (!q) {
+        return true;
+    }
 
     const searchStr = norm(keys.map(k => getVal(item, [k])).join(' '));
     const keywords = q.split(/\s+/).filter(Boolean);
@@ -351,43 +825,99 @@ function fuzzyMatch(item, keys, query) {
     return keywords.every(kw => searchStr.includes(kw));
 }
 
+function debouncedFilterTable(type) {
+    clearTimeout(filterTimers[type]);
+
+    filterTimers[type] = setTimeout(() => {
+        filterTable(type);
+    }, 180);
+}
+
 function valueMatch(item, keys, selectedVal) {
     const selected = norm(selectedVal);
-    if (!selected) return true;
+
+    if (!selected) {
+        return true;
+    }
 
     const actual = norm(getVal(item, keys));
-    if (!actual) return false;
-    if (actual === selected) return true;
 
-    const parts = actual.split(/[;,，；、|/]/).map(s => s.trim()).filter(Boolean);
+    if (!actual) {
+        return false;
+    }
+
+    if (actual === selected) {
+        return true;
+    }
+
+    const parts = actual
+        .split(/[;,，；、|/]/)
+        .map(s => s.trim())
+        .filter(Boolean);
+
     return parts.includes(selected);
+}
+
+function categoryMatch(item, selectedVal) {
+    const selected = normCategory(selectedVal);
+
+    if (!selected) {
+        return true;
+    }
+
+    const actual = normCategory(getVal(item, ['Category']));
+
+    if (!actual) {
+        return false;
+    }
+
+    return actual === selected;
+}
+
+async function loadJSON(path) {
+    const res = await fetch(path + '?v=' + Date.now());
+
+    if (!res.ok) {
+        throw new Error(path + ' 加载失败：' + res.status);
+    }
+
+    return await res.json();
 }
 
 async function loadAllData() {
     try {
-        const [res1, res2, res3] = await Promise.all([
-            fetch('data/ajg.json'),
-            fetch('data/ccf.json'),
-            fetch('data/fms.json')
+        const [res1, res2, res3, res4] = await Promise.all([
+            loadJSON('data/ajg.json'),
+            loadJSON('data/ccf.json'),
+            loadJSON('data/fms.json'),
+            loadJSON('data/jcr.json')
         ]);
 
-        dataAJG = await res1.json();
-        dataCCF = await res2.json();
-        dataFMS = await res3.json();
-
-        renderTable('ajg', dataAJG, ['Journal Title', 'Field', 'AJG 2024', '影响因子']);
-        renderTable('ccf', dataCCF, ['简称', '全称', '分类', '级别', '影响因子']);
-        renderTable('fms', dataFMS, ['期刊名称', '学科', 'FMS等级2025', '影响因子']);
+        dataAJG = res1;
+        dataCCF = res2;
+        dataFMS = res3;
+        dataJCR = res4;
 
         populateFilters();
+
+        renderPagedTable('ajg', dataAJG, 1);
+        renderPagedTable('ccf', dataCCF, 1);
+        renderPagedTable('fms', dataFMS, 1);
+        renderPagedTable('jcr', dataJCR, 1);
 
         document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tabEl => {
             tabEl.addEventListener('shown.bs.tab', function (event) {
                 const target = event.target.getAttribute("data-bs-target");
 
-                if (target === "#panel-ajg") resetAndShowFullTable("ajg");
-                else if (target === "#panel-ccf") resetAndShowFullTable("ccf");
-                else if (target === "#panel-fms") resetAndShowFullTable("fms");
+                if (target === "#panel-ajg") {
+                    resetAndShowFullTable("ajg");
+                } else if (target === "#panel-ccf") {
+                    resetAndShowFullTable("ccf");
+                } else if (target === "#panel-fms") {
+                    resetAndShowFullTable("fms");
+                } else if (target === "#panel-jcr") {
+                    resetAndShowFullTable("jcr");
+                }
 
                 window.dispatchEvent(new Event("resize"));
             });
@@ -395,7 +925,7 @@ async function loadAllData() {
 
     } catch (err) {
         console.error("数据加载失败", err);
-        alert("数据加载失败，请检查 data/ajg.json、data/ccf.json、data/fms.json 路径是否正确。");
+        alert("数据加载失败，请检查 data/ajg.json、data/ccf.json、data/fms.json、data/jcr.json 路径是否正确。");
     }
 }
 
@@ -409,45 +939,63 @@ function executeGlobalSearch() {
         return;
     }
 
-    const resAJG = dataAJG.filter(i => fuzzyMatch(i, ['Journal Title', 'Field', 'AJG 2024', '影响因子'], query));
-    const resCCF = dataCCF.filter(i => fuzzyMatch(i, ['全称', '简称', '分类', '级别', '影响因子'], query));
-    const resFMS = dataFMS.filter(i => fuzzyMatch(i, ['期刊名称', '学科', 'FMS等级2025', 'FMS等级 2025', '影响因子'], query));
+    const resAJG = dataAJG.filter(i =>
+        fuzzyMatch(i, ['Journal Title', 'Field', 'AJG 2024', '影响因子'], query)
+    );
+
+    const resCCF = dataCCF.filter(i =>
+        fuzzyMatch(i, ['全称', '简称', '分类', '级别', '影响因子'], query)
+    );
+
+    const resFMS = dataFMS.filter(i =>
+        fuzzyMatch(i, ['期刊名称', '学科', 'FMS等级2025', 'FMS等级 2025', '影响因子'], query)
+    );
 
     const total = resAJG.length + resCCF.length + resFMS.length;
     resultDiv.style.display = "block";
 
     let html = `
-    <div class="bg-light p-2 d-flex justify-content-between border-bottom sticky-top">
-        <span class="ms-2">检索到 <b>${total}</b> 条结果</span>
-        <button class="btn-close btn-sm me-2" onclick="document.getElementById('globalResult').style.display='none'"></button>
-    </div>
-    <table class="table table-sm table-hover align-middle mb-0 global-table">
-        <thead>
-            <tr>
-                <th class="col-db">库</th>
-                <th class="col-name">期刊全称</th>
-                <th class="col-field">分类/学科</th>
-                <th class="col-rank">级别</th>
-                <th class="col-if">IF</th>
-            </tr>
-        </thead>
-        <tbody>`;
+        <div class="bg-light p-2 d-flex justify-content-between border-bottom sticky-top">
+            <span class="ms-2">检索到 <b>${total}</b> 条结果</span>
+            <button class="btn-close btn-sm me-2" onclick="document.getElementById('globalResult').style.display='none'"></button>
+        </div>
+
+        <table class="table table-sm table-hover align-middle mb-0 global-table">
+            <thead>
+                <tr>
+                    <th class="col-db">库</th>
+                    <th class="col-name">期刊全称</th>
+                    <th class="col-field">分类 / 学科</th>
+                    <th class="col-rank">级别</th>
+                    <th class="col-if">IF</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
 
     const pushRows = (list, db) => {
         list.forEach(i => {
-            const badge = db === 'AJG' ? 'db-ajg' : (db === 'CCF' ? 'db-ccf' : 'db-fms');
-            const name = db === 'CCF' ? getVal(i, ['全称']) : getVal(i, ['Journal Title', '期刊名称']);
+            const badge = db === 'AJG'
+                ? 'db-ajg'
+                : (db === 'CCF' ? 'db-ccf' : 'db-fms');
+
+            const name = db === 'CCF'
+                ? getVal(i, ['全称'])
+                : getVal(i, ['Journal Title', '期刊名称']);
+
             const field = getVal(i, ['Field', '分类', '学科']) || '-';
             const rank = getVal(i, ['AJG 2024', '级别', 'FMS等级2025', 'FMS等级 2025']) || '-';
             const impact = getVal(i, ['影响因子']) || '-';
 
-            html += `<tr>
-                <td><span class="badge ${badge}">${db}</span></td>
-                <td title="${escapeHTML(name)}"><strong>${escapeHTML(name)}</strong></td>
-                <td class="field-cell" title="${escapeHTML(field)}">${escapeHTML(field)}</td>
-                <td class="text-center"><b class="text-primary">${escapeHTML(rank)}</b></td>
-                <td class="text-center">${escapeHTML(impact)}</td>
-            </tr>`;
+            html += `
+                <tr>
+                    <td><span class="badge ${badge}">${db}</span></td>
+                    <td title="${escapeHTML(name)}"><strong>${escapeHTML(name)}</strong></td>
+                    <td class="field-cell" title="${escapeHTML(field)}">${escapeHTML(field)}</td>
+                    <td class="text-center"><b class="text-primary">${escapeHTML(rank)}</b></td>
+                    <td class="text-center">${escapeHTML(impact)}</td>
+                </tr>
+            `;
         });
     };
 
@@ -468,13 +1016,91 @@ function resetAndShowFullTable(type) {
     const fieldSelect = document.getElementById(`field-${type}`);
     const rankSelect = document.getElementById(`rank-${type}`);
 
-    if (searchInput) searchInput.value = "";
-    if (fieldSelect) fieldSelect.value = "";
-    if (rankSelect) rankSelect.value = "";
+    if (searchInput) {
+        searchInput.value = "";
+    }
 
-    if (type === "ajg") renderTable("ajg", dataAJG, ["Journal Title", "Field", "AJG 2024", "影响因子"]);
-    else if (type === "ccf") renderTable("ccf", dataCCF, ["简称", "全称", "分类", "级别", "影响因子"]);
-    else if (type === "fms") renderTable("fms", dataFMS, ["期刊名称", "学科", "FMS等级2025", "影响因子"]);
+    if (fieldSelect) {
+        fieldSelect.value = "";
+    }
+
+    if (rankSelect) {
+        rankSelect.value = "";
+    }
+
+    if (type === "ajg") {
+        renderPagedTable("ajg", dataAJG, 1);
+    } else if (type === "ccf") {
+        renderPagedTable("ccf", dataCCF, 1);
+    } else if (type === "fms") {
+        renderPagedTable("fms", dataFMS, 1);
+    } else if (type === "jcr") {
+        renderPagedTable("jcr", dataJCR, 1);
+    }
+}
+
+function getCols(type) {
+    if (type === 'ajg') {
+        return ['Journal Title', 'Field', 'AJG 2024', '影响因子'];
+    }
+
+    if (type === 'ccf') {
+        return ['简称', '全称', '分类', '级别', '影响因子'];
+    }
+
+    if (type === 'fms') {
+        return ['期刊名称', '学科', 'FMS等级2025', '影响因子'];
+    }
+
+    return JCR_COLS;
+}
+
+function renderPagedTable(type, data, page = 1) {
+    currentPageData[type] = data || [];
+
+    const total = currentPageData[type].length;
+    const pageSize = PAGE_SIZE[type] || 200;
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+
+    currentPageNo[type] = Math.min(Math.max(1, page), totalPages);
+
+    const start = (currentPageNo[type] - 1) * pageSize;
+    const end = start + pageSize;
+    const pageData = currentPageData[type].slice(start, end);
+
+    renderTable(type, pageData, getCols(type));
+    updatePageInfo(type, total, start, Math.min(end, total), totalPages);
+}
+
+function updatePageInfo(type, total, start, end, totalPages) {
+    const info = document.getElementById(`${type}ResultInfo`);
+    const pageInfo = document.getElementById(`${type}PageInfo`);
+    const prevBtn = document.getElementById(`${type}PrevBtn`);
+    const nextBtn = document.getElementById(`${type}NextBtn`);
+
+    if (info) {
+        if (total === 0) {
+            info.innerHTML = `共 <span class="count">0</span> 条结果`;
+        } else {
+            info.innerHTML = `共 <span class="count">${total}</span> 条结果，当前显示第 <span class="count">${start + 1}</span>–<span class="count">${end}</span> 条`;
+        }
+    }
+
+    if (pageInfo) {
+        pageInfo.textContent = `第 ${currentPageNo[type]} / ${totalPages} 页`;
+    }
+
+    if (prevBtn) {
+        prevBtn.disabled = currentPageNo[type] <= 1;
+    }
+
+    if (nextBtn) {
+        nextBtn.disabled = currentPageNo[type] >= totalPages;
+    }
+}
+
+function changePage(type, delta) {
+    renderPagedTable(type, currentPageData[type], currentPageNo[type] + delta);
 }
 
 function filterTable(type) {
@@ -482,36 +1108,44 @@ function filterTable(type) {
     const fieldVal = document.getElementById(`field-${type}`).value;
     const rankVal = document.getElementById(`rank-${type}`).value;
 
-    let source, keys, fKeys, rKeys, cols;
+    let source, keys, fKeys, rKeys;
 
     if (type === 'ajg') {
         source = dataAJG;
         keys = ['Journal Title'];
         fKeys = ['Field'];
         rKeys = ['AJG 2024'];
-        cols = ['Journal Title', 'Field', 'AJG 2024', '影响因子'];
+
     } else if (type === 'ccf') {
         source = dataCCF;
         keys = ['全称', '简称'];
         fKeys = ['分类'];
         rKeys = ['级别'];
-        cols = ['简称', '全称', '分类', '级别', '影响因子'];
-    } else {
+
+    } else if (type === 'fms') {
         source = dataFMS;
         keys = ['期刊名称'];
         fKeys = ['学科'];
         rKeys = ['FMS等级2025', 'FMS等级 2025'];
-        cols = ['期刊名称', '学科', 'FMS等级2025', '影响因子'];
+
+    } else {
+        source = dataJCR;
+        keys = ['Journal name', 'ISSN', 'eISSN'];
+        fKeys = ['Category'];
+        rKeys = ['JIF quartile'];
     }
 
     const filtered = source.filter(i => {
         const mName = fuzzyMatch(i, keys, searchVal);
-        const mField = valueMatch(i, fKeys, fieldVal);
+        const mField = type === 'jcr'
+            ? categoryMatch(i, fieldVal)
+            : valueMatch(i, fKeys, fieldVal);
         const mRank = valueMatch(i, rKeys, rankVal);
+
         return mName && mField && mRank;
     });
 
-    renderTable(type, filtered, cols);
+    renderPagedTable(type, filtered, 1);
 }
 
 function renderTable(type, data, cols) {
@@ -533,7 +1167,9 @@ function renderTable(type, data, cols) {
                 value = getVal(row, ['FMS等级2025', 'FMS等级 2025']);
             }
 
-            if (!value) value = '-';
+            if (!value) {
+                value = '-';
+            }
 
             return `<td title="${escapeHTML(value)}">${formatCell(c, value)}</td>`;
         }).join('')}</tr>`;
@@ -543,12 +1179,45 @@ function renderTable(type, data, cols) {
 function rankClass(value) {
     const v = String(value || '').trim().toLowerCase();
 
-    if (v === 't1') return 'rank-t1';
-    if (v === 't2') return 'rank-t2';
-    if (v === 'a' || v === 'a*' || v === '4' || v === '4*') return 'rank-a';
-    if (v === 'b' || v === '3') return 'rank-b';
-    if (v === 'c' || v === '2') return 'rank-c';
-    if (v === 'd' || v === '1') return 'rank-d';
+    if (v === 't1') {
+        return 'rank-t1';
+    }
+
+    if (v === 't2') {
+        return 'rank-t2';
+    }
+
+    if (v === 'a' || v === 'a*' || v === '4' || v === '4*') {
+        return 'rank-a';
+    }
+
+    if (v === 'b' || v === '3') {
+        return 'rank-b';
+    }
+
+    if (v === 'c' || v === '2') {
+        return 'rank-c';
+    }
+
+    if (v === 'd' || v === '1') {
+        return 'rank-d';
+    }
+
+    if (v === 'q1') {
+        return 'rank-q1';
+    }
+
+    if (v === 'q2') {
+        return 'rank-q2';
+    }
+
+    if (v === 'q3') {
+        return 'rank-q3';
+    }
+
+    if (v === 'q4') {
+        return 'rank-q4';
+    }
 
     return 'rank-other';
 }
@@ -556,12 +1225,27 @@ function rankClass(value) {
 function formatCell(col, value) {
     const v = value || '-';
 
-    if (col === '级别' || col === 'AJG 2024' || col === 'FMS等级2025' || col === 'FMS等级 2025') {
+    if (
+        col === '级别' ||
+        col === 'AJG 2024' ||
+        col === 'FMS等级2025' ||
+        col === 'FMS等级 2025' ||
+        col === 'JIF quartile'
+    ) {
         return `<span class="badge-rank ${rankClass(v)}">${escapeHTML(v)}</span>`;
     }
 
-    if (col === '影响因子' && v !== '-') {
+    if (
+        (col === '影响因子' ||
+         col === '2025 JIF' ||
+         col === '5-year JIF') &&
+        v !== '-'
+    ) {
         return `<span class="if-badge">${escapeHTML(v)}</span>`;
+    }
+
+    if (col === 'Edition' && v !== '-') {
+        return `<span class="edition-badge">${escapeHTML(v)}</span>`;
     }
 
     return escapeHTML(v);
@@ -569,23 +1253,78 @@ function formatCell(col, value) {
 
 function populateFilters() {
     const cfgs = [
-        { id: 'ajg', data: dataAJG, fKeys: ['Field'], rKeys: ['AJG 2024'] },
-        { id: 'ccf', data: dataCCF, fKeys: ['分类'], rKeys: ['级别'] },
-        { id: 'fms', data: dataFMS, fKeys: ['学科'], rKeys: ['FMS等级2025', 'FMS等级 2025'] }
+        {
+            id: 'ajg',
+            data: dataAJG,
+            fKeys: ['Field'],
+            rKeys: ['AJG 2024']
+        },
+        {
+            id: 'ccf',
+            data: dataCCF,
+            fKeys: ['分类'],
+            rKeys: ['级别']
+        },
+        {
+            id: 'fms',
+            data: dataFMS,
+            fKeys: ['学科'],
+            rKeys: ['FMS等级2025', 'FMS等级 2025']
+        },
+        {
+            id: 'jcr',
+            data: dataJCR,
+            fKeys: ['Category'],
+            rKeys: ['JIF quartile']
+        }
     ];
 
     cfgs.forEach(c => {
         const fS = document.getElementById(`field-${c.id}`);
         const rS = document.getElementById(`rank-${c.id}`);
 
-        while (fS.options.length > 1) fS.remove(1);
-        while (rS.options.length > 1) rS.remove(1);
+        while (fS.options.length > 1) {
+            fS.remove(1);
+        }
 
-        const fields = [...new Set(c.data.map(i => getVal(i, c.fKeys)).filter(Boolean))].sort();
+        if (c.id !== 'jcr') {
+            while (rS.options.length > 1) {
+                rS.remove(1);
+            }
+        }
+
+        let fields = [...new Set(
+            c.data
+                .map(i => getVal(i, c.fKeys))
+                .filter(Boolean)
+        )];
+
+        if (c.id === 'jcr') {
+            fields = fields.sort((a, b) => {
+                const aPriority = normCategory(a) === normCategory(PRIORITY_JCR_CATEGORY) ? 0 : 1;
+                const bPriority = normCategory(b) === normCategory(PRIORITY_JCR_CATEGORY) ? 0 : 1;
+
+                if (aPriority !== bPriority) {
+                    return aPriority - bPriority;
+                }
+
+                return a.localeCompare(b);
+            });
+        } else {
+            fields = fields.sort((a, b) => a.localeCompare(b));
+        }
+
         fields.forEach(v => fS.add(new Option(v, v)));
 
-        const ranks = [...new Set(c.data.map(i => getVal(i, c.rKeys)).filter(Boolean))].sort();
-        ranks.forEach(v => rS.add(new Option(v, v)));
+        if (c.id !== 'jcr') {
+            const ranks = [...new Set(
+                c.data
+                    .map(i => getVal(i, c.rKeys))
+                    .filter(Boolean)
+            )].sort();
+
+            ranks.forEach(v => rS.add(new Option(v, v)));
+        }
     });
 }
 
