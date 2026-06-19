@@ -1,3 +1,75 @@
+import pandas as pd
+from pathlib import Path
+
+# 当前 Python 文件所在目录：根目录/journal_list
+SCRIPT_DIR = Path(__file__).resolve().parent
+
+# 根目录
+ROOT_DIR = SCRIPT_DIR.parent
+
+# Excel 文件目录：根目录/journal_list
+EXCEL_DIR = ROOT_DIR / "journal_list"
+
+# JSON 输出目录：根目录/data
+DATA_DIR = ROOT_DIR / "data"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def excel_to_json(excel_path, json_path):
+    df = pd.read_excel(excel_path).fillna("")
+    df.to_json(json_path, orient="records", force_ascii=False, indent=2)
+
+
+# AJG
+excel_to_json(
+    EXCEL_DIR / "AJG2024.xlsx",
+    DATA_DIR / "ajg.json"
+)
+
+# CCF
+excel_to_json(
+    EXCEL_DIR / "CCF2026.xlsx",
+    DATA_DIR / "ccf.json"
+)
+
+# FMS
+excel_to_json(
+    EXCEL_DIR / "FMS2025.xlsx",
+    DATA_DIR / "fms.json"
+)
+
+print("JSON 文件已生成")
+print(f"输出目录：{DATA_DIR}")
+
+# file_path = "JCR2026-web.xlsx"
+# jcr_df = pd.read_excel(file_path)
+#
+# def clean(x):
+#     return str(x).strip() if pd.notna(x) else ""
+#
+# def split_cat(cat):
+#     if not cat:
+#         return []
+#     return [c.strip() for c in str(cat).replace(";", ",").split(",") if c.strip()]
+#
+# data = []
+#
+# for _, r in jcr_df.iterrows():
+#
+#     data.append({
+#         "journal": clean(r.get("Journal name")),
+#         "issn": clean(r.get("ISSN")),
+#         "eissn": clean(r.get("eISSN")),
+#         "categories": split_cat(r.get("Category")),
+#         "jif": clean(r.get("2025 JIF")),
+#         "jif5": clean(r.get("5-year JIF")),
+#         "quartile": clean(r.get("JIF quartile"))
+#     })
+#
+# jcr_df.to_json("data/jcr.json", orient="records", force_ascii=False)
+#
+# print("JCR JSON生成完成")
+
 # -*- coding: utf-8 -*-
 """
 从 JCR2026-web.xlsx 的 Category_Quartiles sheet 生成拆分后的 JCR JSON 文件。
@@ -23,7 +95,7 @@ import pandas as pd
 EXCEL_FILE = "JCR2026-web.xlsx"
 SHEET_NAME = "Category_Quartiles"
 
-OUTPUT_DIR = Path("data") / "jcr"
+OUTPUT_DIR = Path("../data") / "jcr"
 CATEGORY_DIR = OUTPUT_DIR / "category"
 
 PRIORITY_CATEGORY = "OPERATIONS RESEARCH & MANAGEMENT SCIENCE"

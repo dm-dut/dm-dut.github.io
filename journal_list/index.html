@@ -516,11 +516,11 @@
         <h2><i class="bi bi-search"></i> 期刊查询系统</h2>
 
         <div class="d-flex align-items-center gap-2 flex-shrink-0">
-            <a href="dufe_journal" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 quick-link-btn">
+            <a href="../dufe_journal" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-3 quick-link-btn">
                 <i class="bi bi-journal-text"></i> DUFE Journal List
             </a>
 
-            <a href="Award" target="_blank" class="btn btn-sm btn-outline-success rounded-pill px-3 quick-link-btn">
+            <a href="../Award" target="_blank" class="btn btn-sm btn-outline-success rounded-pill px-3 quick-link-btn">
                 <i class="bi bi-award"></i> 第十届教育部人文社科奖
             </a>
         </div>
@@ -745,6 +745,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+
 let dataAJG = [], dataCCF = [], dataFMS = [];
 
 let jcrCategories = [];
@@ -896,14 +897,14 @@ async function loadJSON(path) {
 
     return await res.json();
 }
-
+const DATA_ROOT = "../data";
 async function loadAllData() {
     try {
         const [res1, res2, res3, res4] = await Promise.all([
-            loadJSON('data/ajg.json'),
-            loadJSON('data/ccf.json'),
-            loadJSON('data/fms.json'),
-            loadJSON('data/jcr/categories.json')
+    loadJSON(`${DATA_ROOT}/ajg.json`),
+    loadJSON(`${DATA_ROOT}/ccf.json`),
+    loadJSON(`${DATA_ROOT}/fms.json`),
+    loadJSON(`${DATA_ROOT}/jcr/categories.json`)
         ]);
 
         dataAJG = res1;
@@ -938,7 +939,7 @@ async function loadAllData() {
 
     } catch (err) {
         console.error("数据加载失败", err);
-        alert("数据加载失败，请检查 data/ajg.json、data/ccf.json、data/fms.json、data/jcr/categories.json 路径是否正确。");
+        alert("数据加载失败，请检查 ajg.json、ccf.json、fms.json、jcr/categories.json 路径是否正确。");
     }
 }
 
@@ -1223,7 +1224,7 @@ async function loadJCRCategory(categoryName) {
         return jcrCategoryCache[cacheKey];
     }
 
-    const data = await loadJSON('data/jcr/' + meta.file);
+    const data = await loadJSON(`${DATA_ROOT}/jcr/` + meta.file);
     jcrCategoryCache[cacheKey] = data;
 
     return data;
@@ -1234,7 +1235,7 @@ async function loadJCRIndex() {
         return jcrIndexData;
     }
 
-    jcrIndexData = await loadJSON('data/jcr/index.json');
+    jcrIndexData = await loadJSON(`${DATA_ROOT}/jcr/index.json`);
 
     return jcrIndexData;
 }

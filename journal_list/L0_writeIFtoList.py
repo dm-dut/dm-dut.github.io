@@ -8,7 +8,7 @@ from difflib import get_close_matches
 ajg_file = "AJG2024.xlsx"
 ccf_file = "CCF2026.xlsx"
 fms_file = "FMS2025.xlsx"
-if_file = "JCR2026.xlsx"
+if_file = "../JCR2026.xlsx"
 
 # =========================
 # 清洗 IF

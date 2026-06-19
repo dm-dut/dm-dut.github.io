@@ -214,7 +214,7 @@ def build_indexes(row: dict[str, Any]) -> list[str]:
     if abs_v:
         tags.append(f"ABS {abs_v}" if not abs_v.upper().startswith("ABS") else abs_v)
     if clean(row.get("IF")):
-        tags.append(f"IF={clean(row.get('IF'))}")
+        tags.append(f"2025 IF={clean(row.get('IF'))}")
     if clean(row.get("ESI_Highly_Cited")):
         tags.append("ESI Highly Cited Paper")
     if clean(row.get("ESI_Hot")):

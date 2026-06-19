@@ -58,13 +58,13 @@ def clean_metrics_tags(row):
 
     # 处理 IF
     if 'IF' in row and str(row['IF']).strip() not in ['nan', '']:
-        tags.append(f"IF={row['IF']}")
+        tags.append(f"2025IF={row['IF']}")
     return ", ".join(tags)
 
 
 def run_conversion():
     # Excel 文件名，请确保在脚本同级目录下
-    file_name = '../CV-Zhen Zhang-Latest/publication/MyPublication.xlsx'
+    file_name = '../../CV-Zhen Zhang-Latest/publication/MyPublication.xlsx'
     if not os.path.exists(file_name):
         print(f"错误: 找不到文件 {file_name}")
         return
@@ -145,7 +145,7 @@ def run_conversion():
     }
 
     # 写入 JSON
-    with open('old/papers.json', 'w', encoding='utf-8') as f:
+    with open('papers.json', 'w', encoding='utf-8') as f:
         json.dump(output_payload, f, ensure_ascii=False, indent=4)
 
     print(f"转换成功！'papers.json' 已更新。")
