@@ -274,7 +274,7 @@ function authorHtml(pub){
     const base = starred ? clean.slice(0,-1) : clean;
     const strong = (base === "Zhang, Zhen" || base === "Zhen Zhang" || base === "张震") ? `<strong>${esc(base)}</strong>` : esc(base);
     return strong + (starred ? "*" : "");
-  }).join(PUB_DISPLAY_LANG === "zh" ? "，" : ", ");
+  }).join(PUB_DISPLAY_LANG === "zh" ? "; " : "; ");
 }
 function detailLine(p){
   const bits = [];
@@ -296,7 +296,7 @@ function detailLine(p){
     if(p.pages) bits.push(p.pages);
   }
   if(p.year) bits.push(p.year);
-  return bits.filter(Boolean).join(PUB_DISPLAY_LANG === "zh" ? "，" : ", ");
+  return bits.filter(Boolean).join(PUB_DISPLAY_LANG === "zh" ? "; " : "; ");
 }
 function tagHtml(p){
   const tags = [...(Array.isArray(p.indexes) ? p.indexes : []), ...(Array.isArray(p.labels) ? p.labels : [])];
