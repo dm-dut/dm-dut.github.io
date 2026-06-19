@@ -43,7 +43,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 26
+    "source_row": 26,
+    "google_scholar_citations": "3",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:nb7KW1ujOQ8C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:nb7KW1ujOQ8C",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18318214796210161605",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Tourism demand forecasting with multi-source data: A hybrid model incorporating seasonal-trend decomposition",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -90,7 +98,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 27
+    "source_row": 27,
+    "google_scholar_citations": "",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:CHSYGLWDkRkC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:CHSYGLWDkRkC",
+    "google_scholar_cited_by_url": "",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "考虑情境依赖决策行为的多准则决策偏好学习方法",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -140,7 +156,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 28
+    "source_row": 28,
+    "google_scholar_citations": "",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:UxriW0iASnsC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:UxriW0iASnsC",
+    "google_scholar_cited_by_url": "",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Targeting the right person: An optimization-driven framework for persuader selection in social networks with opinion evolution",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -194,7 +218,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 29
+    "source_row": 29,
+    "google_scholar_citations": "",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:dshw04ExmUIC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:dshw04ExmUIC",
+    "google_scholar_cited_by_url": "",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -236,7 +268,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 30
+    "source_row": 30,
+    "google_scholar_citations": "",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:KxtntwgDAa4C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:KxtntwgDAa4C",
+    "google_scholar_cited_by_url": "",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "KRAM: Knowledge-driven robust training against label noise for medication recommendation",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -289,7 +329,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 31
+    "source_row": 31,
+    "google_scholar_citations": "7",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:1sJd4Hv_s6UC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:1sJd4Hv_s6UC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7858813332657430550",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Integrating personalized individual semantics and consistency control to support consensus reaching in 2-rank group decision making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -334,7 +382,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 32
+    "source_row": 32,
+    "google_scholar_citations": "6",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:xtRiw3GOFMkC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:xtRiw3GOFMkC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10497490382733319518",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Preference learning for multi-criteria sorting with interacting criteria: A framework integrating threshold-based value-driven sorting procedure with attention network",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -380,7 +436,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 41
+    "source_row": 41,
+    "google_scholar_citations": "57",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:JV2RwH3_ST0C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:JV2RwH3_ST0C",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10498048851820770025",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Carbon price prediction for China's ETS pilots using variational mode decomposition and optimized extreme learning machine",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -433,7 +497,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 42
+    "source_row": 42,
+    "google_scholar_citations": "148",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:blknAaTinKkC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:blknAaTinKkC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12082163830205466706",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Dynamic nonlinear connectedness between the green bonds, clean energy, and stock price: The impact of the COVID-19 pandemic",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -478,7 +550,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 43
+    "source_row": 43,
+    "google_scholar_citations": "1",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:P5F9QuxV20EC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:P5F9QuxV20EC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17040680072996483262",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A stability analysis for the online retailing cyber security situation piecewise variable weight rating method",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -525,7 +605,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 35
+    "source_row": 35,
+    "google_scholar_citations": "12",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:f2IySw72cVMC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:f2IySw72cVMC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15724029725714693652",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Lexicographic optimization-based approaches to learning a representative model for multi-criteria sorting with non-monotonic criteria",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -572,7 +660,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 33
+    "source_row": 33,
+    "google_scholar_citations": "23",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:yD5IFk8b50cC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:yD5IFk8b50cC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14956663437983944803",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "An incremental preference elicitation-based approach to learning potentially non-monotonic preferences in multi-criteria sorting",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -619,7 +715,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 37
+    "source_row": 37,
+    "google_scholar_citations": "30",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:pqnbT2bcN3wC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:pqnbT2bcN3wC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4859540152466627277",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Generation of Granular-Balls for Clustering Based on the Principle of Justifiable Granularity",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -663,7 +767,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 36
+    "source_row": 36,
+    "google_scholar_citations": "26",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:a0OBvERweLwC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:a0OBvERweLwC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11811417846335134327",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Modeling personalized individual semantics in multicriteria decision making with incomplete linguistic preference relations: A preference disaggregation perspective",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -708,7 +820,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 39
+    "source_row": 39,
+    "google_scholar_citations": "17",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:bFI3QPDXJZMC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:bFI3QPDXJZMC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3396838084104887545",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Constructive preference elicitation for multi-criteria decision analysis using an estimate-then-select strategy",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -769,7 +889,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 40
+    "source_row": 40,
+    "google_scholar_citations": "80",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_xSYboBqXhAC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_xSYboBqXhAC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6554698071003470383",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Social network group decision making: Characterization, taxonomy, challenges and future directions from an AI and LLMs perspective",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -821,7 +949,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 38
+    "source_row": 38,
+    "google_scholar_citations": "2",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:abG-DnoFyZgC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:abG-DnoFyZgC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9991073985469816254",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Automatic consensus models to balance consensus cost, consistency level and consensus degree with attitudinal trust mechanism",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -869,7 +1005,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 34
+    "source_row": 34,
+    "google_scholar_citations": "18",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:D03iK_w7-QYC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:D03iK_w7-QYC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4855147358248197123",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Integrating machine learning models to learn potentially non-monotonic preferences for multi-criteria sorting from large-scale assignment examples",
+    "citation_source": "author_profile"
   },
   {
     "type": "Monograph",
@@ -910,7 +1054,15 @@
     "address": "Singapore",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 44
+    "source_row": 44,
+    "google_scholar_citations": "8",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:HoB7MX3m0LUC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:HoB7MX3m0LUC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2149861765766021984,7844461162793212216",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty: Theories, Methods and Applications",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -961,7 +1113,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 45
+    "source_row": 45,
+    "google_scholar_citations": "53",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:M05iB0D1s5AC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:M05iB0D1s5AC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11816149206645442866",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A quality function deployment model by social network and group decision making: Application to product design of e-commerce platforms",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1004,7 +1164,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 48
+    "source_row": 48,
+    "google_scholar_citations": "84",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:35N4QoGY0k4C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:35N4QoGY0k4C",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11811168757566776526",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Threshold-based value-driven method to support consensus reaching in multicriteria group sorting problems: A minimum adjustment perspective",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1052,7 +1220,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 46
+    "source_row": 46,
+    "google_scholar_citations": "43",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ldfaerwXgEUC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ldfaerwXgEUC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3309345725267243940",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Mining maximum ordinal-cardinal consensus for large-scale group decision making with incomplete fuzzy preference relations",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1101,7 +1277,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 47
+    "source_row": 47,
+    "google_scholar_citations": "84",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:70eg2SAEIzsC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:70eg2SAEIzsC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5530584121048737619",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consensus reaching for ordinal classification-based group decision making with heterogeneous preference information",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1145,7 +1329,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 52
+    "source_row": 52,
+    "google_scholar_citations": "142",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RGFaLdJalmkC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RGFaLdJalmkC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1192270607859653258",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consensus-based TOPSIS-Sort-B for multi-criteria sorting in the context of group decision making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1202,7 +1394,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 50
+    "source_row": 50,
+    "google_scholar_citations": "25",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:NaGl4SEjCO4C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:NaGl4SEjCO4C",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12859421367650020932",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A sentiment analysis driven method based on public and personal preferences with correlated attributes to select online doctors",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1262,7 +1462,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 53
+    "source_row": 53,
+    "google_scholar_citations": "170",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:GnPB-g6toBAC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:GnPB-g6toBAC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9766487420422989026",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consensus-trust driven bidirectional feedback mechanism for improving consensus in social network large-group decision making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1314,7 +1522,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 49
+    "source_row": 49,
+    "google_scholar_citations": "82",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:2P1L_qKh6hAC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:2P1L_qKh6hAC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7880248039120947300",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consensus reaching in multi-criteria social network group decision making: A stochastic multicriteria acceptability analysis-based method",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1355,7 +1571,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 54
+    "source_row": 54,
+    "google_scholar_citations": "",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:NMxIlDl6LWMC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:NMxIlDl6LWMC",
+    "google_scholar_cited_by_url": "",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "考虑个性化语义和一致性的群体决策共识模型",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1410,7 +1634,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 51
+    "source_row": 51,
+    "google_scholar_citations": "63",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:J_g5lzvAfSwC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:J_g5lzvAfSwC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4853487003125460037",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Application of group decision making in shipping industry 4.0: Bibliometric analysis, trends and future directions",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1458,7 +1690,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 58
+    "source_row": 58,
+    "google_scholar_citations": "95",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:BqipwSGYUEgC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:BqipwSGYUEgC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12306384402349936680",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consensus reaching with consistency control in group decision making with incomplete hesitant fuzzy linguistic preference relations",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1509,7 +1749,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 59
+    "source_row": 59,
+    "google_scholar_citations": "34",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:YFjsv_pBGBYC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:YFjsv_pBGBYC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1968249163342373138",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Classification-based strategic weight manipulation in multiple attribute decision making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1555,7 +1803,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 60
+    "source_row": 60,
+    "google_scholar_citations": "174",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hMod-77fHWUC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hMod-77fHWUC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11873108629222556932",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Personalized individual semantics-based consistency control and consensus reaching in linguistic group decision making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1604,7 +1860,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 62
+    "source_row": 62,
+    "google_scholar_citations": "89",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:maZDTaKrznsC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:maZDTaKrznsC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10498677810612935206",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "An adaptive group decision making framework: Individual and local world opinion based opinion dynamics",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1655,7 +1919,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 55
+    "source_row": 55,
+    "google_scholar_citations": "25",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ns9cj8rnVeAC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ns9cj8rnVeAC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14272540749383347553",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A stock price forecasting model integrating complementary ensemble empirical mode decomposition and independent component analysis",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1703,7 +1975,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 57
+    "source_row": 57,
+    "google_scholar_citations": "17",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:k_IJM867U9cC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:k_IJM867U9cC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3592788409803879385",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Adaptive spectral affinity propagation clustering",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1750,7 +2030,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 61
+    "source_row": 61,
+    "google_scholar_citations": "162",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:M3NEmzRMIkIC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:M3NEmzRMIkIC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1130612972950234933",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consensus reaching with non-cooperative behavior management for personalized individual semantics-based social network group decision making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1801,7 +2089,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 56
+    "source_row": 56,
+    "google_scholar_citations": "30",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:O3NaXMp0MMsC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:O3NaXMp0MMsC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17207587281153236321",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Regional imbalances of market efficiency in China's pilot emission trading schemes (ETS): A multifractal perspective",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1848,7 +2144,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 70
+    "source_row": 70,
+    "google_scholar_citations": "227",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:TQgYirikUcIC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:TQgYirikUcIC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12477698614571599735",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consensus reaching for MAGDM with multi-granular hesitant fuzzy linguistic term sets: a minimum adjustment-based approach",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1898,7 +2202,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 67
+    "source_row": 67,
+    "google_scholar_citations": "168",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:r0BpntZqJG4C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:r0BpntZqJG4C",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=384158409122409430",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Two-sided matching decision making with multi-granular hesitant fuzzy linguistic term sets and incomplete criteria weight information",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -1944,7 +2256,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 63
+    "source_row": 63,
+    "google_scholar_citations": "223",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:isC4tDSrTZIC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:isC4tDSrTZIC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16290649516562706707",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consensus reaching for group decision making with multi-granular unbalanced linguistic information: A bounded confidence and minimum adjustment-based approach",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2006,7 +2326,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 68
+    "source_row": 68,
+    "google_scholar_citations": "203",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:j3f4tGmQtD8C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:j3f4tGmQtD8C",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5638761391199740274",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Distributed Linguistic Representations in Decision Making: Taxonomy, Key Elements and Applications, and Challenges in Data Science and Explainable Artificial Intelligence",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2057,7 +2385,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 65
+    "source_row": 65,
+    "google_scholar_citations": "4",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:bEWYMUwI8FkC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:bEWYMUwI8FkC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9293327379002729660",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A simulation research towards better leverage of sales ranking",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2116,7 +2452,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 64
+    "source_row": 64,
+    "google_scholar_citations": "28",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:lSLTfruPkqcC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:lSLTfruPkqcC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14623022874477536556,3583522880524885069",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 0.935,
+    "citation_matched_title": "Consensus in group decision making: Research progress and prospect",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2168,7 +2512,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 69
+    "source_row": 69,
+    "google_scholar_citations": "148",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_Qo2XoVZTnwC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_Qo2XoVZTnwC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4305334997314263726",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consistency improvement for fuzzy preference relations with self-confidence: An application in two-sided matching decision making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2217,7 +2569,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 66
+    "source_row": 66,
+    "google_scholar_citations": "6",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:iH-uZ7U-co4C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:iH-uZ7U-co4C",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1421205420360580917",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 0.996,
+    "citation_matched_title": "Volatility similarity and spillover effects in G20 stock market co-movements: An ICA-based ARMA-APARCH-M approach",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2267,7 +2627,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 73
+    "source_row": 73,
+    "google_scholar_citations": "246",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:R3hNpaxXUhUC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:R3hNpaxXUhUC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13088376223868522672",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Managing multigranular unbalanced hesitant fuzzy linguistic information in multiattribute large-scale group decision making: A linguistic distribution-based approach",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2313,7 +2681,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 72
+    "source_row": 72,
+    "google_scholar_citations": "255",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RHpTSmoSYBkC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RHpTSmoSYBkC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11986906729262690241",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consensus reaching for social network group decision making by considering leadership and bounded confidence",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -2356,7 +2732,15 @@
     "address": "",
     "conference_date": "18-21 August 2020",
     "conference_address": "Cologne, Germany",
-    "source_row": 71
+    "source_row": 71,
+    "google_scholar_citations": "1",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:4JMBOYKVnBMC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:4JMBOYKVnBMC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15983602671244127513",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Some models to improve the worst consistency level of hesitant fuzzy preference relations",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2408,7 +2792,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 76
+    "source_row": 76,
+    "google_scholar_citations": "69",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:mB3voiENLucC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:mB3voiENLucC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1434391883244941711",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 0.93,
+    "citation_matched_title": "Stable two-sided matching with incomplete fuzzy preference relations: A disappointment theory based approach",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -2452,7 +2844,15 @@
     "address": "",
     "conference_date": "9-13 September, 2019",
     "conference_address": "Prague, Czech",
-    "source_row": 77
+    "source_row": 77,
+    "google_scholar_citations": "",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:-f6ydRqryjwC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:-f6ydRqryjwC",
+    "google_scholar_cited_by_url": "",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Evaluating collaboration ability of R&D team members: A multi-granular hesitant fuzzy linguistic approach",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -2499,7 +2899,15 @@
     "address": "",
     "conference_date": "14-16 November, 2019",
     "conference_address": "Dalian, China",
-    "source_row": 74
+    "source_row": 74,
+    "google_scholar_citations": "12",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:HDshCWvjkbEC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:HDshCWvjkbEC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4115734431285521069",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Grey group QUALIFLEX method: Application in project management",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -2543,7 +2951,15 @@
     "address": "",
     "conference_date": "14-16 November, 2019",
     "conference_address": "Dalian, China",
-    "source_row": 75
+    "source_row": 75,
+    "google_scholar_citations": "",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hFOr9nPyWt4C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hFOr9nPyWt4C",
+    "google_scholar_cited_by_url": "",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Group decision making with linguistic distribution preference relations: An interval numerical scale-based approach",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2589,7 +3005,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 81
+    "source_row": 81,
+    "google_scholar_citations": "137",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ZeXyd9-uunAC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ZeXyd9-uunAC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=54041604178753948",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Additive consistency analysis and improvement for hesitant fuzzy preference relations",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2638,7 +3062,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 78
+    "source_row": 78,
+    "google_scholar_citations": "10",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:IWHjjKOFINEC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:IWHjjKOFINEC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17820004115454433814",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A reducibility method for the weak linear bilevel programming problems and a case study in principal-agent",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2688,7 +3120,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 82
+    "source_row": 82,
+    "google_scholar_citations": "129",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:7PzlFSSx8tAC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:7PzlFSSx8tAC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3378218392860612585",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "On priority weights and consistency for incomplete hesitant fuzzy preference relations",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2733,7 +3173,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 80
+    "source_row": 80,
+    "google_scholar_citations": "18",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RYcK_YlVTxYC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RYcK_YlVTxYC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10081852022916412049,16806207867748876453",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Multi-granular hesitant fuzzy linguistic group decision making with incomplete weight information",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -2773,7 +3221,15 @@
     "address": "",
     "conference_date": "21-24, August 2018",
     "conference_address": "Belfast, Northern Ireland, UK",
-    "source_row": 79
+    "source_row": 79,
+    "google_scholar_citations": "",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hC7cP41nSMkC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hC7cP41nSMkC",
+    "google_scholar_cited_by_url": "",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "An optimization-based approach to aggregating multi-granular hesitant fuzzy linguistic term sets",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2825,7 +3281,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 83
+    "source_row": 83,
+    "google_scholar_citations": "181",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:dhFuZR0502QC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:dhFuZR0502QC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8700293681833670894",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Extended TODIM for multi-criteria group decision making based on unbalanced hesitant fuzzy linguistic term sets",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2874,7 +3338,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 88
+    "source_row": 88,
+    "google_scholar_citations": "375",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:4TOpqqG69KYC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:4TOpqqG69KYC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11724581560371780767,11863460980784271686",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Managing Multigranular Linguistic Distribution Assessments in Large-Scale Multiattribute Group Decision Making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -2919,7 +3391,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 87
+    "source_row": 87,
+    "google_scholar_citations": "101",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:aqlVkmm33-oC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:aqlVkmm33-oC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12735040316715338963",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Deriving priority weights from intuitionistic multiplicative preference relations under group decision-making settings",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -2966,7 +3446,15 @@
     "address": "",
     "conference_date": "24-26 November, 2017",
     "conference_address": "Nanjing, China",
-    "source_row": 85
+    "source_row": 85,
+    "google_scholar_citations": "15",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:QIV2ME_5wuYC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:QIV2ME_5wuYC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3568927281169686796",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Textual topic evolution analysis based on term co-occurrence: A case study on the government work report of the State Council (1954-2017)",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -3010,7 +3498,15 @@
     "address": "",
     "conference_date": "24-26 November, 2017",
     "conference_address": "Nanjing, China",
-    "source_row": 84
+    "source_row": 84,
+    "google_scholar_citations": "5",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:9ZlFYXVOiuMC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:9ZlFYXVOiuMC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5310680132961950345",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Two-sided matching decision making based on heterogeneous incomplete preference relations",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -3054,7 +3550,15 @@
     "address": "",
     "conference_date": "9-12 July, 2017",
     "conference_address": "Naples, Italy",
-    "source_row": 86
+    "source_row": 86,
+    "google_scholar_citations": "14",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:mVmsd5A6BfQC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:mVmsd5A6BfQC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1874224573017975429",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A TODIM-based approach to large-scale group decision making with multi-granular unbalanced linguistic information",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3096,7 +3600,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 93
+    "source_row": 93,
+    "google_scholar_citations": "3",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:KlAtU1dfN6UC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:KlAtU1dfN6UC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6864143376784726199",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Notes on “Logarithmic least squares method to priority for group decision making with incomplete fuzzy preference relations”",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3139,7 +3651,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 94
+    "source_row": 94,
+    "google_scholar_citations": "13",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:8k81kl-MbHgC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:8k81kl-MbHgC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1931764889372674361",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A VIKOR-based approach to group decision making with uncertain preference ordinals and incomplete weight information",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3181,7 +3701,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 92
+    "source_row": 92,
+    "google_scholar_citations": "30",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:kNdYIx-mwKoC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:kNdYIx-mwKoC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4887752309683970681",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Fusion of heterogeneous incomplete hesitant preference relations in group decision making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3224,7 +3752,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 96
+    "source_row": 96,
+    "google_scholar_citations": "70",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:roLk4NBRz8UC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:roLk4NBRz8UC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8735951303805850320",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consistency and consensus models for group decision-making with uncertain 2-tuple linguistic preference relations",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -3268,7 +3804,15 @@
     "address": "",
     "conference_date": "4-6 November, 2016",
     "conference_address": "Kobe, Japan",
-    "source_row": 89
+    "source_row": 89,
+    "google_scholar_citations": "1",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:qxL8FJ1GzNcC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:qxL8FJ1GzNcC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6262665787564546225",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Group decision making based on acceptably consistent interval multiplicative preference relations",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -3312,7 +3856,15 @@
     "address": "",
     "conference_date": "24-29 July, 2016",
     "conference_address": "Vancouver, Canada",
-    "source_row": 91
+    "source_row": 91,
+    "google_scholar_citations": "10",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_kc_bZDykSQC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_kc_bZDykSQC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8896451404131345321",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Fusing multi-granular unbalanced hesitant fuzzy linguistic information in group decision making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -3353,7 +3905,15 @@
     "address": "",
     "conference_date": "24-29 July, 2016",
     "conference_address": "Vancouver, Canada",
-    "source_row": 90
+    "source_row": 90,
+    "google_scholar_citations": "3",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:YOwf2qJgpHMC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:YOwf2qJgpHMC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14958465575134283175",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Minimum adjustment-based consistency and consensus models for group decision making with interval pairwise comparison matrices",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -3394,7 +3954,15 @@
     "address": "",
     "conference_date": "2-5 August, 2015",
     "conference_address": "Istanbul, Turkey",
-    "source_row": 95
+    "source_row": 95,
+    "google_scholar_citations": "22",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:5nxA0vEk-isC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:5nxA0vEk-isC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14231586752092318543",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "New operations of hesitant fuzzy linguistic term sets with applications in multi-attribute group decision making",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3438,7 +4006,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 98
+    "source_row": 98,
+    "google_scholar_citations": "45",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:LkGwnXOMwfcC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:LkGwnXOMwfcC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12130965934798259031",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "An approach to group decision making with heterogeneous incomplete uncertain preference relations",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3480,7 +4056,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 99
+    "source_row": 99,
+    "google_scholar_citations": "34",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ufrVoPGSRksC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ufrVoPGSRksC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2033919508661774696",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Consistency-based algorithms to estimate missing elements for uncertain 2-tuple linguistic preference relations",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3525,7 +4109,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 97
+    "source_row": 97,
+    "google_scholar_citations": "66",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:UebtZRa9Y70C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:UebtZRa9Y70C",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16424388774514759407",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Evolutionary community structure discovery in dynamic weighted networks",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -3572,7 +4164,15 @@
     "address": "",
     "conference_date": "11-13 September, 2013",
     "conference_address": "Milan, Italy",
-    "source_row": 100
+    "source_row": 100,
+    "google_scholar_citations": "10",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:W7OEmFMy1HYC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:W7OEmFMy1HYC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5784734461482459851",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A fuzzy tri-level decision making algorithm and its application in supply chain",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3612,7 +4212,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 101
+    "source_row": 101,
+    "google_scholar_citations": "6",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:WF5omc3nYNoC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:WF5omc3nYNoC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9184972390688405177,18216247991146848679",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A multi-granularity uncertain linguistic group decision-making method based on relative entropy",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3654,7 +4262,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 102
+    "source_row": 102,
+    "google_scholar_citations": "122",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:9yKSN-GCB0IC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:9yKSN-GCB0IC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8796520898984587722",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A method for multi-granularity uncertain linguistic group decision making with incomplete weight information",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3694,7 +4310,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 107
+    "source_row": 107,
+    "google_scholar_citations": "33",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:qjMakFHDy7sC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:qjMakFHDy7sC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17418074731798959323,1284623403322541346",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Multiple attributes group decision making method based on two-tuple linguistic information processing",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3732,7 +4356,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 105
+    "source_row": 105,
+    "google_scholar_citations": "6",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:u-x6o8ySG0sC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:u-x6o8ySG0sC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2096863384612230030",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Association Rules Evaluation by a Hybrid Multiple Criteria Decision Method",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3775,7 +4407,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 106
+    "source_row": 106,
+    "google_scholar_citations": "1",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:2osOgNQ5qMEC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:2osOgNQ5qMEC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11005305710317387134",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "国际股指波动性的非对称效应异方差模型及聚类分析",
+    "citation_source": "author_profile"
   },
   {
     "type": "Journal Article",
@@ -3816,7 +4456,15 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 104
+    "source_row": 104,
+    "google_scholar_citations": "4",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:vV6vV6tmYwMC",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:vV6vV6tmYwMC",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1035677791749070479",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Interestingness Evaluation of Association Rules Based on Combination Evaluation Method",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -3856,7 +4504,15 @@
     "address": "",
     "conference_date": "7-9 September, 2011",
     "conference_address": "Lanzhou, China",
-    "source_row": 103
+    "source_row": 103,
+    "google_scholar_citations": "11",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:u5HHmVD_uO8C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:u5HHmVD_uO8C",
+    "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=326375489849577616",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "A hybrid multiple attributes two-sided matching decision making method with incomplete weight information",
+    "citation_source": "author_profile"
   },
   {
     "type": "Conference Paper",
@@ -3894,6 +4550,14 @@
     "address": "",
     "conference_date": "3-4 December 2009",
     "conference_address": "Hong Kong, China",
-    "source_row": 108
+    "source_row": 108,
+    "google_scholar_citations": "",
+    "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:d1gkVwhDpl0C",
+    "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:d1gkVwhDpl0C",
+    "google_scholar_cited_by_url": "",
+    "citation_updated": "2026-06-19",
+    "citation_match_score": 1.0,
+    "citation_matched_title": "Ranking association rules by TOPSIS method with combination weights",
+    "citation_source": "author_profile"
   }
 ]
