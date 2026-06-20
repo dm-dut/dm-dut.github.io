@@ -1,0 +1,1884 @@
+{
+  "News": [
+    {
+      "date": "2026-06-16",
+      "category": "Service",
+      "content": "I was invited to join in the editorial board of Decision Making and Analysis as an editorial board member.",
+      "link": "https://ojs.luminescience.cn/DMA/about/editorialTeam",
+      "show_on_home": "yes"
+    },
+    {
+      "date": "2026-06-11",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at Hebei University (HBU).",
+      "link": "http://dm-dut.github.io/images/HBU260611.jpg",
+      "show_on_home": "yes"
+    },
+    {
+      "date": "2026-06-04",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at Nanjing University of Information Science and Technology (NUIST).",
+      "link": "https://smse.nuist.edu.cn/info/1081/7426.htm",
+      "show_on_home": "yes"
+    },
+    {
+      "date": "2026-05-26",
+      "category": "Award",
+      "content": "I was awarded the Springer Nature Editor of Distinction Award 2026 — Author Service Award.",
+      "link": "",
+      "show_on_home": "yes"
+    },
+    {
+      "date": "2026-04-18",
+      "category": "Publication",
+      "content": "Our paper titled \"Targeting the right person: an optimization-driven framework for persuader selection in social networks with opinion evolution\" was accepted by European Journal of Operational Research (SCI, EI, 2024 IF=6.0, ABS 4, FMS A).",
+      "link": "https://doi.org/10.1016/j.ejor.2026.04.023",
+      "show_on_home": "yes"
+    },
+    {
+      "date": "2026-02-26",
+      "category": "Publication",
+      "content": "Our paper titled \"Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective\" was accepted by Expert Systems with Applications (SCI, EI, 2024 IF=7.5).",
+      "link": "https://doi.org/10.1016/j.eswa.2026.131876",
+      "show_on_home": "yes"
+    },
+    {
+      "date": "2026-02-14",
+      "category": "Service",
+      "content": "I was invited to join in the editorial board of Systems (SSCI, IF: 3.1) as an editorial board member.",
+      "link": "https://www.mdpi.com/journal/systems/editors?search=zhen+zhang",
+      "show_on_home": "yes"
+    },
+    {
+      "date": "2026-01-23",
+      "category": "Publication",
+      "content": "Our paper titled \"KRAM: Knowledge-driven robust training against label noise for medication recommendation\" was accepted by Expert Systems with Applications (SCI, EI, 2024 IF=7.5).",
+      "link": "https://doi.org/10.1016/j.eswa.2026.131330",
+      "show_on_home": "yes"
+    },
+    {
+      "date": "2026-01-01",
+      "category": "Call for Papers",
+      "content": "Call For Papers & Abstracts for the Special Session: Artificial Intelligence for Optimization and Decision Making in FLINS-ISKE 2026, July 15-19, 2026, Sydney, Australia.",
+      "link": "https://2026.flins.cc; https://mp.weixin.qq.com/s/GUZPlg6vh_RwemYuF6XweQ",
+      "show_on_home": "yes"
+    },
+    {
+      "date": "2025-12-25",
+      "category": "Call for Papers",
+      "content": "Call For Papers & Abstracts for the Stream: Intelligent Group Decision Making and Consensus Process in GDN 2026, Katowice, Poland, June 28 – July 1, 2026.",
+      "link": "http://gdnconference.org/gdn2026/streams/?sessionid=-391327434; https://mp.weixin.qq.com/s/w84ZGOoEh2Ok39vvi-dpjQ",
+      "show_on_home": "yes"
+    },
+    {
+      "date": "2025-12-15",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"An Incremental Preference Elicitation-Based Approach to Learning Potentially Non-Monotonic Preferences in Multi-Criteria Sorting\" at South China Normal University.",
+      "link": "https://em.scnu.edu.cn/a/20251215/10970.html",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-12-15",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Guangzhou University.",
+      "link": "https://bas.gzhu.edu.cn/info/1129/8564.htm",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-12-14",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Shantou University.",
+      "link": "https://mp.weixin.qq.com/s/A1uUGGaqqp9XP88res0Y5A",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-12-13",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Multi-Granularity Granular-Ball Clustering with Its Applications in Low-Altitude Economy\" at the First Forum on Low-Altitude Economy and Management, hosted by Shandong University, Weihai.",
+      "link": "https://shxy.wh.sdu.edu.cn/info/1006/26883.htm",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-12-07",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at University of Shanghai for Science and Technology (USST).",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-12-06",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"An Incremental Preference Elicitation-Based Approach to Learning Potentially Non-Monotonic Preferences in Multi-Criteria Sorting\" at the 2nd Symposium on Digital Decision-Making, hosted by Shanghai University.",
+      "link": "https://mp.weixin.qq.com/s/R4Ugr5Srivu8rRrIzh5fug",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-11-21",
+      "category": "Award",
+      "content": "Our paper titled \"Integrating machine learning models to learn potentially non-monotonic preferences for multi-criteria sorting from large-scale assignment examples\" has been selected as one of the recipients of the 2025 Best Paper Award.",
+      "link": "https://doi.org/10.1016/j.omega.2024.103219",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-11-13",
+      "category": "Group",
+      "content": "Congratulations to Zhuolin Li on successfully completing her Ph.D. thesis defense.",
+      "link": "https://mp.weixin.qq.com/s/GyFnl6HYnp43uVc8vZzroA",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-11-10",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Zhejiang Gongshang University.",
+      "link": "https://mp.weixin.qq.com/s/Hh7PnDXhOo5fzGd_rze09g",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-11-10",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Non-Monotonic Preference Learning for Multi-Criteria Sorting\" at the Second Forum on Intelligent Management, hosted by Shanghai University of Finance and Economics Zhejiang College.",
+      "link": "https://mp.weixin.qq.com/s/18rIJnSriWPEOhUmGIad4g",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-11-07",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at Shanghai Maritime University.",
+      "link": "https://sem.shmtu.edu.cn/2025/1030/c7485a281201/page.htm",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-11-01",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at the Forum on Game Theory and Intelligent Decision Making, hosted by Northwestern Polytechnical University.",
+      "link": "https://mp.weixin.qq.com/s/Vt4Wy0A7quXG9JPOOVX1dQ",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-10-31",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Xidian University.",
+      "link": "http://dm-dut.github.io/images/XIDIAN251031.jpg",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-10-31",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at Xi'an University of Technology.",
+      "link": "https://sba.xaut.edu.cn/info/1142/7123.htm",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-08-28",
+      "category": "Publication",
+      "content": "A new paper was accepted by Annals of Operations Research (SCI, IF: 4.5).",
+      "link": "https://doi.org/10.1007/s10479-025-06832-0",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-08-17",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Data-Driven Preference Learning for Multi-Criteria Sorting Considering Criteria Interactions\" at the 27th Chinese Conference on Management Sciences, Harbin.",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-08-10",
+      "category": "Publication",
+      "content": "A new paper was accepted by IEEE Transactions on Systems, Man, and Cybernetics: Systems (SCI, IF: 8.7).",
+      "link": "https://doi.org/10.1109/TSMC.2025.3597963",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-08-01",
+      "category": "Publication",
+      "content": "A new paper was accepted by Chinese Journal of Management Science (FMS T1).",
+      "link": "https://link.cnki.net/doi/10.16381/j.cnki.issn1003-207x.2024.1896",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-07-08",
+      "category": "Service",
+      "content": "I will serve as an editor for the newly launched book series by Springer Nature, entitled \"Artificial Intelligence and Decision Making.\"",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-06-17",
+      "category": "Publication",
+      "content": "A new paper was accepted by Information Fusion (SCI, IF: 14.8).",
+      "link": "https://doi.org/10.1016/j.inffus.2025.103443",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-05-29",
+      "category": "Award",
+      "content": "I was awarded the Springer Nature Editor of Distinction Award 2025 — Author Service Award.",
+      "link": "https://mp.weixin.qq.com/s/jxDvUlkNr-VsZ7J5sA4k5g",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-05-10",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"An Incremental Preference Elicitation-Based Approach to Learning Potentially Non-Monotonic Preferences in Multi-Criteria Sorting\" at the Sixth Annual Conference of Intelligent Decision Making and Game Branch, CSOOPEM, Hefei.",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-05-09",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Modeling Personalized Individual Semantics in Multi-Criteria Decision Making\" at Nanjing University of Information Science and Technology.",
+      "link": "https://smse.nuist.edu.cn/info/1081/6992.htm",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-04-18",
+      "category": "Publication",
+      "content": "A new paper was accepted by Information Sciences (SCI, IF: 8.1).",
+      "link": "https://doi.org/10.1016/j.ins.2025.122222",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-03-10",
+      "category": "Publication",
+      "content": "A new paper was accepted by Information Fusion (SCI, IF: 14.8).",
+      "link": "https://doi.org/10.1016/j.inffus.2025.103107",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2025-01-23",
+      "category": "Publication",
+      "content": "A new paper was accepted by IEEE Transactions on Cybernetics (SCI, IF: 9.4, ABS 3).",
+      "link": "https://doi.org/10.1109/TCYB.2025.3534195",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-12-30",
+      "category": "Publication",
+      "content": "A new paper was accepted by Information Fusion (SCI, IF: 14.8).",
+      "link": "https://doi.org/10.1016/j.inffus.2024.102926",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-11-28",
+      "category": "Publication",
+      "content": "A new paper was accepted by European Journal of Operational Research (SCI, IF: 6.0, ABS 4).",
+      "link": "https://doi.org/10.1016/j.ejor.2024.11.047",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-11-16",
+      "category": "Publication",
+      "content": "A new paper was accepted by Computers & Operations Research (SCI, IF: 4.1).",
+      "link": "https://doi.org/10.1016/j.cor.2024.106917",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-11-01",
+      "category": "Talk",
+      "content": "I was invited to deliver an online talk entitled \"Group Consensus and Preference Learning for Multi-Criteria Sorting\" at China University of Mining and Technology (CUMT).",
+      "link": "https://sm.cumt.edu.cn/info/1091/7112.htm",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-10-28",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Group Consensus and Preference Learning for Multi-Criteria Sorting\" at Jiangsu University of Science and Technology (JUST).",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-10-20",
+      "category": "Talk",
+      "content": "[10/20/2025] I was invited to deliver a talk entitled \"Group Consensus and Preference Learning for Multi-Criteria Sorting\" at Nanjing University of Aeronautics and Astronautics (NUAA).",
+      "link": "https://cem.nuaa.edu.cn/2024/1018/c7576a356118/page.htm",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-10-19",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Modeling Personalized Individual Semantics in Linguistic Decision Making Problems\" at Nanjing Tech Univesity (NJTU).",
+      "link": "https://jgy.njtech.edu.cn/info/1011/5076.htm",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-10-18",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Group Consensus and Preference Learning for Multi-Criteria Sorting\" at Anhui University of Technology (AHUT).",
+      "link": "https://smed.ahut.edu.cn/info/1024/3137.htm",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-10-18",
+      "category": "Publication",
+      "content": "A new paper was accepted by Omega: The International Journal of Management Science (SCI, IF: 6.7).",
+      "link": "https://doi.org/10.1016/j.omega.2024.103219",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-10-15",
+      "category": "Talk",
+      "content": "I was invited to deliver an online talk entitled \"Modeling Personalized Individual Semantics in Linguistic Decision Making\" at Taiyuan Normal University (TYNU).",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-09-30",
+      "category": "Publication",
+      "content": "A new paper was accepted by IEEE Transactions on Systems, Man, and Cybernetics: Systems (SCI, IF: 8.6).",
+      "link": "https://doi.org/10.1109/TSMC.2024.3472699",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-09-24",
+      "category": "Service",
+      "content": "I will be a guest editor for the special issue \"AI-supported Decision Making and Recommender Systems\" on Applied Sciences Journal (SCI, IF: 2.5).",
+      "link": "https://www.mdpi.com/journal/applsci/special_issues/9FBJS45XR9",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-09-01",
+      "category": "Grant",
+      "content": "A new project was granted by the Natural Science Foundation of Liaoning Province.",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-08-10",
+      "category": "Talk",
+      "content": "I was invited to deliver an online talk entitled \"Modeling Personalized Individual Semantics in Linguistic Decision Making\" at the First Chinese Conference on Artificial Intelligence Logic and the 4th International Conference on Artificial Intelligence Logic and Applications, Lanzhou.",
+      "link": "https://mp.weixin.qq.com/s/qoxlOU8UQq_Rx3bWgbX0jA",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-07-24",
+      "category": "Service",
+      "content": "I was invited to join in the editorial board of International Journal of Computational Intelligence Systems (SCI, IF: 2.5) as an Area Editor.",
+      "link": "https://link.springer.com/journal/44196/editors",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-05-20",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Modeling consensus in linguistic group decision making: A personalized individual semantics-based perspective\" at Guangxi Normal University (GXNU).",
+      "link": "https://mp.weixin.qq.com/s?__biz=MjM5OTIxMDY1OQ==&mid=2652855715&idx=2&sn=1980d7039e5a61abbd721675857aea70&chksm=bd065579e16b5dd603083d931dace65745c9f70e7fac5485af30b8dd184f2dc394f777c57c9d&scene=27",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-04-29",
+      "category": "Publication",
+      "content": "A monograph entitled \"Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty\" will be published by Springer Nature.",
+      "link": "https://doi.org/10.1007/978-981-97-3584-6",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-04-23",
+      "category": "Publication",
+      "content": "A paper was accepted by Engineering Applications of Artificial Intelligence (2022 IF: 8).",
+      "link": "https://doi.org/10.1016/j.engappai.2024.108509",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-03-08",
+      "category": "Publication",
+      "content": "A paper was accepted by IEEE Transactions on Fuzzy Systems (2022 IF: 11.9).",
+      "link": "https://doi.org/10.1109/TFUZZ.2024.3375863",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2024-01-24",
+      "category": "Service",
+      "content": "I joined in the editorial review board of IEEE Transactions on Engineering Management (ABS 3, FMS-A, SCI/SSCI, IF: 5.8).",
+      "link": "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10356850&tp=",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-12-19",
+      "category": "Award",
+      "content": "I was selected as an outstanding reviewer of Journal of the Operational Research Society for the second time.",
+      "link": "https://www.tandfonline.com/journals/tjor20",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-12-04",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Modeling consensus in multi-criteria sorting problems under group decision making settings: A minimum-adjustment perspective\" at University of Shanghai for Science and Technology (USST).",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-11-16",
+      "category": "Service",
+      "content": "I was invited to join in the editorial board of Group Decision & Negotiation as an Associate Editor from 1 January 2024.",
+      "link": "https://link.springer.com/journal/10726/editorial-board",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-10-11",
+      "category": "Award",
+      "content": "I was elevated to be a senior member of IEEE.",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-08-24",
+      "category": "Grant",
+      "content": "A new research project was granted by the National Natural Science Foundation of China (NSFC).",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-07-11",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Modeling consensus in multi-criteria sorting problems under group decision making settings: A minimum-adjustment perspective\" at Shanghai Maritime University (SHMTU).",
+      "link": "https://sem.shmtu.edu.cn/2023/0712/c5222a214640/pagem.psp",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-07-10",
+      "category": "Service",
+      "content": "I was invited to join in the editorial board of Information Fusion Journal (2022 IF: 18.6).",
+      "link": "https://www.sciencedirect.com/journal/information-fusion/about/editorial-board",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-04-26",
+      "category": "Publication",
+      "content": "A paper was accepted by Information Fusion (2022 IF: 18.6).",
+      "link": "https://doi.org/10.1016/j.inffus.2023.101825",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-04-07",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Threshold-based value-driven method to support consensus reaching in multicriteria group sorting problems: A minimum adjustment perspective\" at Nanjing University of Information Science and Technology (NUIST).",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-03-21",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Threshold-based value-driven method to support consensus reaching in multicriteria group sorting problems: A minimum adjustment perspective\" at Wuhan University of Information Science and Technology (WHU).",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-02-26",
+      "category": "Publication",
+      "content": "A paper was accepted by Journal of the Operational Research Society (2022 IF: 3.6).",
+      "link": "https://doi.org/10.1080/01605682.2023.2186806",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-02-24",
+      "category": "Publication",
+      "content": "A paper was accepted by IEEE Transactions on Computational Social Systems (2022 IF: 5).",
+      "link": "https://doi.org/10.1109/TCSS.2023.3251351",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-01-29",
+      "category": "Publication",
+      "content": "A paper was accepted by Systems Journal (2022 IF: 1.9).",
+      "link": "https://www.mdpi.com/2079-8954/11/2/69",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-01-23",
+      "category": "Publication",
+      "content": "A paper was accepted by Applied Intelligence (2022 IF: 5.3).",
+      "link": "https://doi.org/10.1007/s10489-023-04485-9",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2023-01-19",
+      "category": "Award",
+      "content": "I was selected as an excellent reviewer for Journal of Industrial Engineering and Engineering Management, an FMS-T1 journal.",
+      "link": "http://glgcxb.zju.edu.cn/home/content/82nce",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2022-12-20",
+      "category": "Award",
+      "content": "I was selected as an outstanding reviewer for Journal of the Operational Research Society.",
+      "link": "https://www.tandfonline.com/journals/tjor20",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2022-11-28",
+      "category": "Service",
+      "content": "I will organize a special issue entitled \"Preference and Consensus Modeling in Group Decision Making under Complex Contexts\" in Systems with Prof. Jian Wu, Prof. Hengjie Zhang and Dr. Wenyu Yu.",
+      "link": "https://www.mdpi.com/journal/systems/special_issues/ZN51HVWR9N",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2022-11-11",
+      "category": "Service",
+      "content": "I will organize a special issue entitled \"New Trends in Intelligent Group Decision Making and Consensus Modelling (IGDM-CM)\" in Group Decision and Negotiation with Prof. Francisco Chiclana, Prof. Yucheng Dong, Prof. Enrique Herrera-Viedma and Dr. Congcong Li.",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2022-10-28",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Managing personalized individual semantics and non-cooperative behaviors in social network group decision making\" at the First Symposium on Complex Management Systems hosted by Tianjin University.",
+      "link": "",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2022-09-06",
+      "category": "Publication",
+      "content": "A paper was accepted by Annals of Operations Research (SCI, 2022 IF: 4.8).",
+      "link": "https://link.springer.com/10.1007/s10479-022-04985-w",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2022-08-24",
+      "category": "Publication",
+      "content": "A paper was accepted by Group Decision and Negotiation (SSCI, 2022 IF: 3.0).",
+      "link": "https://link.springer.com/10.1007/s10726-022-09798-7",
+      "show_on_home": "no"
+    },
+    {
+      "date": "2022-04-21",
+      "category": "Talk",
+      "content": "I was invited to deliver a talk entitled \"Modeling consensus in linguistic group decision making: A personalized individual semantics-based perspective\" at Anhui University.",
+      "link": "",
+      "show_on_home": "no"
+    }
+  ],
+  "Awards": [
+    {
+      "year": "2026",
+      "title": "Springer Nature Editor of Distinction Award — Author Service Award",
+      "organization": "Springer Nature"
+    },
+    {
+      "year": "2025",
+      "title": "2025 Best Paper Award of Omega Journal",
+      "organization": "Omega Journal"
+    },
+    {
+      "year": "2025",
+      "title": "Springer Nature Editor of Distinction Award — Author Service Award",
+      "organization": "Springer Nature"
+    },
+    {
+      "year": "2024",
+      "title": "Xingliao Talent Program - Young Talents for Cultural Luminaries and the “Four Batches” Program",
+      "organization": ""
+    },
+    {
+      "year": "2024",
+      "title": "Outstanding Reviewer",
+      "organization": "Journal of Systems Science & Complexity"
+    },
+    {
+      "year": "2023",
+      "title": "Senior Member",
+      "organization": "IEEE"
+    },
+    {
+      "year": "2022-2024",
+      "title": "Outstanding Reviewer",
+      "organization": "Journal of the Operational Research Society"
+    },
+    {
+      "year": "2020-2025",
+      "title": "World’s Top 2% Scientists",
+      "organization": "Stanford University"
+    },
+    {
+      "year": "2021-2023",
+      "title": "Outstanding Reviewer",
+      "organization": "Journal of Industrial Engineering and Engineering Management"
+    },
+    {
+      "year": "2020",
+      "title": "Xinghai Outstanding Young Talents",
+      "organization": "Dalian University of Technology"
+    },
+    {
+      "year": "2019",
+      "title": "Publons Global Peer Review Awards, top 1% of reviewers in Computer Science and Cross-Field",
+      "organization": "Clarivate Analytics / Publons"
+    },
+    {
+      "year": "2019",
+      "title": "Outstanding Reviewer",
+      "organization": "Systems Engineering — Theory & Practice"
+    }
+  ],
+  "Grants": [
+    {
+      "no": "22",
+      "role": "PI",
+      "title": "Research on Consensual Sorting Models and Methods for Multi-Criteria Group Decision Making by Considering Personalized Individual Semantics",
+      "funder": "National Natural Science Foundation of China",
+      "grant_no": "72371049",
+      "amount": "CNY390K",
+      "period": "2024.1 - 2027.12"
+    },
+    {
+      "no": "21",
+      "role": "PI",
+      "title": "Consensus-Oriented Models and Methods for Multi-Criteria Sorting Problems in Group Decision Making with Heterogeneous Information",
+      "funder": "National Natural Science Foundation of China",
+      "grant_no": "71971039",
+      "amount": "CNY480K",
+      "period": "2020.1 - 2023.12"
+    },
+    {
+      "no": "20",
+      "role": "PI",
+      "title": "Research on Two-sided Matching Decision Making Methods with Incomplete Information",
+      "funder": "National Natural Science Foundation of China",
+      "grant_no": "71501023",
+      "amount": "CNY182.8K",
+      "period": "2016.1 - 2018.12"
+    },
+    {
+      "no": "19",
+      "role": "PI",
+      "title": "Data-Driven Preference Learning Methods for Multi-Criteria Sorting with Non-Monotonic Preferences",
+      "funder": "Natural Science Foundation of Liaoning Province",
+      "grant_no": "2024-MSBA-26",
+      "amount": "CNY80K",
+      "period": "2024.09 – 2026.08"
+    },
+    {
+      "no": "18",
+      "role": "PI",
+      "title": "Approaches to Two-sided Matching Decision Making with Incomplete Preference Information",
+      "funder": "China Postdoctoral Science Foundation",
+      "grant_no": "2015M570248",
+      "amount": "CNY80K",
+      "period": "2015.6 - 2017.6"
+    },
+    {
+      "no": "17",
+      "role": "PI",
+      "title": "Consensus-Driven Models and Algorithms for Group Recommender Systems under Big Data environment",
+      "funder": "Dalian Science and Technology Bureau",
+      "grant_no": "2018RQ69",
+      "amount": "CNY100K",
+      "period": "2019.1 - 2020.12"
+    },
+    {
+      "no": "16",
+      "role": "PI",
+      "title": "Consensus-Based Models for Linguistic Group Decision Making and Multi-Criteria Sorting",
+      "funder": "Funds for Xinghai Outstanding Young Talents in DUT",
+      "grant_no": "X20190322",
+      "amount": "CNY400K",
+      "period": "2020.1 - 2023.12"
+    },
+    {
+      "no": "15",
+      "role": "PI",
+      "title": "Data-Driven Multi-Criteria Sorting Methods Considering Non-Monotonic Preferences of Decision Makers",
+      "funder": "Fundamental Research Funds for the Central Universities of China",
+      "grant_no": "DUT23RW406",
+      "amount": "CNY50K",
+      "period": "2023.01 - 2024.12"
+    },
+    {
+      "no": "14",
+      "role": "PI",
+      "title": "Models and Methods for Linguistic Large-Scale Group Decision Making based on Social Network Trust",
+      "funder": "Fundamental Research Funds for the Central Universities of China",
+      "grant_no": "DUT17RC(4)11",
+      "amount": "CNY50K",
+      "period": "2017.7 - 2018.12"
+    },
+    {
+      "no": "13",
+      "role": "PI",
+      "title": "Matching Decision Making Methods with Heterogeneous Criteria Sets for Matching Objects",
+      "funder": "Fundamental Research Funds for the Central Universities of China",
+      "grant_no": "DUT15RC(3)003",
+      "amount": "CNY50K",
+      "period": "2015.1 - 2016.12"
+    },
+    {
+      "no": "12",
+      "role": "PI",
+      "title": "Group Decision Making with Uncertain Information",
+      "funder": "Foundation for the Doctoral Student Academic Star of Dalian University of Technology",
+      "grant_no": "",
+      "amount": "CNY10K",
+      "period": "2012.11 - 2013.10"
+    },
+    {
+      "no": "11",
+      "role": "Co-PI",
+      "title": "Research on Methods and Applications for Social Network Group Decision Making With Self-Confident Preferences Considering Personalized Individual Semantics",
+      "funder": "Funds for Humanities and Social Sciences of Ministry of Education of China",
+      "grant_no": "23YJC630219",
+      "amount": "CNY80K",
+      "period": "2023.10 - 2026.7"
+    },
+    {
+      "no": "10",
+      "role": "Participant",
+      "title": "Electronic Medical Record Mining-based ICU Clinical Prediction Models in Smart Healthcare Scenarios",
+      "funder": "Applied Basic Research Program of Liaoning Natural Science Foundation, China",
+      "grant_no": "2023JH2/101300208",
+      "amount": "CNY300K",
+      "period": "2023.1 - 2024.12"
+    },
+    {
+      "no": "09",
+      "role": "Participant",
+      "title": "Big-Data Driven Intelligent Decision Making Methods and Support Techniques for Smart City Construction in Dalian",
+      "funder": "Dalian Science and Technology Bureau",
+      "grant_no": "2018J11CY009",
+      "amount": "CNY3M",
+      "period": "2018.1 - 2020.12"
+    },
+    {
+      "no": "08",
+      "role": "Participant",
+      "title": "Clustering Models and Algorithms for Mining Electronic Medical Records",
+      "funder": "National Natural Science Foundation of China",
+      "grant_no": "71771034",
+      "amount": "CNY560K",
+      "period": "2018.1 - 2021.12"
+    },
+    {
+      "no": "07",
+      "role": "Participant",
+      "title": "Evolutionary Clustering Models and Algorithms for Dynamic Data Mining",
+      "funder": "National Natural Science Foundation of China",
+      "grant_no": "71171030",
+      "amount": "CNY450K",
+      "period": "2012.1 - 2015.12"
+    },
+    {
+      "no": "06",
+      "role": "Participant",
+      "title": "Data Mining and Knowledge Discovery Based on Optimization and Multivariate Statistical Analysis: Methods and Applications",
+      "funder": "Program for New Century Excellent Talents in University",
+      "grant_no": "NECT-11-0050",
+      "amount": "CNY300K",
+      "period": "2012.1 - 2014.12"
+    },
+    {
+      "no": "05",
+      "role": "Participant",
+      "title": "Clustering Models and Algorithms for Time Series Data Mining",
+      "funder": "National Natural Science Foundation of China",
+      "grant_no": "70871015",
+      "amount": "CNY230K",
+      "period": "2009.1 - 2011.12"
+    },
+    {
+      "no": "04",
+      "role": "Participant",
+      "title": "Information and Logistics Management in Emerging E-commerce",
+      "funder": "Funds for Creative Research Groups of China",
+      "grant_no": "71421001",
+      "amount": "CNY8.4M",
+      "period": "2015.1 - 2020.12"
+    },
+    {
+      "no": "03",
+      "role": "Participant",
+      "title": "Feature Representation and Similarity Measures for Time Series",
+      "funder": "Fundamental Research Funds for the Central Universities of China",
+      "grant_no": "DUT11SX04",
+      "amount": "CNY100K",
+      "period": "2011.1 - 2012.12"
+    },
+    {
+      "no": "02",
+      "role": "Participant",
+      "title": "Theory and Methods of Product Life Cycle-Oriented Knowledge Coordination Management",
+      "funder": "Key program of National Natural Science Foundation of China",
+      "grant_no": "71031002",
+      "amount": "CNY1.5M",
+      "period": "2011.1 - 2014.12"
+    },
+    {
+      "no": "01",
+      "role": "Participant",
+      "title": "Enterprise Knowledge Management Methods and Enterprise Ontology",
+      "funder": "National High Technology Research and Development Program",
+      "grant_no": "2008AA04Z107",
+      "amount": "CNY710K",
+      "period": "2008.10 - 2010.12"
+    }
+  ],
+  "Services": [
+    {
+      "category": "Editorial Boards",
+      "role": "Editor",
+      "organization": "Artificial Intelligence and Decision Making book series (Springer Nature)",
+      "item": "Artificial Intelligence and Decision Making book series (Springer Nature)",
+      "period": "since Jul. 2025"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Associate Editor",
+      "organization": "Information Fusion (SCI)",
+      "item": "Information Fusion (SCI)",
+      "period": "since May 2026; Editorial Board Member, Jul. 2023 - May 2026"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Associate Editor",
+      "organization": "Group Decision and Negotiation (ABS 2, FMS-B, SSCI)",
+      "item": "Group Decision and Negotiation (ABS 2, FMS-B, SSCI)",
+      "period": "since Jan. 2024"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Senior Editor",
+      "organization": "International Journal of Computational Intelligence Systems (SCI)",
+      "item": "International Journal of Computational Intelligence Systems (SCI)",
+      "period": "since Feb. 2026; Area editor, Jul. 2024 - Feb. 2026; Editorial Board Member, Nov. 2019 - Jul. 2024"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Associate Editor",
+      "organization": "Journal of Ambient Intelligence and Humanized Computing",
+      "item": "Journal of Ambient Intelligence and Humanized Computing",
+      "period": "since Jul. 2022"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Associate Editor",
+      "organization": "Frontiers in Artificial Intelligence (Logic and Reasoning in AI Section, ESCI)",
+      "item": "Frontiers in Artificial Intelligence (Logic and Reasoning in AI Section, ESCI)",
+      "period": "since Jan. 2020"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Associate Editor",
+      "organization": "Frontiers in Applied Mathematics and Statistics (Optimization Section, ESCI)",
+      "item": "Frontiers in Applied Mathematics and Statistics (Optimization Section, ESCI)",
+      "period": "since May 2020"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Associate Editor",
+      "organization": "Frontiers in Big Data (ESCI)",
+      "item": "Frontiers in Big Data (ESCI)",
+      "period": "since May 2023; Review Editor, Jan. 2019-May 2023"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Editorial Review Board Member",
+      "organization": "IEEE Transactions on Engineering Management (ABS 3, FMS-A, SCI/SSCI)",
+      "item": "IEEE Transactions on Engineering Management (ABS 3, FMS-A, SCI/SSCI)",
+      "period": "since Jan. 2024"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Editorial Board Member",
+      "organization": "Systems (SSCI)",
+      "item": "Systems (SSCI)",
+      "period": "since Feb. 2026; Topical Advisory Panel Member, Aug. 2021 - Feb. 2026; Topics Board Editor, Mar. 2021-Aug. 2021"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Editorial Advisory Board Member",
+      "organization": "Kybernetes (SCI)",
+      "item": "Kybernetes (SCI)",
+      "period": "since Apr. 2025; Associate Editor, Jan. 2019 - Apr. 2025"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Academic Editor",
+      "organization": "Complexity (SCI)",
+      "item": "Complexity (SCI)",
+      "period": "since Jan. 2021"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Youth Editorial Board Member",
+      "organization": "CAAI Transactions on Intelligence Technology (SCI)",
+      "item": "CAAI Transactions on Intelligence Technology (SCI)",
+      "period": "since Jul. 2025"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Guest Editor",
+      "organization": "Group Decision and Negotiation (ABS 2, FMS-B, SSCI)",
+      "item": "Group Decision and Negotiation (ABS 2, FMS-B, SSCI)",
+      "period": "Nov. 2022-Mar. 2024"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Guest Editor",
+      "organization": "Systems (SSCI)",
+      "item": "Systems (SSCI)",
+      "period": "Nov. 2022-Dec. 2023; May 2024-Dec. 2024"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Guest Editor",
+      "organization": "Applied Sciences (SCI, IF: 2.5)",
+      "item": "Applied Sciences (SCI, IF: 2.5)",
+      "period": "Sep. 2024-Sep. 2025"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Topical Advisory Panel Member",
+      "organization": "Mathematics (SCI)",
+      "item": "Mathematics (SCI)",
+      "period": "since Jun. 2022"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Topical Advisory Panel Member",
+      "organization": "Information (ESCI)",
+      "item": "Information (ESCI)",
+      "period": "since May 2022"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Editorial Board Member",
+      "organization": "Decision Making and Analysis",
+      "item": "Decision Making and Analysis",
+      "period": "since Jun. 2026"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Editorial Board Member",
+      "organization": "Data & Metadata",
+      "item": "Data & Metadata",
+      "period": "since Apr. 2023"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Editor",
+      "organization": "ICSES Transactions on Neural and Fuzzy Computing",
+      "item": "ICSES Transactions on Neural and Fuzzy Computing",
+      "period": "since Apr. 2019"
+    },
+    {
+      "category": "Editorial Boards",
+      "role": "Secretary",
+      "organization": "Big Data and Knowledge Management Branch Editorial Board, Management Science and Engineering Volume, Encyclopedia of China (The 3rd edition)",
+      "item": "Big Data and Knowledge Management Branch Editorial Board, Management Science and Engineering Volume, Encyclopedia of China (The 3rd edition)",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Senior Member, Institute of Electrical and Electronics Engineers (IEEE)",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Member, IEEE Computational Intelligence Society",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Member, IEEE Systems, Man, and Cybernetics Society",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Member, European Society for Fuzzy Logic and Technology (EUSFLAT)",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Member, Systems Engineering Society of China (SESC)",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Member, Operations Research Society of China (ORSC)",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Member, China Computer Federation (CCF)",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Member, Chinese Association of Automation of China (CAA)",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Member, Chinese Society of Optimization, Overall Planning and Economic Mathematics (CSOOPEM)",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Member, Chinese Association for Artificial Intelligence (CAAI)",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Committee member and Vice secretary-general, Data Science and Knowledge Systems Engineering Branch, SESC",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Committee member, the Youth Working Committee, CSOOPEM",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Executive board member, Intelligent Decision Making and Game Branch, CSOOPEM",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Board member, Uncertain Systems, ORSC",
+      "period": ""
+    },
+    {
+      "category": "Professional Memberships",
+      "role": "",
+      "organization": "",
+      "item": "Vice secretary-general, Business Intelligence Professional Committee of the Chinese Society for Management Modernization (CSMM)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Annals of Operations Research (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Applied Soft Computing (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Asia-Pacific Journal of Operational Research (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "CAAI Transactions on Intelligence Technology (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Computers & Industrial Engineering (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Computers & Operations Research (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Decision Sciences (SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Engineering Applications of Artificial Intelligence (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "European Journal of Operational Research (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Expert Systems with Applications (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Financial Innovation (SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Fuzzy Optimization and Decision Making (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Fuzzy Sets and Systems (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Group Decision and Negotiation (SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE/CAA Journal of Automatica Sinica (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Artificial Intelligence (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Computational Social Systems (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Consumer Electronics (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Cybernetics (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Emerging Topics in Computational Intelligence (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Engineering Management (SCI/SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Fuzzy Systems (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Industrial Informatics (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Intelligent Transportation Systems (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Knowledge and Data Engineering (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Network Science and Engineering (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Neural Networks and Learning Systems (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Reliability (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Services Computing (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE Transactions on Systems, Man, and Cybernetics: Systems (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IISE Transactions (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Information Fusion (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Information Processing and Management (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Information Sciences (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Information Systems Frontiers (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "International Journal of Hospitality Management (SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "International Journal of Information Technology & Decision Making (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "International Journal of Production Research (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "International Transactions in Operational Research (SCI/SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Journal of Forecasting (SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Journal of Management Analytics (SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Journal of the Operational Research Society (SCI/SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Knowledge–Based Systems (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Neurocomputing (SCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Omega (SCI/SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Risk Analysis (SCI/SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Socio-Economic Planning Sciences (SSCI)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Chinese Journal of Management Science (Chinese Journal)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Chinese Journal of Management (Chinese Journal)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Control and Decision (Chinese Journal)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Systems Engineering (Chinese Journal)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Systems Engineering - Theory & Practice (Chinese Journal)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Journal of Industrial Engineering and Engineering Management (Chinese Journal)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Nankai Business Review (Chinese Journal)",
+      "period": ""
+    },
+    {
+      "category": "Selected Journal Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Operations Research and Management Science (Chinese Journal)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The International Conference of Granular-Ball Computing (ICGBC 2026)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 17th FLINS Conference & the 21st ISKE Conference: Machine Learning and Knowledge Engineering for Decision Making (FLINS-ISKE 2026)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The IEEE Conference on Artificial Intelligence (IEEE CAI 2024)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The International Conference on Distributed Computing and Artificial Intelligence (DCAI, 2020-2024, 2026)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The IEEE International Conference on Fuzzy Systems (FUZZ-IEEE, 2017, 2019, 2021-2023)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The International Conference on Group Decision and Negotiation (GDN, 2018, 2020-2023, 2025, 2026)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The International Symposium on Knowledge and Systems Sciences (KSS, 2015-2019, 2024-2025)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The International Conference on Intelligent Systems and Knowledge Engineering (ISKE, 2013, 2017, 2019)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The IEEE World Congress on Computational Intelligence (WCCI, 2016, 2018, 2020)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The IEEE International Conference on Systems, Man, and Cybernetics (SMC, 2018, 2025)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 15th International FLINS Conference on Machine learning, Multi agent and Cyber physical systems (FLINS 2022)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 14th International FLINS Conference on Robotics and Artificial Intelligence (FLINS 2020)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 13th International FLINS Conference on Data Science and Knowledge Engineering for Sensing Decision Support (FLINS 2018)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 12th International FLINS Conference on Decision Making and Soft Computing (FLINS, 2014, 2016)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Joint 17th World Congress of International Fuzzy Systems Association and 9th International Conference on Soft Computing and Intelligent Systems (IFSA-SCIS 2017)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 16th World Congress of the International Fuzzy Systems Association and the 9th Conference of the European Society for Fuzzy Logic and Technology (IFSA-EUSFLAT 2015)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 15th IFSA World Congress and 32nd Annual Meeting of NAFIPS (IFSA-NAFIPS 2013)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "Joint 10th International Conference on Soft Computing and Intelligent Systems and 19th International Symposium on Advanced Intelligent Systems in conjunction with Intelligent Systems Workshop 2018 (SCIS-ISIS2018)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 1st International Alan Turing Conference on Decision Support and Recommender Systems (DSRS-Turing 2019)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "IEEE International Conference on Technology Management, Operations and Decisions (IEEE ICTMOD, 2018, 2026)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 37th North American Fuzzy Information Processing Society Annual Conference (NAFIPS 2018)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 2013 International Conference on Knowledge Science, Engineering and Management (KSEM 2013)",
+      "period": ""
+    },
+    {
+      "category": "PC Members & Conference Reviewers",
+      "role": "",
+      "organization": "",
+      "item": "The 12th International Workshop on Meta-synthesis & Complex Systems (MCS 2012)",
+      "period": ""
+    },
+    {
+      "category": "Special Session Organizers",
+      "role": "",
+      "organization": "",
+      "item": "\"Artificial Intelligence for Optimization and Decision Making\", in FLINS-ISKE 2026, co-organized by Zhen Zhang, Lijun Sun, Jiapeng Liu and Yucheng Dong.",
+      "period": ""
+    },
+    {
+      "category": "Special Session Organizers",
+      "role": "",
+      "organization": "",
+      "item": "\"Intelligent Group Decision Making and Consensus Process\", in GDN 2021, GDN 2022, GDN 2023, GDN 2025, GDN 2026, co-organized by Zhen Zhang, Yucheng Dong, Francisco Chiclana and Enrique Herrera-Viedma.",
+      "period": ""
+    },
+    {
+      "category": "Special Session Organizers",
+      "role": "",
+      "organization": "",
+      "item": "\"Data and Network-Driven Decision Analysis\", in Annual Conference on Data Science and Knowledge Systems Engineering, SESC, 2022, 2025, co-organized by Zhen Zhang, Jian Wu and Yucheng Dong.",
+      "period": ""
+    },
+    {
+      "category": "Special Session Organizers",
+      "role": "",
+      "organization": "",
+      "item": "\"Data and Network-Driven Decision Analysis\", in the 2021 Annual Conference on Data Science and Knowledge Systems Engineering, SESC, co-organized by Zhen Zhang and Yucheng Dong.",
+      "period": ""
+    },
+    {
+      "category": "Special Session Organizers",
+      "role": "",
+      "organization": "",
+      "item": "\"Consensus for large-scale Group Decision Making\", in ICSSE 2020, co-organized by Jian Wu, Yucheng Dong, Zaiwu Gong, Yejun Xu, and Zhen Zhang.",
+      "period": ""
+    },
+    {
+      "category": "Special Session Organizers",
+      "role": "",
+      "organization": "",
+      "item": "\"Managing Uncertainty in Data-Driven Decision Making\", in FLINS 2020, co-organized by Zhen Zhang, Yucheng Dong and Yejun Xu.",
+      "period": ""
+    },
+    {
+      "category": "Special Session Organizers",
+      "role": "",
+      "organization": "",
+      "item": "\"Data-Driven Decision Making with Uncertainty\", in ISKE 2019, co-organized by Luis Martínez, Yucheng Dong and Zhen Zhang.",
+      "period": ""
+    },
+    {
+      "category": "Special Session Organizers",
+      "role": "",
+      "organization": "",
+      "item": "\"Group Decision Making in Social Networks\", in CIE 49, co-organized by Jian Wu, Yucheng Dong, Zaiwu Gong, Yejun Xu and Zhen Zhang.",
+      "period": ""
+    },
+    {
+      "category": "Special Session Organizers",
+      "role": "",
+      "organization": "",
+      "item": "\"Consensus Process Decision Making\", in GDN 2018, co-organized by Yucheng Dong, Zaiwu Gong, Jian Wu, Zhen Zhang and Haiming Liang.",
+      "period": ""
+    },
+    {
+      "category": "Special Session Organizers",
+      "role": "",
+      "organization": "",
+      "item": "\"Intelligent Decision Support Systems: Models, Methods and Applications\", in ISKE 2017, co-organized by Zhen Zhang and Jialin Han.",
+      "period": ""
+    }
+  ],
+  "Group": [
+    {
+      "category": "Director",
+      "name": "Zhen Zhang",
+      "note": "Professor, Institute of Systems Engineering, DUT",
+      "link": "https://dm-dut.github.io/"
+    },
+    {
+      "category": "Core Member",
+      "name": "Wenyu Yu",
+      "note": "Associate Professor, School of Data Science and Artificial Intelligence, DUFE",
+      "link": "https://scholar.google.com/citations?user=O1SESW8AAAAJ"
+    },
+    {
+      "category": "Core Member",
+      "name": "Zhuolin Li",
+      "note": "Assitant Professor, School of Econimics and Management, SWJTU; Former PhD Student and Master Student",
+      "link": "https://lzlloveys.github.io/"
+    },
+    {
+      "category": "PhD Students",
+      "name": "Yijun Chen",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "PhD Students",
+      "name": "Qianqian Chen",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "PhD Students",
+      "name": "Zihang Jia",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "PhD Students",
+      "name": "Yuan Gao",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Xu Zou",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Shufei Peng",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Luanyu Kong",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Shanshan Miao",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Junting Guo",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Xiaotong Wu",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Xiaoqi Zhai",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Zhihe Yu",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Fu Xing",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Ying Li",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Zitong Li",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Ziyu Xu",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Yuan Jin",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Jize Luo",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Yimingxuan Zhou",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Nan Yuan",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Xiaoyun Zhang",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Jinfang Gu",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Shuyao Shen",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Siyuan Ji",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Zhuolin Li",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Nan Wang",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Yuan Gao",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Junliang Gao",
+      "note": "",
+      "link": ""
+    },
+    {
+      "category": "Master Students",
+      "name": "Xinyue Kou",
+      "note": "",
+      "link": ""
+    }
+  ],
+  "Projects": []
+}
