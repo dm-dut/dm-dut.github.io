@@ -19,8 +19,10 @@
     "authors_zh": [
       "Zhang, Zhen",
       "Xu, Ziyu",
-      "Yu, Wenyu*"
+      "Yu, Wenyu"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "Annals of Operations Research",
     "venue_en": "Annals of Operations Research",
     "venue_zh": "Annals of Operations Research",
@@ -48,7 +50,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:nb7KW1ujOQ8C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:nb7KW1ujOQ8C",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18318214796210161605",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Tourism demand forecasting with multi-source data: A hybrid model incorporating seasonal-trend decomposition",
     "citation_source": "author_profile"
@@ -78,6 +80,8 @@
       "张震*",
       "王浩旻"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "张震",
     "venue": "Chinese Journal of Management Science",
     "venue_en": "Chinese Journal of Management Science",
     "venue_zh": "中国管理科学",
@@ -103,7 +107,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:CHSYGLWDkRkC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:CHSYGLWDkRkC",
     "google_scholar_cited_by_url": "",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "考虑情境依赖决策行为的多准则决策偏好学习方法",
     "citation_source": "author_profile"
@@ -129,10 +133,12 @@
     ],
     "authors_zh": [
       "Liang, Qian",
-      "Yu, Wenyu*",
+      "Yu, Wenyu",
       "Zhang, Zhen",
       "Chiclana, Francisco"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "European Journal of Operational Research",
     "venue_en": "European Journal of Operational Research",
     "venue_zh": "European Journal of Operational Research",
@@ -161,7 +167,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:UxriW0iASnsC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:UxriW0iASnsC",
     "google_scholar_cited_by_url": "",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Targeting the right person: An optimization-driven framework for persuader selection in social networks with opinion evolution",
     "citation_source": "author_profile"
@@ -192,11 +198,13 @@
     "authors_zh": [
       "Liu, Yaya",
       "Li, Jiaming",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Wu, Jian",
       "Rodríguez, Rosa M",
       "Martínez, Luis"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Expert Systems with Applications",
     "venue_en": "Expert Systems with Applications",
     "venue_zh": "Expert Systems with Applications",
@@ -223,7 +231,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:dshw04ExmUIC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:dshw04ExmUIC",
     "google_scholar_cited_by_url": "",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective",
     "citation_source": "author_profile"
@@ -245,8 +253,10 @@
     ],
     "authors_zh": [
       "Jin, Yuan",
-      "Zhang, Zhen*"
+      "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Expert Systems with Applications",
     "venue_en": "Expert Systems with Applications",
     "venue_zh": "Expert Systems with Applications",
@@ -273,7 +283,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:KxtntwgDAa4C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:KxtntwgDAa4C",
     "google_scholar_cited_by_url": "",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "KRAM: Knowledge-driven robust training against label noise for medication recommendation",
     "citation_source": "author_profile"
@@ -302,10 +312,12 @@
     "authors_zh": [
       "Zhang, Zhen",
       "Luo, Jize",
-      "Yu, Wenyu*",
+      "Yu, Wenyu",
       "Li, Zhuolin",
       "Chiclana, Francisco"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
     "venue_en": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
     "venue_zh": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
@@ -334,7 +346,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:1sJd4Hv_s6UC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:1sJd4Hv_s6UC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7858813332657430550",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Integrating personalized individual semantics and consistency control to support consensus reaching in 2-rank group decision making",
     "citation_source": "author_profile"
@@ -358,9 +370,11 @@
     ],
     "authors_zh": [
       "Gao, Yuan",
-      "Zhang, Zhen*",
-      "Yu, Wenyu*"
+      "Zhang, Zhen",
+      "Yu, Wenyu"
     ],
+    "corresponding_author_en": "Zhang, Zhen;Yu, Wenyu",
+    "corresponding_author_cn": "Zhang, Zhen;Yu, Wenyu",
     "venue": "Information Fusion",
     "venue_en": "Information Fusion",
     "venue_zh": "Information Fusion",
@@ -387,7 +401,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:xtRiw3GOFMkC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:xtRiw3GOFMkC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10497490382733319518",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Preference learning for multi-criteria sorting with interacting criteria: A framework integrating threshold-based value-driven sorting procedure with attention network",
     "citation_source": "author_profile"
@@ -412,8 +426,10 @@
     "authors_zh": [
       "Chai, Shanglei",
       "Zhang, Zixuan",
-      "Zhang, Zhen*"
+      "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Annals of Operations Research",
     "venue_en": "Annals of Operations Research",
     "venue_zh": "Annals of Operations Research",
@@ -441,7 +457,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:JV2RwH3_ST0C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:JV2RwH3_ST0C",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10498048851820770025",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Carbon price prediction for China's ETS pilots using variational mode decomposition and optimized extreme learning machine",
     "citation_source": "author_profile"
@@ -472,8 +488,10 @@
       "Chu, Wenjun",
       "Zhang, Zhen",
       "Li, Zhilong",
-      "Abedin, Mohammad Zoynul*"
+      "Abedin, Mohammad Zoynul"
     ],
+    "corresponding_author_en": "Abedin, Mohammad Zoynul",
+    "corresponding_author_cn": "Abedin, Mohammad Zoynul",
     "venue": "Annals of Operations Research",
     "venue_en": "Annals of Operations Research",
     "venue_zh": "Annals of Operations Research",
@@ -502,7 +520,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:blknAaTinKkC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:blknAaTinKkC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12082163830205466706",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Dynamic nonlinear connectedness between the green bonds, clean energy, and stock price: The impact of the COVID-19 pandemic",
     "citation_source": "author_profile"
@@ -527,8 +545,10 @@
     "authors_zh": [
       "Yu, Gaofeng",
       "Zhang, Zhen",
-      "Wu, Jian*"
+      "Wu, Jian"
     ],
+    "corresponding_author_en": "Wu, Jian",
+    "corresponding_author_cn": "Wu, Jian",
     "venue": "Applied Intelligence",
     "venue_en": "Applied Intelligence",
     "venue_zh": "Applied Intelligence",
@@ -555,7 +575,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:P5F9QuxV20EC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:P5F9QuxV20EC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17040680072996483262",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A stability analysis for the online retailing cyber security situation piecewise variable weight rating method",
     "citation_source": "author_profile"
@@ -579,9 +599,11 @@
     ],
     "authors_zh": [
       "Zhang, Zhen",
-      "Li, Zhuolin*",
-      "Yu, Wenyu*"
+      "Li, Zhuolin",
+      "Yu, Wenyu"
     ],
+    "corresponding_author_en": "Yu, Wenyu; Li, Zhuolin",
+    "corresponding_author_cn": "Yu, Wenyu; Li, Zhuolin",
     "venue": "Computers & Operations Research",
     "venue_en": "Computers & Operations Research",
     "venue_zh": "Computers & Operations Research",
@@ -610,7 +632,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:f2IySw72cVMC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:f2IySw72cVMC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15724029725714693652",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Lexicographic optimization-based approaches to learning a representative model for multi-criteria sorting with non-monotonic criteria",
     "citation_source": "author_profile"
@@ -634,9 +656,11 @@
     ],
     "authors_zh": [
       "Li, Zhuolin",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Pedrycz, Witold"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "European Journal of Operational Research",
     "venue_en": "European Journal of Operational Research",
     "venue_zh": "European Journal of Operational Research",
@@ -665,7 +689,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:yD5IFk8b50cC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:yD5IFk8b50cC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14956663437983944803",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "An incremental preference elicitation-based approach to learning potentially non-monotonic preferences in multi-criteria sorting",
     "citation_source": "author_profile"
@@ -689,9 +713,11 @@
     ],
     "authors_zh": [
       "Jia, Zihang",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Pedrycz, Witold"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "IEEE Transactions on Cybernetics",
     "venue_en": "IEEE Transactions on Cybernetics",
     "venue_zh": "IEEE Transactions on Cybernetics",
@@ -720,7 +746,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:pqnbT2bcN3wC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:pqnbT2bcN3wC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4859540152466627277",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Generation of Granular-Balls for Clustering Based on the Principle of Justifiable Granularity",
     "citation_source": "author_profile"
@@ -742,8 +768,10 @@
     ],
     "authors_zh": [
       "Li, Zhuolin",
-      "Zhang, Zhen*"
+      "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
     "venue_en": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
     "venue_zh": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
@@ -772,7 +800,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:a0OBvERweLwC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:a0OBvERweLwC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11811417846335134327",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Modeling personalized individual semantics in multicriteria decision making with incomplete linguistic preference relations: A preference disaggregation perspective",
     "citation_source": "author_profile"
@@ -796,9 +824,11 @@
     ],
     "authors_zh": [
       "Liang, Qian",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Su, Yingsheng"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Information Fusion",
     "venue_en": "Information Fusion",
     "venue_zh": "Information Fusion",
@@ -825,7 +855,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:bFI3QPDXJZMC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:bFI3QPDXJZMC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3396838084104887545",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Constructive preference elicitation for multi-criteria decision analysis using an estimate-then-select strategy",
     "citation_source": "author_profile"
@@ -860,13 +890,15 @@
     "authors_zh": [
       "Cao, Mingshuo",
       "Gai, Tiantian",
-      "Wu, Jian*",
+      "Wu, Jian",
       "Chiclana, Francisco",
       "Zhang, Zhen",
       "Dong, Yucheng",
       "Herrera-Viedma, Enrique",
       "Herrera, Francisco"
     ],
+    "corresponding_author_en": "Wu, Jian",
+    "corresponding_author_cn": "Wu, Jian",
     "venue": "Information Fusion",
     "venue_en": "Information Fusion",
     "venue_zh": "Information Fusion",
@@ -894,7 +926,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_xSYboBqXhAC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_xSYboBqXhAC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6554698071003470383",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Social network group decision making: Characterization, taxonomy, challenges and future directions from an AI and LLMs perspective",
     "citation_source": "author_profile"
@@ -924,9 +956,11 @@
       "Liu, Yaya",
       "Wang, Yue",
       "Rodríguez, Rosa M",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Martínez, Luis"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Information Sciences",
     "venue_en": "Information Sciences",
     "venue_zh": "Information Sciences",
@@ -954,7 +988,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:abG-DnoFyZgC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:abG-DnoFyZgC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9991073985469816254",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Automatic consensus models to balance consensus cost, consistency level and consensus degree with attitudinal trust mechanism",
     "citation_source": "author_profile"
@@ -978,9 +1012,11 @@
     ],
     "authors_zh": [
       "Li, Zhuolin",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Pedrycz, Witold"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Omega",
     "venue_en": "Omega",
     "venue_zh": "Omega",
@@ -1010,7 +1046,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:D03iK_w7-QYC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:D03iK_w7-QYC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4855147358248197123",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Integrating machine learning models to learn potentially non-monotonic preferences for multi-criteria sorting from large-scale assignment examples",
     "citation_source": "author_profile"
@@ -1037,6 +1073,8 @@
       "Yu, Wenyu",
       "Li, Zhuolin"
     ],
+    "corresponding_author_en": "",
+    "corresponding_author_cn": "",
     "venue": "Springer Nature",
     "venue_en": "Springer Nature",
     "venue_zh": "Springer Nature",
@@ -1059,7 +1097,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:HoB7MX3m0LUC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:HoB7MX3m0LUC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2149861765766021984,7844461162793212216",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Modeling Complex Linguistic Information to Support Group Decision Making Under Uncertainty: Theories, Methods and Applications",
     "citation_source": "author_profile"
@@ -1087,11 +1125,13 @@
     ],
     "authors_zh": [
       "Gai, Tiantian",
-      "Wu, Jian*",
+      "Wu, Jian",
       "Liang, Changyong",
       "Cao, Mingshuo",
       "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Wu, Jian",
+    "corresponding_author_cn": "Wu, Jian",
     "venue": "Engineering Applications of Artificial Intelligence",
     "venue_en": "Engineering Applications of Artificial Intelligence",
     "venue_zh": "Engineering Applications of Artificial Intelligence",
@@ -1118,7 +1158,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:M05iB0D1s5AC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:M05iB0D1s5AC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11816149206645442866",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A quality function deployment model by social network and group decision making: Application to product design of e-commerce platforms",
     "citation_source": "author_profile"
@@ -1140,8 +1180,10 @@
     ],
     "authors_zh": [
       "Li, Zhuolin",
-      "Zhang, Zhen*"
+      "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "IEEE Transactions on Computational Social Systems",
     "venue_en": "IEEE Transactions on Computational Social Systems",
     "venue_zh": "IEEE Transactions on Computational Social Systems",
@@ -1169,7 +1211,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:35N4QoGY0k4C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:35N4QoGY0k4C",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11811168757566776526",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Threshold-based value-driven method to support consensus reaching in multicriteria group sorting problems: A minimum adjustment perspective",
     "citation_source": "author_profile"
@@ -1197,8 +1239,10 @@
       "Liang, Qian",
       "Luo, Chenyu",
       "Zhang, Zhen",
-      "Cheng, Dong*"
+      "Cheng, Dong"
     ],
+    "corresponding_author_en": "Cheng, Dong",
+    "corresponding_author_cn": "Cheng, Dong",
     "venue": "IEEE Transactions on Fuzzy Systems",
     "venue_en": "IEEE Transactions on Fuzzy Systems",
     "venue_zh": "IEEE Transactions on Fuzzy Systems",
@@ -1225,7 +1269,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ldfaerwXgEUC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ldfaerwXgEUC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3309345725267243940",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Mining maximum ordinal-cardinal consensus for large-scale group decision making with incomplete fuzzy preference relations",
     "citation_source": "author_profile"
@@ -1250,8 +1294,10 @@
     "authors_zh": [
       "Li, Zhuolin",
       "Zhang, Zhen",
-      "Yu, Wenyu*"
+      "Yu, Wenyu"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "Journal of the Operational Research Society",
     "venue_en": "Journal of the Operational Research Society",
     "venue_zh": "Journal of the Operational Research Society",
@@ -1282,7 +1328,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:70eg2SAEIzsC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:70eg2SAEIzsC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5530584121048737619",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consensus reaching for ordinal classification-based group decision making with heterogeneous preference information",
     "citation_source": "author_profile"
@@ -1303,9 +1349,11 @@
       "Li, Zhuolin"
     ],
     "authors_zh": [
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Li, Zhuolin"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Annals of Operations Research",
     "venue_en": "Annals of Operations Research",
     "venue_zh": "Annals of Operations Research",
@@ -1334,7 +1382,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RGFaLdJalmkC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RGFaLdJalmkC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1192270607859653258",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consensus-based TOPSIS-Sort-B for multi-criteria sorting in the context of group decision making",
     "citation_source": "author_profile"
@@ -1368,11 +1416,13 @@
       "Wu, Jian",
       "Zhang, Guangyin",
       "Xing, Yumei",
-      "Liu, Yujia*",
+      "Liu, Yujia",
       "Zhang, Zhen",
       "Dong, Yucheng",
       "Herrera-Viedma, Enrique"
     ],
+    "corresponding_author_en": "Liu, Yujia",
+    "corresponding_author_cn": "Liu, Yujia",
     "venue": "Applied Intelligence",
     "venue_en": "Applied Intelligence",
     "venue_zh": "Applied Intelligence",
@@ -1399,7 +1449,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:NaGl4SEjCO4C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:NaGl4SEjCO4C",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12859421367650020932",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A sentiment analysis driven method based on public and personal preferences with correlated attributes to select online doctors",
     "citation_source": "author_profile"
@@ -1436,8 +1486,10 @@
       "Zhang, Zhen",
       "Dong, Yucheng",
       "Herrera-Viedma, Enrique",
-      "Wu, Jian*"
+      "Wu, Jian"
     ],
+    "corresponding_author_en": "Wu, Jian",
+    "corresponding_author_cn": "Wu, Jian",
     "venue": "Group Decision and Negotiation",
     "venue_en": "Group Decision and Negotiation",
     "venue_zh": "Group Decision and Negotiation",
@@ -1467,7 +1519,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:GnPB-g6toBAC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:GnPB-g6toBAC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9766487420422989026",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consensus-trust driven bidirectional feedback mechanism for improving consensus in social network large-group decision making",
     "citation_source": "author_profile"
@@ -1496,10 +1548,12 @@
     "authors_zh": [
       "Li, Peng",
       "Xu, Zhiwei",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Li, Zhuolin",
       "Wei, Cuiping"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Information Fusion",
     "venue_en": "Information Fusion",
     "venue_zh": "Information Fusion",
@@ -1527,7 +1581,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:2P1L_qKh6hAC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:2P1L_qKh6hAC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7880248039120947300",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consensus reaching in multi-criteria social network group decision making: A stochastic multicriteria acceptability analysis-based method",
     "citation_source": "author_profile"
@@ -1551,6 +1605,8 @@
       "张震*",
       "李卓琳"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "张震",
     "venue": "Journal of Industrial Engineering and Engineering Management",
     "venue_en": "Journal of Industrial Engineering and Engineering Management",
     "venue_zh": "管理工程学报",
@@ -1576,7 +1632,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:NMxIlDl6LWMC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:NMxIlDl6LWMC",
     "google_scholar_cited_by_url": "",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "考虑个性化语义和一致性的群体决策共识模型",
     "citation_source": "author_profile"
@@ -1610,8 +1666,10 @@
       "Cao, Mingshuo",
       "Zhang, Zhen",
       "Zhang, Hengjie",
-      "Wu, Jian*"
+      "Wu, Jian"
     ],
+    "corresponding_author_en": "Wu, Jian",
+    "corresponding_author_cn": "Wu, Jian",
     "venue": "Systems",
     "venue_en": "Systems",
     "venue_zh": "Systems",
@@ -1639,7 +1697,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:J_g5lzvAfSwC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:J_g5lzvAfSwC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4853487003125460037",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Application of group decision making in shipping industry 4.0: Bibliometric analysis, trends and future directions",
     "citation_source": "author_profile"
@@ -1664,8 +1722,10 @@
     "authors_zh": [
       "Li, Zhuolin",
       "Zhang, Zhen",
-      "Yu, Wenyu*"
+      "Yu, Wenyu"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "Computers & Industrial Engineering",
     "venue_en": "Computers & Industrial Engineering",
     "venue_zh": "Computers & Industrial Engineering",
@@ -1695,7 +1755,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:BqipwSGYUEgC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:BqipwSGYUEgC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12306384402349936680",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consensus reaching with consistency control in group decision making with incomplete hesitant fuzzy linguistic preference relations",
     "citation_source": "author_profile"
@@ -1724,10 +1784,12 @@
     "authors_zh": [
       "Liu, Yating",
       "Li, Yao",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Xu, Yi",
       "Dong, Yucheng"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Expert Systems with Applications",
     "venue_en": "Expert Systems with Applications",
     "venue_zh": "Expert Systems with Applications",
@@ -1754,7 +1816,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:YFjsv_pBGBYC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:YFjsv_pBGBYC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1968249163342373138",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Classification-based strategic weight manipulation in multiple attribute decision making",
     "citation_source": "author_profile"
@@ -1775,9 +1837,11 @@
       "Li, Zhuolin"
     ],
     "authors_zh": [
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Li, Zhuolin"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
     "venue_en": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
     "venue_zh": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
@@ -1808,7 +1872,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hMod-77fHWUC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hMod-77fHWUC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11873108629222556932",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Personalized individual semantics-based consistency control and consensus reaching in linguistic group decision making",
     "citation_source": "author_profile"
@@ -1833,11 +1897,13 @@
       "Zhang, Zhen*"
     ],
     "authors_zh": [
-      "Dong, Qingxing*",
+      "Dong, Qingxing",
       "Sheng, Qi",
       "Martínez, Luis",
-      "Zhang, Zhen*"
+      "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Dong, Qingxing; Zhang, Zhen",
+    "corresponding_author_cn": "Dong, Qingxing; Zhang, Zhen",
     "venue": "Information Fusion",
     "venue_en": "Information Fusion",
     "venue_zh": "Information Fusion",
@@ -1865,7 +1931,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:maZDTaKrznsC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:maZDTaKrznsC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10498677810612935206",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "An adaptive group decision making framework: Individual and local world opinion based opinion dynamics",
     "citation_source": "author_profile"
@@ -1892,12 +1958,14 @@
       "Guo, Yuqi"
     ],
     "authors_zh": [
-      "Chen, Youwei*",
+      "Chen, Youwei",
       "Zhao, Pengwei",
       "Zhang, Zhen",
       "Bai, Juncheng",
       "Guo, Yuqi"
     ],
+    "corresponding_author_en": "Chen, Youwei",
+    "corresponding_author_cn": "Chen, Youwei",
     "venue": "International Journal of Computational Intelligence Systems",
     "venue_en": "International Journal of Computational Intelligence Systems",
     "venue_zh": "International Journal of Computational Intelligence Systems",
@@ -1924,7 +1992,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ns9cj8rnVeAC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ns9cj8rnVeAC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14272540749383347553",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A stock price forecasting model integrating complementary ensemble empirical mode decomposition and independent component analysis",
     "citation_source": "author_profile"
@@ -1951,9 +2019,11 @@
     "authors_zh": [
       "Tang, Lin",
       "Sun, Leilei",
-      "Guo, Chonghui*",
+      "Guo, Chonghui",
       "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Guo, Chonghui",
+    "corresponding_author_cn": "Guo, Chonghui",
     "venue": "Journal of Systems Engineering and Electronics",
     "venue_en": "Journal of Systems Engineering and Electronics",
     "venue_zh": "Journal of Systems Engineering and Electronics",
@@ -1980,7 +2050,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:k_IJM867U9cC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:k_IJM867U9cC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3592788409803879385",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Adaptive spectral affinity propagation clustering",
     "citation_source": "author_profile"
@@ -2002,8 +2072,10 @@
     ],
     "authors_zh": [
       "Gao, Yuan",
-      "Zhang, Zhen*"
+      "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Journal of the Operational Research Society",
     "venue_en": "Journal of the Operational Research Society",
     "venue_zh": "Journal of the Operational Research Society",
@@ -2035,7 +2107,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:M3NEmzRMIkIC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:M3NEmzRMIkIC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1130612972950234933",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consensus reaching with non-cooperative behavior management for personalized individual semantics-based social network group decision making",
     "citation_source": "author_profile"
@@ -2065,9 +2137,11 @@
       "Chai, Shanglei",
       "Yang, Xiaoli",
       "Zhang, Zhen",
-      "Abedin, Mohammad Zoynul*",
+      "Abedin, Mohammad Zoynul",
       "Lucey, Brian"
     ],
+    "corresponding_author_en": "Abedin, Mohammad Zoynul",
+    "corresponding_author_cn": "Abedin, Mohammad Zoynul",
     "venue": "Research in International Business and Finance",
     "venue_en": "Research in International Business and Finance",
     "venue_zh": "Research in International Business and Finance",
@@ -2094,7 +2168,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:O3NaXMp0MMsC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:O3NaXMp0MMsC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17207587281153236321",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Regional imbalances of market efficiency in China's pilot emission trading schemes (ETS): A multifractal perspective",
     "citation_source": "author_profile"
@@ -2118,9 +2192,11 @@
     ],
     "authors_zh": [
       "Yu, Wenyu",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Zhong, Qiuyan"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Annals of Operations Research",
     "venue_en": "Annals of Operations Research",
     "venue_zh": "Annals of Operations Research",
@@ -2149,7 +2225,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:TQgYirikUcIC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:TQgYirikUcIC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12477698614571599735",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consensus reaching for MAGDM with multi-granular hesitant fuzzy linguistic term sets: a minimum adjustment-based approach",
     "citation_source": "author_profile"
@@ -2177,8 +2253,10 @@
       "Zhang, Zhen",
       "Gao, Junliang",
       "Gao, Yuan",
-      "Yu, Wenyu*"
+      "Yu, Wenyu"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "Expert Systems with Applications",
     "venue_en": "Expert Systems with Applications",
     "venue_zh": "Expert Systems with Applications",
@@ -2207,7 +2285,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:r0BpntZqJG4C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:r0BpntZqJG4C",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=384158409122409430",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Two-sided matching decision making with multi-granular hesitant fuzzy linguistic term sets and incomplete criteria weight information",
     "citation_source": "author_profile"
@@ -2230,10 +2308,12 @@
       "Gao, Yuan"
     ],
     "authors_zh": [
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Li, Zhuolin",
       "Gao, Yuan"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Information Fusion",
     "venue_en": "Information Fusion",
     "venue_zh": "Information Fusion",
@@ -2261,7 +2341,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:isC4tDSrTZIC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:isC4tDSrTZIC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16290649516562706707",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consensus reaching for group decision making with multi-granular unbalanced linguistic information: A bounded confidence and minimum adjustment-based approach",
     "citation_source": "author_profile"
@@ -2300,9 +2380,11 @@
       "Zhang, Hengjie",
       "Chao, Xiangrui",
       "Li, Cong-Cong",
-      "Dong, Yucheng*",
+      "Dong, Yucheng",
       "Herrera, Francisco"
     ],
+    "corresponding_author_en": "Dong,Yucheng",
+    "corresponding_author_cn": "Dong,Yucheng",
     "venue": "Information Fusion",
     "venue_en": "Information Fusion",
     "venue_zh": "Information Fusion",
@@ -2331,7 +2413,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:j3f4tGmQtD8C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:j3f4tGmQtD8C",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5638761391199740274",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Distributed Linguistic Representations in Decision Making: Taxonomy, Key Elements and Applications, and Challenges in Data Science and Explainable Artificial Intelligence",
     "citation_source": "author_profile"
@@ -2360,10 +2442,12 @@
     "authors_zh": [
       "Tang, Lin",
       "Sun, Leilei",
-      "Guo, Chonghui*",
+      "Guo, Chonghui",
       "Zuo, Yuqian",
       "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Guo, Chonghui",
+    "corresponding_author_cn": "Guo, Chonghui",
     "venue": "Journal of Systems Science and Systems Engineering",
     "venue_en": "Journal of Systems Science and Systems Engineering",
     "venue_zh": "Journal of Systems Science and Systems Engineering",
@@ -2390,7 +2474,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:bEWYMUwI8FkC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:bEWYMUwI8FkC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9293327379002729660",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A simulation research towards better leverage of sales ranking",
     "citation_source": "author_profile"
@@ -2435,6 +2519,8 @@
       "张震",
       "董玉成*"
     ],
+    "corresponding_author_en": "Dong, Yucheng",
+    "corresponding_author_cn": "董玉成",
     "venue": "Journal of University of Electronic Science and Technology of China (Social Sciences Edition)",
     "venue_en": "Journal of University of Electronic Science and Technology of China (Social Sciences Edition)",
     "venue_zh": "电子科技大学学报（社科版）",
@@ -2457,7 +2543,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:lSLTfruPkqcC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:lSLTfruPkqcC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14623022874477536556,3583522880524885069",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 0.935,
     "citation_matched_title": "Consensus in group decision making: Research progress and prospect",
     "citation_source": "author_profile"
@@ -2484,9 +2570,11 @@
     "authors_zh": [
       "Zhang, Zhen",
       "Kou, Xinyue",
-      "Yu, Wenyu*",
+      "Yu, Wenyu",
       "Gao, Yuan"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "Journal of the Operational Research Society",
     "venue_en": "Journal of the Operational Research Society",
     "venue_zh": "Journal of the Operational Research Society",
@@ -2517,7 +2605,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_Qo2XoVZTnwC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_Qo2XoVZTnwC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4305334997314263726",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consistency improvement for fuzzy preference relations with self-confidence: An application in two-sided matching decision making",
     "citation_source": "author_profile"
@@ -2543,10 +2631,12 @@
     ],
     "authors_zh": [
       "Chai, Shanglei",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Du, Mo",
       "Jiang, Lei"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Complexity",
     "venue_en": "Complexity",
     "venue_zh": "Complexity",
@@ -2574,7 +2664,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:iH-uZ7U-co4C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:iH-uZ7U-co4C",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1421205420360580917",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 0.996,
     "citation_matched_title": "Volatility similarity and spillover effects in G20 stock market co-movements: An ICA-based ARMA-APARCH-M approach",
     "citation_source": "author_profile"
@@ -2600,10 +2690,12 @@
     ],
     "authors_zh": [
       "Zhang, Zhen",
-      "Yu, Wenyu*",
+      "Yu, Wenyu",
       "Martínez, Luis",
       "Gao, Yuan"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "IEEE Transactions on Fuzzy Systems",
     "venue_en": "IEEE Transactions on Fuzzy Systems",
     "venue_zh": "IEEE Transactions on Fuzzy Systems",
@@ -2632,7 +2724,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:R3hNpaxXUhUC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:R3hNpaxXUhUC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13088376223868522672",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Managing multigranular unbalanced hesitant fuzzy linguistic information in multiattribute large-scale group decision making: A linguistic distribution-based approach",
     "citation_source": "author_profile"
@@ -2655,10 +2747,12 @@
       "Li, Zhuolin"
     ],
     "authors_zh": [
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Gao, Yuan",
       "Li, Zhuolin"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Knowledge-Based Systems",
     "venue_en": "Knowledge-Based Systems",
     "venue_zh": "Knowledge-Based Systems",
@@ -2686,7 +2780,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RHpTSmoSYBkC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RHpTSmoSYBkC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11986906729262690241",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consensus reaching for social network group decision making by considering leadership and bounded confidence",
     "citation_source": "author_profile"
@@ -2711,8 +2805,10 @@
     "authors_zh": [
       "Zhang, Zhen",
       "Li, Zhuolin",
-      "Yu, Wenyu*"
+      "Yu, Wenyu"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "the 14th International FLINS Conference on Robotics and Artificial Intelligence (FLINS 2020)",
     "venue_en": "the 14th International FLINS Conference on Robotics and Artificial Intelligence (FLINS 2020)",
     "venue_zh": "the 14th International FLINS Conference on Robotics and Artificial Intelligence (FLINS 2020)",
@@ -2737,7 +2833,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:4JMBOYKVnBMC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:4JMBOYKVnBMC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15983602671244127513",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Some models to improve the worst consistency level of hesitant fuzzy preference relations",
     "citation_source": "author_profile"
@@ -2767,9 +2863,11 @@
       "Zhang, Zhen",
       "Kou, Xinyue",
       "Palomares, Iván",
-      "Yu, Wenyu*",
+      "Yu, Wenyu",
       "Gao, Junliang"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "Applied Soft Computing",
     "venue_en": "Applied Soft Computing",
     "venue_zh": "Applied Soft Computing",
@@ -2797,7 +2895,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:mB3voiENLucC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:mB3voiENLucC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1434391883244941711",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 0.93,
     "citation_matched_title": "Stable two-sided matching with incomplete fuzzy preference relations: A disappointment theory based approach",
     "citation_source": "author_profile"
@@ -2822,8 +2920,10 @@
     "authors_zh": [
       "Zhang, Zhen",
       "Gao, Junliang",
-      "Yu, Wenyu*"
+      "Yu, Wenyu"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "the 11th Conference of the European Society for Fuzzy Logic and Technology (EUSFLAT 2019)",
     "venue_en": "the 11th Conference of the European Society for Fuzzy Logic and Technology (EUSFLAT 2019)",
     "venue_zh": "the 11th Conference of the European Society for Fuzzy Logic and Technology (EUSFLAT 2019)",
@@ -2849,7 +2949,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:-f6ydRqryjwC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:-f6ydRqryjwC",
     "google_scholar_cited_by_url": "",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Evaluating collaboration ability of R&D team members: A multi-granular hesitant fuzzy linguistic approach",
     "citation_source": "author_profile"
@@ -2876,9 +2976,11 @@
     "authors_zh": [
       "Mahmoudi, Amin",
       "Javed, Saad Ahmed",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Deng, Xiaopeng"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "the 14th International Conference on Intelligent Systems and Knowledge Engineering (ISKE)",
     "venue_en": "the 14th International Conference on Intelligent Systems and Knowledge Engineering (ISKE)",
     "venue_zh": "the 14th International Conference on Intelligent Systems and Knowledge Engineering (ISKE)",
@@ -2904,7 +3006,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:HDshCWvjkbEC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:HDshCWvjkbEC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4115734431285521069",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Grey group QUALIFLEX method: Application in project management",
     "citation_source": "author_profile"
@@ -2929,8 +3031,10 @@
     "authors_zh": [
       "Zhang, Zhen",
       "Gao, Yuan",
-      "Yu, Wenyu*"
+      "Yu, Wenyu"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "the 14th International Conference on Intelligent Systems and Knowledge Engineering (ISKE)",
     "venue_en": "the 14th International Conference on Intelligent Systems and Knowledge Engineering (ISKE)",
     "venue_zh": "the 14th International Conference on Intelligent Systems and Knowledge Engineering (ISKE)",
@@ -2956,7 +3060,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hFOr9nPyWt4C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hFOr9nPyWt4C",
     "google_scholar_cited_by_url": "",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Group decision making with linguistic distribution preference relations: An interval numerical scale-based approach",
     "citation_source": "author_profile"
@@ -2981,8 +3085,10 @@
     "authors_zh": [
       "Zhang, Zhen",
       "Kou, Xinyue",
-      "Dong, Qingxing*"
+      "Dong, Qingxing"
     ],
+    "corresponding_author_en": "Dong, Qingxing",
+    "corresponding_author_cn": "Dong, Qingxing",
     "venue": "Expert Systems with Applications",
     "venue_en": "Expert Systems with Applications",
     "venue_zh": "Expert Systems with Applications",
@@ -3010,7 +3116,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ZeXyd9-uunAC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ZeXyd9-uunAC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=54041604178753948",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Additive consistency analysis and improvement for hesitant fuzzy preference relations",
     "citation_source": "author_profile"
@@ -3038,8 +3144,10 @@
       "Zheng, Yue",
       "Zhang, Guangquan",
       "Zhang, Zhen",
-      "Lu, Jie*"
+      "Lu, Jie"
     ],
+    "corresponding_author_en": "Lu, Jie",
+    "corresponding_author_cn": "Lu, Jie",
     "venue": "Information Sciences",
     "venue_en": "Information Sciences",
     "venue_zh": "Information Sciences",
@@ -3067,7 +3175,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:IWHjjKOFINEC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:IWHjjKOFINEC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17820004115454433814",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A reducibility method for the weak linear bilevel programming problems and a case study in principal-agent",
     "citation_source": "author_profile"
@@ -3094,9 +3202,11 @@
     "authors_zh": [
       "Zhang, Zhen",
       "Kou, Xinyue",
-      "Yu, Wenyu*",
+      "Yu, Wenyu",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Yu, Wenyu",
+    "corresponding_author_cn": "Yu, Wenyu",
     "venue": "Knowledge-Based Systems",
     "venue_en": "Knowledge-Based Systems",
     "venue_zh": "Knowledge-Based Systems",
@@ -3125,7 +3235,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:7PzlFSSx8tAC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:7PzlFSSx8tAC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3378218392860612585",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "On priority weights and consistency for incomplete hesitant fuzzy preference relations",
     "citation_source": "author_profile"
@@ -3152,6 +3262,8 @@
       "仲秋雁",
       "张震*"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "张震",
     "venue": "Systems Engineering --- Theory and Practice",
     "venue_en": "Systems Engineering --- Theory and Practice",
     "venue_zh": "系统工程理论与实践",
@@ -3178,7 +3290,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RYcK_YlVTxYC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:RYcK_YlVTxYC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10081852022916412049,16806207867748876453",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Multi-granular hesitant fuzzy linguistic group decision making with incomplete weight information",
     "citation_source": "author_profile"
@@ -3202,6 +3314,8 @@
       "Zhang, Zhen",
       "Yu, Wenyu"
     ],
+    "corresponding_author_en": "",
+    "corresponding_author_cn": "",
     "venue": "the 13th International FLINS Conference on Data Science and Knowledge Engineering for Sensing Decision Support (FLINS 2018)",
     "venue_en": "the 13th International FLINS Conference on Data Science and Knowledge Engineering for Sensing Decision Support (FLINS 2018)",
     "venue_zh": "the 13th International FLINS Conference on Data Science and Knowledge Engineering for Sensing Decision Support (FLINS 2018)",
@@ -3226,7 +3340,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hC7cP41nSMkC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:hC7cP41nSMkC",
     "google_scholar_cited_by_url": "",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "An optimization-based approach to aggregating multi-granular hesitant fuzzy linguistic term sets",
     "citation_source": "author_profile"
@@ -3252,10 +3366,12 @@
     ],
     "authors_zh": [
       "Yu, Wenyu",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Zhong, Qiuyan",
       "Sun, Leilei"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Computers & Industrial Engineering",
     "venue_en": "Computers & Industrial Engineering",
     "venue_zh": "Computers & Industrial Engineering",
@@ -3286,7 +3402,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:dhFuZR0502QC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:dhFuZR0502QC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8700293681833670894",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Extended TODIM for multi-criteria group decision making based on unbalanced hesitant fuzzy linguistic term sets",
     "citation_source": "author_profile"
@@ -3313,6 +3429,8 @@
       "Guo, Chonghui",
       "Martínez, Luis"
     ],
+    "corresponding_author_en": "",
+    "corresponding_author_cn": "",
     "venue": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
     "venue_en": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
     "venue_zh": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
@@ -3343,7 +3461,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:4TOpqqG69KYC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:4TOpqqG69KYC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11724581560371780767,11863460980784271686",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Managing Multigranular Linguistic Distribution Assessments in Large-Scale Multiattribute Group Decision Making",
     "citation_source": "author_profile"
@@ -3364,9 +3482,11 @@
       "Guo, Chonghui"
     ],
     "authors_zh": [
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Journal of the Operational Research Society",
     "venue_en": "Journal of the Operational Research Society",
     "venue_zh": "Journal of the Operational Research Society",
@@ -3396,7 +3516,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:aqlVkmm33-oC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:aqlVkmm33-oC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12735040316715338963",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Deriving priority weights from intuitionistic multiplicative preference relations under group decision-making settings",
     "citation_source": "author_profile"
@@ -3426,6 +3546,8 @@
       "Chen, Jingfeng",
       "Zhang, Zhen"
     ],
+    "corresponding_author_en": "",
+    "corresponding_author_cn": "",
     "venue": "the 12th International Conference on Intelligent Systems and Knowledge Engineering (ISKE2017)",
     "venue_en": "the 12th International Conference on Intelligent Systems and Knowledge Engineering (ISKE2017)",
     "venue_zh": "the 12th International Conference on Intelligent Systems and Knowledge Engineering (ISKE2017)",
@@ -3451,7 +3573,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:QIV2ME_5wuYC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:QIV2ME_5wuYC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3568927281169686796",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Textual topic evolution analysis based on term co-occurrence: A case study on the government work report of the State Council (1954-2017)",
     "citation_source": "author_profile"
@@ -3478,6 +3600,8 @@
       "Kou, Xinyue",
       "Yu, Wenyu"
     ],
+    "corresponding_author_en": "",
+    "corresponding_author_cn": "",
     "venue": "the 12th International Conference on Intelligent Systems and Knowledge Engineering (ISKE2017)",
     "venue_en": "the 12th International Conference on Intelligent Systems and Knowledge Engineering (ISKE2017)",
     "venue_zh": "the 12th International Conference on Intelligent Systems and Knowledge Engineering (ISKE2017)",
@@ -3503,7 +3627,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:9ZlFYXVOiuMC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:9ZlFYXVOiuMC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5310680132961950345",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Two-sided matching decision making based on heterogeneous incomplete preference relations",
     "citation_source": "author_profile"
@@ -3527,9 +3651,11 @@
     ],
     "authors_zh": [
       "Yu, Wenyu",
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Zhong, Qiuyan"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "the 2017 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
     "venue_en": "the 2017 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
     "venue_zh": "the 2017 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
@@ -3555,7 +3681,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:mVmsd5A6BfQC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:mVmsd5A6BfQC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1874224573017975429",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A TODIM-based approach to large-scale group decision making with multi-granular unbalanced linguistic information",
     "citation_source": "author_profile"
@@ -3576,9 +3702,11 @@
       "Guo, Chonghui"
     ],
     "authors_zh": [
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Applied Mathematical Modelling",
     "venue_en": "Applied Mathematical Modelling",
     "venue_zh": "Applied Mathematical Modelling",
@@ -3605,7 +3733,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:KlAtU1dfN6UC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:KlAtU1dfN6UC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6864143376784726199",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Notes on “Logarithmic least squares method to priority for group decision making with incomplete fuzzy preference relations”",
     "citation_source": "author_profile"
@@ -3626,9 +3754,11 @@
       "Guo, Chonghui"
     ],
     "authors_zh": [
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "Informatica",
     "venue_en": "Informatica",
     "venue_zh": "Informatica",
@@ -3656,7 +3786,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:8k81kl-MbHgC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:8k81kl-MbHgC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1931764889372674361",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A VIKOR-based approach to group decision making with uncertain preference ordinals and incomplete weight information",
     "citation_source": "author_profile"
@@ -3677,9 +3807,11 @@
       "Guo, Chonghui"
     ],
     "authors_zh": [
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "International Journal of Computational Intelligence Systems",
     "venue_en": "International Journal of Computational Intelligence Systems",
     "venue_zh": "International Journal of Computational Intelligence Systems",
@@ -3706,7 +3838,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:kNdYIx-mwKoC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:kNdYIx-mwKoC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4887752309683970681",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Fusion of heterogeneous incomplete hesitant preference relations in group decision making",
     "citation_source": "author_profile"
@@ -3727,9 +3859,11 @@
       "Guo, Chonghui"
     ],
     "authors_zh": [
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "International Journal of Systems Science",
     "venue_en": "International Journal of Systems Science",
     "venue_zh": "International Journal of Systems Science",
@@ -3757,7 +3891,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:roLk4NBRz8UC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:roLk4NBRz8UC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8735951303805850320",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consistency and consensus models for group decision-making with uncertain 2-tuple linguistic preference relations",
     "citation_source": "author_profile"
@@ -3780,10 +3914,12 @@
       "Guo, Chonghui"
     ],
     "authors_zh": [
-      "Zhang, Zhen*",
+      "Zhang, Zhen",
       "Yu, Wenyu",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "the 17th International Symposium on Knowledge and Systems Sciences (KSS 2016)",
     "venue_en": "the 17th International Symposium on Knowledge and Systems Sciences (KSS 2016)",
     "venue_zh": "the 17th International Symposium on Knowledge and Systems Sciences (KSS 2016)",
@@ -3809,7 +3945,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:qxL8FJ1GzNcC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:qxL8FJ1GzNcC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6262665787564546225",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Group decision making based on acceptably consistent interval multiplicative preference relations",
     "citation_source": "author_profile"
@@ -3834,8 +3970,10 @@
     "authors_zh": [
       "Yu, Wenyu",
       "Zhong, Qiuyan",
-      "Zhang, Zhen*"
+      "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
     "venue": "the 2016 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
     "venue_en": "the 2016 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
     "venue_zh": "the 2016 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
@@ -3861,7 +3999,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_kc_bZDykSQC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:_kc_bZDykSQC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8896451404131345321",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Fusing multi-granular unbalanced hesitant fuzzy linguistic information in group decision making",
     "citation_source": "author_profile"
@@ -3885,6 +4023,8 @@
       "Zhang, Zhen",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "",
+    "corresponding_author_cn": "",
     "venue": "the 2016 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
     "venue_en": "the 2016 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
     "venue_zh": "the 2016 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
@@ -3910,7 +4050,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:YOwf2qJgpHMC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:YOwf2qJgpHMC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14958465575134283175",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Minimum adjustment-based consistency and consensus models for group decision making with interval pairwise comparison matrices",
     "citation_source": "author_profile"
@@ -3934,6 +4074,8 @@
       "Zhang, Zhen",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "",
+    "corresponding_author_cn": "",
     "venue": "the 2015 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
     "venue_en": "the 2015 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
     "venue_zh": "the 2015 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
@@ -3959,7 +4101,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:5nxA0vEk-isC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:5nxA0vEk-isC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14231586752092318543",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "New operations of hesitant fuzzy linguistic term sets with applications in multi-attribute group decision making",
     "citation_source": "author_profile"
@@ -3981,8 +4123,10 @@
     ],
     "authors_zh": [
       "Zhang, Zhen",
-      "Guo, Chonghui*"
+      "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Guo, Chonghui",
+    "corresponding_author_cn": "Guo, Chonghui",
     "venue": "Computers & Industrial Engineering",
     "venue_en": "Computers & Industrial Engineering",
     "venue_zh": "Computers & Industrial Engineering",
@@ -4011,7 +4155,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:LkGwnXOMwfcC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:LkGwnXOMwfcC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12130965934798259031",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "An approach to group decision making with heterogeneous incomplete uncertain preference relations",
     "citation_source": "author_profile"
@@ -4033,8 +4177,10 @@
     ],
     "authors_zh": [
       "Zhang, Zhen",
-      "Guo, Chonghui*"
+      "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Guo, Chonghui",
+    "corresponding_author_cn": "Guo, Chonghui",
     "venue": "International Journal of Computational Intelligence Systems",
     "venue_en": "International Journal of Computational Intelligence Systems",
     "venue_zh": "International Journal of Computational Intelligence Systems",
@@ -4061,7 +4207,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ufrVoPGSRksC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:ufrVoPGSRksC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2033919508661774696",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Consistency-based algorithms to estimate missing elements for uncertain 2-tuple linguistic preference relations",
     "citation_source": "author_profile"
@@ -4084,10 +4230,12 @@
       "Zhang, Zhen"
     ],
     "authors_zh": [
-      "Guo, Chonghui*",
+      "Guo, Chonghui",
       "Wang, Jiajia",
       "Zhang, Zhen"
     ],
+    "corresponding_author_en": "Guo, Chonghui",
+    "corresponding_author_cn": "Guo, Chonghui",
     "venue": "Physica A: Statistical Mechanics and its Applications",
     "venue_en": "Physica A: Statistical Mechanics and its Applications",
     "venue_zh": "Physica A: Statistical Mechanics and its Applications",
@@ -4114,7 +4262,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:UebtZRa9Y70C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:UebtZRa9Y70C",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16424388774514759407",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Evolutionary community structure discovery in dynamic weighted networks",
     "citation_source": "author_profile"
@@ -4144,6 +4292,8 @@
       "Lu, Jie",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "",
+    "corresponding_author_cn": "",
     "venue": "the 8th conference of the Euro-pean Society for Fuzzy Logic and Technology (EUSFLAT 2013)",
     "venue_en": "the 8th conference of the Euro-pean Society for Fuzzy Logic and Technology (EUSFLAT 2013)",
     "venue_zh": "the 8th conference of the Euro-pean Society for Fuzzy Logic and Technology (EUSFLAT 2013)",
@@ -4169,7 +4319,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:W7OEmFMy1HYC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:W7OEmFMy1HYC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5784734461482459851",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A fuzzy tri-level decision making algorithm and its application in supply chain",
     "citation_source": "author_profile"
@@ -4193,6 +4343,8 @@
       "张震",
       "郭崇慧*"
     ],
+    "corresponding_author_en": "Guo, Chonghui",
+    "corresponding_author_cn": "郭崇慧",
     "venue": "Journal of Dalian University of Technology",
     "venue_en": "Journal of Dalian University of Technology",
     "venue_zh": "大连理工大学学报",
@@ -4217,7 +4369,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:WF5omc3nYNoC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:WF5omc3nYNoC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9184972390688405177,18216247991146848679",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A multi-granularity uncertain linguistic group decision-making method based on relative entropy",
     "citation_source": "author_profile"
@@ -4239,8 +4391,10 @@
     ],
     "authors_zh": [
       "Zhang, Zhen",
-      "Guo, Chonghui*"
+      "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Guo, Chonghui; 郭崇慧",
+    "corresponding_author_cn": "Guo, Chonghui; 郭崇慧",
     "venue": "Knowledge-Based Systems",
     "venue_en": "Knowledge-Based Systems",
     "venue_zh": "Knowledge-Based Systems",
@@ -4267,7 +4421,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:9yKSN-GCB0IC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:9yKSN-GCB0IC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8796520898984587722",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A method for multi-granularity uncertain linguistic group decision making with incomplete weight information",
     "citation_source": "author_profile"
@@ -4291,6 +4445,8 @@
       "张震",
       "郭崇慧*"
     ],
+    "corresponding_author_en": "Guo, Chonghui",
+    "corresponding_author_cn": "郭崇慧",
     "venue": "Control and Decision",
     "venue_en": "Control and Decision",
     "venue_zh": "控制与决策",
@@ -4315,7 +4471,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:qjMakFHDy7sC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:qjMakFHDy7sC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17418074731798959323,1284623403322541346",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Multiple attributes group decision making method based on two-tuple linguistic information processing",
     "citation_source": "author_profile"
@@ -4339,6 +4495,8 @@
       "Zhang, Zhen",
       "Guo, Chonghui"
     ],
+    "corresponding_author_en": "",
+    "corresponding_author_cn": "",
     "venue": "International Journal of Knowledge and Systems Science",
     "venue_en": "International Journal of Knowledge and Systems Science",
     "venue_zh": "International Journal of Knowledge and Systems Science",
@@ -4361,7 +4519,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:u-x6o8ySG0sC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:u-x6o8ySG0sC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2096863384612230030",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Association Rules Evaluation by a Hybrid Multiple Criteria Decision Method",
     "citation_source": "author_profile"
@@ -4388,6 +4546,8 @@
       "郭崇慧*",
       "张震"
     ],
+    "corresponding_author_en": "Guo, Chonghui",
+    "corresponding_author_cn": "郭崇慧",
     "venue": "Journal of Systems and Management",
     "venue_en": "Journal of Systems and Management",
     "venue_zh": "系统管理学报",
@@ -4412,7 +4572,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:2osOgNQ5qMEC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:2osOgNQ5qMEC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11005305710317387134",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "国际股指波动性的非对称效应异方差模型及聚类分析",
     "citation_source": "author_profile"
@@ -4436,6 +4596,8 @@
       "郭崇慧",
       "张震"
     ],
+    "corresponding_author_en": "",
+    "corresponding_author_cn": "",
     "venue": "Journal of the China Society for Scientific and Technical Information",
     "venue_en": "Journal of the China Society for Scientific and Technical Information",
     "venue_zh": "情报学报",
@@ -4461,7 +4623,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:vV6vV6tmYwMC",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:vV6vV6tmYwMC",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1035677791749070479",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Interestingness Evaluation of Association Rules Based on Combination Evaluation Method",
     "citation_source": "author_profile"
@@ -4483,8 +4645,10 @@
     ],
     "authors_zh": [
       "Zhang, Zhen",
-      "Guo, Chong-Hui*"
+      "Guo, Chong-Hui"
     ],
+    "corresponding_author_en": "Guo, Chong-Hui; 郭崇慧",
+    "corresponding_author_cn": "Guo, Chong-Hui; 郭崇慧",
     "venue": "the 11th International Workshop on Meta-synthesis and Complex Systems (MCS 2011)",
     "venue_en": "the 11th International Workshop on Meta-synthesis and Complex Systems (MCS 2011)",
     "venue_zh": "the 11th International Workshop on Meta-synthesis and Complex Systems (MCS 2011)",
@@ -4509,7 +4673,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:u5HHmVD_uO8C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:u5HHmVD_uO8C",
     "google_scholar_cited_by_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=326375489849577616",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "A hybrid multiple attributes two-sided matching decision making method with incomplete weight information",
     "citation_source": "author_profile"
@@ -4531,8 +4695,10 @@
     ],
     "authors_zh": [
       "Zhang, Zhen",
-      "Guo, Chonghui*"
+      "Guo, Chonghui"
     ],
+    "corresponding_author_en": "Guo, Chonghui",
+    "corresponding_author_cn": "Guo, Chonghui",
     "venue": "the 10th International Symposium on Knowledge and Systems Sciences (KSS 2009)",
     "venue_en": "the 10th International Symposium on Knowledge and Systems Sciences (KSS 2009)",
     "venue_zh": "the 10th International Symposium on Knowledge and Systems Sciences (KSS 2009)",
@@ -4555,7 +4721,7 @@
     "google_scholar_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:d1gkVwhDpl0C",
     "google_scholar_link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=vBSJplMAAAAJ&pagesize=100&citation_for_view=vBSJplMAAAAJ:d1gkVwhDpl0C",
     "google_scholar_cited_by_url": "",
-    "citation_updated": "2026-06-19",
+    "citation_updated": "2026-06-20",
     "citation_match_score": 1.0,
     "citation_matched_title": "Ranking association rules by TOPSIS method with combination weights",
     "citation_source": "author_profile"
