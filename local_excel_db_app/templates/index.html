@@ -3,25 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>本地 Excel 数据库维护系统</title>
+  <title>本地学术数据维护系统</title>
   <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
   <header class="topbar">
-    <div>
-      <h1>本地 Excel 数据库维护系统</h1>
-      <p>SQLite 本地数据库 · 网页增删改查 · 自动同步导出 Excel</p>
-      <div id="autoExportStatus" class="export-status">自动导出状态：读取中...</div>
+    <div class="brand-block">
+      <h1>本地学术数据维护系统</h1>
     </div>
     <div class="actions">
       <label class="btn ghost">
-        导入 Excel
+        导入基础 Excel
         <input id="importFile" type="file" accept=".xlsx,.xls" hidden />
       </label>
-      <button id="runJsonBtn" class="btn ghost">生成 JSON</button>
-      <button id="runTexBtn" class="btn ghost">生成 TeX</button>
-      <button id="runAllBtn" class="btn ghost">全部生成</button>
-      <a class="btn" href="/api/export">手动下载 Excel</a>
+      <label class="btn ghost">
+        导入发表记录
+        <input id="importPubFile" type="file" accept=".xlsx,.xls" hidden />
+      </label>
+      <label class="btn ghost">
+        导入影响因子库
+        <input id="importIfFile" type="file" accept=".xlsx,.xls" hidden />
+      </label>
+      <a class="btn" href="/api/export/homepage">下载基础 Excel</a>
+      <a class="btn" href="/api/export/publications">下载发表记录</a>
     </div>
   </header>
 
@@ -39,15 +43,10 @@
         </div>
         <div class="toolbar">
           <input id="searchInput" class="search" placeholder="搜索当前表..." />
-          <button id="addBtn" class="btn">新增记录</button>
         </div>
       </div>
 
-      <div class="tool-status" id="toolStatus">生成工具状态：待执行</div>
-      <div class="generated-files">
-        <div class="generated-title">已生成文件</div>
-        <div id="generatedFiles" class="file-list">暂无文件</div>
-      </div>
+      <div id="filterPanel" class="filter-panel"></div>
 
       <div class="table-wrap">
         <table id="dataTable">
@@ -61,13 +60,15 @@
   <div id="modal" class="modal hidden">
     <div class="modal-card">
       <div class="modal-head">
-        <h3 id="modalTitle">编辑记录</h3>
+        <div>
+          <h3 id="modalTitle">编辑记录</h3>
+        </div>
         <button id="closeModal" class="icon-btn">×</button>
       </div>
       <form id="recordForm" class="form"></form>
       <div class="modal-actions">
-        <button id="saveBtn" class="btn">保存</button>
-        <button id="cancelBtn" class="btn ghost">取消</button>
+        <button id="saveBtn" type="button" class="btn">保存</button>
+        <button id="cancelBtn" type="button" class="btn ghost">取消</button>
       </div>
     </div>
   </div>

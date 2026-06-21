@@ -16,10 +16,15 @@ def parse_args():
 def read_tables(db_path):
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
-    meta = conn.execute('SELECT table_name, sheet_name, columns FROM "_meta_tables" ORDER BY rowid').fetchall()
+    meta = conn.execute('SELECT table_name, sheet_name, columns FROM "_meta_tables" ORDER BY COALESCE(display_order, rowid), rowid').fetchall()
     result = []
+    hidden_tables = {'Impact_Factors', 'Projects', 'Project'}
+    hidden_sheets = {'impact factors', 'impact_factors', 'projects', 'project'}
     for row in meta:
         table_name = row['table_name']
+        sheet_name = row['sheet_name']
+        if table_name in hidden_tables or str(sheet_name).strip().lower() in hidden_sheets:
+            continue
         columns = row['columns'].split('|') if row['columns'] else []
         records = [dict(r) for r in conn.execute(f'SELECT * FROM "{table_name}" ORDER BY COALESCE(_order_index, id) ASC, id ASC').fetchall()]
         for record in records:

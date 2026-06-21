@@ -1,16 +1,9 @@
-# 本地 Excel 数据库维护系统
-
-这是一个完全本地运行的小型数据维护系统：
-
-- 使用 SQLite 作为本地数据库；
-- 使用 Flask 提供本地网页；
-- 支持 Excel 导入、网页增删改查、自动导出 Excel；
-- 支持从网页按钮执行本地 Python 脚本，生成 JSON、TeX 等文件；
-- 网页显示顺序默认保持 Excel 原始行顺序。
+# 本地学术数据维护系统
 
 ## 运行方法
 
 ```bash
+cd local_excel_db_app_source_cn_top
 pip install -r requirements.txt
 python app.py
 ```
@@ -21,68 +14,77 @@ python app.py
 http://127.0.0.1:5000
 ```
 
-## 文件结构
+## 数据文件
+
+系统默认维护两个 Excel 文件：
 
 ```text
-local_excel_db_app/
-├─ app.py                         # Flask 后台
-├─ requirements.txt               # 依赖包
-├─ data/
-│  ├─ homepage_content.xlsx        # 默认导入的 Excel
-│  ├─ local_content.db             # SQLite 本地数据库，首次运行自动生成/初始化
-│  └─ auto_exported_content.xlsx   # 增删改查后自动更新的 Excel
-├─ scripts/
-│  ├─ generate_json.py             # 生成 JSON
-│  ├─ generate_tex.py              # 生成 TeX
-│  └─ generate_all.py              # 全部生成
-├─ output/                         # JSON、TeX 等输出文件
-├─ templates/index.html            # 网页结构
-└─ static/
-   ├─ style.css                    # 页面样式
-   └─ app.js                       # 前端逻辑
+data/homepage_content.xlsx        基础数据：News、Awards、Grants、Services、Group 等
+data/publication_database.xlsx    发表记录：Publications
 ```
 
-## 顺序规则
+`Projects` 已从默认 Excel 和数据库中移除，不再作为网页页面或导出工作表出现。
 
-导入 Excel 时，系统会给每一行记录自动写入内部字段 `_order_index`，网页查询和导出 Excel 均按：
+影响因子库仍作为隐藏参考库：
 
 ```text
-_order_index ASC, id ASC
+data/impact_factors.xlsx
 ```
 
-排序。因此，网页显示顺序会保持 Excel 文件中的原始顺序。新增记录默认追加到当前表末尾。
+它用于根据期刊名、ISSN 或 EISSN 匹配 ISSN/IF，但不显示在左侧页面中，也不会合并导出到两个主 Excel 文件中。
 
-## 自动导出
+## 新增记录顺序
 
-每次执行以下操作后，系统都会自动更新：
+所有表格新增记录默认插入到最上方。原始 Excel 导入顺序保持不变，只有后续新增内容会优先显示在顶部。
+
+## 更新逻辑
+
+新增、编辑、删除基础数据时，只更新：
 
 ```text
-data/auto_exported_content.xlsx
+data/homepage_content.xlsx
 ```
 
-触发操作包括：
+新增、编辑、删除发表记录时，只更新：
 
-- 新增记录；
-- 修改记录；
-- 删除记录；
-- 重新导入 Excel。
+```text
+data/publication_database.xlsx
+```
 
-## 生成 JSON / TeX
+导入影响因子库时，只更新隐藏索引，不重写两个主 Excel。
 
-网页上有三个按钮：
+## Publications 更新按钮
 
-- 生成 JSON；
-- 生成 TeX；
-- 全部生成。
+新增或编辑 `Publications` 记录后，系统会将该记录标记为待更新。进入 Publications 页面后，点击筛选栏中的 `更新` 按钮，系统只处理新增或编辑过的记录，完成：
 
-对应执行 `scripts/` 文件夹中的白名单脚本。生成结果会保存到 `output/` 文件夹，并在网页中显示下载链接。
+- 根据 `Author_Chinese` 自动生成 `Author_English`；
+- 根据 `Corresponding_Author_cn` 自动生成 `Corresponding_Author_en`；
+- 对英文论文，如果 `Title_Chinese` 为空，自动复制 `Title_English`；
+- 对英文论文，如果 `Source_Chinese` 为空，自动复制 `Source_English`；
+- 根据期刊名、ISSN 或 EISSN 匹配影响因子库；
+- 如果 ISSN 为空，优先提取 ISSN；如果 ISSN 为空但 eISSN 存在，则提取 eISSN；
+- 如果期刊名匹配不到，可以手动填写 ISSN 或 eISSN，再点击 `更新` 匹配 IF。
 
-如需增加新的脚本，需要：
+影响因子库中同一期刊存在多条记录时，只使用第一条记录。
 
-1. 把 Python 脚本放到 `scripts/`；
-2. 在 `app.py` 的 `allowed` 字典中加入对应任务；
-3. 在前端页面增加按钮。
+## 网页显示
 
-## 页面美化说明
+- 网页字段名显示为中文，避免列名过长；
+- 数据库字段名和导出的 Excel 字段名仍保留原名；
+- `Publications` 默认显示期刊论文和工作论文；
+- 可以切换为期刊、工作、会议、专著或全部类型；
+- 不同类型动态显示不同字段，减少空白列。
 
-当前版本使用柔和的绿色、橙色、米色和浅蓝色，侧边栏数据表标签使用不同背景色区分，表格采用斑马纹、悬浮高亮和固定表头，适合长期本地维护数据。
+## 重新初始化
+
+如果需要重新初始化数据库，可以删除：
+
+```text
+data/local_content.db
+```
+
+然后重新运行：
+
+```bash
+python app.py
+```

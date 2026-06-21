@@ -6,27 +6,26 @@ import os
 
 def chinese_name_to_english(name_str):
     """
-    将中文姓名转换为特定的学术规范拼音格式 (Xing, Ming)
+    将中文姓名转换为学术规范拼音格式，并确保英文作者间使用逗号分隔
     """
     if not name_str or not str(name_str).strip():
         return ""
 
     origin_str = str(name_str).strip()
 
-    # 1. 统一分隔符（把可能混入的中文分号、逗号统一转为英文分号）
+    # 1. 统一分隔符（支持中文分号、逗号）
     normalized_str = re.sub(r'[；，,]', ';', origin_str)
     chinese_authors = [auth.strip() for auth in normalized_str.split(';') if auth.strip()]
     english_authors = []
 
     for author in chinese_authors:
-        # 获取纯小写的拼音列表
         pinyin_raw = pinyin(author, style=Style.NORMAL)
         pinyin_list = [item[0].lower() for item in pinyin_raw if item[0].isalpha()]
 
         if not pinyin_list:
             continue
 
-        # 2. 核心逻辑：区分姓和名，单人内部一律用逗号 ", " 拼接
+        # 2. 姓名内部逻辑保持不变 (Last, First)
         if len(pinyin_list) == 1:
             formatted_name = pinyin_list[0].capitalize()
         elif len(pinyin_list) == 2:
@@ -36,7 +35,6 @@ def chinese_name_to_english(name_str):
             first_name = ("".join(pinyin_list[1:])).capitalize()
             formatted_name = f"{last_name}, {first_name}"
         else:
-            # 四字及以上全名（复姓或少数民族姓名）
             if author.startswith(('欧阳', '司马', '诸葛', '东方', '独孤', '皇甫', '公孙')):
                 last_name = ("".join(pinyin_list[:2])).capitalize()
                 first_name = ("".join(pinyin_list[2:])).capitalize()
@@ -47,8 +45,8 @@ def chinese_name_to_english(name_str):
 
         english_authors.append(formatted_name)
 
-    # 3. 多名作者之间用【分号+空格】拼接
-    return "; ".join(english_authors)
+    # 3. 关键修改：将原来的 "; " 改为 ", "，这样作者间就是逗号分隔了
+    return ", ".join(english_authors)
 
 
 def fill_english_authors_with_xlwings(file_path, output_path):
