@@ -1578,7 +1578,7 @@
       "category": "中文期刊",
       "order": 7,
       "journal": "管理科学",
-      "url": "http://glkx.hit.edu.cn/glkxcn/ch/index.aspx",
+      "url": "http://glkx.hit.edu.cn",
       "extra_links": [
         {
           "label": "CNKI",
@@ -1672,7 +1672,7 @@
       "category": "中文期刊",
       "order": 10,
       "journal": "南开管理评论",
-      "url": "http://www.nbronline.cn/ch/index.aspx",
+      "url": "https://nbr.nankai.edu.cn/",
       "extra_links": [
         {
           "label": "CNKI",
