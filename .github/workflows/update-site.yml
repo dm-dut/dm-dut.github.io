@@ -11,7 +11,7 @@ on:
       - "index.html"
   workflow_dispatch:
   schedule:
-    - cron: "0 2 * * 1"
+    - cron: "0 2 * * *"
 
 permissions:
   contents: write
