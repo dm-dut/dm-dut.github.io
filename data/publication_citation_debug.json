@@ -26,7 +26,7 @@
   {
     "title": "Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective",
     "status": "matched_author_profile",
-    "citations": "",
+    "citations": "1",
     "score": 1.0,
     "matched_title": "Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective",
     "source": "author_profile"
@@ -122,7 +122,7 @@
   {
     "title": "Social network group decision making: Characterization, taxonomy, challenges and future directions from an AI and LLMs perspective",
     "status": "matched_author_profile",
-    "citations": "81",
+    "citations": "82",
     "score": 1.0,
     "matched_title": "Social network group decision making: Characterization, taxonomy, challenges and future directions from an AI and LLMs perspective",
     "source": "author_profile"
@@ -170,7 +170,7 @@
   {
     "title": "Mining maximum ordinal-cardinal consensus for large-scale group decision making with incomplete fuzzy preference relations",
     "status": "matched_author_profile",
-    "citations": "43",
+    "citations": "44",
     "score": 1.0,
     "matched_title": "Mining maximum ordinal-cardinal consensus for large-scale group decision making with incomplete fuzzy preference relations",
     "source": "author_profile"
@@ -234,7 +234,7 @@
   {
     "title": "Consensus reaching with consistency control in group decision making with incomplete hesitant fuzzy linguistic preference relations",
     "status": "matched_author_profile",
-    "citations": "95",
+    "citations": "96",
     "score": 1.0,
     "matched_title": "Consensus reaching with consistency control in group decision making with incomplete hesitant fuzzy linguistic preference relations",
     "source": "author_profile"
@@ -586,7 +586,7 @@
   {
     "title": "Evolutionary community structure discovery in dynamic weighted networks",
     "status": "matched_author_profile",
-    "citations": "67",
+    "citations": "69",
     "score": 1.0,
     "matched_title": "Evolutionary community structure discovery in dynamic weighted networks",
     "source": "author_profile"
