@@ -34,7 +34,8 @@
     "indexes": [
       "SCI",
       "FMS B",
-      "ABS 3"
+      "ABS 3",
+      "2025 IF=4.1"
     ],
     "labels": [],
     "note": "",
@@ -44,7 +45,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 29
+    "source_row": 30
   },
   {
     "type": "Journal Article",
@@ -93,7 +94,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 30
+    "source_row": 31
   },
   {
     "type": "Journal Article",
@@ -134,7 +135,8 @@
       "SCI",
       "EI",
       "FMS A",
-      "ABS 4"
+      "ABS 4",
+      "2025 IF=7.0"
     ],
     "labels": [],
     "note": "",
@@ -144,7 +146,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 31
+    "source_row": 32
   },
   {
     "type": "Journal Article",
@@ -189,7 +191,8 @@
     "link": "https://doi.org/10.1016/j.eswa.2026.131876",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=9.4"
     ],
     "labels": [],
     "note": "",
@@ -199,7 +202,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 32
+    "source_row": 33
   },
   {
     "type": "Journal Article",
@@ -232,7 +235,8 @@
     "link": "https://doi.org/10.1016/j.eswa.2026.131330",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=9.4"
     ],
     "labels": [],
     "note": "",
@@ -242,7 +246,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 33
+    "source_row": 34
   },
   {
     "type": "Journal Article",
@@ -286,7 +290,8 @@
       "SCI",
       "EI",
       "FMS B",
-      "ABS 3"
+      "ABS 3",
+      "2025 IF=8.4"
     ],
     "labels": [],
     "note": "",
@@ -296,7 +301,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 34
+    "source_row": 35
   },
   {
     "type": "Journal Article",
@@ -332,7 +337,8 @@
     "link": "https://doi.org/10.1016/j.inffus.2025.103443",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=17.4"
     ],
     "labels": [],
     "note": "",
@@ -342,7 +348,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 35
+    "source_row": 36
   },
   {
     "type": "Journal Article",
@@ -379,7 +385,8 @@
     "indexes": [
       "SCI",
       "FMS B",
-      "ABS 3"
+      "ABS 3",
+      "2025 IF=4.1"
     ],
     "labels": [],
     "note": "",
@@ -389,7 +396,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 44
+    "source_row": 45
   },
   {
     "type": "Journal Article",
@@ -433,6 +440,7 @@
       "SCI",
       "FMS B",
       "ABS 3",
+      "2025 IF=4.1",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -443,7 +451,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 45
+    "source_row": 46
   },
   {
     "type": "Journal Article",
@@ -479,7 +487,8 @@
     "link": "https://doi.org/10.1007/s10489-025-06860-0",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=3.5"
     ],
     "labels": [],
     "note": "",
@@ -489,7 +498,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 46
+    "source_row": 47
   },
   {
     "type": "Journal Article",
@@ -527,7 +536,8 @@
       "SCI",
       "EI",
       "FMS B",
-      "ABS 3"
+      "ABS 3",
+      "2025 IF=4.6"
     ],
     "labels": [],
     "note": "",
@@ -537,7 +547,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 38
+    "source_row": 39
   },
   {
     "type": "Journal Article",
@@ -575,7 +585,8 @@
       "SCI",
       "EI",
       "FMS A",
-      "ABS 4"
+      "ABS 4",
+      "2025 IF=7.0"
     ],
     "labels": [],
     "note": "",
@@ -585,7 +596,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 36
+    "source_row": 37
   },
   {
     "type": "Journal Article",
@@ -623,7 +634,8 @@
       "SCI",
       "EI",
       "FMS B",
-      "ABS 3"
+      "ABS 3",
+      "2025 IF=11.3"
     ],
     "labels": [],
     "note": "",
@@ -633,7 +645,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 40
+    "source_row": 41
   },
   {
     "type": "Journal Article",
@@ -668,7 +680,8 @@
       "SCI",
       "EI",
       "FMS B",
-      "ABS 3"
+      "ABS 3",
+      "2025 IF=8.4"
     ],
     "labels": [],
     "note": "",
@@ -678,7 +691,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 39
+    "source_row": 40
   },
   {
     "type": "Journal Article",
@@ -714,7 +727,8 @@
     "link": "https://doi.org/10.1016/j.inffus.2024.102926",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=17.4"
     ],
     "labels": [],
     "note": "",
@@ -724,7 +738,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 42
+    "source_row": 43
   },
   {
     "type": "Journal Article",
@@ -776,6 +790,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "2025 IF=17.4",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -787,7 +802,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 43
+    "source_row": 44
   },
   {
     "type": "Journal Article",
@@ -830,7 +845,8 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B"
+      "FMS B",
+      "2025 IF=6.0"
     ],
     "labels": [],
     "note": "",
@@ -840,7 +856,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 41
+    "source_row": 42
   },
   {
     "type": "Journal Article",
@@ -879,7 +895,8 @@
       "SSCI",
       "EI",
       "FMS B",
-      "ABS 3"
+      "ABS 3",
+      "2025 IF=6.9"
     ],
     "labels": [],
     "note": "2025 Best Paper Award of Omega",
@@ -889,7 +906,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 37
+    "source_row": 38
   },
   {
     "type": "Monograph",
@@ -932,7 +949,7 @@
     "address": "Singapore",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 47
+    "source_row": 48
   },
   {
     "type": "Journal Article",
@@ -974,7 +991,8 @@
     "link": "https://doi.org/10.1016/j.engappai.2024.108509",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=9.0"
     ],
     "labels": [],
     "note": "",
@@ -984,7 +1002,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 48
+    "source_row": 49
   },
   {
     "type": "Journal Article",
@@ -1018,6 +1036,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "2025 IF=4.6",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1028,7 +1047,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 51
+    "source_row": 52
   },
   {
     "type": "Journal Article",
@@ -1067,7 +1086,8 @@
     "link": "https://doi.org/10.1109/TFUZZ.2024.3375863",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=10.2"
     ],
     "labels": [],
     "note": "",
@@ -1077,7 +1097,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 49
+    "source_row": 50
   },
   {
     "type": "Journal Article",
@@ -1117,6 +1137,7 @@
       "EI",
       "FMS B",
       "ABS 3",
+      "2025 IF=2.6",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1127,7 +1148,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 50
+    "source_row": 51
   },
   {
     "type": "Journal Article",
@@ -1162,6 +1183,7 @@
       "SCI",
       "FMS B",
       "ABS 3",
+      "2025 IF=4.1",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1172,7 +1194,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 55
+    "source_row": 56
   },
   {
     "type": "Journal Article",
@@ -1220,7 +1242,8 @@
     "link": "https://doi.org/10.1007/s10489-023-04485-9",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=3.5"
     ],
     "labels": [],
     "note": "",
@@ -1230,7 +1253,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 53
+    "source_row": 54
   },
   {
     "type": "Journal Article",
@@ -1280,6 +1303,7 @@
       "SSCI",
       "FMS B",
       "ABS 2",
+      "2025 IF=2.8",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -1291,7 +1315,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 56
+    "source_row": 57
   },
   {
     "type": "Journal Article",
@@ -1334,6 +1358,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "2025 IF=17.4",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1344,7 +1369,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 52
+    "source_row": 53
   },
   {
     "type": "Journal Article",
@@ -1387,7 +1412,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 57
+    "source_row": 58
   },
   {
     "type": "Journal Article",
@@ -1432,6 +1457,7 @@
     "link": "https://doi.org/10.3390/systems11020069",
     "indexes": [
       "SSCI",
+      "2025 IF=3.8",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -1443,7 +1469,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 54
+    "source_row": 55
   },
   {
     "type": "Journal Article",
@@ -1482,6 +1508,7 @@
       "EI",
       "FMS B",
       "ABS 2",
+      "2025 IF=7.3",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1492,7 +1519,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 61
+    "source_row": 62
   },
   {
     "type": "Journal Article",
@@ -1534,7 +1561,8 @@
     "link": "https://doi.org/10.1016/j.eswa.2022.116781",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=9.4"
     ],
     "labels": [],
     "note": "",
@@ -1544,7 +1572,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 62
+    "source_row": 63
   },
   {
     "type": "Journal Article",
@@ -1580,6 +1608,7 @@
       "EI",
       "FMS B",
       "ABS 3",
+      "2025 IF=8.4",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -1591,7 +1620,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 63
+    "source_row": 64
   },
   {
     "type": "Journal Article",
@@ -1631,7 +1660,8 @@
     "indexes": [
       "SCI",
       "SSCI",
-      "EI"
+      "EI",
+      "2025 IF=17.4"
     ],
     "labels": [],
     "note": "",
@@ -1641,7 +1671,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 65
+    "source_row": 66
   },
   {
     "type": "Journal Article",
@@ -1683,7 +1713,8 @@
     "link": "https://doi.org/10.1007/s44196-022-00140-2",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=4.0"
     ],
     "labels": [],
     "note": "",
@@ -1693,7 +1724,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 58
+    "source_row": 59
   },
   {
     "type": "Journal Article",
@@ -1732,7 +1763,8 @@
     "link": "https://doi.org/10.23919/JSEE.2022.000060",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=2.6"
     ],
     "labels": [],
     "note": "",
@@ -1742,7 +1774,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 60
+    "source_row": 61
   },
   {
     "type": "Journal Article",
@@ -1779,6 +1811,7 @@
       "EI",
       "FMS B",
       "ABS 3",
+      "2025 IF=2.6",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -1790,7 +1823,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 64
+    "source_row": 65
   },
   {
     "type": "Journal Article",
@@ -1832,7 +1865,8 @@
     "link": "https://doi.org/10.1016/j.ribaf.2022.101758",
     "indexes": [
       "SSCI",
-      "ABS 2"
+      "ABS 2",
+      "2025 IF=7.6"
     ],
     "labels": [],
     "note": "",
@@ -1842,7 +1876,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 59
+    "source_row": 60
   },
   {
     "type": "Journal Article",
@@ -1880,6 +1914,7 @@
       "SCI",
       "FMS B",
       "ABS 3",
+      "2025 IF=4.1",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1890,7 +1925,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 73
+    "source_row": 74
   },
   {
     "type": "Journal Article",
@@ -1931,6 +1966,7 @@
       "SCI",
       "SSCI",
       "EI",
+      "2025 IF=9.4",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1941,7 +1977,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 70
+    "source_row": 71
   },
   {
     "type": "Journal Article",
@@ -1978,6 +2014,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "2025 IF=17.4",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -1988,7 +2025,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 66
+    "source_row": 67
   },
   {
     "type": "Journal Article",
@@ -2041,6 +2078,7 @@
       "SCI",
       "SSCI",
       "EI",
+      "2025 IF=17.4",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -2051,7 +2089,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 71
+    "source_row": 72
   },
   {
     "type": "Journal Article",
@@ -2093,7 +2131,8 @@
     "link": "https://doi.org/10.1007/s11518-021-5478-4",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=2.1"
     ],
     "labels": [],
     "note": "",
@@ -2103,7 +2142,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 68
+    "source_row": 69
   },
   {
     "type": "Journal Article",
@@ -2164,7 +2203,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 67
+    "source_row": 68
   },
   {
     "type": "Journal Article",
@@ -2207,6 +2246,7 @@
       "EI",
       "FMS B",
       "ABS 3",
+      "2025 IF=2.6",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -2217,7 +2257,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 72
+    "source_row": 73
   },
   {
     "type": "Journal Article",
@@ -2257,7 +2297,8 @@
     "indexes": [
       "SCI",
       "SSCI",
-      "EI"
+      "EI",
+      "2025 IF=1.6"
     ],
     "labels": [],
     "note": "",
@@ -2267,7 +2308,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 69
+    "source_row": 70
   },
   {
     "type": "Journal Article",
@@ -2307,6 +2348,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "2025 IF=10.2",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -2318,7 +2360,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 76
+    "source_row": 77
   },
   {
     "type": "Journal Article",
@@ -2355,6 +2397,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "2025 IF=8.0",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -2365,7 +2408,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 75
+    "source_row": 76
   },
   {
     "type": "Conference Paper",
@@ -2410,7 +2453,7 @@
     "address": "",
     "conference_date": "18-21 August 2020",
     "conference_address": "Cologne, Germany",
-    "source_row": 74
+    "source_row": 75
   },
   {
     "type": "Journal Article",
@@ -2453,7 +2496,8 @@
     "indexes": [
       "SCI",
       "SSCI",
-      "EI"
+      "EI",
+      "2025 IF=7.8"
     ],
     "labels": [],
     "note": "",
@@ -2463,7 +2507,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 79
+    "source_row": 80
   },
   {
     "type": "Conference Paper",
@@ -2509,7 +2553,7 @@
     "address": "",
     "conference_date": "9-13 September, 2019",
     "conference_address": "Prague, Czech",
-    "source_row": 80
+    "source_row": 81
   },
   {
     "type": "Conference Paper",
@@ -2558,7 +2602,7 @@
     "address": "",
     "conference_date": "14-16 November, 2019",
     "conference_address": "Dalian, China",
-    "source_row": 77
+    "source_row": 78
   },
   {
     "type": "Conference Paper",
@@ -2604,7 +2648,7 @@
     "address": "",
     "conference_date": "14-16 November, 2019",
     "conference_address": "Dalian, China",
-    "source_row": 78
+    "source_row": 79
   },
   {
     "type": "Journal Article",
@@ -2641,6 +2685,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "2025 IF=9.4",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -2651,7 +2696,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 84
+    "source_row": 85
   },
   {
     "type": "Journal Article",
@@ -2691,7 +2736,8 @@
     "indexes": [
       "SCI",
       "EI",
-      "FMS B"
+      "FMS B",
+      "2025 IF=6.0"
     ],
     "labels": [],
     "note": "",
@@ -2701,7 +2747,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 81
+    "source_row": 82
   },
   {
     "type": "Journal Article",
@@ -2741,6 +2787,7 @@
     "indexes": [
       "SCI",
       "EI",
+      "2025 IF=8.0",
       "ESI Highly Cited Paper",
       "ESI Hot Paper"
     ],
@@ -2752,7 +2799,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 85
+    "source_row": 86
   },
   {
     "type": "Journal Article",
@@ -2799,7 +2846,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 83
+    "source_row": 84
   },
   {
     "type": "Conference Paper",
@@ -2841,7 +2888,7 @@
     "address": "",
     "conference_date": "21-24, August 2018",
     "conference_address": "Belfast, Northern Ireland, UK",
-    "source_row": 82
+    "source_row": 83
   },
   {
     "type": "Journal Article",
@@ -2884,6 +2931,7 @@
       "EI",
       "FMS B",
       "ABS 2",
+      "2025 IF=7.3",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -2894,7 +2942,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 86
+    "source_row": 87
   },
   {
     "type": "Journal Article",
@@ -2934,6 +2982,7 @@
       "EI",
       "FMS B",
       "ABS 3",
+      "2025 IF=8.4",
       "ESI Highly Cited Paper"
     ],
     "labels": [],
@@ -2944,7 +2993,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 91
+    "source_row": 92
   },
   {
     "type": "Journal Article",
@@ -2980,7 +3029,8 @@
       "SSCI",
       "EI",
       "FMS B",
-      "ABS 3"
+      "ABS 3",
+      "2025 IF=2.6"
     ],
     "labels": [],
     "note": "",
@@ -2990,7 +3040,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 90
+    "source_row": 91
   },
   {
     "type": "Conference Paper",
@@ -3039,7 +3089,7 @@
     "address": "",
     "conference_date": "24-26 November, 2017",
     "conference_address": "Nanjing, China",
-    "source_row": 88
+    "source_row": 89
   },
   {
     "type": "Conference Paper",
@@ -3085,7 +3135,7 @@
     "address": "",
     "conference_date": "24-26 November, 2017",
     "conference_address": "Nanjing, China",
-    "source_row": 87
+    "source_row": 88
   },
   {
     "type": "Conference Paper",
@@ -3131,7 +3181,7 @@
     "address": "",
     "conference_date": "9-12 July, 2017",
     "conference_address": "Naples, Italy",
-    "source_row": 89
+    "source_row": 90
   },
   {
     "type": "Journal Article",
@@ -3164,7 +3214,8 @@
     "link": "https://doi.org/10.1016/j.apm.2015.07.024",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=5.5"
     ],
     "labels": [],
     "note": "",
@@ -3174,7 +3225,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 96
+    "source_row": 97
   },
   {
     "type": "Journal Article",
@@ -3208,7 +3259,8 @@
     "indexes": [
       "SCI",
       "SSCI",
-      "EI"
+      "EI",
+      "2025 IF=3.2"
     ],
     "labels": [],
     "note": "",
@@ -3218,7 +3270,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 97
+    "source_row": 98
   },
   {
     "type": "Journal Article",
@@ -3251,7 +3303,8 @@
     "link": "https://doi.org/10.1080/18756891.2016.1149999",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=4.0"
     ],
     "labels": [],
     "note": "",
@@ -3261,7 +3314,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 95
+    "source_row": 96
   },
   {
     "type": "Journal Article",
@@ -3295,7 +3348,8 @@
     "indexes": [
       "SCI",
       "SSCI",
-      "EI"
+      "EI",
+      "2025 IF=4.3"
     ],
     "labels": [],
     "note": "",
@@ -3305,7 +3359,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 99
+    "source_row": 100
   },
   {
     "type": "Conference Paper",
@@ -3351,7 +3405,7 @@
     "address": "",
     "conference_date": "4-6 November, 2016",
     "conference_address": "Kobe, Japan",
-    "source_row": 92
+    "source_row": 93
   },
   {
     "type": "Conference Paper",
@@ -3397,7 +3451,7 @@
     "address": "",
     "conference_date": "24-29 July, 2016",
     "conference_address": "Vancouver, Canada",
-    "source_row": 94
+    "source_row": 95
   },
   {
     "type": "Conference Paper",
@@ -3440,7 +3494,7 @@
     "address": "",
     "conference_date": "24-29 July, 2016",
     "conference_address": "Vancouver, Canada",
-    "source_row": 93
+    "source_row": 94
   },
   {
     "type": "Conference Paper",
@@ -3483,7 +3537,7 @@
     "address": "",
     "conference_date": "2-5 August, 2015",
     "conference_address": "Istanbul, Turkey",
-    "source_row": 98
+    "source_row": 99
   },
   {
     "type": "Journal Article",
@@ -3518,7 +3572,8 @@
       "SCI",
       "EI",
       "FMS B",
-      "ABS 2"
+      "ABS 2",
+      "2025 IF=7.3"
     ],
     "labels": [],
     "note": "",
@@ -3528,7 +3583,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 101
+    "source_row": 102
   },
   {
     "type": "Journal Article",
@@ -3561,7 +3616,8 @@
     "link": "https://doi.org/10.1080/18756891.2013.856254",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=4.0"
     ],
     "labels": [],
     "note": "",
@@ -3571,7 +3627,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 102
+    "source_row": 103
   },
   {
     "type": "Journal Article",
@@ -3607,7 +3663,8 @@
     "link": "https://doi.org/10.1016/j.physa.2014.07.004",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=3.3"
     ],
     "labels": [],
     "note": "",
@@ -3617,7 +3674,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 100
+    "source_row": 101
   },
   {
     "type": "Conference Paper",
@@ -3666,7 +3723,7 @@
     "address": "",
     "conference_date": "11-13 September, 2013",
     "conference_address": "Milan, Italy",
-    "source_row": 103
+    "source_row": 104
   },
   {
     "type": "Journal Article",
@@ -3708,7 +3765,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 104
+    "source_row": 105
   },
   {
     "type": "Journal Article",
@@ -3741,7 +3798,8 @@
     "link": "https://doi.org/10.1016/j.knosys.2011.07.009",
     "indexes": [
       "SCI",
-      "EI"
+      "EI",
+      "2025 IF=8.0"
     ],
     "labels": [],
     "note": "",
@@ -3751,7 +3809,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 105
+    "source_row": 106
   },
   {
     "type": "Journal Article",
@@ -3793,7 +3851,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 110
+    "source_row": 111
   },
   {
     "type": "Journal Article",
@@ -3824,7 +3882,9 @@
     "pages": "14-25",
     "doi": "10.4018/jkss.2011070102",
     "link": "https://doi.org/10.4018/jkss.2011070102",
-    "indexes": [],
+    "indexes": [
+      "2025 IF=0.6"
+    ],
     "labels": [],
     "note": "",
     "note_en": "",
@@ -3833,7 +3893,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 108
+    "source_row": 109
   },
   {
     "type": "Journal Article",
@@ -3878,7 +3938,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 109
+    "source_row": 110
   },
   {
     "type": "Journal Article",
@@ -3921,7 +3981,7 @@
     "address": "",
     "conference_date": "",
     "conference_address": "",
-    "source_row": 107
+    "source_row": 108
   },
   {
     "type": "Conference Paper",
@@ -3963,7 +4023,7 @@
     "address": "",
     "conference_date": "7-9 September, 2011",
     "conference_address": "Lanzhou, China",
-    "source_row": 106
+    "source_row": 107
   },
   {
     "type": "Conference Paper",
@@ -4003,6 +4063,6 @@
     "address": "",
     "conference_date": "3-4 December 2009",
     "conference_address": "Hong Kong, China",
-    "source_row": 111
+    "source_row": 112
   }
 ]
