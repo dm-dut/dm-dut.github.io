@@ -386,6 +386,15 @@ def convert(input_xlsx: Path, output_json: Path) -> list[dict[str, Any]]:
         "Other": 9,
     }
 
+    # 排序规则：
+    # 1. 年份降序
+    # 2. 类型排序
+    # 3. 保留 Excel 中原始顺序
+    #
+    # source_row 在生成记录时已经保存：
+    # "source_row": r
+    # 其中 r 为 Excel 中的行号
+
     records.sort(
         key=lambda x: (
             -(
@@ -394,8 +403,7 @@ def convert(input_xlsx: Path, output_json: Path) -> list[dict[str, Any]]:
                 else 0
             ),
             type_order.get(x["type"], 9),
-            x.get("venue", ""),
-            x.get("title", ""),
+            x.get("source_row", 99999),
         )
     )
 
