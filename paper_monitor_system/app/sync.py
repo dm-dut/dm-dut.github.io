@@ -141,7 +141,7 @@ def main() -> None:
     )
     print(
         f"Springer: batch Meta API={'ON' if (ENABLE_SPRINGER_API and ENABLE_SPRINGER_BATCH_API) else 'OFF'} "
-        "-> per-journal Meta API -> Online First -> Crossref"
+        "-> Crossref prefix batch fallback (no per-journal Springer API loop)"
     )
     print("IEEE: Combined Saved Search RSS -> Crossref-first validation; publisher page only when needed")
     print(f"Crossref polite-pool mailto: {'configured' if CROSSREF_MAILTO else 'NOT configured (recommended)'}")

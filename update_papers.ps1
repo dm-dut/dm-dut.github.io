@@ -1,29 +1,15 @@
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"
 Set-Location $PSScriptRoot
 
 $python = Join-Path $PSScriptRoot "paper_monitor_system\.venv\Scripts\python.exe"
 if (-not (Test-Path $python)) {
-    throw ".venv not found. Run setup_local.bat first."
+    Write-Error ".venv not found. Run setup_local.bat first."
+    exit 1
 }
 
-$logDir = Join-Path $PSScriptRoot "paper_monitor_system\logs"
-New-Item -ItemType Directory -Force -Path $logDir | Out-Null
-$stamp = Get-Date -Format "yyyyMMdd_HHmmss"
-$logFile = Join-Path $logDir "update_$stamp.log"
-
-Write-Host "Paper monitor LOCAL V3 update"
-Write-Host "Log: $logFile"
-Write-Host ""
-
-& $python -m paper_monitor_system.app.local_update --provider all --initial-days 1 2>&1 | Tee-Object -FilePath $logFile
+# V3.1 delegates logging to Python instead of piping native stderr through
+# PowerShell 5.1. This avoids harmless Git stderr lines being converted into
+# NativeCommandError when ErrorActionPreference=Stop.
+& $python -m paper_monitor_system.app.run_logged --provider all --initial-days 1
 $code = $LASTEXITCODE
-
-if ($code -eq 0) {
-    Write-Host ""
-    Write-Host "Paper monitor update completed successfully."
-} else {
-    Write-Host ""
-    Write-Host "Paper monitor update FAILED with exit code $code."
-    Write-Host "Review: $logFile"
-}
 exit $code

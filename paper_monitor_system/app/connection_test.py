@@ -31,15 +31,32 @@ def test_springer() -> bool:
     if not SPRINGER_API_KEY:
         _line("Springer Meta API", "FAIL", "SPRINGER_API_KEY is missing in paper_monitor_system/.env")
         return False
+    session = build_session()
     try:
-        r = build_session().get(
+        basic = session.get(
             springer.BASE_URL,
             params={"api_key": SPRINGER_API_KEY, "q": "keyword:test", "s": 1, "p": 1},
             timeout=HTTP_TIMEOUT,
         )
-        ok = r.status_code == 200
-        _line("Springer Meta API", "OK" if ok else "FAIL", f"HTTP {r.status_code}")
-        return ok
+        _line("Springer Meta API basic", "OK" if basic.status_code == 200 else "FAIL", f"HTTP {basic.status_code}")
+        if basic.status_code != 200:
+            return False
+
+        end = date.today()
+        start = end - timedelta(days=1)
+        date_test = session.get(
+            springer.BASE_URL,
+            params={"api_key": SPRINGER_API_KEY, "q": springer._batch_query(start, end), "s": 1, "p": 1},
+            timeout=HTTP_TIMEOUT,
+        )
+        if date_test.status_code == 200:
+            _line("Springer Meta API date-window", "OK", f"HTTP 200; query={start}..{end}")
+            return True
+        _line(
+            "Springer Meta API date-window", "WARN",
+            f"HTTP {date_test.status_code}; V3.1 will use one Crossref 10.1007 prefix batch instead of 25 per-journal API retries",
+        )
+        return True  # basic API/key works; the collector has a fast batch fallback
     except requests.RequestException as exc:
         _line("Springer Meta API", "FAIL", f"{type(exc).__name__}: {exc}")
         return False
@@ -143,12 +160,12 @@ def optional_sciencedirect_diagnostics() -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Diagnose LOCAL V3 data-source connectivity")
+    parser = argparse.ArgumentParser(description="Diagnose LOCAL V3.1 data-source connectivity")
     parser.add_argument("--strict", action="store_true", help="return non-zero unless all required channels pass")
     args = parser.parse_args()
 
     print(f"Paper Monitor Build: {BUILD_ID}")
-    print("Required LOCAL V3 channels are tested first; ScienceDirect API is optional.\n")
+    print("Required LOCAL V3.1 channels are tested first; ScienceDirect API is optional.\n")
     required = [test_springer(), test_ieee_saved_search_rss(), test_crossref(), test_elsevier_crossref_batch()]
     optional_sciencedirect_diagnostics()
     passed = sum(required)

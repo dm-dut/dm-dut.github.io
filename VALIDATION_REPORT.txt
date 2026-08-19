@@ -1,29 +1,26 @@
-Paper Monitor LOCAL_FINAL_V3 validation report
-Build: LOCAL-2026.08.19-V3
+Paper Monitor LOCAL_FINAL_V3.1 validation report
+Build: LOCAL-2026.08.19-V3.1
 
-Validated in a clean test environment before packaging:
+Validated offline in a clean Linux container:
 - Python compileall: PASS
-- Application self-check: PASS
-- Application self-test: PASS
-- Journal whitelist counts (Elsevier 39 / Springer 25 / IEEE 15): PASS
-- Elsevier Crossref member-batch mock (member 78 + prefix 10.1016 + local whitelist): PASS
-- Crossref two-day created-date query construction: PASS
-- Crossref pending/published parsing: PASS
-- Springer batch Meta API mock + whitelist filtering: PASS
-- IEEE combined Saved Search RSS configuration (15 journals -> 1 feed): PASS
-- IEEE Crossref-first enrichment mock (publisher page avoided when unnecessary): PASS
-- Pending -> published upsert protection: PASS
-- Old SQLite schema migration for status/last_checked_at: PASS
-- SQLite -> JSON export; pending excluded from public feed: PASS
-- Front-end JavaScript syntax (app.js/config.js): PASS
+- SELF-CHECK: PASS
+- SELF-TEST: PASS
+- 79 enabled journals / Elsevier 39 / Springer 25 / IEEE 15: PASS
+- Elsevier Crossref member-batch mock: PASS
+- Springer Meta batch parser/mock with p=20 Basic-safe pagination: PASS
+- Springer Crossref 10.1007 prefix-batch fallback mock: PASS
+- No Springer per-journal API retry loop strings in provider: PASS
+- IEEE combined Saved Search RSS logic mock: PASS
+- Pending -> published precedence/no downgrade: PASS
+- Python streaming logger present; PowerShell Tee-Object native stderr pipeline removed: PASS
+- Interactive update_papers.bat pauses on error: PASS
+- Scheduled update_papers_scheduled.bat contains no pause: PASS
+- JavaScript syntax check with Node: PASS
 - GitHub workflow YAML parse: PASS
-- Scheduled update batch file contains no PAUSE: PASS
-- No git pull --rebase in updater: PASS
-- No empty papers.db / online_papers.json in package: PASS
-- No root homepage index.html/assets/images/scripts/data in package: PASS
-- journal_list.xlsx formula/error scan and visual preview: PASS
+- No git pull --rebase in executable updater/workflow code: PASS
+- Package excludes root homepage index.html/assets/images/scripts/data: PASS
+- Package excludes generated papers.db and online_papers.json: PASS
+- ZIP extraction + SELF-CHECK/SELF-TEST rerun: PASS
 
 Network note:
-This build environment does not use the user's local network/API credentials. The user's own latest connectivity test was:
-Springer Meta API 200; IEEE Saved Search RSS 200; Crossref 200; ScienceDirect API 401; ScienceDirect page 403.
-V3 is designed around the three working local channels and does not require ScienceDirect API/page access.
+Actual publisher connectivity depends on the user's local network and API credentials. The existing local tests already showed Springer basic API 200, IEEE Saved Search RSS 200, and Crossref 200. V3.1 additionally tests the Springer date-window query separately; if it is restricted, the collector uses a single Crossref prefix batch instead of 25 per-journal Springer API retries.

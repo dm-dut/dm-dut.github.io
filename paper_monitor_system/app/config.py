@@ -10,7 +10,7 @@ SYSTEM_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SYSTEM_ROOT.parent
 load_dotenv(SYSTEM_ROOT / ".env")
 
-BUILD_ID = "LOCAL-2026.08.19-V3"
+BUILD_ID = "LOCAL-2026.08.19-V3.1"
 
 
 def env_bool(name: str, default: bool = True) -> bool:
@@ -65,8 +65,8 @@ CROSSREF_BATCH_ROWS = int(os.getenv("CROSSREF_BATCH_ROWS", "500"))
 CROSSREF_BATCH_MAX_PAGES = int(os.getenv("CROSSREF_BATCH_MAX_PAGES", "30"))
 
 # Springer Meta API batch strategy.
-SPRINGER_BATCH_PAGE_SIZE = int(os.getenv("SPRINGER_BATCH_PAGE_SIZE", "100"))
-SPRINGER_BATCH_MAX_PAGES = int(os.getenv("SPRINGER_BATCH_MAX_PAGES", "100"))
+SPRINGER_BATCH_PAGE_SIZE = int(os.getenv("SPRINGER_BATCH_PAGE_SIZE", "20"))
+SPRINGER_BATCH_MAX_PAGES = int(os.getenv("SPRINGER_BATCH_MAX_PAGES", "5"))
 
 
 def _resolve(name: str, default: Path) -> Path:

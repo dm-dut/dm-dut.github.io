@@ -16,7 +16,7 @@ def main() -> None:
     assert JOURNAL_LIST_PATH.exists()
     assert springer.BASE_URL.endswith("/meta/v2/json")
     assert crossref.BASE_URL.rstrip("/") == "https://api.crossref.org"
-    assert BUILD_ID == "LOCAL-2026.08.19-V3"
+    assert BUILD_ID == "LOCAL-2026.08.19-V3.1"
 
     bad = []
     for py in (SYSTEM_ROOT / "app").rglob("*.py"):
@@ -47,7 +47,7 @@ def main() -> None:
     print(f"build={BUILD_ID}")
     print(f"journal_list={JOURNAL_LIST_PATH} ({len(specs)} enabled)")
     print(f"providers={counts}")
-    print("strategy=elsevier crossref-member-78 created-date batch + optional direct RSS; springer batch-meta-api; ieee combined-saved-search-rss")
+    print("strategy=elsevier crossref-member-78 created-date batch + optional direct RSS; springer basic-safe batch-meta-api + crossref-prefix fallback; ieee combined-saved-search-rss")
     print("pending=DOI-only delayed recheck; no immediate same-run recheck")
     print(f"ieee_combined_rss=1 exact feed for {len(ieee_specs)} journals")
     print(f"database={DB_PATH}")

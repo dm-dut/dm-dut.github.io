@@ -5,13 +5,11 @@ from time import perf_counter
 from typing import Iterator, Sequence
 
 import requests
-from bs4 import BeautifulSoup
 
 from ..config import (
     ENABLE_CROSSREF_FALLBACK,
     ENABLE_SPRINGER_API,
     ENABLE_SPRINGER_BATCH_API,
-    HTTP_TIMEOUT,
     SPRINGER_API_KEY,
     SPRINGER_BATCH_MAX_PAGES,
     SPRINGER_BATCH_PAGE_SIZE,
@@ -20,34 +18,21 @@ from ..journals import JournalSpec, display_issn, match_journal
 from ..utils import build_session, clean_doi, first_nonempty, get_json, join_authors, normalize_space, parse_flexible_date
 from . import crossref
 from .base import ArticleRecord
-from .enrichment import extract_doi, page_metadata, resolve_crossref
 
 BASE_URL = "https://api.springernature.com/meta/v2/json"
+SPRINGER_CROSSREF_PREFIX = "10.1007"
 
 
-def _online_url(spec: JournalSpec) -> str:
-    url = spec.primary_url.rstrip("/")
-    if "/journal/" in url:
-        return url.split("/articles")[0].split("/online-first")[0] + "/online-first"
-    return url
-
-
-def _query_variants(spec: JournalSpec, start: date, end: date, issn: str | None) -> list[str]:
-    base_space = f"onlinedatefrom:{start.isoformat()} onlinedateto:{end.isoformat()}"
-    base_and = f"onlinedatefrom:{start.isoformat()} AND onlinedateto:{end.isoformat()}"
-    out: list[str] = []
-    if issn:
-        di = display_issn(issn)
-        out.extend([f"{base_space} issn:{di}", f"{base_and} AND issn:{di}"])
-    out.append(f'{base_and} AND pub:"{spec.journal}"')
-    return out
+def _batch_query(start: date, end: date) -> str:
+    # Springer Nature documents onlinedatefrom/onlinedateto as Meta API query constraints.
+    # Space-separated constraints are used because the user's Basic Meta API key is known
+    # to work, while explicit Boolean AND variants previously produced 403 responses.
+    return f"onlinedatefrom:{start.isoformat()} onlinedateto:{end.isoformat()}"
 
 
 def _batch_query_variants(start: date, end: date) -> list[str]:
-    return [
-        f"onlinedatefrom:{start.isoformat()} onlinedateto:{end.isoformat()}",
-        f"onlinedatefrom:{start.isoformat()} AND onlinedateto:{end.isoformat()}",
-    ]
+    # Backward-compatible helper retained for self-tests/documentation.
+    return [_batch_query(start, end)]
 
 
 def _record_from_row(spec: JournalSpec, row: dict, start: date, end: date) -> ArticleRecord | None:
@@ -79,203 +64,127 @@ def _record_from_row(spec: JournalSpec, row: dict, start: date, end: date) -> Ar
     )
 
 
-def _batch_api(start: date, end: date, journals: Sequence[JournalSpec]) -> list[ArticleRecord]:
-    """Use one/few date-window Meta API requests and filter the 25 journals locally."""
+def _batch_api(start: date, end: date, journals: Sequence[JournalSpec]) -> tuple[list[ArticleRecord], bool]:
+    """Run the Basic Meta API as one date-window batch and filter locally.
+
+    The official Springer Nature client uses p=20 and caps Basic-plan pagination at
+    start position 100. V3.1 follows that conservative behavior. If the API reaches
+    that cap with full pages, `truncated=True` is returned so a single Crossref
+    prefix-level batch can supplement the result. No per-journal Springer API loop
+    is used.
+    """
     if not SPRINGER_API_KEY:
         raise RuntimeError("SPRINGER_API_KEY missing")
-    session = build_session()
-    last_error: Exception | None = None
-    page_size = max(20, min(SPRINGER_BATCH_PAGE_SIZE, 100))
 
-    for query_no, query in enumerate(_batch_query_variants(start, end), start=1):
-        try:
-            records: list[ArticleRecord] = []
-            seen: set[str] = set()
-            start_index = 1
-            raw_total = 0
-            t0 = perf_counter()
-            for page_no in range(1, SPRINGER_BATCH_MAX_PAGES + 1):
-                data = get_json(session, BASE_URL, params={
-                    "api_key": SPRINGER_API_KEY, "q": query, "s": start_index, "p": page_size,
-                })
-                rows = data.get("records") or []
-                raw_total += len(rows)
-                if page_no == 1 or page_no % 10 == 0:
-                    print(f"[springer] batch progress: query={query_no}, page={page_no}, raw_items={raw_total}, whitelist={len(records)}")
-                for row in rows:
-                    spec = match_journal(
-                        "springer",
-                        normalize_space(row.get("publicationName") or row.get("publicationTitle") or ""),
-                        normalize_space(row.get("issn") or ""),
-                        journals,
-                    )
-                    if spec is None:
-                        continue
-                    record = _record_from_row(spec, row, start, end)
-                    if record is None:
-                        continue
-                    key = record.doi or record.external_id or record.title.lower()
-                    if key and key not in seen:
-                        seen.add(key)
-                        records.append(record)
-                if len(rows) < page_size:
-                    elapsed = perf_counter() - t0
-                    print(
-                        f"[springer] batch Meta API success: query={query_no}, pages={page_no}, raw={raw_total}, "
-                        f"whitelist_records={len(records)}, elapsed={elapsed:.1f}s"
-                    )
-                    return records
-                start_index += len(rows)
-            raise RuntimeError(f"Springer batch query exceeded {SPRINGER_BATCH_MAX_PAGES} pages")
-        except requests.RequestException as exc:
-            last_error = exc
-            status = getattr(getattr(exc, "response", None), "status_code", None)
-            print(f"[springer] batch API query warning: query={query_no}, HTTP {status}; trying alternate syntax")
-        except Exception as exc:
-            last_error = exc
-            print(f"[springer] batch API warning: query={query_no}, {type(exc).__name__}: {exc}")
+    session = build_session()
+    page_size = max(1, min(int(SPRINGER_BATCH_PAGE_SIZE), 20))
+    max_pages = max(1, min(int(SPRINGER_BATCH_MAX_PAGES), 5))
+    query = _batch_query(start, end)
+    records: list[ArticleRecord] = []
+    seen: set[str] = set()
+    start_index = 1
+    raw_total = 0
+    t0 = perf_counter()
+    last_full_page = False
+
+    for page_no in range(1, max_pages + 1):
+        data = get_json(session, BASE_URL, params={
+            "api_key": SPRINGER_API_KEY,
+            "q": query,
+            "s": start_index,
+            "p": page_size,
+        })
+        rows = data.get("records") or []
+        raw_total += len(rows)
+        print(
+            f"[springer] Meta batch progress: page={page_no}/{max_pages}, "
+            f"raw={raw_total}, whitelist={len(records)}"
+        )
+        for row in rows:
+            spec = match_journal(
+                "springer",
+                normalize_space(row.get("publicationName") or row.get("publicationTitle") or ""),
+                normalize_space(row.get("issn") or ""),
+                journals,
+            )
+            if spec is None:
+                continue
+            record = _record_from_row(spec, row, start, end)
+            if record is None:
+                continue
+            key = record.doi or record.external_id or record.title.lower()
+            if key and key not in seen:
+                seen.add(key)
+                records.append(record)
+        last_full_page = len(rows) >= page_size
+        if len(rows) < page_size:
+            print(
+                f"[springer] Meta batch success: pages={page_no}, raw={raw_total}, "
+                f"whitelist_records={len(records)}, elapsed={perf_counter()-t0:.1f}s"
+            )
+            return records, False
+        start_index += page_size
+        if start_index > 100:
             break
 
-    if last_error:
-        raise last_error
-    raise RuntimeError("Springer batch Meta API unavailable")
-
-def _api(spec: JournalSpec, start: date, end: date) -> list[ArticleRecord]:
-    if not SPRINGER_API_KEY:
-        raise RuntimeError("SPRINGER_API_KEY missing")
-    session = build_session()
-    last_error: Exception | None = None
-    for issn in list(reversed(spec.issns)) or [None]:
-        for query in _query_variants(spec, start, end, issn):
-            collected: list[ArticleRecord] = []
-            seen: set[str] = set()
-            start_index = 1
-            try:
-                while True:
-                    data = get_json(session, BASE_URL, params={
-                        "api_key": SPRINGER_API_KEY, "q": query, "s": start_index, "p": 20,
-                    })
-                    rows = data.get("records") or []
-                    for row in rows:
-                        record = _record_from_row(spec, row, start, end)
-                        if record:
-                            key = record.doi or record.external_id or record.title.lower()
-                            if key not in seen:
-                                seen.add(key)
-                                collected.append(record)
-                    if len(rows) < 20:
-                        break
-                    start_index += len(rows)
-                return collected
-            except requests.RequestException as exc:
-                last_error = exc
-                status = getattr(getattr(exc, "response", None), "status_code", None)
-                print(f"[springer] per-journal API query warning: {spec.journal}: HTTP {status}; trying alternate query")
-    if last_error:
-        raise last_error
-    raise RuntimeError("Springer Meta API unavailable for journal")
-
-
-def _page(spec: JournalSpec, start: date, end: date) -> list[ArticleRecord]:
-    url = _online_url(spec)
-    if not url:
-        return []
-    session = build_session()
-    session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36"})
-    response = session.get(url, timeout=HTTP_TIMEOUT)
-    response.raise_for_status()
-    soup = BeautifulSoup(response.text, "html.parser")
-    found: list[ArticleRecord] = []
-    seen: set[str] = set()
-    for a in soup.find_all("a", href=True):
-        href = a.get("href", "")
-        if "/article/10." not in href:
-            continue
-        link = requests.compat.urljoin(response.url, href)
-        title = normalize_space(a.get_text(" ", strip=True))
-        if not title or link in seen:
-            continue
-        seen.add(link)
-        try:
-            meta = page_metadata(link)
-        except requests.RequestException:
-            meta = {}
-        doi = meta.get("doi") or extract_doi(link)
-        try:
-            cr = resolve_crossref(title, spec, doi)
-        except requests.RequestException:
-            cr = {}
-        online = meta.get("online_date") or cr.get("online_date")
-        if not online or not (start <= online <= end):
-            continue
-        found.append(ArticleRecord(
-            provider="springer", publisher="Springer Nature", title=meta.get("title") or title,
-            journal=spec.journal, authors=meta.get("authors") or cr.get("authors") or "",
-            doi=doi or cr.get("doi"), external_id=link,
-            issn=meta.get("issn") or cr.get("issn") or (display_issn(spec.issns[0]) if spec.issns else ""),
-            content_type="Journal Article", url=link, online_date=online,
-            online_date_raw=meta.get("online_raw") or cr.get("online_raw") or "",
-            date_precision=meta.get("precision") or cr.get("precision") or "unknown",
-            online_date_source="Springer Online First page", source_update_date=online,
-        ))
-    return found
+    truncated = last_full_page
+    print(
+        f"[springer] Meta batch reached Basic-plan pagination cap: raw={raw_total}, "
+        f"whitelist_records={len(records)}, truncated={'yes' if truncated else 'no'}, "
+        f"elapsed={perf_counter()-t0:.1f}s"
+    )
+    return records, truncated
 
 
 def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
     t0 = perf_counter()
     seen: set[str] = set()
+    api_ok = False
+    truncated = False
 
     if ENABLE_SPRINGER_API and ENABLE_SPRINGER_BATCH_API:
         try:
-            batch = _batch_api(start, end, journals)
+            batch, truncated = _batch_api(start, end, journals)
+            api_ok = True
             for record in batch:
                 key = record.doi or record.external_id or record.title.lower()
                 if key and key not in seen:
                     seen.add(key)
                     yield record
-            print(f"[springer] sources: batch_meta_api=1, records={len(seen)}, elapsed={perf_counter()-t0:.1f}s")
-            return
+        except requests.RequestException as exc:
+            status = getattr(getattr(exc, "response", None), "status_code", None)
+            print(f"[springer] Meta batch unavailable: HTTP {status}; using one Crossref prefix batch fallback")
         except Exception as exc:
-            print(f"[springer] batch Meta API unavailable ({type(exc).__name__}); falling back to per-journal chain")
+            print(f"[springer] Meta batch unavailable: {type(exc).__name__}: {exc}; using Crossref prefix batch fallback")
 
-    api_journals = page_journals = crossref_journals = 0
-    successful_journal_attempts = 0
-    for idx, spec in enumerate(journals, start=1):
-        print(f"[springer] fallback progress {idx}/{len(journals)}: {spec.journal}")
-        records: list[ArticleRecord] = []
-        if ENABLE_SPRINGER_API:
-            try:
-                records = _api(spec, start, end)
-                api_journals += 1
-                successful_journal_attempts += 1
-            except Exception as exc:
-                print(f"[springer] API warning: {spec.journal}: {type(exc).__name__}")
-        if not records:
-            try:
-                records = _page(spec, start, end)
-                successful_journal_attempts += 1
-                if records:
-                    page_journals += 1
-            except Exception as exc:
-                print(f"[springer] page warning: {spec.journal}: {type(exc).__name__}")
-        if not records and ENABLE_CROSSREF_FALLBACK:
-            try:
-                records = list(crossref.fetch("springer", "Springer Nature", start, end, [spec]))
-                successful_journal_attempts += 1
-                if records:
-                    crossref_journals += 1
-            except Exception as exc:
-                print(f"[springer] Crossref warning: {spec.journal}: {type(exc).__name__}: {exc}")
-                records = []
-        for record in records:
-            key = record.doi or record.external_id or record.title.lower()
-            if key and key not in seen:
-                seen.add(key)
-                yield record
+    # Crucial V3.1 behavior: never fall back to 25 per-journal Springer API requests.
+    # Crossref is queried once by Springer DOI prefix when the Meta API failed or hit
+    # the Basic-plan result cap. Official Springer onlineDate remains higher priority
+    # in the DB, so the supplement cannot overwrite it with a weaker date source.
+    if ENABLE_CROSSREF_FALLBACK and (not api_ok or truncated):
+        try:
+            supplement = crossref.prefix_batch_discover(
+                "springer", "Springer Nature", start, end, journals,
+                prefix=SPRINGER_CROSSREF_PREFIX,
+            )
+            added = 0
+            for record in supplement:
+                key = record.doi or record.external_id or record.title.lower()
+                if key and key not in seen:
+                    seen.add(key)
+                    added += 1
+                    yield record
+            print(f"[springer] Crossref prefix supplement added={added}")
+        except Exception as exc:
+            if not api_ok:
+                raise RuntimeError(f"Springer Meta API and Crossref prefix fallback both failed: {exc}") from exc
+            print(f"[springer] Crossref prefix supplement warning: {type(exc).__name__}: {exc}")
 
-    if successful_journal_attempts == 0:
-        raise RuntimeError("All Springer primary/fallback requests failed")
+    if not api_ok and not ENABLE_CROSSREF_FALLBACK:
+        raise RuntimeError("Springer Meta API failed and Crossref fallback is disabled")
+
     print(
-        f"[springer] sources: per_journal_api={api_journals}, online_first={page_journals}, "
-        f"crossref={crossref_journals}, records={len(seen)}, elapsed={perf_counter()-t0:.1f}s"
+        f"[springer] sources: meta_batch={'ok' if api_ok else 'failed'}, "
+        f"crossref_prefix={'used' if (not api_ok or truncated) and ENABLE_CROSSREF_FALLBACK else 'not-needed'}, "
+        f"records={len(seen)}, elapsed={perf_counter()-t0:.1f}s"
     )

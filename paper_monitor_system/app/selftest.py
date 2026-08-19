@@ -163,12 +163,13 @@ def test_springer_batch_mock():
         springer.get_json = fake_json
         springer.build_session = lambda: object()
         springer.SPRINGER_API_KEY = "test-key"
-        records = springer._batch_api(date(2026, 8, 18), date(2026, 8, 19), journals)
+        records, truncated = springer._batch_api(date(2026, 8, 18), date(2026, 8, 19), journals)
     finally:
         springer.get_json, springer.build_session, springer.SPRINGER_API_KEY = old_json, old_session, old_key
-    assert len(records) == 1 and records[0].journal == target.journal
+    assert len(records) == 1 and records[0].journal == target.journal and truncated is False
     assert captured["url"].endswith("/meta/v2/json")
-    assert int(captured["params"]["p"]) >= 20
+    assert int(captured["params"]["p"]) == 20
+    assert " AND " not in captured["params"]["q"]
 
 
 def test_ieee_crossref_first_mock():
@@ -204,6 +205,35 @@ def test_ieee_crossref_first_mock():
     assert rec is not None and rec.journal == target.journal and rec.online_date == date(2026, 8, 19)
     assert not page_called["value"]
 
+def test_springer_prefix_batch_mock():
+    journals = enabled_journals("springer")
+    target = next(s for s in journals if s.journal == "Annals of Operations Research")
+    captured = {}
+    old_json, old_session = crossref.get_json, crossref.build_session
+    try:
+        def fake_json(session, url, *, params=None, headers=None):
+            captured["url"] = url
+            captured["params"] = dict(params or {})
+            return {"message": {"items": [{
+                "DOI": "10.1007/s10479-026-test",
+                "title": ["Springer prefix batch paper"],
+                "container-title": [target.journal],
+                "ISSN": ["1572-9338"],
+                "published-online": {"date-parts": [[2026, 8, 19]]},
+                "URL": "https://doi.org/10.1007/s10479-026-test",
+            }], "next-cursor": None}}
+        crossref.get_json = fake_json
+        crossref.build_session = lambda: object()
+        records = list(crossref.prefix_batch_discover(
+            "springer", "Springer Nature", date(2026, 8, 18), date(2026, 8, 19), journals, prefix="10.1007"
+        ))
+    finally:
+        crossref.get_json, crossref.build_session = old_json, old_session
+    assert len(records) == 1 and records[0].journal == target.journal
+    assert "/prefixes/10.1007/works" in captured["url"]
+    assert "from-created-date:2026-08-18" in captured["params"]["filter"]
+
+
 def test_priority():
     assert source_priority("Springer Meta API onlineDate") > source_priority("Crossref member batch + published-online")
     assert source_priority("ScienceDirect page Available online") > source_priority("Crossref member batch + published-online")
@@ -213,10 +243,18 @@ def test_local_workflow_and_scripts():
     text = (REPO_ROOT / ".github/workflows/update-paper-monitor.yml").read_text(encoding="utf-8")
     assert "schedule:" not in text
     assert "git pull --rebase" not in text
-    for name in ("setup_local.bat", "test_connections.bat", "update_papers.bat", "fetch_only.bat", "update_papers.ps1"):
+    for name in ("setup_local.bat", "test_connections.bat", "update_papers.bat", "update_papers_scheduled.bat", "fetch_only.bat", "update_papers.ps1"):
         assert (REPO_ROOT / name).exists(), name
-    bat = (REPO_ROOT / "update_papers.bat").read_text(encoding="utf-8", errors="ignore").lower()
-    assert "pause" not in bat, "scheduled update_papers.bat must not pause"
+    interactive = (REPO_ROOT / "update_papers.bat").read_text(encoding="utf-8", errors="ignore").lower()
+    scheduled = (REPO_ROOT / "update_papers_scheduled.bat").read_text(encoding="utf-8", errors="ignore").lower()
+    ps1 = (REPO_ROOT / "update_papers.ps1").read_text(encoding="utf-8", errors="ignore")
+    assert "pause" in interactive, "interactive updater should stay open on error"
+    assert "pause" not in scheduled, "scheduled updater must never pause"
+    assert "tee-object" not in ps1.lower(), "PowerShell native stderr must not be piped through Tee-Object"
+    assert "run_logged" in ps1, "PowerShell wrapper should delegate logging to Python"
+    springer_src = (REPO_ROOT / "paper_monitor_system/app/providers/springer.py").read_text(encoding="utf-8")
+    assert "per-journal API query warning" not in springer_src
+    assert "fallback progress" not in springer_src
 
 
 def main():
@@ -227,6 +265,7 @@ def main():
     test_springer_batch_parser_and_query()
     test_springer_batch_mock()
     test_ieee_crossref_first_mock()
+    test_springer_prefix_batch_mock()
     test_priority()
     test_local_workflow_and_scripts()
     print("SELF-TEST OK")

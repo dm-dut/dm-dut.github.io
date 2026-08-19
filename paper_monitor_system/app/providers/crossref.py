@@ -320,6 +320,95 @@ def member_batch_discover(
     )
 
 
+
+def prefix_batch_discover(
+    provider: str,
+    publisher: str,
+    start: date,
+    end: date,
+    journals: Sequence[JournalSpec],
+    *,
+    prefix: str,
+) -> Iterator[ArticleRecord]:
+    """Crossref prefix-level batch discovery followed by local whitelist filtering.
+
+    Used by Springer V3.1 as a fast single-route fallback when the Meta API is
+    unavailable or its Basic-plan pagination cap is reached. It intentionally
+    avoids 25 per-journal ISSN requests.
+    """
+    actual_start = _bounded_discovery_start(start, end)
+    session = build_session()
+    global_seen: set[str] = set()
+    total_pages = total_raw = total_matched = total_published = total_pending = 0
+    t0 = perf_counter()
+
+    url = f"{BASE_URL}/prefixes/{prefix}/works"
+    params = {
+        "filter": ",".join([
+            "type:journal-article",
+            f"from-created-date:{actual_start.isoformat()}",
+            f"until-created-date:{end.isoformat()}",
+        ]),
+        "rows": max(20, min(CROSSREF_BATCH_ROWS, 1000)),
+        "cursor": "*",
+        "select": SELECT_FIELDS,
+    }
+    if CROSSREF_MAILTO:
+        params["mailto"] = CROSSREF_MAILTO
+
+    print(
+        f"[{provider}] Crossref prefix batch: prefix={prefix}, journals={len(journals)}, "
+        f"created={actual_start}..{end}"
+    )
+    cursor = "*"
+    for page_no in range(1, max(1, CROSSREF_BATCH_MAX_PAGES) + 1):
+        params["cursor"] = cursor
+        data = get_json(session, url, params=params)
+        total_pages += 1
+        message = data.get("message") or {}
+        batch = [item for item in (message.get("items") or []) if isinstance(item, dict)]
+        total_raw += len(batch)
+        if page_no == 1 or page_no % 5 == 0:
+            print(f"[{provider}] Crossref prefix progress: page={page_no}, raw_items_so_far={total_raw}")
+
+        for item in batch:
+            spec = match_journal(provider, _container_title(item), _item_issns(item), journals)
+            if spec is None:
+                continue
+            record = _to_record(
+                provider, publisher, spec, item,
+                allow_pending=True,
+                min_online_date=actual_start,
+                max_online_date=end,
+                source_label=f"Crossref {publisher} prefix batch + published-online",
+                pending_source_label=f"Crossref {publisher} prefix batch discovery; awaiting published-online",
+            )
+            if record is None:
+                continue
+            key = record.doi or record.external_id or record.title.lower()
+            if not key or key in global_seen:
+                continue
+            global_seen.add(key)
+            total_matched += 1
+            if record.online_date:
+                total_published += 1
+            else:
+                total_pending += 1
+            yield record
+
+        next_cursor = message.get("next-cursor")
+        if not batch or not next_cursor or next_cursor == cursor or len(batch) < int(params["rows"]):
+            break
+        cursor = next_cursor
+    else:
+        raise RuntimeError(f"Crossref prefix batch exceeded {CROSSREF_BATCH_MAX_PAGES} pages for prefix {prefix}")
+
+    print(
+        f"[{provider}] Crossref prefix batch done: pages={total_pages}, raw={total_raw}, "
+        f"whitelist={total_matched}, published={total_published}, pending={total_pending}, "
+        f"elapsed={perf_counter()-t0:.1f}s"
+    )
+
 def incremental_discover(provider: str, publisher: str, end: date, journals: Sequence[JournalSpec], *, discovery_days: int | None = None) -> Iterator[ArticleRecord]:
     """Slow per-ISSN emergency fallback retained for resilience only."""
     days = CROSSREF_DISCOVERY_DAYS if discovery_days is None else discovery_days

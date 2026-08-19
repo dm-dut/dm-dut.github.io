@@ -2,13 +2,11 @@
 setlocal
 cd /d "%~dp0"
 if not exist "paper_monitor_system\.venv\Scripts\python.exe" (
-  echo .venv not found. Run setup_local.bat first.
+  echo ERROR: .venv not found. Run setup_local.bat first.
   pause
   exit /b 1
 )
-call paper_monitor_system\.venv\Scripts\activate.bat
-python -m paper_monitor_system.app.local_update --provider all --initial-days 1 --no-git
-set ERR=%errorlevel%
-echo.
-pause
-exit /b %ERR%
+"paper_monitor_system\.venv\Scripts\python.exe" -m paper_monitor_system.app.run_logged --provider all --initial-days 1 --no-git
+set "code=%errorlevel%"
+if not "%code%"=="0" pause
+exit /b %code%

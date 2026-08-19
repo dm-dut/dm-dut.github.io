@@ -1,6 +1,6 @@
-# Paper Monitor — LOCAL_FINAL_V3
+# Paper Monitor — LOCAL_FINAL_V3.1
 
-Build: `LOCAL-2026.08.19-V3`
+Build: `LOCAL-2026.08.19-V3.1`
 
 This version runs publisher collection on the local Windows computer. GitHub Pages remains only the display layer at:
 
@@ -25,13 +25,14 @@ Default path:
 
 This replaces the previous 39–78 per-ISSN Crossref calls with one/few cursor-paged batch requests in normal operation.
 
-### Springer Nature
+### Springer Nature — V3.1 simplified
 
-1. Springer Meta API date-window batch.
+1. One Springer Meta API date-window batch using the Basic-plan-safe page size `p=20`.
 2. Local filtering against the 25-journal whitelist.
-3. If the batch route fails: per-journal Meta API → Online First page → Crossref.
+3. No 25-journal Springer API fallback loop is used.
+4. If the Meta batch fails, or reaches the Basic-plan pagination cap, one Crossref prefix batch (`10.1007`) is used as a supplement/fallback.
 
-`onlineDate` from the Springer Meta API is preferred.
+`onlineDate` from the Springer Meta API remains the preferred date source.
 
 ### IEEE
 
@@ -76,7 +77,8 @@ PENDING_RECHECK_LIMIT=200
 HTTP_TIMEOUT=20
 HTTP_RETRY_TOTAL=2
 REQUEST_PAUSE_SECONDS=0.10
-SPRINGER_BATCH_PAGE_SIZE=100
+SPRINGER_BATCH_PAGE_SIZE=20
+SPRINGER_BATCH_MAX_PAGES=5
 CROSSREF_BATCH_ROWS=500
 ELSEVIER_CROSSREF_MEMBER_ID=78
 ```
@@ -137,7 +139,7 @@ Recommended frequency: once every day.
 
 Create a task whose program is the full path to:
 
-`update_papers.bat`
+`update_papers_scheduled.bat`
 
 Set **Start in** to the `dm-dut.github.io` repository root. Useful options:
 
@@ -145,7 +147,7 @@ Set **Start in** to the `dm-dut.github.io` repository root. Useful options:
 - Run task as soon as possible after a scheduled start is missed.
 - Wake the computer to run this task, if appropriate.
 
-`update_papers.bat` intentionally contains no `pause`, so scheduled jobs can exit normally.
+`update_papers.bat` is the interactive launcher and pauses only when an error occurs. For Task Scheduler use `update_papers_scheduled.bat`, which never pauses.
 
 ## 7. View locally
 
@@ -180,3 +182,12 @@ Actual duration depends on the number of new Crossref/Springer records and netwo
 - The ZIP deliberately does not contain an empty `papers.db` or `online_papers.json`, so it will not wipe existing history.
 - GitHub Actions does not perform publisher fetching in this version.
 - The package does not contain the root homepage `index.html`, `assets/`, `images/`, `scripts/`, or root `data/` directory.
+
+
+## 10. V3.1 Windows launcher fix
+
+V3 used a PowerShell `2>&1 | Tee-Object` pipeline. On Windows PowerShell 5.1, normal native-program stderr (for example Git's `From github.com...`) could be wrapped as `NativeCommandError` when `$ErrorActionPreference=Stop`. V3.1 removes that pipeline. A Python streaming logger now writes the console and log file while preserving the real process exit code.
+
+- Double-click `update_papers.bat` for interactive use. It stays open only if an error occurs.
+- Use `update_papers_scheduled.bat` in Windows Task Scheduler. It never waits for keyboard input.
+- Logs remain under `paper_monitor_system/logs/`.
