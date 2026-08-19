@@ -41,7 +41,7 @@ excel_to_json(
 print("JSON 文件已生成")
 print(f"输出目录：{DATA_DIR}")
 
-# file_path = "JCR2026-paper-monitor.xlsx"
+# file_path = "JCR2026-web.xlsx"
 # jcr_df = pd.read_excel(file_path)
 #
 # def clean(x):
@@ -72,7 +72,7 @@ print(f"输出目录：{DATA_DIR}")
 
 # -*- coding: utf-8 -*-
 """
-从 JCR2026-paper-monitor.xlsx 的 Category_Quartiles sheet 生成拆分后的 JCR JSON 文件。
+从 JCR2026-web.xlsx 的 Category_Quartiles sheet 生成拆分后的 JCR JSON 文件。
 
 输出结构：
 data/jcr/categories.json
