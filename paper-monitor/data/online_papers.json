@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-19T04:59:43.723096+00:00",
-  "count": 91,
+  "generated_at": "2026-08-19T06:01:13.081156+00:00",
+  "count": 93,
   "monitoring": {
     "journal_count": 79,
     "publisher_count": 3
@@ -413,6 +413,20 @@
     {
       "publisher": "Springer Nature",
       "provider": "springer",
+      "title": "Comparative analysis of machine learning methods for automated fake news detection",
+      "journal": "Social Network Analysis and Mining",
+      "authors": "Matthew Muscedere; Tansh Koul; Abdulrauf Gidado; Faria Khandaker",
+      "doi": "10.1007/s13278-026-01642-z",
+      "url": "https://doi.org/10.1007/s13278-026-01642-z",
+      "online_date": "2026-08-19",
+      "display_date": "2026-08-19",
+      "date_precision": "day",
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
+    },
+    {
+      "publisher": "Springer Nature",
+      "provider": "springer",
       "title": "Lightweight Remote Sensing Image Target Detection Algorithm Based on Improved YOLOv7",
       "journal": "International Journal of Computational Intelligence Systems",
       "authors": "Chengyu Yang",
@@ -448,6 +462,20 @@
       "url": "https://doi.org/10.1007/s10489-026-07407-7",
       "online_date": "2026-08-19",
       "display_date": "2026-08-19",
+      "date_precision": "day",
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
+    },
+    {
+      "publisher": "Springer Nature",
+      "provider": "springer",
+      "title": "Collective Decision-Making and Innovation Efficiency of State Owned Enterprises: “Brainstorming” or “Responsibility Avoidance”?",
+      "journal": "Journal of Systems Science and Systems Engineering",
+      "authors": "Menghang Tang; Yongheng Wang; Yu Jin; Shuping Zhai",
+      "doi": "10.1007/s11518-026-5763-3",
+      "url": "https://doi.org/10.1007/s11518-026-5763-3",
+      "online_date": "2026-08-18",
+      "display_date": "2026-08-18",
       "date_precision": "day",
       "content_type": "Journal Article",
       "source": "Crossref fallback"
