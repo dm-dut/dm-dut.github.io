@@ -1,1 +1,2 @@
-"""Provider adapters for ScienceDirect, Springer Nature, IEEE, and Crossref fallback."""
+from .crossref_unified import fetch_provider
+__all__ = ['fetch_provider']

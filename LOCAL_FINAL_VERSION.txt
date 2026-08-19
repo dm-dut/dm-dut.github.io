@@ -1,1 +1,3 @@
-LOCAL-2026.08.19-V3.3
+LOCAL-2026.08.19-V4-CROSSREF
+Crossref-only unified collector.
+The previous database is intentionally reset once on first V4 run.

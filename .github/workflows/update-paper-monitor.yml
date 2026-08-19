@@ -1,19 +1,8 @@
-name: Paper monitor (local updater only)
-
-# LOCAL_FINAL_V3.3: publisher fetching is intentionally NOT scheduled on
-# GitHub-hosted runners. GitHub Pages remains only the display layer.
+name: Paper monitor (local collector only)
 on:
   workflow_dispatch:
-
-permissions:
-  contents: read
-
 jobs:
-  local-mode-info:
+  info:
     runs-on: ubuntu-latest
     steps:
-      - name: Local mode notice
-        run: |
-          echo "Paper Monitor Build: LOCAL-2026.08.19-V3.3"
-          echo "Publisher fetching is disabled on GitHub-hosted runners."
-          echo "Run update_papers.bat on the configured local Windows computer instead."
+      - run: echo "Paper Monitor V4 collection runs locally. Use update_papers_scheduled.bat on the Windows PC."
