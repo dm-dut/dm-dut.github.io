@@ -3,13 +3,27 @@ from __future__ import annotations
 import argparse
 from datetime import date, timedelta
 
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from .config import BUILD_ID, ENABLE_IEEE, ENABLE_SCIENCEDIRECT, ENABLE_SPRINGER, ENABLE_SCIENCEDIRECT_API, ENABLE_SPRINGER_API, WEB_JSON_PATH, OVERLAP_DAYS
-from .db import engine, get_sync_state, init_db, save_sync_error, save_sync_success, upsert_article
+from .config import (
+    BUILD_ID,
+    ENABLE_IEEE,
+    ENABLE_SCIENCEDIRECT,
+    ENABLE_SCIENCEDIRECT_API,
+    ENABLE_SCIENCEDIRECT_PAGE,
+    ENABLE_SCIENCEDIRECT_RSS,
+    ENABLE_SPRINGER,
+    ENABLE_SPRINGER_API,
+    ENABLE_SPRINGER_BATCH_API,
+    OVERLAP_DAYS,
+    PENDING_RECHECK_DAYS,
+    WEB_JSON_PATH,
+)
+from .db import Article, engine, get_sync_state, init_db, save_sync_error, save_sync_success, upsert_article, utcnow
 from .export_json import export_json
-from .journals import describe_journals, enabled_journals
-from .providers import ieee, sciencedirect, springer
+from .journals import enabled_journals, match_journal
+from .providers import crossref, ieee, sciencedirect, springer
 
 PROVIDERS = {
     "sciencedirect": (ENABLE_SCIENCEDIRECT, sciencedirect.fetch),
@@ -43,9 +57,6 @@ def sync_provider(provider: str, fetcher, journals, start: date, end: date) -> t
             save_sync_success(session, provider, end, total)
             session.commit()
         except Exception as exc:
-            # Article upserts are independent and useful even when a later journal
-            # or fallback request fails. Preserve already fetched rows, but do not
-            # advance last_window_end; the next run will retry this provider/window.
             try:
                 session.commit()
             except Exception:
@@ -56,24 +67,65 @@ def sync_provider(provider: str, fetcher, journals, start: date, end: date) -> t
     return total, created
 
 
+def recheck_pending(limit: int = 500) -> tuple[int, int, int]:
+    """Recheck recent pending DOIs against Crossref and promote them when published-online appears."""
+    cutoff = utcnow() - timedelta(days=max(PENDING_RECHECK_DAYS, 1))
+    checked = promoted = failed = 0
+    with Session(engine) as session:
+        stmt = (
+            select(Article)
+            .where(
+                Article.status == "pending",
+                Article.doi.is_not(None),
+                Article.first_seen_at >= cutoff,
+            )
+            .order_by(Article.last_checked_at.asc().nullsfirst(), Article.first_seen_at.asc())
+            .limit(limit)
+        )
+        rows = list(session.scalars(stmt))
+        for article in rows:
+            spec = match_journal(article.provider, article.journal, article.issn)
+            if spec is None or not article.doi:
+                continue
+            checked += 1
+            try:
+                record = crossref.by_doi(article.provider, article.publisher, spec, article.doi, today=date.today())
+                if record is None:
+                    continue
+                _, _ = upsert_article(session, record.to_db_dict())
+                if record.online_date is not None:
+                    promoted += 1
+            except Exception as exc:
+                failed += 1
+                if failed <= 5:
+                    print(f"[pending] recheck warning: {article.doi}: {type(exc).__name__}")
+            if checked % 100 == 0:
+                session.commit()
+        session.commit()
+    return checked, promoted, failed
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Fetch recent online papers from the journal whitelist")
     parser.add_argument("--provider", choices=["all", *PROVIDERS.keys()], default="all")
     parser.add_argument("--start", help="YYYY-MM-DD; overrides sync state")
     parser.add_argument("--end", help="YYYY-MM-DD; default today")
     parser.add_argument("--initial-days", type=int, default=7, help="first-run lookback")
-    parser.add_argument(
-        "--strict",
-        action="store_true",
-        help="exit non-zero if a provider and its fallback both fail; default keeps other providers/web feed running",
-    )
+    parser.add_argument("--skip-pending-recheck", action="store_true")
+    parser.add_argument("--strict", action="store_true")
     args = parser.parse_args()
 
     print(f"Paper Monitor Build: {BUILD_ID}")
     print("Execution mode: LOCAL_PC")
-    print(f"ScienceDirect: API={'ON' if ENABLE_SCIENCEDIRECT_API else 'OFF'} -> page -> RSS -> Crossref")
-    print(f"Springer: Meta API={'ON' if ENABLE_SPRINGER_API else 'OFF'} -> Online First -> Crossref")
-    print("IEEE: Combined Saved Search RSS -> publisher/Crossref validation")
+    print(
+        "Elsevier: direct RSS(if configured) + Crossref index-date incremental + pending; "
+        f"ScienceDirect API={'ON' if ENABLE_SCIENCEDIRECT_API else 'OFF'}, page={'ON' if ENABLE_SCIENCEDIRECT_PAGE else 'OFF'}, RSS={'ON' if ENABLE_SCIENCEDIRECT_RSS else 'OFF'}"
+    )
+    print(
+        f"Springer: batch Meta API={'ON' if (ENABLE_SPRINGER_API and ENABLE_SPRINGER_BATCH_API) else 'OFF'} "
+        "-> per-journal Meta API -> Online First -> Crossref"
+    )
+    print("IEEE: Combined Saved Search RSS -> publisher/Crossref validation + pending")
 
     init_db()
     selected = PROVIDERS.items() if args.provider == "all" else [(args.provider, PROVIDERS[args.provider])]
@@ -87,7 +139,6 @@ def main() -> None:
         if not journals:
             print(f"[{provider}] skipped: no Enabled=1 journals")
             continue
-
         with Session(engine) as session:
             start, end = default_window(session, provider, args.initial_days)
         if args.start:
@@ -104,8 +155,12 @@ def main() -> None:
             errors.append((provider, exc))
             print(f"[{provider}] ERROR after fallback: {type(exc).__name__}: {exc}")
 
+    if not args.skip_pending_recheck:
+        checked, promoted, failed = recheck_pending()
+        print(f"[pending] checked={checked}, promoted_to_published={promoted}, failed={failed}")
+
     count = export_json()
-    print(f"[export] {count} whitelisted records -> {WEB_JSON_PATH}")
+    print(f"[export] {count} published whitelisted records -> {WEB_JSON_PATH}")
 
     if errors:
         names = ", ".join(name for name, _ in errors)

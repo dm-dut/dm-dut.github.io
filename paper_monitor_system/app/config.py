@@ -10,7 +10,7 @@ SYSTEM_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SYSTEM_ROOT.parent
 load_dotenv(SYSTEM_ROOT / ".env")
 
-BUILD_ID = "LOCAL-2026.08.19-V1"
+BUILD_ID = "LOCAL-2026.08.19-V2"
 
 
 def env_bool(name: str, default: bool = True) -> bool:
@@ -25,11 +25,16 @@ IEEE_API_KEY = os.getenv("IEEE_API_KEY", "").strip()
 CROSSREF_MAILTO = os.getenv("CROSSREF_MAILTO", "").strip()
 IEEE_SAVED_SEARCH_RSS_URL = os.getenv("IEEE_SAVED_SEARCH_RSS_URL", "").strip()
 
-# Local-PC defaults. ScienceDirect API is worth trying again on a local / campus
-# network, while IEEE remains Saved-Search-RSS first because the user's API key
-# has returned 403 even in IEEE's own interactive tools.
-ENABLE_SCIENCEDIRECT_API = env_bool("ENABLE_SCIENCEDIRECT_API", True)
+# LOCAL V2 defaults are based on the user's real connectivity test:
+# Springer Meta API 200, IEEE Saved Search RSS 200, Crossref 200,
+# ScienceDirect API 401 and ScienceDirect pages 403.
+# The two ScienceDirect publisher paths remain optional switches for future use,
+# but they are OFF by default so routine updates do not waste time on known failures.
+ENABLE_SCIENCEDIRECT_API = env_bool("ENABLE_SCIENCEDIRECT_API", False)
+ENABLE_SCIENCEDIRECT_PAGE = env_bool("ENABLE_SCIENCEDIRECT_PAGE", False)
+ENABLE_SCIENCEDIRECT_RSS = env_bool("ENABLE_SCIENCEDIRECT_RSS", True)
 ENABLE_SPRINGER_API = env_bool("ENABLE_SPRINGER_API", True)
+ENABLE_SPRINGER_BATCH_API = env_bool("ENABLE_SPRINGER_BATCH_API", True)
 ENABLE_IEEE_API = env_bool("ENABLE_IEEE_API", False)
 ENABLE_CROSSREF_FALLBACK = env_bool("ENABLE_CROSSREF_FALLBACK", True)
 
@@ -37,12 +42,15 @@ ENABLE_SCIENCEDIRECT = env_bool("ENABLE_SCIENCEDIRECT", True)
 ENABLE_SPRINGER = env_bool("ENABLE_SPRINGER", True)
 ENABLE_IEEE = env_bool("ENABLE_IEEE", True)
 CROSSREF_DISCOVERY_DAYS = int(os.getenv("CROSSREF_DISCOVERY_DAYS", "30"))
+PENDING_RECHECK_DAYS = int(os.getenv("PENDING_RECHECK_DAYS", "60"))
 OVERLAP_DAYS = int(os.getenv("OVERLAP_DAYS", "3"))
 EXPORT_DAYS = int(os.getenv("EXPORT_DAYS", "365"))
 EXPORT_LIMIT = int(os.getenv("EXPORT_LIMIT", "20000"))
 HTTP_TIMEOUT = int(os.getenv("HTTP_TIMEOUT", "45"))
 REQUEST_PAUSE_SECONDS = float(os.getenv("REQUEST_PAUSE_SECONDS", "0.35"))
 WHITELIST_REQUIRED = env_bool("WHITELIST_REQUIRED", True)
+SPRINGER_BATCH_PAGE_SIZE = int(os.getenv("SPRINGER_BATCH_PAGE_SIZE", "20"))
+SPRINGER_BATCH_MAX_PAGES = int(os.getenv("SPRINGER_BATCH_MAX_PAGES", "250"))
 
 
 def _resolve(name: str, default: Path) -> Path:

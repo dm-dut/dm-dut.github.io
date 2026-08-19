@@ -99,13 +99,20 @@ def _entry_to_record(entry: dict, journals: Sequence[JournalSpec], start: date, 
     raw = page.get("online_raw") or cr.get("online_raw") or ""
     precision = page.get("precision") or cr.get("precision") or "unknown"
     # Never use the RSS pubDate as the article's online-publication date.
-    if not online or online < start or online > end:
+    # If the feed discovers a DOI before Crossref/publisher metadata exposes the
+    # true online date, keep it as pending rather than losing it permanently.
+    if online and (online < start or online > end):
+        return None
+    if not online and not (doi or cr.get("doi")):
         return None
 
     source = (
         "IEEE Saved Search RSS + IEEE page publication date"
         if page.get("online_date")
-        else "IEEE Saved Search RSS + Crossref published-online"
+        else (
+            "IEEE Saved Search RSS + Crossref published-online"
+            if online else "IEEE Saved Search RSS discovery; awaiting published-online"
+        )
     )
 
     return ArticleRecord(
@@ -124,6 +131,7 @@ def _entry_to_record(entry: dict, journals: Sequence[JournalSpec], start: date, 
         date_precision=precision,
         online_date_source=source,
         source_update_date=online,
+        status="published" if online else "pending",
     )
 
 
@@ -153,6 +161,8 @@ def _fetch_combined_rss(url: str, journals: Sequence[JournalSpec], start: date, 
         seen.add(key)
         records.append(record)
     print(f"[ieee] combined Saved Search RSS entries={len(entries)}, accepted_whitelist_records={len(records)}")
+    if len(entries) == 10 and "rowsPerPage=10" in url:
+        print("[ieee] NOTE: feed returned the configured 10-item page limit; daily local scheduling is recommended to reduce overflow risk.")
     return records
 
 

@@ -5,7 +5,7 @@ from typing import Iterator, Sequence
 
 import requests
 
-from ..config import CROSSREF_MAILTO, CROSSREF_DISCOVERY_DAYS
+from ..config import CROSSREF_DISCOVERY_DAYS, CROSSREF_MAILTO, EXPORT_DAYS
 from ..journals import JournalSpec, display_issn, normalize_issn
 from ..utils import build_session, clean_doi, get_json, normalize_space
 from .base import ArticleRecord
@@ -56,23 +56,15 @@ def _status_label(exc: Exception) -> str:
     return f"HTTP {status}" if status else type(exc).__name__
 
 
-def _request_items(session, issn: str, filters: list[str]) -> list[dict]:
-    """Query Crossref's global /works endpoint.
-
-    Previous builds used /journals/{issn}/works. Some valid journal ISSNs returned
-    404 from that journal-scoped endpoint even though the same ISSN is queryable
-    through the global /works endpoint. Crossref documents `issn` as a Works
-    filter, so the global endpoint is both simpler and more tolerant.
-    """
+def _request_items(session, issn: str, filters: list[str], *, rows: int = 500) -> list[dict]:
+    """Query Crossref's global /works endpoint using an ISSN filter and cursor paging."""
     normalized = normalize_issn(issn)
     if len(normalized) != 8:
         return []
-
     url = f"{BASE_URL}/works"
-    all_filters = [f"issn:{display_issn(normalized)}", *filters]
     params = {
-        "filter": ",".join(all_filters),
-        "rows": 200,
+        "filter": ",".join([f"issn:{display_issn(normalized)}", *filters]),
+        "rows": rows,
         "cursor": "*",
     }
     if CROSSREF_MAILTO:
@@ -80,7 +72,7 @@ def _request_items(session, issn: str, filters: list[str]) -> list[dict]:
 
     items: list[dict] = []
     cursor = "*"
-    for _ in range(20):  # ample for a short date window on a single journal
+    for _ in range(40):
         params["cursor"] = cursor
         data = get_json(session, url, params=params)
         message = data.get("message") or {}
@@ -98,24 +90,37 @@ def _to_record(
     publisher: str,
     spec: JournalSpec,
     item: dict,
-    start: date,
-    end: date,
+    *,
+    allow_pending: bool,
+    max_online_date: date | None = None,
+    min_online_date: date | None = None,
+    source_label: str = "Crossref published-online fallback",
 ) -> ArticleRecord | None:
-    online_date, precision, raw_date = _date_parts(item)
-    # Never substitute print/issued dates: this monitor is explicitly online-date based.
-    if online_date is None or online_date < start or online_date > end:
-        return None
-
     title = _first_text(item.get("title"))
     if not title:
         return None
-
     doi = clean_doi(item.get("DOI"))
+    if not doi and allow_pending:
+        # Pending records need a stable key for future rechecks.
+        return None
+
+    online_date, precision, raw_date = _date_parts(item)
+    if online_date is not None:
+        if max_online_date and online_date > max_online_date:
+            # Do not show future publication dates. Keep as pending so it can be checked again.
+            online_date = None
+            precision = "unknown"
+            raw_date = ""
+        elif min_online_date and online_date < min_online_date:
+            return None
+    elif not allow_pending:
+        return None
+
     url = normalize_space(str(item.get("URL") or ""))
     if not url and doi:
         url = f"https://doi.org/{doi}"
     alt = item.get("alternative-id") or []
-    external_id = normalize_space(str(alt[0])) if isinstance(alt, list) and alt else None
+    external_id = normalize_space(str(alt[0])) if isinstance(alt, list) and alt else doi
     issns = "; ".join(str(value) for value in (item.get("ISSN") or []) if value)
 
     return ArticleRecord(
@@ -132,8 +137,9 @@ def _to_record(
         online_date=online_date,
         online_date_raw=raw_date,
         date_precision=precision,
-        online_date_source="Crossref published-online fallback",
+        online_date_source=source_label if online_date else "Crossref index-date discovery; awaiting published-online",
         source_update_date=online_date,
+        status="published" if online_date else "pending",
     )
 
 
@@ -152,20 +158,14 @@ def _records_for_issn(
         f"until-online-pub-date:{end.isoformat()}",
     ]
     items = _request_items(session, issn, direct_filters)
-    records = [record for item in items if (record := _to_record(provider, publisher, spec, item, start, end))]
-    if records:
-        return records
-
-    # Conservative second pass: inspect recently indexed metadata, but still
-    # require an actual published-online value within the requested window.
-    discovery_start = start - timedelta(days=CROSSREF_DISCOVERY_DAYS)
-    indexed_filters = [
-        "type:journal-article",
-        f"from-index-date:{discovery_start.isoformat()}",
-        f"until-index-date:{(end + timedelta(days=1)).isoformat()}",
+    return [
+        record for item in items
+        if (record := _to_record(
+            provider, publisher, spec, item,
+            allow_pending=False, min_online_date=start, max_online_date=end,
+            source_label="Crossref published-online fallback",
+        ))
     ]
-    items = _request_items(session, issn, indexed_filters)
-    return [record for item in items if (record := _to_record(provider, publisher, spec, item, start, end))]
 
 
 def fetch(
@@ -175,40 +175,130 @@ def fetch(
     end: date,
     journals: Sequence[JournalSpec],
 ) -> Iterator[ArticleRecord]:
-    """Crossref fallback with per-journal/per-ISSN fault isolation."""
+    """Conservative online-date fallback for Springer/IEEE and optional use elsewhere."""
     session = build_session()
     seen: set[str] = set()
-    attempts = 0
-    successful_requests = 0
+    attempts = successful_requests = 0
 
     for spec in journals:
         if not spec.issns:
             continue
-
-        preferred = list(reversed(spec.issns))  # online/eISSN first
         spec_records: list[ArticleRecord] = []
-        for issn in preferred:
+        for issn in reversed(spec.issns):
             attempts += 1
             try:
                 spec_records = _records_for_issn(session, provider, publisher, spec, issn, start, end)
                 successful_requests += 1
             except requests.RequestException as exc:
-                print(
-                    f"[{provider}] Crossref warning: {spec.journal} "
-                    f"({display_issn(issn)}) failed ({_status_label(exc)}); trying alternate/next journal"
-                )
+                print(f"[{provider}] Crossref warning: {spec.journal} ({display_issn(issn)}) failed ({_status_label(exc)})")
                 continue
             if spec_records:
                 break
-
         for record in spec_records:
             key = record.doi or record.external_id or record.title.lower()
-            if not key or key in seen:
-                continue
-            seen.add(key)
-            yield record
+            if key and key not in seen:
+                seen.add(key)
+                yield record
 
-    # Do not let a single 404/timeout kill a whole publisher, but also do not
-    # silently report success if Crossref itself failed for every attempted ISSN.
     if attempts and successful_requests == 0:
         raise RuntimeError(f"Crossref fallback failed for all {attempts} attempted ISSN queries")
+
+
+def incremental_discover(
+    provider: str,
+    publisher: str,
+    end: date,
+    journals: Sequence[JournalSpec],
+    *,
+    discovery_days: int | None = None,
+) -> Iterator[ArticleRecord]:
+    """Discover new/changed journal metadata by Crossref index date.
+
+    Items with a real `published-online` are immediately publishable. Items without
+    it are retained as `pending` so later Crossref redeposits/reindexing can promote
+    them without permanently losing the DOI.
+    """
+    days = CROSSREF_DISCOVERY_DAYS if discovery_days is None else discovery_days
+    indexed_start = end - timedelta(days=max(days, 1))
+    oldest_online = end - timedelta(days=max(EXPORT_DAYS, days))
+    filters = [
+        "type:journal-article",
+        f"from-index-date:{indexed_start.isoformat()}",
+        f"until-index-date:{(end + timedelta(days=1)).isoformat()}",
+    ]
+    session = build_session()
+    seen: set[str] = set()
+    journal_hits = pending_count = published_count = 0
+    attempts = successful_requests = 0
+
+    for spec in journals:
+        if not spec.issns:
+            continue
+        spec_seen: set[str] = set()
+        got_response = False
+        # Prefer eISSN. If it returns zero, try print ISSN too; Crossref deposits vary.
+        for issn in reversed(spec.issns):
+            attempts += 1
+            try:
+                items = _request_items(session, issn, filters)
+                got_response = True
+                successful_requests += 1
+            except requests.RequestException as exc:
+                print(f"[{provider}] Crossref incremental warning: {spec.journal} ({display_issn(issn)}): {_status_label(exc)}")
+                continue
+            for item in items:
+                record = _to_record(
+                    provider, publisher, spec, item,
+                    allow_pending=True,
+                    min_online_date=oldest_online,
+                    max_online_date=end,
+                    source_label="Crossref index-date discovery + published-online",
+                )
+                if record is None:
+                    continue
+                key = record.doi or record.external_id or record.title.lower()
+                if not key or key in spec_seen or key in seen:
+                    continue
+                spec_seen.add(key)
+                seen.add(key)
+                if record.online_date:
+                    published_count += 1
+                else:
+                    pending_count += 1
+                yield record
+            if spec_seen:
+                break
+        if got_response and spec_seen:
+            journal_hits += 1
+
+    print(
+        f"[{provider}] Crossref incremental: journals_with_records={journal_hits}, "
+        f"published={published_count}, pending={pending_count}, unique={len(seen)}"
+    )
+    if attempts and successful_requests == 0:
+        raise RuntimeError(f"Crossref incremental failed for all {attempts} attempted ISSN queries")
+
+
+def by_doi(
+    provider: str,
+    publisher: str,
+    spec: JournalSpec,
+    doi: str,
+    *,
+    today: date | None = None,
+) -> ArticleRecord | None:
+    """Recheck one pending DOI and return its latest Crossref metadata."""
+    doi = clean_doi(doi)
+    if not doi:
+        return None
+    session = build_session()
+    params = {"mailto": CROSSREF_MAILTO} if CROSSREF_MAILTO else None
+    data = get_json(session, f"{BASE_URL}/works/{doi}", params=params)
+    item = data.get("message") or {}
+    return _to_record(
+        provider, publisher, spec, item,
+        allow_pending=True,
+        min_online_date=None,
+        max_online_date=today or date.today(),
+        source_label="Crossref pending recheck + published-online",
+    )

@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from datetime import date, datetime, timedelta, timezone
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from .config import EXPORT_DAYS, EXPORT_LIMIT, WEB_JSON_PATH
@@ -26,16 +26,14 @@ def source_label(source: str) -> str:
         return "Springer Meta API"
     if "springer online first" in low:
         return "Springer Online First"
-    if "sciencedirect page" in low or "available online" in low:
-        return "ScienceDirect page"
     if "sciencedirect rss" in low:
         return "ScienceDirect RSS"
+    if "sciencedirect page" in low or "available online" in low:
+        return "ScienceDirect page"
     if "crossref" in low:
-        return "Crossref fallback"
+        return "Crossref"
     if "sciencedirect api" in low:
         return "ScienceDirect API"
-    if "ieee xplore api" in low:
-        return "IEEE Xplore API"
     return text
 
 
@@ -45,10 +43,15 @@ def export_json() -> int:
     with Session(engine) as session:
         stmt = (
             select(Article)
-            .where((Article.online_date == None) | (Article.online_date >= cutoff))  # noqa: E711
-            .order_by(Article.online_date.desc().nullslast(), Article.first_seen_at.desc())
+            .where(
+                Article.status == "published",
+                Article.online_date.is_not(None),
+                Article.online_date >= cutoff,
+            )
+            .order_by(Article.online_date.desc(), Article.first_seen_at.desc())
         )
         candidates = session.scalars(stmt).all()
+        pending_count = session.scalar(select(func.count()).select_from(Article).where(Article.status == "pending")) or 0
 
     rows = [a for a in candidates if match_journal(a.provider, a.journal, a.issn) is not None][:EXPORT_LIMIT]
     specs = load_journal_list()
@@ -64,11 +67,9 @@ def export_json() -> int:
         "monitoring": {
             "journal_count": len(specs),
             "publisher_count": len(publishers),
+            "pending_count": int(pending_count),
         },
-        "filters": {
-            "publishers": publishers,
-            "journals": journal_filters,
-        },
+        "filters": {"publishers": publishers, "journals": journal_filters},
         "articles": [
             {
                 "publisher": a.publisher,

@@ -23,12 +23,17 @@ class ArticleRecord:
     date_precision: str = "unknown"
     online_date_source: str = ""
     source_update_date: date | None = None
+    status: str = "published"
 
     def to_db_dict(self) -> dict:
         self.title = normalize_space(self.title)
         self.journal = normalize_space(self.journal)
         self.authors = normalize_space(self.authors)
         self.doi = clean_doi(self.doi)
+        if not self.online_date:
+            self.status = "pending"
+        elif self.status != "published":
+            self.status = "published"
         data = asdict(self)
         data["identity_key"] = identity_key(self.provider, self.doi, self.external_id, self.title)
         return data

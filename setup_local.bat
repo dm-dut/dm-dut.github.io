@@ -3,7 +3,7 @@ setlocal
 cd /d "%~dp0"
 
 echo ============================================================
-echo Paper Monitor LOCAL setup
+echo Paper Monitor LOCAL_FINAL_V2 setup
 echo ============================================================
 
 where py >nul 2>nul
@@ -36,7 +36,7 @@ if not exist "paper_monitor_system\.env" (
   copy /Y "paper_monitor_system\.env.example" "paper_monitor_system\.env" >nul
   echo.
   echo Created paper_monitor_system\.env
-  echo Please open it in Notepad and fill SPRINGER_API_KEY, ELSEVIER_API_KEY and CROSSREF_MAILTO.
+  echo Please open it in Notepad and fill SPRINGER_API_KEY and CROSSREF_MAILTO. ELSEVIER_API_KEY is optional in LOCAL V2.
 ) else (
   echo paper_monitor_system\.env already exists; it was not overwritten.
 )

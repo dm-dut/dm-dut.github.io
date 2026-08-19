@@ -11,41 +11,18 @@ from ..config import (
     ELSEVIER_INSTTOKEN,
     ENABLE_CROSSREF_FALLBACK,
     ENABLE_SCIENCEDIRECT_API,
+    ENABLE_SCIENCEDIRECT_PAGE,
+    ENABLE_SCIENCEDIRECT_RSS,
     HTTP_TIMEOUT,
 )
-from ..journals import JournalSpec, display_issn, match_journal
-from ..utils import build_session, clean_doi, first_nonempty, get_json, join_authors, normalize_space
+from ..journals import JournalSpec, display_issn
+from ..utils import build_session, clean_doi, get_json, normalize_space
 from . import crossref
 from .base import ArticleRecord
 from .enrichment import extract_doi, page_metadata, resolve_crossref
 from .rss_source import fetch_rss
 
 BASE_URL = "https://api.elsevier.com/content/search/sciencedirect"
-
-
-def _date_range(start: date, end: date):
-    current = start
-    while current <= end:
-        yield current
-        current += timedelta(days=1)
-
-
-def _scidir_link(entry: dict) -> str:
-    links = entry.get("link") or []
-    if isinstance(links, dict):
-        links = [links]
-    for link in links:
-        if isinstance(link, dict) and link.get("@ref") == "scidir" and link.get("@href"):
-            return str(link["@href"])
-    doi = clean_doi(first_nonempty(entry.get("prism:doi"), entry.get("dc:identifier")))
-    return f"https://doi.org/{doi}" if doi else ""
-
-
-def _authors(entry: dict) -> str:
-    authors = entry.get("authors") or {}
-    if isinstance(authors, dict):
-        authors = authors.get("author") or authors
-    return join_authors(authors)
 
 
 def _query_for_spec(spec: JournalSpec, load_day: date) -> str:
@@ -57,87 +34,17 @@ def _query_for_spec(spec: JournalSpec, load_day: date) -> str:
     return f"{date_clause} AND Srctitle({{{safe_title}}})"
 
 
-def _api_one(spec: JournalSpec, start: date, end: date) -> list[ArticleRecord]:
-    if not ELSEVIER_API_KEY:
-        raise RuntimeError("ELSEVIER_API_KEY is missing")
-
-    session = build_session()
-    headers = {"X-ELS-APIKey": ELSEVIER_API_KEY, "Accept": "application/json"}
-    if ELSEVIER_INSTTOKEN:
-        headers["X-ELS-Insttoken"] = ELSEVIER_INSTTOKEN
-
-    records: list[ArticleRecord] = []
-    seen: set[str] = set()
-    for load_day in _date_range(start, end):
-        offset = 0
-        while True:
-            params = {
-                "query": _query_for_spec(spec, load_day),
-                "content": "journals",
-                "start": offset,
-                "count": 100,
-            }
-            data = get_json(session, BASE_URL, params=params, headers=headers)
-            results = data.get("search-results", {})
-            entries = results.get("entry") or []
-            if isinstance(entries, dict):
-                entries = [entries]
-
-            for e in entries:
-                title = normalize_space(e.get("dc:title"))
-                if not title:
-                    continue
-                doi = clean_doi(first_nonempty(e.get("prism:doi"), e.get("dc:identifier")))
-                pii = first_nonempty(e.get("pii"), e.get("eid"))
-                journal = normalize_space(e.get("prism:publicationName"))
-                issn = normalize_space(first_nonempty(e.get("prism:issn"), e.get("prism:eIssn")))
-                matched = match_journal("sciencedirect", journal, issn, [spec])
-                if matched is None and journal and journal.lower() != spec.journal.lower():
-                    continue
-                identity = doi or str(pii or "") or title.lower()
-                if identity in seen:
-                    continue
-                seen.add(identity)
-                records.append(ArticleRecord(
-                    provider="sciencedirect",
-                    publisher="Elsevier",
-                    title=title,
-                    journal=spec.journal,
-                    authors=_authors(e) or normalize_space(e.get("dc:creator")),
-                    doi=doi,
-                    external_id=str(pii) if pii else None,
-                    issn=issn or (display_issn(spec.issns[0]) if spec.issns else ""),
-                    content_type="Journal Article",
-                    url=_scidir_link(e),
-                    online_date=load_day,
-                    online_date_raw=load_day.isoformat(),
-                    date_precision="day",
-                    online_date_source="ScienceDirect API Load-Date",
-                    source_update_date=load_day,
-                ))
-
-            total = int(results.get("opensearch:totalResults") or len(entries) or 0)
-            items = int(results.get("opensearch:itemsPerPage") or len(entries) or 0)
-            step = max(items, len(entries))
-            if not entries or step <= 0 or offset + step >= total:
-                break
-            offset += step
-    return records
-
-
 def _base_url(spec: JournalSpec) -> str:
-    u = spec.primary_url.rstrip("/")
+    url = spec.primary_url.rstrip("/")
     for suffix in ("/articles-in-press", "/latest"):
-        if suffix in u:
-            return u.split(suffix)[0]
-    return u
+        if suffix in url:
+            return url.split(suffix)[0]
+    return url
 
 
 def _candidate_pages(spec: JournalSpec) -> list[str]:
     base = _base_url(spec)
-    candidates: list[str] = []
-    if spec.primary_url:
-        candidates.append(spec.primary_url)
+    candidates = [spec.primary_url] if spec.primary_url else []
     if base:
         candidates.extend([f"{base}/articles-in-press", f"{base}/latest", base])
     out: list[str] = []
@@ -147,26 +54,60 @@ def _candidate_pages(spec: JournalSpec) -> list[str]:
     return out
 
 
-def _article_links(html: str, base_url: str) -> list[tuple[str, str]]:
-    soup = BeautifulSoup(html, "html.parser")
-    links: list[tuple[str, str]] = []
+def _api_discover(spec: JournalSpec, start: date, end: date) -> list[ArticleRecord]:
+    """Optional ScienceDirect Search API discovery.
+
+    Load-Date is used only to discover records. It is NOT used as online_date.
+    Crossref/publisher metadata must provide published-online before publication.
+    """
+    if not ELSEVIER_API_KEY:
+        raise RuntimeError("ELSEVIER_API_KEY is missing")
+    session = build_session()
+    headers = {"X-ELS-APIKey": ELSEVIER_API_KEY, "Accept": "application/json"}
+    if ELSEVIER_INSTTOKEN:
+        headers["X-ELS-Insttoken"] = ELSEVIER_INSTTOKEN
+
+    records: list[ArticleRecord] = []
     seen: set[str] = set()
-    for a in soup.find_all("a", href=True):
-        href = normalize_space(a.get("href", ""))
-        if "/science/article/pii/" not in href:
-            continue
-        full = requests.compat.urljoin(base_url, href)
-        if full in seen:
-            continue
-        title = normalize_space(a.get_text(" ", strip=True))
-        if not title:
-            continue
-        seen.add(full)
-        links.append((full, title))
-    return links
+    day = start
+    while day <= end:
+        data = get_json(session, BASE_URL, params={
+            "query": _query_for_spec(spec, day), "content": "journals", "start": 0, "count": 100,
+        }, headers=headers)
+        entries = ((data.get("search-results") or {}).get("entry") or [])
+        for entry in entries:
+            title = normalize_space(entry.get("dc:title") or "")
+            doi = clean_doi(entry.get("prism:doi") or entry.get("dc:identifier"))
+            if not title or not doi:
+                continue
+            try:
+                cr = resolve_crossref(title, spec, doi)
+            except requests.RequestException:
+                cr = {}
+            online = cr.get("online_date")
+            if online and not (start <= online <= end):
+                continue
+            key = doi
+            if key in seen:
+                continue
+            seen.add(key)
+            records.append(ArticleRecord(
+                provider="sciencedirect", publisher="Elsevier", title=title, journal=spec.journal,
+                authors=cr.get("authors") or normalize_space(entry.get("dc:creator") or ""), doi=doi,
+                external_id=normalize_space(entry.get("pii") or "") or doi,
+                issn=normalize_space(entry.get("prism:issn") or "") or (display_issn(spec.issns[0]) if spec.issns else ""),
+                content_type="Journal Article", url=cr.get("url") or f"https://doi.org/{doi}",
+                online_date=online, online_date_raw=cr.get("online_raw") or "",
+                date_precision=cr.get("precision") or "unknown",
+                online_date_source=("ScienceDirect API discovery + Crossref published-online" if online else "ScienceDirect API discovery; awaiting published-online"),
+                source_update_date=online, status="published" if online else "pending",
+            ))
+        day += timedelta(days=1)
+    return records
 
 
 def _page_records(spec: JournalSpec, start: date, end: date) -> list[ArticleRecord]:
+    """Optional publisher-page path retained for networks where ScienceDirect pages are accessible."""
     session = build_session()
     session.headers.update({
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36",
@@ -180,11 +121,19 @@ def _page_records(spec: JournalSpec, start: date, end: date) -> list[ArticleReco
         except requests.RequestException as exc:
             last_error = exc
             continue
-
-        records: list[ArticleRecord] = []
+        soup = BeautifulSoup(response.text, "html.parser")
+        links: list[tuple[str, str]] = []
+        for a in soup.find_all("a", href=True):
+            href = normalize_space(a.get("href") or "")
+            if "/science/article/pii/" not in href:
+                continue
+            full = requests.compat.urljoin(response.url, href)
+            title = normalize_space(a.get_text(" ", strip=True))
+            if title:
+                links.append((full, title))
+        found: list[ArticleRecord] = []
         seen: set[str] = set()
-        for link, title in _article_links(response.text, response.url)[:160]:
-            meta: dict = {}
+        for link, title in links[:160]:
             try:
                 meta = page_metadata(link)
             except requests.RequestException:
@@ -195,150 +144,96 @@ def _page_records(spec: JournalSpec, start: date, end: date) -> list[ArticleReco
             except requests.RequestException:
                 cr = {}
             online = meta.get("online_date") or cr.get("online_date")
-            raw = meta.get("online_raw") or cr.get("online_raw") or ""
-            precision = meta.get("precision") or cr.get("precision") or "unknown"
             if not online or not (start <= online <= end):
                 continue
-            key = doi or link or title.lower()
+            key = doi or link
             if key in seen:
                 continue
             seen.add(key)
-            source = (
-                "ScienceDirect page Available online"
-                if meta.get("online_date")
-                else "ScienceDirect page + Crossref published-online"
-            )
-            records.append(ArticleRecord(
-                provider="sciencedirect",
-                publisher="Elsevier",
-                title=meta.get("title") or title,
-                journal=spec.journal,
-                authors=meta.get("authors") or cr.get("authors") or "",
-                doi=doi or cr.get("doi"),
-                external_id=link,
+            found.append(ArticleRecord(
+                provider="sciencedirect", publisher="Elsevier", title=meta.get("title") or title,
+                journal=spec.journal, authors=meta.get("authors") or cr.get("authors") or "",
+                doi=doi or cr.get("doi"), external_id=link,
                 issn=meta.get("issn") or cr.get("issn") or (display_issn(spec.issns[0]) if spec.issns else ""),
-                content_type="Journal Article",
-                url=link,
-                online_date=online,
-                online_date_raw=raw,
-                date_precision=precision,
-                online_date_source=source,
+                content_type="Journal Article", url=link, online_date=online,
+                online_date_raw=meta.get("online_raw") or cr.get("online_raw") or "",
+                date_precision=meta.get("precision") or cr.get("precision") or "unknown",
+                online_date_source=("ScienceDirect page Available online" if meta.get("online_date") else "ScienceDirect page + Crossref published-online"),
                 source_update_date=online,
             ))
-        # A valid page with zero matching records is still useful; try other
-        # candidate pages only if this page produced nothing.
-        if records:
-            return records
+        if found:
+            return found
     if last_error:
         raise last_error
     return []
 
 
-def _discover_rss_urls(spec: JournalSpec) -> list[str]:
-    session = build_session()
-    session.headers.update({
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36",
-        "Accept-Language": "en-US,en;q=0.9",
-    })
-    found: list[str] = []
-    for page_url in _candidate_pages(spec):
-        try:
-            response = session.get(page_url, timeout=HTTP_TIMEOUT)
-            response.raise_for_status()
-        except requests.RequestException:
-            continue
-        soup = BeautifulSoup(response.text, "html.parser")
-        for tag in soup.find_all(["link", "a"], href=True):
-            href = normalize_space(tag.get("href") or "")
-            typ = normalize_space(tag.get("type") or "").lower()
-            rel = " ".join(tag.get("rel") or []).lower() if isinstance(tag.get("rel"), list) else normalize_space(tag.get("rel") or "").lower()
-            if "rss" in typ or "atom" in typ or "rss" in href.lower() or ("alternate" in rel and "xml" in typ):
-                full = requests.compat.urljoin(response.url, href)
-                if full and full not in found:
-                    found.append(full)
-        if found:
-            break
-    return found
-
-
-def _rss_records(spec: JournalSpec, start: date, end: date) -> list[ArticleRecord]:
-    urls: list[str] = []
-    if spec.rss_url:
-        urls.append(spec.rss_url)
-    for url in _discover_rss_urls(spec):
-        if url not in urls:
-            urls.append(url)
-    for url in urls:
-        try:
-            records = list(fetch_rss(
-                "sciencedirect", "Elsevier", spec, url, start, end,
-                "ScienceDirect RSS discovery + publisher/Crossref online date",
-            ))
-            if records:
-                return records
-        except Exception as exc:
-            status = getattr(getattr(exc, "response", None), "status_code", None)
-            suffix = f" HTTP {status}" if status else ""
-            print(f"[sciencedirect] RSS warning: {spec.journal}:{suffix} {type(exc).__name__}")
-    return []
+def _direct_rss_records(spec: JournalSpec, start: date, end: date) -> list[ArticleRecord]:
+    if not ENABLE_SCIENCEDIRECT_RSS or not spec.rss_url:
+        return []
+    return list(fetch_rss(
+        "sciencedirect", "Elsevier", spec, spec.rss_url, start, end,
+        "ScienceDirect direct RSS + publisher/Crossref online date", allow_pending=True,
+    ))
 
 
 def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
+    """LOCAL V2 Elsevier strategy: optional direct RSS + Crossref incremental.
+
+    ScienceDirect API/page paths remain opt-in and disabled by default after the
+    user's local connectivity test returned HTTP 401/403.
+    """
     seen: set[str] = set()
-    api_journals = page_journals = rss_journals = crossref_journals = 0
-    api_disabled_for_run = not ENABLE_SCIENCEDIRECT_API or not ELSEVIER_API_KEY
-    if ENABLE_SCIENCEDIRECT_API and not ELSEVIER_API_KEY:
-        print("[sciencedirect] local API path enabled but ELSEVIER_API_KEY is missing; continuing with page/RSS/Crossref")
+    api_count = page_count = rss_count = 0
 
     for spec in journals:
-        records: list[ArticleRecord] = []
-
-        if not api_disabled_for_run:
+        local_records: list[ArticleRecord] = []
+        if ENABLE_SCIENCEDIRECT_API:
             try:
-                records = _api_one(spec, start, end)
-                if records:
-                    api_journals += 1
-            except requests.HTTPError as exc:
-                status = getattr(exc.response, "status_code", None)
-                print(f"[sciencedirect] API warning: {spec.journal}: HTTP {status}")
-                if status in {401, 403}:
-                    print("[sciencedirect] API authorization appears unavailable on this network; disabling API for the remainder of this run")
-                    api_disabled_for_run = True
-            except Exception as exc:
-                print(f"[sciencedirect] API warning: {spec.journal}: {type(exc).__name__}: {exc}")
-
-        if not records:
-            try:
-                records = _page_records(spec, start, end)
-                if records:
-                    page_journals += 1
+                local_records.extend(_api_discover(spec, start, end))
+                api_count += 1
             except Exception as exc:
                 status = getattr(getattr(exc, "response", None), "status_code", None)
-                suffix = f" HTTP {status}" if status else ""
-                print(f"[sciencedirect] page warning: {spec.journal}:{suffix} {type(exc).__name__}")
-
-        if not records:
-            records = _rss_records(spec, start, end)
-            if records:
-                rss_journals += 1
-
-        if not records and ENABLE_CROSSREF_FALLBACK:
+                print(f"[sciencedirect] optional API warning: {spec.journal}: HTTP {status} {type(exc).__name__}")
+        if ENABLE_SCIENCEDIRECT_PAGE:
             try:
-                records = list(crossref.fetch("sciencedirect", "Elsevier", start, end, [spec]))
-                if records:
-                    crossref_journals += 1
+                page_records = _page_records(spec, start, end)
+                local_records.extend(page_records)
+                if page_records:
+                    page_count += 1
             except Exception as exc:
-                print(f"[sciencedirect] Crossref warning: {spec.journal}: {type(exc).__name__}: {exc}")
-                records = []
+                status = getattr(getattr(exc, "response", None), "status_code", None)
+                print(f"[sciencedirect] optional page warning: {spec.journal}: HTTP {status} {type(exc).__name__}")
+        if spec.rss_url and ENABLE_SCIENCEDIRECT_RSS:
+            try:
+                rss_records = _direct_rss_records(spec, start, end)
+                local_records.extend(rss_records)
+                if rss_records:
+                    rss_count += 1
+            except Exception as exc:
+                status = getattr(getattr(exc, "response", None), "status_code", None)
+                print(f"[sciencedirect] direct RSS warning: {spec.journal}: HTTP {status} {type(exc).__name__}")
 
-        for record in records:
+        for record in local_records:
             key = record.doi or record.external_id or record.title.lower()
-            if not key or key in seen:
-                continue
-            seen.add(key)
-            yield record
+            if key and key not in seen:
+                seen.add(key)
+                yield record
+
+    crossref_count = 0
+    if ENABLE_CROSSREF_FALLBACK:
+        try:
+            for record in crossref.incremental_discover("sciencedirect", "Elsevier", end, journals):
+                key = record.doi or record.external_id or record.title.lower()
+                if key and key not in seen:
+                    seen.add(key)
+                    crossref_count += 1
+                    yield record
+        except Exception as exc:
+            print(f"[sciencedirect] Crossref incremental ERROR: {type(exc).__name__}: {exc}")
+            raise
 
     print(
-        f"[sciencedirect] sources: api_journals={api_journals}, page_journals={page_journals}, "
-        f"rss_journals={rss_journals}, crossref_journals={crossref_journals}, records={len(seen)}"
+        f"[sciencedirect] sources: optional_api_journals={api_count}, optional_page_journals={page_count}, "
+        f"direct_rss_journals={rss_count}, crossref_incremental_records={crossref_count}, total_unique={len(seen)}"
     )

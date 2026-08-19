@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-from sqlalchemy import Date, DateTime, Integer, String, Text, UniqueConstraint, create_engine, select
+from sqlalchemy import Date, DateTime, Integer, String, Text, UniqueConstraint, create_engine, inspect, select, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 
 from .config import DATABASE_URL
@@ -32,10 +32,12 @@ class Article(Base):
     online_date: Mapped[date | None] = mapped_column(Date, nullable=True, index=True)
     online_date_raw: Mapped[str] = mapped_column(String(120), default="")
     date_precision: Mapped[str] = mapped_column(String(20), default="unknown")
-    online_date_source: Mapped[str] = mapped_column(String(80), default="")
+    online_date_source: Mapped[str] = mapped_column(String(120), default="")
     source_update_date: Mapped[date | None] = mapped_column(Date, nullable=True, index=True)
+    status: Mapped[str] = mapped_column(String(20), default="published", server_default="published", nullable=False, index=True)
     first_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     last_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    last_checked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
 class SyncState(Base):
@@ -60,8 +62,26 @@ _prepare_sqlite_dir(DATABASE_URL)
 engine = create_engine(DATABASE_URL, future=True)
 
 
+def _migrate_sqlite() -> None:
+    """Add LOCAL V2 columns to an existing SQLite database without replacing it."""
+    if engine.dialect.name != "sqlite":
+        return
+    inspector = inspect(engine)
+    if "articles" not in inspector.get_table_names():
+        return
+    columns = {c["name"] for c in inspector.get_columns("articles")}
+    with engine.begin() as conn:
+        if "status" not in columns:
+            conn.execute(text("ALTER TABLE articles ADD COLUMN status VARCHAR(20) NOT NULL DEFAULT 'published'"))
+        if "last_checked_at" not in columns:
+            conn.execute(text("ALTER TABLE articles ADD COLUMN last_checked_at DATETIME"))
+        conn.execute(text("UPDATE articles SET status='published' WHERE online_date IS NOT NULL AND (status IS NULL OR status='')"))
+        conn.execute(text("UPDATE articles SET status='pending' WHERE online_date IS NULL AND (status IS NULL OR status='')"))
+
+
 def init_db() -> None:
     Base.metadata.create_all(engine)
+    _migrate_sqlite()
 
 
 def utcnow() -> datetime:
@@ -91,22 +111,27 @@ def save_sync_error(session: Session, provider: str, error: str) -> None:
     state.last_error = error[:4000]
 
 
-
 def source_priority(source: str | None) -> int:
-    text = (source or "").lower()
-    if "crossref" in text or "fallback" in text:
-        return 10
-    if "springer meta api" in text:
+    text_value = (source or "").lower()
+    if "springer meta api" in text_value:
+        return 50
+    if "available online" in text_value or "publisher page" in text_value:
+        return 45
+    if "saved search rss" in text_value and "crossref" not in text_value:
         return 40
-    if "available online" in text or "saved search rss" in text or "verified online date" in text:
+    if "sciencedirect rss" in text_value and "crossref" not in text_value:
+        return 40
+    if "sciencedirect api" in text_value or "ieee xplore api" in text_value:
         return 35
-    if "sciencedirect api" in text or "ieee xplore api" in text:
-        return 30
-    return 20 if text else 0
+    if "crossref published-online" in text_value:
+        return 25
+    if "crossref" in text_value or "fallback" in text_value:
+        return 15
+    return 20 if text_value else 0
 
 
 def upsert_article(session: Session, record: dict) -> tuple[Article, bool]:
-    """DOI-first upsert shared by scheduled and manual runs."""
+    """DOI-first upsert. Pending records may later be promoted to published."""
     existing = session.scalar(select(Article).where(Article.identity_key == record["identity_key"]))
 
     doi = record.get("doi")
@@ -132,14 +157,19 @@ def upsert_article(session: Session, record: dict) -> tuple[Article, bool]:
 
     now = utcnow()
     created = existing is None
+    incoming_has_date = record.get("online_date") is not None
+    incoming_status = "published" if incoming_has_date else "pending"
+
     if existing is None:
         existing = Article(
             identity_key=record["identity_key"],
             provider=record["provider"],
             publisher=record["publisher"],
             title=record["title"],
+            status=incoming_status,
             first_seen_at=now,
             last_seen_at=now,
+            last_checked_at=now,
         )
         session.add(existing)
     elif existing.identity_key != record["identity_key"]:
@@ -154,7 +184,11 @@ def upsert_article(session: Session, record: dict) -> tuple[Article, bool]:
 
     incoming_priority = source_priority(record.get("online_date_source"))
     existing_priority = source_priority(existing.online_date_source) if not created else 0
-    protect_authoritative_date = (not created) and existing_priority > incoming_priority
+    protect_authoritative_date = (
+        not created
+        and existing.online_date is not None
+        and (not incoming_has_date or existing_priority > incoming_priority)
+    )
     date_fields = {"online_date", "online_date_raw", "date_precision", "online_date_source", "source_update_date"}
 
     for field in (
@@ -165,7 +199,20 @@ def upsert_article(session: Session, record: dict) -> tuple[Article, bool]:
         if protect_authoritative_date and field in date_fields:
             continue
         value = record.get(field)
-        if value not in (None, "") or field in {"online_date", "source_update_date"}:
+        # A pending recheck must not blank fields already known on a published row.
+        if value not in (None, ""):
             setattr(existing, field, value)
+        elif created and field in {"online_date", "source_update_date"}:
+            setattr(existing, field, value)
+
+    if existing.online_date is not None:
+        existing.status = "published"
+    elif existing.status != "published":
+        existing.status = "pending"
+    else:
+        # Existing rows created by pre-V2 databases with no date should become pending.
+        existing.status = "pending"
+
     existing.last_seen_at = now
+    existing.last_checked_at = now
     return existing, created

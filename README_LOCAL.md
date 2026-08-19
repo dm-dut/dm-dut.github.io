@@ -1,55 +1,103 @@
-# Paper Monitor LOCAL_FINAL
+# Paper Monitor LOCAL_FINAL_V2
 
-Build: **LOCAL-2026.08.19-V1**
+Build: **LOCAL-2026.08.19-V2**
 
-This version intentionally runs publisher collection on the local computer, not on GitHub-hosted Actions. GitHub Pages remains the public display layer.
+This version runs collection on the local computer. GitHub Pages is only the public display layer.
 
-## Final data-source strategy
+## Data-source strategy
 
-- **Springer Nature:** Springer Meta API → Online First page → Crossref.
-- **ScienceDirect / Elsevier:** local ScienceDirect API when authorized → Articles in Press / Latest / journal page → RSS when exposed → Crossref.
-- **IEEE:** the existing combined **IEEETrans15 Saved Search RSS** → IEEE article page / Crossref validation → 15-journal whitelist.
-- RSS timestamps are discovery timestamps only. They are **not** used as the final online-publication date.
+### Elsevier / ScienceDirect (39 journals)
 
-The exact IEEE Saved Search URL supplied by the user is preserved. This build does **not** rewrite `rowsPerPage=10` to `100`.
+The user's real local connectivity test returned:
 
-## Before installing
+- ScienceDirect API: HTTP 401
+- ScienceDirect journal page: HTTP 403
+- Crossref: HTTP 200
 
-The ZIP is an overlay for the existing `dm-dut.github.io` repository. It does not contain or overwrite the root homepage `index.html`, `assets/`, `images/`, `scripts/`, or existing homepage data.
+Therefore LOCAL V2 no longer depends on the ScienceDirect API or page scraper. The normal path is:
 
-Keep the existing files if they are already present:
+1. **Direct RSS**, only when a stable RSS URL is explicitly entered in `journal_list.xlsx` column `RSS URL`.
+2. **Crossref index-date incremental discovery**, always enabled when Crossref fallback is enabled.
+3. If Crossref discovers a DOI but does not yet have `published-online`, the record is stored as **pending** rather than discarded.
+4. Pending DOIs are rechecked on later runs; when `published-online` appears, the row is promoted to **published**.
+
+ScienceDirect API and page paths remain optional switches for future networks, but are OFF by default in `.env.example`.
+
+### Springer Nature (25 journals)
+
+1. Try one **date-window Springer Meta API** query and filter returned records locally to the 25-journal whitelist.
+2. If the batch query is rejected or exceeds the safety limit, fall back to the previous per-journal Meta API chain.
+3. Then try Online First page and Crossref as fallbacks.
+4. `onlineDate` from the Springer Meta API remains the preferred date.
+
+### IEEE (15 journals)
+
+The user's local test returned **HTTP 200** for the existing `IEEETrans15` combined Saved Search RSS.
+
+1. Fetch the one combined RSS URL once.
+2. Resolve each item to the 15-journal whitelist, filtering Virtual Journals/Compendia.
+3. Use publisher/Crossref metadata for the true online date.
+4. RSS timestamps are discovery timestamps only.
+5. If a DOI is discovered before a true online date is available, it may be stored as pending and rechecked later.
+
+The supplied feed currently has `rowsPerPage=10`. LOCAL V2 preserves the URL exactly. If the feed returns exactly 10 items, the program prints a capacity warning. **Daily local scheduling is recommended** to reduce the chance that more than 10 new IEEE items appear between runs.
+
+## Pending mechanism
+
+LOCAL V2 automatically upgrades an existing SQLite database. No manual database reset is needed.
+
+New columns:
+
+- `status`: `pending` or `published`
+- `last_checked_at`
+
+Existing `first_seen_at` is the discovery timestamp.
+
+Pending rows remain in `paper_monitor_system/data/papers.db`, but **are not exported** to the public `online_papers.json` until a real online date is available.
+
+## Install / upgrade
+
+This ZIP is an overlay for the existing local clone of `dm-dut.github.io`.
+
+Do **not** delete your existing:
 
 - `paper_monitor_system/data/papers.db`
 - `paper-monitor/data/online_papers.json`
 
-The package deliberately ships only `.gitkeep` files in those data folders so historical paper data is not erased.
+The ZIP contains only `.gitkeep` in those folders, so historical data is preserved.
 
-## First-time setup on Windows
+Upgrade steps:
 
-1. Extract the ZIP into the root of the local clone of `dm-dut.github.io`.
-2. Commit/push the LOCAL_FINAL code changes once (do not add `.env` or `.venv`). This also replaces the old scheduled GitHub workflow with the local-mode informational workflow.
-3. Double-click `setup_local.bat`.
-4. Open `paper_monitor_system/.env` and fill at least:
-   - `SPRINGER_API_KEY=...`
-   - `ELSEVIER_API_KEY=...` (recommended; if unauthorized, page/RSS/Crossref continues)
-   - `CROSSREF_MAILTO=your_email`
-5. Do **not** put keys in `journal_list.xlsx` or public web files.
-6. Double-click `test_connections.bat`.
+1. Extract the ZIP into the local `dm-dut.github.io` root and overwrite the paper-monitor program files.
+2. Commit/push the V2 program changes once.
+3. If you already have `paper_monitor_system/.env`, keep it. Recommended V2 switches are:
 
-The setup creates `paper_monitor_system/.venv`, installs requirements, creates `.env` from `.env.example`, and runs offline self-checks.
+```text
+ENABLE_SCIENCEDIRECT_API=false
+ENABLE_SCIENCEDIRECT_PAGE=false
+ENABLE_SCIENCEDIRECT_RSS=true
+ENABLE_SPRINGER_API=true
+ENABLE_SPRINGER_BATCH_API=true
+ENABLE_IEEE_API=false
+ENABLE_CROSSREF_FALLBACK=true
+CROSSREF_DISCOVERY_DAYS=30
+PENDING_RECHECK_DAYS=60
+```
 
-## Connection test
+4. Run `test_connections.bat`.
+5. Run `fetch_only.bat` once for a no-Git test.
+6. If the result is good, use `update_papers.bat` for normal updates.
 
-`test_connections.bat` reports separately:
+## Connection test in V2
 
-- Springer Meta API status
-- ScienceDirect API status
-- ScienceDirect page status
-- ScienceDirect RSS discovery status
-- IEEE Saved Search RSS status and parsed item count
-- Crossref status
+`test_connections.bat` now treats these as the **required** local channels:
 
-The test runs from the current local network. A ScienceDirect API failure is not fatal if another ScienceDirect channel works.
+- Springer Meta API
+- IEEE Saved Search RSS
+- Crossref
+- Elsevier Crossref incremental query
+
+ScienceDirect API/page are printed only as **optional diagnostics**. Their 401/403 responses no longer make the main connection test look failed.
 
 ## Normal update
 
@@ -57,53 +105,53 @@ Double-click:
 
 `update_papers.bat`
 
-It performs this order:
+Order:
 
-1. Refuses to run if the Git working tree has uncommitted changes.
-2. `git pull --ff-only` **before** touching SQLite.
-3. Runs package self-checks.
-4. Fetches all three publishers.
-5. Updates `paper_monitor_system/data/papers.db`.
-6. Exports `paper-monitor/data/online_papers.json`.
-7. Commits **only** the DB and JSON.
-8. Pushes the current branch to GitHub.
+1. verify clean Git tree;
+2. `git pull --ff-only` before touching SQLite;
+3. self-check + self-test;
+4. fetch providers;
+5. recheck recent pending DOI records;
+6. export published rows to `paper-monitor/data/online_papers.json`;
+7. commit only `papers.db` and `online_papers.json`;
+8. push.
 
-It never performs `git pull --rebase` after generating SQLite data.
+The updater never runs `git pull --rebase` after modifying SQLite.
 
-For fetching without Git operations, use `fetch_only.bat`.
+## Automatic scheduling
 
-## Automatic update every two days
+Because the IEEE Saved Search feed currently exposes a 10-item page, **daily** scheduling is preferable to every two days. In Windows Task Scheduler, run `update_papers.bat` once per day at a time when the computer is normally on and connected.
 
-Use Windows **Task Scheduler** and create a task that runs `update_papers.bat` from the repository root at your preferred time every 2 days. Choose a time when the computer is normally powered on and connected to the preferred network (for example, the campus network if it improves publisher access).
-
-If Windows missed a scheduled run while the computer was off, enable the Task Scheduler option to run the task as soon as possible after a scheduled start is missed.
-
-## GitHub Actions
-
-`.github/workflows/update-paper-monitor.yml` is replaced with a manual informational workflow only. There is no scheduled publisher collection on GitHub-hosted runners in this build.
-
-This is deliberate: prior GitHub-hosted runs produced ScienceDirect HTTP 403 and IEEE Saved Search RSS HTTP 418. Local network access is tested instead.
+If you prefer every two days, the program will still work, but the IEEE feed may have a higher overflow risk if more than 10 matching items appear between runs.
 
 ## journal_list.xlsx
 
-The `Journals` sheet contains 79 monitored journals:
+79 enabled journals:
 
 - Elsevier: 39
 - Springer Nature: 25
 - IEEE: 15
 
-Configuration columns include:
+Key fields:
 
 `Enabled | Publisher | Journal | ISSN | eISSN | Aliases | Category | Mode | Primary URL | RSS URL | Fallback | Notes`
 
-The 15 IEEE rows intentionally share the same `IEEETrans15` RSS URL. The program deduplicates identical URLs and requests the combined feed once.
+Modes in V2:
 
-## Website update button
+- Elsevier: `elsevier_incremental`
+- Springer: `springer_batch_api`
+- IEEE: `ieee_saved_search_rss`
 
-The public page remains available under `/paper-monitor/`. In LOCAL mode, clicking `立即更新` no longer opens GitHub Actions. It tells the maintainer to run `update_papers.bat` locally and refresh the page after the push completes.
+For Elsevier, `RSS URL` may remain blank. If you later obtain a stable direct ScienceDirect RSS URL for a journal, paste it into that journal's `RSS URL` cell; the crawler will merge it with Crossref incremental discovery automatically.
 
-## Important IEEE note
+## Security
 
-Because the supplied IEEE Saved Search URL currently has `rowsPerPage=10`, only the feed behavior itself determines how many items IEEE actually returns. This build preserves that Saved Search URL exactly to avoid changing a URL that may be tied to IEEE's saved-search/session handling. Run `test_connections.bat` first and inspect the reported RSS/Atom entry count.
+Store keys only in:
 
-If the local RSS still returns HTTP 418 while it opens normally in the browser, do not edit the Python code immediately. That would indicate IEEE is applying browser/session checks locally too; the next fallback to investigate would be an IEEE saved-search email alert or a controlled browser-session method.
+`paper_monitor_system/.env`
+
+The file is excluded by `.gitignore`. Do not put keys in the workbook, Python source, web files, or GitHub Pages.
+
+## GitHub Actions
+
+`.github/workflows/update-paper-monitor.yml` remains an informational manual workflow only. There is no scheduled publisher collection on GitHub-hosted runners.

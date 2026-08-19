@@ -1,2 +1,1 @@
-Paper Monitor Build: LOCAL-2026.08.19-V1
-Execution: local PC only
+LOCAL-2026.08.19-V2
