@@ -3,11 +3,11 @@ main = "worker.js"
 compatibility_date = "2026-08-01"
 
 [vars]
-GITHUB_OWNER = "YOUR_GITHUB_USER_OR_ORG"
-GITHUB_REPO = "YOUR_REPOSITORY"
+GITHUB_OWNER = "dm-dut"
+GITHUB_REPO = "dm-dut.github.io"
 GITHUB_REF = "main"
 GITHUB_WORKFLOW = "update-online-papers.yml"
-ALLOWED_ORIGINS = "https://YOUR_GITHUB_USER.github.io"
+ALLOWED_ORIGINS = "https://dm-dut.github.io"
 
 # Add secrets with Wrangler; do NOT place them in this file:
 #   npx wrangler secret put GITHUB_PAT

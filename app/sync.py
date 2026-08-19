@@ -86,7 +86,7 @@ def main() -> None:
             print(f"[{provider}] ERROR: {e}")
 
     count = export_json()
-    print(f"[export] {count} whitelisted records -> web/data/online_papers.json")
+    print(f"[export] {count} whitelisted records -> paper-monitor/data/online_papers.json")
 
 
 if __name__ == "__main__":

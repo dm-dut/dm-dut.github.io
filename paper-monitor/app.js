@@ -1,4 +1,4 @@
-const DATA_URL = "data/online_papers.json";
+const DATA_URL = "./data/online_papers.json";
 const CONFIG = window.PAPER_TRACKER_CONFIG || {};
 let allPapers = [];
 let currentPublisher = "全部";
