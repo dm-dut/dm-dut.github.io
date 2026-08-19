@@ -5,7 +5,7 @@ from datetime import date, timedelta
 
 from sqlalchemy.orm import Session
 
-from .config import ENABLE_IEEE, ENABLE_SCIENCEDIRECT, ENABLE_SPRINGER, OVERLAP_DAYS
+from .config import ENABLE_IEEE, ENABLE_SCIENCEDIRECT, ENABLE_SPRINGER, OVERLAP_DAYS, WEB_JSON_PATH
 from .db import engine, get_sync_state, init_db, save_sync_error, save_sync_success, upsert_article
 from .export_json import export_json
 from .journals import describe_journals, enabled_journals
@@ -29,6 +29,8 @@ def default_window(session: Session, provider: str, initial_days: int) -> tuple[
 
 
 def sync_provider(provider: str, fetcher, journals, start: date, end: date) -> tuple[int, int]:
+    if start > end:
+        raise ValueError(f"start date {start} is after end date {end}")
     total = created = 0
     with Session(engine) as session:
         try:
@@ -40,9 +42,9 @@ def sync_provider(provider: str, fetcher, journals, start: date, end: date) -> t
                     session.commit()
             save_sync_success(session, provider, end, total)
             session.commit()
-        except Exception as e:
+        except Exception as exc:
             session.rollback()
-            save_sync_error(session, provider, repr(e))
+            save_sync_error(session, provider, repr(exc))
             session.commit()
             raise
     return total, created
@@ -58,15 +60,15 @@ def main() -> None:
 
     init_db()
     selected = PROVIDERS.items() if args.provider == "all" else [(args.provider, PROVIDERS[args.provider])]
+    errors: list[tuple[str, Exception]] = []
 
     for provider, (enabled, fetcher) in selected:
         if not enabled:
             print(f"[{provider}] disabled")
             continue
-
         journals = enabled_journals(provider)
         if not journals:
-            print(f"[{provider}] skipped: no Enabled=1 journals in journal_list.xlsx")
+            print(f"[{provider}] skipped: no Enabled=1 journals")
             continue
 
         with Session(engine) as session:
@@ -82,11 +84,16 @@ def main() -> None:
         try:
             total, created = sync_provider(provider, fetcher, journals, start, end)
             print(f"[{provider}] fetched={total}, new={created}, updated={total-created}")
-        except Exception as e:
-            print(f"[{provider}] ERROR: {e}")
+        except Exception as exc:
+            errors.append((provider, exc))
+            print(f"[{provider}] ERROR: {type(exc).__name__}: {exc}")
 
     count = export_json()
-    print(f"[export] {count} whitelisted records -> paper-monitor/data/online_papers.json")
+    print(f"[export] {count} whitelisted records -> {WEB_JSON_PATH}")
+
+    if errors:
+        names = ", ".join(name for name, _ in errors)
+        raise SystemExit(f"Provider failures: {names}. See log above for details.")
 
 
 if __name__ == "__main__":

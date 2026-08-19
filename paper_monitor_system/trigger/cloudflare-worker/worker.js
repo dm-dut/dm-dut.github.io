@@ -9,7 +9,7 @@
  *
  * Optional variables:
  *   GITHUB_REF       default: main
- *   GITHUB_WORKFLOW  default: update-online-papers.yml
+ *   GITHUB_WORKFLOW  default: update-paper-monitor.yml
  *   ALLOWED_ORIGINS  comma-separated origins, e.g. https://example.github.io
  */
 
@@ -67,7 +67,7 @@ export default {
 
     const owner = env.GITHUB_OWNER;
     const repo = env.GITHUB_REPO;
-    const workflow = env.GITHUB_WORKFLOW || "update-online-papers.yml";
+    const workflow = env.GITHUB_WORKFLOW || "update-paper-monitor.yml";
     const ref = env.GITHUB_REF || "main";
     if (!owner || !repo || !env.GITHUB_PAT) {
       return json({error: "Worker 缺少 GitHub 配置"}, 500, origin || "");

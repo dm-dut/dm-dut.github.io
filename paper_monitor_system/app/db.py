@@ -6,7 +6,7 @@ from pathlib import Path
 from sqlalchemy import Date, DateTime, Integer, String, Text, UniqueConstraint, create_engine, select
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 
-from .config import DATABASE_URL, ROOT
+from .config import DATABASE_URL
 
 
 class Base(DeclarativeBase):
@@ -29,23 +29,17 @@ class Article(Base):
     issn: Mapped[str] = mapped_column(String(80), default="")
     content_type: Mapped[str] = mapped_column(String(80), default="")
     url: Mapped[str] = mapped_column(Text, default="")
-
-    # Normalized sortable date plus raw source date.
     online_date: Mapped[date | None] = mapped_column(Date, nullable=True, index=True)
     online_date_raw: Mapped[str] = mapped_column(String(120), default="")
     date_precision: Mapped[str] = mapped_column(String(20), default="unknown")
     online_date_source: Mapped[str] = mapped_column(String(80), default="")
-
-    # Date used to discover the record in a delta query (load/insert/query window).
     source_update_date: Mapped[date | None] = mapped_column(Date, nullable=True, index=True)
-
     first_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     last_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
 
 
 class SyncState(Base):
     __tablename__ = "sync_state"
-
     provider: Mapped[str] = mapped_column(String(40), primary_key=True)
     last_success_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     last_window_end: Mapped[date | None] = mapped_column(Date, nullable=True)
@@ -53,15 +47,17 @@ class SyncState(Base):
     last_error: Mapped[str] = mapped_column(Text, default="")
 
 
-def _normalized_db_url() -> str:
-    if DATABASE_URL.startswith("sqlite:///data/"):
-        db_path = ROOT / DATABASE_URL.removeprefix("sqlite:///")
-        db_path.parent.mkdir(parents=True, exist_ok=True)
-        return f"sqlite:///{db_path}"
-    return DATABASE_URL
+def _prepare_sqlite_dir(url: str) -> None:
+    if not url.startswith("sqlite:///"):
+        return
+    raw = url.removeprefix("sqlite:///")
+    if raw == ":memory:":
+        return
+    Path(raw).expanduser().resolve().parent.mkdir(parents=True, exist_ok=True)
 
 
-engine = create_engine(_normalized_db_url(), future=True)
+_prepare_sqlite_dir(DATABASE_URL)
+engine = create_engine(DATABASE_URL, future=True)
 
 
 def init_db() -> None:
@@ -96,12 +92,7 @@ def save_sync_error(session: Session, provider: str, error: str) -> None:
 
 
 def upsert_article(session: Session, record: dict) -> tuple[Article, bool]:
-    """Insert or update one article without duplicating repeat/manual/scheduled fetches.
-
-    The normal identity key is DOI-first, then provider external ID, then title.
-    The extra DOI/external-ID lookups below make the upsert resilient when a
-    publisher first exposes an item without a DOI and supplies the DOI later.
-    """
+    """DOI-first upsert shared by scheduled and manual runs."""
     existing = session.scalar(select(Article).where(Article.identity_key == record["identity_key"]))
 
     doi = record.get("doi")
@@ -117,7 +108,6 @@ def upsert_article(session: Session, record: dict) -> tuple[Article, bool]:
             )
         )
 
-    # Last-resort fallback only when the source supplies neither DOI nor ID.
     if existing is None and not doi and not external_id and record.get("title"):
         existing = session.scalar(
             select(Article).where(
@@ -139,7 +129,6 @@ def upsert_article(session: Session, record: dict) -> tuple[Article, bool]:
         )
         session.add(existing)
     elif existing.identity_key != record["identity_key"]:
-        # Promote an external-ID/title identity to DOI identity when DOI arrives.
         collision = session.scalar(
             select(Article).where(
                 Article.identity_key == record["identity_key"],

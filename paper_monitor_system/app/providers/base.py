@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from datetime import date
 
-from app.utils import clean_doi, identity_key, normalize_space
+from ..utils import clean_doi, identity_key, normalize_space
 
 
 @dataclass

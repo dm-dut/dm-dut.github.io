@@ -6,7 +6,7 @@ compatibility_date = "2026-08-01"
 GITHUB_OWNER = "dm-dut"
 GITHUB_REPO = "dm-dut.github.io"
 GITHUB_REF = "main"
-GITHUB_WORKFLOW = "update-online-papers.yml"
+GITHUB_WORKFLOW = "update-paper-monitor.yml"
 ALLOWED_ORIGINS = "https://dm-dut.github.io"
 
 # Add secrets with Wrangler; do NOT place them in this file:
