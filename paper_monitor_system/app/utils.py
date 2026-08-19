@@ -11,23 +11,25 @@ from dateutil import parser as dtparser
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-from .config import HTTP_TIMEOUT, REQUEST_PAUSE_SECONDS
+from .config import HTTP_RETRY_BACKOFF, HTTP_RETRY_TOTAL, HTTP_TIMEOUT, REQUEST_PAUSE_SECONDS
 
 
 def build_session() -> requests.Session:
     retry = Retry(
-        total=5,
-        connect=5,
-        read=5,
-        status=5,
-        backoff_factor=1.0,
+        total=max(0, HTTP_RETRY_TOTAL),
+        connect=max(0, HTTP_RETRY_TOTAL),
+        read=max(0, HTTP_RETRY_TOTAL),
+        status=max(0, HTTP_RETRY_TOTAL),
+        backoff_factor=max(0.0, HTTP_RETRY_BACKOFF),
         status_forcelist=(429, 500, 502, 503, 504),
         allowed_methods=frozenset(["GET"]),
         respect_retry_after_header=True,
     )
     s = requests.Session()
-    s.headers.update({"User-Agent": "online-papers-tracker/1.0"})
-    s.mount("https://", HTTPAdapter(max_retries=retry))
+    s.headers.update({"User-Agent": "dm-dut-paper-monitor/3.0 (metadata monitoring)"})
+    adapter = HTTPAdapter(max_retries=retry, pool_connections=8, pool_maxsize=8)
+    s.mount("https://", adapter)
+    s.mount("http://", adapter)
     return s
 
 
@@ -71,44 +73,27 @@ def identity_key(provider: str, doi: str | None, external_id: str | None, title:
 
 
 def parse_flexible_date(raw: str | None, fallback: date | None = None) -> tuple[date | None, str]:
-    """Return normalized sortable date + precision.
-
-    Precision is one of: day, month, quarter, year, fallback, unknown.
-    For month/quarter/year-only values, the first day of the period is used only
-    for sorting/filtering; the original raw string remains stored separately.
-    """
     if not raw:
         return (fallback, "fallback" if fallback else "unknown")
-
     text = normalize_space(raw)
-
-    # YYYY-MM-DD / YYYYMMDD
     for fmt in ("%Y-%m-%d", "%Y%m%d"):
         try:
             return datetime.strptime(text, fmt).date(), "day"
         except ValueError:
             pass
-
-    # YYYY-MM
     if re.fullmatch(r"\d{4}-\d{2}", text):
         y, m = map(int, text.split("-"))
         return date(y, m, 1), "month"
-
-    # Quarter forms such as Q2 2026 / 2nd Quarter 2026
     m = re.search(r"(?:Q|Quarter\s*)([1-4])\D*(\d{4})", text, re.I)
     if not m:
         m = re.search(r"([1-4])(?:st|nd|rd|th)?\s+Quarter\D*(\d{4})", text, re.I)
     if m:
         q, y = int(m.group(1)), int(m.group(2))
-        month = 1 + (q - 1) * 3
-        return date(y, month, 1), "quarter"
-
+        return date(y, 1 + (q - 1) * 3, 1), "quarter"
     if re.fullmatch(r"\d{4}", text):
         return date(int(text), 1, 1), "year"
-
     try:
         dt = dtparser.parse(text, fuzzy=True, default=datetime(1900, 1, 1))
-        # Infer whether a day appears explicitly.
         has_day = bool(re.search(r"\b([0-2]?\d|3[01])\b", text))
         if has_day:
             return dt.date(), "day"
@@ -132,12 +117,7 @@ def join_authors(items: Any) -> str:
             if isinstance(item, str):
                 names.append(normalize_space(item))
             elif isinstance(item, dict):
-                name = first_nonempty(
-                    item.get("full_name"),
-                    item.get("creator"),
-                    item.get("$"),
-                    item.get("name"),
-                )
+                name = first_nonempty(item.get("full_name"), item.get("creator"), item.get("$"), item.get("name"))
                 if name:
                     names.append(normalize_space(str(name)))
     return "; ".join(n for n in names if n)

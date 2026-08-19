@@ -1,13 +1,14 @@
-# IEEE RSS setup — LOCAL_FINAL_V2
+# IEEE Combined Saved Search RSS
 
-The existing combined Saved Search feed **IEEETrans15** is already embedded in `paper_monitor_system/journal_list.xlsx` for all 15 IEEE rows. The program deduplicates the URL and requests it once.
+LOCAL_FINAL_V3 keeps the single combined `IEEETrans15` Saved Search RSS already stored in `journal_list.xlsx` for all 15 IEEE journals.
 
-Your local connectivity test returned HTTP 200 with 10 RSS/Atom entries, so the RSS path is enabled as the primary IEEE discovery source.
+Important behavior:
 
-Important:
+- The feed URL is requested exactly as saved; `rowsPerPage=10` is not rewritten.
+- The program fetches the duplicated workbook URL only once.
+- RSS timestamps are discovery timestamps, not `online_date`.
+- V3 attempts Crossref metadata first and opens the IEEE article page only when needed.
+- Virtual Journals / Compendia are discarded through the 15-journal whitelist.
+- If an RSS-discovered DOI has no reliable online date yet, it is stored as `pending` and rechecked later by DOI.
 
-- The feed URL is preserved exactly, including `rowsPerPage=10`.
-- RSS `pubDate` is not treated as the article's online-publication date.
-- The 15-journal whitelist filters Virtual Journals and Compendia.
-- If a feed item resolves to a whitelist DOI but its true online date is not yet available, it is retained as `pending` for later recheck.
-- When the feed returns exactly 10 entries, LOCAL V2 prints a warning that the configured page limit has been reached. Daily updates are recommended.
+Because the current feed exposes 10 items, schedule `update_papers.bat` daily to reduce the risk of the newest-results page overflowing between runs.

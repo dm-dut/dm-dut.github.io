@@ -1,11 +1,12 @@
 from __future__ import annotations
 
+import inspect
 import re
 
 from .config import BUILD_ID, DB_PATH, JOURNAL_LIST_PATH, SYSTEM_ROOT, WEB_JSON_PATH
 from .db import init_db
 from .journals import enabled_journals, load_journal_list
-from .providers import crossref, ieee, springer
+from .providers import crossref, ieee, sciencedirect, springer
 
 
 def main() -> None:
@@ -15,7 +16,7 @@ def main() -> None:
     assert JOURNAL_LIST_PATH.exists()
     assert springer.BASE_URL.endswith("/meta/v2/json")
     assert crossref.BASE_URL.rstrip("/") == "https://api.crossref.org"
-    assert BUILD_ID == "LOCAL-2026.08.19-V2"
+    assert BUILD_ID == "LOCAL-2026.08.19-V3"
 
     bad = []
     for py in (SYSTEM_ROOT / "app").rglob("*.py"):
@@ -23,12 +24,17 @@ def main() -> None:
             bad.append(str(py))
     assert not bad, bad
 
-    for spec in enabled_journals("sciencedirect"):
-        assert spec.primary_url, f"Missing Elsevier reference URL: {spec.journal}"
-        assert spec.mode == "elsevier_incremental", (spec.journal, spec.mode)
-    for spec in enabled_journals("springer"):
-        assert spec.primary_url, f"Missing Springer primary URL: {spec.journal}"
-        assert spec.mode == "springer_batch_api", (spec.journal, spec.mode)
+    elsevier = enabled_journals("sciencedirect")
+    assert all(s.mode == "elsevier_member_batch" for s in elsevier)
+    assert all(s.crossref_member == 78 for s in elsevier), "All 39 Elsevier rows should use Crossref member 78 unless deliberately overridden"
+    assert all(s.crossref_prefix == "10.1016" for s in elsevier), "Elsevier batch should be narrowed to prefix 10.1016"
+    assert "member_batch_discover" in inspect.getsource(sciencedirect.fetch)
+    assert "from-created-date" in inspect.getsource(crossref.member_batch_discover)
+    assert "/journals/{" not in inspect.getsource(crossref)
+
+    springer_specs = enabled_journals("springer")
+    assert all(s.primary_url for s in springer_specs), "Missing Springer primary URL"
+    assert all(s.mode == "springer_batch_api" for s in springer_specs)
 
     ieee_specs = enabled_journals("ieee")
     urls = ieee._combined_rss_urls(ieee_specs)
@@ -41,7 +47,8 @@ def main() -> None:
     print(f"build={BUILD_ID}")
     print(f"journal_list={JOURNAL_LIST_PATH} ({len(specs)} enabled)")
     print(f"providers={counts}")
-    print("strategy=elsevier direct-rss(optional)+crossref-index-date+pending; springer batch-meta-api->per-journal/page/crossref; ieee combined-saved-search-rss+pending")
+    print("strategy=elsevier crossref-member-78 created-date batch + optional direct RSS; springer batch-meta-api; ieee combined-saved-search-rss")
+    print("pending=DOI-only delayed recheck; no immediate same-run recheck")
     print(f"ieee_combined_rss=1 exact feed for {len(ieee_specs)} journals")
     print(f"database={DB_PATH}")
     print(f"web_json={WEB_JSON_PATH}")

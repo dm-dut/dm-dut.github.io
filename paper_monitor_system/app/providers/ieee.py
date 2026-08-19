@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 from datetime import date
+from time import perf_counter
 from typing import Iterator, Sequence
 
 import requests
 
-from ..config import ENABLE_CROSSREF_FALLBACK, HTTP_TIMEOUT, IEEE_SAVED_SEARCH_RSS_URL
+from ..config import ENABLE_IEEE_CROSSREF_SUPPLEMENT, HTTP_TIMEOUT, IEEE_SAVED_SEARCH_RSS_URL
 from ..journals import JournalSpec, display_issn, match_journal
 from ..utils import build_session, normalize_space
 from . import crossref
@@ -15,12 +16,7 @@ from .rss_source import parse_feed
 
 
 def _normalize_saved_search_url(url: str) -> str:
-    """Preserve the user's IEEE Saved Search RSS URL byte-for-byte apart from whitespace.
-
-    Earlier hybrid builds rewrote rowsPerPage=10 to 100. That changes the saved-search
-    URL and may trigger IEEE anti-bot/session checks. The local build deliberately does
-    NOT alter rowsPerPage, queryText, rssFeedName, or any other parameter.
-    """
+    """Preserve the user's IEEE Saved Search URL apart from surrounding whitespace."""
     return normalize_space(url)
 
 
@@ -60,32 +56,39 @@ def _entry_to_record(entry: dict, journals: Sequence[JournalSpec], start: date, 
     if not title:
         return None
 
-    # RSS is a discovery channel. Publisher-page/Crossref metadata determines the
-    # original journal and online date, which also filters Virtual Journals and
-    # Compendia from the final 15-journal whitelist.
-    spec = _spec_from_text(" ".join([title, summary, ident]), journals)
+    text_blob = " ".join([title, summary, ident])
+    spec = _spec_from_text(text_blob, journals)
     doi = extract_doi(" ".join([link, summary, ident]))
 
+    # LOCAL V3 optimization: Crossref first. A DOI lookup is usually faster and
+    # more stable than opening an IEEE article page. The page is only a fallback
+    # when Crossref does not yet identify the journal/date.
+    cr: dict = {}
+    if doi:
+        try:
+            cr = resolve_crossref(title, spec or journals[0], doi)
+        except requests.RequestException:
+            cr = {}
+    elif spec:
+        try:
+            cr = resolve_crossref(title, spec, None)
+        except requests.RequestException:
+            cr = {}
+
+    if spec is None and cr:
+        spec = match_journal("ieee", cr.get("journal"), cr.get("issn"), journals)
+
     page: dict = {}
-    if link:
+    need_page = spec is None or not cr.get("online_date") or not (doi or cr.get("doi"))
+    if need_page and link:
         try:
             page = page_metadata(link)
         except requests.RequestException:
             page = {}
-    doi = page.get("doi") or doi
+        doi = page.get("doi") or doi
+        if spec is None:
+            spec = match_journal("ieee", page.get("journal"), page.get("issn"), journals)
 
-    cr: dict = {}
-    if doi or not spec:
-        seed_spec = spec or journals[0]
-        try:
-            cr = resolve_crossref(title, seed_spec, doi)
-        except requests.RequestException:
-            cr = {}
-
-    if spec is None:
-        spec = match_journal("ieee", page.get("journal"), page.get("issn"), journals)
-    if spec is None:
-        spec = match_journal("ieee", cr.get("journal"), cr.get("issn"), journals)
     if spec is None:
         return None
 
@@ -95,15 +98,28 @@ def _entry_to_record(entry: dict, journals: Sequence[JournalSpec], start: date, 
         except requests.RequestException:
             cr = {}
 
+    # Reconfirm the source journal from publisher/Crossref metadata. This drops
+    # Virtual Journals and Compendia unless the underlying article maps to one of
+    # the 15 whitelisted journals.
+    confirmed = match_journal(
+        "ieee",
+        page.get("journal") or cr.get("journal") or spec.journal,
+        page.get("issn") or cr.get("issn"),
+        journals,
+    )
+    if confirmed is None:
+        return None
+    spec = confirmed
+
+    doi = page.get("doi") or doi or cr.get("doi")
     online = page.get("online_date") or cr.get("online_date")
     raw = page.get("online_raw") or cr.get("online_raw") or ""
     precision = page.get("precision") or cr.get("precision") or "unknown"
-    # Never use the RSS pubDate as the article's online-publication date.
-    # If the feed discovers a DOI before Crossref/publisher metadata exposes the
-    # true online date, keep it as pending rather than losing it permanently.
+
+    # RSS pubDate is discovery time only; never use it as online publication date.
     if online and (online < start or online > end):
         return None
-    if not online and not (doi or cr.get("doi")):
+    if not online and not doi:
         return None
 
     source = (
@@ -121,7 +137,7 @@ def _entry_to_record(entry: dict, journals: Sequence[JournalSpec], start: date, 
         title=page.get("title") or title,
         journal=spec.journal,
         authors=page.get("authors") or cr.get("authors") or "",
-        doi=doi or cr.get("doi"),
+        doi=doi,
         external_id=ident or link,
         issn=page.get("issn") or cr.get("issn") or (display_issn(spec.issns[0]) if spec.issns else ""),
         content_type="Journal Article",
@@ -151,7 +167,9 @@ def _fetch_combined_rss(url: str, journals: Sequence[JournalSpec], start: date, 
 
     records: list[ArticleRecord] = []
     seen: set[str] = set()
-    for entry in entries:
+    for idx, entry in enumerate(entries, start=1):
+        title = normalize_space(entry.get("title") or "")
+        print(f"[ieee] RSS entry {idx}/{len(entries)}: {title[:90]}")
         record = _entry_to_record(entry, journals, start, end)
         if record is None:
             continue
@@ -162,22 +180,28 @@ def _fetch_combined_rss(url: str, journals: Sequence[JournalSpec], start: date, 
         records.append(record)
     print(f"[ieee] combined Saved Search RSS entries={len(entries)}, accepted_whitelist_records={len(records)}")
     if len(entries) == 10 and "rowsPerPage=10" in url:
-        print("[ieee] NOTE: feed returned the configured 10-item page limit; daily local scheduling is recommended to reduce overflow risk.")
+        print("[ieee] NOTE: feed returned the configured 10-item page limit; daily local scheduling is recommended.")
     return records
 
 
 def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
+    t0 = perf_counter()
     rss_urls = _combined_rss_urls(journals)
     seen: set[str] = set()
     rss_records: list[ArticleRecord] = []
+    successful_feeds = 0
 
     for url in rss_urls:
         try:
             rss_records.extend(_fetch_combined_rss(url, journals, start, end))
+            successful_feeds += 1
         except Exception as exc:
             status = getattr(getattr(exc, "response", None), "status_code", None)
             suffix = f" HTTP {status}" if status else ""
             print(f"[ieee] Saved Search RSS warning:{suffix} {type(exc).__name__}: {exc}")
+
+    if rss_urls and successful_feeds == 0:
+        raise RuntimeError("All configured IEEE Saved Search RSS feeds failed")
 
     for record in rss_records:
         key = record.doi or record.external_id or record.title.lower()
@@ -186,7 +210,9 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
         seen.add(key)
         yield record
 
-    if ENABLE_CROSSREF_FALLBACK:
+    # Disabled by default in V3 because the combined RSS is the discovery source;
+    # per-journal Crossref supplementation would add up to dozens of extra requests.
+    if ENABLE_IEEE_CROSSREF_SUPPLEMENT:
         journals_seen = {r.journal for r in rss_records}
         missing = [spec for spec in journals if spec.journal not in journals_seen]
         if missing:
@@ -198,11 +224,12 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
                     seen.add(key)
                     yield record
             except Exception as exc:
-                print(f"[ieee] Crossref supplement warning: {type(exc).__name__}: {exc}")
+                print(f"[ieee] optional Crossref supplement warning: {type(exc).__name__}: {exc}")
 
+    elapsed = perf_counter() - t0
     print(
-        f"[ieee] sources: combined_saved_search_rss={len(rss_urls)} feed(s), "
-        f"rss_records={len(rss_records)}, total_unique_records={len(seen)}"
+        f"[ieee] sources: combined_saved_search_rss={len(rss_urls)} feed(s), rss_records={len(rss_records)}, "
+        f"total_unique_records={len(seen)}, elapsed={elapsed:.1f}s"
     )
     if not rss_urls:
-        print("[ieee] WARNING: no Saved Search RSS URL is configured in journal_list.xlsx or IEEE_SAVED_SEARCH_RSS_URL")
+        raise RuntimeError("No IEEE Saved Search RSS URL is configured")

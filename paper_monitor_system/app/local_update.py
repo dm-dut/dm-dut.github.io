@@ -98,7 +98,7 @@ def publish(branch: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Local paper-monitor updater for Windows/macOS/Linux")
     parser.add_argument("--provider", choices=["all", "sciencedirect", "springer", "ieee"], default="all")
-    parser.add_argument("--initial-days", type=int, default=7)
+    parser.add_argument("--initial-days", type=int, default=1)
     parser.add_argument("--no-git", action="store_true", help="fetch/export only; do not pull/commit/push")
     parser.add_argument("--no-push", action="store_true", help="pull first, fetch/export, but leave generated changes uncommitted")
     parser.add_argument("--skip-tests", action="store_true")

@@ -1,0 +1,29 @@
+Paper Monitor LOCAL_FINAL_V3 validation report
+Build: LOCAL-2026.08.19-V3
+
+Validated in a clean test environment before packaging:
+- Python compileall: PASS
+- Application self-check: PASS
+- Application self-test: PASS
+- Journal whitelist counts (Elsevier 39 / Springer 25 / IEEE 15): PASS
+- Elsevier Crossref member-batch mock (member 78 + prefix 10.1016 + local whitelist): PASS
+- Crossref two-day created-date query construction: PASS
+- Crossref pending/published parsing: PASS
+- Springer batch Meta API mock + whitelist filtering: PASS
+- IEEE combined Saved Search RSS configuration (15 journals -> 1 feed): PASS
+- IEEE Crossref-first enrichment mock (publisher page avoided when unnecessary): PASS
+- Pending -> published upsert protection: PASS
+- Old SQLite schema migration for status/last_checked_at: PASS
+- SQLite -> JSON export; pending excluded from public feed: PASS
+- Front-end JavaScript syntax (app.js/config.js): PASS
+- GitHub workflow YAML parse: PASS
+- Scheduled update batch file contains no PAUSE: PASS
+- No git pull --rebase in updater: PASS
+- No empty papers.db / online_papers.json in package: PASS
+- No root homepage index.html/assets/images/scripts/data in package: PASS
+- journal_list.xlsx formula/error scan and visual preview: PASS
+
+Network note:
+This build environment does not use the user's local network/API credentials. The user's own latest connectivity test was:
+Springer Meta API 200; IEEE Saved Search RSS 200; Crossref 200; ScienceDirect API 401; ScienceDirect page 403.
+V3 is designed around the three working local channels and does not require ScienceDirect API/page access.

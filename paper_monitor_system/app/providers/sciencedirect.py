@@ -178,14 +178,21 @@ def _direct_rss_records(spec: JournalSpec, start: date, end: date) -> list[Artic
 
 
 def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
-    """LOCAL V2 Elsevier strategy: optional direct RSS + Crossref incremental.
+    """LOCAL V3 Elsevier strategy: direct RSS (optional) + one publisher-level Crossref batch.
 
-    ScienceDirect API/page paths remain opt-in and disabled by default after the
-    user's local connectivity test returned HTTP 401/403.
+    Routine updates do not require ScienceDirect API/page access. Those optional
+    paths remain disabled by default because the user's local test returned
+    HTTP 401/403. If the fast member batch fails, the older per-ISSN Crossref
+    route is used only as an emergency fallback.
     """
+    from time import perf_counter
+
+    t0 = perf_counter()
     seen: set[str] = set()
     api_count = page_count = rss_count = 0
 
+    # Only touch journals that actually have an enabled optional source. This
+    # avoids 39 no-op iterations in the normal V3 configuration.
     for spec in journals:
         local_records: list[ArticleRecord] = []
         if ENABLE_SCIENCEDIRECT_API:
@@ -204,7 +211,7 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
             except Exception as exc:
                 status = getattr(getattr(exc, "response", None), "status_code", None)
                 print(f"[sciencedirect] optional page warning: {spec.journal}: HTTP {status} {type(exc).__name__}")
-        if spec.rss_url and ENABLE_SCIENCEDIRECT_RSS:
+        if ENABLE_SCIENCEDIRECT_RSS and spec.rss_url:
             try:
                 rss_records = _direct_rss_records(spec, start, end)
                 local_records.extend(rss_records)
@@ -223,17 +230,28 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
     crossref_count = 0
     if ENABLE_CROSSREF_FALLBACK:
         try:
-            for record in crossref.incremental_discover("sciencedirect", "Elsevier", end, journals):
+            for record in crossref.member_batch_discover("sciencedirect", "Elsevier", start, end, journals):
                 key = record.doi or record.external_id or record.title.lower()
                 if key and key not in seen:
                     seen.add(key)
                     crossref_count += 1
                     yield record
         except Exception as exc:
-            print(f"[sciencedirect] Crossref incremental ERROR: {type(exc).__name__}: {exc}")
-            raise
+            print(f"[sciencedirect] fast Crossref member batch unavailable ({type(exc).__name__}: {exc}); using emergency per-ISSN fallback")
+            try:
+                for record in crossref.incremental_discover("sciencedirect", "Elsevier", end, journals):
+                    key = record.doi or record.external_id or record.title.lower()
+                    if key and key not in seen:
+                        seen.add(key)
+                        crossref_count += 1
+                        yield record
+            except Exception as fallback_exc:
+                print(f"[sciencedirect] Crossref emergency fallback ERROR: {type(fallback_exc).__name__}: {fallback_exc}")
+                raise
 
+    elapsed = perf_counter() - t0
     print(
         f"[sciencedirect] sources: optional_api_journals={api_count}, optional_page_journals={page_count}, "
-        f"direct_rss_journals={rss_count}, crossref_incremental_records={crossref_count}, total_unique={len(seen)}"
+        f"direct_rss_journals={rss_count}, crossref_batch_records={crossref_count}, "
+        f"total_unique={len(seen)}, elapsed={elapsed:.1f}s"
     )

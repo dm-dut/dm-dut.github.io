@@ -10,7 +10,7 @@ SYSTEM_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SYSTEM_ROOT.parent
 load_dotenv(SYSTEM_ROOT / ".env")
 
-BUILD_ID = "LOCAL-2026.08.19-V2"
+BUILD_ID = "LOCAL-2026.08.19-V3"
 
 
 def env_bool(name: str, default: bool = True) -> bool:
@@ -25,32 +25,48 @@ IEEE_API_KEY = os.getenv("IEEE_API_KEY", "").strip()
 CROSSREF_MAILTO = os.getenv("CROSSREF_MAILTO", "").strip()
 IEEE_SAVED_SEARCH_RSS_URL = os.getenv("IEEE_SAVED_SEARCH_RSS_URL", "").strip()
 
-# LOCAL V2 defaults are based on the user's real connectivity test:
-# Springer Meta API 200, IEEE Saved Search RSS 200, Crossref 200,
-# ScienceDirect API 401 and ScienceDirect pages 403.
-# The two ScienceDirect publisher paths remain optional switches for future use,
-# but they are OFF by default so routine updates do not waste time on known failures.
+# Provider switches. LOCAL V3 is intentionally optimized around the channels
+# that were verified from the user's local network: Springer Meta API, IEEE
+# Saved Search RSS, and Crossref. ScienceDirect API/page remain optional only.
+ENABLE_SCIENCEDIRECT = env_bool("ENABLE_SCIENCEDIRECT", True)
+ENABLE_SPRINGER = env_bool("ENABLE_SPRINGER", True)
+ENABLE_IEEE = env_bool("ENABLE_IEEE", True)
 ENABLE_SCIENCEDIRECT_API = env_bool("ENABLE_SCIENCEDIRECT_API", False)
 ENABLE_SCIENCEDIRECT_PAGE = env_bool("ENABLE_SCIENCEDIRECT_PAGE", False)
 ENABLE_SCIENCEDIRECT_RSS = env_bool("ENABLE_SCIENCEDIRECT_RSS", True)
 ENABLE_SPRINGER_API = env_bool("ENABLE_SPRINGER_API", True)
 ENABLE_SPRINGER_BATCH_API = env_bool("ENABLE_SPRINGER_BATCH_API", True)
 ENABLE_IEEE_API = env_bool("ENABLE_IEEE_API", False)
+ENABLE_IEEE_CROSSREF_SUPPLEMENT = env_bool("ENABLE_IEEE_CROSSREF_SUPPLEMENT", False)
 ENABLE_CROSSREF_FALLBACK = env_bool("ENABLE_CROSSREF_FALLBACK", True)
 
-ENABLE_SCIENCEDIRECT = env_bool("ENABLE_SCIENCEDIRECT", True)
-ENABLE_SPRINGER = env_bool("ENABLE_SPRINGER", True)
-ENABLE_IEEE = env_bool("ENABLE_IEEE", True)
-CROSSREF_DISCOVERY_DAYS = int(os.getenv("CROSSREF_DISCOVERY_DAYS", "30"))
+# Daily incremental windows. OVERLAP_DAYS=1 means yesterday..today (two
+# calendar dates, inclusive). The Crossref discovery cap is also two days.
+CROSSREF_DISCOVERY_DAYS = int(os.getenv("CROSSREF_DISCOVERY_DAYS", "2"))
+OVERLAP_DAYS = int(os.getenv("OVERLAP_DAYS", "1"))
 PENDING_RECHECK_DAYS = int(os.getenv("PENDING_RECHECK_DAYS", "60"))
-OVERLAP_DAYS = int(os.getenv("OVERLAP_DAYS", "3"))
+PENDING_RECHECK_MIN_HOURS = int(os.getenv("PENDING_RECHECK_MIN_HOURS", "20"))
+PENDING_RECHECK_LIMIT = int(os.getenv("PENDING_RECHECK_LIMIT", "200"))
 EXPORT_DAYS = int(os.getenv("EXPORT_DAYS", "365"))
 EXPORT_LIMIT = int(os.getenv("EXPORT_LIMIT", "20000"))
-HTTP_TIMEOUT = int(os.getenv("HTTP_TIMEOUT", "45"))
-REQUEST_PAUSE_SECONDS = float(os.getenv("REQUEST_PAUSE_SECONDS", "0.35"))
+
+# Network behavior: limited retries and shorter timeouts prevent one slow
+# endpoint from making the daily run appear hung.
+HTTP_TIMEOUT = int(os.getenv("HTTP_TIMEOUT", "20"))
+REQUEST_PAUSE_SECONDS = float(os.getenv("REQUEST_PAUSE_SECONDS", "0.10"))
+HTTP_RETRY_TOTAL = int(os.getenv("HTTP_RETRY_TOTAL", "2"))
+HTTP_RETRY_BACKOFF = float(os.getenv("HTTP_RETRY_BACKOFF", "0.40"))
+
 WHITELIST_REQUIRED = env_bool("WHITELIST_REQUIRED", True)
-SPRINGER_BATCH_PAGE_SIZE = int(os.getenv("SPRINGER_BATCH_PAGE_SIZE", "20"))
-SPRINGER_BATCH_MAX_PAGES = int(os.getenv("SPRINGER_BATCH_MAX_PAGES", "250"))
+
+# Crossref batch strategy for the 39 Elsevier journals.
+ELSEVIER_CROSSREF_MEMBER_ID = int(os.getenv("ELSEVIER_CROSSREF_MEMBER_ID", "78"))
+CROSSREF_BATCH_ROWS = int(os.getenv("CROSSREF_BATCH_ROWS", "500"))
+CROSSREF_BATCH_MAX_PAGES = int(os.getenv("CROSSREF_BATCH_MAX_PAGES", "30"))
+
+# Springer Meta API batch strategy.
+SPRINGER_BATCH_PAGE_SIZE = int(os.getenv("SPRINGER_BATCH_PAGE_SIZE", "100"))
+SPRINGER_BATCH_MAX_PAGES = int(os.getenv("SPRINGER_BATCH_MAX_PAGES", "100"))
 
 
 def _resolve(name: str, default: Path) -> Path:

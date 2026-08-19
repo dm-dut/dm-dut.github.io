@@ -5,9 +5,20 @@ from datetime import date, timedelta
 
 import requests
 
-from .config import BUILD_ID, CROSSREF_MAILTO, ELSEVIER_API_KEY, ELSEVIER_INSTTOKEN, HTTP_TIMEOUT, SPRINGER_API_KEY
-from .journals import enabled_journals, display_issn
+from .config import (
+    BUILD_ID,
+    CROSSREF_BATCH_ROWS,
+    CROSSREF_DISCOVERY_DAYS,
+    CROSSREF_MAILTO,
+    ELSEVIER_API_KEY,
+    ELSEVIER_CROSSREF_MEMBER_ID,
+    ELSEVIER_INSTTOKEN,
+    HTTP_TIMEOUT,
+    SPRINGER_API_KEY,
+)
+from .journals import enabled_journals
 from .providers import ieee, sciencedirect, springer
+from .providers.crossref import SELECT_FIELDS
 from .providers.rss_source import parse_feed
 from .utils import build_session
 
@@ -21,7 +32,11 @@ def test_springer() -> bool:
         _line("Springer Meta API", "FAIL", "SPRINGER_API_KEY is missing in paper_monitor_system/.env")
         return False
     try:
-        r = build_session().get(springer.BASE_URL, params={"api_key": SPRINGER_API_KEY, "q": "keyword:test", "s": 1, "p": 1}, timeout=HTTP_TIMEOUT)
+        r = build_session().get(
+            springer.BASE_URL,
+            params={"api_key": SPRINGER_API_KEY, "q": "keyword:test", "s": 1, "p": 1},
+            timeout=HTTP_TIMEOUT,
+        )
         ok = r.status_code == 200
         _line("Springer Meta API", "OK" if ok else "FAIL", f"HTTP {r.status_code}")
         return ok
@@ -62,32 +77,41 @@ def test_crossref() -> bool:
     try:
         r = build_session().get("https://api.crossref.org/works", params=params, timeout=HTTP_TIMEOUT)
         ok = r.status_code == 200
-        _line("Crossref", "OK" if ok else "FAIL", f"HTTP {r.status_code}")
+        detail = f"HTTP {r.status_code}; polite-pool mailto={'yes' if CROSSREF_MAILTO else 'no'}"
+        _line("Crossref", "OK" if ok else "FAIL", detail)
         return ok
     except requests.RequestException as exc:
         _line("Crossref", "FAIL", f"{type(exc).__name__}: {exc}")
         return False
 
 
-def test_elsevier_crossref_incremental() -> bool:
-    spec = enabled_journals("sciencedirect")[0]
-    issn = list(reversed(spec.issns))[0]
-    start = date.today() - timedelta(days=30)
+def test_elsevier_crossref_batch() -> bool:
+    end = date.today()
+    start = end - timedelta(days=max(1, CROSSREF_DISCOVERY_DAYS) - 1)
     params = {
         "filter": ",".join([
-            f"issn:{display_issn(issn)}", "type:journal-article", f"from-index-date:{start.isoformat()}"
+            "type:journal-article",
+            "prefix:10.1016",
+            f"from-created-date:{start.isoformat()}",
+            f"until-created-date:{end.isoformat()}",
         ]),
         "rows": 1,
+        "select": SELECT_FIELDS,
     }
     if CROSSREF_MAILTO:
         params["mailto"] = CROSSREF_MAILTO
+    url = f"https://api.crossref.org/members/{ELSEVIER_CROSSREF_MEMBER_ID}/works"
     try:
-        r = build_session().get("https://api.crossref.org/works", params=params, timeout=HTTP_TIMEOUT)
+        r = build_session().get(url, params=params, timeout=HTTP_TIMEOUT)
         ok = r.status_code == 200
-        _line("Elsevier Crossref incremental", "OK" if ok else "FAIL", f"HTTP {r.status_code} ({spec.journal})")
+        _line(
+            "Elsevier Crossref member batch",
+            "OK" if ok else "FAIL",
+            f"HTTP {r.status_code}; member={ELSEVIER_CROSSREF_MEMBER_ID}; window={start}..{end}; rows={CROSSREF_BATCH_ROWS}",
+        )
         return ok
     except requests.RequestException as exc:
-        _line("Elsevier Crossref incremental", "FAIL", f"{type(exc).__name__}: {exc}")
+        _line("Elsevier Crossref member batch", "FAIL", f"{type(exc).__name__}: {exc}")
         return False
 
 
@@ -98,35 +122,34 @@ def optional_sciencedirect_diagnostics() -> None:
         if ELSEVIER_INSTTOKEN:
             headers["X-ELS-Insttoken"] = ELSEVIER_INSTTOKEN
         try:
-            r = build_session().get(sciencedirect.BASE_URL, params={"query": sciencedirect._query_for_spec(spec, date.today()), "content": "journals", "start": 0, "count": 1}, headers=headers, timeout=HTTP_TIMEOUT)
-            _line("ScienceDirect API (optional)", "OK" if r.status_code == 200 else "WARN", f"HTTP {r.status_code}; LOCAL V2 does not require this channel")
+            r = build_session().get(
+                sciencedirect.BASE_URL,
+                params={"query": sciencedirect._query_for_spec(spec, date.today()), "content": "journals", "start": 0, "count": 1},
+                headers=headers,
+                timeout=HTTP_TIMEOUT,
+            )
+            _line("ScienceDirect API (optional)", "OK" if r.status_code == 200 else "WARN", f"HTTP {r.status_code}; V3 does not require this channel")
         except requests.RequestException as exc:
-            _line("ScienceDirect API (optional)", "WARN", f"{type(exc).__name__}; LOCAL V2 does not require this channel")
+            _line("ScienceDirect API (optional)", "WARN", f"{type(exc).__name__}; V3 does not require this channel")
     else:
         _line("ScienceDirect API (optional)", "SKIP", "no API key; not required")
 
-    try:
-        url = sciencedirect._candidate_pages(spec)[0]
-        r = build_session().get(url, timeout=HTTP_TIMEOUT)
-        _line("ScienceDirect page (optional)", "OK" if r.status_code == 200 else "WARN", f"HTTP {r.status_code}; LOCAL V2 does not require this channel")
-    except requests.RequestException as exc:
-        _line("ScienceDirect page (optional)", "WARN", f"{type(exc).__name__}; LOCAL V2 does not require this channel")
-
     configured = [s for s in enabled_journals("sciencedirect") if s.rss_url]
-    if configured:
-        _line("ScienceDirect direct RSS", "INFO", f"{len(configured)} journal feed URL(s) configured; they will be merged with Crossref incremental discovery")
-    else:
-        _line("ScienceDirect direct RSS", "SKIP", "no stable direct RSS URLs configured; Crossref incremental remains active")
+    _line(
+        "ScienceDirect direct RSS",
+        "INFO" if configured else "SKIP",
+        f"{len(configured)} direct feed URL(s) configured" if configured else "no stable direct RSS URLs configured; member batch is primary",
+    )
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Diagnose LOCAL V2 data-source connectivity")
+    parser = argparse.ArgumentParser(description="Diagnose LOCAL V3 data-source connectivity")
     parser.add_argument("--strict", action="store_true", help="return non-zero unless all required channels pass")
     args = parser.parse_args()
 
     print(f"Paper Monitor Build: {BUILD_ID}")
-    print("Required LOCAL V2 channels are tested first; ScienceDirect API/page are optional diagnostics.\n")
-    required = [test_springer(), test_ieee_saved_search_rss(), test_crossref(), test_elsevier_crossref_incremental()]
+    print("Required LOCAL V3 channels are tested first; ScienceDirect API is optional.\n")
+    required = [test_springer(), test_ieee_saved_search_rss(), test_crossref(), test_elsevier_crossref_batch()]
     optional_sciencedirect_diagnostics()
     passed = sum(required)
     print(f"\nRequired summary: {passed}/{len(required)} checks passed.")

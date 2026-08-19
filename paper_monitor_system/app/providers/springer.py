@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import date
+from time import perf_counter
 from typing import Iterator, Sequence
 
 import requests
@@ -79,23 +80,28 @@ def _record_from_row(spec: JournalSpec, row: dict, start: date, end: date) -> Ar
 
 
 def _batch_api(start: date, end: date, journals: Sequence[JournalSpec]) -> list[ArticleRecord]:
-    """Try one date-window Meta API stream and filter the returned records locally."""
+    """Use one/few date-window Meta API requests and filter the 25 journals locally."""
     if not SPRINGER_API_KEY:
         raise RuntimeError("SPRINGER_API_KEY missing")
     session = build_session()
     last_error: Exception | None = None
-    page_size = max(1, min(SPRINGER_BATCH_PAGE_SIZE, 100))
+    page_size = max(20, min(SPRINGER_BATCH_PAGE_SIZE, 100))
 
-    for query in _batch_query_variants(start, end):
+    for query_no, query in enumerate(_batch_query_variants(start, end), start=1):
         try:
             records: list[ArticleRecord] = []
             seen: set[str] = set()
             start_index = 1
-            for page_no in range(SPRINGER_BATCH_MAX_PAGES):
+            raw_total = 0
+            t0 = perf_counter()
+            for page_no in range(1, SPRINGER_BATCH_MAX_PAGES + 1):
                 data = get_json(session, BASE_URL, params={
                     "api_key": SPRINGER_API_KEY, "q": query, "s": start_index, "p": page_size,
                 })
                 rows = data.get("records") or []
+                raw_total += len(rows)
+                if page_no == 1 or page_no % 10 == 0:
+                    print(f"[springer] batch progress: query={query_no}, page={page_no}, raw_items={raw_total}, whitelist={len(records)}")
                 for row in rows:
                     spec = match_journal(
                         "springer",
@@ -113,25 +119,26 @@ def _batch_api(start: date, end: date, journals: Sequence[JournalSpec]) -> list[
                         seen.add(key)
                         records.append(record)
                 if len(rows) < page_size:
-                    break
+                    elapsed = perf_counter() - t0
+                    print(
+                        f"[springer] batch Meta API success: query={query_no}, pages={page_no}, raw={raw_total}, "
+                        f"whitelist_records={len(records)}, elapsed={elapsed:.1f}s"
+                    )
+                    return records
                 start_index += len(rows)
-            else:
-                raise RuntimeError(f"Springer batch query exceeded {SPRINGER_BATCH_MAX_PAGES} pages")
-            print(f"[springer] batch Meta API success: raw_pages={page_no + 1}, whitelist_records={len(records)}")
-            return records
+            raise RuntimeError(f"Springer batch query exceeded {SPRINGER_BATCH_MAX_PAGES} pages")
         except requests.RequestException as exc:
             last_error = exc
             status = getattr(getattr(exc, "response", None), "status_code", None)
-            print(f"[springer] batch API query warning: HTTP {status}; trying alternate batch syntax")
+            print(f"[springer] batch API query warning: query={query_no}, HTTP {status}; trying alternate syntax")
         except Exception as exc:
             last_error = exc
-            print(f"[springer] batch API warning: {type(exc).__name__}: {exc}")
+            print(f"[springer] batch API warning: query={query_no}, {type(exc).__name__}: {exc}")
             break
 
     if last_error:
         raise last_error
     raise RuntimeError("Springer batch Meta API unavailable")
-
 
 def _api(spec: JournalSpec, start: date, end: date) -> list[ArticleRecord]:
     if not SPRINGER_API_KEY:
@@ -215,6 +222,7 @@ def _page(spec: JournalSpec, start: date, end: date) -> list[ArticleRecord]:
 
 
 def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
+    t0 = perf_counter()
     seen: set[str] = set()
 
     if ENABLE_SPRINGER_API and ENABLE_SPRINGER_BATCH_API:
@@ -225,23 +233,27 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
                 if key and key not in seen:
                     seen.add(key)
                     yield record
-            print(f"[springer] sources: batch_meta_api=1, records={len(seen)}")
+            print(f"[springer] sources: batch_meta_api=1, records={len(seen)}, elapsed={perf_counter()-t0:.1f}s")
             return
         except Exception as exc:
             print(f"[springer] batch Meta API unavailable ({type(exc).__name__}); falling back to per-journal chain")
 
     api_journals = page_journals = crossref_journals = 0
-    for spec in journals:
+    successful_journal_attempts = 0
+    for idx, spec in enumerate(journals, start=1):
+        print(f"[springer] fallback progress {idx}/{len(journals)}: {spec.journal}")
         records: list[ArticleRecord] = []
         if ENABLE_SPRINGER_API:
             try:
                 records = _api(spec, start, end)
                 api_journals += 1
+                successful_journal_attempts += 1
             except Exception as exc:
                 print(f"[springer] API warning: {spec.journal}: {type(exc).__name__}")
         if not records:
             try:
                 records = _page(spec, start, end)
+                successful_journal_attempts += 1
                 if records:
                     page_journals += 1
             except Exception as exc:
@@ -249,6 +261,7 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
         if not records and ENABLE_CROSSREF_FALLBACK:
             try:
                 records = list(crossref.fetch("springer", "Springer Nature", start, end, [spec]))
+                successful_journal_attempts += 1
                 if records:
                     crossref_journals += 1
             except Exception as exc:
@@ -260,7 +273,9 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
                 seen.add(key)
                 yield record
 
+    if successful_journal_attempts == 0:
+        raise RuntimeError("All Springer primary/fallback requests failed")
     print(
         f"[springer] sources: per_journal_api={api_journals}, online_first={page_journals}, "
-        f"crossref={crossref_journals}, records={len(seen)}"
+        f"crossref={crossref_journals}, records={len(seen)}, elapsed={perf_counter()-t0:.1f}s"
     )

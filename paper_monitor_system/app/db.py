@@ -63,7 +63,7 @@ engine = create_engine(DATABASE_URL, future=True)
 
 
 def _migrate_sqlite() -> None:
-    """Add LOCAL V2 columns to an existing SQLite database without replacing it."""
+    """Add monitor columns to an existing SQLite database without replacing it."""
     if engine.dialect.name != "sqlite":
         return
     inspector = inspect(engine)
@@ -123,7 +123,7 @@ def source_priority(source: str | None) -> int:
         return 40
     if "sciencedirect api" in text_value or "ieee xplore api" in text_value:
         return 35
-    if "crossref published-online" in text_value:
+    if "crossref" in text_value and "published-online" in text_value:
         return 25
     if "crossref" in text_value or "fallback" in text_value:
         return 15

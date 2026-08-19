@@ -7,7 +7,7 @@ if not exist "paper_monitor_system\.venv\Scripts\python.exe" (
   exit /b 1
 )
 call paper_monitor_system\.venv\Scripts\activate.bat
-python -m paper_monitor_system.app.local_update --provider all --initial-days 7 --no-git
+python -m paper_monitor_system.app.local_update --provider all --initial-days 1 --no-git
 set ERR=%errorlevel%
 echo.
 pause
