@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import date
 from typing import Iterator, Sequence
 
-from app.config import IEEE_API_KEY, IEEE_QUERYTEXT
+from ..config import IEEE_API_KEY, IEEE_QUERYTEXT
 from app.journals import JournalSpec, display_issn, match_journal
 from app.utils import build_session, clean_doi, first_nonempty, get_json, join_authors, normalize_space, parse_flexible_date
 from .base import ArticleRecord

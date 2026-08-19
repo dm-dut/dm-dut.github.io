@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import date, timedelta
 from typing import Iterator, Sequence
 
-from app.config import ELSEVIER_API_KEY
+from ..config import ELSEVIER_API_KEY
 from app.journals import JournalSpec, display_issn, match_journal
 from app.utils import build_session, clean_doi, first_nonempty, get_json, join_authors, normalize_space
 from .base import ArticleRecord
