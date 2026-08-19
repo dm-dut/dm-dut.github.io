@@ -3,7 +3,7 @@ name: Update paper monitor
 on:
   workflow_dispatch:
   schedule:
-    # Runs approximately every two days at 02:17 UTC.
+    # Approximately every two days at 02:17 UTC.
     - cron: "17 2 */2 * *"
 
 concurrency:
@@ -34,40 +34,35 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r paper_monitor_system/requirements.txt
 
-      - name: Validate package, paths and whitelist
+      - name: Validate package, hybrid sources and whitelist
         run: |
           python -m paper_monitor_system.app.selfcheck
           python -m paper_monitor_system.app.selftest
 
-      - name: Check API secrets without printing them
+      - name: Check Springer Meta API secret without printing it
         env:
-          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
-          ELSEVIER_INSTTOKEN: ${{ secrets.ELSEVIER_INSTTOKEN }}
           SPRINGER_API_KEY: ${{ secrets.SPRINGER_API_KEY }}
-          IEEE_API_KEY: ${{ secrets.IEEE_API_KEY }}
         shell: bash
         run: |
           python - <<'PY'
           import os
-          for name in ("ELSEVIER_API_KEY", "SPRINGER_API_KEY", "IEEE_API_KEY"):
-              value = os.getenv(name, "")
-              print(f"{name}: {'present' if value else 'missing'}; length={len(value)}")
-          inst = os.getenv("ELSEVIER_INSTTOKEN", "")
-          print(f"ELSEVIER_INSTTOKEN: {'present' if inst else 'not configured (optional)'}")
+          value = os.getenv("SPRINGER_API_KEY", "")
+          print(f"SPRINGER_API_KEY: {'present' if value else 'missing'}; length={len(value)}")
+          if not value:
+              raise SystemExit("SPRINGER_API_KEY is required for the primary Springer Meta API path")
           PY
 
       - name: Fetch and export papers
         env:
-          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
-          ELSEVIER_INSTTOKEN: ${{ secrets.ELSEVIER_INSTTOKEN }}
           SPRINGER_API_KEY: ${{ secrets.SPRINGER_API_KEY }}
-          IEEE_API_KEY: ${{ secrets.IEEE_API_KEY }}
           CROSSREF_MAILTO: ${{ vars.CROSSREF_MAILTO }}
+          ENABLE_SCIENCEDIRECT_API: "false"
+          ENABLE_SPRINGER_API: "true"
+          ENABLE_IEEE_API: "false"
           ENABLE_CROSSREF_FALLBACK: "true"
-          CROSSREF_DISCOVERY_DAYS: "30"
           OVERLAP_DAYS: "3"
           EXPORT_DAYS: "365"
-          REQUEST_PAUSE_SECONDS: "0.60"
+          REQUEST_PAUSE_SECONDS: "0.35"
         run: python -m paper_monitor_system.app.sync --provider all --initial-days 7
 
       - name: Publish generated monitor data without rebasing binary files
@@ -86,9 +81,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # A homepage edit may land while this job is running. Do not merge or
-          # rebase SQLite/JSON. On each attempt, reset to the newest remote main
-          # and re-apply only the two generated monitor data files.
+          # Never rebase/merge the SQLite DB or generated JSON. If the homepage
+          # changes during the run, reset to the newest remote main and restore
+          # only the two generated paper-monitor data files.
           for attempt in 1 2 3; do
             echo "Publish attempt ${attempt}/3"
             git fetch origin "$BRANCH"

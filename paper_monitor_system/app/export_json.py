@@ -20,10 +20,18 @@ def display_date(article: Article) -> str:
 def source_label(source: str) -> str:
     text = source or ""
     low = text.lower()
-    if "crossref" in low:
-        return "Crossref fallback"
+    if "saved search rss" in low:
+        return "IEEE Saved Search RSS"
     if "springer meta api" in low:
         return "Springer Meta API"
+    if "springer online first" in low:
+        return "Springer Online First"
+    if "sciencedirect page" in low or "available online" in low:
+        return "ScienceDirect page"
+    if "sciencedirect rss" in low:
+        return "ScienceDirect RSS"
+    if "crossref" in low:
+        return "Crossref fallback"
     if "sciencedirect api" in low:
         return "ScienceDirect API"
     if "ieee xplore api" in low:

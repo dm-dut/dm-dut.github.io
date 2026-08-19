@@ -96,7 +96,11 @@ def source_priority(source: str | None) -> int:
     text = (source or "").lower()
     if "crossref" in text or "fallback" in text:
         return 10
-    if "springer meta api" in text or "sciencedirect api" in text or "ieee xplore api" in text:
+    if "springer meta api" in text:
+        return 40
+    if "available online" in text or "saved search rss" in text or "verified online date" in text:
+        return 35
+    if "sciencedirect api" in text or "ieee xplore api" in text:
         return 30
     return 20 if text else 0
 

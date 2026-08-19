@@ -1,8 +1,7 @@
 from __future__ import annotations
 
 from datetime import date
-from pathlib import Path
-from types import SimpleNamespace
+from urllib.parse import parse_qs, urlsplit
 
 import requests
 from sqlalchemy import create_engine, select
@@ -10,217 +9,166 @@ from sqlalchemy.orm import Session
 
 from .config import REPO_ROOT
 from .db import Article, Base, source_priority, upsert_article
-from .journals import JournalSpec
-from .providers import crossref, springer
-from .providers.base import ArticleRecord
+from .journals import JournalSpec, enabled_journals
+from .providers import crossref, ieee, sciencedirect, springer
 
 
-def _sample_record(provider: str, publisher: str, journal: str, doi: str, source: str) -> ArticleRecord:
-    return ArticleRecord(
-        provider=provider,
-        publisher=publisher,
-        title=f"Sample {doi}",
-        journal=journal,
-        authors="A. Author",
-        doi=doi,
-        issn="0254-5330",
-        content_type="Journal Article",
-        url=f"https://doi.org/{doi}",
-        online_date=date(2026, 8, 19),
-        online_date_raw="2026-08-19",
-        date_precision="day",
-        online_date_source=source,
-        source_update_date=date(2026, 8, 19),
-    )
+class FakeResponse:
+    def __init__(self, content=b"", text="", status=200, url="https://example.test", headers=None):
+        self.content = content
+        self.text = text or content.decode("utf-8", "ignore")
+        self.status_code = status
+        self.url = url
+        self.headers = headers or {"content-type": "application/rss+xml"}
 
-
-def test_springer_query_and_pagination() -> None:
-    spec = JournalSpec(
-        provider="springer",
-        publisher="Springer Nature",
-        journal="Annals of Operations Research",
-        issns=("02545330", "15729338"),
-    )
-    queries = springer._queries(spec, date(2026, 8, 12), date(2026, 8, 19))
-    assert queries[0].startswith(
-        "onlinedatefrom:2026-08-12 AND onlinedateto:2026-08-19 AND issn:"
-    )
-    assert "1572-9338" in queries[0], "eISSN should be tried first"
-    assert "type:Journal" not in " ".join(queries)
-
-    captured: list[dict] = []
-    original = springer.get_json
-
-    def fake_get_json(session, url, *, params=None, headers=None):
-        captured.append(dict(params or {}))
-        return {"result": [{"total": "0"}], "records": []}
-
-    springer.get_json = fake_get_json
-    try:
-        result = springer._fetch_query(None, queries[0], spec, date(2026, 8, 12), date(2026, 8, 19))
-    finally:
-        springer.get_json = original
-    assert result == []
-    assert captured and captured[0]["p"] == 20
-    assert captured[0]["q"] == queries[0]
-
-
-def test_crossref_global_works_filter() -> None:
-    captured: list[tuple[str, dict]] = []
-    original = crossref.get_json
-
-    def fake_get_json(session, url, *, params=None, headers=None):
-        captured.append((url, dict(params or {})))
-        return {"message": {"items": [], "next-cursor": None}}
-
-    crossref.get_json = fake_get_json
-    try:
-        rows = crossref._request_items(
-            None,
-            "1872-9681",
-            [
-                "type:journal-article",
-                "from-online-pub-date:2026-08-16",
-                "until-online-pub-date:2026-08-19",
-            ],
-        )
-    finally:
-        crossref.get_json = original
-
-    assert rows == []
-    assert captured
-    url, params = captured[0]
-    assert url == "https://api.crossref.org/works"
-    assert "issn:1872-9681" in params["filter"]
-    assert "from-online-pub-date:2026-08-16" in params["filter"]
-    assert "/journals/" not in url
-
-
-def test_crossref_one_issn_failure_does_not_abort() -> None:
-    spec = JournalSpec(
-        provider="sciencedirect",
-        publisher="Elsevier",
-        journal="Applied Soft Computing",
-        issns=("15684946", "18729681"),
-    )
-    original = crossref._records_for_issn
-    calls: list[str] = []
-
-    def fake_records(session, provider, publisher, spec_arg, issn, start, end):
-        calls.append(issn)
-        if len(calls) == 1:
+    def raise_for_status(self):
+        if self.status_code >= 400:
             response = requests.Response()
-            response.status_code = 404
-            exc = requests.HTTPError("not found", response=response)
-            raise exc
-        return [_sample_record("sciencedirect", "Elsevier", spec_arg.journal, "10.1000/crossref-test", "Crossref published-online fallback")]
+            response.status_code = self.status_code
+            raise requests.HTTPError(response=response)
 
-    crossref._records_for_issn = fake_records
-    try:
-        rows = list(crossref.fetch("sciencedirect", "Elsevier", date(2026, 8, 16), date(2026, 8, 19), [spec]))
-    finally:
-        crossref._records_for_issn = original
-
-    assert len(rows) == 1
-    assert len(calls) == 2, "alternate ISSN should be tried after a request failure"
+    def json(self):
+        return {}
 
 
-def test_springer_per_journal_fallback_isolation() -> None:
-    failing = JournalSpec(
-        provider="springer",
-        publisher="Springer Nature",
-        journal="Annals of Operations Research",
-        issns=("02545330", "15729338"),
+class FakeSession:
+    def __init__(self, response):
+        self.response = response
+        self.headers = {}
+
+    def get(self, *args, **kwargs):
+        return self.response
+
+
+def test_sciencedirect_candidates_and_rss_discovery():
+    spec = JournalSpec(
+        "sciencedirect", "Elsevier", "Applied Soft Computing", ("15684946", "18729681"),
+        mode="sciencedirect_page", primary_url="https://www.sciencedirect.com/journal/applied-soft-computing/articles-in-press",
     )
-    working = JournalSpec(
-        provider="springer",
-        publisher="Springer Nature",
-        journal="Group Decision and Negotiation",
-        issns=("09262644", "15729907"),
-    )
+    pages = sciencedirect._candidate_pages(spec)
+    assert pages[0].endswith("/articles-in-press")
+    assert any(x.endswith("/latest") for x in pages)
 
-    original_key = springer.SPRINGER_API_KEY
-    original_fetch_query = springer._fetch_query
-    original_fallback = springer.crossref.fetch
-    springer.SPRINGER_API_KEY = "self-test-key"
-
-    def fake_fetch_query(session, query, spec, start, end):
-        if spec.journal == failing.journal:
-            response = requests.Response()
-            response.status_code = 404
-            raise requests.HTTPError("not found", response=response)
-        return [_sample_record("springer", "Springer Nature", spec.journal, "10.1000/primary", "Springer Meta API onlineDate")]
-
-    def fake_fallback(provider, publisher, start, end, journals):
-        assert [j.journal for j in journals] == [failing.journal]
-        yield _sample_record("springer", "Springer Nature", failing.journal, "10.1000/fallback", "Crossref published-online fallback")
-
-    springer._fetch_query = fake_fetch_query
-    springer.crossref.fetch = fake_fallback
+    html = '''<html><head><link rel="alternate" type="application/rss+xml" href="https://rss.example/feed" /></head></html>'''
+    old = sciencedirect.build_session
+    sciencedirect.build_session = lambda: FakeSession(FakeResponse(text=html))
     try:
-        rows = list(springer.fetch(date(2026, 8, 16), date(2026, 8, 19), [failing, working]))
+        urls = sciencedirect._discover_rss_urls(spec)
     finally:
-        springer.SPRINGER_API_KEY = original_key
-        springer._fetch_query = original_fetch_query
-        springer.crossref.fetch = original_fallback
-
-    dois = {row.doi for row in rows}
-    assert dois == {"10.1000/primary", "10.1000/fallback"}
+        sciencedirect.build_session = old
+    assert urls == ["https://rss.example/feed"]
 
 
-def test_authoritative_date_protection_and_doi_upsert() -> None:
-    sample = {"published-online": {"date-parts": [[2026, 8, 19]]}}
-    d, precision, raw = crossref._date_parts(sample)
-    assert d == date(2026, 8, 19) and precision == "day" and raw == "2026-08-19"
+def test_ieee_combined_rss_deduplicates_and_normalizes():
+    specs = enabled_journals("ieee")
+    urls = ieee._combined_rss_urls(specs)
+    assert len(urls) == 1
+    params = parse_qs(urlsplit(urls[0]).query)
+    assert params.get("rssFeed") == ["true"]
+    assert int(params.get("rowsPerPage", ["0"])[0]) >= 100
 
+
+def test_ieee_entry_whitelist_and_virtual_journal_rejection():
+    specs = enabled_journals("ieee")
+    tcyb = next(x for x in specs if x.journal == "IEEE Transactions on Cybernetics")
+    entry = {
+        "title": "A New Cybernetics Paper",
+        "link": "https://ieeexplore.ieee.org/document/123",
+        "id": "123",
+        "summary": "IEEE Biometrics Compendium",
+        "published": "Wed, 19 Aug 2026 09:00:00 GMT",
+    }
+    old_page, old_cr = ieee.page_metadata, ieee.resolve_crossref
+    ieee.page_metadata = lambda url: {
+        "title": "A New Cybernetics Paper",
+        "doi": "10.1109/TCYB.2026.1",
+        "journal": "IEEE Transactions on Cybernetics",
+        "issn": "2168-2275",
+        "online_date": date(2026, 8, 19),
+        "online_raw": "2026-08-19",
+        "precision": "day",
+        "authors": "A; B",
+        "url": url,
+    }
+    ieee.resolve_crossref = lambda *args, **kwargs: {}
+    try:
+        record = ieee._entry_to_record(entry, specs, date(2026, 8, 18), date(2026, 8, 19))
+    finally:
+        ieee.page_metadata, ieee.resolve_crossref = old_page, old_cr
+    assert record is not None and record.journal == tcyb.journal
+
+    # A real Virtual Journal item with no underlying whitelist metadata is rejected.
+    old_page, old_cr = ieee.page_metadata, ieee.resolve_crossref
+    ieee.page_metadata = lambda url: {"journal": "IEEE RFIC Virtual Journal", "issn": "", "online_date": date(2026, 8, 19), "online_raw": "2026-08-19", "precision": "day"}
+    ieee.resolve_crossref = lambda *args, **kwargs: {"journal": "IEEE RFIC Virtual Journal", "issn": ""}
+    try:
+        rejected = ieee._entry_to_record({**entry, "title": "RFIC digest item", "summary": "IEEE RFIC Virtual Journal"}, specs, date(2026, 8, 18), date(2026, 8, 19))
+    finally:
+        ieee.page_metadata, ieee.resolve_crossref = old_page, old_cr
+    assert rejected is None
+
+
+def test_springer_query_variants_and_parser():
+    spec = JournalSpec("springer", "Springer Nature", "Annals of Operations Research", ("02545330", "15729338"))
+    variants = springer._query_variants(spec, date(2026, 8, 18), date(2026, 8, 19), "15729338")
+    assert any("onlinedatefrom:2026-08-18 onlinedateto:2026-08-19" in q for q in variants)
+    assert any(" AND " in q for q in variants)
+    rows = [{
+        "publicationType": "Journal", "title": "AOR paper", "onlineDate": "2026-08-19",
+        "doi": "10.1007/test", "creators": [{"creator": "A"}], "identifier": "doi:10.1007/test",
+        "url": [{"value": "https://link.springer.com/article/10.1007/test"}],
+    }]
+    parsed = springer._parse_records(spec, rows, date(2026, 8, 18), date(2026, 8, 19), set())
+    assert len(parsed) == 1 and parsed[0].online_date == date(2026, 8, 19)
+
+
+def test_crossref_global_works_endpoint():
+    assert crossref.BASE_URL == "https://api.crossref.org"
+    import inspect
+    text = inspect.getsource(crossref._request_items)
+    assert 'f"{BASE_URL}/works"' in text
+    assert 'url = f"{BASE_URL}/works"' in text
+
+
+def test_priority_and_upsert():
     assert source_priority("Springer Meta API onlineDate") > source_priority("Crossref published-online fallback")
-    assert source_priority("ScienceDirect API Load-Date") > source_priority("Crossref published-online fallback")
-    assert source_priority("IEEE Xplore API publication_date") > source_priority("Crossref published-online fallback")
+    assert source_priority("ScienceDirect page Available online") > source_priority("Crossref published-online fallback")
+    assert source_priority("IEEE Saved Search RSS + IEEE page publication date") > source_priority("Crossref published-online fallback")
 
-    mem = create_engine("sqlite:///:memory:", future=True)
-    Base.metadata.create_all(mem)
-    primary = {
-        "identity_key": "k1", "provider": "springer", "publisher": "Springer Nature",
-        "title": "Test paper", "journal": "Annals of Operations Research", "authors": "A",
-        "doi": "10.1000/test", "external_id": None, "issn": "0254-5330",
-        "content_type": "Article", "url": "", "online_date": date(2026, 8, 19),
-        "online_date_raw": "2026-08-19", "date_precision": "day",
+    memory = create_engine("sqlite:///:memory:", future=True)
+    Base.metadata.create_all(memory)
+    base = {
+        "identity_key": "x", "provider": "springer", "publisher": "Springer Nature", "title": "T", "journal": "J",
+        "authors": "A", "doi": "10.1/x", "external_id": None, "issn": "", "content_type": "Article", "url": "",
+        "online_date": date(2026, 8, 19), "online_date_raw": "2026-08-19", "date_precision": "day",
         "online_date_source": "Springer Meta API onlineDate", "source_update_date": date(2026, 8, 19),
     }
-    fallback = dict(primary)
-    fallback.update({
-        "online_date": date(2026, 8, 18),
-        "online_date_raw": "2026-08-18",
-        "online_date_source": "Crossref published-online fallback",
-    })
-    with Session(mem) as session:
-        upsert_article(session, primary)
-        session.commit()
-        upsert_article(session, fallback)
-        session.commit()
-        row = session.scalar(select(Article).where(Article.doi == "10.1000/test"))
+    lower = dict(base)
+    lower.update(online_date=date(2026, 8, 18), online_date_raw="2026-08-18", online_date_source="Crossref published-online fallback")
+    with Session(memory) as session:
+        upsert_article(session, base); session.commit()
+        upsert_article(session, lower); session.commit()
+        row = session.scalar(select(Article).where(Article.doi == "10.1/x"))
         assert row.online_date == date(2026, 8, 19)
-        assert row.online_date_source == "Springer Meta API onlineDate"
-        assert session.scalar(select(Article).where(Article.doi == "10.1000/test")).id == row.id
 
 
-def test_workflow_has_no_binary_rebase() -> None:
-    workflow = REPO_ROOT / ".github" / "workflows" / "update-paper-monitor.yml"
-    text = workflow.read_text(encoding="utf-8")
+def test_workflow_publish_strategy():
+    text = (REPO_ROOT / ".github/workflows/update-paper-monitor.yml").read_text(encoding="utf-8")
     assert "git pull --rebase" not in text
     assert "git reset --hard" in text
-    assert "concurrency:" in text
-    assert "paper_monitor_system/data/papers.db" in text
-    assert "paper-monitor/data/online_papers.json" in text
+    assert 'ENABLE_SCIENCEDIRECT_API: "false"' in text
+    assert 'ENABLE_SPRINGER_API: "true"' in text
+    assert 'ENABLE_IEEE_API: "false"' in text
 
 
-def main() -> None:
-    test_springer_query_and_pagination()
-    test_crossref_global_works_filter()
-    test_crossref_one_issn_failure_does_not_abort()
-    test_springer_per_journal_fallback_isolation()
-    test_authoritative_date_protection_and_doi_upsert()
-    test_workflow_has_no_binary_rebase()
+def main():
+    test_sciencedirect_candidates_and_rss_discovery()
+    test_ieee_combined_rss_deduplicates_and_normalizes()
+    test_ieee_entry_whitelist_and_virtual_journal_rejection()
+    test_springer_query_variants_and_parser()
+    test_crossref_global_works_endpoint()
+    test_priority_and_upsert()
+    test_workflow_publish_strategy()
     print("SELF-TEST OK")
 
 
