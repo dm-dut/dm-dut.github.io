@@ -1,0 +1,21 @@
+name: Paper monitor (local updater only)
+
+# LOCAL_FINAL: publisher fetching is intentionally NOT scheduled on GitHub-hosted
+# runners. Run setup_local.bat + update_papers.bat on the local Windows PC.
+# This manual workflow is kept only so an old scheduled workflow is overwritten
+# when this file is pushed to the public dm-dut.github.io repository.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  local-mode-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Local mode notice
+        run: |
+          echo "Paper Monitor Build: LOCAL-2026.08.19-V1"
+          echo "Publisher fetching is disabled on GitHub-hosted runners."
+          echo "Run update_papers.bat on the configured local computer instead."

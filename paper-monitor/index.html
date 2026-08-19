@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Online Paper Monitor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero-card">
+      <div class="hero-copy">
+        <div class="eyebrow">RESEARCH INTELLIGENCE</div>
+        <h1>Online Paper Monitor</h1>
+        <p>按在线发表日期持续跟踪所选期刊的最新论文</p>
+      </div>
+      <div class="hero-actions">
+        <button id="refreshButton" class="refresh-button" type="button">
+          <span class="refresh-icon" aria-hidden="true">↻</span>
+          <span id="refreshButtonText">立即更新</span>
+        </button>
+        <div id="refreshStatus" class="refresh-status" aria-live="polite"></div>
+      </div>
+    </header>
+
+    <section class="summary-grid" aria-label="监测概览">
+      <div class="summary-card">
+        <span class="summary-label">当前记录</span>
+        <strong id="totalCount">—</strong>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">近 7 天</span>
+        <strong id="weekCount">—</strong>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">监测期刊</span>
+        <strong id="journalCount">—</strong>
+      </div>
+      <div class="summary-card summary-card-wide">
+        <span class="summary-label">最近更新</span>
+        <strong id="updatedAt">—</strong>
+      </div>
+    </section>
+
+    <section class="filter-card" aria-label="论文筛选">
+      <div class="filter-grid">
+        <label class="field">
+          <span>出版社</span>
+          <select id="publisherSelect">
+            <option value="">全部出版社</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>期刊</span>
+          <select id="journalSelect">
+            <option value="">全部期刊</option>
+          </select>
+        </label>
+        <label class="field field-range">
+          <span>日期范围</span>
+          <select id="rangeSelect">
+            <option value="7">最近 7 天</option>
+            <option value="30" selected>最近 30 天</option>
+            <option value="90">最近 90 天</option>
+            <option value="365">最近 1 年</option>
+            <option value="all">全部</option>
+          </select>
+        </label>
+        <label class="field field-search">
+          <span>检索</span>
+          <input id="searchInput" type="search" placeholder="标题、作者、DOI 或期刊" autocomplete="off" />
+        </label>
+      </div>
+      <div class="filter-footer">
+        <span id="resultCount">正在加载数据…</span>
+        <button id="resetButton" class="text-button" type="button">重置筛选</button>
+      </div>
+    </section>
+
+    <section id="paperList" class="paper-list" aria-live="polite"></section>
+    <div id="empty" class="empty-state" hidden>
+      <div class="empty-icon">⌕</div>
+      <h2>没有符合条件的论文</h2>
+      <p>可以调整出版社、期刊、日期范围或检索关键词。</p>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
