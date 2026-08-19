@@ -10,7 +10,7 @@ SYSTEM_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SYSTEM_ROOT.parent
 load_dotenv(SYSTEM_ROOT / ".env")
 
-BUILD_ID = "LOCAL-2026.08.19-V3.2"
+BUILD_ID = "LOCAL-2026.08.19-V3.3"
 
 
 def env_bool(name: str, default: bool = True) -> bool:
@@ -38,6 +38,7 @@ ENABLE_SPRINGER_API = env_bool("ENABLE_SPRINGER_API", True)
 ENABLE_SPRINGER_BATCH_API = env_bool("ENABLE_SPRINGER_BATCH_API", True)
 ENABLE_IEEE_API = env_bool("ENABLE_IEEE_API", False)
 ENABLE_IEEE_CROSSREF_SUPPLEMENT = env_bool("ENABLE_IEEE_CROSSREF_SUPPLEMENT", False)
+ENABLE_IEEE_PAGE_ENRICHMENT = env_bool("ENABLE_IEEE_PAGE_ENRICHMENT", False)
 ENABLE_CROSSREF_FALLBACK = env_bool("ENABLE_CROSSREF_FALLBACK", True)
 ENABLE_ELSEVIER_EMERGENCY_ISSN_FALLBACK = env_bool("ENABLE_ELSEVIER_EMERGENCY_ISSN_FALLBACK", False)
 
@@ -97,3 +98,8 @@ def ieee_rss_secret_map() -> dict[str, str]:
     except json.JSONDecodeError:
         print("[ieee] WARNING: IEEE_RSS_FEEDS_JSON is not valid JSON; ignoring it")
         return {}
+
+# V3.3 matching/fallback behavior.
+IEEE_TITLE_MATCH_THRESHOLD = float(os.getenv("IEEE_TITLE_MATCH_THRESHOLD", "0.86"))
+IEEE_TITLE_MATCH_ROWS = int(os.getenv("IEEE_TITLE_MATCH_ROWS", "5"))
+ENABLE_ELSEVIER_GENERIC_PUBDATE_FALLBACK = env_bool("ENABLE_ELSEVIER_GENERIC_PUBDATE_FALLBACK", True)

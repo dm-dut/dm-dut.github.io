@@ -1,6 +1,6 @@
 # IEEE Combined Saved Search RSS
 
-LOCAL_FINAL_V3.2 keeps the single combined `IEEETrans15` Saved Search RSS stored in `journal_list.xlsx` for all 15 IEEE journals.
+LOCAL_FINAL_V3.3 keeps the single combined `IEEETrans15` Saved Search RSS stored in `journal_list.xlsx` for all 15 IEEE journals.
 
 Important behavior:
 

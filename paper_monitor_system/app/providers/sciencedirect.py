@@ -179,11 +179,12 @@ def _direct_rss_records(spec: JournalSpec, start: date, end: date) -> list[Artic
 
 
 def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
-    """LOCAL V3.2 Elsevier strategy: optional direct RSS + dual Crossref member batch.
+    """LOCAL V3.3 Elsevier strategy: optional direct RSS + two-day Crossref online/publication batch.
 
     The fast path runs two publisher-level Crossref passes for the configured
-    two-day window: published-online and update-date.  Results are filtered
-    locally against the 39-journal whitelist.  Slow per-ISSN fallback is OFF by
+    two-day window: explicit published-online and generic publication-date.
+    Results are filtered locally against the 39-journal whitelist. The generic
+    date is clearly labelled as a fallback and can later be upgraded.  Slow per-ISSN fallback is OFF by
     default and can be enabled explicitly for diagnostics only.
     """
     from time import perf_counter

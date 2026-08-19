@@ -1,77 +1,162 @@
-# Paper Monitor — LOCAL_FINAL_V3.2
+# Paper Monitor — LOCAL_FINAL_V3.3
 
-Build: `LOCAL-2026.08.19-V3.2`
+Build: `LOCAL-2026.08.19-V3.3`
 
-This package runs all publisher collection on the local computer. GitHub Pages remains only the display layer at `https://dm-dut.github.io/paper-monitor/`.
+This package is designed to run the collector on the local Windows PC. GitHub Pages remains the public display layer; GitHub Actions does not fetch publisher data.
 
-## Data-source strategy
+## Daily data-source strategy
 
-### Elsevier / ScienceDirect
+### Elsevier / ScienceDirect (39 journals)
 
-The normal daily path no longer depends on the ScienceDirect API or HTML pages, because local tests returned API 401 and page 403. V3.2 uses two fast Crossref publisher-level passes against Elsevier BV member `78` for the two-day window: one `published-online` pass and one `update-date` pass. Results are then filtered locally against the 39-journal ISSN/title whitelist. No hard DOI-prefix filter is applied. Optional stable direct RSS URLs can still be added in `journal_list.xlsx`. Records discovered through the update pass without a usable online date are stored as `pending` and rechecked later by DOI only.
+The default path does **not** require the ScienceDirect API or HTML pages because the user's local tests returned API 401 and page 403.
 
-### Springer Nature
+V3.3 uses two Crossref publisher/member-level batches for Elsevier BV member `78`, limited to yesterday..today:
 
-Springer remains batch-first because the local Meta API connectivity test returned HTTP 200. The collector runs one date-window Meta API batch, filters locally against the 25-journal whitelist, and never performs the previous 25-journal retry loop. If the Meta batch is unavailable or reaches the Basic-plan pagination cap, one Crossref `10.1007` prefix batch is used as a supplement/fallback. Springer Meta API `onlineDate` remains the strongest date source.
+1. `from-online-pub-date` / `until-online-pub-date` — highest-confidence explicit online date.
+2. `from-pub-date` / `until-pub-date` — generic Crossref publication date used only as a clearly labelled fallback when `published-online` is missing.
 
-### IEEE
+Both batches are filtered locally against the 39-journal ISSN/title whitelist. V3.3 removes the very large `update-date` scan that produced many irrelevant pending rows in the previous version. Stable direct RSS URLs can still be added in `journal_list.xlsx` as supplements.
 
-One combined `IEEETrans15` Saved Search RSS covers all 15 journals. The feed is requested once. Crossref and, only when useful, the IEEE article page enrich journal/DOI/date metadata. V3.2 no longer requires Crossref `published-online` before showing a valid RSS record: when neither Crossref nor the IEEE page has a date, the feed's own `pubDate` can be used as a clearly labelled fallback (`IEEE Saved Search RSS pubDate fallback`). A later Crossref/publisher date has higher priority and can replace that fallback. The 15-journal whitelist still filters Virtual Journals and Compendia.
+### Springer Nature (25 journals)
 
-## First-time setup
+Springer Meta API date-window batch is primary. Records are filtered locally to the 25-journal whitelist. If the batch API route fails, one Crossref `10.1007` prefix batch is used. There is no 25-journal loop of alternate Springer API queries.
 
-Copy/overwrite this package into the local `dm-dut.github.io` repository root. Keep your existing `paper_monitor_system/data/papers.db` and `paper-monitor/data/online_papers.json`. Then run `setup_local.bat`, edit `paper_monitor_system/.env`, and configure at least:
+### IEEE (15 journals)
+
+The single combined `IEEETrans15` Saved Search RSS is fetched once.
+
+V3.3 no longer requires the RSS itself to expose the journal name. Each RSS entry is resolved in this order:
+
+1. DOI found in RSS/link → Crossref DOI lookup → whitelist journal/ISSN confirmation.
+2. If DOI is missing or unusable → Crossref `query.title` search → title-similarity test → whitelist journal/ISSN confirmation.
+3. IEEE article-page enrichment is optional and disabled by default because it is slower.
+
+A Virtual Journal/Compendium result is rejected unless the underlying Crossref record maps to one of the 15 monitored IEEE journals.
+
+Date priority for IEEE:
+
+1. IEEE publisher-page date (only when optional page enrichment is enabled)
+2. Crossref `published-online`
+3. IEEE Saved Search RSS `pubDate` as a clearly labelled fallback
+4. otherwise keep a DOI-bearing discovery as `pending`
+
+## Data-quality protection
+
+V3.3 treats metadata quality as monotone:
+
+- an existing `published` record is never downgraded to `pending`;
+- a missing date never erases a known date;
+- a higher-priority publisher/Crossref online date can replace a lower-priority RSS fallback date;
+- pending DOI rechecks are DOI-only and delayed by the configured interval.
+
+## Recommended `.env`
 
 ```text
-SPRINGER_API_KEY=...
-CROSSREF_MAILTO=your-email@example.com
-```
+SPRINGER_API_KEY=YOUR_KEY
+CROSSREF_MAILTO=your_email@example.com
 
-Recommended V3.2 settings:
+ENABLE_SCIENCEDIRECT=true
+ENABLE_SCIENCEDIRECT_API=false
+ENABLE_SCIENCEDIRECT_PAGE=false
+ENABLE_SCIENCEDIRECT_RSS=true
+ENABLE_ELSEVIER_GENERIC_PUBDATE_FALLBACK=true
 
-```text
-OVERLAP_DAYS=1
+ENABLE_SPRINGER=true
+ENABLE_SPRINGER_API=true
+ENABLE_SPRINGER_BATCH_API=true
+
+ENABLE_IEEE=true
+ENABLE_IEEE_API=false
+ENABLE_IEEE_PAGE_ENRICHMENT=false
+ENABLE_IEEE_CROSSREF_SUPPLEMENT=false
+IEEE_TITLE_MATCH_THRESHOLD=0.86
+IEEE_TITLE_MATCH_ROWS=5
+
+ENABLE_CROSSREF_FALLBACK=true
 CROSSREF_DISCOVERY_DAYS=2
-PENDING_RECHECK_DAYS=60
-PENDING_RECHECK_MIN_HOURS=20
-PENDING_RECHECK_LIMIT=200
-HTTP_TIMEOUT=20
-HTTP_RETRY_TOTAL=2
-REQUEST_PAUSE_SECONDS=0.10
+OVERLAP_DAYS=1
 CROSSREF_BATCH_ROWS=1000
 CROSSREF_BATCH_MAX_PAGES=30
 ELSEVIER_CROSSREF_MEMBER_ID=78
-ENABLE_ELSEVIER_EMERGENCY_ISSN_FALLBACK=false
-SPRINGER_BATCH_PAGE_SIZE=20
-SPRINGER_BATCH_MAX_PAGES=5
+
+PENDING_RECHECK_DAYS=60
+PENDING_RECHECK_MIN_HOURS=20
+PENDING_RECHECK_LIMIT=200
+
+HTTP_TIMEOUT=20
+HTTP_RETRY_TOTAL=2
+HTTP_RETRY_BACKOFF=0.40
+REQUEST_PAUSE_SECONDS=0.10
+EXPORT_DAYS=365
 ```
 
-## Connection test
+If `paper_monitor_system/.env` already exists, `setup_local.bat` will not overwrite it.
 
-Run `test_connections.bat`. Required checks are Springer Meta API, IEEE Saved Search RSS, Crossref, Elsevier Crossref online-date batch, and Elsevier Crossref update-date batch. ScienceDirect API is only an optional diagnostic.
+## First run after upgrading
 
-## Daily use
+1. Preserve the existing files:
+   - `paper_monitor_system/data/papers.db`
+   - `paper-monitor/data/online_papers.json`
+2. Overlay the V3.3 package files onto the local repository.
+3. Run `test_connections.bat`.
+4. Run `fetch_only.bat` first if you want a collection test without Git push.
+5. Run `update_papers.bat` for a full manual update and push.
 
-Run `update_papers.bat` manually. The interactive window now **always pauses at the end**, whether the update succeeds or fails, so a double-click will not appear to flash and disappear. For Windows Task Scheduler use `update_papers_scheduled.bat`; it never pauses. The updater performs `git pull --ff-only` before touching SQLite, runs self-check/self-test, collects all three publishers, rechecks eligible pending DOIs, exports JSON, commits only `papers.db` and `online_papers.json`, then pushes to the current branch.
+## Manual and scheduled update
 
-Every run writes a log under `paper_monitor_system/logs/update_YYYYMMDD_HHMMSS.log`.
-
-To fetch without Git push, run `fetch_only.bat`. To view locally, run `view_local.bat` and open `http://localhost:8000/paper-monitor/`.
-
-## Expected V3.2 logs
+Manual update:
 
 ```text
-[sciencedirect] Crossref online-date batch: member=78, journals=39, window=...
-[sciencedirect] Crossref online-date done: pages=..., raw=..., accepted=...
-[sciencedirect] Crossref update-date batch: member=78, journals=39, window=...
-[sciencedirect] Crossref update-date done: pages=..., raw=..., accepted=...
-[sciencedirect] Crossref dual batch done: ...
-[springer] Meta batch progress: ...
-[ieee] RSS entry 1/10: ...
-[ieee] combined Saved Search RSS entries=10, accepted_whitelist_records=..., rss_date_fallback=..., pending=...
-[total] elapsed=...s
+update_papers.bat
 ```
 
-## Safety
+This window pauses at the end so errors do not disappear.
 
-Never commit `paper_monitor_system/.env`. This ZIP deliberately excludes generated `papers.db` and `online_papers.json`, so existing history is not wiped. GitHub Actions does not perform publisher fetching. The package also excludes the root homepage `index.html`, `assets/`, `images/`, `scripts/`, and root `data/` directory.
+Windows Task Scheduler should run:
+
+```text
+update_papers_scheduled.bat
+```
+
+The scheduled version has no `pause`.
+
+## Expected V3.3 logs
+
+Elsevier should look like:
+
+```text
+[sciencedirect] Crossref online-date batch: ...
+[sciencedirect] Crossref online-date done: ...
+[sciencedirect] Crossref publication-date batch: ...
+[sciencedirect] Crossref publication-date done: ...
+[sciencedirect] Crossref dual batch done: ... online_pass=..., publication_fallback_new=...
+```
+
+IEEE should now show a per-item resolution result, for example:
+
+```text
+[ieee] RSS entry 1/10: ...
+[ieee] RSS resolve 1/10 accepted: IEEE Transactions on ...; match=title-search score=0.97; date=rss-fallback
+```
+
+or a concrete rejection reason:
+
+```text
+[ieee] RSS resolve 2/10 rejected: no-whitelist-match (crossref_method=none, score=0.000)
+```
+
+## Local browser preview
+
+Run `view_local.bat`, then open:
+
+```text
+http://localhost:8000/paper-monitor/
+```
+
+## GitHub Pages
+
+After `update_papers.bat` successfully pushes the two data files, the public page remains:
+
+```text
+https://dm-dut.github.io/paper-monitor/
+```

@@ -144,7 +144,7 @@ function render() {
         ? `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(p.title)}</a>`
         : esc(p.title);
       const fallback = sourceIsFallback(p)
-        ? `<span class="source-pill" title="原出版社 API 不可用，本条在线日期来自 Crossref">${esc(p.source)}</span>`
+        ? `<span class="source-pill" title="该日期来自备用数据源，具体来源见标签；后续如获得更高优先级日期会自动升级">${esc(p.source)}</span>`
         : "";
       const doiLink = p.doi
         ? `<a href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener noreferrer">DOI</a>`

@@ -45,7 +45,8 @@ def parse_feed(content: bytes):
         out.append({
             "title": _child_text(node, ["title"]),
             "link": _entry_link(node),
-            "id": _child_text(node, ["guid", "id"]),
+            "id": _child_text(node, ["guid", "id", "identifier"]),
+            "doi": _child_text(node, ["doi"]),
             "summary": _child_text(node, ["description", "summary", "content"]),
             "published": _child_text(node, ["pubDate", "published", "updated", "date"]),
             # Common RSS/Atom/DC/PRISM names used by journal feeds.  Namespace

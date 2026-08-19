@@ -207,12 +207,12 @@ def upsert_article(session: Session, record: dict) -> tuple[Article, bool]:
         elif created and field in {"online_date", "source_update_date"}:
             setattr(existing, field, value)
 
-    if existing.online_date is not None:
+    # Status quality is monotone: an incoming pending observation must NEVER
+    # demote a row that is already published.  Likewise a missing/lower-quality
+    # date cannot erase a previously known date.
+    if existing.online_date is not None or (not created and existing.status == "published"):
         existing.status = "published"
-    elif existing.status != "published":
-        existing.status = "pending"
     else:
-        # Existing rows created by pre-V2 databases with no date should become pending.
         existing.status = "pending"
 
     existing.last_seen_at = now

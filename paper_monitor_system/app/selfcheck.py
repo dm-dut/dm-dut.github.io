@@ -16,7 +16,7 @@ def main() -> None:
     assert JOURNAL_LIST_PATH.exists()
     assert springer.BASE_URL.endswith("/meta/v2/json")
     assert crossref.BASE_URL.rstrip("/") == "https://api.crossref.org"
-    assert BUILD_ID == "LOCAL-2026.08.19-V3.2"
+    assert BUILD_ID == "LOCAL-2026.08.19-V3.3"
 
     bad = []
     for py in (SYSTEM_ROOT / "app").rglob("*.py"):
@@ -25,12 +25,13 @@ def main() -> None:
     assert not bad, bad
 
     elsevier = enabled_journals("sciencedirect")
-    assert all(s.mode == "elsevier_member_dual_batch" for s in elsevier)
+    assert all(s.mode == "elsevier_member_online_pub_batch" for s in elsevier)
     assert all(s.crossref_member == 78 for s in elsevier), "All 39 Elsevier rows should use Crossref member 78 unless deliberately overridden"
-    assert all(not s.crossref_prefix for s in elsevier), "V3.2 standard Elsevier rows should not hard-filter by DOI prefix"
+    assert all(not s.crossref_prefix for s in elsevier), "V3.3 standard Elsevier rows should not hard-filter by DOI prefix"
     assert "member_dual_batch_discover" in inspect.getsource(sciencedirect.fetch)
     assert "from-online-pub-date" in inspect.getsource(crossref.member_dual_batch_discover)
-    assert "from-update-date" in inspect.getsource(crossref.member_dual_batch_discover)
+    assert "from-pub-date" in inspect.getsource(crossref.member_dual_batch_discover)
+    assert "from-update-date" not in inspect.getsource(crossref.member_dual_batch_discover)
     assert "/journals/{" not in inspect.getsource(crossref)
 
     springer_specs = enabled_journals("springer")
@@ -48,7 +49,7 @@ def main() -> None:
     print(f"build={BUILD_ID}")
     print(f"journal_list={JOURNAL_LIST_PATH} ({len(specs)} enabled)")
     print(f"providers={counts}")
-    print("strategy=elsevier crossref-member-78 online/update dual batch + optional direct RSS; springer basic-safe batch-meta-api + crossref-prefix fallback; ieee combined-saved-search-rss with labelled RSS-date fallback")
+    print("strategy=elsevier crossref-member-78 online/publication-date dual batch + optional direct RSS; springer basic-safe batch-meta-api + crossref-prefix fallback; ieee combined-saved-search-rss with DOI/title whitelist matching + labelled RSS-date fallback")
     print("pending=DOI-only delayed recheck; no immediate same-run recheck")
     print(f"ieee_combined_rss=1 exact feed for {len(ieee_specs)} journals")
     print(f"database={DB_PATH}")

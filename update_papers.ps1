@@ -7,7 +7,7 @@ if (-not (Test-Path $python)) {
     exit 1
 }
 
-# V3.2 delegates logging to Python instead of piping native stderr through
+# V3.3 delegates logging to Python instead of piping native stderr through
 # PowerShell 5.1. This avoids harmless Git stderr lines being converted into
 # NativeCommandError when ErrorActionPreference=Stop.
 & $python -m paper_monitor_system.app.run_logged --provider all --initial-days 1

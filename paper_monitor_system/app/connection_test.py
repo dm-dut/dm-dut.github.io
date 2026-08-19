@@ -54,7 +54,7 @@ def test_springer() -> bool:
             return True
         _line(
             "Springer Meta API date-window", "WARN",
-            f"HTTP {date_test.status_code}; V3.2 will use one Crossref 10.1007 prefix batch instead of 25 per-journal API retries",
+            f"HTTP {date_test.status_code}; V3.3 will use one Crossref 10.1007 prefix batch instead of 25 per-journal API retries",
         )
         return True  # basic API/key works; the collector has a fast batch fallback
     except requests.RequestException as exc:
@@ -108,7 +108,7 @@ def test_elsevier_crossref_batch() -> bool:
     url = f"https://api.crossref.org/members/{ELSEVIER_CROSSREF_MEMBER_ID}/works"
     checks = [
         ("online-date", "from-online-pub-date", "until-online-pub-date"),
-        ("update-date", "from-update-date", "until-update-date"),
+        ("publication-date", "from-pub-date", "until-pub-date"),
     ]
     ok_all = True
     for label, from_filter, until_filter in checks:
@@ -151,9 +151,9 @@ def optional_sciencedirect_diagnostics() -> None:
                 headers=headers,
                 timeout=HTTP_TIMEOUT,
             )
-            _line("ScienceDirect API (optional)", "OK" if r.status_code == 200 else "WARN", f"HTTP {r.status_code}; V3.2 does not require this channel")
+            _line("ScienceDirect API (optional)", "OK" if r.status_code == 200 else "WARN", f"HTTP {r.status_code}; V3.3 does not require this channel")
         except requests.RequestException as exc:
-            _line("ScienceDirect API (optional)", "WARN", f"{type(exc).__name__}; V3.2 does not require this channel")
+            _line("ScienceDirect API (optional)", "WARN", f"{type(exc).__name__}; V3.3 does not require this channel")
     else:
         _line("ScienceDirect API (optional)", "SKIP", "no API key; not required")
 
@@ -161,17 +161,17 @@ def optional_sciencedirect_diagnostics() -> None:
     _line(
         "ScienceDirect direct RSS",
         "INFO" if configured else "SKIP",
-        f"{len(configured)} direct feed URL(s) configured" if configured else "no stable direct RSS URLs configured; dual member batch is primary",
+        f"{len(configured)} direct feed URL(s) configured" if configured else "no stable direct RSS URLs configured; online/publication member batch is primary",
     )
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Diagnose LOCAL V3.2 data-source connectivity")
+    parser = argparse.ArgumentParser(description="Diagnose LOCAL V3.3 data-source connectivity")
     parser.add_argument("--strict", action="store_true", help="return non-zero unless all required channels pass")
     args = parser.parse_args()
 
     print(f"Paper Monitor Build: {BUILD_ID}")
-    print("Required LOCAL V3.2 channels are tested first; ScienceDirect API is optional.\n")
+    print("Required LOCAL V3.3 channels are tested first; ScienceDirect API is optional.\n")
     required = [test_springer(), test_ieee_saved_search_rss(), test_crossref(), test_elsevier_crossref_batch()]
     optional_sciencedirect_diagnostics()
     passed = sum(required)

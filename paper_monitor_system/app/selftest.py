@@ -16,7 +16,7 @@ from .providers import crossref, ieee, sciencedirect, springer
 def test_modes_and_ieee_feed():
     elsevier = enabled_journals("sciencedirect")
     assert len(elsevier) == 39
-    assert all(s.mode == "elsevier_member_dual_batch" for s in elsevier)
+    assert all(s.mode == "elsevier_member_online_pub_batch" for s in elsevier)
     assert all(s.crossref_member == 78 and not s.crossref_prefix for s in elsevier)
     assert all(s.mode == "springer_batch_api" for s in enabled_journals("springer"))
     urls = ieee._combined_rss_urls(enabled_journals("ieee"))
@@ -67,31 +67,19 @@ def test_crossref_member_batch_mock():
                         "container-title": [target.journal],
                         "ISSN": ["1872-9681"],
                         "published-online": {"date-parts": [[2026, 8, 19]]},
+                        "published": {"date-parts": [[2026, 8, 19]]},
                         "URL": "https://doi.org/10.1016/j.asoc.2026.123",
-                    },
-                    {
-                        "DOI": "10.1016/j.not-monitored.1",
-                        "title": ["Not monitored"],
-                        "container-title": ["Some Other Journal"],
-                        "ISSN": ["0000-0000"],
                     },
                 ]
             else:
                 items = [
                     {
-                        "DOI": "10.1016/j.asoc.2026.123",
-                        "title": ["Target online paper"],
+                        "DOI": "10.1016/j.asoc.2026.fallback",
+                        "title": ["Target generic published paper"],
                         "container-title": [target.journal],
                         "ISSN": ["1872-9681"],
-                        "published-online": {"date-parts": [[2026, 8, 19]]},
-                        "URL": "https://doi.org/10.1016/j.asoc.2026.123",
-                    },
-                    {
-                        "DOI": "10.1016/j.asoc.2026.pending",
-                        "title": ["Target pending paper"],
-                        "container-title": [target.journal],
-                        "ISSN": ["1872-9681"],
-                        "URL": "https://doi.org/10.1016/j.asoc.2026.pending",
+                        "published": {"date-parts": [[2026, 8, 19]]},
+                        "URL": "https://doi.org/10.1016/j.asoc.2026.fallback",
                     },
                 ]
             return {"message": {"items": items, "next-cursor": None}}
@@ -103,12 +91,11 @@ def test_crossref_member_batch_mock():
     finally:
         crossref.get_json, crossref.build_session = old_json, old_session
     assert len(records) == 2
-    assert sum(r.online_date is not None for r in records) == 1
-    assert sum(r.online_date is None for r in records) == 1
+    assert all(r.online_date == date(2026, 8, 19) for r in records)
+    assert any("published-date fallback" in r.online_date_source.lower() for r in records)
     assert any("from-online-pub-date:2026-08-18" in f and "until-online-pub-date:2026-08-19" in f for f in captured_filters)
-    assert any("from-update-date:2026-08-18" in f and "until-update-date:2026-08-19" in f for f in captured_filters)
-    assert all("prefix:" not in f for f in captured_filters)
-
+    assert any("from-pub-date:2026-08-18" in f and "until-pub-date:2026-08-19" in f for f in captured_filters)
+    assert all("from-update-date" not in f for f in captured_filters)
 
 def test_pending_promotes_without_downgrade():
     memory = create_engine("sqlite:///:memory:", future=True)
@@ -192,70 +179,113 @@ def test_springer_batch_mock():
     assert " AND " not in captured["params"]["q"]
 
 
+
+def test_crossref_title_search_match_mock():
+    journals = enabled_journals("ieee")
+    target = next(s for s in journals if s.journal == "IEEE Transactions on Fuzzy Systems")
+    old_json, old_session = crossref.get_json, crossref.build_session
+    try:
+        def fake_json(session, url, *, params=None, headers=None):
+            assert (params or {}).get("query.title") == "Fuzzy Neural Module Network: Leveraging Univariate Models"
+            return {"message": {"items": [
+                {
+                    "DOI": "10.1109/tfuzz.2026.123",
+                    "title": ["Fuzzy Neural Module Network: Leveraging Univariate Models"],
+                    "container-title": [target.journal],
+                    "ISSN": ["1941-0034"],
+                    "published-online": {"date-parts": [[2026, 8, 19]]},
+                },
+                {
+                    "DOI": "10.0000/wrong",
+                    "title": ["Fuzzy Neural Module Network: Leveraging Univariate Models"],
+                    "container-title": ["IEEE RFID Virtual Journal"],
+                    "ISSN": ["0000-0000"],
+                },
+            ]}}
+        crossref.get_json = fake_json
+        crossref.build_session = lambda: object()
+        matched = crossref.search_title_match(
+            "Fuzzy Neural Module Network: Leveraging Univariate Models", "ieee", journals
+        )
+    finally:
+        crossref.get_json, crossref.build_session = old_json, old_session
+    assert matched is not None
+    item, spec, score = matched
+    assert spec.journal == target.journal
+    assert item["DOI"] == "10.1109/tfuzz.2026.123"
+    assert score >= 0.99
+
 def test_ieee_crossref_first_mock():
     journals = enabled_journals("ieee")
     target = next(s for s in journals if s.journal == "IEEE Transactions on Cybernetics")
-    old_resolve, old_page = ieee.resolve_crossref, ieee.page_metadata
-    page_called = {"value": False}
+    old_by_doi, old_search, old_page = ieee.crossref_by_doi, ieee.crossref.search_title_match, ieee.page_metadata
     try:
-        def fake_resolve(title, spec, doi=None):
-            return {
-                "doi": "10.1109/tcyb.2026.123",
-                "online_date": date(2026, 8, 19),
-                "online_raw": "2026-08-19",
-                "precision": "day",
-                "authors": "A. Author",
-                "url": "https://doi.org/10.1109/tcyb.2026.123",
-                "journal": target.journal,
-                "issn": "2168-2275",
-            }
-        def fake_page(url):
-            page_called["value"] = True
-            raise AssertionError("publisher page should not be needed when Crossref is complete")
-        ieee.resolve_crossref = fake_resolve
-        ieee.page_metadata = fake_page
+        ieee.crossref_by_doi = lambda doi: {
+            "DOI": "10.1109/tcyb.2026.123",
+            "title": ["A new cybernetics paper"],
+            "container-title": [target.journal],
+            "ISSN": ["2168-2275"],
+            "published-online": {"date-parts": [[2026, 8, 19]]},
+            "author": [{"given": "A.", "family": "Author"}],
+            "URL": "https://doi.org/10.1109/tcyb.2026.123",
+        }
+        ieee.crossref.search_title_match = lambda *args, **kwargs: None
+        ieee.page_metadata = lambda url: (_ for _ in ()).throw(AssertionError("page not needed"))
         rec = ieee._entry_to_record({
             "title": "A new cybernetics paper",
             "link": "https://ieeexplore.ieee.org/document/123456",
             "id": "doi:10.1109/TCYB.2026.123",
-            "summary": target.journal,
+            "summary": "",
         }, journals, date(2026, 8, 18), date(2026, 8, 19))
     finally:
-        ieee.resolve_crossref, ieee.page_metadata = old_resolve, old_page
+        ieee.crossref_by_doi, ieee.crossref.search_title_match, ieee.page_metadata = old_by_doi, old_search, old_page
     assert rec is not None and rec.journal == target.journal and rec.online_date == date(2026, 8, 19)
-    assert not page_called["value"]
 
-def test_ieee_rss_date_fallback_mock():
+
+def test_ieee_title_search_whitelist_mock():
     journals = enabled_journals("ieee")
-    target = next(s for s in journals if s.journal == "IEEE Transactions on Cybernetics")
-    old_resolve, old_page = ieee.resolve_crossref, ieee.page_metadata
+    target = next(s for s in journals if s.journal == "IEEE Transactions on Fuzzy Systems")
+    old_by_doi, old_search = ieee.crossref_by_doi, ieee.crossref.search_title_match
     try:
-        def fake_resolve(title, spec, doi=None):
-            return {
-                "doi": "10.1109/tcyb.2026.rss",
-                "online_date": None,
-                "online_raw": "",
-                "precision": "unknown",
-                "authors": "A. Author",
-                "url": "https://doi.org/10.1109/tcyb.2026.rss",
-                "journal": target.journal,
-                "issn": "2168-2275",
-            }
-        ieee.resolve_crossref = fake_resolve
-        ieee.page_metadata = lambda url: {}
+        ieee.crossref_by_doi = lambda doi: None
+        item = {
+            "DOI": "10.1109/tfuzz.2026.999",
+            "title": ["Fuzzy Neural Module Network: Leveraging Univariate Models"],
+            "container-title": [target.journal],
+            "ISSN": ["1941-0034"],
+            "author": [{"given": "A", "family": "B"}],
+            "URL": "https://doi.org/10.1109/tfuzz.2026.999",
+        }
+        ieee.crossref.search_title_match = lambda *args, **kwargs: (item, target, 0.97)
         rec = ieee._entry_to_record({
-            "title": "RSS fallback cybernetics paper",
-            "link": "https://ieeexplore.ieee.org/document/123457",
-            "id": "doi:10.1109/TCYB.2026.RSS",
-            "summary": target.journal,
+            "title": "Fuzzy Neural Module Network: Leveraging Univariate Models",
+            "link": "https://ieeexplore.ieee.org/document/999",
             "published": "Wed, 19 Aug 2026 08:00:00 GMT",
         }, journals, date(2026, 8, 18), date(2026, 8, 19))
     finally:
-        ieee.resolve_crossref, ieee.page_metadata = old_resolve, old_page
+        ieee.crossref_by_doi, ieee.crossref.search_title_match = old_by_doi, old_search
     assert rec is not None
     assert rec.journal == target.journal
+    assert rec.doi == "10.1109/tfuzz.2026.999"
     assert rec.online_date == date(2026, 8, 19)
     assert rec.online_date_source == "IEEE Saved Search RSS pubDate fallback"
+
+
+def test_ieee_virtual_journal_candidate_rejected():
+    journals = enabled_journals("ieee")
+    old_by_doi, old_search = ieee.crossref_by_doi, ieee.crossref.search_title_match
+    try:
+        ieee.crossref_by_doi = lambda doi: None
+        ieee.crossref.search_title_match = lambda *args, **kwargs: None
+        rec = ieee._entry_to_record({
+            "title": "A virtual journal only item",
+            "link": "https://ieeexplore.ieee.org/document/888",
+            "publication": "IEEE RFID Virtual Journal",
+            "published": "Wed, 19 Aug 2026 08:00:00 GMT",
+        }, journals, date(2026, 8, 18), date(2026, 8, 19))
+    finally:
+        ieee.crossref_by_doi, ieee.crossref.search_title_match = old_by_doi, old_search
+    assert rec is None
 
 
 def test_ieee_rss_date_can_be_upgraded_by_crossref():
@@ -281,7 +311,6 @@ def test_ieee_rss_date_can_be_upgraded_by_crossref():
         row = session.scalar(select(Article).where(Article.doi == "10.1109/test.rss"))
         assert row.online_date == date(2026, 8, 18)
         assert "Crossref published-online" in row.online_date_source
-
 
 def test_springer_prefix_batch_mock():
     journals = enabled_journals("springer")
@@ -316,6 +345,7 @@ def test_priority():
     assert source_priority("Springer Meta API onlineDate") > source_priority("Crossref member batch + published-online")
     assert source_priority("ScienceDirect page Available online") > source_priority("Crossref member batch + published-online")
     assert source_priority("Crossref pending recheck + published-online") > source_priority("IEEE Saved Search RSS pubDate fallback")
+    assert source_priority("Crossref member batch + published-online") > source_priority("Crossref Elsevier published-date fallback")
 
 
 def test_local_workflow_and_scripts():
@@ -343,8 +373,10 @@ def main():
     test_pending_promotes_without_downgrade()
     test_springer_batch_parser_and_query()
     test_springer_batch_mock()
+    test_crossref_title_search_match_mock()
     test_ieee_crossref_first_mock()
-    test_ieee_rss_date_fallback_mock()
+    test_ieee_title_search_whitelist_mock()
+    test_ieee_virtual_journal_candidate_rejected()
     test_ieee_rss_date_can_be_upgraded_by_crossref()
     test_springer_prefix_batch_mock()
     test_priority()

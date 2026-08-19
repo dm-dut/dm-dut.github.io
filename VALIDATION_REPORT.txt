@@ -1,36 +1,42 @@
-Paper Monitor LOCAL_FINAL_V3.2 validation report
-Build: LOCAL-2026.08.19-V3.2
+Paper Monitor LOCAL_FINAL_V3.3 validation report
+Build: LOCAL-2026.08.19-V3.3
 
-Validated offline before final packaging:
-- Python compileall: PASS
-- SELF-CHECK: PASS
-- SELF-TEST: PASS
-- 79 enabled journals / Elsevier 39 / Springer 25 / IEEE 15: PASS
+Validated in the build environment:
+- Python compileall for paper_monitor_system/app: PASS
+- selfcheck: PASS
+- selftest: PASS
+- 79 enabled journals: PASS (Elsevier 39 / Springer Nature 25 / IEEE 15)
 - Elsevier Crossref member-78 online-date batch mock: PASS
-- Elsevier Crossref member-78 update-date batch mock: PASS
-- Elsevier dual-batch dedup + pending behavior: PASS
-- Standard Elsevier hard DOI-prefix filter removed: PASS
-- Slow Elsevier per-ISSN emergency fallback disabled by default: PASS
-- Springer Meta batch parser/mock: PASS
-- Springer Crossref 10.1007 prefix fallback mock: PASS
-- No Springer 25-journal API retry-loop strings: PASS
-- IEEE combined Saved Search RSS Crossref-first path mock: PASS
-- IEEE RSS pubDate fallback mock: PASS
-- IEEE RSS fallback date -> later Crossref published-online upgrade: PASS
-- RSS parser publication/source metadata enrichment: PASS
-- Pending -> published precedence/no downgrade: PASS
-- Temporary SQLite + JSON export; pending exclusion: PASS
-- JavaScript syntax checks: PASS
-- GitHub workflow YAML parse / no scheduled publisher fetch: PASS
-- No executable git pull --rebase: PASS
-- Manual update_papers.bat pauses at completion/error: PASS
-- Scheduled update_papers_scheduled.bat contains no pause: PASS
-- PowerShell wrapper contains no Tee-Object native-stderr pipeline: PASS
-- journal_list.xlsx formula-error scan and visual configuration check: PASS
-- Package excludes root homepage index.html/assets/images/scripts/data: PASS
-- Package excludes generated papers.db and online_papers.json: PASS
+- Elsevier Crossref member-78 generic publication-date fallback batch mock: PASS
+- Elsevier update-date scan removed from the primary path: PASS
+- IEEE combined Saved Search RSS configured as one deduplicated feed for 15 journals: PASS
+- IEEE DOI -> Crossref whitelist resolution mock: PASS
+- IEEE Crossref query.title whitelist matching mock: PASS
+- IEEE Virtual Journal/Compendium rejection mock: PASS
+- IEEE RSS pubDate labelled fallback path: PASS
+- IEEE RSS fallback -> Crossref higher-quality date upgrade: PASS
+- Springer Meta API batch parser/mock: PASS
+- Springer one-prefix Crossref fallback mock: PASS
+- No 25-journal Springer API retry loop: PASS
+- SQLite pending -> published promotion: PASS
+- Published -> pending downgrade protection: PASS
+- Known date protection against lower-priority/missing input: PASS
+- JSON export and fallback source-label validation: PASS
+- JavaScript syntax (node --check): PASS
+- GitHub workflow YAML parse: PASS
+- Interactive BAT contains pause; scheduled BAT contains no pause: PASS
+- PowerShell Tee-Object/native stderr path removed: PASS
+- No git pull --rebase: PASS
+- Package does not include root homepage index.html/assets/images/scripts/data: PASS
+- Package does not include papers.db or online_papers.json: PASS
 
-Final ZIP is additionally extracted into a clean directory and SELF-CHECK/SELF-TEST are rerun after packaging.
+Important online connectivity facts are based on the user's own local tests/logs, not simulated by this validation environment:
+- Springer Meta API: HTTP 200
+- IEEE combined Saved Search RSS: HTTP 200, 10 entries
+- Crossref: HTTP 200
+- ScienceDirect API/page: 401/403 and therefore not required by the default collector path
 
-Network note:
-Publisher connectivity itself must be verified on the user's local network. Previously reported local tests showed Springer Meta API HTTP 200, IEEE Saved Search RSS HTTP 200 with 10 entries, and Crossref HTTP 200. ScienceDirect API/page are intentionally not required by the V3.2 default path.
+V3.3 purpose:
+1) Elsevier avoids the noisy update-date scan and uses a two-day online-date + publication-date batch.
+2) IEEE RSS entries can be resolved by article title against Crossref when RSS omits DOI/journal fields.
+3) Existing published records cannot be downgraded by pending observations.

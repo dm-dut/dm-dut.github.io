@@ -3,7 +3,7 @@ setlocal
 cd /d "%~dp0"
 
 echo ============================================================
-echo Paper Monitor LOCAL_FINAL_V3.2 setup
+echo Paper Monitor LOCAL_FINAL_V3.3 setup
 echo ============================================================
 
 where py >nul 2>nul
@@ -37,7 +37,7 @@ if not exist "paper_monitor_system\.env" (
   echo.
   echo Created paper_monitor_system\.env
   echo Please open it and fill SPRINGER_API_KEY and CROSSREF_MAILTO.
-  echo ScienceDirect API and IEEE API keys are not required for the V3.2 default path.
+  echo ScienceDirect API and IEEE API keys are not required for the V3.3 default path.
 ) else (
   echo paper_monitor_system\.env already exists; it was not overwritten.
   echo Please compare it with .env.example and confirm CROSSREF_DISCOVERY_DAYS=2, OVERLAP_DAYS=1, CROSSREF_BATCH_ROWS=1000.
