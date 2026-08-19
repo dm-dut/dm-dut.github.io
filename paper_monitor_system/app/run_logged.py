@@ -35,7 +35,7 @@ def main() -> None:
     if args.skip_tests:
         cmd.append("--skip-tests")
 
-    print("Paper monitor LOCAL V3.1 update")
+    print("Paper monitor LOCAL V3.2 update")
     print(f"Log: {log_file}")
     print()
 

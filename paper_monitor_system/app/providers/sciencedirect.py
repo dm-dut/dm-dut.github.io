@@ -10,6 +10,7 @@ from ..config import (
     ELSEVIER_API_KEY,
     ELSEVIER_INSTTOKEN,
     ENABLE_CROSSREF_FALLBACK,
+    ENABLE_ELSEVIER_EMERGENCY_ISSN_FALLBACK,
     ENABLE_SCIENCEDIRECT_API,
     ENABLE_SCIENCEDIRECT_PAGE,
     ENABLE_SCIENCEDIRECT_RSS,
@@ -178,12 +179,12 @@ def _direct_rss_records(spec: JournalSpec, start: date, end: date) -> list[Artic
 
 
 def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
-    """LOCAL V3 Elsevier strategy: direct RSS (optional) + one publisher-level Crossref batch.
+    """LOCAL V3.2 Elsevier strategy: optional direct RSS + dual Crossref member batch.
 
-    Routine updates do not require ScienceDirect API/page access. Those optional
-    paths remain disabled by default because the user's local test returned
-    HTTP 401/403. If the fast member batch fails, the older per-ISSN Crossref
-    route is used only as an emergency fallback.
+    The fast path runs two publisher-level Crossref passes for the configured
+    two-day window: published-online and update-date.  Results are filtered
+    locally against the 39-journal whitelist.  Slow per-ISSN fallback is OFF by
+    default and can be enabled explicitly for diagnostics only.
     """
     from time import perf_counter
 
@@ -230,24 +231,28 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
     crossref_count = 0
     if ENABLE_CROSSREF_FALLBACK:
         try:
-            for record in crossref.member_batch_discover("sciencedirect", "Elsevier", start, end, journals):
+            for record in crossref.member_dual_batch_discover("sciencedirect", "Elsevier", start, end, journals):
                 key = record.doi or record.external_id or record.title.lower()
                 if key and key not in seen:
                     seen.add(key)
                     crossref_count += 1
                     yield record
         except Exception as exc:
-            print(f"[sciencedirect] fast Crossref member batch unavailable ({type(exc).__name__}: {exc}); using emergency per-ISSN fallback")
-            try:
-                for record in crossref.incremental_discover("sciencedirect", "Elsevier", end, journals):
-                    key = record.doi or record.external_id or record.title.lower()
-                    if key and key not in seen:
-                        seen.add(key)
-                        crossref_count += 1
-                        yield record
-            except Exception as fallback_exc:
-                print(f"[sciencedirect] Crossref emergency fallback ERROR: {type(fallback_exc).__name__}: {fallback_exc}")
-                raise
+            if not ENABLE_ELSEVIER_EMERGENCY_ISSN_FALLBACK:
+                raise RuntimeError(
+                    f"Elsevier Crossref dual member batch failed ({type(exc).__name__}: {exc}); "
+                    "slow per-ISSN fallback is disabled"
+                ) from exc
+            print(
+                f"[sciencedirect] fast Crossref dual batch unavailable ({type(exc).__name__}: {exc}); "
+                "using explicitly-enabled emergency per-ISSN fallback"
+            )
+            for record in crossref.incremental_discover("sciencedirect", "Elsevier", end, journals):
+                key = record.doi or record.external_id or record.title.lower()
+                if key and key not in seen:
+                    seen.add(key)
+                    crossref_count += 1
+                    yield record
 
     elapsed = perf_counter() - t0
     print(

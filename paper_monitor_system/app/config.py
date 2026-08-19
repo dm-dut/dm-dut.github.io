@@ -10,7 +10,7 @@ SYSTEM_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SYSTEM_ROOT.parent
 load_dotenv(SYSTEM_ROOT / ".env")
 
-BUILD_ID = "LOCAL-2026.08.19-V3.1"
+BUILD_ID = "LOCAL-2026.08.19-V3.2"
 
 
 def env_bool(name: str, default: bool = True) -> bool:
@@ -39,6 +39,7 @@ ENABLE_SPRINGER_BATCH_API = env_bool("ENABLE_SPRINGER_BATCH_API", True)
 ENABLE_IEEE_API = env_bool("ENABLE_IEEE_API", False)
 ENABLE_IEEE_CROSSREF_SUPPLEMENT = env_bool("ENABLE_IEEE_CROSSREF_SUPPLEMENT", False)
 ENABLE_CROSSREF_FALLBACK = env_bool("ENABLE_CROSSREF_FALLBACK", True)
+ENABLE_ELSEVIER_EMERGENCY_ISSN_FALLBACK = env_bool("ENABLE_ELSEVIER_EMERGENCY_ISSN_FALLBACK", False)
 
 # Daily incremental windows. OVERLAP_DAYS=1 means yesterday..today (two
 # calendar dates, inclusive). The Crossref discovery cap is also two days.
@@ -61,7 +62,7 @@ WHITELIST_REQUIRED = env_bool("WHITELIST_REQUIRED", True)
 
 # Crossref batch strategy for the 39 Elsevier journals.
 ELSEVIER_CROSSREF_MEMBER_ID = int(os.getenv("ELSEVIER_CROSSREF_MEMBER_ID", "78"))
-CROSSREF_BATCH_ROWS = int(os.getenv("CROSSREF_BATCH_ROWS", "500"))
+CROSSREF_BATCH_ROWS = int(os.getenv("CROSSREF_BATCH_ROWS", "1000"))
 CROSSREF_BATCH_MAX_PAGES = int(os.getenv("CROSSREF_BATCH_MAX_PAGES", "30"))
 
 # Springer Meta API batch strategy.

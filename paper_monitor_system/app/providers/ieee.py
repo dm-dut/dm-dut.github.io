@@ -8,7 +8,7 @@ import requests
 
 from ..config import ENABLE_IEEE_CROSSREF_SUPPLEMENT, HTTP_TIMEOUT, IEEE_SAVED_SEARCH_RSS_URL
 from ..journals import JournalSpec, display_issn, match_journal
-from ..utils import build_session, normalize_space
+from ..utils import build_session, normalize_space, parse_flexible_date
 from . import crossref
 from .base import ArticleRecord
 from .enrichment import extract_doi, page_metadata, resolve_crossref
@@ -53,16 +53,19 @@ def _entry_to_record(entry: dict, journals: Sequence[JournalSpec], start: date, 
     link = normalize_space(entry.get("link") or "")
     ident = normalize_space(entry.get("id") or "")
     summary = normalize_space(entry.get("summary") or "")
+    publication = normalize_space(entry.get("publication") or "")
+    rss_raw = normalize_space(entry.get("published") or "")
+    rss_date, rss_precision = parse_flexible_date(rss_raw) if rss_raw else (None, "unknown")
     if not title:
         return None
 
-    text_blob = " ".join([title, summary, ident])
-    spec = _spec_from_text(text_blob, journals)
+    text_blob = " ".join([title, publication, summary, ident])
+    spec = match_journal("ieee", publication, "", journals) if publication else None
+    if spec is None:
+        spec = _spec_from_text(text_blob, journals)
     doi = extract_doi(" ".join([link, summary, ident]))
 
-    # LOCAL V3 optimization: Crossref first. A DOI lookup is usually faster and
-    # more stable than opening an IEEE article page. The page is only a fallback
-    # when Crossref does not yet identify the journal/date.
+    # Crossref is enrichment/validation, not a publication gate.
     cr: dict = {}
     if doi:
         try:
@@ -78,8 +81,11 @@ def _entry_to_record(entry: dict, journals: Sequence[JournalSpec], start: date, 
     if spec is None and cr:
         spec = match_journal("ieee", cr.get("journal"), cr.get("issn"), journals)
 
+    # Only open the IEEE article page when journal identity is still unknown or
+    # when it may provide a stronger publisher date.  A page failure does not
+    # discard an otherwise valid Saved Search RSS record.
     page: dict = {}
-    need_page = spec is None or not cr.get("online_date") or not (doi or cr.get("doi"))
+    need_page = spec is None or (not cr.get("online_date") and bool(link))
     if need_page and link:
         try:
             page = page_metadata(link)
@@ -92,44 +98,50 @@ def _entry_to_record(entry: dict, journals: Sequence[JournalSpec], start: date, 
     if spec is None:
         return None
 
-    if not cr:
+    if not cr and doi:
         try:
             cr = resolve_crossref(title, spec, doi)
         except requests.RequestException:
             cr = {}
 
-    # Reconfirm the source journal from publisher/Crossref metadata. This drops
-    # Virtual Journals and Compendia unless the underlying article maps to one of
-    # the 15 whitelisted journals.
-    confirmed = match_journal(
-        "ieee",
-        page.get("journal") or cr.get("journal") or spec.journal,
-        page.get("issn") or cr.get("issn"),
-        journals,
-    )
-    if confirmed is None:
-        return None
-    spec = confirmed
+    # If publisher/Crossref supplied a journal identity, it must map to the
+    # whitelist.  Otherwise an exact journal name found in the Saved Search RSS
+    # is sufficient; this allows RSS to remain the primary IEEE source.
+    authoritative_journal = page.get("journal") or cr.get("journal")
+    authoritative_issn = page.get("issn") or cr.get("issn")
+    if authoritative_journal or authoritative_issn:
+        confirmed = match_journal("ieee", authoritative_journal or spec.journal, authoritative_issn, journals)
+        if confirmed is None:
+            return None
+        spec = confirmed
 
     doi = page.get("doi") or doi or cr.get("doi")
     online = page.get("online_date") or cr.get("online_date")
     raw = page.get("online_raw") or cr.get("online_raw") or ""
     precision = page.get("precision") or cr.get("precision") or "unknown"
+    source = ""
 
-    # RSS pubDate is discovery time only; never use it as online publication date.
-    if online and (online < start or online > end):
-        return None
-    if not online and not doi:
-        return None
-
-    source = (
-        "IEEE Saved Search RSS + IEEE page publication date"
-        if page.get("online_date")
-        else (
-            "IEEE Saved Search RSS + Crossref published-online"
-            if online else "IEEE Saved Search RSS discovery; awaiting published-online"
+    if online:
+        if not (start <= online <= end):
+            return None
+        source = (
+            "IEEE Saved Search RSS + IEEE page publication date"
+            if page.get("online_date")
+            else "IEEE Saved Search RSS + Crossref published-online"
         )
-    )
+    elif rss_date and start <= rss_date <= end:
+        # V3.2 fallback: IEEE's own Saved Search RSS timestamp is accepted as a
+        # clearly-labelled fallback date.  It can later be replaced by a higher
+        # priority publisher/Crossref published-online date.
+        online = rss_date
+        raw = rss_raw
+        precision = rss_precision
+        source = "IEEE Saved Search RSS pubDate fallback"
+    else:
+        # Keep a DOI-bearing discovery as pending for later DOI-only recheck.
+        if not doi:
+            return None
+        source = "IEEE Saved Search RSS discovery; awaiting published-online"
 
     return ArticleRecord(
         provider="ieee",
@@ -178,7 +190,12 @@ def _fetch_combined_rss(url: str, journals: Sequence[JournalSpec], start: date, 
             continue
         seen.add(key)
         records.append(record)
-    print(f"[ieee] combined Saved Search RSS entries={len(entries)}, accepted_whitelist_records={len(records)}")
+    rss_fallback = sum(1 for r in records if r.online_date_source == "IEEE Saved Search RSS pubDate fallback")
+    pending = sum(1 for r in records if r.online_date is None)
+    print(
+        f"[ieee] combined Saved Search RSS entries={len(entries)}, accepted_whitelist_records={len(records)}, "
+        f"rss_date_fallback={rss_fallback}, pending={pending}"
+    )
     if len(entries) == 10 and "rowsPerPage=10" in url:
         print("[ieee] NOTE: feed returned the configured 10-item page limit; daily local scheduling is recommended.")
     return records

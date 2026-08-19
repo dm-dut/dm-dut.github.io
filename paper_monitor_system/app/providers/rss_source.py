@@ -48,6 +48,12 @@ def parse_feed(content: bytes):
             "id": _child_text(node, ["guid", "id"]),
             "summary": _child_text(node, ["description", "summary", "content"]),
             "published": _child_text(node, ["pubDate", "published", "updated", "date"]),
+            # Common RSS/Atom/DC/PRISM names used by journal feeds.  Namespace
+            # prefixes are stripped by _local(), so prism:publicationName and
+            # dc:source are both discoverable here.
+            "publication": _child_text(node, [
+                "publicationTitle", "publicationName", "journal", "source", "publisher"
+            ]),
         })
     return out
 

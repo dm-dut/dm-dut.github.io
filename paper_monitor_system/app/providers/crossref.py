@@ -212,13 +212,169 @@ def _bounded_discovery_start(start: date, end: date, days: int | None = None) ->
     return max(start, cap)
 
 
-def _member_groups(journals: Sequence[JournalSpec], default_member_id: int) -> dict[tuple[int, str], list[JournalSpec]]:
-    groups: dict[tuple[int, str], list[JournalSpec]] = defaultdict(list)
+def _member_groups(journals: Sequence[JournalSpec], default_member_id: int) -> dict[int, list[JournalSpec]]:
+    """Group journals by Crossref member only.
+
+    LOCAL V3.2 intentionally does not hard-filter Elsevier by DOI prefix.  The
+    publisher/member route is broad enough for discovery; ISSN/title whitelist
+    matching is the authoritative local filter.
+    """
+    groups: dict[int, list[JournalSpec]] = defaultdict(list)
     for spec in journals:
         member = spec.crossref_member or default_member_id
-        prefix = normalize_space(spec.crossref_prefix)
-        groups[(member, prefix)].append(spec)
+        groups[member].append(spec)
     return groups
+
+
+def _member_batch_pass(
+    session,
+    provider: str,
+    publisher: str,
+    member_id: int,
+    specs: Sequence[JournalSpec],
+    start: date,
+    end: date,
+    *,
+    pass_name: str,
+    from_filter: str,
+    until_filter: str,
+    allow_pending: bool,
+    global_seen: set[str],
+) -> tuple[list[ArticleRecord], int, int]:
+    """Run one cursor-paged Crossref member pass and locally whitelist results."""
+    filters = [
+        "type:journal-article",
+        f"{from_filter}:{start.isoformat()}",
+        f"{until_filter}:{end.isoformat()}",
+    ]
+    url = f"{BASE_URL}/members/{member_id}/works"
+    params = {
+        "filter": ",".join(filters),
+        "rows": max(20, min(CROSSREF_BATCH_ROWS, 1000)),
+        "cursor": "*",
+        "select": SELECT_FIELDS,
+    }
+    if CROSSREF_MAILTO:
+        params["mailto"] = CROSSREF_MAILTO
+
+    records: list[ArticleRecord] = []
+    raw_total = pages = 0
+    cursor = "*"
+    print(
+        f"[{provider}] Crossref {pass_name} batch: member={member_id}, journals={len(specs)}, "
+        f"window={start}..{end}, rows={params['rows']}"
+    )
+    for page_no in range(1, max(1, CROSSREF_BATCH_MAX_PAGES) + 1):
+        params["cursor"] = cursor
+        data = get_json(session, url, params=params)
+        pages += 1
+        message = data.get("message") or {}
+        batch = [item for item in (message.get("items") or []) if isinstance(item, dict)]
+        raw_total += len(batch)
+        if page_no == 1 or page_no % 5 == 0:
+            print(
+                f"[{provider}] Crossref {pass_name} progress: page={page_no}, "
+                f"raw={raw_total}, accepted={len(records)}"
+            )
+
+        for item in batch:
+            spec = match_journal(provider, _container_title(item), _item_issns(item), specs)
+            if spec is None:
+                continue
+            record = _to_record(
+                provider, publisher, spec, item,
+                allow_pending=allow_pending,
+                min_online_date=start,
+                max_online_date=end,
+                source_label=f"Crossref {publisher} {pass_name} batch + published-online",
+                pending_source_label=f"Crossref {publisher} {pass_name} batch discovery; awaiting published-online",
+            )
+            if record is None:
+                continue
+            key = record.doi or record.external_id or record.title.lower()
+            if not key or key in global_seen:
+                continue
+            global_seen.add(key)
+            records.append(record)
+
+        next_cursor = message.get("next-cursor")
+        if not batch or not next_cursor or next_cursor == cursor or len(batch) < int(params["rows"]):
+            break
+        cursor = next_cursor
+    else:
+        raise RuntimeError(
+            f"Crossref {pass_name} batch exceeded {CROSSREF_BATCH_MAX_PAGES} pages for member {member_id}"
+        )
+
+    print(
+        f"[{provider}] Crossref {pass_name} done: pages={pages}, raw={raw_total}, "
+        f"accepted={len(records)}"
+    )
+    return records, pages, raw_total
+
+
+def member_dual_batch_discover(
+    provider: str,
+    publisher: str,
+    start: date,
+    end: date,
+    journals: Sequence[JournalSpec],
+    *,
+    default_member_id: int = ELSEVIER_CROSSREF_MEMBER_ID,
+) -> Iterator[ArticleRecord]:
+    """Fast publisher-level discovery using two complementary two-day passes.
+
+    Pass A filters directly on Crossref ``published-online``.  Pass B filters
+    on member metadata updates so records whose online date was deposited or
+    corrected after DOI creation can still be discovered.  Both passes use the
+    Crossref member endpoint and local ISSN/title whitelist matching; no DOI
+    prefix restriction is imposed.
+    """
+    actual_start = _bounded_discovery_start(start, end)
+    groups = _member_groups(journals, default_member_id)
+    session = build_session()
+    global_seen: set[str] = set()
+    total_pages = total_raw = 0
+    online_count = update_count = pending_count = 0
+    t0 = perf_counter()
+
+    for group_no, (member_id, specs) in enumerate(groups.items(), start=1):
+        print(f"[{provider}] Crossref member group {group_no}/{len(groups)}: member={member_id}, journals={len(specs)}")
+
+        online_records, pages, raw = _member_batch_pass(
+            session, provider, publisher, member_id, specs, actual_start, end,
+            pass_name="online-date",
+            from_filter="from-online-pub-date",
+            until_filter="until-online-pub-date",
+            allow_pending=False,
+            global_seen=global_seen,
+        )
+        total_pages += pages
+        total_raw += raw
+        online_count += len(online_records)
+        for record in online_records:
+            yield record
+
+        update_records, pages, raw = _member_batch_pass(
+            session, provider, publisher, member_id, specs, actual_start, end,
+            pass_name="update-date",
+            from_filter="from-update-date",
+            until_filter="until-update-date",
+            allow_pending=True,
+            global_seen=global_seen,
+        )
+        total_pages += pages
+        total_raw += raw
+        update_count += len(update_records)
+        pending_count += sum(1 for r in update_records if r.online_date is None)
+        for record in update_records:
+            yield record
+
+    print(
+        f"[{provider}] Crossref dual batch done: groups={len(groups)}, pages={total_pages}, raw={total_raw}, "
+        f"online_pass={online_count}, update_pass_new={update_count}, pending={pending_count}, "
+        f"unique={len(global_seen)}, elapsed={perf_counter()-t0:.1f}s"
+    )
 
 
 def member_batch_discover(
@@ -230,95 +386,10 @@ def member_batch_discover(
     *,
     default_member_id: int = ELSEVIER_CROSSREF_MEMBER_ID,
 ) -> Iterator[ArticleRecord]:
-    """Publisher/member-level Crossref discovery, then local whitelist filtering.
-
-    This replaces 39–78 per-ISSN requests with one small set of cursor-paged
-    publisher-level requests. `from-created-date` is intentionally used for the
-    daily new-record monitor; pending DOI rechecks handle later online-date deposits.
-    """
-    actual_start = _bounded_discovery_start(start, end)
-    groups = _member_groups(journals, default_member_id)
-    session = build_session()
-    global_seen: set[str] = set()
-    total_pages = total_raw = total_matched = total_published = total_pending = 0
-    t0 = perf_counter()
-
-    for group_no, ((member_id, prefix), specs) in enumerate(groups.items(), start=1):
-        filters = [
-            "type:journal-article",
-            f"from-created-date:{actual_start.isoformat()}",
-            f"until-created-date:{end.isoformat()}",
-        ]
-        if prefix:
-            filters.append(f"prefix:{prefix}")
-        url = f"{BASE_URL}/members/{member_id}/works"
-        params = {
-            "filter": ",".join(filters),
-            "rows": max(20, min(CROSSREF_BATCH_ROWS, 1000)),
-            "cursor": "*",
-            "select": SELECT_FIELDS,
-        }
-        if CROSSREF_MAILTO:
-            params["mailto"] = CROSSREF_MAILTO
-
-        print(
-            f"[{provider}] Crossref batch group {group_no}/{len(groups)}: member={member_id}"
-            + (f", prefix={prefix}" if prefix else "")
-            + f", journals={len(specs)}, created={actual_start}..{end}"
-        )
-        cursor = "*"
-        group_success = False
-        for page_no in range(1, max(1, CROSSREF_BATCH_MAX_PAGES) + 1):
-            params["cursor"] = cursor
-            data = get_json(session, url, params=params)
-            group_success = True
-            total_pages += 1
-            message = data.get("message") or {}
-            batch = [item for item in (message.get("items") or []) if isinstance(item, dict)]
-            total_raw += len(batch)
-            if page_no == 1 or page_no % 5 == 0:
-                print(f"[{provider}] Crossref batch progress: page={page_no}, raw_items_so_far={total_raw}")
-
-            for item in batch:
-                spec = match_journal(provider, _container_title(item), _item_issns(item), specs)
-                if spec is None:
-                    continue
-                record = _to_record(
-                    provider, publisher, spec, item,
-                    allow_pending=True,
-                    min_online_date=actual_start,
-                    max_online_date=end,
-                    source_label="Crossref Elsevier member batch + published-online",
-                    pending_source_label="Crossref Elsevier member batch discovery; awaiting published-online",
-                )
-                if record is None:
-                    continue
-                key = record.doi or record.external_id or record.title.lower()
-                if not key or key in global_seen:
-                    continue
-                global_seen.add(key)
-                total_matched += 1
-                if record.online_date:
-                    total_published += 1
-                else:
-                    total_pending += 1
-                yield record
-
-            next_cursor = message.get("next-cursor")
-            if not batch or not next_cursor or next_cursor == cursor or len(batch) < int(params["rows"]):
-                break
-            cursor = next_cursor
-        else:
-            raise RuntimeError(f"Crossref member batch exceeded {CROSSREF_BATCH_MAX_PAGES} pages for member {member_id}")
-        if not group_success:
-            raise RuntimeError(f"Crossref member batch returned no response for member {member_id}")
-
-    elapsed = perf_counter() - t0
-    print(
-        f"[{provider}] Crossref member batch done: groups={len(groups)}, pages={total_pages}, raw={total_raw}, "
-        f"whitelist={total_matched}, published={total_published}, pending={total_pending}, elapsed={elapsed:.1f}s"
+    """Backward-compatible alias for the V3.2 dual member batch."""
+    yield from member_dual_batch_discover(
+        provider, publisher, start, end, journals, default_member_id=default_member_id
     )
-
 
 
 def prefix_batch_discover(
@@ -332,7 +403,7 @@ def prefix_batch_discover(
 ) -> Iterator[ArticleRecord]:
     """Crossref prefix-level batch discovery followed by local whitelist filtering.
 
-    Used by Springer V3.1 as a fast single-route fallback when the Meta API is
+    Used by Springer V3.2 as a fast single-route fallback when the Meta API is
     unavailable or its Basic-plan pagination cap is reached. It intentionally
     avoids 25 per-journal ISSN requests.
     """

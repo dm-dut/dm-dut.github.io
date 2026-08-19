@@ -136,14 +136,14 @@ def main() -> None:
     print(f"Paper Monitor Build: {BUILD_ID}")
     print("Execution mode: LOCAL_PC")
     print(
-        f"Elsevier: Crossref member batch (created-date, max {CROSSREF_DISCOVERY_DAYS} days) + direct RSS(optional); "
+        f"Elsevier: Crossref member dual batch (online-date + update-date, max {CROSSREF_DISCOVERY_DAYS} days) + direct RSS(optional); "
         f"ScienceDirect API={'ON' if ENABLE_SCIENCEDIRECT_API else 'OFF'}, page={'ON' if ENABLE_SCIENCEDIRECT_PAGE else 'OFF'}, RSS={'ON' if ENABLE_SCIENCEDIRECT_RSS else 'OFF'}"
     )
     print(
         f"Springer: batch Meta API={'ON' if (ENABLE_SPRINGER_API and ENABLE_SPRINGER_BATCH_API) else 'OFF'} "
         "-> Crossref prefix batch fallback (no per-journal Springer API loop)"
     )
-    print("IEEE: Combined Saved Search RSS -> Crossref-first validation; publisher page only when needed")
+    print("IEEE: Combined Saved Search RSS primary -> Crossref/page enrichment -> RSS pubDate fallback when needed")
     print(f"Crossref polite-pool mailto: {'configured' if CROSSREF_MAILTO else 'NOT configured (recommended)'}")
 
     init_db()

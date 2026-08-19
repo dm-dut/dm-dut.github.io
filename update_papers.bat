@@ -12,10 +12,14 @@ if not exist "paper_monitor_system\.venv\Scripts\python.exe" (
 "paper_monitor_system\.venv\Scripts\python.exe" -m paper_monitor_system.app.run_logged --provider all --initial-days 1
 set "code=%errorlevel%"
 
-if not "%code%"=="0" (
-  echo.
-  echo Update failed. The window will stay open so you can read the error.
+echo.
+if "%code%"=="0" (
+  echo Update completed successfully.
+) else (
+  echo Update failed with exit code %code%.
   echo Logs are in paper_monitor_system\logs\
-  pause
 )
+echo.
+echo Press any key to close this manual-update window.
+pause >nul
 exit /b %code%

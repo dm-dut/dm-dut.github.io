@@ -68,7 +68,7 @@ def _batch_api(start: date, end: date, journals: Sequence[JournalSpec]) -> tuple
     """Run the Basic Meta API as one date-window batch and filter locally.
 
     The official Springer Nature client uses p=20 and caps Basic-plan pagination at
-    start position 100. V3.1 follows that conservative behavior. If the API reaches
+    start position 100. V3.2 follows that conservative behavior. If the API reaches
     that cap with full pages, `truncated=True` is returned so a single Crossref
     prefix-level batch can supplement the result. No per-journal Springer API loop
     is used.
@@ -157,7 +157,7 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
         except Exception as exc:
             print(f"[springer] Meta batch unavailable: {type(exc).__name__}: {exc}; using Crossref prefix batch fallback")
 
-    # Crucial V3.1 behavior: never fall back to 25 per-journal Springer API requests.
+    # Crucial V3.2 behavior: never fall back to 25 per-journal Springer API requests.
     # Crossref is queried once by Springer DOI prefix when the Meta API failed or hit
     # the Basic-plan result cap. Official Springer onlineDate remains higher priority
     # in the DB, so the supplement cannot overwrite it with a weaker date source.

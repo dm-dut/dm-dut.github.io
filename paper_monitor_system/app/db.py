@@ -114,19 +114,21 @@ def save_sync_error(session: Session, provider: str, error: str) -> None:
 def source_priority(source: str | None) -> int:
     text_value = (source or "").lower()
     if "springer meta api" in text_value:
-        return 50
-    if "available online" in text_value or "publisher page" in text_value:
-        return 45
-    if "saved search rss" in text_value and "crossref" not in text_value:
-        return 40
-    if "sciencedirect rss" in text_value and "crossref" not in text_value:
-        return 40
-    if "sciencedirect api" in text_value or "ieee xplore api" in text_value:
-        return 35
+        return 60
+    if "available online" in text_value or "publisher page" in text_value or "ieee page publication date" in text_value:
+        return 55
     if "crossref" in text_value and "published-online" in text_value:
-        return 25
+        return 50
+    if "sciencedirect api" in text_value or "ieee xplore api" in text_value:
+        return 40
+    if "saved search rss" in text_value and "pubdate fallback" in text_value:
+        return 35
+    if "saved search rss" in text_value and "crossref" not in text_value:
+        return 35
+    if "sciencedirect rss" in text_value and "crossref" not in text_value:
+        return 35
     if "crossref" in text_value or "fallback" in text_value:
-        return 15
+        return 20
     return 20 if text_value else 0
 
 

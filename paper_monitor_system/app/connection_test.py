@@ -54,7 +54,7 @@ def test_springer() -> bool:
             return True
         _line(
             "Springer Meta API date-window", "WARN",
-            f"HTTP {date_test.status_code}; V3.1 will use one Crossref 10.1007 prefix batch instead of 25 per-journal API retries",
+            f"HTTP {date_test.status_code}; V3.2 will use one Crossref 10.1007 prefix batch instead of 25 per-journal API retries",
         )
         return True  # basic API/key works; the collector has a fast batch fallback
     except requests.RequestException as exc:
@@ -105,31 +105,37 @@ def test_crossref() -> bool:
 def test_elsevier_crossref_batch() -> bool:
     end = date.today()
     start = end - timedelta(days=max(1, CROSSREF_DISCOVERY_DAYS) - 1)
-    params = {
-        "filter": ",".join([
-            "type:journal-article",
-            "prefix:10.1016",
-            f"from-created-date:{start.isoformat()}",
-            f"until-created-date:{end.isoformat()}",
-        ]),
-        "rows": 1,
-        "select": SELECT_FIELDS,
-    }
-    if CROSSREF_MAILTO:
-        params["mailto"] = CROSSREF_MAILTO
     url = f"https://api.crossref.org/members/{ELSEVIER_CROSSREF_MEMBER_ID}/works"
-    try:
-        r = build_session().get(url, params=params, timeout=HTTP_TIMEOUT)
-        ok = r.status_code == 200
-        _line(
-            "Elsevier Crossref member batch",
-            "OK" if ok else "FAIL",
-            f"HTTP {r.status_code}; member={ELSEVIER_CROSSREF_MEMBER_ID}; window={start}..{end}; rows={CROSSREF_BATCH_ROWS}",
-        )
-        return ok
-    except requests.RequestException as exc:
-        _line("Elsevier Crossref member batch", "FAIL", f"{type(exc).__name__}: {exc}")
-        return False
+    checks = [
+        ("online-date", "from-online-pub-date", "until-online-pub-date"),
+        ("update-date", "from-update-date", "until-update-date"),
+    ]
+    ok_all = True
+    for label, from_filter, until_filter in checks:
+        params = {
+            "filter": ",".join([
+                "type:journal-article",
+                f"{from_filter}:{start.isoformat()}",
+                f"{until_filter}:{end.isoformat()}",
+            ]),
+            "rows": 1,
+            "select": SELECT_FIELDS,
+        }
+        if CROSSREF_MAILTO:
+            params["mailto"] = CROSSREF_MAILTO
+        try:
+            r = build_session().get(url, params=params, timeout=HTTP_TIMEOUT)
+            ok = r.status_code == 200
+            ok_all = ok_all and ok
+            _line(
+                f"Elsevier Crossref {label} batch",
+                "OK" if ok else "FAIL",
+                f"HTTP {r.status_code}; member={ELSEVIER_CROSSREF_MEMBER_ID}; window={start}..{end}; no-prefix-filter",
+            )
+        except requests.RequestException as exc:
+            ok_all = False
+            _line(f"Elsevier Crossref {label} batch", "FAIL", f"{type(exc).__name__}: {exc}")
+    return ok_all
 
 
 def optional_sciencedirect_diagnostics() -> None:
@@ -145,9 +151,9 @@ def optional_sciencedirect_diagnostics() -> None:
                 headers=headers,
                 timeout=HTTP_TIMEOUT,
             )
-            _line("ScienceDirect API (optional)", "OK" if r.status_code == 200 else "WARN", f"HTTP {r.status_code}; V3 does not require this channel")
+            _line("ScienceDirect API (optional)", "OK" if r.status_code == 200 else "WARN", f"HTTP {r.status_code}; V3.2 does not require this channel")
         except requests.RequestException as exc:
-            _line("ScienceDirect API (optional)", "WARN", f"{type(exc).__name__}; V3 does not require this channel")
+            _line("ScienceDirect API (optional)", "WARN", f"{type(exc).__name__}; V3.2 does not require this channel")
     else:
         _line("ScienceDirect API (optional)", "SKIP", "no API key; not required")
 
@@ -155,17 +161,17 @@ def optional_sciencedirect_diagnostics() -> None:
     _line(
         "ScienceDirect direct RSS",
         "INFO" if configured else "SKIP",
-        f"{len(configured)} direct feed URL(s) configured" if configured else "no stable direct RSS URLs configured; member batch is primary",
+        f"{len(configured)} direct feed URL(s) configured" if configured else "no stable direct RSS URLs configured; dual member batch is primary",
     )
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Diagnose LOCAL V3.1 data-source connectivity")
+    parser = argparse.ArgumentParser(description="Diagnose LOCAL V3.2 data-source connectivity")
     parser.add_argument("--strict", action="store_true", help="return non-zero unless all required channels pass")
     args = parser.parse_args()
 
     print(f"Paper Monitor Build: {BUILD_ID}")
-    print("Required LOCAL V3.1 channels are tested first; ScienceDirect API is optional.\n")
+    print("Required LOCAL V3.2 channels are tested first; ScienceDirect API is optional.\n")
     required = [test_springer(), test_ieee_saved_search_rss(), test_crossref(), test_elsevier_crossref_batch()]
     optional_sciencedirect_diagnostics()
     passed = sum(required)
