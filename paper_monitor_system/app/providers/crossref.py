@@ -2,11 +2,12 @@ from __future__ import annotations
 
 from datetime import date, timedelta
 from typing import Iterator, Sequence
-from urllib.parse import quote
+
+import requests
 
 from ..config import CROSSREF_MAILTO, CROSSREF_DISCOVERY_DAYS
 from ..journals import JournalSpec, display_issn, normalize_issn
-from ..utils import build_session, clean_doi, get_json, normalize_space, parse_flexible_date
+from ..utils import build_session, clean_doi, get_json, normalize_space
 from .base import ArticleRecord
 
 BASE_URL = "https://api.crossref.org"
@@ -33,11 +34,11 @@ def _date_parts(item: dict) -> tuple[date | None, str, str]:
 
 def _authors(item: dict) -> str:
     out: list[str] = []
-    for a in item.get("author") or []:
-        if not isinstance(a, dict):
+    for author in item.get("author") or []:
+        if not isinstance(author, dict):
             continue
-        given = normalize_space(str(a.get("given") or ""))
-        family = normalize_space(str(a.get("family") or ""))
+        given = normalize_space(str(author.get("given") or ""))
+        family = normalize_space(str(author.get("family") or ""))
         name = normalize_space(f"{given} {family}")
         if name:
             out.append(name)
@@ -50,13 +51,27 @@ def _first_text(value) -> str:
     return normalize_space(str(value or ""))
 
 
+def _status_label(exc: Exception) -> str:
+    status = getattr(getattr(exc, "response", None), "status_code", None)
+    return f"HTTP {status}" if status else type(exc).__name__
+
+
 def _request_items(session, issn: str, filters: list[str]) -> list[dict]:
-    # The journal-scoped endpoint is more direct and avoids depending on an ISSN
-    # filter in the global /works endpoint.
-    path_issn = quote(normalize_issn(issn), safe="")
-    url = f"{BASE_URL}/journals/{path_issn}/works"
+    """Query Crossref's global /works endpoint.
+
+    Previous builds used /journals/{issn}/works. Some valid journal ISSNs returned
+    404 from that journal-scoped endpoint even though the same ISSN is queryable
+    through the global /works endpoint. Crossref documents `issn` as a Works
+    filter, so the global endpoint is both simpler and more tolerant.
+    """
+    normalized = normalize_issn(issn)
+    if len(normalized) != 8:
+        return []
+
+    url = f"{BASE_URL}/works"
+    all_filters = [f"issn:{display_issn(normalized)}", *filters]
     params = {
-        "filter": ",".join(filters),
+        "filter": ",".join(all_filters),
         "rows": 200,
         "cursor": "*",
     }
@@ -65,12 +80,12 @@ def _request_items(session, issn: str, filters: list[str]) -> list[dict]:
 
     items: list[dict] = []
     cursor = "*"
-    for _ in range(20):  # far above what a one-week journal query should need
+    for _ in range(20):  # ample for a short date window on a single journal
         params["cursor"] = cursor
         data = get_json(session, url, params=params)
         message = data.get("message") or {}
         batch = message.get("items") or []
-        items.extend(x for x in batch if isinstance(x, dict))
+        items.extend(item for item in batch if isinstance(item, dict))
         next_cursor = message.get("next-cursor")
         if not batch or not next_cursor or next_cursor == cursor or len(batch) < int(params["rows"]):
             break
@@ -78,9 +93,16 @@ def _request_items(session, issn: str, filters: list[str]) -> list[dict]:
     return items
 
 
-def _to_record(provider: str, publisher: str, spec: JournalSpec, item: dict, start: date, end: date) -> ArticleRecord | None:
+def _to_record(
+    provider: str,
+    publisher: str,
+    spec: JournalSpec,
+    item: dict,
+    start: date,
+    end: date,
+) -> ArticleRecord | None:
     online_date, precision, raw_date = _date_parts(item)
-    # The fallback must not invent an online date from print/issued dates.
+    # Never substitute print/issued dates: this monitor is explicitly online-date based.
     if online_date is None or online_date < start or online_date > end:
         return None
 
@@ -94,7 +116,7 @@ def _to_record(provider: str, publisher: str, spec: JournalSpec, item: dict, sta
         url = f"https://doi.org/{doi}"
     alt = item.get("alternative-id") or []
     external_id = normalize_space(str(alt[0])) if isinstance(alt, list) and alt else None
-    issns = "; ".join(str(x) for x in (item.get("ISSN") or []) if x)
+    issns = "; ".join(str(value) for value in (item.get("ISSN") or []) if value)
 
     return ArticleRecord(
         provider=provider,
@@ -124,22 +146,18 @@ def _records_for_issn(
     start: date,
     end: date,
 ) -> list[ArticleRecord]:
-    # First ask Crossref directly for works whose deposited online publication
-    # date lies in the target window.
     direct_filters = [
         "type:journal-article",
         f"from-online-pub-date:{start.isoformat()}",
         f"until-online-pub-date:{end.isoformat()}",
     ]
     items = _request_items(session, issn, direct_filters)
-    records = [r for item in items if (r := _to_record(provider, publisher, spec, item, start, end))]
+    records = [record for item in items if (record := _to_record(provider, publisher, spec, item, start, end))]
     if records:
         return records
 
-    # Some publishers redeposit metadata in ways that make online-date filtered
-    # discovery surprisingly sparse. As a conservative second pass, inspect
-    # recently indexed records and still require a real published-online field
-    # inside the requested window. No print date is substituted.
+    # Conservative second pass: inspect recently indexed metadata, but still
+    # require an actual published-online value within the requested window.
     discovery_start = start - timedelta(days=CROSSREF_DISCOVERY_DAYS)
     indexed_filters = [
         "type:journal-article",
@@ -147,7 +165,7 @@ def _records_for_issn(
         f"until-index-date:{(end + timedelta(days=1)).isoformat()}",
     ]
     items = _request_items(session, issn, indexed_filters)
-    return [r for item in items if (r := _to_record(provider, publisher, spec, item, start, end))]
+    return [record for item in items if (record := _to_record(provider, publisher, spec, item, start, end))]
 
 
 def fetch(
@@ -157,27 +175,40 @@ def fetch(
     end: date,
     journals: Sequence[JournalSpec],
 ) -> Iterator[ArticleRecord]:
-    """Crossref fallback for the monitored journals.
-
-    It keeps the original provider (sciencedirect/springer/ieee), but marks the
-    online-date source as Crossref. eISSN is tried first; the alternate ISSN is
-    only queried when the preferred ISSN yields no matching records.
-    """
+    """Crossref fallback with per-journal/per-ISSN fault isolation."""
     session = build_session()
     seen: set[str] = set()
+    attempts = 0
+    successful_requests = 0
 
     for spec in journals:
         if not spec.issns:
             continue
-        preferred = list(reversed(spec.issns))
+
+        preferred = list(reversed(spec.issns))  # online/eISSN first
         spec_records: list[ArticleRecord] = []
         for issn in preferred:
-            spec_records = _records_for_issn(session, provider, publisher, spec, issn, start, end)
+            attempts += 1
+            try:
+                spec_records = _records_for_issn(session, provider, publisher, spec, issn, start, end)
+                successful_requests += 1
+            except requests.RequestException as exc:
+                print(
+                    f"[{provider}] Crossref warning: {spec.journal} "
+                    f"({display_issn(issn)}) failed ({_status_label(exc)}); trying alternate/next journal"
+                )
+                continue
             if spec_records:
                 break
+
         for record in spec_records:
             key = record.doi or record.external_id or record.title.lower()
             if not key or key in seen:
                 continue
             seen.add(key)
             yield record
+
+    # Do not let a single 404/timeout kill a whole publisher, but also do not
+    # silently report success if Crossref itself failed for every attempted ISSN.
+    if attempts and successful_requests == 0:
+        raise RuntimeError(f"Crossref fallback failed for all {attempts} attempted ISSN queries")

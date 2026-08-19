@@ -69,11 +69,24 @@ def _fetch_primary(start: date, end: date, journals: Sequence[JournalSpec]) -> I
                 params = {
                     "query": _query_for_spec(spec, load_day),
                     "content": "journals",
-                    "view": "STANDARD",
                     "start": offset,
                     "count": 100,
                 }
-                data = get_json(session, BASE_URL, params=params, headers=headers)
+                try:
+                    data = get_json(session, BASE_URL, params=params, headers=headers)
+                except requests.HTTPError as exc:
+                    status = getattr(exc.response, "status_code", None)
+                    # 401/403 are normally key/entitlement/IP-wide conditions; one
+                    # more journal request will not fix them, so switch the provider
+                    # to fallback immediately. Other HTTP errors are isolated to the
+                    # current journal/day instead of aborting all 39 journals.
+                    if status in {401, 403}:
+                        raise
+                    print(
+                        f"[sciencedirect] API warning: {spec.journal} {load_day} "
+                        f"failed (HTTP {status}); continuing with next journal"
+                    )
+                    break
                 results = data.get("search-results", {})
                 entries = results.get("entry") or []
                 if isinstance(entries, dict):

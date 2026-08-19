@@ -100,7 +100,22 @@ def _fetch_primary(start: date, end: date, journals: Sequence[JournalSpec]) -> I
     for spec in journals:
         for field, value in _search_keys(spec):
             for content_type in ("Early Access", "Journals"):
-                for record in _fetch_one(start, end, content_type, spec, field, value):
+                try:
+                    records = list(_fetch_one(start, end, content_type, spec, field, value))
+                except requests.HTTPError as exc:
+                    status = getattr(exc.response, "status_code", None)
+                    # The user's current IEEE key returns 403 even in IEEE's own
+                    # interactive documentation, so treat auth failures as global
+                    # and move directly to Crossref. Other query-specific HTTP
+                    # errors are isolated to this journal/query.
+                    if status in {401, 403}:
+                        raise
+                    print(
+                        f"[ieee] API warning: {spec.journal} {content_type} "
+                        f"failed (HTTP {status}); continuing"
+                    )
+                    continue
+                for record in records:
                     key = record.doi or record.external_id or record.title.lower()
                     if key in seen:
                         continue

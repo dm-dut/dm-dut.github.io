@@ -34,27 +34,37 @@ def _url(record: dict) -> str:
 
 
 def _preferred_issns(spec: JournalSpec) -> list[str]:
-    # journal_list.xlsx stores print ISSN first and eISSN second. For online-first
-    # monitoring, try the electronic ISSN first, then the print ISSN if needed.
     return list(reversed(spec.issns)) if spec.issns else []
 
 
 def _queries(spec: JournalSpec, start: date, end: date) -> list[str]:
-    # IMPORTANT: Meta/v2 supports onlinedatefrom/onlinedateto and issn. It does
-    # not document a generic `type:Journal` constraint; adding that constraint
-    # caused HTTP 404 in the previous build. We filter publicationType=Journal
-    # client-side instead.
-    date_clause = f"onlinedatefrom:{start.isoformat()} onlinedateto:{end.isoformat()}"
+    # Use explicit Boolean AND operators. The API supports onlinedatefrom,
+    # onlinedateto and issn; publicationType is filtered client-side.
+    date_clause = (
+        f"onlinedatefrom:{start.isoformat()} AND "
+        f"onlinedateto:{end.isoformat()}"
+    )
     issns = _preferred_issns(spec)
     if issns:
-        return [f"{date_clause} issn:{display_issn(i)}" for i in issns]
-    # The supported publication-name constraint is `pub:`.
+        return [f"{date_clause} AND issn:{display_issn(issn)}" for issn in issns]
     safe = spec.journal.replace('"', '\\"')
-    return [f'{date_clause} pub:"{safe}"']
+    return [f'{date_clause} AND pub:"{safe}"']
 
 
-def _fetch_query(session, query: str, spec: JournalSpec) -> list[ArticleRecord]:
-    page_size = 25
+def _status_label(exc: Exception) -> str:
+    status = getattr(getattr(exc, "response", None), "status_code", None)
+    return f"HTTP {status}" if status else type(exc).__name__
+
+
+def _fetch_query(
+    session,
+    query: str,
+    spec: JournalSpec,
+    start: date,
+    end: date,
+) -> list[ArticleRecord]:
+    # Keep page size conservative under the basic Meta API plan.
+    page_size = 20
     s = 1
     out: list[ArticleRecord] = []
     seen: set[str] = set()
@@ -66,27 +76,25 @@ def _fetch_query(session, query: str, spec: JournalSpec) -> list[ArticleRecord]:
         if not records:
             break
 
-        for r in records:
-            publication_type = normalize_space(r.get("publicationType"))
+        for record in records:
+            publication_type = normalize_space(record.get("publicationType"))
             if publication_type and publication_type.lower() != "journal":
                 continue
 
-            title = normalize_space(r.get("title"))
+            title = normalize_space(record.get("title"))
             if not title:
                 continue
 
-            raw_date = normalize_space(r.get("onlineDate"))
+            raw_date = normalize_space(record.get("onlineDate"))
             online_date, precision = parse_flexible_date(raw_date)
-            if online_date is None:
+            if online_date is None or online_date < start or online_date > end:
                 continue
 
-            doi = clean_doi(first_nonempty(r.get("doi"), r.get("identifier")))
-            identifier = normalize_space(r.get("identifier"))
-            api_journal = normalize_space(first_nonempty(r.get("publicationName"), r.get("journalTitle")))
-            # Several Meta/v2 records expose ISSNs under slightly different keys.
+            doi = clean_doi(first_nonempty(record.get("doi"), record.get("identifier")))
+            identifier = normalize_space(record.get("identifier"))
             api_issn = normalize_space(first_nonempty(
-                r.get("issn"), r.get("eissn"), r.get("eIssn"),
-                r.get("electronicIssn"), r.get("printIssn"),
+                record.get("issn"), record.get("eissn"), record.get("eIssn"),
+                record.get("electronicIssn"), record.get("printIssn"),
             ))
 
             identity = doi or identifier or title.lower()
@@ -98,15 +106,13 @@ def _fetch_query(session, query: str, spec: JournalSpec) -> list[ArticleRecord]:
                 provider="springer",
                 publisher="Springer Nature",
                 title=title,
-                # The query itself is scoped to this whitelist journal. Use the
-                # canonical whitelist title so the web filters remain stable.
                 journal=spec.journal,
-                authors=join_authors(r.get("creators") or []),
+                authors=join_authors(record.get("creators") or []),
                 doi=doi,
                 external_id=identifier or doi,
                 issn=api_issn or (display_issn(spec.issns[0]) if spec.issns else ""),
-                content_type=normalize_space(r.get("contentType")) or "Journal Article",
-                url=_url(r),
+                content_type=normalize_space(record.get("contentType")) or "Journal Article",
+                url=_url(record),
                 online_date=online_date,
                 online_date_raw=raw_date,
                 date_precision=precision,
@@ -114,13 +120,12 @@ def _fetch_query(session, query: str, spec: JournalSpec) -> list[ArticleRecord]:
                 source_update_date=online_date,
             ))
 
-        total = 0
         result = data.get("result") or []
-        if result and isinstance(result, list):
-            try:
-                total = int(result[0].get("total", 0))
-            except Exception:
-                total = 0
+        try:
+            total = int(result[0].get("total", 0)) if result and isinstance(result, list) else 0
+        except (TypeError, ValueError, AttributeError):
+            total = 0
+
         s += len(records)
         if len(records) < page_size or (total and s > total):
             break
@@ -128,42 +133,73 @@ def _fetch_query(session, query: str, spec: JournalSpec) -> list[ArticleRecord]:
     return out
 
 
-def _fetch_primary(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
-    if not SPRINGER_API_KEY:
-        raise RuntimeError("SPRINGER_API_KEY is missing")
-
-    session = build_session()
-    global_seen: set[str] = set()
-
-    for spec in journals:
-        # Try eISSN first. If it returns records, the print ISSN query would be a
-        # duplicate query for the same journal, so stop there. If zero, try the
-        # alternate ISSN. This roughly halves normal API traffic.
-        for query in _queries(spec, start, end):
-            records = _fetch_query(session, query, spec)
-            if records:
-                for record in records:
-                    key = record.doi or record.external_id or record.title.lower()
-                    if key in global_seen:
-                        continue
-                    global_seen.add(key)
-                    yield record
-                break
-
-
 def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
     if not journals:
         return
-    try:
-        records = list(_fetch_primary(start, end, journals))
-        print(f"[springer] Springer Meta API fetched={len(records)}")
-        yield from records
-    except (requests.RequestException, RuntimeError) as exc:
+
+    # Missing key: fall back for all journals rather than failing the whole run.
+    if not SPRINGER_API_KEY:
         if not ENABLE_CROSSREF_FALLBACK:
-            raise
-        status = getattr(getattr(exc, "response", None), "status_code", None)
-        label = f"HTTP {status}" if status else type(exc).__name__
-        print(f"[springer] primary Meta API unavailable ({label}); using Crossref fallback")
+            raise RuntimeError("SPRINGER_API_KEY is missing")
+        print("[springer] SPRINGER_API_KEY missing; using Crossref fallback for all journals")
         records = list(crossref.fetch("springer", "Springer Nature", start, end, journals))
         print(f"[springer] Crossref fallback fetched={len(records)}")
         yield from records
+        return
+
+    session = build_session()
+    global_seen: set[str] = set()
+    primary_count = 0
+    fallback_specs: list[JournalSpec] = []
+
+    for spec in journals:
+        spec_records: list[ArticleRecord] = []
+        any_successful_query = False
+        errors: list[str] = []
+
+        # Try eISSN first and then print ISSN. A failure on one journal/ISSN no
+        # longer sends all 25 Springer journals to fallback.
+        for query in _queries(spec, start, end):
+            try:
+                records = _fetch_query(session, query, spec, start, end)
+                any_successful_query = True
+            except requests.RequestException as exc:
+                errors.append(_status_label(exc))
+                print(
+                    f"[springer] Meta API warning: {spec.journal} query failed "
+                    f"({_status_label(exc)}); trying alternate ISSN"
+                )
+                continue
+
+            if records:
+                spec_records = records
+                break
+
+        if any_successful_query:
+            for record in spec_records:
+                key = record.doi or record.external_id or record.title.lower()
+                if key in global_seen:
+                    continue
+                global_seen.add(key)
+                primary_count += 1
+                yield record
+        else:
+            fallback_specs.append(spec)
+            detail = ", ".join(errors) or "no successful Meta API request"
+            print(f"[springer] {spec.journal}: primary unavailable ({detail}); queued for Crossref fallback")
+
+    print(f"[springer] Springer Meta API fetched={primary_count}")
+
+    if fallback_specs:
+        if not ENABLE_CROSSREF_FALLBACK:
+            raise RuntimeError(f"Springer Meta API failed for {len(fallback_specs)} journal(s) and fallback is disabled")
+        records = list(crossref.fetch("springer", "Springer Nature", start, end, fallback_specs))
+        emitted = 0
+        for record in records:
+            key = record.doi or record.external_id or record.title.lower()
+            if key in global_seen:
+                continue
+            global_seen.add(key)
+            emitted += 1
+            yield record
+        print(f"[springer] Crossref fallback fetched={emitted} for {len(fallback_specs)} journal(s)")

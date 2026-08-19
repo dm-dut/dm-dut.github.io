@@ -43,7 +43,13 @@ def sync_provider(provider: str, fetcher, journals, start: date, end: date) -> t
             save_sync_success(session, provider, end, total)
             session.commit()
         except Exception as exc:
-            session.rollback()
+            # Article upserts are independent and useful even when a later journal
+            # or fallback request fails. Preserve already fetched rows, but do not
+            # advance last_window_end; the next run will retry this provider/window.
+            try:
+                session.commit()
+            except Exception:
+                session.rollback()
             save_sync_error(session, provider, repr(exc))
             session.commit()
             raise

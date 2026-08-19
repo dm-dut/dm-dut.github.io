@@ -50,8 +50,8 @@ jobs:
           python - <<'PY'
           import os
           for name in ("ELSEVIER_API_KEY", "SPRINGER_API_KEY", "IEEE_API_KEY"):
-              v = os.getenv(name, "")
-              print(f"{name}: {'present' if v else 'missing'}; length={len(v)}")
+              value = os.getenv(name, "")
+              print(f"{name}: {'present' if value else 'missing'}; length={len(value)}")
           inst = os.getenv("ELSEVIER_INSTTOKEN", "")
           print(f"ELSEVIER_INSTTOKEN: {'present' if inst else 'not configured (optional)'}")
           PY
@@ -70,17 +70,49 @@ jobs:
           REQUEST_PAUSE_SECONDS: "0.60"
         run: python -m paper_monitor_system.app.sync --provider all --initial-days 7
 
-      - name: Commit paper-monitor data only
+      - name: Publish generated monitor data without rebasing binary files
         shell: bash
         run: |
           set -euo pipefail
+          BRANCH="${GITHUB_REF_NAME:-main}"
+          TMP_DIR="$(mktemp -d)"
+          trap 'rm -rf "$TMP_DIR"' EXIT
+
+          test -f paper-monitor/data/online_papers.json
+          test -f paper_monitor_system/data/papers.db
+          cp paper-monitor/data/online_papers.json "$TMP_DIR/online_papers.json"
+          cp paper_monitor_system/data/papers.db "$TMP_DIR/papers.db"
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add paper_monitor_system/data/papers.db paper-monitor/data/online_papers.json
-          if git diff --cached --quiet; then
-            echo "No paper-monitor changes"
-          else
+
+          # A homepage edit may land while this job is running. Do not merge or
+          # rebase SQLite/JSON. On each attempt, reset to the newest remote main
+          # and re-apply only the two generated monitor data files.
+          for attempt in 1 2 3; do
+            echo "Publish attempt ${attempt}/3"
+            git fetch origin "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+
+            mkdir -p paper-monitor/data paper_monitor_system/data
+            cp "$TMP_DIR/online_papers.json" paper-monitor/data/online_papers.json
+            cp "$TMP_DIR/papers.db" paper_monitor_system/data/papers.db
+
+            git add paper-monitor/data/online_papers.json paper_monitor_system/data/papers.db
+            if git diff --cached --quiet; then
+              echo "No paper-monitor data changes to publish."
+              exit 0
+            fi
+
             git commit -m "chore: update paper monitor"
-            git pull --rebase origin "$GITHUB_REF_NAME"
-            git push origin "HEAD:$GITHUB_REF_NAME"
-          fi
+            if git push origin "HEAD:$BRANCH"; then
+              echo "Paper-monitor data published successfully."
+              exit 0
+            fi
+
+            echo "Remote branch changed during publish; retrying from latest origin/$BRANCH ..."
+            sleep $((attempt * 2))
+          done
+
+          echo "Failed to publish paper-monitor data after 3 attempts."
+          exit 1
