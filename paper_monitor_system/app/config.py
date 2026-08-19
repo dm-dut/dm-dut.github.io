@@ -4,7 +4,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Absolute paths derived from this file, so GitHub Actions/local runs do not depend on cwd.
+# Absolute paths derived from this file. Running from GitHub Actions, locally,
+# or from another working directory therefore gives the same paths.
 SYSTEM_ROOT = Path(__file__).resolve().parents[1]          # .../paper_monitor_system
 REPO_ROOT = SYSTEM_ROOT.parent                           # repository root
 load_dotenv(SYSTEM_ROOT / ".env")
@@ -22,11 +23,17 @@ SPRINGER_API_KEY = os.getenv("SPRINGER_API_KEY", "").strip()
 IEEE_API_KEY = os.getenv("IEEE_API_KEY", "").strip()
 IEEE_QUERYTEXT = os.getenv("IEEE_QUERYTEXT", "").strip()
 
+# Optional. Crossref works without credentials. Supplying an email identifies
+# the client to Crossref's polite pool and is recommended for regular use.
+CROSSREF_MAILTO = os.getenv("CROSSREF_MAILTO", "").strip()
+ENABLE_CROSSREF_FALLBACK = env_bool("ENABLE_CROSSREF_FALLBACK", True)
+
 OVERLAP_DAYS = int(os.getenv("OVERLAP_DAYS", "3"))
 EXPORT_DAYS = int(os.getenv("EXPORT_DAYS", "365"))
 EXPORT_LIMIT = int(os.getenv("EXPORT_LIMIT", "20000"))
 HTTP_TIMEOUT = int(os.getenv("HTTP_TIMEOUT", "45"))
-# ScienceDirect Search v2 is throttled at 2 req/s; 0.60s stays below that rate.
+# Elsevier recommends throttling ScienceDirect Search requests. 0.60 s keeps
+# the crawler comfortably below two calls per second.
 REQUEST_PAUSE_SECONDS = float(os.getenv("REQUEST_PAUSE_SECONDS", "0.60"))
 
 ENABLE_SCIENCEDIRECT = env_bool("ENABLE_SCIENCEDIRECT", True)
@@ -48,7 +55,4 @@ WEB_JSON_PATH = _resolve_path_env(
     "WEB_JSON_PATH", REPO_ROOT / "paper-monitor" / "data" / "online_papers.json"
 )
 DB_PATH = _resolve_path_env("PAPER_MONITOR_DB_PATH", SYSTEM_ROOT / "data" / "papers.db")
-
-# DATABASE_URL may still be supplied for PostgreSQL/Supabase later. For SQLite, the
-# default is an absolute path to avoid cwd-dependent failures in GitHub Actions.
 DATABASE_URL = os.getenv("DATABASE_URL", "").strip() or f"sqlite:///{DB_PATH.as_posix()}"

@@ -3,9 +3,12 @@ from __future__ import annotations
 from datetime import date
 from typing import Iterator, Sequence
 
-from ..config import SPRINGER_API_KEY
+import requests
+
+from ..config import SPRINGER_API_KEY, ENABLE_CROSSREF_FALLBACK
 from ..journals import JournalSpec, display_issn, match_journal
 from ..utils import build_session, clean_doi, first_nonempty, get_json, join_authors, normalize_space, parse_flexible_date
+from . import crossref
 from .base import ArticleRecord
 
 BASE_URL = "https://api.springernature.com/meta/v2/json"
@@ -16,11 +19,10 @@ def _url(record: dict) -> str:
     if isinstance(urls, dict):
         urls = [urls]
     for item in urls:
-        if not isinstance(item, dict):
-            continue
-        value = item.get("value") or item.get("url") or item.get("$", "")
-        if "link.springer.com" in str(value):
-            return str(value)
+        if isinstance(item, dict):
+            value = item.get("value") or item.get("url") or item.get("$", "")
+            if "link.springer.com" in str(value):
+                return str(value)
     for item in urls:
         if isinstance(item, dict):
             value = item.get("value") or item.get("url") or item.get("$", "")
@@ -32,23 +34,22 @@ def _url(record: dict) -> str:
 
 
 def _queries(spec: JournalSpec, start: date, end: date) -> list[str]:
-    date_clause = f"onlinedatefrom:{start.isoformat()} onlinedateto:{end.isoformat()}"
+    # These constraints are supported by Meta/v2 Basic Plan. type:Journal also
+    # prevents book chapters/conference chapters from entering the database.
+    date_clause = f"type:Journal onlinedatefrom:{start.isoformat()} onlinedateto:{end.isoformat()}"
     if spec.issns:
         return [f"{date_clause} issn:{display_issn(i)}" for i in spec.issns]
-    # Publication-title fallback; ISSN is preferred because title constraints can
-    # differ by API plan and title punctuation/renaming is less stable.
     safe = spec.journal.replace('"', '\\"')
-    return [f'{date_clause} pub:"{safe}"']
+    return [f'{date_clause} journal:"{safe}"']
 
 
-def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
+def _fetch_primary(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
     if not SPRINGER_API_KEY:
         raise RuntimeError("SPRINGER_API_KEY is missing")
-    if not journals:
-        return
 
     session = build_session()
-    page_size = 100
+    # 25 is conservative and well within the current Meta API pagination rules.
+    page_size = 25
     seen: set[str] = set()
 
     for spec in journals:
@@ -62,23 +63,30 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
                     break
 
                 for r in records:
-                    content_type = normalize_space(r.get("contentType"))
-                    if content_type and content_type.lower() != "article":
+                    publication_type = normalize_space(r.get("publicationType"))
+                    if publication_type and publication_type.lower() != "journal":
                         continue
                     title = normalize_space(r.get("title"))
                     if not title:
                         continue
 
-                    raw_date = normalize_space(first_nonempty(r.get("onlineDate"), r.get("coverDate")))
+                    # The monitor is intentionally based on onlineDate, not the
+                    # later volume/issue publicationDate.
+                    raw_date = normalize_space(r.get("onlineDate"))
                     online_date, precision = parse_flexible_date(raw_date)
+                    if online_date is None:
+                        continue
+
                     creators = r.get("creators") or []
                     doi = clean_doi(first_nonempty(r.get("doi"), r.get("identifier")))
                     identifier = normalize_space(r.get("identifier"))
                     journal = normalize_space(first_nonempty(r.get("publicationName"), r.get("journalTitle")))
                     issn = normalize_space(first_nonempty(r.get("issn"), r.get("eIssn")))
 
-                    matched = match_journal("springer", journal, issn, journals)
-                    if matched is None and journal and journal.lower() != spec.journal.lower():
+                    matched = match_journal("springer", journal, issn, [spec])
+                    if matched is None and journal and journal.lower() not in {
+                        spec.journal.lower(), *(a.lower() for a in spec.aliases)
+                    }:
                         continue
 
                     identity = doi or identifier or title.lower()
@@ -95,13 +103,13 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
                         doi=doi,
                         external_id=identifier or doi,
                         issn=issn or (display_issn(spec.issns[0]) if spec.issns else ""),
-                        content_type=content_type or "Article",
+                        content_type=normalize_space(r.get("contentType")) or "Article",
                         url=_url(r),
                         online_date=online_date,
                         online_date_raw=raw_date,
                         date_precision=precision,
-                        online_date_source="Springer onlineDate" if r.get("onlineDate") else "Springer coverDate fallback",
-                        source_update_date=online_date or end,
+                        online_date_source="Springer onlineDate",
+                        source_update_date=online_date,
                     )
 
                 total = 0
@@ -114,3 +122,17 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
                 s += len(records)
                 if len(records) < page_size or (total and s > total):
                     break
+
+
+def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
+    if not journals:
+        return
+    try:
+        yield from _fetch_primary(start, end, journals)
+    except (requests.RequestException, RuntimeError) as exc:
+        if not ENABLE_CROSSREF_FALLBACK:
+            raise
+        status = getattr(getattr(exc, "response", None), "status_code", None)
+        label = f"HTTP {status}" if status else type(exc).__name__
+        print(f"[springer] primary Meta API unavailable ({label}); using Crossref fallback")
+        yield from crossref.fetch("springer", "Springer Nature", start, end, journals)

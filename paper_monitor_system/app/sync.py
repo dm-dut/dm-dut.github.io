@@ -56,6 +56,11 @@ def main() -> None:
     parser.add_argument("--start", help="YYYY-MM-DD; overrides sync state")
     parser.add_argument("--end", help="YYYY-MM-DD; default today")
     parser.add_argument("--initial-days", type=int, default=7, help="first-run lookback")
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="exit non-zero if a provider and its fallback both fail; default keeps other providers/web feed running",
+    )
     args = parser.parse_args()
 
     init_db()
@@ -79,21 +84,23 @@ def main() -> None:
             end = date.fromisoformat(args.end)
 
         print(f"[{provider}] journals={len(journals)}")
-        print(f"[{provider}] whitelist: {describe_journals(journals)}")
         print(f"[{provider}] window={start}..{end}")
         try:
             total, created = sync_provider(provider, fetcher, journals, start, end)
             print(f"[{provider}] fetched={total}, new={created}, updated={total-created}")
         except Exception as exc:
             errors.append((provider, exc))
-            print(f"[{provider}] ERROR: {type(exc).__name__}: {exc}")
+            print(f"[{provider}] ERROR after fallback: {type(exc).__name__}: {exc}")
 
     count = export_json()
     print(f"[export] {count} whitelisted records -> {WEB_JSON_PATH}")
 
     if errors:
         names = ", ".join(name for name, _ in errors)
-        raise SystemExit(f"Provider failures: {names}. See log above for details.")
+        message = f"Provider failures after fallback: {names}. Existing data was preserved and the feed was exported."
+        if args.strict:
+            raise SystemExit(message)
+        print(f"WARNING: {message}")
 
 
 if __name__ == "__main__":

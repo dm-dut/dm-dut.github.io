@@ -3,9 +3,12 @@ from __future__ import annotations
 from datetime import date
 from typing import Iterator, Sequence
 
-from ..config import IEEE_API_KEY, IEEE_QUERYTEXT
+import requests
+
+from ..config import IEEE_API_KEY, IEEE_QUERYTEXT, ENABLE_CROSSREF_FALLBACK
 from ..journals import JournalSpec, display_issn, match_journal
 from ..utils import build_session, clean_doi, first_nonempty, get_json, join_authors, normalize_space, parse_flexible_date
+from . import crossref
 from .base import ArticleRecord
 
 BASE_URL = "https://ieeexploreapi.ieee.org/api/v1/search/articles"
@@ -89,19 +92,31 @@ def _fetch_one(start: date, end: date, content_type: str, spec: JournalSpec, fie
             break
 
 
-def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
+def _fetch_primary(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
     if not IEEE_API_KEY:
         raise RuntimeError("IEEE_API_KEY is missing")
-    if not journals:
-        return
 
     seen: set[str] = set()
     for spec in journals:
         for field, value in _search_keys(spec):
             for content_type in ("Early Access", "Journals"):
                 for record in _fetch_one(start, end, content_type, spec, field, value):
-                    k = record.doi or record.external_id or record.title.lower()
-                    if k in seen:
+                    key = record.doi or record.external_id or record.title.lower()
+                    if key in seen:
                         continue
-                    seen.add(k)
+                    seen.add(key)
                     yield record
+
+
+def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
+    if not journals:
+        return
+    try:
+        yield from _fetch_primary(start, end, journals)
+    except (requests.RequestException, RuntimeError) as exc:
+        if not ENABLE_CROSSREF_FALLBACK:
+            raise
+        status = getattr(getattr(exc, "response", None), "status_code", None)
+        label = f"HTTP {status}" if status else type(exc).__name__
+        print(f"[ieee] primary IEEE API unavailable ({label}); using Crossref fallback")
+        yield from crossref.fetch("ieee", "IEEE", start, end, journals)

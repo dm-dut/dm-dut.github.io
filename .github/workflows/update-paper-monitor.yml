@@ -34,21 +34,36 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r paper_monitor_system/requirements.txt
 
-      - name: Validate package and paths
+      - name: Validate package, paths and whitelist
         run: python -m paper_monitor_system.app.selfcheck
+
+      - name: Check API secrets without printing them
+        env:
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+          SPRINGER_API_KEY: ${{ secrets.SPRINGER_API_KEY }}
+          IEEE_API_KEY: ${{ secrets.IEEE_API_KEY }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os
+          for name in ("ELSEVIER_API_KEY", "SPRINGER_API_KEY", "IEEE_API_KEY"):
+              v = os.getenv(name, "")
+              print(f"{name}: {'present' if v else 'missing'}; length={len(v)}")
+          PY
 
       - name: Fetch and export papers
         env:
           ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
           SPRINGER_API_KEY: ${{ secrets.SPRINGER_API_KEY }}
           IEEE_API_KEY: ${{ secrets.IEEE_API_KEY }}
+          CROSSREF_MAILTO: ${{ vars.CROSSREF_MAILTO }}
+          ENABLE_CROSSREF_FALLBACK: "true"
           OVERLAP_DAYS: "3"
           EXPORT_DAYS: "365"
           REQUEST_PAUSE_SECONDS: "0.60"
         run: python -m paper_monitor_system.app.sync --provider all --initial-days 7
 
       - name: Commit paper-monitor data only
-        if: success()
         shell: bash
         run: |
           set -euo pipefail

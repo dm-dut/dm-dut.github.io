@@ -3,12 +3,16 @@ from __future__ import annotations
 from datetime import date, timedelta
 from typing import Iterator, Sequence
 
-from ..config import ELSEVIER_API_KEY
+import requests
+
+from ..config import ELSEVIER_API_KEY, ENABLE_CROSSREF_FALLBACK
 from ..journals import JournalSpec, display_issn, match_journal
 from ..utils import build_session, clean_doi, first_nonempty, get_json, join_authors, normalize_space
+from . import crossref
 from .base import ArticleRecord
 
-BASE_URL = "https://api.elsevier.com/content/search/scidir"
+# ScienceDirect Search API V2. The old /scidir endpoint now returns HTTP 410.
+BASE_URL = "https://api.elsevier.com/content/search/sciencedirect"
 
 
 def _date_range(start: date, end: date):
@@ -23,9 +27,9 @@ def _scidir_link(entry: dict) -> str:
     if isinstance(links, dict):
         links = [links]
     for link in links:
-        if isinstance(link, dict) and link.get("@ref") in {"scidir", "scopus"} and link.get("@href"):
-            return link["@href"]
-    doi = clean_doi(entry.get("prism:doi"))
+        if isinstance(link, dict) and link.get("@ref") == "scidir" and link.get("@href"):
+            return str(link["@href"])
+    doi = clean_doi(first_nonempty(entry.get("prism:doi"), entry.get("dc:identifier")))
     return f"https://doi.org/{doi}" if doi else ""
 
 
@@ -37,22 +41,20 @@ def _authors(entry: dict) -> str:
 
 
 def _query_for_spec(spec: JournalSpec, load_day: date) -> str:
+    # Exact-day Load-Date is deliberate: the STANDARD search result does not
+    # expose the original load date, so querying day by day preserves the exact
+    # ScienceDirect first-load date used by the user's monitor.
     date_clause = f"Load-Date({load_day:%Y%m%d})"
     if spec.issns:
         issn_clause = " OR ".join(f"ISSN({display_issn(i)})" for i in spec.issns)
         return f"{date_clause} AND ({issn_clause})"
-    # Fallback for a row without ISSN. Exact source-title match is less robust;
-    # therefore ISSN/eISSN is strongly recommended in journal_list.xlsx.
     safe_title = spec.journal.replace("}", "\\}").replace("{", "\\{")
     return f"{date_clause} AND Srctitle({{{safe_title}}})"
 
 
-def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
-    """Fetch only whitelisted journal records first loaded on ScienceDirect in [start, end]."""
+def _fetch_primary(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
     if not ELSEVIER_API_KEY:
         raise RuntimeError("ELSEVIER_API_KEY is missing")
-    if not journals:
-        return
 
     session = build_session()
     headers = {"X-ELS-APIKey": ELSEVIER_API_KEY, "Accept": "application/json"}
@@ -68,7 +70,6 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
                     "view": "STANDARD",
                     "start": offset,
                     "count": 100,
-                    "httpAccept": "application/json",
                 }
                 data = get_json(session, BASE_URL, params=params, headers=headers)
                 results = data.get("search-results", {})
@@ -85,8 +86,7 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
                     journal = normalize_space(e.get("prism:publicationName"))
                     issn = normalize_space(first_nonempty(e.get("prism:issn"), e.get("prism:eIssn")))
 
-                    # Defense-in-depth: verify returned metadata when possible.
-                    matched = match_journal("sciencedirect", journal, issn, journals)
+                    matched = match_journal("sciencedirect", journal, issn, [spec])
                     if matched is None and journal and journal.lower() != spec.journal.lower():
                         continue
 
@@ -115,6 +115,21 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
 
                 total = int(results.get("opensearch:totalResults") or len(entries) or 0)
                 items = int(results.get("opensearch:itemsPerPage") or len(entries) or 0)
-                if not entries or offset + max(items, len(entries)) >= total:
+                step = max(items, len(entries))
+                if not entries or step <= 0 or offset + step >= total:
                     break
-                offset += max(items, len(entries))
+                offset += step
+
+
+def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[ArticleRecord]:
+    if not journals:
+        return
+    try:
+        yield from _fetch_primary(start, end, journals)
+    except (requests.RequestException, RuntimeError) as exc:
+        if not ENABLE_CROSSREF_FALLBACK:
+            raise
+        status = getattr(getattr(exc, "response", None), "status_code", None)
+        label = f"HTTP {status}" if status else type(exc).__name__
+        print(f"[sciencedirect] primary API unavailable ({label}); using Crossref fallback")
+        yield from crossref.fetch("sciencedirect", "Elsevier", start, end, journals)
