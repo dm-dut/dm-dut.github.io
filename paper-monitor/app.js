@@ -148,7 +148,7 @@ async function triggerRefresh() {
 
   const endpoint = String(CONFIG.refreshEndpoint || "").trim();
   if (!endpoint) {
-    setRefreshState("error", "尚未配置安全更新入口，请先填写 web/config.js 中的 refreshEndpoint。");
+    setRefreshState("error", "尚未配置安全更新入口，请先填写 paper-monitor/config.js 中的 refreshEndpoint。");
     return;
   }
 

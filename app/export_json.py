@@ -10,7 +10,7 @@ from .config import EXPORT_DAYS, EXPORT_LIMIT, ROOT
 from .db import Article, engine, init_db
 from .journals import match_journal
 
-OUTPUT = ROOT / "web" / "data" / "online_papers.json"
+OUTPUT = ROOT / "paper-monitor" / "data" / "online_papers.json"
 
 
 def display_date(article: Article) -> str:

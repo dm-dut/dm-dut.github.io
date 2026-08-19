@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-从 JCR2026-web.xlsx 的 Category_Quartiles sheet 生成拆分后的 JCR JSON 文件。
+从 JCR2026-paper-monitor.xlsx 的 Category_Quartiles sheet 生成拆分后的 JCR JSON 文件。
 
 输出结构：
 data/jcr/categories.json

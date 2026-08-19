@@ -36,7 +36,7 @@ SYSTEM_COLUMNS = {"id", "_order_index"}
 SKIP_SHEETS = {"README", "Projects", "Project"}
 PUBLICATIONS_TABLE = "Publications"
 IMPACT_TABLE = "Impact_Factors"
-# These tables remain in SQLite and export logic, but are not shown as editable pages in the web UI.
+# These tables remain in SQLite and export logic, but are not shown as editable pages in the paper-monitor UI.
 HIDDEN_WEB_TABLES = {IMPACT_TABLE, "Projects", "Project"}
 IMPACT_LOOKUP_TABLE = "_impact_lookup"
 DIRTY_PUBLICATIONS_TABLE = "_dirty_publications"

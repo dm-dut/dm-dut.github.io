@@ -77,7 +77,7 @@ python -m app.sync --provider ieee --start 2026-08-18 --end 2026-08-19
 Serve the demo page locally:
 
 ```bash
-python -m http.server 8000 -d web
+python -m http.server 8000 -d paper-monitor
 ```
 
 Then open `http://localhost:8000`.
@@ -93,9 +93,9 @@ Add repository secrets:
 The included workflow runs every other day and commits:
 
 - `data/papers.db`
-- `web/data/online_papers.json`
+- `paper-monitor/data/online_papers.json`
 
-If your existing site is GitHub Pages, copy the `web/data/online_papers.json` output and the filtering/rendering logic from `web/app.js` into the site.
+If your existing site is GitHub Pages, copy the `paper-monitor/data/online_papers.json` output and the filtering/rendering logic from `paper-monitor/app.js` into the site.
 
 ### About `*/2` cron
 
@@ -180,7 +180,7 @@ The workflow also contains a `concurrency` group so a scheduled run and a button
    - `GITHUB_PAT`: fine-grained GitHub PAT with **Actions: write** for this repository.
    - `REFRESH_PASSWORD`: a password you will type when clicking the update button.
 4. Set `ALLOWED_ORIGINS` to the exact origin of your website, for example `https://YOURNAME.github.io` or your custom domain.
-5. Put the deployed Worker URL into `web/config.js`:
+5. Put the deployed Worker URL into `paper-monitor/config.js`:
 
 ```js
 window.PAPER_TRACKER_CONFIG = {
@@ -194,4 +194,4 @@ Now clicking **立即更新** asks for the password, securely triggers the GitHu
 
 ### Security note
 
-Do not call the GitHub workflow-dispatch REST endpoint directly from `web/app.js`, because doing so would require a GitHub credential in public browser code. The trigger Worker exists specifically to keep that credential server-side.
+Do not call the GitHub workflow-dispatch REST endpoint directly from `paper-monitor/app.js`, because doing so would require a GitHub credential in public browser code. The trigger Worker exists specifically to keep that credential server-side.
