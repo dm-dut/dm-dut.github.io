@@ -1,6 +1,414 @@
 {
-  "generated_at": "2026-08-19T03:36:15.922250+00:00",
+  "generated_at": "2026-08-19T04:23:30.573119+00:00",
   "count": 91,
+  "monitoring": {
+    "journal_count": 79,
+    "publisher_count": 3
+  },
+  "filters": {
+    "publishers": [
+      "Elsevier",
+      "IEEE",
+      "Springer Nature"
+    ],
+    "journals": [
+      {
+        "publisher": "Elsevier",
+        "journal": "Advanced Engineering Informatics",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "AI Open",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Annals of Tourism Research",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Applied Soft Computing",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Artificial Intelligence",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Computers & Industrial Engineering",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Computers & Operations Research",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Computers in Industry",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Decision Support Systems",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Electronic Commerce Research and Applications",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Engineering Applications of Artificial Intelligence",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "EURO Journal on Decision Processes",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "European Journal of Operational Research",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Expert Systems with Applications",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Fuzzy Sets and Systems",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Information & Management",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Information Fusion",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Information Processing & Management",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Information Sciences",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Information Systems",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "International Journal of Approximate Reasoning",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "International Journal of Forecasting",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "International Journal of Production Economics",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Journal of Biomedical Informatics",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Journal of Management Science and Engineering",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Journal of Retailing and Consumer Services",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Knowledge-Based Systems",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Neural Networks",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Neurocomputing",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Omega",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Pattern Recognition",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Pattern Recognition Letters",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Physica A: Statistical Mechanics and its Applications",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Reliability Engineering & System Safety",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Technological Forecasting and Social Change",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Tourism Management",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Transportation Research Part B: Methodological",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Transportation Research Part D: Transport and Environment",
+        "category": ""
+      },
+      {
+        "publisher": "Elsevier",
+        "journal": "Transportation Research Part E: Logistics and Transportation Review",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Artificial Intelligence",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Big Data",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Computational Social Systems",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Cybernetics",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Emerging Topics in Computational Intelligence",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Engineering Management",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Evolutionary Computation",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Fuzzy Systems",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Knowledge and Data Engineering",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Network Science and Engineering",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Neural Networks and Learning Systems",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Reliability",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+        "category": ""
+      },
+      {
+        "publisher": "IEEE",
+        "journal": "IEEE/CAA Journal of Automatica Sinica",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Annals of Operations Research",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Applied Intelligence",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Artificial Intelligence Review",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Central European Journal of Operations Research",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Cognitive Computation",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Complex & Intelligent Systems",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Data Mining and Knowledge Discovery",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Electronic Commerce Research",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "ENGINEERING Management",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Fuzzy Optimization and Decision Making",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Group Decision and Negotiation",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Health Care Management Science",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "International Journal of Computational Intelligence Systems",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "International Journal of Fuzzy Systems",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "International Journal of Machine Learning and Cybernetics",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Journal of Systems Science and Complexity",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Journal of Systems Science and Systems Engineering",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Knowledge and Information Systems",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Neural Computing and Applications",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Operational Research",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "OR Spectrum",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Social Network Analysis and Mining",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Soft Computing",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "Theory and Decision",
+        "category": ""
+      },
+      {
+        "publisher": "Springer Nature",
+        "journal": "TOP",
+        "category": ""
+      }
+    ]
+  },
   "articles": [
     {
       "publisher": "Springer Nature",
@@ -13,7 +421,8 @@
       "online_date": "2026-08-19",
       "display_date": "2026-08-19",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -26,7 +435,8 @@
       "online_date": "2026-08-19",
       "display_date": "2026-08-19",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -39,7 +449,8 @@
       "online_date": "2026-08-19",
       "display_date": "2026-08-19",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -52,7 +463,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -65,7 +477,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -78,7 +491,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -91,7 +505,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -104,46 +519,50 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
       "provider": "springer",
       "title": "Convergence and diversity cooperative-based coevolutionary algorithm for many-objective optimization",
-      "journal": "Complex &amp; Intelligent Systems",
+      "journal": "Complex & Intelligent Systems",
       "authors": "Wei Li; Weize Qin; Ning Yang; Qing Xu; Ying Huang",
       "doi": "10.1007/s40747-026-02466-2",
       "url": "https://doi.org/10.1007/s40747-026-02466-2",
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
       "provider": "springer",
       "title": "Multi-view feature fusion and contrastive representation learning for pipeline leak detection",
-      "journal": "Complex &amp; Intelligent Systems",
+      "journal": "Complex & Intelligent Systems",
       "authors": "Xuemei Meng; GaizhiGuo",
       "doi": "10.1007/s40747-026-02404-2",
       "url": "https://doi.org/10.1007/s40747-026-02404-2",
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
       "provider": "springer",
       "title": "A dual-branch multi-scale network for thyroid nodule ultrasound image segmentation",
-      "journal": "Complex &amp; Intelligent Systems",
+      "journal": "Complex & Intelligent Systems",
       "authors": "Hao Chen; Qiong Zhang; Zhe Wang; Xu Wu; Yuwei Yang",
       "doi": "10.1007/s40747-026-02484-0",
       "url": "https://doi.org/10.1007/s40747-026-02484-0",
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -156,7 +575,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -169,7 +589,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -182,7 +603,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -195,7 +617,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -208,7 +631,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -221,7 +645,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -234,7 +659,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -247,7 +673,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -260,7 +687,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -273,7 +701,8 @@
       "online_date": "2026-08-18",
       "display_date": "2026-08-18",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -286,7 +715,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -299,7 +729,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -312,7 +743,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -325,7 +757,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -338,7 +771,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -351,7 +785,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -364,20 +799,22 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
       "provider": "springer",
       "title": "Multi-level visual-language models feature learning for generalizable anomaly detection",
-      "journal": "Complex &amp; Intelligent Systems",
+      "journal": "Complex & Intelligent Systems",
       "authors": "jianfeng Qiu; junfa Li; Juan Xie; Xueliang Ma; Ke Xu",
       "doi": "10.1007/s40747-026-02462-6",
       "url": "https://doi.org/10.1007/s40747-026-02462-6",
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -390,7 +827,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -403,7 +841,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -416,7 +855,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -429,7 +869,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -442,7 +883,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -455,7 +897,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -468,7 +911,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -481,7 +925,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -494,7 +939,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -507,7 +953,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -520,7 +967,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -533,7 +981,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -546,7 +995,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -559,7 +1009,8 @@
       "online_date": "2026-08-17",
       "display_date": "2026-08-17",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -572,7 +1023,8 @@
       "online_date": "2026-08-16",
       "display_date": "2026-08-16",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -585,7 +1037,8 @@
       "online_date": "2026-08-15",
       "display_date": "2026-08-15",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -598,7 +1051,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -611,7 +1065,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -624,7 +1079,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -637,7 +1093,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -650,7 +1107,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -663,7 +1121,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -676,7 +1135,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -689,7 +1149,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -702,7 +1163,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -715,7 +1177,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -728,7 +1191,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -741,7 +1205,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -754,7 +1219,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -767,7 +1233,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -780,7 +1247,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -793,7 +1261,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -806,7 +1275,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -819,7 +1289,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -832,7 +1303,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -845,7 +1317,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -858,7 +1331,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -871,7 +1345,8 @@
       "online_date": "2026-08-14",
       "display_date": "2026-08-14",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -884,7 +1359,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -897,7 +1373,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -910,7 +1387,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -923,7 +1401,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -936,7 +1415,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -949,7 +1429,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -962,7 +1443,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -975,7 +1457,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -988,7 +1471,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1001,7 +1485,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1014,7 +1499,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1027,7 +1513,8 @@
       "online_date": "2026-08-13",
       "display_date": "2026-08-13",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1040,7 +1527,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1053,7 +1541,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1066,7 +1555,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1079,7 +1569,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1092,7 +1583,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1105,7 +1597,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1118,7 +1611,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1131,7 +1625,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1144,7 +1639,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1157,7 +1653,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1170,7 +1667,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     },
     {
       "publisher": "Springer Nature",
@@ -1183,7 +1681,8 @@
       "online_date": "2026-08-12",
       "display_date": "2026-08-12",
       "date_precision": "day",
-      "content_type": "Journal Article"
+      "content_type": "Journal Article",
+      "source": "Crossref fallback"
     }
   ]
 }
