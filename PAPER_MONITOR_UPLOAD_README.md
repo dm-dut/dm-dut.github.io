@@ -1,54 +1,76 @@
-# Paper Monitor — FINAL_FIX3
+# Paper Monitor — checked build for `dm-dut.github.io`
 
-This package is designed to be merged into the **root of the existing `dm-dut.github.io` repository**.
-It does **not** contain a root `index.html`, `assets/`, `images/`, or the existing homepage data files.
+This package is designed to be merged into the **root of the existing `dm-dut.github.io` repository**. It intentionally contains **no root `index.html`**, and it does not contain your homepage `assets/`, `images/`, `data/`, `scripts/`, or homepage Excel files.
 
-After upload, the monitor page remains:
+After upload:
 
-`https://dm-dut.github.io/paper-monitor/`
+- Existing homepage: `https://dm-dut.github.io/`
+- Paper monitor: `https://dm-dut.github.io/paper-monitor/`
 
-## What was fixed in FINAL_FIX3
+## Repository additions
 
-1. ScienceDirect uses the current Search API V2 endpoint:
-   `https://api.elsevier.com/content/search/sciencedirect`
-   instead of the retired `/scidir` endpoint that returned HTTP 410.
-2. ScienceDirect keeps exact-day `Load-Date(YYYYMMDD)` queries so the stored date is the first-load date on ScienceDirect, rather than the later cover date.
-3. Springer continues to use Meta API v2 and `onlineDate`; the query is restricted to `type:Journal` and page size is conservative.
-4. If Springer or IEEE returns 401/403, or any provider has a network/API failure, the provider automatically falls back to Crossref using:
-   - journal ISSN/eISSN;
-   - `type:journal-article`;
-   - `from-online-pub-date` / `until-online-pub-date`.
-5. Crossref fallback does not replace online dates with print dates. Records without `published-online` are skipped.
-6. A provider failure no longer destroys the entire workflow. Other providers and existing database rows are preserved. Add `--strict` manually if you want failures to produce a non-zero exit code.
-7. All package imports and paths are validated by `python -m paper_monitor_system.app.selfcheck` before the crawl starts.
-8. The workflow prints only whether each GitHub Secret is present and its length. It never prints the secret itself.
+```text
+paper-monitor/                      # public monitoring page
+paper_monitor_system/               # Python crawler + SQLite database
+.github/workflows/update-paper-monitor.yml
+PAPER_MONITOR_UPLOAD_README.md
+```
 
-## GitHub Repository Secrets
+## Required GitHub Repository Secrets
 
-Create/update these under:
-
-`Settings → Secrets and variables → Actions → Repository secrets`
+Create these under **Settings → Secrets and variables → Actions → Repository secrets**:
 
 - `ELSEVIER_API_KEY`
 - `SPRINGER_API_KEY`
 - `IEEE_API_KEY`
 
-Only paste the key value, not `NAME=value`.
+Optional:
 
-Optional repository variable (not a secret):
+- `ELSEVIER_INSTTOKEN` — only if Elsevier grants an institutional token for server/off-campus API access.
 
-- `CROSSREF_MAILTO` — your contact email for Crossref polite-pool identification.
+Optional Repository variable:
+
+- `CROSSREF_MAILTO` — your email address for Crossref polite-pool identification.
+
+No API key is stored in the public website files.
+
+## Data-source behavior
+
+### Springer Nature
+The primary source is Springer Nature **Meta API v2**. The query uses only documented `onlinedatefrom`, `onlinedateto`, and `issn`/`pub` constraints. `publicationType` is filtered to Journal in Python. The unsupported `type:Journal` query that caused the previous HTTP 404 has been removed.
+
+### Elsevier / ScienceDirect
+The program first tries the ScienceDirect Search API. HTTP 401 from GitHub-hosted runners can indicate entitlement/IP restrictions rather than a bad key. When the primary API is unavailable, the program uses the Crossref fallback without inventing print dates. An optional `ELSEVIER_INSTTOKEN` is supported.
+
+### IEEE
+The program first tries the IEEE Xplore Metadata API. If IEEE returns 403, it uses Crossref as the fallback.
+
+### Crossref fallback
+The fallback first queries by journal ISSN + `published-online` date. If this returns nothing, it makes a conservative second pass through recently indexed Crossref records and still requires an actual `published-online` date in the requested window. Print/issued dates are never substituted as online dates.
+
+## “立即更新” button
+
+A static GitHub Pages site cannot safely contain a GitHub token. Therefore:
+
+1. If `paper-monitor/config.js` has a secure `refreshEndpoint`, the button triggers GitHub Actions through the included Cloudflare Worker and then polls for new data.
+2. If `refreshEndpoint` is blank, the button **does not show the previous configuration error**. It opens the repository's `Update paper monitor` GitHub Actions page, where the signed-in repository owner can click **Run workflow**.
+
+For true one-click updating from the website, deploy the included Worker:
+
+```text
+paper_monitor_system/trigger/cloudflare-worker/
+```
+
+Then set the Worker URL in `paper-monitor/config.js`.
 
 ## First run
 
-Run:
+Go to:
 
-`Actions → Update paper monitor → Run workflow`
+**Actions → Update paper monitor → Run workflow**
 
-The expected behavior is:
+The workflow runs package checks and offline self-tests before accessing publisher APIs.
 
-- ScienceDirect: direct Elsevier API if available; Crossref only if direct API fails.
-- Springer Nature: direct Meta/v2 if available; Crossref only if direct API fails.
-- IEEE: direct IEEE Metadata API if available; Crossref automatically if IEEE continues to return 403.
+## Journal whitelist
 
-The scheduled and manual workflow use the same SQLite database, so DOI/external-ID/title upsert logic prevents duplicate rows.
+`paper_monitor_system/journal_list.xlsx` contains the enabled journals and ISSN/eISSN information. You may edit it later; the self-check no longer hard-codes 39/25/15 counts, so changing the whitelist will not break the workflow.

@@ -91,6 +91,16 @@ def save_sync_error(session: Session, provider: str, error: str) -> None:
     state.last_error = error[:4000]
 
 
+
+def source_priority(source: str | None) -> int:
+    text = (source or "").lower()
+    if "crossref" in text or "fallback" in text:
+        return 10
+    if "springer meta api" in text or "sciencedirect api" in text or "ieee xplore api" in text:
+        return 30
+    return 20 if text else 0
+
+
 def upsert_article(session: Session, record: dict) -> tuple[Article, bool]:
     """DOI-first upsert shared by scheduled and manual runs."""
     existing = session.scalar(select(Article).where(Article.identity_key == record["identity_key"]))
@@ -138,11 +148,18 @@ def upsert_article(session: Session, record: dict) -> tuple[Article, bool]:
         if collision is None:
             existing.identity_key = record["identity_key"]
 
+    incoming_priority = source_priority(record.get("online_date_source"))
+    existing_priority = source_priority(existing.online_date_source) if not created else 0
+    protect_authoritative_date = (not created) and existing_priority > incoming_priority
+    date_fields = {"online_date", "online_date_raw", "date_precision", "online_date_source", "source_update_date"}
+
     for field in (
         "provider", "publisher", "title", "journal", "authors", "doi", "external_id",
         "issn", "content_type", "url", "online_date", "online_date_raw",
         "date_precision", "online_date_source", "source_update_date",
     ):
+        if protect_authoritative_date and field in date_fields:
+            continue
         value = record.get(field)
         if value not in (None, "") or field in {"online_date", "source_update_date"}:
             setattr(existing, field, value)

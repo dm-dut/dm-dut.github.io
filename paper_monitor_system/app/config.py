@@ -4,10 +4,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Absolute paths derived from this file. Running from GitHub Actions, locally,
-# or from another working directory therefore gives the same paths.
-SYSTEM_ROOT = Path(__file__).resolve().parents[1]          # .../paper_monitor_system
-REPO_ROOT = SYSTEM_ROOT.parent                           # repository root
+SYSTEM_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = SYSTEM_ROOT.parent
 load_dotenv(SYSTEM_ROOT / ".env")
 
 
@@ -19,21 +17,21 @@ def env_bool(name: str, default: bool = True) -> bool:
 
 
 ELSEVIER_API_KEY = os.getenv("ELSEVIER_API_KEY", "").strip()
+# Optional institutional token. This can be required when Elsevier resources are
+# entitlement-restricted outside the institution network (e.g. GitHub runners).
+ELSEVIER_INSTTOKEN = os.getenv("ELSEVIER_INSTTOKEN", "").strip()
 SPRINGER_API_KEY = os.getenv("SPRINGER_API_KEY", "").strip()
 IEEE_API_KEY = os.getenv("IEEE_API_KEY", "").strip()
 IEEE_QUERYTEXT = os.getenv("IEEE_QUERYTEXT", "").strip()
 
-# Optional. Crossref works without credentials. Supplying an email identifies
-# the client to Crossref's polite pool and is recommended for regular use.
 CROSSREF_MAILTO = os.getenv("CROSSREF_MAILTO", "").strip()
 ENABLE_CROSSREF_FALLBACK = env_bool("ENABLE_CROSSREF_FALLBACK", True)
+CROSSREF_DISCOVERY_DAYS = int(os.getenv("CROSSREF_DISCOVERY_DAYS", "30"))
 
 OVERLAP_DAYS = int(os.getenv("OVERLAP_DAYS", "3"))
 EXPORT_DAYS = int(os.getenv("EXPORT_DAYS", "365"))
 EXPORT_LIMIT = int(os.getenv("EXPORT_LIMIT", "20000"))
 HTTP_TIMEOUT = int(os.getenv("HTTP_TIMEOUT", "45"))
-# Elsevier recommends throttling ScienceDirect Search requests. 0.60 s keeps
-# the crawler comfortably below two calls per second.
 REQUEST_PAUSE_SECONDS = float(os.getenv("REQUEST_PAUSE_SECONDS", "0.60"))
 
 ENABLE_SCIENCEDIRECT = env_bool("ENABLE_SCIENCEDIRECT", True)

@@ -82,7 +82,7 @@ def _fetch_one(start: date, end: date, content_type: str, spec: JournalSpec, fie
                 online_date=online_date,
                 online_date_raw=pub_raw or insert_raw,
                 date_precision=precision,
-                online_date_source=date_source,
+                online_date_source=("IEEE Xplore API " + date_source.removeprefix("IEEE ")),
                 source_update_date=insert_date or end,
             )
 
@@ -112,11 +112,15 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
     if not journals:
         return
     try:
-        yield from _fetch_primary(start, end, journals)
+        records = list(_fetch_primary(start, end, journals))
+        print(f"[ieee] IEEE Xplore API fetched={len(records)}")
+        yield from records
     except (requests.RequestException, RuntimeError) as exc:
         if not ENABLE_CROSSREF_FALLBACK:
             raise
         status = getattr(getattr(exc, "response", None), "status_code", None)
         label = f"HTTP {status}" if status else type(exc).__name__
         print(f"[ieee] primary IEEE API unavailable ({label}); using Crossref fallback")
-        yield from crossref.fetch("ieee", "IEEE", start, end, journals)
+        records = list(crossref.fetch("ieee", "IEEE", start, end, journals))
+        print(f"[ieee] Crossref fallback fetched={len(records)}")
+        yield from records

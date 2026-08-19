@@ -5,7 +5,7 @@ from typing import Iterator, Sequence
 
 import requests
 
-from ..config import ELSEVIER_API_KEY, ENABLE_CROSSREF_FALLBACK
+from ..config import ELSEVIER_API_KEY, ELSEVIER_INSTTOKEN, ENABLE_CROSSREF_FALLBACK
 from ..journals import JournalSpec, display_issn, match_journal
 from ..utils import build_session, clean_doi, first_nonempty, get_json, join_authors, normalize_space
 from . import crossref
@@ -58,6 +58,8 @@ def _fetch_primary(start: date, end: date, journals: Sequence[JournalSpec]) -> I
 
     session = build_session()
     headers = {"X-ELS-APIKey": ELSEVIER_API_KEY, "Accept": "application/json"}
+    if ELSEVIER_INSTTOKEN:
+        headers["X-ELS-Insttoken"] = ELSEVIER_INSTTOKEN
     seen: set[str] = set()
 
     for load_day in _date_range(start, end):
@@ -109,7 +111,7 @@ def _fetch_primary(start: date, end: date, journals: Sequence[JournalSpec]) -> I
                         online_date=load_day,
                         online_date_raw=load_day.isoformat(),
                         date_precision="day",
-                        online_date_source="ScienceDirect Load-Date",
+                        online_date_source="ScienceDirect API Load-Date",
                         source_update_date=load_day,
                     )
 
@@ -125,11 +127,15 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec]) -> Iterator[A
     if not journals:
         return
     try:
-        yield from _fetch_primary(start, end, journals)
+        records = list(_fetch_primary(start, end, journals))
+        print(f"[sciencedirect] ScienceDirect API fetched={len(records)}")
+        yield from records
     except (requests.RequestException, RuntimeError) as exc:
         if not ENABLE_CROSSREF_FALLBACK:
             raise
         status = getattr(getattr(exc, "response", None), "status_code", None)
         label = f"HTTP {status}" if status else type(exc).__name__
         print(f"[sciencedirect] primary API unavailable ({label}); using Crossref fallback")
-        yield from crossref.fetch("sciencedirect", "Elsevier", start, end, journals)
+        records = list(crossref.fetch("sciencedirect", "Elsevier", start, end, journals))
+        print(f"[sciencedirect] Crossref fallback fetched={len(records)}")
+        yield from records
