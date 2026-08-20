@@ -38,7 +38,7 @@ jobs:
     # 4. 更新论文数据
     - name: Update papers
       run: |
-        python scripts/update.py
+        python paper-monitor/scripts/update.py
 
 
     # 5. 提交更新的数据
@@ -47,9 +47,9 @@ jobs:
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
 
-        git add web/
-        git add database/
-        git add logs/
+        git add paper-monitor/web/
+        git add paper-monitor/database/
+        git add paper-monitor/logs/
 
         git commit -m "Update papers automatically" || echo "No changes"
 
