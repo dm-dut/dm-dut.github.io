@@ -46,3 +46,6 @@ V6 把“是不是新论文”的判断从日期改成稳定 source ID：
 ## 快速开始
 
 看根目录 `START_HERE.txt` 或直接按编号运行 BAT。
+
+
+V6.1 Chrome build: browser executable can be set by BROWSER_EXECUTABLE_PATH. Default configured for C:\Program Files (x86)\Chrome\App\chrome.exe.

@@ -8,6 +8,7 @@ from playwright.sync_api import BrowserContext, Page, Playwright, sync_playwrigh
 
 from ..config import (
     BROWSER_CHANNEL,
+    BROWSER_EXECUTABLE_PATH,
     BROWSER_HEADLESS,
     BROWSER_NAV_TIMEOUT_MS,
     BROWSER_PROFILE_DIR,
@@ -34,11 +35,13 @@ class BrowserRuntime(AbstractContextManager):
             locale="en-US",
             viewport={"width": 1440, "height": 1000},
         )
-        if BROWSER_CHANNEL:
+        if BROWSER_EXECUTABLE_PATH:
+            kwargs["executable_path"] = BROWSER_EXECUTABLE_PATH
+        elif BROWSER_CHANNEL and BROWSER_CHANNEL not in {"chromium", ""}:
             kwargs["channel"] = BROWSER_CHANNEL
         try:
             self.context = self.pw.chromium.launch_persistent_context(**kwargs)
-            print(f"[browser] engine=chromium channel={BROWSER_CHANNEL or 'bundled'} headless={BROWSER_HEADLESS}")
+            print(f"[browser] engine=chromium executable={BROWSER_EXECUTABLE_PATH or 'bundled'} channel={BROWSER_CHANNEL or 'bundled'} headless={BROWSER_HEADLESS}")
         except Exception as exc:
             if BROWSER_CHANNEL:
                 print(f"[browser] channel {BROWSER_CHANNEL!r} unavailable ({type(exc).__name__}); falling back to bundled Chromium")
