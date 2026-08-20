@@ -1,110 +1,20 @@
 
-body{
-margin:0;
-background:#f5f8fc;
-font-family:"Segoe UI",Arial,sans-serif;
-color:#243b53;
-}
-
-header{
-background:#1f4e85;
-color:white;
-padding:20px 0;
-}
-
-.header-inner,.container{
-width:1200px;
-max-width:92%;
-margin:auto;
-}
-
-.header-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-h1{
-margin:0;
-font-size:30px;
-}
-
-.subtitle{
-font-size:14px;
-margin-top:5px;
-}
-
-.update{
-font-size:14px;
-}
-
-.toolbar{
-background:white;
-padding:15px;
-margin:22px 0;
-display:flex;
-gap:12px;
-}
-
-input,select{
-height:38px;
-border:1px solid #ccd6e0;
-padding:0 12px;
-background:white;
-font-size:14px;
-}
-
-#searchBox{
-flex:1;
-}
-
-select{
-width:220px;
-}
-
-.summary{
-font-size:15px;
-font-weight:600;
-margin-bottom:15px;
-}
-
-.paper{
-background:white;
-padding:18px 20px;
-margin-bottom:12px;
-border-left:4px solid #1f4e85;
-}
-
-.title{
-font-size:17px;
-font-weight:650;
-line-height:1.5;
-color:#102a43;
-}
-
-.journal{
-font-size:14px;
-font-weight:600;
-color:#1f4e85;
-margin-top:10px;
-}
-
-.author{
-font-size:14px;
-color:#486581;
-margin-top:8px;
-}
-
-.meta{
-font-size:13px;
-color:#627d98;
-margin-top:10px;
-}
-
-.badge{
-background:#d64545;
-color:white;
-font-size:11px;
-padding:2px 5px;
-margin-left:8px;
-}
+body{margin:0;background:#f5f8fc;font-family:"Segoe UI",Arial;color:#243b53}
+header{background:#1f4e85;color:white;padding:22px 0}
+.header-inner,.container{width:1200px;max-width:92%;margin:auto}
+.header-inner{display:flex;justify-content:space-between;align-items:center}
+h1{margin:0}.subtitle{font-size:14px;margin-top:5px}
+.toolbar{background:white;padding:15px;margin:22px 0;display:flex;gap:12px}
+input,select{height:38px;border:1px solid #ccd6e0;padding:0 12px;background:white}
+#searchBox{flex:1}select{width:220px}
+.paper{background:white;padding:18px 20px;margin-bottom:12px;border-left:4px solid #1f4e85}
+.title{font-size:17px;font-weight:650;color:#102a43}
+.journal{margin-top:10px;font-size:14px;font-weight:600;color:#1f4e85}
+.author,.meta{margin-top:8px;font-size:14px;color:#627d98}
+.badge{background:#d64545;color:white;font-size:11px;padding:2px 5px;margin-left:8px}
+.pagination{margin:50px auto;display:flex;flex-direction:column;align-items:center;gap:18px}
+.pagination-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.page-btn{min-width:44px;height:36px;border:1px solid #ccd6e0;background:white;border-radius:6px;cursor:pointer}
+.page-btn.active,.page-btn:hover{background:#1f4e85;color:white}
+.page-info{color:#627d98}
+footer{margin-top:90px;padding:30px 0 45px;border-top:1px solid #d9e2ec;text-align:center;color:#627d98}
