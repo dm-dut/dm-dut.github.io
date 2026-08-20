@@ -455,7 +455,7 @@
       "category": "Tourism Related",
       "order": 13,
       "journal": "International Journal of Tourism Research",
-      "url": "https://onlinelibrary.wiley.com/toc/15221970/0/0",
+      "url": "https://onlinelibrary.wiley.com/journal/15221970?af=R",
       "extra_links": [],
       "note": ""
     },
@@ -901,32 +901,6 @@
       "note": ""
     },
     {
-      "category": "Springer Nature",
-      "order": 35,
-      "journal": "Progress in Artificial Intelligence",
-      "url": "https://link.springer.com/search?facet-journal-id=13748&query=*&content-type=Article&dateFrom=&dateTo=&sortBy=newestFirst",
-      "extra_links": [
-        {
-          "label": "Web",
-          "url": "http://link.springer.com/journal/13748/articles"
-        }
-      ],
-      "note": ""
-    },
-    {
-      "category": "Springer Nature",
-      "order": 36,
-      "journal": "Granular Computing",
-      "url": "https://link.springer.com/search?facet-journal-id=41066&query=*&content-type=Article&dateFrom=&dateTo=&sortBy=newestFirst",
-      "extra_links": [
-        {
-          "label": "Web",
-          "url": "http://link.springer.com/journal/41066/articles"
-        }
-      ],
-      "note": ""
-    },
-    {
       "category": "IEEE",
       "order": 1,
       "journal": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
@@ -1246,7 +1220,7 @@
       "category": "UTD/INFORMS/FT",
       "order": 12,
       "journal": "Journal of Marketing Research(JMR)",
-      "url": "https://journals.sagepub.com/action/doSearch?AllField=Journal+of+Marketing+Research&startPage=0&sortBy=FullEpubDateField",
+      "url": "https://journals.sagepub.com/action/doSearch?field1=AllField&text1=&publication%5B%5D=mrja&publication=&Ppub=&access=&startPage=0&sortBy=FullEpubDateField",
       "extra_links": [
         {
           "label": "EBSCO",
@@ -1492,14 +1466,6 @@
     {
       "category": "Wiley/Taylor/WorldScientific",
       "order": 16,
-      "journal": "Economic Research",
-      "url": "https://www.tandfonline.com/action/showAxaArticles?journalCode=rero20",
-      "extra_links": [],
-      "note": ""
-    },
-    {
-      "category": "Wiley/Taylor/WorldScientific",
-      "order": 17,
       "journal": "International Journal of Information Technology & Decision Making",
       "url": "http://www.worldscientific.com/worldscinet/ijitdm",
       "extra_links": [],
@@ -1507,7 +1473,7 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
-      "order": 18,
+      "order": 17,
       "journal": "International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems",
       "url": "http://www.worldscientific.com/worldscinet/ijufks",
       "extra_links": [],
@@ -1515,7 +1481,7 @@
     },
     {
       "category": "Wiley/Taylor/WorldScientific",
-      "order": 19,
+      "order": 18,
       "journal": "Asia-Pacific Journal of Operational Research",
       "url": "http://www.worldscientific.com/toc/apjor/0/0",
       "extra_links": [],
