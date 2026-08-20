@@ -3,11 +3,7 @@ import os, sys, json, datetime
 import pandas as pd
 import yaml
 
-with open(ROOT+"/config/settings.yaml","r",encoding="utf-8") as f:
-    settings=yaml.safe_load(f)
 
-days=settings.get("days",3)
-rows=settings.get("rows",50)
 
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -20,6 +16,12 @@ os.makedirs(ROOT+"/database", exist_ok=True)
 
 conn=init(ROOT+"/database/papers.db")
 journals=pd.read_excel(ROOT+"/config/journals.xlsx")
+
+with open(ROOT+"/config/settings.yaml","r",encoding="utf-8") as f:
+    settings=yaml.safe_load(f)
+
+days=settings.get("days",3)
+rows=settings.get("rows",50)
 
 # backup previous database snapshot for NEW comparison
 old=[]
