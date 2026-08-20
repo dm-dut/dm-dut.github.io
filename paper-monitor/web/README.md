@@ -1,0 +1,1 @@
+Paper Monitor Web v13.8.1 frontend
