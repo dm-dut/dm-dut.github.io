@@ -6,62 +6,91 @@ from time import perf_counter
 
 from sqlalchemy.orm import Session
 
-from .config import BUILD_ID, CROSSREF_DISCOVERY_DAYS, CROSSREF_MAILTO, CROSSREF_MEMBERS
-from .db import engine, init_db, reset_database_if_requested, save_sync_success, upsert_article
+from .config import BUILD_ID, ENABLE_IEEE, ENABLE_SCIENCEDIRECT, ENABLE_SPRINGER, OVERLAP_DAYS
+from .db import engine, get_sync_state, init_db, known_external_ids, save_sync_error, save_sync_success, upsert_article
 from .export_json import export_json
 from .journals import enabled_journals
-from .providers import fetch_provider
+from .providers import ieee, sciencedirect, springer
 
-PROVIDERS=('sciencedirect','springer','ieee')
+PROVIDERS = {
+    "sciencedirect": (ENABLE_SCIENCEDIRECT, sciencedirect.fetch),
+    "springer": (ENABLE_SPRINGER, springer.fetch),
+    "ieee": (ENABLE_IEEE, ieee.fetch),
+}
+
+
+def default_window(session: Session, provider: str, initial_days: int) -> tuple[date, date]:
+    today = date.today()
+    # Only Springer uses this window. For ID-first browser providers the values are ignored.
+    state = get_sync_state(session, provider)
+    if state and state.last_window_end:
+        start = state.last_window_end - timedelta(days=max(0, OVERLAP_DAYS))
+    else:
+        start = today - timedelta(days=max(1, initial_days) - 1)
+    return start, today
+
+
+def sync_provider(provider: str, fetcher, journals, start: date, end: date) -> tuple[int, int, int]:
+    with Session(engine) as session:
+        known = known_external_ids(session, provider)
+    total = created = updated = 0
+    with Session(engine) as session:
+        try:
+            for record in fetcher(start, end, journals, known_ids=known):
+                total += 1
+                _, was_created = upsert_article(session, record.to_db_dict())
+                created += int(was_created); updated += int(not was_created)
+                if total % 100 == 0:
+                    session.commit()
+            save_sync_success(session, provider, end, total); session.commit()
+        except Exception as exc:
+            session.rollback(); save_sync_error(session, provider, repr(exc)); session.commit(); raise
+    return total, created, updated
+
+
+def run(provider_arg: str, initial_days: int) -> None:
+    init_db()
+    print(f"Paper Monitor Build: {BUILD_ID}")
+    print("Discovery policy:")
+    print("  Elsevier -> ScienceDirect sorted list + PII; no article-detail request")
+    print("  Springer -> Springer Nature Meta API onlineDate")
+    print("  IEEE -> simple Xplore Early Access/TOC list + Document ID; no date/article-detail request")
+    print("Sorting: fetched_date DESC -> journal ASC -> true online date DESC -> source_rank ASC")
+
+    selected = list(PROVIDERS) if provider_arg == "all" else [provider_arg]
+    grand_t0 = perf_counter(); failures: list[str] = []
+    for provider in selected:
+        enabled, fetcher = PROVIDERS[provider]
+        if not enabled:
+            print(f"[{provider}] disabled"); continue
+        journals = enabled_journals(provider)
+        with Session(engine) as session:
+            start, end = default_window(session, provider, initial_days)
+        print(f"[{provider}] journals={len(journals)}")
+        if provider == "springer":
+            print(f"[{provider}] onlineDate window={start}..{end}")
+        else:
+            print(f"[{provider}] mode=ID-first newest-list incremental")
+        t0 = perf_counter()
+        try:
+            total, new, updated = sync_provider(provider, fetcher, journals, start, end)
+            print(f"[{provider}] fetched={total}, new={new}, updated={updated}, elapsed={perf_counter()-t0:.1f}s")
+        except Exception as exc:
+            failures.append(provider); print(f"[{provider}] ERROR: {type(exc).__name__}: {exc}")
+
+    exported = export_json()
+    print(f"[export] {exported} records exported")
+    print(f"[total] elapsed={perf_counter()-grand_t0:.1f}s")
+    if failures:
+        raise RuntimeError("Provider failures: " + ", ".join(failures))
 
 
 def main() -> None:
-    parser=argparse.ArgumentParser(description='Crossref-only paper monitor V4')
-    parser.add_argument('--provider',choices=['all',*PROVIDERS],default='all')
-    parser.add_argument('--start',help='YYYY-MM-DD')
-    parser.add_argument('--end',help='YYYY-MM-DD')
-    parser.add_argument('--initial-days',type=int,default=2)
-    args=parser.parse_args()
-
-    run_t0=perf_counter()
-    print(f'Paper Monitor Build: {BUILD_ID}')
-    print('Execution mode: LOCAL_PC / CROSSREF_ONLY')
-    print(f'Crossref members: Elsevier={CROSSREF_MEMBERS["sciencedirect"]}, Springer={CROSSREF_MEMBERS["springer"]}, IEEE={CROSSREF_MEMBERS["ieee"]}')
-    print(f'Crossref polite-pool mailto: {"configured" if CROSSREF_MAILTO else "NOT configured (recommended)"}')
-    print('Discovery: per member pub-date batch + index-date batch; local ISSN/title whitelist')
-
-    reset_database_if_requested()
-    init_db()
-    end=date.fromisoformat(args.end) if args.end else date.today()
-    lookback=max(1,min(CROSSREF_DISCOVERY_DAYS,args.initial_days or CROSSREF_DISCOVERY_DAYS))
-    start=date.fromisoformat(args.start) if args.start else end-timedelta(days=lookback-1)
-
-    selected=PROVIDERS if args.provider=='all' else (args.provider,)
-    total_requests=0
-    for provider in selected:
-        journals=enabled_journals(provider)
-        print(f'[{provider}] journals={len(journals)}')
-        t0=perf_counter()
-        records,stats=fetch_provider(provider,journals,start,end)
-        total_requests += stats['requests']
-        created=0
-        with Session(engine) as session:
-            for rec in records:
-                _,is_new=upsert_article(session,rec)
-                created += int(is_new)
-            save_sync_success(session,provider,end,len(records))
-            session.commit()
-        print(
-            f'[{provider}] member={stats["member"]}, requests={stats["requests"]}, '
-            f'pub_raw={stats["pub"]["raw"]}, pub_match={stats["pub"]["matched"]}, '
-            f'index_raw={stats["index"]["raw"]}, index_match={stats["index"]["matched"]}, '
-            f'unique={stats["unique"]}, new={created}, updated={len(records)-created}, elapsed={perf_counter()-t0:.1f}s'
-        )
-
-    exported=export_json()
-    print(f'[export] {exported} whitelisted records exported')
-    print(f'[total] Crossref requests={total_requests}, elapsed={perf_counter()-run_t0:.1f}s')
+    parser = argparse.ArgumentParser(description="V6 ID-first paper monitor")
+    parser.add_argument("--provider", choices=["all", "sciencedirect", "springer", "ieee"], default="all")
+    parser.add_argument("--initial-days", type=int, default=7, help="Springer first-run window only")
+    args = parser.parse_args(); run(args.provider, args.initial_days)
 
 
-if __name__=='__main__':
+if __name__ == "__main__":
     main()

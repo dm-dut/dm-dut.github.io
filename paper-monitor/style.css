@@ -150,3 +150,6 @@ select:focus, input:focus { border-color: #9eb5f2; box-shadow: 0 0 0 3px rgba(36
   .summary-card { min-height: 78px; }
   .paper-card { padding: 15px 16px 15px 18px; }
 }
+
+.date-pill { padding: 3px 7px; border-radius: 999px; background: #f3f4f6; color: #667085; font-weight: 700; }
+.paper-meta strong { color: #435269; font-weight: 800; }

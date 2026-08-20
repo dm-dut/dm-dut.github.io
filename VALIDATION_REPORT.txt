@@ -1,35 +1,27 @@
-Paper Monitor LOCAL V4 validation report
-Build: LOCAL-2026.08.19-V4-CROSSREF
+Paper Monitor V6 ID-FIRST validation
+====================================
+Build: LOCAL-2026.08.20-V6-ID-FIRST
 
-Architecture
-- Crossref-only runtime collector: PASS
-- Elsevier member 78: PASS
-- Springer member 297: PASS
-- IEEE member 263: PASS
-- 79-journal whitelist counts 39/25/15: PASS
-- Publisher APIs/pages/RSS removed from runtime provider layer: PASS
+PASS  Python compileall
+PASS  selfcheck
+PASS  selftest
+PASS  79 journals = 39 Elsevier + 25 Springer Nature + 15 IEEE
+PASS  Elsevier URLs use docId + sortBy=date + show=50
+PASS  Elsevier parser keeps Available online day when present
+PASS  Elsevier parser keeps publication month/year for display when no online day is shown
+PASS  Elsevier publication month/year is NOT used as online sort date
+PASS  Elsevier does not open article-detail pages
+PASS  IEEE uses 15 simple tocresult.jsp?isnumber=...&sortType=newest links
+PASS  IEEE does not use RSS, PublicationTitle search, article-detail pages, or date lookup
+PASS  IEEE Document ID deduplication
+PASS  Springer uses Meta API onlineDate
+PASS  fetched_date is immutable after first insertion
+PASS  export sorting: fetched_date DESC -> journal ASC -> true online date DESC -> source_rank ASC
+PASS  JavaScript syntax
+PASS  workflow YAML parses
+PASS  fresh V6 SQLite schema
+PASS  fresh public JSON with 79 journal filter definitions
+PASS  package does not contain root homepage index.html/assets/images/scripts
 
-Discovery
-- 2-day member-level pub-date batch: PASS (mock)
-- 2-day member-level index-date supplement: PASS (mock)
-- Cursor-page merge and DOI deduplication: PASS (mock)
-- ISSN-first whitelist matching: PASS
-- Journal-title/alias fallback matching: PASS
-- Date priority published-online > published > issued > published-print: PASS
-
-Database/export
-- V4 one-time old database reset: PASS
-- Fresh SQLite creation: PASS
-- DOI upsert/deduplication: PASS
-- JSON export: PASS
-- No pending-state dependency: PASS
-
-Packaging/runtime
-- Python compileall: PASS
-- SELF-CHECK: PASS
-- SELF-TEST: PASS
-- Git pull occurs before collection: PASS
-- No git pull --rebase: PASS
-- Manual BAT pauses; scheduled BAT does not: PASS
-- GitHub workflow does not collect papers: PASS
-- Root personal homepage files not included: PASS
+Live publisher DOM availability cannot be fully tested in this offline build environment.
+Run 2_BROWSER_WARMUP.bat and 3_TEST.bat on the local Windows PC after extraction.

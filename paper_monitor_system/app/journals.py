@@ -8,14 +8,15 @@ from typing import Sequence
 
 from openpyxl import load_workbook
 
-from .config import CROSSREF_MEMBERS, JOURNAL_LIST_PATH, PROVIDER_LABELS, WHITELIST_REQUIRED
-from .utils import normalize_space
+from .config import JOURNAL_LIST_PATH, WHITELIST_REQUIRED
+from .utils import normalize_space, title_key
 
 _PROVIDER_ALIASES = {
-    'elsevier':'sciencedirect','sciencedirect':'sciencedirect','science direct':'sciencedirect',
-    'springer':'springer','springer nature':'springer','springernature':'springer',
-    'ieee':'ieee','ieee xplore':'ieee',
+    "elsevier": "sciencedirect", "sciencedirect": "sciencedirect", "science direct": "sciencedirect",
+    "springer": "springer", "springer nature": "springer", "springernature": "springer",
+    "ieee": "ieee", "ieee xplore": "ieee",
 }
+_PUBLISHER_LABELS = {"sciencedirect": "Elsevier", "springer": "Springer Nature", "ieee": "IEEE"}
 
 
 @dataclass(frozen=True)
@@ -23,94 +24,130 @@ class JournalSpec:
     provider: str
     publisher: str
     journal: str
-    issns: tuple[str, ...]
-    aliases: tuple[str, ...]
-    category: str
-    crossref_member: int
+    issns: tuple[str, ...] = ()
+    aliases: tuple[str, ...] = ()
+    category: str = ""
+    mode: str = ""
+    search_key: str = ""
+    search_url: str = ""
+    source_id_type: str = ""
+    online_date_field: str = ""
+    notes: str = ""
 
 
 def normalize_issn(value: str | None) -> str:
-    return re.sub(r'[^0-9Xx]', '', str(value or '')).upper()
+    return re.sub(r"[^0-9Xx]", "", str(value or "")).upper()
 
 
-def _title_key(value: str | None) -> str:
-    return re.sub(r'[^a-z0-9]+', '', normalize_space(value).lower())
+def display_issn(value: str) -> str:
+    value = normalize_issn(value)
+    return f"{value[:4]}-{value[4:]}" if len(value) == 8 else value
 
 
 def _truthy(value) -> bool:
-    if isinstance(value, bool): return value
-    if isinstance(value, (int,float)): return value != 0
-    return str(value or '').strip().lower() in {'1','true','yes','y','on','enabled','是'}
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, (int, float)):
+        return value != 0
+    return str(value or "").strip().lower() in {"1", "true", "yes", "y", "on", "enabled", "是"}
+
+
+def _provider(value: str | None) -> str:
+    key = normalize_space(value).lower()
+    return _PROVIDER_ALIASES.get(key, key)
+
+
+def _split_aliases(value: str | None) -> tuple[str, ...]:
+    if not value:
+        return ()
+    return tuple(x for x in (normalize_space(v) for v in re.split(r"[;|\n]", str(value))) if x)
 
 
 def _header_key(value) -> str:
-    return re.sub(r'[^a-z0-9]', '', str(value or '').lower())
-
-
-def _split_aliases(value: str | None) -> tuple[str,...]:
-    if not value: return ()
-    return tuple(x for x in (normalize_space(v) for v in re.split(r'[;|\n]', str(value))) if x)
+    return re.sub(r"[^a-z0-9]", "", str(value or "").strip().lower())
 
 
 @lru_cache(maxsize=1)
-def load_journal_list(path: str | Path | None = None) -> tuple[JournalSpec,...]:
+def load_journal_list(path: str | Path | None = None) -> tuple[JournalSpec, ...]:
     target = Path(path or JOURNAL_LIST_PATH)
     if not target.exists():
-        if WHITELIST_REQUIRED: raise FileNotFoundError(target)
+        if WHITELIST_REQUIRED:
+            raise FileNotFoundError(f"Journal whitelist not found: {target}")
         return ()
     wb = load_workbook(target, read_only=True, data_only=True)
-    ws = wb['Journals'] if 'Journals' in wb.sheetnames else wb[wb.sheetnames[0]]
+    ws = wb["Journals"] if "Journals" in wb.sheetnames else wb[wb.sheetnames[0]]
     rows = ws.iter_rows(values_only=True)
     header = next(rows)
-    col = {_header_key(v):i for i,v in enumerate(header)}
-    def val(row,*names):
-        for n in names:
-            idx=col.get(_header_key(n))
-            if idx is not None and idx < len(row) and row[idx] not in (None,''):
-                return row[idx]
-        return ''
-    specs=[]
+    col = {_header_key(name): idx for idx, name in enumerate(header)}
+
+    def val(row, *names):
+        for name in names:
+            idx = col.get(_header_key(name))
+            if idx is not None and idx < len(row):
+                v = row[idx]
+                if v not in (None, ""):
+                    return v
+        return ""
+
+    specs: list[JournalSpec] = []
     for row in rows:
-        if not _truthy(val(row,'Enabled','Active')): continue
-        pub_raw=normalize_space(val(row,'Publisher','Provider','Source')).lower()
-        provider=_PROVIDER_ALIASES.get(pub_raw,pub_raw)
-        if provider not in PROVIDER_LABELS: raise ValueError(f'Unsupported publisher: {pub_raw}')
-        journal=normalize_space(val(row,'Journal','Journal Title','Title'))
-        issns=[]
-        for raw in (val(row,'ISSN','Print ISSN'),val(row,'eISSN','Electronic ISSN','Online ISSN')):
-            for part in re.split(r'[,;/|\n]', str(raw or '')):
-                n=normalize_issn(part)
-                if len(n)==8 and n not in issns: issns.append(n)
-        member_raw=val(row,'Crossref Member','CrossrefMember','Member')
-        try: member=int(float(member_raw)) if member_raw not in (None,'') else CROSSREF_MEMBERS[provider]
-        except Exception: member=CROSSREF_MEMBERS[provider]
-        specs.append(JournalSpec(provider,PROVIDER_LABELS[provider],journal,tuple(issns),_split_aliases(val(row,'Aliases','Alias')),normalize_space(val(row,'Category')),member))
+        if not _truthy(val(row, "Enabled", "Enable", "Active")):
+            continue
+        provider = _provider(str(val(row, "Publisher", "Provider", "Source")))
+        journal = normalize_space(str(val(row, "Journal", "Journal Title", "Title")))
+        if provider not in _PUBLISHER_LABELS:
+            raise ValueError(f"Unsupported publisher/provider: {provider!r}")
+        if not journal:
+            raise ValueError("Every enabled journal must have a Journal title")
+        issns: list[str] = []
+        for raw in [val(row, "ISSN", "Print ISSN"), val(row, "eISSN", "Electronic ISSN", "Online ISSN")]:
+            for part in re.split(r"[,;/|\n]", str(raw or "")):
+                n = normalize_issn(part)
+                if n and n not in issns:
+                    issns.append(n)
+        specs.append(JournalSpec(
+            provider=provider,
+            publisher=_PUBLISHER_LABELS[provider],
+            journal=journal,
+            issns=tuple(issns),
+            aliases=_split_aliases(str(val(row, "Aliases", "Alias", "Alternative Titles"))),
+            category=normalize_space(str(val(row, "Category"))),
+            mode=normalize_space(str(val(row, "Mode"))),
+            search_key=normalize_space(str(val(row, "Search Key", "SearchKey"))),
+            search_url=normalize_space(str(val(row, "Search URL", "SearchURL"))),
+            source_id_type=normalize_space(str(val(row, "Source ID Type", "SourceIDType"))),
+            online_date_field=normalize_space(str(val(row, "Date Field", "Online Date Field", "OnlineDateField"))),
+            notes=normalize_space(str(val(row, "Notes"))),
+        ))
     return tuple(specs)
 
 
-def enabled_journals(provider: str) -> tuple[JournalSpec,...]:
-    p=_PROVIDER_ALIASES.get(provider.lower(),provider.lower())
-    return tuple(s for s in load_journal_list() if s.provider==p)
+def enabled_journals(provider: str) -> tuple[JournalSpec, ...]:
+    p = _provider(provider)
+    return tuple(j for j in load_journal_list() if j.provider == p)
 
 
-def extract_issns(value) -> set[str]:
-    if isinstance(value,list):
-        out=set()
-        for v in value: out |= extract_issns(v)
-        return out
-    text=str(value or '')
-    hits=re.findall(r'\b\d{4}-?\d{3}[\dXx]\b',text)
-    return {normalize_issn(v) for v in hits if len(normalize_issn(v))==8}
+def extract_issns(value: str | None) -> set[str]:
+    text = str(value or "")
+    candidates = re.findall(r"\b\d{4}-?\d{3}[\dXx]\b", text)
+    return {normalize_issn(v) for v in candidates if len(normalize_issn(v)) == 8}
 
 
-def match_journal(provider: str, journal: str | None, issn, specs: Sequence[JournalSpec] | None=None) -> JournalSpec | None:
-    candidates=tuple(specs) if specs is not None else enabled_journals(provider)
-    rec_issns=extract_issns(issn)
-    if rec_issns:
-        for s in candidates:
-            if rec_issns.intersection(s.issns): return s
-    key=_title_key(journal)
-    if key:
-        for s in candidates:
-            if key in {_title_key(x) for x in (s.journal,*s.aliases) if x}: return s
+def match_journal(provider: str, journal: str | None, issn: str | None, specs: Sequence[JournalSpec] | None = None) -> JournalSpec | None:
+    candidates = tuple(specs) if specs is not None else enabled_journals(provider)
+    record_issns = extract_issns(issn)
+    if record_issns:
+        for spec in candidates:
+            if record_issns.intersection(spec.issns):
+                return spec
+    tk = title_key(journal)
+    if tk:
+        for spec in candidates:
+            if tk in {title_key(n) for n in (spec.journal, *spec.aliases) if n}:
+                return spec
     return None
+
+
+def title_matches_spec(value: str | None, spec: JournalSpec) -> bool:
+    key = title_key(value)
+    return bool(key) and key in {title_key(x) for x in (spec.journal, *spec.aliases) if x}

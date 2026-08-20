@@ -1,41 +1,48 @@
-# Paper Monitor LOCAL V4 — Crossref only
+# Paper Monitor LOCAL V6 — ID First
 
-V4 deliberately removes the publisher-specific collection paths. Runtime collection uses only the Crossref REST API.
+Build: `LOCAL-2026.08.20-V6-ID-FIRST`
 
-## Architecture
+V6 把“是不是新论文”的判断从日期改成稳定 source ID：
 
-- Elsevier: Crossref member 78
-- Springer Nature: Crossref member 297
-- IEEE: Crossref member 263
-- Each publisher runs two 2-day batch discovery passes:
-  1. `from-pub-date` / `until-pub-date`
-  2. `from-index-date` / `until-index-date`
-- Results are filtered locally against the 79-journal whitelist, first by ISSN and then exact normalized journal title/alias.
-- Publication-date priority is: `published-online` → `published` → `issued` → `published-print`.
-- DOI links are used for the public page.
+- Elsevier: `PII`
+- IEEE: `Document ID`
+- Springer: Meta API identifier/DOI
 
-## Database reset
+## Elsevier
 
-Per the requested V4 migration, `paper_monitor_system/data/RESET_TO_V4.flag` is included. On the first V4 sync it deletes the previous `papers.db` and `paper-monitor/data/online_papers.json`, then removes the flag and creates a clean V4 database. Do not re-copy that flag after you have started using V4 unless you intentionally want another reset.
+每本期刊只打开一个搜索页：
 
-## First run
+`https://www.sciencedirect.com/search?docId={ISSN}&sortBy=date&show=50`
 
-1. Copy V4 files over the repository.
-2. Commit the V4 program files first so the Git working tree is clean.
-3. Run `setup_local.bat`.
-4. Edit `paper_monitor_system/.env` and set `CROSSREF_MAILTO`.
-5. Run `test_connections.bat`.
-6. Run `fetch_only.bat` to test without Git push, or `update_papers.bat` for the normal update/push workflow.
+搜索结果按网页顺序读取。PII 没见过就保存；连续若干个 PII 已存在就停止当前期刊。**不再打开 article page。**
 
-## Daily automation
+日期只是显示信息：结果卡片有 `Available online` 就保留日级日期；否则保留页面显示的出版年月（例如 `January 2027`）。出版年月不会被当成 online 日期用于排序。
 
-Use `update_papers_scheduled.bat` in Windows Task Scheduler. The manual `update_papers.bat` pauses at the end; the scheduled version does not.
+## IEEE
 
-## GitHub
+使用 `journal_list.xlsx` 中 15 个简洁 Xplore TOC/Early Access 链接，例如：
 
-GitHub Pages remains the public display layer. Collection runs locally. The updater commits only:
+`https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6352949&sortType=newest`
 
-- `paper_monitor_system/data/papers.db`
-- `paper-monitor/data/online_papers.json`
+只从列表页提取 Document ID、题名、作者和文章链接。Document ID 没见过就保存。**不查日期，也不打开 article page。**
 
-The root personal-homepage files are not part of this package.
+## Springer
+
+继续使用 Springer Nature Meta API，只使用 `onlineDate`。
+
+## 获取日期
+
+数据库新增 `fetched_date`：论文第一次被本地程序发现并入库的日期。以后再次遇到同一个 source ID，`fetched_date` 永不改变。
+
+网页默认排序：
+
+1. fetched_date DESC
+2. journal ASC
+3. true online sort date DESC
+4. source_rank ASC
+
+因此同一天获取的论文先按期刊聚合；IEEE 没有日期时自然保持 Xplore 列表页顺序。
+
+## 快速开始
+
+看根目录 `START_HERE.txt` 或直接按编号运行 BAT。

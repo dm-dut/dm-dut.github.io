@@ -1,8 +1,17 @@
-name: Paper monitor (local collector only)
+name: Paper monitor (local V6 only)
+
 on:
   workflow_dispatch:
+
+permissions:
+  contents: read
+
 jobs:
-  info:
+  local-mode-info:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Paper Monitor V4 collection runs locally. Use update_papers_scheduled.bat on the Windows PC."
+      - name: Local mode notice
+        run: |
+          echo "Paper Monitor Build: LOCAL-2026.08.20-V6-ID-FIRST"
+          echo "Publisher fetching is intentionally disabled on GitHub-hosted runners."
+          echo "Run update_papers_scheduled.bat or update_papers.bat on the local Windows PC."

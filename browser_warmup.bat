@@ -6,7 +6,7 @@ if not exist "paper_monitor_system\.venv\Scripts\python.exe" (
   pause
   exit /b 1
 )
-"paper_monitor_system\.venv\Scripts\python.exe" -m paper_monitor_system.app.run_logged --provider all --initial-days 7 --no-git
+"paper_monitor_system\.venv\Scripts\python.exe" -m paper_monitor_system.app.browser_warmup
 set "code=%errorlevel%"
 echo.
 pause

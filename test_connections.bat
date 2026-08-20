@@ -1,8 +1,13 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-python -m paper_monitor_system.app.connection_test
-set RC=%ERRORLEVEL%
+if not exist "paper_monitor_system\.venv\Scripts\python.exe" (
+  echo ERROR: .venv not found. Run setup_local.bat first.
+  pause
+  exit /b 1
+)
+"paper_monitor_system\.venv\Scripts\python.exe" -m paper_monitor_system.app.connection_test
+set "code=%errorlevel%"
 echo.
 pause
-exit /b %RC%
+exit /b %code%
