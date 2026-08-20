@@ -2,9 +2,9 @@
 let papers=[],previous=[],category="All",journal="All";
 
 Promise.all([
-fetch("papers.json").then(r=>r.json()),
-fetch("previous_papers.json").then(r=>r.json()).catch(()=>[]),
-fetch("update_time.json").then(r=>r.json())
+fetch("web/papers.json").then(r=>r.json()),
+fetch("web/previous_papers.json").then(r=>r.json()).catch(()=>[]),
+fetch("web/update_time.json").then(r=>r.json())
 ]).then(([p,o,t])=>{
 papers=p;
 previous=o;
