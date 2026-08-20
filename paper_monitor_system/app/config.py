@@ -9,8 +9,8 @@ SYSTEM_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SYSTEM_ROOT.parent
 load_dotenv(SYSTEM_ROOT / ".env")
 
-BUILD_ID = "LOCAL-2026.08.20-V6-ID-FIRST"
-SCHEMA_VERSION = "6-id-first"
+BUILD_ID = "LOCAL-2026.08.20-V6.1-ID-FIRST"
+SCHEMA_VERSION = "6.1-id-first"
 
 
 def env_bool(name: str, default: bool = True) -> bool:
@@ -41,8 +41,10 @@ BROWSER_CHANNEL = os.getenv("BROWSER_CHANNEL", "msedge").strip()
 BROWSER_HEADLESS = env_bool("BROWSER_HEADLESS", False)
 BROWSER_NAV_TIMEOUT_MS = int(os.getenv("BROWSER_NAV_TIMEOUT_MS", "45000"))
 BROWSER_WAIT_MS = int(os.getenv("BROWSER_WAIT_MS", "1200"))
-BROWSER_JOURNAL_DELAY_MS = int(os.getenv("BROWSER_JOURNAL_DELAY_MS", "250"))
-BROWSER_MAX_RESULTS = int(os.getenv("BROWSER_MAX_RESULTS", "50"))
+BROWSER_JOURNAL_DELAY_MS = int(os.getenv("BROWSER_JOURNAL_DELAY_MS", "3000"))
+BROWSER_RANDOM_DELAY_MIN_MS = int(os.getenv("BROWSER_RANDOM_DELAY_MIN_MS", "3000"))
+BROWSER_RANDOM_DELAY_MAX_MS = int(os.getenv("BROWSER_RANDOM_DELAY_MAX_MS", "8000"))
+BROWSER_MAX_RESULTS = int(os.getenv("BROWSER_MAX_RESULTS", "20"))
 BROWSER_KNOWN_STREAK_STOP = int(os.getenv("BROWSER_KNOWN_STREAK_STOP", "5"))
 
 

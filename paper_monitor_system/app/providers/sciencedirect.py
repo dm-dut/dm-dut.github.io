@@ -12,6 +12,17 @@ from .base import ArticleRecord
 from .browser import BrowserRuntime
 
 PII_RE = re.compile(r"/science/article/pii/([A-Za-z0-9]+)", re.I)
+CAPTCHA_MARKERS = ("are you a robot", "verify you are human", "cloudflare", "checking your browser")
+
+
+def _captcha_detected(page) -> bool:
+    try:
+        text = normalize_space(page.locator("body").inner_text(timeout=3000)).lower()
+        return any(x in text for x in CAPTCHA_MARKERS)
+    except Exception:
+        return False
+
+
 AVAILABLE_RE = re.compile(r"Available online\s+([0-3]?\d\s+[A-Za-z]+\s+\d{4})", re.I)
 
 _SEARCH_JS = r'''els => {
@@ -102,6 +113,9 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec], known_ids: se
             print(f"[sciencedirect] search {idx}/{len(journals)}: {spec.journal}")
             try:
                 browser.goto(page, spec.search_url, label="ScienceDirect search")
+                if _captcha_detected(page):
+                    print("[sciencedirect] CAPTCHA detected; please verify once in browser profile and retry.")
+                    break
                 try:
                     page.wait_for_selector('a[href*="/science/article/pii/"]', timeout=15000)
                 except Exception:
@@ -138,5 +152,6 @@ def fetch(start: date, end: date, journals: Sequence[JournalSpec], known_ids: se
             print(f"[sciencedirect] journal done: new={accepted_journal}, elapsed={perf_counter()-jt0:.1f}s")
             if BROWSER_JOURNAL_DELAY_MS > 0:
                 page.wait_for_timeout(BROWSER_JOURNAL_DELAY_MS)
+                browser.human_delay()
         page.close()
     print(f"[sciencedirect] done: new records={accepted_total}, elapsed={perf_counter()-t0:.1f}s")

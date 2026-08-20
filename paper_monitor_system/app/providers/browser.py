@@ -12,6 +12,8 @@ from ..config import (
     BROWSER_NAV_TIMEOUT_MS,
     BROWSER_PROFILE_DIR,
     BROWSER_WAIT_MS,
+    BROWSER_RANDOM_DELAY_MIN_MS,
+    BROWSER_RANDOM_DELAY_MAX_MS,
 )
 from ..utils import normalize_space
 
@@ -58,6 +60,12 @@ class BrowserRuntime(AbstractContextManager):
         page.wait_for_timeout(max(0, BROWSER_WAIT_MS))
         if response is not None and response.status >= 400:
             raise RuntimeError(f"{label} HTTP {response.status}: {url}")
+
+
+    def human_delay(self) -> None:
+        import random
+        import time
+        time.sleep(random.uniform(BROWSER_RANDOM_DELAY_MIN_MS, BROWSER_RANDOM_DELAY_MAX_MS) / 1000.0)
 
     def __exit__(self, exc_type, exc, tb):
         try:
