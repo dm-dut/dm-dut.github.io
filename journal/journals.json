@@ -16,7 +16,12 @@
       "order": 1,
       "journal": "Applied Soft Computing",
       "url": "https://www.sciencedirect.com/search?docId=1568-4946&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/applied-soft-computing/"
+        }
+      ],
       "note": ""
     },
     {
@@ -24,7 +29,12 @@
       "order": 2,
       "journal": "Computers & Industrial Engineering",
       "url": "https://www.sciencedirect.com/search?docId=0360-8352&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/computers-and-industrial-engineering/"
+        }
+      ],
       "note": ""
     },
     {
@@ -32,7 +42,12 @@
       "order": 3,
       "journal": "Computers & Operations Research",
       "url": "https://www.sciencedirect.com/search?docId=0305-0548&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/computers-and-operations-research/"
+        }
+      ],
       "note": ""
     },
     {
@@ -40,7 +55,12 @@
       "order": 4,
       "journal": "Decision Support Systems",
       "url": "https://www.sciencedirect.com/search?docId=0167-9236&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/decision-support-systems/"
+        }
+      ],
       "note": ""
     },
     {
@@ -48,7 +68,12 @@
       "order": 5,
       "journal": "European Journal of Operational Research",
       "url": "https://www.sciencedirect.com/search?docId=0377-2217&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/european-journal-of-operational-research/"
+        }
+      ],
       "note": ""
     },
     {
@@ -56,7 +81,12 @@
       "order": 6,
       "journal": "Expert Systems with Applications",
       "url": "https://www.sciencedirect.com/search?docId=0957-4174&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/expert-systems-with-applications/"
+        }
+      ],
       "note": ""
     },
     {
@@ -64,7 +94,12 @@
       "order": 7,
       "journal": "Fuzzy Sets and Systems",
       "url": "https://www.sciencedirect.com/search?docId=0165-0114&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/fuzzy-sets-and-systems/"
+        }
+      ],
       "note": ""
     },
     {
@@ -72,7 +107,12 @@
       "order": 8,
       "journal": "Information Fusion",
       "url": "https://www.sciencedirect.com/search?docId=1566-2535&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/information-fusion/"
+        }
+      ],
       "note": ""
     },
     {
@@ -80,7 +120,12 @@
       "order": 9,
       "journal": "Information Sciences",
       "url": "https://www.sciencedirect.com/search?docId=0020-0255&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/information-sciences/"
+        }
+      ],
       "note": ""
     },
     {
@@ -88,7 +133,12 @@
       "order": 10,
       "journal": "International Journal of Approximate Reasoning",
       "url": "https://www.sciencedirect.com/search?docId=0888-613X&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/international-journal-of-approximate-reasoning/"
+        }
+      ],
       "note": ""
     },
     {
@@ -96,7 +146,12 @@
       "order": 11,
       "journal": "International Journal of Production Economics",
       "url": "https://www.sciencedirect.com/search?docId=0925-5273&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/international-journal-of-production-economics/"
+        }
+      ],
       "note": ""
     },
     {
@@ -104,7 +159,12 @@
       "order": 12,
       "journal": "Knowledge-Based Systems",
       "url": "https://www.sciencedirect.com/search?docId=0950-7051&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/knowledge-based-systems/"
+        }
+      ],
       "note": ""
     },
     {
@@ -112,7 +172,12 @@
       "order": 13,
       "journal": "Omega",
       "url": "https://www.sciencedirect.com/search?docId=0305-0483&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/omega/"
+        }
+      ],
       "note": ""
     },
     {
@@ -120,7 +185,12 @@
       "order": 14,
       "journal": "Engineering Applications of Artificial Intelligence",
       "url": "https://www.sciencedirect.com/search?docId=0952-1976&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence/"
+        }
+      ],
       "note": ""
     },
     {
@@ -128,7 +198,12 @@
       "order": 15,
       "journal": "Journal of Management Science and Engineering",
       "url": "https://www.sciencedirect.com/search?docId=2096-2320&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/journal-of-management-science-and-engineering/"
+        }
+      ],
       "note": ""
     },
     {
@@ -136,7 +211,12 @@
       "order": 16,
       "journal": "Electronic Commerce Research and Applications",
       "url": "https://www.sciencedirect.com/search?docId=1567-4223&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/electronic-commerce-research-and-applications/"
+        }
+      ],
       "note": ""
     },
     {
@@ -144,7 +224,12 @@
       "order": 17,
       "journal": "International Journal of Forecasting",
       "url": "https://www.sciencedirect.com/search?docId=0169-2070&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/international-journal-of-forecasting/"
+        }
+      ],
       "note": ""
     },
     {
@@ -152,7 +237,12 @@
       "order": 18,
       "journal": "Information & Management",
       "url": "https://www.sciencedirect.com/search?docId=0378-7206&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/information-and-management/"
+        }
+      ],
       "note": ""
     },
     {
@@ -160,7 +250,12 @@
       "order": 19,
       "journal": "Information Systems",
       "url": "https://www.sciencedirect.com/search?docId=0306-4379&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/information-systems/"
+        }
+      ],
       "note": ""
     },
     {
@@ -168,7 +263,12 @@
       "order": 20,
       "journal": "Artificial Intelligence",
       "url": "https://www.sciencedirect.com/search?docId=0004-3702&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/artificial-intelligence/"
+        }
+      ],
       "note": ""
     },
     {
@@ -176,7 +276,12 @@
       "order": 21,
       "journal": "Pattern Recognition",
       "url": "https://www.sciencedirect.com/search?docId=0031-3203&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/pattern-recognition/"
+        }
+      ],
       "note": ""
     },
     {
@@ -184,7 +289,12 @@
       "order": 22,
       "journal": "Pattern Recognition Letters",
       "url": "https://www.sciencedirect.com/search?docId=0167-8655&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/pattern-recognition-letters/"
+        }
+      ],
       "note": ""
     },
     {
@@ -192,7 +302,12 @@
       "order": 23,
       "journal": "Neurocomputing",
       "url": "https://www.sciencedirect.com/search?docId=0925-2312&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/neurocomputing/"
+        }
+      ],
       "note": ""
     },
     {
@@ -200,7 +315,12 @@
       "order": 24,
       "journal": "Physica A: Statistical Mechanics and its Applications",
       "url": "https://www.sciencedirect.com/search?docId=0378-4371&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/physica-a-statistical-mechanics-and-its-applications/"
+        }
+      ],
       "note": ""
     },
     {
@@ -208,7 +328,12 @@
       "order": 25,
       "journal": "Reliability Engineering & System Safety",
       "url": "https://www.sciencedirect.com/search?docId=0951-8320&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/reliability-engineering-and-system-safety/"
+        }
+      ],
       "note": ""
     },
     {
@@ -216,7 +341,12 @@
       "order": 26,
       "journal": "Journal of Biomedical Informatics",
       "url": "https://www.sciencedirect.com/search?docId=1532-0464&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/journal-of-biomedical-informatics/"
+        }
+      ],
       "note": ""
     },
     {
@@ -224,7 +354,12 @@
       "order": 27,
       "journal": "AI Open",
       "url": "https://www.sciencedirect.com/search?docId=2666-6510&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/ai-open/"
+        }
+      ],
       "note": ""
     },
     {
@@ -232,7 +367,12 @@
       "order": 28,
       "journal": "Neural Networks",
       "url": "https://www.sciencedirect.com/search?docId=0893-6080&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/neural-networks/"
+        }
+      ],
       "note": ""
     },
     {
@@ -240,7 +380,12 @@
       "order": 29,
       "journal": "Information Processing & Management",
       "url": "https://www.sciencedirect.com/search?docId=0306-4573&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/information-processing-and-management"
+        }
+      ],
       "note": ""
     },
     {
@@ -248,7 +393,12 @@
       "order": 30,
       "journal": "Advanced Engineering Informatics",
       "url": "https://www.sciencedirect.com/search?docId=1474-0346&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/advanced-engineering-informatics"
+        }
+      ],
       "note": ""
     },
     {
@@ -256,7 +406,12 @@
       "order": 31,
       "journal": "Computers in Industry",
       "url": "https://www.sciencedirect.com/search?docId=0166-3615&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/computers-in-industry/"
+        }
+      ],
       "note": ""
     },
     {
@@ -264,7 +419,12 @@
       "order": 32,
       "journal": "Chaos, Solitons & Fractals",
       "url": "https://www.sciencedirect.com/search?docId=1873-2887&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/chaos-solitons-and-fractals/"
+        }
+      ],
       "note": ""
     },
     {
@@ -272,7 +432,12 @@
       "order": 33,
       "journal": "Safety Science",
       "url": "https://www.sciencedirect.com/search?docId=0925-7535&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/safety-science/"
+        }
+      ],
       "note": ""
     },
     {
@@ -280,7 +445,12 @@
       "order": 34,
       "journal": "Technological Forecasting and Social Change",
       "url": "https://www.sciencedirect.com/search?docId=0040-1625&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/technological-forecasting-and-social-change/"
+        }
+      ],
       "note": ""
     },
     {
@@ -288,7 +458,12 @@
       "order": 35,
       "journal": "Annual Reviews in Control",
       "url": "https://www.sciencedirect.com/search?docId=1367-5788&sortBy=date&show=51",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/annual-reviews-in-control/"
+        }
+      ],
       "note": ""
     },
     {
@@ -296,7 +471,12 @@
       "order": 36,
       "journal": "Journal of Cleaner Production",
       "url": "https://www.sciencedirect.com/search?docId=1879-1786&sortBy=date&show=52",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/journal-of-cleaner-production/"
+        }
+      ],
       "note": ""
     },
     {
@@ -304,7 +484,12 @@
       "order": 37,
       "journal": "Energy",
       "url": "https://www.sciencedirect.com/search?docId=0360-5442&sortBy=date&show=53",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/energy/"
+        }
+      ],
       "note": ""
     },
     {
@@ -312,7 +497,12 @@
       "order": 38,
       "journal": "Journal of Environmental Economics and Management",
       "url": "https://www.sciencedirect.com/search?docId=0095-0696&sortBy=date&show=54",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/"
+        }
+      ],
       "note": ""
     },
     {
@@ -320,7 +510,12 @@
       "order": 39,
       "journal": "Journal of Retailing and Consumer Services",
       "url": "https://www.sciencedirect.com/search?docId=0969-6989&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/journal-of-retailing-and-consumer-services/"
+        }
+      ],
       "note": ""
     },
     {
@@ -328,7 +523,12 @@
       "order": 40,
       "journal": "Transportation Research, Series B: Methodological",
       "url": "https://www.sciencedirect.com/search?docId=0191-2615&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/transportation-research-part-b-methodological/"
+        }
+      ],
       "note": ""
     },
     {
@@ -336,7 +536,12 @@
       "order": 41,
       "journal": "Transportation Research, Part D: Transport and Environment",
       "url": "https://www.sciencedirect.com/search?docId=1361-9209&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/transportation-research-part-d-transport-and-environment"
+        }
+      ],
       "note": ""
     },
     {
@@ -344,7 +549,12 @@
       "order": 42,
       "journal": "Transportation Research, Part E: Logistics and Transportation Review",
       "url": "https://www.sciencedirect.com/search?docId=1366-5545&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/transportation-research-part-e-logistics-and-transportation-review"
+        }
+      ],
       "note": ""
     },
     {
@@ -352,7 +562,12 @@
       "order": 43,
       "journal": "EURO Journal on Decision Processes",
       "url": "https://www.sciencedirect.com/search?docId=2193-9446&sortBy=date&show=51",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/euro-journal-on-decision-processes/"
+        }
+      ],
       "note": ""
     },
     {
@@ -360,7 +575,12 @@
       "order": 1,
       "journal": "Tourism Management",
       "url": "https://www.sciencedirect.com/search?docId=0261-5177&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/tourism-management/latest"
+        }
+      ],
       "note": ""
     },
     {
@@ -368,7 +588,12 @@
       "order": 2,
       "journal": "Annals of Tourism Research",
       "url": "https://www.sciencedirect.com/search?docId=0160-7383&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/annals-of-tourism-research/"
+        }
+      ],
       "note": ""
     },
     {
@@ -376,7 +601,12 @@
       "order": 3,
       "journal": "International Journal of Hospitality Management",
       "url": "https://www.sciencedirect.com/search?docId=0278-4319&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/international-journal-of-hospitality-management/"
+        }
+      ],
       "note": ""
     },
     {
@@ -384,7 +614,12 @@
       "order": 4,
       "journal": "Journal of Hospitality and Tourism Management",
       "url": "https://www.sciencedirect.com/search?docId=1447-6770&sortBy=date&show=51",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/journal-of-hospitality-and-tourism-management/"
+        }
+      ],
       "note": ""
     },
     {
@@ -392,7 +627,12 @@
       "order": 5,
       "journal": "Tourism Management Perspectives",
       "url": "https://www.sciencedirect.com/search?docId=2211-9736&sortBy=date&show=50",
-      "extra_links": [],
+      "extra_links": [
+        {
+          "label": "Web",
+          "url": "https://www.sciencedirect.com/journal/tourism-management-perspectives/latest"
+        }
+      ],
       "note": ""
     },
     {
