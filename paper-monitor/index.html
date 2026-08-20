@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Paper Monitor</title>
+<link rel="stylesheet" href="web/style.css">
+</head>
+<body>
+
+<header>
+<div class="header-inner">
+    <div>
+        <h1>Paper Monitor</h1>
+        <div class="subtitle">Journal Update Monitoring System</div>
+    </div>
+    <div class="update">
+        <div>Last Update</div>
+        <strong id="updateTime">--</strong>
+        <div id="newInfo"></div>
+    </div>
+</div>
+</header>
+
+<div class="container">
+
+<div class="toolbar">
+<input id="searchBox" placeholder="Search title, author, DOI">
+<input id="journalBox" placeholder="Search journal">
+<select id="sortBox">
+<option value="journal">Sort by Journal</option>
+<option value="date">Sort by Date</option>
+</select>
+</div>
+
+<div class="layout">
+
+<aside>
+<h3>Categories</h3>
+<div id="categories"></div>
+</aside>
+
+<main>
+<div class="summary">Latest updated papers</div>
+<div id="paperList"></div>
+</main>
+
+</div>
+</div>
+
+<script src="web/app.js"></script>
+</body>
+</html>
