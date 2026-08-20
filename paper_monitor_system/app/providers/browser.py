@@ -27,29 +27,57 @@ class BrowserRuntime(AbstractContextManager):
         self.context: BrowserContext | None = None
 
     def __enter__(self) -> "BrowserRuntime":
+        import time
+
         BROWSER_PROFILE_DIR.mkdir(parents=True, exist_ok=True)
+
+        # Remove stale Chromium lock files from interrupted runs.
+        for name in ("SingletonLock", "SingletonCookie", "SingletonSocket"):
+            try:
+                p = BROWSER_PROFILE_DIR / name
+                if p.exists():
+                    p.unlink()
+            except Exception:
+                pass
+
         self.pw = sync_playwright().start()
+
         kwargs = dict(
             user_data_dir=str(BROWSER_PROFILE_DIR),
             headless=BROWSER_HEADLESS,
             locale="en-US",
             viewport={"width": 1440, "height": 1000},
         )
+
+        # V6.1.1: always prefer a user supplied Chrome executable.
+        # Do not use Playwright channel="chromium" because it launches the
+        # bundled browser instead of the installed Chrome.
         if BROWSER_EXECUTABLE_PATH:
-            kwargs["executable_path"] = BROWSER_EXECUTABLE_PATH
+            exe = Path(BROWSER_EXECUTABLE_PATH)
+            if not exe.exists():
+                raise RuntimeError(
+                    f"Chrome executable not found: {BROWSER_EXECUTABLE_PATH}"
+                )
+            kwargs["executable_path"] = str(exe)
         elif BROWSER_CHANNEL and BROWSER_CHANNEL not in {"chromium", ""}:
             kwargs["channel"] = BROWSER_CHANNEL
+
         try:
             self.context = self.pw.chromium.launch_persistent_context(**kwargs)
-            print(f"[browser] engine=chromium executable={BROWSER_EXECUTABLE_PATH or 'bundled'} channel={BROWSER_CHANNEL or 'bundled'} headless={BROWSER_HEADLESS}")
         except Exception as exc:
-            if BROWSER_CHANNEL:
-                print(f"[browser] channel {BROWSER_CHANNEL!r} unavailable ({type(exc).__name__}); falling back to bundled Chromium")
-                kwargs.pop("channel", None)
-                self.context = self.pw.chromium.launch_persistent_context(**kwargs)
-                print(f"[browser] engine=bundled-chromium headless={BROWSER_HEADLESS}")
-            else:
-                raise
+            raise RuntimeError(
+                "Chrome persistent launch failed. "
+                "Close all Chrome windows, delete paper_monitor_system/browser_profile, "
+                "and run browser_warmup again. Original error: "
+                + repr(exc)
+            ) from exc
+
+        print(
+            "[browser] engine=chrome "
+            f"executable={BROWSER_EXECUTABLE_PATH or 'bundled'} "
+            f"profile={BROWSER_PROFILE_DIR} "
+            f"headless={BROWSER_HEADLESS}"
+        )
         self.context.set_default_navigation_timeout(BROWSER_NAV_TIMEOUT_MS)
         self.context.set_default_timeout(BROWSER_NAV_TIMEOUT_MS)
         return self

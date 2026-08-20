@@ -9,7 +9,7 @@ SYSTEM_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = SYSTEM_ROOT.parent
 load_dotenv(SYSTEM_ROOT / ".env")
 
-BUILD_ID = "LOCAL-2026.08.20-V6.1-CHROME-ID-FIRST"
+BUILD_ID = "LOCAL-2026.08.20-V6.1.1-CHROME-FIX"
 SCHEMA_VERSION = "6.1-id-first"
 
 
@@ -37,7 +37,7 @@ HTTP_RETRY_BACKOFF = float(os.getenv("HTTP_RETRY_BACKOFF", "0.40"))
 REQUEST_PAUSE_SECONDS = float(os.getenv("REQUEST_PAUSE_SECONDS", "0.10"))
 
 # V6 reads only list/search pages for ScienceDirect and IEEE.
-BROWSER_CHANNEL = os.getenv("BROWSER_CHANNEL", "chromium").strip()
+BROWSER_CHANNEL = os.getenv("BROWSER_CHANNEL", "").strip()
 BROWSER_EXECUTABLE_PATH = os.getenv("BROWSER_EXECUTABLE_PATH", "").strip()
 BROWSER_HEADLESS = env_bool("BROWSER_HEADLESS", False)
 BROWSER_NAV_TIMEOUT_MS = int(os.getenv("BROWSER_NAV_TIMEOUT_MS", "45000"))
