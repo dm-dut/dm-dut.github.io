@@ -7,45 +7,38 @@
 <link rel="stylesheet" href="web/style.css">
 </head>
 <body>
-
 <header>
 <div class="header-inner">
-    <div>
-        <h1>Paper Monitor</h1>
-        <div class="subtitle">Journal Update Monitoring System</div>
-    </div>
-    <div class="update">
-        <div>Last Update</div>
-        <strong id="updateTime">--</strong>
-        <div id="newInfo"></div>
-    </div>
+<div>
+<h1>Paper Monitor</h1>
+<div class="subtitle">Journal Update Monitoring System</div>
+</div>
+<div class="update">
+Last Update: <strong id="updateTime">--</strong> (UTC+8)
+</div>
 </div>
 </header>
 
 <div class="container">
-
 <div class="toolbar">
 <input id="searchBox" placeholder="Search title, author, DOI">
-<input id="journalBox" placeholder="Search journal">
+
+<select id="categorySelect">
+<option value="All">All Categories</option>
+</select>
+
+<select id="journalSelect">
+<option value="All">All Journals</option>
+</select>
+
 <select id="sortBox">
-<option value="journal">Sort by Journal</option>
 <option value="date">Sort by Date</option>
+<option value="journal">Sort by Journal</option>
 </select>
 </div>
 
-<div class="layout">
-
-<aside>
-<h3>Categories</h3>
-<div id="categories"></div>
-</aside>
-
-<main>
-<div class="summary">Latest updated papers</div>
+<div class="summary" id="summary"></div>
 <div id="paperList"></div>
-</main>
-
-</div>
 </div>
 
 <script src="web/app.js"></script>
