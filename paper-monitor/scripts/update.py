@@ -1,6 +1,13 @@
 
 import os, sys, json, datetime
 import pandas as pd
+import yaml
+
+with open(ROOT+"/config/settings.yaml","r",encoding="utf-8") as f:
+    settings=yaml.safe_load(f)
+
+days=settings.get("days",3)
+rows=settings.get("rows",50)
 
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -43,7 +50,11 @@ for i,(_,row) in enumerate(journals.iterrows(),1):
     print(f"[{i}/{len(journals)}] {name} ({issn})")
 
     try:
-        papers=fetch(issn)
+        papers = fetch(
+            issn,
+            days=days,
+            rows=rows
+        )
 
         add=0
         for p in papers:
