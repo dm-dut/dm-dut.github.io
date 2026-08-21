@@ -11,11 +11,10 @@ The program skips sending when no email HTML exists.
 
 import os
 import smtplib
+
 from pathlib import Path
 from email.message import EmailMessage
 from email.utils import formataddr
-
-
 
 ROOT = Path(__file__).resolve().parent.parent
 HTML_FILE = ROOT / "web" / "daily_papers_email.html"
@@ -24,9 +23,9 @@ if not HTML_FILE.exists():
     print("No email digest found. Skip sending.")
     raise SystemExit(0)
 
-username = os.getenv("MAIL_USERNAME")
-password = os.getenv("MAIL_PASSWORD")
-receiver = os.getenv("MAIL_TO")
+username = "zhenzhang_cn@ieee.org"
+password = "zicjxpvrcvkxrtso"
+receiver = "zzupchd@gmail.com"
 
 if not username or not password or not receiver:
     raise RuntimeError(
