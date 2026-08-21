@@ -25,7 +25,7 @@ if not HTML_FILE.exists():
 
 username = "zhenzhang_cn@ieee.org"
 password = "zicjxpvrcvkxrtso"
-receiver = "zzupchd@gmail.com"
+receiver = "zhen.zhang.dut@vip.163.com"
 
 if not username or not password or not receiver:
     raise RuntimeError(
