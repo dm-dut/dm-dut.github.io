@@ -1,5 +1,4 @@
-name: update-paper-monitor
-
+name: update
 
 on:
   schedule:
