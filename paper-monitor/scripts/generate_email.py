@@ -1,16 +1,13 @@
 """
-Generate mobile-friendly HTML email digest for Paper Monitor.
-
-Version:
-v15.0 Email Mobile Optimization
+Generate Paper Monitor email digest v15.6 clean.
 
 Features:
-- Responsive email layout
-- Larger fonts for mobile reading
-- Blue academic style
-- Journal grouping
-- DOI hyperlinks
-- GMT+8 update display
+- Responsive PC/mobile layout
+- Keeps title hyperlink
+- Removes DOI display
+- Removes online/fetched dates
+- Keeps authors
+- Keeps new paper summary
 """
 
 import json
@@ -25,7 +22,6 @@ WEB = ROOT / "web"
 def load_json(path, default):
     if not path.exists():
         return default
-
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -54,20 +50,14 @@ for paper in papers:
 journals = sorted(groups.keys(), key=journal_rank)
 
 
-paper_blocks = []
+paper_html = []
 
 for journal in journals:
 
-    paper_blocks.append(
+    paper_html.append(
         f"""
-        <h2 style="
-        color:#1f4e85;
-        font-size:14px;
-        line-height:1.5;
-        margin-top:30px;
-        border-left:5px solid #1f4e85;
-        padding-left:12px;">
-        {journal} ({len(groups[journal])})
+        <h2 class="journal">
+        {journal}
         </h2>
         """
     )
@@ -75,68 +65,23 @@ for journal in journals:
     for p in groups[journal]:
 
         doi = p.get("doi", "")
-        doi_url = f"https://doi.org/{doi}" if doi else "#"
+        title_link = f"https://doi.org/{doi}" if doi else "#"
 
-        paper_blocks.append(
+        paper_html.append(
             f"""
-            <table width="100%" cellpadding="0" cellspacing="0"
-            style="
-            background:#ffffff;
-            border:1px solid #d9e2ec;
-            margin-bottom:12px;">
+            <div class="paper">
 
-            <tr>
-            <td style="padding:14px;">
+                <a class="title"
+                   href="{title_link}">
+                   {p.get("title", "")}
+                </a>
 
-            <a href="{doi_url}"
-            style="
-            color:#102a43;
-            font-size:14px;
-            line-height:1.5;
-            font-weight:600;
-            text-decoration:none;">
-            {p.get("title","")}
-            </a>
+                <div class="authors">
+                    <b>Authors:</b><br>
+                    {p.get("authors", "")}
+                </div>
 
-            <div style="height:8px;"></div>
-
-            <div style="
-            color:#334e68;
-            font-size:13.5px;
-            line-height:1.6;">
-            <b>Authors:</b><br>
-            {p.get("authors","")}
             </div>
-
-            <br>
-
-            <div style="
-            color:#627d98;
-            font-size:13.5px;
-            line-height:1.6;">
-            Online: {p.get("online_date","")}
-            <br>
-            Fetched (GMT+8): {p.get("fetched_date","")}
-            </div>
-
-            <br>
-
-            <a href="{doi_url}"
-            style="
-            display:inline-block;
-            background:#2f6fad;
-            color:#ffffff;
-            padding:7px 16px;
-            border-radius:5px;
-            font-size:13.5px;
-            text-decoration:none;">
-            DOI
-            </a>
-
-            </td>
-            </tr>
-
-            </table>
             """
         )
 
@@ -155,45 +100,133 @@ content="width=device-width, initial-scale=1.0">
 
 <style>
 
-@media only screen and (max-width:600px) {{
+body {{
+    margin:0;
+    padding:15px;
+    background:#f7fafc;
+    font-family:Arial, Helvetica, sans-serif;
+}}
 
-    h1 {{
-        font-size:28px !important;
-    }}
+.container {{
+    max-width:780px;
+    margin:auto;
+    background:white;
+    padding:25px;
+}}
 
-    h2 {{
-        font-size:20px !important;
-    }}
+.header {{
+    color:#1f4e85;
+    font-size:22px;
+    font-weight:bold;
+}}
 
+.subtitle {{
+    color:#627d98;
+    font-size:14px;
+}}
+
+.info {{
+    color:#334e68;
+    font-size:14px;
+    margin-top:15px;
+}}
+
+.summary {{
+    background:#f0f6fc;
+    padding:12px;
+    margin:15px 0;
+    color:#102a43;
+    font-size:15px;
+}}
+
+.journal {{
+    color:#1f4e85;
+    font-size:15px;
+    margin-top:24px;
+    margin-bottom:12px;
+    border-left:4px solid #1f4e85;
+    padding-left:10px;
+}}
+
+.paper {{
+    border:1px solid #d9e2ec;
+    padding:16px;
+    margin-bottom:12px;
+}}
+
+.title {{
+    color:#102a43;
+    font-size:15px;
+    line-height:1.45;
+    font-weight:700;
+    text-decoration:none;
+}}
+
+.authors {{
+    margin-top:10px;
+    color:#334e68;
+    font-size:14px;
+    line-height:1.5;
+}}
+
+
+.footer {{
+    margin-top:30px;
+    border-top:1px solid #d9e2ec;
+    padding-top:10px;
+    color:#829ab1;
+    font-size:12px;
 }}
 
 
 @media only screen and (max-width:600px) {{
 
-    h1 {{
-        font-size:20px !important;
-        margin-bottom:4px !important;
-    }}
-
-    h2 {{
-        font-size:15px !important;
-        margin-top:18px !important;
-        margin-bottom:10px !important;
-        border-left-width:3px !important;
-        padding-left:8px !important;
-    }}
-
-    a {{
-        font-size:15px !important;
-        line-height:1.4 !important;
-    }}
-
     body {{
-        padding:8px !important;
+        padding:8px;
     }}
 
-    table td {{
-        padding:10px !important;
+    .container {{
+        padding:12px;
+    }}
+
+    .header {{
+        font-size:15px;
+    }}
+
+    .subtitle {{
+        font-size:11px;
+    }}
+
+    .info {{
+        font-size:12px;
+    }}
+
+    .summary {{
+        font-size:13px;
+        padding:10px;
+    }}
+
+    .journal {{
+        font-size:13px;
+        margin-top:14px;
+        margin-bottom:8px;
+        border-left-width:2px;
+        padding-left:7px;
+    }}
+
+    .paper {{
+        padding:8px;
+        margin-bottom:6px;
+    }}
+
+    .title {{
+        font-size:13px;
+        line-height:1.35;
+    }}
+
+    .authors {{
+        font-size:11px;
+        line-height:1.4;
     }}
 
 }}
@@ -203,97 +236,42 @@ content="width=device-width, initial-scale=1.0">
 </head>
 
 
-<body style="
-margin:0;
-padding:10px;
-background:#f7fafc;
-font-family:Arial,Helvetica,sans-serif;">
+<body>
+
+<div class="container">
 
 
-<table width="100%"
-style="
-max-width:700px;
-margin:auto;
-background:#ffffff;
-border-collapse:collapse;">
-
-<tr>
-
-<td style="padding:15px;">
-
-
-<h1 style="
-color:#1f4e85;
-font-size:24px;
-margin:0;">
+<div class="header">
 Paper Monitor
-</h1>
-
-
-<p style="
-color:#627d98;
-font-size:14px;">
-Daily New Papers Digest
-</p>
-
-
-<hr style="
-border:none;
-border-top:1px solid #d9e2ec;">
-
-
-
-<p style="
-color:#334e68;
-font-size:14px;">
-Update time:
-<b>{updated} (GMT+8)</b>
-</p>
-
-
-
-<div style="
-background:#f0f6fc;
-padding:16px;
-color:#102a43;
-font-size:14px;">
-
-<b style="font-size:18px;">
-{len(papers)}
-</b>
-
-new papers found.
-
 </div>
 
 
-
-{''.join(paper_blocks)}
-
-
-
-<hr style="
-border:none;
-border-top:1px solid #d9e2ec;
-margin-top:30px;">
+<div class="subtitle">
+Daily New Papers Digest
+</div>
 
 
+<div class="info">
+Update time:
+<b>{updated} (GMT+8)</b>
+</div>
 
-<p style="
-font-size:13px;
-color:#829ab1;">
 
+<div class="summary">
+<b>{len(papers)}</b>
+new papers found.
+</div>
+
+
+{''.join(paper_html)}
+
+
+<div class="footer">
 Copyright © 2026 Zhen Zhang, Dalian University of Technology
+</div>
 
-</p>
 
-
-</td>
-
-</tr>
-
-</table>
-
+</div>
 
 </body>
 
