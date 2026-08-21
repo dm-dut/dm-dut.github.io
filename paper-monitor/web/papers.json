@@ -3918,5 +3918,15 @@
     "publisher": "",
     "online_date": "2026-08-20",
     "fetched_date": "2026-08-21"
+  },
+  {
+    "doi": "10.1007/s10489-026-07416-6",
+    "title": "Deployment-oriented pruning for real-time object detection: a survey",
+    "authors": "Guanghui Zhou; Donglin Zhang",
+    "journal": "Applied Intelligence",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-21",
+    "fetched_date": "2026-08-21"
   }
 ]
