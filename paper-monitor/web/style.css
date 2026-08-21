@@ -130,14 +130,15 @@ input:focus,select:focus{
 
 .author{
   margin-top:7px;
-  color:#445b72;
-  font-size:14.5px;
-  line-height:1.5;
+  color:#243b53;
+  font-size:15px;
+  font-weight:400;
+  line-height:1.55;
 }
 
 .meta{
   margin-top:8px;
-  color:var(--muted);
+  color:#52687e;
   font-size:13.5px;
   line-height:1.7;
 }

@@ -22,10 +22,25 @@ for folder in (WEB_DIR, DB_DIR, LOG_DIR):
 GMT8_TZ = datetime.timezone(datetime.timedelta(hours=8))
 
 
+import html
+
+
 def clean(value):
     if pd.isna(value):
         return ""
-    return str(value).strip()
+
+    value = str(value)
+
+    # Decode HTML entities:
+    # &amp;  -> &
+    # &lt;   -> <
+    # &gt;   -> >
+    value = html.unescape(value)
+
+    # Normalize spaces
+    value = " ".join(value.split())
+
+    return value.strip()
 
 
 def gmt8_now():

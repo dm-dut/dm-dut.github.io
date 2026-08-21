@@ -9,10 +9,21 @@ WEB_DIR = os.path.join(ROOT, "web")
 os.makedirs(WEB_DIR, exist_ok=True)
 
 
+import html
+
+
 def clean(value):
+
     if pd.isna(value):
         return ""
-    return str(value).strip()
+
+    value = str(value)
+
+    value = html.unescape(value)
+
+    value = " ".join(value.split())
+
+    return value.strip()
 
 
 journals = pd.read_excel(

@@ -73,10 +73,14 @@ function normalizeDoi(value) {
 }
 
 function normalizeJournal(value) {
+
   return String(value || "")
-    .trim()
+    .replaceAll("&amp;", "&")
+    .replaceAll("&", " and ")
     .replace(/\s+/g, " ")
+    .trim()
     .toLowerCase();
+
 }
 
 function buildJournalOrder(raw) {
