@@ -23,6 +23,7 @@ if not HTML_FILE.exists():
     print("No email digest found. Skip sending.")
     raise SystemExit(0)
 
+
 username = "zhenzhang_cn@ieee.org"
 password = "zicjxpvrcvkxrtso"
 receiver = "zhen.zhang.dut@vip.163.com"
