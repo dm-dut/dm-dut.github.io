@@ -31,7 +31,7 @@ jobs:
         run: python scripts/update.py
 
       - name: Generate email digest
-        run: python scripts/generate_email.py
+        run: python paper-monitor/scripts/generate_email.py
 
       - name: Commit updates
         run: |
