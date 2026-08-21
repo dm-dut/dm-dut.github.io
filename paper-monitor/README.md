@@ -1118,17 +1118,485 @@ git add config\journals.xlsx
 
 ---
 
-## 21. 辅助脚本
+# 21. 自动邮件推送功能
 
-日常更新的核心程序只有：
+Paper Monitor 支持在完成论文更新后，自动生成 HTML 格式的论文摘要邮件，并通过 Gmail SMTP 将每日新增论文发送至指定邮箱。
 
-```text
+完整流程如下：
+
+```
+Crossref
+   |
+   v
+scripts/update.py
+   |
+   v
+更新 SQLite 数据库
+   |
+   v
+生成 JSON 数据
+   |
+   v
+scripts/generate_email.py
+   |
+   v
+生成 HTML 邮件
+   |
+   v
+scripts/send_email.py
+   |
+   v
+Gmail SMTP
+   |
+   v
+接收每日论文提醒邮件
+```
+
+---
+
+## 21.1 邮件功能特点
+
+当前邮件模块支持：
+
+- 自动生成每日论文提醒；
+- 自动发送新增论文摘要；
+- HTML 响应式邮件布局；
+- 支持 PC 和手机端显示；
+- 按期刊分组展示论文；
+- 论文标题支持点击跳转；
+- 显示完整作者列表；
+- 显示 GMT+8 更新时间；
+- 支持自定义发件人名称。
+
+当前邮件展示内容：
+
+```
+Paper Monitor
+
+Daily New Papers Digest
+
+Update time:
+YYYY-MM-DD HH:MM (GMT+8)
+
+XX new papers found.
+
+
+Journal Name
+
+
+Paper Title
+(点击标题进入论文)
+
+
+Authors:
+Author 1; Author 2; ...
+```
+
+为了提高邮件阅读效率，当前版本不显示：
+
+- DOI 文本；
+- DOI 按钮；
+- Online 日期；
+- Fetch 日期。
+
+但是论文标题仍然保留超链接，可以直接跳转至论文页面。
+
+---
+
+## 21.2 邮件生成程序
+
+邮件 HTML 由：
+
+```
+scripts/generate_email.py
+```
+
+生成。
+
+主要功能：
+
+1. 读取新增论文数据：
+
+```
+web/new_papers.json
+```
+
+2. 根据期刊顺序组织邮件内容：
+
+```
+web/journal_order.json
+```
+
+3. 生成：
+
+```
+web/daily_papers_email.html
+```
+
+运行：
+
+```bash
+python scripts/generate_email.py
+```
+
+成功后：
+
+```
+Generated:
+web/daily_papers_email.html
+```
+
+生成后的 HTML 文件可以直接用于邮件发送，也可以本地浏览器预览。
+
+---
+
+## 21.3 邮件发送程序
+
+邮件发送程序：
+
+```
+scripts/send_email.py
+```
+
+负责将 HTML 邮件发送至指定邮箱。
+
+程序使用 Gmail SMTP 服务。
+
+主要配置参数：
+
+```
+MAIL_USERNAME
+MAIL_PASSWORD
+MAIL_TO
+```
+
+其中：
+
+- `MAIL_USERNAME`：发送邮箱；
+- `MAIL_PASSWORD`：Google 应用专用密码；
+- `MAIL_TO`：接收邮箱。
+
+---
+
+## 21.4 Gmail 应用密码配置
+
+由于 Gmail 不允许直接使用账户密码进行 SMTP 登录，需要使用 App Password。
+
+配置步骤：
+
+```
+Google Account
+
+↓
+
+Security
+
+↓
+
+2-Step Verification
+
+↓
+
+App Passwords
+```
+
+创建新的应用密码。
+
+建议：
+
+```
+Application:
+Mail
+
+Device:
+Paper Monitor
+```
+
+Google 会生成一个 16 位应用密码。
+
+该密码用于：
+
+```
+MAIL_PASSWORD
+```
+
+而不是 Gmail 登录密码。
+
+---
+
+## 21.5 GitHub Secrets 配置
+
+如果使用 GitHub Actions 自动发送邮件，需要配置 Repository Secrets。
+
+路径：
+
+```
+Settings
+
+↓
+
+Secrets and variables
+
+↓
+
+Actions
+
+↓
+
+New repository secret
+```
+
+增加以下变量：
+
+### 邮箱账号
+
+名称：
+
+```
+MAIL_USERNAME
+```
+
+示例：
+
+```
+your_email@gmail.com
+```
+
+---
+
+### Gmail 应用密码
+
+名称：
+
+```
+MAIL_PASSWORD
+```
+
+示例：
+
+```
+xxxxxxxxxxxxxxxx
+```
+
+---
+
+### 接收邮箱
+
+名称：
+
+```
+MAIL_TO
+```
+
+示例：
+
+```
+receiver@gmail.com
+```
+
+---
+
+## 21.6 GitHub Actions 邮件流程
+
+自动运行流程：
+
+```
+update.py
+
+↓
+
+generate_email.py
+
+↓
+
+send_email.py
+
+↓
+
+git commit / push
+```
+
+workflow 示例：
+
+```yaml
+- name: Update papers
+  run: python scripts/update.py
+
+- name: Generate email
+  run: python scripts/generate_email.py
+
+- name: Send email
+  run: python scripts/send_email.py
+```
+
+---
+
+## 21.7 自定义邮件发送名称
+
+默认情况下，邮件发送方可能显示：
+
+```
+your_email@gmail.com
+```
+
+可以修改为：
+
+```
+Paper Monitor | Zhen Zhang
+```
+
+修改：
+
+```python
+from email.utils import formataddr
+
+msg["From"] = formataddr(
+    ("Paper Monitor | Zhen Zhang", username)
+)
+```
+
+发送后的邮件列表中显示：
+
+```
+Paper Monitor | Zhen Zhang
+```
+
+而不是邮箱地址。
+
+---
+
+## 21.8 邮件模板设计
+
+当前邮件模板采用：
+
+- 蓝色学术风格；
+- PC / 手机响应式布局；
+- 紧凑论文卡片；
+- 标题突出显示；
+- 作者信息显示；
+- Copyright 页脚。
+
+邮件底部：
+
+```
+Copyright © 2026 Zhen Zhang, Dalian University of Technology
+```
+
+---
+
+## 21.9 常见问题
+
+### 1. Email sent successfully 但是 GitHub Actions 失败
+
+例如：
+
+```
+Email sent successfully.
+
+fatal: pathspec 'web' did not match any files
+```
+
+说明：
+
+- 邮件发送已经成功；
+- 失败发生在 Git 提交阶段。
+
+检查 workflow 中：
+
+```bash
+git add
+```
+
+路径是否正确。
+
+例如项目结构：
+
+```
+paper-monitor/
+
+├── scripts
+├── web
+└── database
+```
+
+应该使用：
+
+```bash
+git add web/
+git add database/
+```
+
+或者：
+
+```bash
+git add paper-monitor/
+```
+
+---
+
+### 2. SMTP 登录失败
+
+检查：
+
+- 是否开启 Google 两步验证；
+- 是否使用 App Password；
+- GitHub Secrets 名称是否正确。
+
+常见错误：
+
+```
+SMTPAuthenticationError
+```
+
+通常表示：
+
+- 密码错误；
+- 使用 Gmail 登录密码；
+- Secret 配置错误。
+
+---
+
+### 3. 邮件为空
+
+检查：
+
+```
+web/daily_papers_email.html
+```
+
+如果为空：
+
+首先检查：
+
+```
+web/new_papers.json
+```
+
+是否存在新增论文。
+
+然后运行：
+
+```bash
+python scripts/generate_email.py
+```
+
+检查生成结果。
+
+---
+
+# 22. 辅助脚本
+
+日常更新的核心程序：
+
+```
 scripts/update.py
 ```
 
-另外两个 `.py` 是辅助工具。
+另外两个 Python 程序属于辅助工具。
 
-### 21.1 `generate_journal_order.py`
+---
+
+## 22.1 generate_journal_order.py
 
 运行：
 
@@ -1138,20 +1606,24 @@ python scripts/generate_journal_order.py
 
 功能：
 
-```text
+```
 config/journals.xlsx
+
         ↓
+
 web/journal_order.json
 ```
 
 适用于：
 
-- 只修改了期刊顺序；
+- 修改 Excel 中期刊顺序；
 - 不需要访问 Crossref；
-- 不需要重建数据库；
-- 不希望执行完整更新。
+- 不需要更新数据库；
+- 只需要刷新前端排序。
 
-### 21.2 `rebuild_web_data.py`
+---
+
+## 22.2 rebuild_web_data.py
 
 运行：
 
@@ -1161,100 +1633,150 @@ python scripts/rebuild_web_data.py
 
 功能：
 
-```text
+```
 database/papers.db
-        ↓
-web/papers.json
 
-config/journals.xlsx
         ↓
+
+web/papers.json
+```
+
+以及：
+
+```
+config/journals.xlsx
+
+        ↓
+
 web/journal_order.json
 ```
 
-它**不会访问 Crossref**。
+它不会访问 Crossref。
 
 适用于：
 
-- 已有完整 `papers.db`；
-- JSON 被删除或需要重新生成；
-- 需要从数据库恢复 `fetched_date`；
-- 只想重建网页数据，不希望重新抓取论文。
+- 已存在完整 SQLite 数据库；
+- JSON 文件丢失；
+- 重新生成网页数据；
+- 恢复 fetched_date 信息。
 
 ---
 
-## 22. 一次完整更新的工作流程
+# 23. 一次完整更新流程
 
-```text
+完整工作流程：
+
+```
 config/journals.xlsx
-        │
-        ├── 生成 journal_order.json
-        │
-        ▼
+
+        |
+
+        v
+
+生成 journal_order.json
+
+        |
+
+        v
+
 database/papers.db
-        │
-        ├── 更新前导出 previous_papers.json
-        │
-        ▼
-逐期刊访问 Crossref
-        │
-        ├── 已存在 DOI → 跳过
-        │
-        └── 新 DOI
-              │
-              ├── 写入 papers.db
-              ├── first_seen = GMT+8 当前日期
-              └── 加入 new_papers.json
-        │
-        ▼
-导出 papers.json
-        │
-        ├── 更新 update_time.json
-        └── 写入 failed_journals.json
-        │
-        ▼
+
+        |
+
+        v
+
+生成 previous_papers.json
+
+        |
+
+        v
+
+访问 Crossref
+
+        |
+
+        +---- 已存在 DOI
+        |
+        +---- 新 DOI
+
+                 |
+
+                 v
+
+          写入数据库
+
+                 |
+
+                 v
+
+          生成 new_papers.json
+
+
+        |
+
+        v
+
+生成 papers.json
+
+        |
+
+        v
+
 前端 app.js
-        │
-        ├── 判断 NEW
-        ├── 筛选
-        ├── 排序
-        └── 分页
-        │
-        ▼
-GitHub Pages / Local Web
+
+        |
+
+        +---- NEW 判断
+        +---- 筛选
+        +---- 排序
+        +---- 分页
+
+        |
+
+        v
+
+GitHub Pages
+
+        |
+
+        v
+
+邮件推送
 ```
 
 ---
 
-## 23. 常见问题
+# 24. 常见问题
 
-### 23.1 网页没有显示论文
+## 24.1 网页没有显示论文
 
-不要直接双击 `index.html`。
+不要直接双击：
 
-运行：
+```
+index.html
+```
+
+建议运行：
 
 ```bash
 python -m http.server 8000
 ```
 
-再访问：
+访问：
 
-```text
-http://localhost:8000/
 ```
-
-如果页面显示：
-
-```text
-Data loading failed.
+http://localhost:8000/
 ```
 
 检查：
 
-```text
+```
 web/papers.json
+
 web/previous_papers.json
+
 web/update_time.json
+
 web/journal_order.json
 ```
 
@@ -1262,156 +1784,156 @@ web/journal_order.json
 
 ---
 
-### 23.2 修改 CSS 或 JavaScript 后页面没有变化
+## 24.2 修改 CSS 或 JavaScript 后页面没有变化
 
-浏览器或 GitHub Pages 可能仍然缓存旧文件。
+可能是浏览器缓存。
 
-当前 `index.html` 使用：
+当前：
 
-```text
-web/style.css?v=14.5.2
-web/app.js?v=14.5.2
+```
+style.css?v=xxx
+
+app.js?v=xxx
 ```
 
-如果以后大幅修改前端，可以将版本号改为：
+可以修改版本号：
 
-```text
-?v=14.5.3
+```
+?v=15.0
 ```
 
-并进行强制刷新：
+或者强制刷新：
 
-```text
+```
 Ctrl + F5
 ```
 
 ---
 
-### 23.3 Crossref 出现 ConnectionResetError 10054
+## 24.3 Crossref 出现连接失败
 
 例如：
 
-```text
-ConnectionResetError(
-  10054,
-  '远程主机强迫关闭了一个现有的连接。'
-)
+```
+ConnectionResetError(10054)
 ```
 
-当前采集器会自动：
+系统会自动：
 
-```text
+```
 限速
-→ 重试
-→ 2/5/10 秒退避
-→ 处理 Retry-After
+
+↓
+
+自动重试
+
+↓
+
+指数退避
+
+↓
+
+重新请求
 ```
 
-如果最终仍失败，会写入：
+失败期刊记录：
 
-```text
+```
 logs/failed_journals.json
 ```
 
-下一次日常更新可再次尝试。
+---
+
+## 24.4 NEW 标签为什么消失
+
+NEW 表示：
+
+> 相对于本轮更新开始前数据库新增的 DOI。
+
+下一次更新后，上一次新增论文已经成为历史数据，因此不再显示 NEW。
 
 ---
 
-### 23.4 某个期刊没有抓到论文
-
-首先检查：
-
-```text
-pISSN
-```
-
-是否正确。
-
-其次注意：
-
-```text
-days
-```
-
-控制的是 Crossref 的：
-
-```text
-created date
-```
-
-而不是论文 Online Date。
-
-还需考虑 Crossref 元数据本身可能存在滞后。
-
----
-
-### 23.5 NEW 标签为什么下一次更新后消失
-
-这是预期行为。
-
-NEW 定义为：
-
-> 相对于本轮更新前数据库快照，本轮新增的 DOI。
-
-下一次更新时，上一次新增论文已经属于历史数据，因此不再是 NEW。
-
----
-
-### 23.6 为什么 Fetched Date 与 Online Date 不一样
+## 24.5 Online Date 与 Fetched Date 区别
 
 二者含义不同：
 
-```text
+```
 Online Date
-= Crossref 提供的论文出版/在线日期
+
+=
+Crossref 提供的论文日期
+
 
 Fetched Date
-= 本系统第一次发现该 DOI 的日期
+
+=
+系统第一次发现该 DOI 的日期
 ```
 
 例如：
 
-```text
-Online: 2026-08-18
-Fetched (GMT+8): 2026-08-21
+```
+Online:
+2026-08-18
+
+Fetched:
+2026-08-21
 ```
 
-完全正常。
+属于正常情况。
 
 ---
 
-## 24. 建议的日常使用方式
+# 25. 建议的日常使用方式
 
-如果主要依靠 GitHub Actions：
+## GitHub Actions 自动运行
 
-```text
-每天 07:30 GMT+8
+```
+每天 07:30 (GMT+8)
+
         ↓
+
 GitHub Actions
+
         ↓
-python scripts/update.py
+
+update.py
+
         ↓
-更新 DB + JSON
+
+更新数据库和 JSON
+
         ↓
-commit / push
+
+发送邮件
+
         ↓
-GitHub Pages 自动显示最新数据
+
+GitHub Pages 更新
 ```
 
-如果需要本地手动检查：
+---
+
+## 本地检查
 
 ```bash
 python scripts/update.py
+
 python -m http.server 8000
 ```
 
-如果只是调整 Excel 中期刊顺序：
+---
+
+## 只修改期刊顺序
 
 ```bash
 python scripts/generate_journal_order.py
 ```
 
-如果只是根据数据库重建网页 JSON：
+---
+
+## 只重建网页数据
 
 ```bash
 python scripts/rebuild_web_data.py
@@ -1419,84 +1941,103 @@ python scripts/rebuild_web_data.py
 
 ---
 
-## 25. Git 使用建议
+# 26. Git 使用建议
 
-建议 `.gitignore` 至少忽略：
+建议 `.gitignore`：
 
-```text
+```
 .idea/
 __pycache__/
 *.pyc
 ```
 
-不要将以下内容写入公开代码：
+不要提交：
 
-```text
-CROSSREF_MAILTO 的私人邮箱值
+```
 GitHub Token
+
 密码
+
 API Secret
 ```
 
-邮箱建议通过：
+邮箱配置建议使用：
 
-```text
-环境变量 / GitHub Secret
 ```
+环境变量
 
-注入。
+或
+
+GitHub Secrets
+```
 
 ---
 
-## 26. 当前系统的关键设计原则
+# 27. 当前系统关键设计原则
 
-本项目目前采用以下稳定方案：
+当前系统采用：
 
-```text
+```
 统一数据源：
+
 Crossref
 
+
 论文唯一键：
+
 DOI
 
+
 历史存储：
+
 SQLite
 
-NEW 判定：
-previous_papers.json 与当前 papers.json 的 DOI 差集
+
+NEW 判断：
+
+previous_papers.json
+
+与
+
+papers.json
+
+比较 DOI
+
 
 期刊顺序：
-journals.xlsx 的实际行顺序
+
+journals.xlsx 实际顺序
+
 
 获取日期：
+
 首次发现 DOI 的 GMT+8 日期
 
+
 网页入口：
-根目录 index.html
+
+index.html
+
 
 网页数据：
+
 web/*.json
 
-默认排序：
-NEW 优先
-
-最大前端结果：
-1000
-
-每页：
-50
-
-Crossref 请求：
-0.6 秒最小间隔 + 自动重试 + 退避机制
 
 自动更新时间：
-建议北京时间每天 07:30
+
+北京时间每天 07:30
+
+
+邮件：
+
+HTML + Gmail SMTP
 ```
 
 ---
 
-## 27. Copyright
+# 28. Copyright
 
-```text
+```
 Copyright © 2026 Zhen Zhang, Dalian University of Technology
 ```
