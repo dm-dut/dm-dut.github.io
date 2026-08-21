@@ -1,5 +1,5 @@
 """
-Generate Paper Monitor email digest v15.6 clean.
+Generate Paper Monitor email digest v15.8 clean.
 
 Features:
 - Responsive PC/mobile layout
@@ -207,7 +207,7 @@ body {{
     }}
 
     .journal {{
-        font-size:13px;
+        font-size:14px;
         margin-top:14px;
         margin-bottom:8px;
         border-left-width:2px;
@@ -220,15 +220,75 @@ body {{
     }}
 
     .title {{
-        font-size:13px;
+        font-size:14px;
         line-height:1.35;
     }}
 
     .authors {{
-        font-size:11px;
+        font-size:12px;
         line-height:1.4;
     }}
 
+}}
+
+
+@media only screen and (max-width:600px) {{
+
+    body {{
+        padding:5px !important;
+    }}
+
+    .container {{
+        padding:8px !important;
+    }}
+
+    .header {{
+        font-size:16px !important;
+        line-height:1.75 !important;
+    }}
+
+    .subtitle {{
+        font-size:11px !important;
+        margin:3px 0 !important;
+        line-height:1.75 !important;
+    }}
+
+    .info {{
+        font-size:12px !important;
+        margin-top:8px !important;
+        line-height:1.75 !important;
+    }}
+
+    .summary {{
+        font-size:13px !important;
+        padding:8px !important;
+        margin:10px 0 !important;
+        line-height:1.75 !important;
+    }}
+
+    .journal {{
+        font-size:11.5px !important;
+        margin-top:16px !important;
+        margin-bottom:10px !important;
+        padding-left:6px !important;
+        line-height:1.75 !important;
+    }}
+
+    .paper {{
+        padding:8px !important;
+        margin-bottom:10px !important;
+    }}
+
+    .title {{
+        font-size:11px !important;
+        line-height:1.75 !important;
+    }}
+
+    .authors {{
+        font-size:10.5px !important;
+        line-height:1.75 !important;
+        margin-top:6px !important;
+    }}
 }}
 
 </style>
