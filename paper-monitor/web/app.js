@@ -322,9 +322,18 @@ function render() {
     return `
       <article class="paper${fresh ? " is-new" : ""}">
         <div class="title">
-          ${escapeHtml(p.title || "")}
-          ${fresh ? '<span class="badge">NEW</span>' : ""}
-        </div>
+  ${
+    p.doi
+      ? `<a class="paper-title-link"
+           href="https://doi.org/${encodeURIComponent(p.doi)}"
+           target="_blank"
+           rel="noopener noreferrer">
+           ${escapeHtml(p.title || "")}
+         </a>`
+      : escapeHtml(p.title || "")
+  }
+  ${fresh ? '<span class="badge">NEW</span>' : ""}
+</div>
 
         <div class="journal">
           ${escapeHtml(p.journal || "")}

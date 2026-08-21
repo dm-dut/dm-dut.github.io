@@ -256,3 +256,13 @@ input:focus,select:focus{
     display:block;
   }
 }
+
+.paper-title-link {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.paper-title-link:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
