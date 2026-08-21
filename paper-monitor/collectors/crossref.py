@@ -24,19 +24,9 @@ _RETRY_STATUS = {429, 500, 502, 503, 504}
 
 
 def _clean(value):
-    import html
-
-    def _clean(value):
-        if value is None:
-            return ""
-
-        value = str(value)
-
-        value = html.unescape(value)
-
-        value = " ".join(value.split())
-
-        return value.strip()
+    if value is None:
+        return ""
+    return str(value).strip()
 
 
 def _build_headers(mailto=None):
