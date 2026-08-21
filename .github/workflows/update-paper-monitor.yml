@@ -1,11 +1,11 @@
 name: update-paper-monitor
 
+name: update
+
 on:
   schedule:
-    # UTC 23:00 = 北京时间 7:00
-    - cron: '0 23 * * *'
-
-  # 支持手动运行
+    # 07:30 Beijing time (UTC+8)
+    - cron: '30 23 * * *'
   workflow_dispatch:
 
 jobs:
@@ -15,42 +15,30 @@ jobs:
     permissions:
       contents: write
 
+    env:
+      CROSSREF_MAILTO: ${{ secrets.CROSSREF_MAILTO }}
+
     steps:
+      - uses: actions/checkout@v4
 
-    # 1. 拉取代码
-    - name: Checkout
-      uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
+      - name: Install dependencies
+        run: |
+          pip install requests pandas PyYAML openpyxl
 
-    # 2. Python环境
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+      - name: Update papers
+        run: python scripts/update.py
 
+      - name: Generate email digest
+        run: python scripts/generate_email.py
 
-    # 3. 安装依赖
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-
-
-    # 4. 更新论文数据
-    - name: Update papers
-      run: |
-        python paper-monitor/scripts/update.py
-
-
-    # 5. 提交更新的数据
-    - name: Commit changes
-      run: |
-        git config --global user.name "github-actions"
-        git config --global user.email "github-actions@github.com"
-
-        git add paper-monitor/web/
-        git add paper-monitor/database/
-        git add paper-monitor/logs/
-
-        git commit -m "Update papers automatically" || echo "No changes"
-
-        git push
+      - name: Commit updates
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add web database logs
+          git commit -m "Update papers automatically" || echo "No changes"
+          git push
