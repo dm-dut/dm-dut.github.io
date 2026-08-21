@@ -326,14 +326,22 @@
     {
       "category": "Elsevier",
       "order": 40,
-      "journal": "Transportation Research, Series B: Methodological",
-      "url": "https://www.sciencedirect.com/search?docId=0191-2615&sortBy=date&show=25",
+      "journal": "Transportation Research Part A: Policy and Practice",
+      "url": "https://www.sciencedirect.com/search?docId=0965-8564&sortBy=date&show=25",
       "extra_links": [],
       "note": ""
     },
     {
       "category": "Elsevier",
       "order": 41,
+      "journal": "Transportation Research, Part B: Methodological",
+      "url": "https://www.sciencedirect.com/search?docId=0191-2615&sortBy=date&show=25",
+      "extra_links": [],
+      "note": ""
+    },
+    {
+      "category": "Elsevier",
+      "order": 42,
       "journal": "Transportation Research, Part D: Transport and Environment",
       "url": "https://www.sciencedirect.com/search?docId=1361-9209&sortBy=date&show=25",
       "extra_links": [],
@@ -341,7 +349,7 @@
     },
     {
       "category": "Elsevier",
-      "order": 42,
+      "order": 43,
       "journal": "Transportation Research, Part E: Logistics and Transportation Review",
       "url": "https://www.sciencedirect.com/search?docId=1366-5545&sortBy=date&show=25",
       "extra_links": [],
@@ -349,7 +357,7 @@
     },
     {
       "category": "Elsevier",
-      "order": 43,
+      "order": 44,
       "journal": "EURO Journal on Decision Processes",
       "url": "https://www.sciencedirect.com/journal/euro-journal-on-decision-processes/articles-in-press",
       "extra_links": [],
@@ -655,7 +663,7 @@
     {
       "category": "Springer Nature",
       "order": 14,
-      "journal": "Frontiers of Engineering Management",
+      "journal": "Engineering Management",
       "url": "https://link.springer.com/search?facet-journal-id=42524&query=*&content-type=Article&dateFrom=&dateTo=&sortBy=newestFirst",
       "extra_links": [
         {
