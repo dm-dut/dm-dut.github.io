@@ -28,7 +28,7 @@ jobs:
           pip install requests pandas PyYAML openpyxl
 
       - name: Update papers
-        run: python scripts/update.py
+        run: python paper-monitor/scripts/update.py
 
       - name: Generate email digest
         run: python paper-monitor/scripts/generate_email.py
