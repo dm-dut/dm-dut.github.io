@@ -1,382 +1,802 @@
 [
   {
-    "doi": "10.1016/j.asoc.2026.116271",
-    "title": "Service–Effort Trade-Offs in Large-Scale Bike-Sharing Rebalancing: A Hierarchical Reinforcement Learning Framework with Imitation-Based Warm-Starting",
-    "authors": "Igor Betkier; Philipp Otto; Damian Wierzbicki; Kinga Karwowska",
+    "doi": "10.1016/j.asoc.2026.116286",
+    "title": "Hybrid permutation-coded genetic algorithms and parallel implementations for the drone safety-aware electric vehicle traveling salesman problem",
+    "authors": "Ritesh Kumari; Sakshi Goyal; Amrata Gill; Prem Prakash Vuppuluri; Patvardhan Chellapilla",
     "journal": "Applied Soft Computing",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.asoc.2026.116273",
-    "title": "Graph-based collaborative multi-agent deep reinforcement learning for reconfigurable job shop scheduling",
-    "authors": "Lixin Cheng; Shujun Yu",
+    "doi": "10.1016/j.asoc.2026.116287",
+    "title": "STDFormer: A Spatial-Temporal Decoupled Transformer for Joint 3D Pose Estimation and Continuous Action Segmentation in Athletics Training Videos",
+    "authors": "Ran Bi; Jicheng Yang; Bailin Yan; Hongrui Cao; Zihan Zhou",
     "journal": "Applied Soft Computing",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.asoc.2026.116269",
-    "title": "Transformer-Based Integrated Prediction Model for Copper Converter Blowing Endpoint and Composition",
-    "authors": "Mengxin Ouyang; Yunhao Qiu; Mingzhou Li; Zhanghao Wan; Jindi Huang; Fuquan Zhang; Shixiong Yuan; Lihua Zhong",
+    "doi": "10.1016/j.asoc.2026.116283",
+    "title": "Assessing interpretability in symbolic regression: A structured review and physics-aware model-selection framework",
+    "authors": "Changtong Luo; Guilai Han",
     "journal": "Applied Soft Computing",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.asoc.2026.116272",
-    "title": "Ghost rate: A pre-training geometric quality diagnostic for synthetic oversampling in imbalanced text classification",
-    "authors": "Marwa Amara; Nadia Smairi",
+    "doi": "10.1016/j.asoc.2026.116282",
+    "title": "Replay-free lifelong visible-infrared person re-identification based on domain expert and privacy-preserved memory",
+    "authors": "Zhiyong Li; Haojie Liu; Jiayu Wang; Mingyu Wang; Wei Jiang",
     "journal": "Applied Soft Computing",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.asoc.2026.116265",
-    "title": "Physics-Based and Machine Learning–Integrated Analysis of Adjustable Multi-Pad Journal Bearings under Load-Between-Pad Configuration",
-    "authors": "Girish Hariharan; Nitesh Kumar; Gowrishankar Mandya Chennegowda; Manjunath Shettar; Shiva Kumar; Subraya Krishna Bhat",
-    "journal": "Applied Soft Computing",
+    "doi": "10.1016/j.dss.2026.114757",
+    "title": "AI advice and human metacognition",
+    "authors": "Leily Soleimanof; Derrick Neufeld",
+    "journal": "Decision Support Systems",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.cie.2026.112329",
-    "title": "Dedicated parallel flow shop scheduling with line availability constraints",
-    "authors": "Ayyuce Aydemir-Karadag; Ferda Can Çetinkaya; Merve Polat-Cingöz",
-    "journal": "Computers & Industrial Engineering",
+    "doi": "10.1016/j.ejor.2026.08.045",
+    "title": "The Interplay Between Arm’s Length Regulation and Innovation Investment: Implications for Co-opetition Incentives",
+    "authors": "Wei Li; Dan Luo; Jing Chen; Xuan Zhao",
+    "journal": "European Journal of Operational Research",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.cor.2026.107641",
-    "title": "Small and large neighborhood search for the on-demand bus routing problem: A bus stop assignment and transportation problem",
-    "authors": "Jorge Mortes; Martin Cousineau; Fabien Lehuédé; Jorge E. Mendoza; María I. Restrepo",
-    "journal": "Computers & Operations Research",
-    "category": "Elsevier",
-    "publisher": "",
-    "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
-  },
-  {
-    "doi": "10.1016/j.eswa.2026.133617",
-    "title": "PhyCo-SRV: Physics-Conditioned Seismic Response Video Generation via Multimodal Diffusion",
-    "authors": "Lei Bao; Han Yang; Yuyan Chen; Hao Chen; Qingyan Zhang",
+    "doi": "10.1016/j.eswa.2026.134135",
+    "title": "HOSVD-MPDRL: adaptive ecological environment collaborative forecasting framework based on enhanced spatiotemporal features",
+    "authors": "Hongmin Li; Wenhao Yang; Bai Lu; Jianzhou Wang",
     "journal": "Expert Systems with Applications",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.eswa.2026.134122",
-    "title": "A cooperative dual-population framework for adaptive multi-layer perceptron optimization in medical diagnosis",
-    "authors": "Shokooh Taghian; Mohammad H. Nadimi-Shahraki",
+    "doi": "10.1016/j.eswa.2026.134148",
+    "title": "Federated incremental semantic segmentation in medical images for abdominal and pelvic CT images",
+    "authors": "Manting Huang; Sha Fan; Chao Deng; Yuecong Xu; Kai Zheng",
     "journal": "Expert Systems with Applications",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.eswa.2026.134129",
-    "title": "Three-Branch Supervised Contrastive Learning with Cross-Time Memory and Mises-Fisher Regularization",
-    "authors": "Bin Wang; Fadi Dornaika",
+    "doi": "10.1016/j.eswa.2026.134091",
+    "title": "Imaging Structural Prior-Guided Anisotropic Diffusion for Medical Image Segmentation",
+    "authors": "Jianhai Zhang; Donghao Zhang; Tonghua Wan; Quanliang Cao; M. Ethan MacDonald; Bijoy Menon; Aravind Ganesh; Wu Qiu",
     "journal": "Expert Systems with Applications",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.eswa.2026.134142",
-    "title": "Learning-Based Edge-Cost Modeling for Decision Support in Industrial Logistics",
-    "authors": "Naveen Sharma; Rafał Cupek; Wojciech Klein",
+    "doi": "10.1016/j.eswa.2026.134143",
+    "title": "Artificial intelligence-based modeling of oxidative stress biomarkers: a comparison with the integrated biomarker response (IBR) approach",
+    "authors": "Recep Benzer; Semra Benzer; Pınar Arslan; Aysel Çağlan günal; Göktuğ Gül",
     "journal": "Expert Systems with Applications",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/s0165-0114(26)00325-8",
-    "title": "Editorial Board",
-    "authors": "",
-    "journal": "Fuzzy Sets and Systems",
+    "doi": "10.1016/j.eswa.2026.134082",
+    "title": "An adaptive multi-armed bandit-guided dual-population evolutionary multitasking algorithm for dynamic constrained multi-objective thrust allocation in automatic ship berthing",
+    "authors": "Jinyou Mou; Jingmin Lian; Haiyan Hu; Dingrong Qu; Qidan Zhu",
+    "journal": "Expert Systems with Applications",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.fss.2026.110094",
-    "title": "Games in capacities with payoff expressed by max-plus integral",
-    "authors": "Taras Radul",
-    "journal": "Fuzzy Sets and Systems",
+    "doi": "10.1016/j.eswa.2026.133994",
+    "title": "AutoPKD: automatic channel pruning and patch-based relation distillation for efficient 3D object detection",
+    "authors": "Wenxiang Li; Jianqi Liu; Yujun Chen; Shunan Lu; Bicun Yang; Fanlong Zhang; Fuchun Liu",
+    "journal": "Expert Systems with Applications",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.ins.2026.124044",
-    "title": "A secure detection and revocation scheme for eliminating poisoning participants in privacy-preserving federated learning",
-    "authors": "Abdulrahman Alamer; Sultan Basudan",
-    "journal": "Information Sciences",
+    "doi": "10.1016/j.inffus.2026.104728",
+    "title": "DFP-AD: A Dynamic Frequency Prototype Framework for Unsupervised Anomaly Detection",
+    "authors": "Qiao Zhang; Mingwen Shao; Xinyuan Chen; Xiang Lv; Lingzhuang Meng; Chang Liu",
+    "journal": "Information Fusion",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.ins.2026.124041",
-    "title": ": A deep multi-agent imitation learning approach for optimizing opinion spreading in online social networks",
-    "authors": "Danh C. Bui; Canh V. Pham; Long-Phuoc Tôn; Phuong N.H. Pham",
-    "journal": "Information Sciences",
+    "doi": "10.1016/j.inffus.2026.104725",
+    "title": "Geometry-guided unimodal-to-multimodal composition for incomplete and asynchronous clinical information fusion",
+    "authors": "JaeSeong Hong; Mingyu Kim; Yu Rang Park",
+    "journal": "Information Fusion",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.ins.2026.124037",
-    "title": "UniCO: A unified cross-view collaboration network for industrial time series anomaly detection with limited normal samples",
-    "authors": "Bohan Yao; Xiaogang Deng",
-    "journal": "Information Sciences",
+    "doi": "10.1016/j.inffus.2026.104723",
+    "title": "Frequency-Spatial Synergistic Attention Network with State-Space Modeling for Small-Target Detection",
+    "authors": "Song Qi-feng; Cui- Qian; Chu Cheng-xi; Zhao- Li",
+    "journal": "Information Fusion",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.ijpe.2026.110192",
-    "title": "Risk assessment of relief food delivery delays from a cross-disaster perspective",
-    "authors": "Manyi Yang; Shao jian Qu; Zhuohua Qu; Rameshwar Dubey; Guoqing Zhao; Massoud Mohsendokht; Ying Ji; Zaili Yang",
-    "journal": "International Journal of Production Economics",
-    "category": "Elsevier",
-    "publisher": "",
-    "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
-  },
-  {
-    "doi": "10.1016/j.knosys.2026.116903",
-    "title": "Audio deepfake detection based on simplifying graph convolution",
-    "authors": "Yufei Liu; Zhangyao Song; Tao Guo; Huihui Wu",
+    "doi": "10.1016/j.knosys.2026.116911",
+    "title": "SSDMoE-UNet: Coordinated adaptive specialization for Mamba-based 3D brain tumor segmentation",
+    "authors": "Zhongfeng Kang; Xingwei Bai; Zifei Wang; Yijin Li; Haozhe Wang; Zichen Song; Tianfang Zhang; Mingqi Zhao",
     "journal": "Knowledge-Based Systems",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.knosys.2026.116821",
-    "title": "Joint surrogate-assisted federated evolutionary feature selection algorithm",
-    "authors": "Ying Hu; Yong Zhang; Xin-yue Wang; Ming Zheng; Xiao-yao Zheng; Xian-fang Song; Yong-long Luo; Dun-wei Gong",
+    "doi": "10.1016/j.knosys.2026.116809",
+    "title": "A dual-domain synergistic network with frequency-guided neuromorphic adaptation for low-light fundus image enhancement",
+    "authors": "Lvchen Cao; Yafei Wang; Shunzhou Wang; Wei Li; Wenjiao Li; Qingxia Xu; Huiqi Li; Pengcheng Lei",
     "journal": "Knowledge-Based Systems",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.patcog.2026.114699",
-    "title": "CM-TAPE: Topology-aware progressive evolution for scalable label-free 3D segmentation",
-    "authors": "Xue Bi; Yuyang Jiang; Lu Leng; Feng Liu",
+    "doi": "10.1016/j.knosys.2026.116910",
+    "title": "RCMNet: A relation-centric memory backbone for efficient remote sensing image understanding",
+    "authors": "Jun Zhang; Tianyu Li; Yang Yang; Guoqing Wang",
+    "journal": "Knowledge-Based Systems",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.knosys.2026.116933",
+    "title": "DeepTraCDR: Prediction of Cancer Drug Response Using Multimodal Deep Learning with Transformers",
+    "authors": "Zahra Asgari; Mohammad Hossein Eslami; Ali Kianfar; Karim Abbasi; Mohammad Barshan Tashnizi; Hamid R. Rabiee",
+    "journal": "Knowledge-Based Systems",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.knosys.2026.116898",
+    "title": "STIFNet: A Scale-Guided Sparse Target Interaction and Context Feedback Network for infrared small-target detection",
+    "authors": "Gaopeng Xiang; Longcheng Que; Kai Che; Jiayuan Gong; Xiangheng Liu; Yukun Liu; Ming Liu; Yun Zhou",
+    "journal": "Knowledge-Based Systems",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.knosys.2026.116901",
+    "title": "Vision-Language Models for medical imaging: A survey on anomaly detection and multimodal applications",
+    "authors": "Gul E. Arzu; Muhammad Umar; Muhammad Fayaz; Usman Ali; L. Minh Dang; Hyeonjoon Moon",
+    "journal": "Knowledge-Based Systems",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.knosys.2026.116902",
+    "title": "UDCL4KT: Uncertainty-aware Dual Contrastive Learning for Knowledge Tracing",
+    "authors": "Zhikang Tang; Zhenxian He; Guangze Ye; Chunying Li; Jinli Cao; Yanchun Zhang; Jianjian Jiang",
+    "journal": "Knowledge-Based Systems",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.engappai.2026.115990",
+    "title": "Minimum Bisection Problem: Machine learning-based penalty parameter tuning for optimization on quantum annealers",
+    "authors": "Renáta Rusnáková; Martin Chovanec; Juraj Gazda",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.engappai.2026.116032",
+    "title": "Wavelet-enhanced high-dimensional mapping for efficient long-term forecasting of engineering time-series data",
+    "authors": "Walid Mchara; Lazhar Manai; Monia Raissi",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.im.2026.104421",
+    "title": "Designing Away Technostress: Digital Interface Nudges, Cognitive Effort, and Digital Mindset in Complex Decision Environments",
+    "authors": "Maximilian Valta; Christian Maier; Yannick Hildebrandt",
+    "journal": "Information & Management",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.im.2026.104418",
+    "title": "The Impact of Generative AI on News Believability: A Mind Perception Perspective",
+    "authors": "Yang Liu; Junming Zeng; Shan Liu; Lu Han",
+    "journal": "Information & Management",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.im.2026.104420",
+    "title": "Actualized Fitness Technology Affordances: Conceptualization and Validation of a Measurement Scale",
+    "authors": "Yafang Li; Michelle Carter; Robert E. Crossler",
+    "journal": "Information & Management",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.artint.2026.104606",
+    "title": "Posterior-Conditioned Multi-Agent Reinforcement Learning for Adaptive Cyber Defense",
+    "authors": "Armita Kazeminajafabadi; Amirhossein Ravari; Nathaniel D. Bastian; Tian Lan; Mahdi Imani",
+    "journal": "Artificial Intelligence",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.patcog.2026.114704",
+    "title": "Open set prototypical network based on hard unknown class generation for object recognition",
+    "authors": "Jialun Song; Yiming Li; Lan Du; Jian Chen; Yuchen Guo",
     "journal": "Pattern Recognition",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.patcog.2026.114697",
-    "title": "Topology-aware multi-teacher distillation for multi-target domain adaptation in retinal vessel segmentation",
-    "authors": "Wenyi Xiong; Shenghui Liao; Li Li; Jie Zheng; Xiaoyan Kui",
+    "doi": "10.1016/j.patcog.2026.114692",
+    "title": "Wavelet-based diffusion with spatial information fusion for underwater image enhancement",
+    "authors": "Yanzhao Xie; Qingqing Zhu; Xiaocui Li; Xinyu Zhang; Yuchang Chen; Yangtao Wang; Maobin Tang; Wensheng Zhang",
     "journal": "Pattern Recognition",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.patcog.2026.114698",
-    "title": "End-to-end Multi-Object Tracking without identity supervision",
-    "authors": "Wenbo Ma; Qiankun Liu; Junbao Zhuo; Jiansheng Chen; Huimin Ma",
+    "doi": "10.1016/j.patcog.2026.114659",
+    "title": "CSF: A curriculum-based scaffolding framework for heuristic evolution in combinatorial optimization",
+    "authors": "Zhihao Zhang; Siyuan Li; Xiaoying Chen; Xuening Chen; Tianle Zhang; Jian Zhao; Peng Liu",
     "journal": "Pattern Recognition",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.patcog.2026.114708",
-    "title": "DG-Game: Dual-view contrastive heterogeneous graph learning for football tactical event classification",
-    "authors": "Wensheng Wang; Yudi Huang; Haoran Zhou; Shengpeng Wang; Shuli Zhu; Qingyun Sun; Xingcheng Fu",
+    "doi": "10.1016/j.patcog.2026.114705",
+    "title": "ME-PDT: Multi-expert progressive distribution transition for source-free object detection",
+    "authors": "Wenzhang Zhou; Caiyu Zhang; Yongsheng Yu; Baojie Fan; Ruyi Ji; Jing Liu",
     "journal": "Pattern Recognition",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.patcog.2026.114687",
-    "title": "Bi-level unsupervised feature selection with ℓ2,0-norm",
-    "authors": "Jingjing Liu; Xiansen Ju; Xianchao Xiu; Wanquan Liu",
+    "doi": "10.1016/j.patcog.2026.114690",
+    "title": "Thinking before retrieving: Robust zero-shot composed image retrieval via strategic planning and self-criticism",
+    "authors": "Gunho Jung; Jeong-Woo Park; Seon Bin Kim; Seong-Whan Lee",
     "journal": "Pattern Recognition",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.patrec.2026.08.023",
-    "title": "Task-Aware Meta-Learner for Few-Shot Segmentation",
-    "authors": "Ting Xie; Boyang Deng; Xiaoliu Luo",
+    "doi": "10.1016/j.patrec.2026.08.022",
+    "title": "MinT: Multi-scale implicit neural transformer for image deraining",
+    "authors": "Zhiyong Liu; Hui Wang; Zizhu Fan; Kangli Zeng; Nan Jiang; Chunhui Zhao",
     "journal": "Pattern Recognition Letters",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.neucom.2026.134879",
-    "title": "Beyond aggregated labels: Personalized reader emotion prediction via LLM-based persona reasoning",
-    "authors": "Keyang Ding; Yucong Huang; Tianhao Wu; Hengxin Gao; Qianlong Wang; Ruifeng Xu",
+    "doi": "10.1016/j.patrec.2026.08.024",
+    "title": "Towards Automatic Control of Length for Explicit Query Expansion",
+    "authors": "Xiaohan Jiang; Jianzhang Shen; Junfan Chen; Richong Zhang",
+    "journal": "Pattern Recognition Letters",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.patrec.2026.08.021",
+    "title": "Multi-objective Pareto hyperparameter optimization for joint detection and localization of forged identity documents",
+    "authors": "Hernán Díaz surnameRodríguez",
+    "journal": "Pattern Recognition Letters",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.patrec.2026.08.025",
+    "title": "Occlusion-Robust Gait Recognition in Bidirectional Industrial Access-Control Scenarios",
+    "authors": "Jiaqi Bai; Huijuan Wu; Xiaoying Li; Xiaoyu Zhang",
+    "journal": "Pattern Recognition Letters",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.neucom.2026.134887",
+    "title": "Integrating spatial priors into activations and mappings with adaptive regularization",
+    "authors": "Chunxue Wang; Xuejing Zhang; Zhihao Wang; Chongyang Deng",
     "journal": "Neurocomputing",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.neucom.2026.134878",
-    "title": "Fractional-order spiking neural networks for robust control",
-    "authors": "Erick Olivares; Fidel Santamaria",
+    "doi": "10.1016/j.neucom.2026.134883",
+    "title": "Using regression trees for univariate time series forecasting with the utsf package",
+    "authors": "Francisco Martínez; María Pilar Frías",
     "journal": "Neurocomputing",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.physa.2026.131951",
-    "title": "Spectral Neighborhood Attack: A spectral framework for network dismantling with neighbor removal strategy",
-    "authors": "Xuan Li; Xingqin Qi; Zhulou Cao",
+    "doi": "10.1016/j.neucom.2026.134888",
+    "title": "VVSQ: Vision vulnerability score-guided post-training quantization for Vision-language models",
+    "authors": "Jeongseok Kim; Byeongju Woo; Hoseong Kim; Byeonghyun Pak; Daeyoung Kim",
+    "journal": "Neurocomputing",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.neucom.2026.134885",
+    "title": "FedAntiDiaPep: Privacy-preserving deep learning framework for antidiabetic peptides identification using federated learning",
+    "authors": "Munem Shahriar Shoyshob; Md.Ashikur Rahman; Md Mamun Ali; Kawsar Ahmed; Francis M. Bui; Bellal Hossain; Sobhy M. Ibrahim",
+    "journal": "Neurocomputing",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.neucom.2026.134881",
+    "title": "Bridging mutual information and neural networks: A tensor perspective with interpretability",
+    "authors": "Jianwei Liu; Kexin Xu; Liangfu Lu",
+    "journal": "Neurocomputing",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.neucom.2026.134886",
+    "title": "Neural network data-driven predefined-time optimal control for nonlinear systems via reinforcement learning",
+    "authors": "Nannan Cai; Wei Wu; Shaocheng Tong",
+    "journal": "Neurocomputing",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.neucom.2026.134884",
+    "title": "Decentralized low tubal rank tensor estimation via factorized gradient tracking",
+    "authors": "Zihao Song; Ling Peng; Weihua Zhao; Heng Lian",
+    "journal": "Neurocomputing",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.physa.2026.131956",
+    "title": "Modeling multi-version information propagation with semantic evolution on adaptive temporal networks",
+    "authors": "Yanzhen Xiao; Zongwen Liang; Chuanlin Liu; Zihao Wang",
     "journal": "Physica A: Statistical Mechanics and its Applications",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.physa.2026.131962",
-    "title": "A human factor interpretable car-following model for abnormal distracted driving behaviors and distraction recovery with a piecewise task difficulty formulation incorporating relative speed",
-    "authors": "Rui-Hong Qin; Geng Zhang; Jiang-Hao Peng; Han-Ming Ma; Chen-Xun Yang",
+    "doi": "10.1016/j.physa.2026.131954",
+    "title": "Modeling dynamical systems: From chaotic models to next-generation reservoir computers",
+    "authors": "Xiaohua Cai; Zhuoming Ren; Lei Zhou; Tongfeng Weng",
     "journal": "Physica A: Statistical Mechanics and its Applications",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.neunet.2026.109542",
-    "title": "EP-MAE: A Resource-Efficient Masked Autoencoding Framework for 3D Neural Representation Learning",
-    "authors": "Jian Zhu; Jiale Zhao; Chengxing Lin; Luan Lyu; Ruichu Cai; Xiaohua Ren; Enhua Wu",
+    "doi": "10.1016/j.physa.2026.131950",
+    "title": "Quantum-inspired spectral engineering of open complex networks",
+    "authors": "A.D. Shukalov; P.V. Zakharenko; A.P. Alodjants",
+    "journal": "Physica A: Statistical Mechanics and its Applications",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.ress.2026.113340",
+    "title": "Smart Real-Time Tunnel Fire Risk Assessment Based on Computer Vision and a Traffic-Adaptive Correction Mechanism",
+    "authors": "Jie Liu; Zihao Fu; Wanqing Wang; Jiantao Zhang; Qi Ao; Qirui Zhu",
+    "journal": "Reliability Engineering & System Safety",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.ress.2026.113358",
+    "title": "Study on an Integrated Model For Predicting Decision-Making Level Combining SACADA Database and Machine Learning in Nuclear Power Plants",
+    "authors": "Jianjun Jiang; Liaozi Xi; Chao Wu",
+    "journal": "Reliability Engineering & System Safety",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.ress.2026.113359",
+    "title": "A physics-guided machine learning surrogate framework for predicting gas concentration in coal mine goaf",
+    "authors": "Hui Ma; Wanxing Ren; Luping Ding; Xueqiao Feng; Yadi Zhang; Yuchuan Liu",
+    "journal": "Reliability Engineering & System Safety",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.ress.2026.113267",
+    "title": "Residual anamorphosis and temporal cokriging for calibrated confidence intervals in the early fault detection of hydroelectric turbines",
+    "authors": "Dominique Tapsoba; Quentin Dollon; Xavier Emery",
+    "journal": "Reliability Engineering & System Safety",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.ress.2026.113356",
+    "title": "Hierarchical relationships analysis: A novel data-driven framework to assess the influential factors of marine accidents",
+    "authors": "Yinwei Feng; Xinjian Wang; Yuhao Cao; Jingen Zhou; Jin Wang; Zaili Yang",
+    "journal": "Reliability Engineering & System Safety",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.neunet.2026.109546",
+    "title": "Stochastic resonance in the impact of afferent sensory noise on grid-patterned firing and path integration in a continuous attractor network",
+    "authors": "Harshith Nagaraj; Rishikesh Narayanan",
     "journal": "Neural Networks",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.neunet.2026.109533",
-    "title": "Intrinsic Logit-Based Debiasing for Class-Imbalanced Semi-Supervised Learning",
-    "authors": "Qianying Tang; Yue Cheng; Xiaoyu Guo; Xiang Wei; Shunli Zhang; Witold Pedrycz",
+    "doi": "10.1016/j.neunet.2026.109529",
+    "title": "Towards Class-Incremental Open-Set Scenarios for Video-Based Action Recognition",
+    "authors": "Yuanshuai Gou; Chengcen Zhong; Xun Gong",
     "journal": "Neural Networks",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1016/j.jretconser.2026.105056",
-    "title": "How chatbot eating-action language shapes food purchase responses?",
-    "authors": "Jialiang Chen; Geng Li; Jing Chen; Siqin Wang; Wenxin Ke",
-    "journal": "Journal of Retailing and Consumer Services",
+    "doi": "10.1016/j.neunet.2026.109519",
+    "title": "Multi-FedLinks: Highly Reliable Decentralized Multibiometric Federated Learning Links",
+    "authors": "Jian Guo; Hengyu Mu; Hengyi Ren; Chong Han; Lijuan Sun",
+    "journal": "Neural Networks",
     "category": "Elsevier",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1007/s10479-026-07364-x",
-    "title": "A multi-objective stochastic home health care routing and scheduling problem under demand and service time uncertainty",
-    "authors": "Khaoula Besbes; Houda Alaya; Fouad Ben Abdelaziz",
-    "journal": "Annals of Operations Research",
+    "doi": "10.1016/j.neunet.2026.109526",
+    "title": "SeGMA4Rec: Learning stable sequential representations through semantic graph propagation and hierarchical contrastive alignment",
+    "authors": "Wanna Cui; Hak-Keung Lam",
+    "journal": "Neural Networks",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.neunet.2026.109543",
+    "title": "Efficient Sparse Low-Rank Adaptation for Large Language Models",
+    "authors": "Junren Qiao; Shisong Wu; Wenqing Su",
+    "journal": "Neural Networks",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.neunet.2026.109544",
+    "title": "A Unified Foundation Model for Heterogeneous EEG Signal Modeling via Language-Aligned Semi-Supervised Learning",
+    "authors": "Ziman Ye; Muyun Jiang; Jiaqi Zhu; Hao Zheng; Mengchi Rong; Fang Deng",
+    "journal": "Neural Networks",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.chaos.2026.118963",
+    "title": "Integrating susceptible-infected-recovered model with connected autonomous vehicles: Cyber-attacks, traffic chaos and disturbance observer-based platoon control",
+    "authors": "Shu-Tong Wang; Lei-Yu Chen; Wen-Xing Zhu",
+    "journal": "Chaos, Solitons & Fractals",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.chaos.2026.118962",
+    "title": "Persistence without multifractality in Tropical Atlantic SST indices: Scaling-range artefacts and a reappraisal of the ENSO association",
+    "authors": "Sebastián Jaroszewicz; Nahuel Mendez; Maria P. Beccar-Varela; Maria Cristina Mariani",
+    "journal": "Chaos, Solitons & Fractals",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.chaos.2026.118994",
+    "title": "Discrete wave dynamics in vibrating membranes: A cellular automaton approach",
+    "authors": "Jesús Alejandro Salazar-González; Yuriria Cortés-Poza",
+    "journal": "Chaos, Solitons & Fractals",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/s0040-1625(26)00338-0",
+    "title": "Editorial Board",
+    "authors": "",
+    "journal": "Technological Forecasting and Social Change",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.tra.2026.105223",
+    "title": "Latent paths in mode choice models: incorporating street-level environment features for active travel policy",
+    "authors": "Corin Staves; Qin Zhang; Aruna Sivakumar; Ismail Saadi; SM. Labib; Belen Zapata-Diomedi; James Woodcock",
+    "journal": "Transportation Research Part A: Policy and Practice",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1016/j.tre.2026.105169",
+    "title": "A full-sample longitudinal trajectory reconstruction framework for signalized intersection approach lanes in a vehicle-infrastructure cooperation environment",
+    "authors": "Tingting Ren; Chengxin Fu; Yangsheng Jiang; Zhihong Yao; Yunxia Wu; Kefan Chen",
+    "journal": "Transportation Research, Part E: Logistics and Transportation Review",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1177/00472875261481127",
+    "title": "Watching Others Win: How the Ambiguous Benefits of Loyalty Programs and Members’ Social Observations Shape Their Coping Strategies",
+    "authors": "Wei Wu; Youlin Huang",
+    "journal": "Journal of Travel Research",
+    "category": "Tourism Related",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1177/00472875261479609",
+    "title": "Hooked at First Glance: How Paratextual Narrative Hooks Drive Viewing Interest in Tourism Short Videos",
+    "authors": "Ying Qu; Shuyi Zhou; Yinyin Dong",
+    "journal": "Journal of Travel Research",
+    "category": "Tourism Related",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1177/00472875261478880",
+    "title": "When Visuals Meet People with Disabilities: How Destination Image Featuring Disability Drives Travel Intention?",
+    "authors": "Mengfan Li; Lingxue Zhan; Litang Wen; Ji Chen; Mingming Cheng",
+    "journal": "Journal of Travel Research",
+    "category": "Tourism Related",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1177/00472875261478244",
+    "title": "Mapping Your Journey: The Influence Mechanism of Geospatial Labeling Structure on Tourists’ Adoption",
+    "authors": "Chunxiao Li; Zhihui Zhang; Hao Zhang",
+    "journal": "Journal of Travel Research",
+    "category": "Tourism Related",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1080/13683500.2026.2722194",
+    "title": "Anticipating tourism impacts of the FIFA World Cup 26: a comparative analysis of pre-event discourse across 16 host cities",
+    "authors": "Runze Mao; Xiaoqing Gu; Yimeng Gu",
+    "journal": "Current Issues in Tourism",
+    "category": "Tourism Related",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1007/s13042-026-03270-7",
+    "title": "Spatio-temporal local graph convolutional network for skeleton-based action recognition",
+    "authors": "Wenpeng Wang; Guolong Qin; Xizhan Gao; Tingwei Wang",
+    "journal": "International Journal of Machine Learning and Cybernetics",
     "category": "Springer Nature",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1007/s10479-026-07280-0",
-    "title": "A two-stage stochastic approach to fixed-income multi-portfolio optimization with deep-learning scenario generation: an investment bank case study",
-    "authors": "Mojtaba Azizian; Mohammad Ali Izadi; Mohammad Ardestani; Salman Jobeiri; SeyedehMohaddeseh Ghoreishi; Mohammad Hassan Siamak",
-    "journal": "Annals of Operations Research",
-    "category": "Springer Nature",
-    "publisher": "",
-    "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
-  },
-  {
-    "doi": "10.1007/s10479-026-07376-7",
-    "title": "Smart and sustainable production, logistics, and supply chain: trends, challenges, methods, and best practices II, part 2",
-    "authors": "Beata Mrugalska; Paulina Golinska-Dawson; Youngchul Shin; Gerhard-Wilhelm Weber",
-    "journal": "Annals of Operations Research",
-    "category": "Springer Nature",
-    "publisher": "",
-    "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
-  },
-  {
-    "doi": "10.1007/s44196-026-01524-4",
-    "title": "A Hybrid Deep Reinforcement Learning Framework for Efficient Cloud Resource Scheduling",
-    "authors": "Pragati Priya; J. Geetha; E. Naresh; A. Ashwitha",
+    "doi": "10.1007/s44196-026-01528-0",
+    "title": "Hierarchical Approach to Rolling Bearing Failure Detection Using Spectrogram Images Classification",
+    "authors": "Arantzazu Florez; Goretti Echegaray; Ane M. Florez-Tapia; Arkaitz Artetxe; Basilio Sierra",
     "journal": "International Journal of Computational Intelligence Systems",
     "category": "Springer Nature",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1007/s44196-026-01538-y",
-    "title": "Novel Intuitionistic Fuzzy Decision Making Method for Mobile Selection Problems Based on Grouping and Overlap Function",
-    "authors": "Ikhtesham Ullah; Muhammad Sajjad Ali Khan; Fawad Hussain; Chiranjibe Jana; Nikola Ivković; Almetwally M. Mostafa",
-    "journal": "International Journal of Computational Intelligence Systems",
-    "category": "Springer Nature",
+    "doi": "10.1145/3843227",
+    "title": "A Survey on Centrality and Importance Measures in Hypergraphs: Categorization and Empirical Insights",
+    "authors": "Jaewan Chun; Fanchen Bu; Yeongho Kim; Atsushi Miyauchi; Francesco Bonchi; Kijung Shin",
+    "journal": "ACM Computing Surveys",
+    "category": "ACM",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
   },
   {
-    "doi": "10.1111/risa.70321",
-    "title": "Bridging Economic Efficiency and Perceived Fairness: A New Framework for Collaborative Disaster Material Reserves",
-    "authors": "Fei Wang; Yue Feng",
-    "journal": "Risk Analysis",
+    "doi": "10.1145/3843202",
+    "title": "A Survey on Clustered Federated Learning: Taxonomy, Analysis and Applications",
+    "authors": "Michael Ben Ali; Omar El Rifai; Imen Megdiche; André Peninou; Olivier Teste",
+    "journal": "ACM Computing Surveys",
+    "category": "ACM",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1145/3842734",
+    "title": "A Survey on Cybersecurity Threats in Industrial and Information Technology Environments: Advancements and Resilience Through Network Steganographic Techniques",
+    "authors": "Przemysław Szary; Wojciech Mazurczyk; Luca Caviglione",
+    "journal": "ACM Computing Surveys",
+    "category": "ACM",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1145/3841463",
+    "title": "Against Political Polarization: A Unified Framework for Tracing Evolving Political Ideologies on Social Media",
+    "authors": "Yijie Xu; Chao Wang; Hui Xiong",
+    "journal": "ACM Transactions on Intelligent Systems and Technology",
+    "category": "ACM",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1145/3841472",
+    "title": "A Survey on Human-AI Collaboration with Large Foundation Models",
+    "authors": "Vanshika Vats; Marzia Binta Nizam; Minghao Liu; Ziyuan Wang; Richard Ho; Mohnish Sai Prasad; Vincent Titterton; Sai Venkat Malreddy; Riya Aggarwal; Yanwen Xu; Lei Ding; Jay Mehta; Nathan Grinnell; Li Liu; Sijia Zhong; Devanathan Nallur Gandamani; Xinyi Tang; Rohan Ghosalkar; Celeste Shen; Rachel Shen; Nafisa Hussain; Kesav Ravichandran; James Davis",
+    "journal": "ACM Transactions on Intelligent Systems and Technology",
+    "category": "ACM",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1145/3837756",
+    "title": "GNN-LS: An Information-Enhanced Method for Label Scarcity on Graphs",
+    "authors": "Haoran Yang; Junli Wang; Rui Duan; Xin Guo; Chungang Yan",
+    "journal": "ACM Transactions on Knowledge Discovery from Data",
+    "category": "ACM",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1002/qre.70362",
+    "title": "Joint Modeling of Random Initiation Time and Thermal Damage in Rocks Using a Hybrid Variational Bayesian Approach",
+    "authors": "Ankush Sharma",
+    "journal": "Quality and Reliability Engineering International",
     "category": "Wiley/Taylor/WorldScientific",
     "publisher": "",
     "online_date": "2026-08-22",
-    "fetched_date": "2026-08-22"
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1080/00207721.2026.2716826",
+    "title": "Two-loop fractional-order IMC for non-self-regulating processes",
+    "authors": "Sanjay Kumar; Moina Ajmeri; Munna Kumar",
+    "journal": "International Journal of Systems Science",
+    "category": "Wiley/Taylor/WorldScientific",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
+  },
+  {
+    "doi": "10.1080/00207721.2026.2719932",
+    "title": "Approximate policy iteration for stochastic systems with multiple noises",
+    "authors": "Jing Lai; Junlin Xiong; Zhan Shu; Shaofeng Chen; Tao Wang; Yu Kang",
+    "journal": "International Journal of Systems Science",
+    "category": "Wiley/Taylor/WorldScientific",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-23"
   }
 ]
