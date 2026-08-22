@@ -1118,13 +1118,23 @@ git add config\journals.xlsx
 
 ---
 
-# 21. 自动邮件推送功能
+## 21. 自动邮件推送功能
 
-Paper Monitor 支持在完成论文更新后，自动生成 HTML 格式的论文摘要邮件，并通过 Gmail SMTP 将每日新增论文发送至指定邮箱。
+Paper Monitor 支持在完成论文更新后，自动生成 HTML 格式的论文摘要邮件，并通过 Gmail SMTP 将本轮新增论文发送至指定邮箱。
+
+当前邮件模块不仅支持自动发送，还支持：
+
+- 每次生成的 HTML 邮件独立归档；
+- 同一天多次运行自动区分；
+- 邮件标题自动加入日期、时间和运行标识；
+- 自动保留最近 30 天的邮件 HTML；
+- 自动删除超过 30 天的历史 HTML；
+- 使用 `latest_email.json` 精确记录本轮需要发送的邮件；
+- 无新增论文时自动跳过邮件生成和发送，避免重复发送历史邮件。
 
 完整流程如下：
 
-```
+```text
 Crossref
    |
    v
@@ -1133,50 +1143,63 @@ scripts/update.py
    v
 更新 SQLite 数据库
    |
-   v
-生成 JSON 数据
+   +---- web/new_papers.json
+   |
+   +---- web/update_time.json
    |
    v
 scripts/generate_email.py
    |
-   v
-生成 HTML 邮件
+   +---- 生成本轮 HTML 邮件
+   |
+   +---- 生成 latest_email.json
+   |
+   +---- 清理超过 30 天的旧 HTML
    |
    v
 scripts/send_email.py
+   |
+   +---- 检查 new_papers.json
+   |
+   +---- 读取 latest_email.json
+   |
+   +---- 精确定位本轮 HTML
    |
    v
 Gmail SMTP
    |
    v
-接收每日论文提醒邮件
+接收论文提醒邮件
 ```
 
 ---
 
-## 21.1 邮件功能特点
+### 21.1 邮件功能特点
 
 当前邮件模块支持：
 
 - 自动生成每日论文提醒；
-- 自动发送新增论文摘要；
+- 只发送本轮新增论文；
 - HTML 响应式邮件布局；
 - 支持 PC 和手机端显示；
 - 按期刊分组展示论文；
-- 论文标题支持点击跳转；
+- 论文标题支持点击 DOI 链接跳转；
 - 显示完整作者列表；
 - 显示 GMT+8 更新时间；
-- 支持自定义发件人名称。
+- 支持自定义发件人名称；
+- 支持历史 HTML 邮件归档；
+- 支持同日多次运行区分；
+- 支持超过 30 天的历史邮件自动清理。
 
-当前邮件展示内容：
+当前邮件主要展示：
 
-```
+```text
 Paper Monitor
 
 Daily New Papers Digest
 
 Update time:
-YYYY-MM-DD HH:MM (GMT+8)
+YYYY-MM-DD HH:MM:SS (GMT+8)
 
 XX new papers found.
 
@@ -1185,86 +1208,279 @@ Journal Name
 
 
 Paper Title
-(点击标题进入论文)
-
+（点击标题进入论文页面）
 
 Authors:
 Author 1; Author 2; ...
 ```
 
-为了提高邮件阅读效率，当前版本不显示：
+为了提高阅读效率，当前邮件中不显示：
 
 - DOI 文本；
 - DOI 按钮；
-- Online 日期；
-- Fetch 日期。
+- Online Date；
+- Fetched Date。
 
-但是论文标题仍然保留超链接，可以直接跳转至论文页面。
+论文 DOI 仍然保留在标题超链接中。
 
 ---
 
-## 21.2 邮件生成程序
+### 21.2 邮件生成程序
 
 邮件 HTML 由：
 
-```
+```text
 scripts/generate_email.py
 ```
 
 生成。
 
-主要功能：
+程序主要读取：
 
-1. 读取新增论文数据：
-
+```text
+web/new_papers.json
+web/journal_order.json
+web/update_time.json
 ```
+
+其中：
+
+- `new_papers.json`：本轮新增论文；
+- `journal_order.json`：期刊显示顺序；
+- `update_time.json`：本轮更新时间。
+
+如果：
+
+```text
 web/new_papers.json
 ```
 
-2. 根据期刊顺序组织邮件内容：
+为空，则程序直接退出：
 
-```
-web/journal_order.json
-```
-
-3. 生成：
-
-```
-web/daily_papers_email.html
+```text
+No new papers. Skip email generation.
 ```
 
-运行：
-
-```bash
-python scripts/generate_email.py
-```
-
-成功后：
-
-```
-Generated:
-web/daily_papers_email.html
-```
-
-生成后的 HTML 文件可以直接用于邮件发送，也可以本地浏览器预览。
+不会生成新的 HTML 邮件。
 
 ---
 
-## 21.3 邮件发送程序
+### 21.3 HTML 邮件归档
+
+早期版本每次固定生成：
+
+```text
+web/daily_papers_email.html
+```
+
+因此新邮件会覆盖旧邮件。
+
+当前版本改为按：
+
+```text
+日期 + 时间
+```
+
+生成独立文件。
+
+例如：
+
+```text
+web/daily_papers_email_2026-08-22_073152.html
+```
+
+其中：
+
+```text
+2026-08-22
+```
+
+表示日期，
+
+```text
+073152
+```
+
+表示：
+
+```text
+07:31:52
+```
+
+因此同一天多次运行，例如：
+
+```text
+daily_papers_email_2026-08-22_073152.html
+daily_papers_email_2026-08-22_121426.html
+daily_papers_email_2026-08-22_183015.html
+```
+
+会分别保存，不会互相覆盖。
+
+---
+
+### 21.4 同一秒重复运行的处理
+
+极端情况下，如果同一秒内再次生成邮件，而对应 HTML 文件已经存在，则系统会自动增加序号。
+
+例如：
+
+```text
+daily_papers_email_2026-08-22_121426.html
+daily_papers_email_2026-08-22_121426_02.html
+daily_papers_email_2026-08-22_121426_03.html
+```
+
+因此即使运行时间完全相同，也不会直接覆盖已有 HTML。
+
+对应运行标识分别为：
+
+```text
+121426
+121426-02
+121426-03
+```
+
+---
+
+### 21.5 `latest_email.json`
+
+每次成功生成 HTML 后，程序还会生成：
+
+```text
+web/latest_email.json
+```
+
+该文件记录**本轮最新生成邮件**的信息。
+
+例如：
+
+```json
+{
+  "html_file": "daily_papers_email_2026-08-22_160125.html",
+  "subject": "[Paper Monitor] 2026-08-22 16:01 · 18 New Papers · #160125",
+  "run_id": "160125",
+  "run_time": "2026-08-22 16:01:25",
+  "timezone": "GMT+8",
+  "paper_count": 18
+}
+```
+
+字段说明：
+
+```text
+html_file
+```
+
+表示本轮需要发送的 HTML 文件；
+
+```text
+subject
+```
+
+表示本轮邮件标题；
+
+```text
+run_id
+```
+
+表示本轮运行标识；
+
+```text
+run_time
+```
+
+表示本轮运行时间；
+
+```text
+paper_count
+```
+
+表示本轮新增论文数量。
+
+`send_email.py` 不再通过文件修改时间等方式猜测最新 HTML，而是直接读取：
+
+```text
+latest_email.json
+```
+
+因此能够精确发送本轮生成的邮件。
+
+---
+
+### 21.6 历史 HTML 自动清理
+
+邮件 HTML 会暂时保留在：
+
+```text
+web/
+```
+
+目录中。
+
+为了避免长期运行后积累过多文件，`generate_email.py` 每次运行时会自动删除：
+
+> 超过 30 天的历史邮件 HTML。
+
+例如当前日期为：
+
+```text
+2026-08-22
+```
+
+则：
+
+```text
+2026-07-23 ～ 2026-08-22
+```
+
+范围内的 HTML 保留。
+
+而：
+
+```text
+2026-07-22
+```
+
+及更早的邮件 HTML 会被自动删除。
+
+删除规则只针对符合以下命名格式的邮件文件：
+
+```text
+daily_papers_email_YYYY-MM-DD.html
+
+daily_papers_email_YYYY-MM-DD_HHMMSS.html
+
+daily_papers_email_YYYY-MM-DD_HHMMSS_02.html
+```
+
+其他 HTML 文件不会被该清理逻辑删除。
+
+当前保留周期：
+
+```python
+keep_days=30
+```
+
+如以后希望保留 60 天，可修改为：
+
+```python
+keep_days=60
+```
+
+---
+
+### 21.7 邮件发送程序
 
 邮件发送程序：
 
-```
+```text
 scripts/send_email.py
 ```
 
-负责将 HTML 邮件发送至指定邮箱。
+主要使用以下环境变量：
 
-程序使用 Gmail SMTP 服务。
-
-主要配置参数：
-
-```
+```text
 MAIL_USERNAME
 MAIL_PASSWORD
 MAIL_TO
@@ -1273,330 +1489,336 @@ MAIL_TO
 其中：
 
 - `MAIL_USERNAME`：发送邮箱；
-- `MAIL_PASSWORD`：Google 应用专用密码；
+- `MAIL_PASSWORD`：Google App Password；
 - `MAIL_TO`：接收邮箱。
+
+当前程序发送前首先检查：
+
+```text
+web/new_papers.json
+```
+
+如果没有新增论文，则输出：
+
+```text
+No new papers. Skip sending email.
+```
+
+并停止发送。
+
+这样可以避免：
+
+```text
+generate_email.py
+```
+
+因为没有新增论文而退出后，
+
+```text
+send_email.py
+```
+
+错误发送上一轮遗留的 HTML 邮件。
 
 ---
 
-## 21.4 Gmail 应用密码配置
+### 21.8 本轮邮件定位机制
 
-由于 Gmail 不允许直接使用账户密码进行 SMTP 登录，需要使用 App Password。
+`send_email.py` 读取：
 
-配置步骤：
-
-```
-Google Account
-
-↓
-
-Security
-
-↓
-
-2-Step Verification
-
-↓
-
-App Passwords
+```text
+web/latest_email.json
 ```
 
-创建新的应用密码。
+获取：
 
-建议：
-
+```text
+html_file
 ```
-Application:
-Mail
 
-Device:
+例如：
+
+```json
+"html_file": "daily_papers_email_2026-08-22_160125.html"
+```
+
+程序随后读取：
+
+```text
+web/daily_papers_email_2026-08-22_160125.html
+```
+
+作为本轮邮件正文。
+
+因此完整关系为：
+
+```text
+generate_email.py
+      |
+      v
+daily_papers_email_2026-08-22_160125.html
+      |
+      +---- latest_email.json
+                    |
+                    v
+             send_email.py
+                    |
+                    v
+               Gmail SMTP
+```
+
+这种方式可以避免同一天存在多个 HTML 时发送错误文件。
+
+---
+
+### 21.9 个性化邮件标题
+
+早期版本邮件标题固定为：
+
+```text
+[Paper Monitor] Daily New Papers
+```
+
+当前版本会自动加入：
+
+- 日期；
+- 时间；
+- 新增论文数量；
+- 本轮运行标识。
+
+例如：
+
+```text
+[Paper Monitor] 2026-08-22 16:01 · 18 New Papers · #160125
+```
+
+如果只有 1 篇新论文：
+
+```text
+[Paper Monitor] 2026-08-22 16:01 · 1 New Paper · #160125
+```
+
+如果同一秒第二次生成，则可能为：
+
+```text
+[Paper Monitor] 2026-08-22 16:01 · 18 New Papers · #160125-02
+```
+
+这样可以直接从邮箱标题判断：
+
+```text
+哪一天
++
+几点更新
++
+新增多少篇
++
+属于哪一次运行
+```
+
+---
+
+### 21.10 自定义发件人名称
+
+当前发送程序使用：
+
+```python
+msg["From"] = formataddr(
+    ("Paper Monitor", username)
+)
+```
+
+因此邮件发送方显示为：
+
+```text
 Paper Monitor
 ```
 
-Google 会生成一个 16 位应用密码。
+而不是单独显示 Gmail 邮箱地址。
 
-该密码用于：
+如果以后希望修改为：
 
-```
-MAIL_PASSWORD
-```
-
-而不是 Gmail 登录密码。
-
----
-
-## 21.5 GitHub Secrets 配置
-
-如果使用 GitHub Actions 自动发送邮件，需要配置 Repository Secrets。
-
-路径：
-
-```
-Settings
-
-↓
-
-Secrets and variables
-
-↓
-
-Actions
-
-↓
-
-New repository secret
-```
-
-增加以下变量：
-
-### 邮箱账号
-
-名称：
-
-```
-MAIL_USERNAME
-```
-
-示例：
-
-```
-your_email@gmail.com
-```
-
----
-
-### Gmail 应用密码
-
-名称：
-
-```
-MAIL_PASSWORD
-```
-
-示例：
-
-```
-xxxxxxxxxxxxxxxx
-```
-
----
-
-### 接收邮箱
-
-名称：
-
-```
-MAIL_TO
-```
-
-示例：
-
-```
-receiver@gmail.com
-```
-
----
-
-## 21.6 GitHub Actions 邮件流程
-
-自动运行流程：
-
-```
-update.py
-
-↓
-
-generate_email.py
-
-↓
-
-send_email.py
-
-↓
-
-git commit / push
-```
-
-workflow 示例：
-
-```yaml
-- name: Update papers
-  run: python scripts/update.py
-
-- name: Generate email
-  run: python scripts/generate_email.py
-
-- name: Send email
-  run: python scripts/send_email.py
-```
-
----
-
-## 21.7 自定义邮件发送名称
-
-默认情况下，邮件发送方可能显示：
-
-```
-your_email@gmail.com
-```
-
-可以修改为：
-
-```
+```text
 Paper Monitor | Zhen Zhang
 ```
 
-修改：
+可以改为：
 
 ```python
-from email.utils import formataddr
-
 msg["From"] = formataddr(
     ("Paper Monitor | Zhen Zhang", username)
 )
 ```
 
-发送后的邮件列表中显示：
-
-```
-Paper Monitor | Zhen Zhang
-```
-
-而不是邮箱地址。
-
 ---
 
-## 21.8 邮件模板设计
+### 21.11 Gmail App Password
 
-当前邮件模板采用：
+Gmail SMTP 建议使用 Google App Password，而不是账户登录密码。
 
-- 蓝色学术风格；
-- PC / 手机响应式布局；
-- 紧凑论文卡片；
-- 标题突出显示；
-- 作者信息显示；
-- Copyright 页脚。
+配置路径：
 
-邮件底部：
-
+```text
+Google Account
+        ↓
+Security
+        ↓
+2-Step Verification
+        ↓
+App Passwords
 ```
-Copyright © 2026 Zhen Zhang, Dalian University of Technology
+
+生成应用密码后，将其保存为 GitHub Repository Secret：
+
+```text
+MAIL_PASSWORD
 ```
 
 ---
 
-## 21.9 常见问题
+### 21.12 GitHub Secrets
 
-### 1. Email sent successfully 但是 GitHub Actions 失败
+GitHub 仓库进入：
 
-例如：
-
-```
-Email sent successfully.
-
-fatal: pathspec 'web' did not match any files
-```
-
-说明：
-
-- 邮件发送已经成功；
-- 失败发生在 Git 提交阶段。
-
-检查 workflow 中：
-
-```bash
-git add
+```text
+Settings
+        ↓
+Secrets and variables
+        ↓
+Actions
+        ↓
+New repository secret
 ```
 
-路径是否正确。
+需要配置：
 
-例如项目结构：
-
-```
-paper-monitor/
-
-├── scripts
-├── web
-└── database
+```text
+CROSSREF_MAILTO
+MAIL_USERNAME
+MAIL_PASSWORD
+MAIL_TO
 ```
 
-应该使用：
+分别用于：
 
-```bash
-git add web/
-git add database/
+```text
+CROSSREF_MAILTO
+= Crossref API 联系邮箱
+
+MAIL_USERNAME
+= Gmail SMTP 发送账号
+
+MAIL_PASSWORD
+= Gmail App Password
+
+MAIL_TO
+= 邮件接收地址
 ```
 
-或者：
+这些信息不要直接写入公开代码。
 
-```bash
-git add paper-monitor/
+---
+
+### 21.13 GitHub Actions 邮件流程
+
+自动任务推荐按照以下顺序执行：
+
+```yaml
+- name: Update papers
+  run: python paper-monitor/scripts/update.py
+
+- name: Generate email
+  run: python paper-monitor/scripts/generate_email.py
+
+- name: Send email
+  run: python paper-monitor/scripts/send_email.py
+```
+
+完整逻辑：
+
+```text
+update.py
+   |
+   +---- 更新数据库
+   +---- 生成 new_papers.json
+   |
+   v
+generate_email.py
+   |
+   +---- 如果没有 NEW → 退出
+   |
+   +---- 生成唯一 HTML
+   +---- 生成 latest_email.json
+   +---- 删除超过30天的HTML
+   |
+   v
+send_email.py
+   |
+   +---- 再次检查 new_papers.json
+   |
+   +---- 读取 latest_email.json
+   |
+   +---- 读取本轮 HTML
+   |
+   v
+Gmail SMTP
 ```
 
 ---
 
-### 2. SMTP 登录失败
+### 21.14 邮件相关文件
 
-检查：
+当前 `web/` 目录中与邮件有关的文件包括：
 
-- 是否开启 Google 两步验证；
-- 是否使用 App Password；
-- GitHub Secrets 名称是否正确。
-
-常见错误：
-
+```text
+web/
+├── new_papers.json
+├── update_time.json
+├── journal_order.json
+├── latest_email.json
+├── daily_papers_email_2026-08-22_073152.html
+├── daily_papers_email_2026-08-22_121426.html
+└── ...
 ```
-SMTPAuthenticationError
+
+其中：
+
+```text
+latest_email.json
 ```
 
-通常表示：
+会在下一次成功生成邮件时覆盖，因为它只负责指向“当前最新一轮邮件”。
 
-- 密码错误；
-- 使用 Gmail 登录密码；
-- Secret 配置错误。
+而：
+
+```text
+daily_papers_email_*.html
+```
+
+作为历史邮件归档，30 天内不会覆盖或删除。
 
 ---
 
-### 3. 邮件为空
+## 22. 辅助脚本
 
-检查：
+日常更新的核心程序为：
 
-```
-web/daily_papers_email.html
-```
-
-如果为空：
-
-首先检查：
-
-```
-web/new_papers.json
-```
-
-是否存在新增论文。
-
-然后运行：
-
-```bash
-python scripts/generate_email.py
-```
-
-检查生成结果。
-
----
-
-# 22. 辅助脚本
-
-日常更新的核心程序：
-
-```
+```text
 scripts/update.py
 ```
 
-另外两个 Python 程序属于辅助工具。
+邮件相关程序为：
+
+```text
+scripts/generate_email.py
+scripts/send_email.py
+```
+
+此外还有两个辅助工具。
 
 ---
 
-## 22.1 generate_journal_order.py
+### 22.1 `generate_journal_order.py`
 
 运行：
 
@@ -1606,11 +1828,9 @@ python scripts/generate_journal_order.py
 
 功能：
 
-```
+```text
 config/journals.xlsx
-
         ↓
-
 web/journal_order.json
 ```
 
@@ -1619,11 +1839,11 @@ web/journal_order.json
 - 修改 Excel 中期刊顺序；
 - 不需要访问 Crossref；
 - 不需要更新数据库；
-- 只需要刷新前端排序。
+- 只需要重新生成前端期刊顺序。
 
 ---
 
-## 22.2 rebuild_web_data.py
+### 22.2 `rebuild_web_data.py`
 
 运行：
 
@@ -1633,21 +1853,17 @@ python scripts/rebuild_web_data.py
 
 功能：
 
-```
+```text
 database/papers.db
-
         ↓
-
 web/papers.json
 ```
 
 以及：
 
-```
+```text
 config/journals.xlsx
-
         ↓
-
 web/journal_order.json
 ```
 
@@ -1655,104 +1871,81 @@ web/journal_order.json
 
 适用于：
 
-- 已存在完整 SQLite 数据库；
-- JSON 文件丢失；
-- 重新生成网页数据；
-- 恢复 fetched_date 信息。
+- 已有完整 `papers.db`；
+- JSON 文件被删除；
+- 需要重新导出网页数据；
+- 需要恢复 `fetched_date`；
+- 不希望重新访问 Crossref。
 
 ---
 
-# 23. 一次完整更新流程
+## 23. 一次完整更新的工作流程
 
-完整工作流程：
+当前完整工作流程为：
 
-```
+```text
 config/journals.xlsx
-
         |
-
-        v
-
-生成 journal_order.json
-
+        +---- 生成 journal_order.json
         |
-
         v
-
 database/papers.db
-
         |
-
+        +---- 更新前导出 previous_papers.json
+        |
         v
-
-生成 previous_papers.json
-
+逐期刊访问 Crossref
         |
-
-        v
-
-访问 Crossref
-
-        |
-
-        +---- 已存在 DOI
+        +---- 已存在 DOI → 跳过
         |
         +---- 新 DOI
-
-                 |
-
-                 v
-
-          写入数据库
-
-                 |
-
-                 v
-
-          生成 new_papers.json
-
-
+        |        |
+        |        +---- 写入 papers.db
+        |        +---- first_seen = GMT+8
+        |        +---- 加入 new_papers.json
         |
-
         v
-
-生成 papers.json
-
+导出 papers.json
         |
-
+        +---- 更新 update_time.json
+        +---- 写入 failed_journals.json
+        |
         v
-
-前端 app.js
-
+generate_email.py
         |
-
-        +---- NEW 判断
-        +---- 筛选
-        +---- 排序
-        +---- 分页
-
+        +---- 无新增论文 → 跳过
         |
-
+        +---- 有新增论文
+                |
+                +---- 生成唯一 HTML
+                |
+                +---- 生成 latest_email.json
+                |
+                +---- 清理超过 30 天的 HTML
+        |
         v
-
-GitHub Pages
-
+send_email.py
         |
-
+        +---- 再次检查 NEW
+        +---- 读取 latest_email.json
+        +---- 发送本轮 HTML
+        |
         v
-
-邮件推送
+Gmail SMTP
+        |
+        v
+GitHub Pages / Email
 ```
 
 ---
 
-# 24. 常见问题
+## 24. 常见问题
 
-## 24.1 网页没有显示论文
+### 24.1 网页没有显示论文
 
 不要直接双击：
 
-```
+```text
 index.html
 ```
 
@@ -1762,21 +1955,18 @@ index.html
 python -m http.server 8000
 ```
 
-访问：
+然后访问：
 
-```
+```text
 http://localhost:8000/
 ```
 
 检查：
 
-```
+```text
 web/papers.json
-
 web/previous_papers.json
-
 web/update_time.json
-
 web/journal_order.json
 ```
 
@@ -1784,148 +1974,347 @@ web/journal_order.json
 
 ---
 
-## 24.2 修改 CSS 或 JavaScript 后页面没有变化
+### 24.2 修改 CSS 或 JavaScript 后页面没有变化
 
-可能是浏览器缓存。
+可能是浏览器或 GitHub Pages 缓存。
 
-当前：
+可以修改：
 
-```
+```text
 style.css?v=xxx
-
 app.js?v=xxx
 ```
 
-可以修改版本号：
+中的版本号。
 
-```
+例如：
+
+```text
 ?v=15.0
 ```
 
-或者强制刷新：
+然后强制刷新：
 
-```
+```text
 Ctrl + F5
 ```
 
 ---
 
-## 24.3 Crossref 出现连接失败
+### 24.3 Crossref 出现 `ConnectionResetError 10054`
 
 例如：
 
+```text
+ConnectionResetError(
+    10054,
+    '远程主机强迫关闭了一个现有的连接。'
+)
 ```
-ConnectionResetError(10054)
-```
 
-系统会自动：
+当前 Crossref 采集器会自动：
 
-```
-限速
-
-↓
-
+```text
+请求限速
+   ↓
 自动重试
-
-↓
-
-指数退避
-
-↓
-
+   ↓
+退避等待
+   ↓
 重新请求
 ```
 
-失败期刊记录：
+最终仍然失败的期刊记录在：
 
-```
+```text
 logs/failed_journals.json
 ```
 
+下一次更新可以再次尝试。
+
 ---
 
-## 24.4 NEW 标签为什么消失
+### 24.4 NEW 标签为什么下一次更新后消失
 
 NEW 表示：
 
-> 相对于本轮更新开始前数据库新增的 DOI。
+> 相对于本轮更新之前数据库快照新增的 DOI。
 
-下一次更新后，上一次新增论文已经成为历史数据，因此不再显示 NEW。
+下一次运行后，上一次新增论文已经属于历史数据库，因此不再属于本轮 NEW。
+
+这是正常行为。
 
 ---
 
-## 24.5 Online Date 与 Fetched Date 区别
+### 24.5 Online Date 与 Fetched Date 为什么不同
 
 二者含义不同：
 
-```
+```text
 Online Date
-
 =
-Crossref 提供的论文日期
+Crossref 提供的出版/在线日期
+```
 
-
+```text
 Fetched Date
-
 =
-系统第一次发现该 DOI 的日期
+Paper Monitor 第一次发现该 DOI 的日期
 ```
 
 例如：
 
-```
-Online:
-2026-08-18
+```text
+Online: 2026-08-18
 
-Fetched:
-2026-08-21
+Fetched: 2026-08-22
 ```
 
 属于正常情况。
 
 ---
 
-# 25. 建议的日常使用方式
+### 24.6 为什么没有收到邮件
 
-## GitHub Actions 自动运行
+首先检查：
 
+```text
+web/new_papers.json
 ```
-每天 07:30 (GMT+8)
 
+如果内容为空：
+
+```json
+[]
+```
+
+则程序不会生成或发送邮件。
+
+这是预期行为。
+
+如果存在新增论文，再检查：
+
+```text
+web/latest_email.json
+```
+
+是否存在。
+
+然后检查其中：
+
+```text
+html_file
+```
+
+对应的 HTML 是否存在于：
+
+```text
+web/
+```
+
+最后检查 GitHub Actions 是否出现：
+
+```text
+Email sent successfully.
+```
+
+---
+
+### 24.7 为什么 `latest_email.json` 存在，但邮件没有发送
+
+检查：
+
+```text
+MAIL_USERNAME
+MAIL_PASSWORD
+MAIL_TO
+```
+
+是否正确配置。
+
+常见 SMTP 错误：
+
+```text
+SMTPAuthenticationError
+```
+
+通常与：
+
+- Gmail App Password 错误；
+- 使用了普通 Gmail 登录密码；
+- Secret 未正确配置；
+
+有关。
+
+---
+
+### 24.8 为什么每天有多个 HTML
+
+这是当前版本的正常设计。
+
+例如：
+
+```text
+daily_papers_email_2026-08-22_073152.html
+daily_papers_email_2026-08-22_121426.html
+```
+
+表示 8 月 22 日分别在：
+
+```text
+07:31:52
+12:14:26
+```
+
+执行过两次有效邮件生成。
+
+系统故意不覆盖这些 HTML，以便保留短期历史记录。
+
+---
+
+### 24.9 为什么旧 HTML 自动消失
+
+系统默认只保留最近：
+
+```text
+30 天
+```
+
+超过 30 天的：
+
+```text
+daily_papers_email_*.html
+```
+
+会在下一次成功生成邮件时自动删除。
+
+这是为了避免 GitHub 仓库长期积累大量历史 HTML 文件。
+
+---
+
+### 24.10 如何修改历史邮件保留时间
+
+在：
+
+```text
+scripts/generate_email.py
+```
+
+找到：
+
+```python
+cleanup_old_email_files(
+    reference_dt=run_dt,
+    keep_days=30
+)
+```
+
+例如希望保留 60 天：
+
+```python
+cleanup_old_email_files(
+    reference_dt=run_dt,
+    keep_days=60
+)
+```
+
+---
+
+## 25. 建议的日常使用方式
+
+如果主要使用 GitHub Actions：
+
+```text
+每天 07:30 GMT+8
         ↓
-
 GitHub Actions
-
         ↓
-
 update.py
-
         ↓
-
-更新数据库和 JSON
-
+更新 DB + JSON
         ↓
-
+generate_email.py
+        ↓
+生成本轮邮件 HTML
+        ↓
+生成 latest_email.json
+        ↓
+清理超过 30 天的 HTML
+        ↓
+send_email.py
+        ↓
 发送邮件
-
         ↓
-
+git commit / push
+        ↓
 GitHub Pages 更新
 ```
 
+如果本轮没有新增论文：
+
+```text
+update.py
+        ↓
+new_papers.json = []
+        ↓
+generate_email.py 跳过
+        ↓
+send_email.py 跳过
+```
+
+因此不会重复发送上一轮邮件。
+
 ---
 
-## 本地检查
+### 本地手动更新
+
+运行：
 
 ```bash
 python scripts/update.py
+```
 
-python -m http.server 8000
+然后：
+
+```bash
+python scripts/generate_email.py
+```
+
+如果需要测试实际邮件发送：
+
+```bash
+python scripts/send_email.py
+```
+
+本地发送前必须正确设置：
+
+```text
+MAIL_USERNAME
+MAIL_PASSWORD
+MAIL_TO
 ```
 
 ---
 
-## 只修改期刊顺序
+### 本地查看网页
+
+运行：
+
+```bash
+python -m http.server 8000
+```
+
+访问：
+
+```text
+http://localhost:8000/
+```
+
+---
+
+### 只修改期刊顺序
+
+运行：
 
 ```bash
 python scripts/generate_journal_order.py
@@ -1933,7 +2322,9 @@ python scripts/generate_journal_order.py
 
 ---
 
-## 只重建网页数据
+### 只重建网页数据
+
+运行：
 
 ```bash
 python scripts/rebuild_web_data.py
@@ -1941,103 +2332,159 @@ python scripts/rebuild_web_data.py
 
 ---
 
-# 26. Git 使用建议
+## 26. Git 使用建议
 
-建议 `.gitignore`：
+建议 `.gitignore` 至少包含：
 
-```
+```text
 .idea/
 __pycache__/
 *.pyc
 ```
 
-不要提交：
+不要在公开代码中保存：
 
-```
+```text
+Gmail Password
+Gmail App Password
 GitHub Token
-
-密码
-
 API Secret
 ```
 
-邮箱配置建议使用：
+应使用：
 
-```
+```text
 环境变量
-
-或
-
-GitHub Secrets
 ```
+
+或：
+
+```text
+GitHub Repository Secrets
+```
+
+注入。
+
+由于当前历史邮件 HTML 会保留最近 30 天，如果 workflow 使用：
+
+```bash
+git add paper-monitor
+```
+
+这些 HTML 文件以及：
+
+```text
+web/latest_email.json
+```
+
+会一起提交到仓库。
+
+当超过 30 天的 HTML 被程序删除后，Git 也会检测到对应删除操作，并在下一次 commit 时同步删除远程仓库中的旧文件。
 
 ---
 
-# 27. 当前系统关键设计原则
+## 27. 当前系统的关键设计原则
 
-当前系统采用：
+当前 Paper Monitor 采用以下方案：
 
-```
+```text
 统一数据源：
-
 Crossref
 
 
 论文唯一键：
-
 DOI
 
 
 历史存储：
-
 SQLite
 
 
-NEW 判断：
-
+NEW 判定：
 previous_papers.json
-
-与
-
-papers.json
-
-比较 DOI
+与当前 papers.json 的 DOI 差集
 
 
 期刊顺序：
-
-journals.xlsx 实际顺序
+journals.xlsx 的实际行顺序
 
 
 获取日期：
-
-首次发现 DOI 的 GMT+8 日期
+第一次发现 DOI 的 GMT+8 日期
 
 
 网页入口：
-
 index.html
 
 
 网页数据：
-
 web/*.json
 
 
+前端 NEW：
+本轮更新新增 DOI
+
+
+邮件数据：
+web/new_papers.json
+
+
+邮件 HTML：
+daily_papers_email_YYYY-MM-DD_HHMMSS.html
+
+
+同秒重复：
+自动增加 _02、_03……
+
+
+当前邮件指针：
+web/latest_email.json
+
+
+邮件发送：
+Gmail SMTP
+
+
+邮件标题：
+日期 + 时间 + 新增数量 + Run ID
+
+
+历史邮件：
+保留最近 30 天
+
+
+无新增论文：
+不生成邮件
+不发送邮件
+
+
 自动更新时间：
+建议北京时间每天 07:30
+```
 
-北京时间每天 07:30
+当前整体数据流：
 
-
-邮件：
-
-HTML + Gmail SMTP
+```text
+Crossref
+   ↓
+SQLite
+   ↓
+JSON
+   ├──── Web
+   │
+   └──── Email
+           ↓
+      HTML Archive
+           ↓
+     latest_email.json
+           ↓
+       Gmail SMTP
 ```
 
 ---
 
-# 28. Copyright
+## 28. Copyright
 
-```
+```text
 Copyright © 2026 Zhen Zhang, Dalian University of Technology
 ```
