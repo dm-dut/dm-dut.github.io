@@ -5398,5 +5398,335 @@
     "publisher": "",
     "online_date": "2026-08-21",
     "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.engappai.2026.116018",
+    "title": "PortMatch: A semi-supervised semantic segmentation framework for belt conveyor inspection in ports",
+    "authors": "Guanke Chen; Jia Chan; Haibin Li; Yaqian Li; Wenming Zhang; Tao Song; Zhenchun Wang; Haoran Liu",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.engappai.2026.116035",
+    "title": "A replicated feature enhancement framework for explainable lemon surface defect diagnosis under simulated field degradation",
+    "authors": "Yun-Su Choi; Seoung-Ho Choi",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.engappai.2026.116026",
+    "title": "Experimental evaluation of offline reinforcement learning for heating, ventilation and air conditioning control in buildings",
+    "authors": "Jun Wang; Linyan Li; Yu Yang",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.engappai.2026.116015",
+    "title": "Physics-informed data-driven model for design-oriented shear capacity prediction and resistance factor calibration of ultra-high-performance concrete beams",
+    "authors": "Tadesse G. Wakjira; Hana L. Goshu",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.engappai.2026.115968",
+    "title": "A meta Proximal policy optimization driven task interaction graph scheduler with predictive resource provisioning and fault-tolerant micro-checkpointing for adaptive spark workflow scheduling in multi-cloud systems",
+    "authors": "Gaurav Raj; Kamaljit Kaur; Arun Prakash Agrawal; Praveen Kumar; Pushpendra Kumar Pateriya; Akash Punhani",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.ipm.2026.105111",
+    "title": "Blame the bot or the human: How do misinformation-generating anthropomorphic AI streamers influence purchase intention?",
+    "authors": "Yuqiu Wang; Qiaoyun Yun; Wenyu Dong",
+    "journal": "Information Processing & Management",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.ipm.2026.105085",
+    "title": "OPEND: An open-domain evidence-driven fake news detection framework based on LLMs",
+    "authors": "Peng Wu; Heng Zhang; Zechen Guo; Xiaoliang Liu; Yunlong Wang; Li Pan",
+    "journal": "Information Processing & Management",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.aei.2026.105132",
+    "title": "SST-BiMambaAD: Shared Spatiotemporal Bidirectional Mamba for vision–language video anomaly detection in urban infrastructure monitoring",
+    "authors": "Qingyuan Li; Yushun Lin; Zhihuan Chen; Yinuo Wang; Zhongliang Lv; Xiaowen Tao",
+    "journal": "Advanced Engineering Informatics",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.aei.2026.105166",
+    "title": "Adaptive job scheduling and resource allocation for industrialized construction processes using digital twin and reinforcement learning",
+    "authors": "Xue Chen; Xianfei Yin; Xiang Yuan; Ahmed Bouferguene; Mohamed Al-Hussein",
+    "journal": "Advanced Engineering Informatics",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.chaos.2026.119013",
+    "title": "Pure-quartic soliton dynamics shaped by spectral filtering in multimode fiber lasers",
+    "authors": "Yicong Liu; Guohao Fu; Pan Wang; Dan Li; Qirong Xiao; Ping Yan",
+    "journal": "Chaos, Solitons & Fractals",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.chaos.2026.118990",
+    "title": "A numerical approach to Landau theory-based modelling of diffusion-wave polarization processes in ferroelectrics",
+    "authors": "Lubov Moroz; Anna Maslovskaya",
+    "journal": "Chaos, Solitons & Fractals",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.chaos.2026.118995",
+    "title": "Anti-phase self-synchronization phenomenon between adjacent spans in a three-span LCE continuous beam above a hot platform",
+    "authors": "Yuanyuan Quan; Zuocai Wang; Yong Yu",
+    "journal": "Chaos, Solitons & Fractals",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.chaos.2026.118976",
+    "title": "Modeling and analysis of incomplete-information networked evolutionary games with state constraints",
+    "authors": "Tingting Chen; Rongpei Zhou; Yong Ding; Xinzhi Liu",
+    "journal": "Chaos, Solitons & Fractals",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.chaos.2026.118984",
+    "title": "Memristive HNN-based chaotic enhancement Q-learning algorithm for UAV path planning in 3D unknown environments",
+    "authors": "Ruohan Li; Zicheng Wang; Yanfeng Wang; Junwei Sun",
+    "journal": "Chaos, Solitons & Fractals",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.ssci.2026.107433",
+    "title": "When blame meets fate: cultural attribution and safety risk judgment after fire-related accidents in China",
+    "authors": "Wu Chen",
+    "journal": "Safety Science",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.ssci.2026.107425",
+    "title": "Motivation under pressure: a systematic review of psychological and organizational factors in emergency volunteering",
+    "authors": "Niklas Tschäschke; Meinald T. Thielsch",
+    "journal": "Safety Science",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1016/j.jretconser.2026.105065",
+    "title": "Disclosing early or late? The interactive effects of AI disclosure timing and advertisement appeal on consumer attitude toward advertising",
+    "authors": "Yang Zhang; Kai Chen",
+    "journal": "Journal of Retailing and Consumer Services",
+    "category": "Elsevier",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s00521-026-12426-z",
+    "title": "Deep learning approaches for hysteresis identification in biological systems: a comparative analysis",
+    "authors": "Nurgül Gökgöz; Tolga İnan; Seda Selçuk",
+    "journal": "Neural Computing and Applications",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s00521-026-12413-4",
+    "title": "Reinforcement learning based online gain scheduling PID control for DC servo motors",
+    "authors": "Huei-Hong Wu; Yi-Ho Chen; Chao-Chung Peng",
+    "journal": "Neural Computing and Applications",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s00521-026-12336-0",
+    "title": "MultiAIGCD: a comprehensive dataset for AI generated code detection covering multiple languages, models, prompts, and scenarios",
+    "authors": "Basak Demirok; Mucahid Kutlu; Selin Mergen",
+    "journal": "Neural Computing and Applications",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s00521-026-12420-5",
+    "title": "Tree-NET: enhancing 2D medical image segtablementation through efficient low-level feature training",
+    "authors": "Orhan Demirci; Bulent Yilmaz",
+    "journal": "Neural Computing and Applications",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s00521-026-12437-w",
+    "title": "An adaptive path planning and multi-level collision avoidance strategy using reinforcement learning for unmanned ground vehicle",
+    "authors": "Hui Pang; Zhaonian He; Nan Jiang; Tong Wang; Xueyu ZhenWang",
+    "journal": "Neural Computing and Applications",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s00521-026-12392-6",
+    "title": "Generating masks from similarity-based graphs for vision transformer explainability",
+    "authors": "Michele Marchetti; Davide Traini; Domenico Ursino; Luca Virgili",
+    "journal": "Neural Computing and Applications",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s00521-026-12382-8",
+    "title": "Early forecasting for time series: a framework for predicting future horizons with minimal lookback dependencies",
+    "authors": "Jyoti Kumari; Arijit Mondal; Jimson Mathew",
+    "journal": "Neural Computing and Applications",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s11518-026-5761-5",
+    "title": "Evolutionary Dynamics of Cumulative Reciprocity in Complex Networks",
+    "authors": "Shuangling Luo; Zhenjia Tian; Juan Li; Haoxiang Xia",
+    "journal": "Journal of Systems Science and Systems Engineering",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-20",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s10100-026-01039-5",
+    "title": "The Shapley value for airport and irrigation games",
+    "authors": "Judit Márkus; Miklós Pintér; Anna Radványi",
+    "journal": "Central European Journal of Operations Research",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s44196-026-01547-x",
+    "title": "Energy-Efficient Explainable Graph Intelligence Framework for Cyber Physical Smart Grid Stability Prediction",
+    "authors": "T. Siron Anita Susan; M. Joe Marshell; B. Chandra; M. Pandi; S. Rajagopal; C. Nelson Kennedy Babu; Jinsong Li",
+    "journal": "International Journal of Computational Intelligence Systems",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s44196-026-01542-2",
+    "title": "Optimization Method for Area Controller Scheduling Integrating Efficiency, Fatigue and Fairness",
+    "authors": "Tiantian Niu; Haoran Gao; Zhengyi Hu; Cong Qian; Xiaobo Zhu",
+    "journal": "International Journal of Computational Intelligence Systems",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1007/s44196-026-01537-z",
+    "title": "An Early Warning Algorithm for Operational Reliability of Microgrid Power Systems Based on FCM Clustering and Dubins Path Planning",
+    "authors": "Jie Xiong",
+    "journal": "International Journal of Computational Intelligence Systems",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-08-22",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1111/risa.70341",
+    "title": "Issue Information",
+    "authors": "",
+    "journal": "Risk Analysis",
+    "category": "Wiley/Taylor/WorldScientific",
+    "publisher": "",
+    "online_date": "2026-08-21",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1111/risa.70337",
+    "title": "Communicating Risk in the Age of Misinformation: Empirical Frameworks for Understanding Stakeholder Trust",
+    "authors": "Matthew S. Weber; Chaeyeong Margo Lee; David S. Kosson",
+    "journal": "Risk Analysis",
+    "category": "Wiley/Taylor/WorldScientific",
+    "publisher": "",
+    "online_date": "2026-08-21",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1142/s021962202640002x",
+    "title": "Structure-Adaptive Threshold Learning via sparse representation for Spiking Graph Neural Network",
+    "authors": "Zehan Li; Yingyi Li; Juntao Zhang; Liqun Yang; Xuemeng Zhai; Jiandong Liang; Guangmin Hu",
+    "journal": "International Journal of Information Technology & Decision Making",
+    "category": "Wiley/Taylor/WorldScientific",
+    "publisher": "",
+    "online_date": "2026-08-21",
+    "fetched_date": "2026-08-22"
+  },
+  {
+    "doi": "10.1142/s0219622026400018",
+    "title": "Toward Trustworthy and Stroke-Consistent Chinese Ancient Character Image Restoration via Edge-guided and Patch Correlation Feature Completion Network",
+    "authors": "Yu Yue-Jiang; Ma Shuo-Mei; Wang Nan",
+    "journal": "International Journal of Information Technology & Decision Making",
+    "category": "Wiley/Taylor/WorldScientific",
+    "publisher": "",
+    "online_date": "2026-08-21",
+    "fetched_date": "2026-08-22"
   }
 ]
