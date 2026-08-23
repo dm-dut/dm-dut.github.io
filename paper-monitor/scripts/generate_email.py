@@ -8,7 +8,7 @@ Features:
 - Removes online/fetched dates
 - Keeps authors
 - Keeps new paper summary
-- Displays volume / issue / pages / article number
+- Displays volume / issue / pages / article number as plain non-clickable text
 - Archives generated HTML by date/time
 - Keeps multiple runs on the same day
 - Deletes email HTML archives older than 30 days
@@ -197,7 +197,7 @@ for journal in journals:
 
         publication_block = (
             f"""
-                <div class="authors">
+                <div class="authors publication-info">
                     {pub_info}
                 </div>
             """
@@ -312,6 +312,15 @@ body {{
     color:#334e68;
     font-size:14px;
     line-height:1.5;
+}}
+
+.publication-info,
+.publication-info a,
+.publication-info a[x-apple-data-detectors] {{
+    color:#334e68 !important;
+    text-decoration:none !important;
+    pointer-events:none !important;
+    cursor:default !important;
 }}
 
 
