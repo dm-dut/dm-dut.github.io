@@ -113,29 +113,57 @@ def cleanup_old_email_files(reference_dt, keep_days=30):
                 )
 
 
+def is_likely_article_number(value):
+    """
+    Detect cases where Crossref puts an article/e-locator ID
+    into the `pages` field.
+
+    Examples treated as article numbers:
+        e12345
+        123456
+        S12345
+
+    Page ranges such as 315-329 remain page ranges.
+    """
+    value = str(value or "").strip()
+
+    if not value:
+        return False
+
+    if any(sep in value for sep in ("-", "–", "—", ",")):
+        return False
+
+    if any(ch.isalpha() for ch in value):
+        return True
+
+    return value.isdigit() and len(value) >= 4
+
+
 def publication_info(paper):
     """
     Publication metadata display rules:
 
-    1. Show volume and issue when available.
-    2. Prefer page range when pages are available.
-    3. Otherwise show the article number.
-    4. If there is no volume but an article number exists,
-       prefix the metadata with "In Press".
+    - Separate Vol. / No. / Pages or Article No. with vertical bars.
+    - Prefer explicit article_number when available.
+    - If Crossref puts an article ID into `pages`, display it as
+      Article No. instead of Pages.
+    - If volume is missing, prefix with In Press.
     """
     parts = []
 
     volume = str(paper.get("volume", "") or "").strip()
     number = str(paper.get("number", "") or "").strip()
-    pages = str(paper.get("pages", "") or "").strip()
+    raw_pages = str(paper.get("pages", "") or "").strip()
     article_number = str(
         paper.get("article_number", "") or ""
     ).strip()
 
-    # If Crossref has not assigned a volume yet, treat the paper as
-    # an in-press / early-access item whenever page/article metadata exists.
-    # Some publishers place an article ID in the Crossref "page" field,
-    # so the rule must not depend only on article_number.
+    pages = raw_pages
+
+    if not article_number and is_likely_article_number(raw_pages):
+        article_number = raw_pages
+        pages = ""
+
     if not volume and (pages or article_number):
         parts.append("In Press")
 
@@ -145,23 +173,33 @@ def publication_info(paper):
     if number:
         parts.append(f"No. {number}")
 
-    if pages:
-        parts.append(f"Pages {pages}")
-    elif article_number:
+    # Article number has higher display priority than pages.
+    if article_number:
         parts.append(f"Article No. {article_number}")
+    elif pages:
+        parts.append(f"Pages {pages}")
 
     return " | ".join(parts)
 
-
-papers = load_json(WEB / "new_papers.json", [])
+papers = load_json(
+    WEB / "new_papers.json",
+    []
+)
 
 if not papers:
     print("No new papers. Skip email generation.")
     raise SystemExit(0)
 
 
-journal_order = load_json(WEB / "journal_order.json", {})
-update_time = load_json(WEB / "update_time.json", {})
+journal_order = load_json(
+    WEB / "journal_order.json",
+    {}
+)
+
+update_time = load_json(
+    WEB / "update_time.json",
+    {}
+)
 
 
 def journal_rank(name):

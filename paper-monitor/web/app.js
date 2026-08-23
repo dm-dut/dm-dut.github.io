@@ -691,18 +691,50 @@ function normalizeDate(value) {
 }
 
 
+function isLikelyArticleNumber(value) {
+  const s = String(value || "").trim();
+
+  if (!s) return false;
+
+  // Page ranges are real pages.
+  if (/[-–—,]/.test(s)) {
+    return false;
+  }
+
+  // Common e-locator / article-number forms.
+  if (/[A-Za-z]/.test(s)) {
+    return true;
+  }
+
+  // Long standalone numeric values are usually article IDs.
+  if (/^\d{4,}$/.test(s)) {
+    return true;
+  }
+
+  return false;
+}
+
+
 function buildPublicationInfo(paper) {
   const volume = String(paper.volume || "").trim();
   const number = String(paper.number || "").trim();
-  const pages = String(paper.pages || "").trim();
-  const articleNumber = String(
+  const rawPages = String(paper.pages || "").trim();
+  const explicitArticleNumber = String(
     paper.article_number || ""
   ).trim();
 
+  let pages = rawPages;
+  let articleNumber = explicitArticleNumber;
+
+  // Some Crossref records place an article ID in the page field.
+  // For display, show it as Article No. instead of Pages.
+  if (!articleNumber && isLikelyArticleNumber(rawPages)) {
+    articleNumber = rawPages;
+    pages = "";
+  }
+
   const parts = [];
 
-  // If no volume has been assigned yet, mark the record as In Press
-  // whenever page/article-number metadata already exists.
   if (!volume && (pages || articleNumber)) {
     parts.push("In Press");
   }
@@ -715,11 +747,11 @@ function buildPublicationInfo(paper) {
     parts.push(`No. ${escapeHtml(number)}`);
   }
 
-  // Prefer page range. If pages are absent, show article number.
-  if (pages) {
-    parts.push(`Pages ${escapeHtml(pages)}`);
-  } else if (articleNumber) {
+  // Article number has higher display priority than pages.
+  if (articleNumber) {
     parts.push(`Article No. ${escapeHtml(articleNumber)}`);
+  } else if (pages) {
+    parts.push(`Pages ${escapeHtml(pages)}`);
   }
 
   return parts.join(
