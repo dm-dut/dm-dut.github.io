@@ -26,6 +26,10 @@ for folder in (WEB_DIR, DB_DIR, LOG_DIR):
 
 GMT8_TZ = datetime.timezone(datetime.timedelta(hours=8))
 
+# Maximum number of records exported to web/papers.json.
+# The SQLite database still keeps the complete history.
+WEB_PAPER_LIMIT = 5000
+
 
 def clean(value):
     if pd.isna(value):
@@ -189,6 +193,62 @@ def read_all_db_rows(conn):
     return result
 
 
+def read_recent_db_rows(conn, limit=WEB_PAPER_LIMIT):
+    """
+    Read only the most recently fetched papers for web/papers.json.
+
+    Important:
+    - papers.db continues to retain the complete history;
+    - DOI duplicate checking still uses the full SQLite database;
+    - only the frontend JSON export is capped;
+    - ordering by first_seen keeps newly discovered papers in the
+      frontend window even when their Crossref online date is older.
+    """
+    rows = conn.execute(
+        """
+        SELECT
+            doi,
+            title,
+            authors,
+            journal,
+            category,
+            publisher,
+            online_date,
+            first_seen,
+            volume,
+            number,
+            pages,
+            article_number
+        FROM papers
+        ORDER BY
+            first_seen DESC,
+            rowid DESC
+        LIMIT ?
+        """,
+        (int(limit),)
+    ).fetchall()
+
+    result = []
+
+    for row in rows:
+        result.append({
+            "doi": clean(row[0]),
+            "title": clean(row[1]),
+            "authors": clean(row[2]),
+            "journal": clean(row[3]),
+            "category": clean(row[4]),
+            "publisher": clean(row[5]),
+            "online_date": clean(row[6]),
+            "fetched_date": clean(row[7]),
+            "volume": clean(row[8]),
+            "number": clean(row[9]),
+            "pages": clean(row[10]),
+            "article_number": clean(row[11]),
+        })
+
+    return result
+
+
 def write_json(filename, data):
     path = os.path.join(WEB_DIR, filename)
 
@@ -222,7 +282,7 @@ write_json("previous_papers.json", previous_papers)
 first_run = len(previous_papers) == 0
 
 print("=" * 72)
-print("Paper Monitor v15.0")
+print("Paper Monitor v15.15")
 print("Mode:", "INITIAL" if first_run else "INCREMENTAL")
 print("Journals:", len(journals))
 print("Days:", days)
@@ -390,11 +450,20 @@ for i, (_, row) in enumerate(journals.iterrows(), start=1):
         print(f"  Status: FAILED ({exc})")
 
 
-# Export all stored papers after the update.
-all_papers = read_all_db_rows(conn)
+# Export only the most recent records to papers.json.
+# The SQLite database still keeps all historical papers.
+web_papers = read_recent_db_rows(
+    conn,
+    limit=WEB_PAPER_LIMIT,
+)
 
-write_json("papers.json", all_papers)
+write_json("papers.json", web_papers)
 write_json("new_papers.json", new_papers)
+
+# Full database count for logging only.
+total_stored = conn.execute(
+    "SELECT COUNT(*) FROM papers"
+).fetchone()[0]
 
 updated = gmt8_now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -436,7 +505,8 @@ print("Successful journals:", successful)
 print("Failed journals:", len(failed))
 print("Fetched papers:", total_fetched)
 print("New papers:", len(new_papers))
-print("Total stored papers:", len(all_papers))
+print("Total stored papers:", total_stored)
+print("Papers exported to web:", len(web_papers), f"(limit {WEB_PAPER_LIMIT})")
 print("Fetched date for new papers:", today_gmt8, "(GMT+8)")
 print("Update time:", updated, "(UTC+8)")
 print("=" * 72)
