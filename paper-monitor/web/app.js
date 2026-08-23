@@ -43,6 +43,7 @@ Promise.all([
   );
 
   buildJournalOrder(orderData);
+  ensureBibtexStyles();
 
   updateTime.textContent = timeData.updated || "--";
 
@@ -70,6 +71,397 @@ function fetchJson(path, fallback) {
 
 function normalizeDoi(value) {
   return String(value || "").trim().toLowerCase();
+}
+
+function buildDoiUrl(value) {
+  const doi = String(value || "").trim();
+
+  if (!doi) return "#";
+
+  // Encode special characters while preserving "/" inside the DOI.
+  const encodedDoi = encodeURIComponent(doi)
+    .replace(/%2F/gi, "/");
+
+  return `https://doi.org/${encodedDoi}`;
+}
+
+function ensureBibtexStyles() {
+  if (document.getElementById("paper-monitor-bibtex-style")) return;
+
+  const style = document.createElement("style");
+  style.id = "paper-monitor-bibtex-style";
+  style.textContent = `
+    .paper-title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .paper-title-row .title {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .bibtex-btn {
+      flex: 0 0 auto;
+      margin-left: auto;
+      padding: 5px 9px;
+      border: 1px solid #b8cbe0;
+      border-radius: 4px;
+      background: #f4f8fc;
+      color: #1f4e85;
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .bibtex-btn:hover {
+      background: #e9f2fa;
+      border-color: #8eafd0;
+    }
+
+    .bibtex-btn:focus {
+      outline: 2px solid #aac7e3;
+      outline-offset: 2px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .paper-title-row {
+        gap: 7px;
+      }
+
+      .bibtex-btn {
+        padding: 4px 7px;
+        font-size: 10.5px;
+      }
+    }
+  `;
+
+  document.head.appendChild(style);
+}
+
+function bibtexEscape(value) {
+  const replacements = {
+    "\\": "\\textbackslash{}",
+    "{": "\\{",
+    "}": "\\}",
+    "%": "\\%",
+    "&": "\\&",
+    "_": "\\_",
+    "#": "\\#",
+    "$": "\\$",
+    "~": "\\textasciitilde{}",
+    "^": "\\textasciicircum{}"
+  };
+
+  return String(value || "").replace(
+    /[\\{}%&_#$~^]/g,
+    (char) => replacements[char]
+  );
+}
+
+function bibtexAuthors(value) {
+  return String(value || "")
+    .split(";")
+    .map((name) => name.trim())
+    .filter(Boolean)
+    .join(" and ");
+}
+
+function shouldPreserveBibtexCase(part) {
+  const text = String(part || "");
+
+  /*
+   * Preserve likely abbreviations / proper-name forms, for example:
+   * AI, GDM, MCDM, LSTM, COVID-19, DeGroot, CrossRef, eWOM.
+   */
+  const asciiLetters = text.match(/[A-Za-z]/g) || [];
+
+  if (asciiLetters.length === 0) {
+    return true;
+  }
+
+  const uppercaseCount = (
+    text.match(/[A-Z]/g) || []
+  ).length;
+
+  if (uppercaseCount >= 2) {
+    return true;
+  }
+
+  if (/[a-z][A-Z]/.test(text)) {
+    return true;
+  }
+
+  return false;
+}
+
+
+function sentenceCaseBibtexWord(word, capitalizeFirst) {
+  /*
+   * Process hyphenated words part by part:
+   *
+   * AI-Based       -> AI-based
+   * Decision-Making -> Decision-making
+   * DeGroot-Based  -> DeGroot-based
+   */
+  let firstPart = true;
+
+  return String(word || "")
+    .split(/(-)/)
+    .map((part) => {
+
+      if (part === "-") {
+        return part;
+      }
+
+      if (!part) {
+        return part;
+      }
+
+      const preserve = shouldPreserveBibtexCase(part);
+      let result;
+
+      if (preserve) {
+        result = part;
+      } else {
+        result = part.toLowerCase();
+
+        if (capitalizeFirst && firstPart) {
+          result = result.replace(
+            /\p{L}/u,
+            (char) => char.toUpperCase()
+          );
+        }
+      }
+
+      firstPart = false;
+      return result;
+    })
+    .join("");
+}
+
+
+function sentenceCaseBibtexSegment(segment) {
+  /*
+   * Convert a title segment to sentence case while preserving
+   * likely acronyms and mixed-case proper-name forms.
+   *
+   * Example:
+   * Data Mining with AI
+   * ->
+   * Data mining with AI
+   */
+  let firstWord = true;
+
+  return String(segment || "").replace(
+    /[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu,
+    (word) => {
+
+      const result = sentenceCaseBibtexWord(
+        word,
+        firstWord
+      );
+
+      firstWord = false;
+      return result;
+    }
+  );
+}
+
+
+function formatBibtexTitle(value) {
+  /*
+   * Convert copied BibTeX titles to sentence case.
+   *
+   * Rules:
+   * 1. Capitalize the first word of the title.
+   * 2. Lowercase ordinary title-case words.
+   * 3. Capitalize the first word after ":".
+   * 4. Preserve likely abbreviations / mixed-case terms.
+   *
+   * Example:
+   * Data Mining with AI: alter Decision-Making
+   * ->
+   * Data mining with AI: Alter decision-making
+   */
+  const title = String(value || "")
+    .trim()
+    .replace(/\s+/g, " ");
+
+  if (!title) {
+    return "";
+  }
+
+  const pieces = title.split(/(:)/);
+
+  return pieces
+    .map((piece) => {
+      if (piece === ":") {
+        return piece;
+      }
+
+      return sentenceCaseBibtexSegment(piece);
+    })
+    .join("");
+}
+
+function getPaperYear(paper) {
+  const onlineDate = String(paper.online_date || "").trim();
+  const fetchedDate = String(paper.fetched_date || "").trim();
+
+  const onlineMatch = onlineDate.match(/^(\d{4})/);
+  if (onlineMatch) return onlineMatch[1];
+
+  const fetchedMatch = fetchedDate.match(/^(\d{4})/);
+  if (fetchedMatch) return fetchedMatch[1];
+
+  return "";
+}
+
+function asciiToken(value) {
+  return String(value || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^A-Za-z0-9]/g, "");
+}
+
+function buildBibtexKey(paper) {
+  const authors = String(paper.authors || "");
+  const firstAuthor = authors.split(";")[0].trim();
+  const authorParts = firstAuthor.split(/\s+/).filter(Boolean);
+  const surname = asciiToken(authorParts[authorParts.length - 1] || "");
+
+  const year = getPaperYear(paper);
+
+  const titleWords = String(paper.title || "")
+    .split(/\s+/)
+    .map(asciiToken)
+    .filter((word) => word.length >= 4);
+
+  const titleToken = titleWords[0] || "";
+
+  if (surname || titleToken) {
+    return `${surname || "Paper"}${year}${titleToken || "Article"}`;
+  }
+
+  const doiToken = asciiToken(paper.doi || "").slice(-8);
+  return `Paper${year}${doiToken || "Citation"}`;
+}
+
+function buildBibtex(paper) {
+  const key = buildBibtexKey(paper);
+  const fields = [];
+
+  const title = formatBibtexTitle(
+    paper.title
+  );
+  const authors = bibtexAuthors(paper.authors);
+  const journal = String(paper.journal || "").trim();
+  const publisher = String(paper.publisher || "").trim();
+  const year = getPaperYear(paper);
+  const volume = String(paper.volume || "").trim();
+  const number = String(paper.number || "").trim();
+  const pages = String(paper.pages || "").trim();
+  const articleNumber = String(paper.article_number || "").trim();
+  const doi = String(paper.doi || "").trim();
+
+  if (title) {
+    fields.push(`  title = {${bibtexEscape(title)}}`);
+  }
+
+  if (authors) {
+    fields.push(`  author = {${bibtexEscape(authors)}}`);
+  }
+
+  if (journal) {
+    fields.push(`  journal = {${bibtexEscape(journal)}}`);
+  }
+
+  if (year) {
+    fields.push(`  year = {${year}}`);
+  }
+
+  if (volume) {
+    fields.push(`  volume = {${bibtexEscape(volume)}}`);
+  }
+
+  if (number) {
+    fields.push(`  number = {${bibtexEscape(number)}}`);
+  }
+
+  if (pages) {
+    fields.push(`  pages = {${bibtexEscape(pages)}}`);
+  } else if (articleNumber) {
+    fields.push(`  pages = {${bibtexEscape(articleNumber)}}`);
+  }
+
+  if (publisher) {
+    fields.push(`  publisher = {${bibtexEscape(publisher)}}`);
+  }
+
+  if (doi) {
+    fields.push(`  doi = {${bibtexEscape(doi)}}`);
+    fields.push(`  url = {${buildDoiUrl(doi)}}`);
+  }
+
+  return {
+    key,
+    content: `@article{${key},\n${fields.join(",\n")}\n}\n`
+  };
+}
+
+async function copyBibtex(paper, button) {
+  const bibtex = buildBibtex(paper);
+  const originalText = button ? button.textContent : "BibTeX";
+
+  try {
+    if (
+      navigator.clipboard &&
+      typeof navigator.clipboard.writeText === "function"
+    ) {
+      await navigator.clipboard.writeText(bibtex.content);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = bibtex.content;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      const copied = document.execCommand("copy");
+      textarea.remove();
+
+      if (!copied) {
+        throw new Error("Clipboard copy failed.");
+      }
+    }
+
+    if (button) {
+      button.textContent = "Copied!";
+      button.disabled = true;
+
+      window.setTimeout(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+      }, 1200);
+    }
+
+  } catch (error) {
+    console.error("BibTeX copy failed:", error);
+
+    if (button) {
+      button.textContent = "Copy failed";
+
+      window.setTimeout(() => {
+        button.textContent = originalText;
+      }, 1500);
+    }
+  }
 }
 
 function normalizeJournal(value) {
@@ -298,6 +690,43 @@ function normalizeDate(value) {
   return "0000-00-00";
 }
 
+
+function buildPublicationInfo(paper) {
+  const volume = String(paper.volume || "").trim();
+  const number = String(paper.number || "").trim();
+  const pages = String(paper.pages || "").trim();
+  const articleNumber = String(
+    paper.article_number || ""
+  ).trim();
+
+  const parts = [];
+
+  // If no volume has been assigned yet, mark the record as In Press
+  // whenever page/article-number metadata already exists.
+  if (!volume && (pages || articleNumber)) {
+    parts.push("In Press");
+  }
+
+  if (volume) {
+    parts.push(`Vol. ${escapeHtml(volume)}`);
+  }
+
+  if (number) {
+    parts.push(`No. ${escapeHtml(number)}`);
+  }
+
+  // Prefer page range. If pages are absent, show article number.
+  if (pages) {
+    parts.push(`Pages ${escapeHtml(pages)}`);
+  } else if (articleNumber) {
+    parts.push(`Article No. ${escapeHtml(articleNumber)}`);
+  }
+
+  return parts.join(
+    ' <span class="sep">|</span> '
+  );
+}
+
 function render() {
   const data = getFilteredSortedData();
   const total = data.length;
@@ -325,19 +754,27 @@ function render() {
 
     return `
       <article class="paper${fresh ? " is-new" : ""}">
-        <div class="title">
-  ${
-    p.doi
-      ? `<a class="paper-title-link"
-           href="https://doi.org/${encodeURIComponent(p.doi)}"
-           target="_blank"
-           rel="noopener noreferrer">
-           ${escapeHtml(p.title || "")}
-         </a>`
-      : escapeHtml(p.title || "")
-  }
-  ${fresh ? '<span class="badge">NEW</span>' : ""}
-</div>
+        <div class="paper-title-row">
+          <div class="title">
+    ${
+      p.doi
+        ? `<a class="paper-title-link"
+             href="${buildDoiUrl(p.doi)}"
+             target="_blank"
+             rel="noopener noreferrer">
+             ${escapeHtml(p.title || "")}
+           </a>`
+        : escapeHtml(p.title || "")
+    }
+    ${fresh ? '<span class="badge">NEW</span>' : ""}
+          </div>
+
+          <button type="button"
+                  class="bibtex-btn"
+                  title="Copy BibTeX to clipboard">
+            BibTeX
+          </button>
+        </div>
 
         <div class="journal">
           ${escapeHtml(p.journal || "")}
@@ -347,12 +784,20 @@ function render() {
           ${escapeHtml(p.authors || "")}
         </div>
 
+        ${
+          buildPublicationInfo(p)
+            ? `<div class="meta">
+                 ${buildPublicationInfo(p)}
+               </div>`
+            : ""
+        }
+
         <div class="meta">
           <span class="meta-part">Online: ${escapeHtml(p.online_date || "N/A")}</span>
           <span class="sep">|</span>
           <span class="meta-part">Fetched (GMT+8): ${escapeHtml(p.fetched_date || "N/A")}</span>
           <br>
-          <a href="https://doi.org/${encodeURIComponent(doi)}"
+          <a href="${buildDoiUrl(doi)}"
              target="_blank"
              rel="noopener noreferrer">
              DOI: ${escapeHtml(doi)}
@@ -361,6 +806,14 @@ function render() {
       </article>
     `;
   }).join("");
+
+  paperList
+    .querySelectorAll(".bibtex-btn")
+    .forEach((button, index) => {
+      button.addEventListener("click", () => {
+        copyBibtex(pageData[index], button);
+      });
+    });
 
   renderPagination(totalPages);
 }

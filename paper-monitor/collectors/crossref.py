@@ -53,9 +53,9 @@ def _build_headers(mailto=None):
     )
 
     if email:
-        user_agent = f"PaperMonitor/14.6 (mailto:{email})"
+        user_agent = f"PaperMonitor/15.0 (mailto:{email})"
     else:
-        user_agent = "PaperMonitor/14.6"
+        user_agent = "PaperMonitor/15.0"
 
     return {
         "User-Agent": user_agent,
@@ -142,6 +142,7 @@ def _request_json(url, params, headers, timeout=45):
             )
 
             if response.status_code in _RETRY_STATUS:
+
                 if attempt >= total_attempts - 1:
                     response.raise_for_status()
 
@@ -325,7 +326,8 @@ def fetch(
     -------
     list[dict]
         Each item contains:
-        doi, title, authors, journal, online_date
+        doi, title, authors, journal, online_date,
+        volume, issue, page, article_number
     """
     issn = _clean(issn)
 
@@ -401,12 +403,22 @@ def fetch(
             else ""
         )
 
+        # Crossref bibliographic fields used for BibTeX.
+        volume = _clean(item.get("volume"))
+        issue = _clean(item.get("issue"))
+        page = _clean(item.get("page"))
+        article_number = _clean(item.get("article-number"))
+
         result.append({
             "doi": doi,
             "title": title,
             "authors": _authors(item),
             "journal": journal,
             "online_date": _online_date(item),
+            "volume": volume,
+            "issue": issue,
+            "page": page,
+            "article_number": article_number,
         })
 
     return result

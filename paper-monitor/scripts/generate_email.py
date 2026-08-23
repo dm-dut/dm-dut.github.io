@@ -1,3 +1,19 @@
+"""
+Generate Paper Monitor email digest.
+
+Features:
+- Responsive PC/mobile layout
+- Keeps title hyperlink
+- Removes DOI display
+- Removes online/fetched dates
+- Keeps authors
+- Keeps new paper summary
+- Displays volume / issue / pages / article number
+- Archives generated HTML by date/time
+- Keeps multiple runs on the same day
+- Deletes email HTML archives older than 30 days
+"""
+
 import json
 import re
 import datetime
@@ -18,22 +34,7 @@ def load_json(path, default):
         return json.load(f)
 
 
-# =========================================================
-# Email archive helper functions
-# =========================================================
-
 def get_run_datetime(update_time):
-    """
-    Get the datetime of the current Paper Monitor update.
-
-    Priority:
-    1. web/update_time.json
-    2. current GMT+8 time
-
-    Expected update_time format:
-        2026-08-22 16:01:25
-    """
-
     updated = str(update_time.get("updated", "")).strip()
 
     try:
@@ -41,28 +42,13 @@ def get_run_datetime(update_time):
             updated,
             "%Y-%m-%d %H:%M:%S"
         )
-
         return dt.replace(tzinfo=GMT8)
 
     except (ValueError, TypeError):
-
         return datetime.datetime.now(GMT8)
 
 
 def get_unique_email_path(run_dt):
-    """
-    Generate a unique HTML filename.
-
-    Example:
-
-        daily_papers_email_2026-08-22_160125.html
-
-    If the same timestamp already exists:
-
-        daily_papers_email_2026-08-22_160125_02.html
-        daily_papers_email_2026-08-22_160125_03.html
-    """
-
     base_name = (
         "daily_papers_email_"
         + run_dt.strftime("%Y-%m-%d_%H%M%S")
@@ -76,35 +62,19 @@ def get_unique_email_path(run_dt):
     index = 2
 
     while True:
-
         output = WEB / f"{base_name}_{index:02d}.html"
 
         if not output.exists():
-
             run_id = (
                 run_dt.strftime("%H%M%S")
                 + f"-{index:02d}"
             )
-
             return output, run_id
 
         index += 1
 
 
 def cleanup_old_email_files(reference_dt, keep_days=30):
-    """
-    Delete email HTML archives older than keep_days.
-
-    Supported filenames:
-
-        daily_papers_email_2026-08-22.html
-        daily_papers_email_2026-08-22_160125.html
-        daily_papers_email_2026-08-22_160125_02.html
-
-    Files exactly 30 days old are still retained.
-    Files older than 30 days are deleted.
-    """
-
     cutoff_date = (
         reference_dt.date()
         - datetime.timedelta(days=keep_days)
@@ -118,109 +88,94 @@ def cleanup_old_email_files(reference_dt, keep_days=30):
         r"\.html$"
     )
 
-    deleted = 0
-
     for file in WEB.glob("daily_papers_email_*.html"):
-
         match = pattern.match(file.name)
 
         if not match:
             continue
 
         try:
-
             file_date = datetime.datetime.strptime(
                 match.group(1),
                 "%Y-%m-%d"
             ).date()
-
         except ValueError:
             continue
 
         if file_date < cutoff_date:
-
             try:
-
                 file.unlink()
-
-                deleted += 1
-
-                print(
-                    f"Deleted old email archive: "
-                    f"{file.name}"
-                )
-
-            except OSError as e:
-
+                print(f"Deleted old email archive: {file.name}")
+            except OSError as exc:
                 print(
                     f"Failed to delete old email archive "
-                    f"{file.name}: {e}"
+                    f"{file.name}: {exc}"
                 )
 
-    if deleted:
 
-        print(
-            f"Old email archives deleted: {deleted}"
-        )
+def publication_info(paper):
+    """
+    Publication metadata display rules:
+
+    1. Show volume and issue when available.
+    2. Prefer page range when pages are available.
+    3. Otherwise show the article number.
+    4. If there is no volume but an article number exists,
+       prefix the metadata with "In Press".
+    """
+    parts = []
+
+    volume = str(paper.get("volume", "") or "").strip()
+    number = str(paper.get("number", "") or "").strip()
+    pages = str(paper.get("pages", "") or "").strip()
+    article_number = str(
+        paper.get("article_number", "") or ""
+    ).strip()
+
+    # If Crossref has not assigned a volume yet, treat the paper as
+    # an in-press / early-access item whenever page/article metadata exists.
+    # Some publishers place an article ID in the Crossref "page" field,
+    # so the rule must not depend only on article_number.
+    if not volume and (pages or article_number):
+        parts.append("In Press")
+
+    if volume:
+        parts.append(f"Vol. {volume}")
+
+    if number:
+        parts.append(f"No. {number}")
+
+    if pages:
+        parts.append(f"Pages {pages}")
+    elif article_number:
+        parts.append(f"Article No. {article_number}")
+
+    return " | ".join(parts)
 
 
-# =========================================================
-# Load data
-# =========================================================
-
-papers = load_json(
-    WEB / "new_papers.json",
-    []
-)
+papers = load_json(WEB / "new_papers.json", [])
 
 if not papers:
     print("No new papers. Skip email generation.")
     raise SystemExit(0)
 
 
-journal_order = load_json(
-    WEB / "journal_order.json",
-    {}
-)
-
-update_time = load_json(
-    WEB / "update_time.json",
-    {}
-)
+journal_order = load_json(WEB / "journal_order.json", {})
+update_time = load_json(WEB / "update_time.json", {})
 
 
 def journal_rank(name):
-    return journal_order.get(
-        name,
-        999999
-    )
+    return journal_order.get(name, 999999)
 
-
-# =========================================================
-# Group papers by journal
-# =========================================================
 
 groups = defaultdict(list)
 
 for paper in papers:
-
-    groups[
-        paper.get(
-            "journal",
-            "Unknown Journal"
-        )
-    ].append(paper)
+    groups[paper.get("journal", "Unknown Journal")].append(paper)
 
 
-journals = sorted(
-    groups.keys(),
-    key=journal_rank
-)
+journals = sorted(groups.keys(), key=journal_rank)
 
-
-# =========================================================
-# Generate paper HTML
-# =========================================================
 
 paper_html = []
 
@@ -236,15 +191,18 @@ for journal in journals:
 
     for p in groups[journal]:
 
-        doi = p.get(
-            "doi",
-            ""
-        )
+        doi = str(p.get("doi", "") or "").strip()
+        title_link = f"https://doi.org/{doi}" if doi else "#"
+        pub_info = publication_info(p)
 
-        title_link = (
-            f"https://doi.org/{doi}"
-            if doi
-            else "#"
+        publication_block = (
+            f"""
+                <div class="authors">
+                    {pub_info}
+                </div>
+            """
+            if pub_info
+            else ""
         )
 
         paper_html.append(
@@ -261,25 +219,15 @@ for journal in journals:
                     {p.get("authors", "")}
                 </div>
 
+                {publication_block}
+
             </div>
             """
         )
 
 
-updated = update_time.get(
-    "updated",
-    ""
-)
+updated = update_time.get("updated", "")
 
-
-# =========================================================
-# Generate HTML
-# =========================================================
-#
-# IMPORTANT:
-# The following HTML/CSS layout is unchanged from v15.8.
-#
-# =========================================================
 
 html = f"""
 <!DOCTYPE html>
@@ -539,78 +487,37 @@ Copyright © 2026 Zhen Zhang, Dalian University of Technology
 """
 
 
-# =========================================================
-# Generate unique archive filename
-# =========================================================
+run_dt = get_run_datetime(update_time)
+output, run_id = get_unique_email_path(run_dt)
 
-run_dt = get_run_datetime(
-    update_time
-)
-
-output, run_id = get_unique_email_path(
-    run_dt
-)
-
-
-# =========================================================
-# Save HTML
-# =========================================================
-
-with open(
-    output,
-    "w",
-    encoding="utf-8"
-) as f:
-
+with open(output, "w", encoding="utf-8") as f:
     f.write(html)
 
-
-# =========================================================
-# Generate personalized email subject
-# =========================================================
 
 paper_count = len(papers)
 
 subject = (
     f"[Paper Monitor] "
-    f"{run_dt.strftime('%Y-%m-%d %H:%M')} | "
+    f"{run_dt.strftime('%Y-%m-%d %H:%M')} · "
     f"{paper_count} New Paper"
     f"{'' if paper_count == 1 else 's'} "
-    f" | #{run_id}"
+    f"· #{run_id}"
 )
 
-
-# =========================================================
-# Save information for send_email.py
-# =========================================================
-#
-# send_email.py can read this file instead of guessing
-# which HTML archive is the newest.
-#
-# =========================================================
 
 latest_email_info = {
     "html_file": output.name,
     "subject": subject,
     "run_id": run_id,
-    "run_time": run_dt.strftime(
-        "%Y-%m-%d %H:%M:%S"
-    ),
+    "run_time": run_dt.strftime("%Y-%m-%d %H:%M:%S"),
     "timezone": "GMT+8",
     "paper_count": paper_count
 }
 
 
-latest_email_file = (
-    WEB / "latest_email.json"
-)
+latest_email_file = WEB / "latest_email.json"
 
-with open(
-    latest_email_file,
-    "w",
-    encoding="utf-8"
-) as f:
-
+with open(latest_email_file, "w", encoding="utf-8") as f:
     json.dump(
         latest_email_info,
         f,
@@ -619,32 +526,13 @@ with open(
     )
 
 
-# =========================================================
-# Delete HTML archives older than 30 days
-# =========================================================
-
 cleanup_old_email_files(
     reference_dt=run_dt,
     keep_days=30
 )
 
 
-# =========================================================
-# Output
-# =========================================================
-
-print(
-    f"Generated: {output}"
-)
-
-print(
-    f"Run ID: {run_id}"
-)
-
-print(
-    f"Subject: {subject}"
-)
-
-print(
-    f"Metadata: {latest_email_file}"
-)
+print(f"Generated: {output}")
+print(f"Run ID: {run_id}")
+print(f"Subject: {subject}")
+print(f"Metadata: {latest_email_file}")

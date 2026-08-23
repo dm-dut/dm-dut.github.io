@@ -2,14 +2,18 @@ import os
 import sys
 import json
 import datetime
+import html
+
 import pandas as pd
 import yaml
+
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
 from collectors.crossref import fetch
 from core.database import init, exists
+
 
 CONFIG_DIR = os.path.join(ROOT, "config")
 WEB_DIR = os.path.join(ROOT, "web")
@@ -19,10 +23,8 @@ LOG_DIR = os.path.join(ROOT, "logs")
 for folder in (WEB_DIR, DB_DIR, LOG_DIR):
     os.makedirs(folder, exist_ok=True)
 
+
 GMT8_TZ = datetime.timezone(datetime.timedelta(hours=8))
-
-
-import html
 
 
 def clean(value):
@@ -32,9 +34,9 @@ def clean(value):
     value = str(value)
 
     # Decode HTML entities:
-    # &amp;  -> &
-    # &lt;   -> <
-    # &gt;   -> >
+    # &amp; -> &
+    # &lt;  -> <
+    # &gt;  -> >
     value = html.unescape(value)
 
     # Normalize spaces
@@ -97,25 +99,78 @@ def write_journal_order(order):
         )
 
 
+def ensure_metadata_columns(conn):
+    """
+    Upgrade an existing papers table in place.
+
+    Older databases contain 8 columns:
+        doi, title, authors, journal, category, publisher,
+        online_date, first_seen
+
+    This function adds:
+        volume, number, pages, article_number
+
+    Existing data are preserved.
+    """
+    columns = {
+        row[1]
+        for row in conn.execute("PRAGMA table_info(papers)").fetchall()
+    }
+
+    new_columns = (
+        ("volume", "TEXT"),
+        ("number", "TEXT"),
+        ("pages", "TEXT"),
+        ("article_number", "TEXT"),
+    )
+
+    changed = False
+
+    for name, column_type in new_columns:
+        if name not in columns:
+            conn.execute(
+                f'ALTER TABLE papers ADD COLUMN "{name}" {column_type}'
+            )
+            print(f"Database upgraded: added column '{name}'")
+            changed = True
+
+    if changed:
+        conn.commit()
+
+
 def read_all_db_rows(conn):
     """
-    Current papers table has 8 fields:
-    doi, title, authors, journal, category, publisher,
-    online_date, fetched_date(first-seen date).
+    Read all stored papers using explicit column names.
 
-    SELECT * is used so the code does not depend on the exact
-    name of the final date column in the existing database.
+    The database now contains:
+        doi, title, authors, journal, category, publisher,
+        online_date, first_seen, volume, number, pages
+
+    Existing historical papers automatically have blank values for
+    volume/number/pages/article_number until those metadata are backfilled.
     """
-    rows = conn.execute("SELECT * FROM papers").fetchall()
+    rows = conn.execute(
+        """
+        SELECT
+            doi,
+            title,
+            authors,
+            journal,
+            category,
+            publisher,
+            online_date,
+            first_seen,
+            volume,
+            number,
+            pages,
+            article_number
+        FROM papers
+        """
+    ).fetchall()
+
     result = []
 
     for row in rows:
-        if len(row) < 8:
-            raise RuntimeError(
-                "The papers table has fewer than 8 columns. "
-                "Please check core/database.py."
-            )
-
         result.append({
             "doi": clean(row[0]),
             "title": clean(row[1]),
@@ -125,6 +180,10 @@ def read_all_db_rows(conn):
             "publisher": clean(row[5]),
             "online_date": clean(row[6]),
             "fetched_date": clean(row[7]),
+            "volume": clean(row[8]),
+            "number": clean(row[9]),
+            "pages": clean(row[10]),
+            "article_number": clean(row[11]),
         })
 
     return result
@@ -153,6 +212,9 @@ write_journal_order(journal_order)
 
 conn = init(os.path.join(DB_DIR, "papers.db"))
 
+# Upgrade old database without deleting/rebuilding it.
+ensure_metadata_columns(conn)
+
 # Snapshot BEFORE this update.
 previous_papers = read_all_db_rows(conn)
 write_json("previous_papers.json", previous_papers)
@@ -160,7 +222,7 @@ write_json("previous_papers.json", previous_papers)
 first_run = len(previous_papers) == 0
 
 print("=" * 72)
-print("Paper Monitor v14.5")
+print("Paper Monitor v15.0")
 print("Mode:", "INITIAL" if first_run else "INCREMENTAL")
 print("Journals:", len(journals))
 print("Days:", days)
@@ -216,12 +278,67 @@ for i, (_, row) in enumerate(journals.iterrows(), start=1):
             authors = clean(paper.get("authors", ""))
             online_date = clean(paper.get("online_date", ""))
 
+            # Additional Crossref bibliographic metadata.
+            #
+            # Crossref normally calls these fields:
+            #   volume
+            #   issue
+            #   page
+            #
+            # The Paper Monitor JSON uses:
+            #   volume
+            #   number
+            #   pages
+            #
+            # The fallbacks below allow crossref.py to return either naming
+            # convention.
+            volume = clean(
+                paper.get("volume", "")
+            )
+
+            number = clean(
+                paper.get(
+                    "number",
+                    paper.get("issue", "")
+                )
+            )
+
+            pages = clean(
+                paper.get(
+                    "pages",
+                    paper.get("page", "")
+                )
+            )
+
+            article_number = clean(
+                paper.get(
+                    "article_number",
+                    paper.get("article-number", "")
+                )
+            )
+
             # Use the Excel journal name so journal_order.json
             # matches the stored/displayed journal consistently.
             stored_journal = journal_name
 
             conn.execute(
-                "INSERT INTO papers VALUES (?,?,?,?,?,?,?,?)",
+                """
+                INSERT INTO papers (
+                    doi,
+                    title,
+                    authors,
+                    journal,
+                    category,
+                    publisher,
+                    online_date,
+                    first_seen,
+                    volume,
+                    number,
+                    pages,
+                    article_number
+                )
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+                """,
                 (
                     doi,
                     title,
@@ -231,6 +348,10 @@ for i, (_, row) in enumerate(journals.iterrows(), start=1):
                     publisher,
                     online_date,
                     today_gmt8,
+                    volume,
+                    number,
+                    pages,
+                    article_number,
                 ),
             )
 
@@ -243,6 +364,10 @@ for i, (_, row) in enumerate(journals.iterrows(), start=1):
                 "publisher": publisher,
                 "online_date": online_date,
                 "fetched_date": today_gmt8,
+                "volume": volume,
+                "number": number,
+                "pages": pages,
+                "article_number": article_number,
             }
 
             new_papers.append(new_item)
@@ -263,6 +388,7 @@ for i, (_, row) in enumerate(journals.iterrows(), start=1):
         })
 
         print(f"  Status: FAILED ({exc})")
+
 
 # Export all stored papers after the update.
 all_papers = read_all_db_rows(conn)
@@ -289,6 +415,7 @@ with open(
         allow_nan=False,
     )
 
+
 with open(
     os.path.join(LOG_DIR, "failed_journals.json"),
     "w",
@@ -301,6 +428,7 @@ with open(
         indent=2,
         allow_nan=False,
     )
+
 
 print("=" * 72)
 print("Update Finished")
