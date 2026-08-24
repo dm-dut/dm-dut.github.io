@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-08-08",
+    "category": "Talk",
+    "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at the 8th Chinese Conference on Systems of Systems Engineering, Urumqi.",
+    "link": "https://mp.weixin.qq.com/s/GGR3Hbh0oWMYfosSp5cnUw",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://mp.weixin.qq.com/s/GGR3Hbh0oWMYfosSp5cnUw"
+    ]
+  },
+  {
     "date": "2026-06-16",
     "category": "Service",
     "content": "I was invited to join in the editorial board of Decision Making and Analysis as an editorial board member.",
@@ -103,7 +114,7 @@
     "content": "Call For Papers & Abstracts for the Stream: Intelligent Group Decision Making and Consensus Process in GDN 2026, Katowice, Poland, June 28 – July 1, 2026.",
     "link": "http://gdnconference.org/gdn2026/streams/?sessionid=-391327434",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "http://gdnconference.org/gdn2026/streams/?sessionid=-391327434",
       "https://mp.weixin.qq.com/s/w84ZGOoEh2Ok39vvi-dpjQ"
