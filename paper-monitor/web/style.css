@@ -265,19 +265,6 @@ input:focus,select:focus{
 
 .paper-title-link:hover {
   color: var(--blue);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-.paper-title-link,
-.paper-title-link:link,
-.paper-title-link:visited {
-    color: inherit;
-    text-decoration: none;
-}
-
-.paper-title-link:hover,
-.paper-title-link:active {
-    color: inherit;
-    text-decoration: none;
-    opacity: 0.8;
-}
