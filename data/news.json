@@ -1,5 +1,23 @@
 [
   {
+    "date": "206-08-25",
+    "category": "Grant",
+    "content": "A new research project was granted by the National Natural Science Foundation of China (NSFC). Congratulations to Zhuolin Li.",
+    "link": "",
+    "link_text": "",
+    "show_on_home": "yes",
+    "links": []
+  },
+  {
+    "date": "2026-08-19",
+    "category": "Publication",
+    "content": "A paper titled \"A unified framework for clustering-oriented granular-ball quality assessment based on fuzzy information granules\" was accepted by the 2026 International Conference of Granular-Ball Computing (ICGBC 2026).",
+    "link": "",
+    "link_text": "",
+    "show_on_home": "yes",
+    "links": []
+  },
+  {
     "date": "2026-08-08",
     "category": "Talk",
     "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at the 8th Chinese Conference on Systems of Systems Engineering, Urumqi.",
@@ -91,7 +109,7 @@
     "content": "Our paper titled \"KRAM: Knowledge-driven robust training against label noise for medication recommendation\" was accepted by Expert Systems with Applications (SCI, EI, 2024 IF=7.5).",
     "link": "https://doi.org/10.1016/j.eswa.2026.131330",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://doi.org/10.1016/j.eswa.2026.131330"
     ]
@@ -102,7 +120,7 @@
     "content": "Call For Papers & Abstracts for the Special Session: Artificial Intelligence for Optimization and Decision Making in FLINS-ISKE 2026, July 15-19, 2026, Sydney, Australia.",
     "link": "https://2026.flins.cc",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://2026.flins.cc",
       "https://mp.weixin.qq.com/s/GUZPlg6vh_RwemYuF6XweQ"
