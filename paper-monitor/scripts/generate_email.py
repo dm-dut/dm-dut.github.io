@@ -497,9 +497,15 @@ body {{
 
 
 <div class="header">
-Paper Monitor
+    <a href="https://dm-dut.github.io/paper-monitor/"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="color:#1f4e85 !important;
+              text-decoration:none !important;
+              font-weight:bold;">
+        Paper Monitor
+    </a>
 </div>
-
 
 <div class="subtitle">
 Daily New Papers Digest
