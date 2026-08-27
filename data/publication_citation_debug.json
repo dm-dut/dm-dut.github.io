@@ -57,11 +57,11 @@
   },
   {
     "title": "A unified framework for clustering-oriented granular-ball quality assessment based on fuzzy information granules",
-    "status": "not_matched",
+    "status": "matched_author_profile",
     "citations": "",
-    "score": 0.483,
-    "matched_title": "Fusing multi-granular unbalanced hesitant fuzzy linguistic information in group decision making",
-    "source": "search_link_only"
+    "score": 1.0,
+    "matched_title": "A unified framework for clustering-oriented granular-ball quality assessment based on fuzzy information granules",
+    "source": "author_profile"
   },
   {
     "title": "An incremental preference elicitation-based approach to learning potentially non-monotonic preferences in multi-criteria sorting",
