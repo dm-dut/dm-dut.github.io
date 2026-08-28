@@ -3,47 +3,64 @@ name: Update homepage data
 on:
   push:
     paths:
-      - "homepage_content.xlsx"
-      - "publication_database.xlsx"
-      - "scripts/**"
-      - "data/**"
-      - "assets/**"
-      - "index.html"
+      - "data/publications.json"
+      - "scripts/update_publication_citations.py"
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * 2,4,6"
+    - cron: "0 0 * * 1,3,5,7"
 
 permissions:
   contents: write
 
 jobs:
-  update-data:
+  update-publication-citations:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install pandas openpyxl requests
-      - name: Convert homepage Excel to JSON
-        run: python scripts/convert_excel_to_json.py --excel homepage_content.xlsx --out data
-      - name: Generate publications JSON from publication database
-        run: |
-          if [ -f publication_database.xlsx ]; then
-            python scripts/generate_publications_json.py publication_database.xlsx data/publications.json
-          fi
-      - name: Update Google Scholar profile stats
-        run: python scripts/update_scholar.py
-        env:
-          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
-          SCHOLAR_AUTHOR_ID: ${{ vars.SCHOLAR_AUTHOR_ID || 'vBSJplMAAAAJ' }}
+
+      - name: Install dependencies
+        run: pip install requests
+
       - name: Update publication citation counts
         run: python scripts/update_publication_citations.py
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           SCHOLAR_AUTHOR_ID: ${{ vars.SCHOLAR_AUTHOR_ID || 'vBSJplMAAAAJ' }}
-      - name: Commit generated JSON
+
+      - name: Commit publication citation updates
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update homepage JSON data and Scholar citations"
-          file_pattern: "data/*.json"
+          commit_message: "Update publication citation counts"
+          file_pattern: "data/publications.json"
+
+  update-scholar-profile:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Update Google Scholar profile stats
+        run: python scripts/update_scholar.py
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          SCHOLAR_AUTHOR_ID: ${{ vars.SCHOLAR_AUTHOR_ID || 'vBSJplMAAAAJ' }}
+
+      - name: Commit Scholar profile stats
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update Google Scholar profile stats"
+          file_pattern: "data/scholar_stats.json"
