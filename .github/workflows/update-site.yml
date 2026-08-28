@@ -7,7 +7,7 @@ on:
       - "scripts/update_publication_citations.py"
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * 1,3,5,7"
+    - cron: "0 0 * * 1,3,5,0"
 
 permissions:
   contents: write
