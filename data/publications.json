@@ -1,6 +1,55 @@
 [
   {
     "type": "Journal Article",
+    "language": "en",
+    "year": "2026",
+    "title": "Group compromise rankings with indirect preference information: Maximizing pairwise- and rank-based support",
+    "title_en": "Group compromise rankings with indirect preference information: Maximizing pairwise- and rank-based support",
+    "title_zh": "Group compromise rankings with indirect preference information: Maximizing pairwise- and rank-based support",
+    "authors": [
+      "Li, Zhuolin",
+      "Zhang, Zhen*",
+      "Kadziński, Miłosz"
+    ],
+    "authors_en": [
+      "Li, Zhuolin",
+      "Zhang, Zhen*",
+      "Kadziński, Miłosz"
+    ],
+    "authors_zh": [
+      "Li, Zhuolin",
+      "Zhang, Zhen",
+      "Kadziński, Miłosz"
+    ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
+    "venue": "Computers & Operations Research",
+    "venue_en": "Computers & Operations Research",
+    "venue_zh": "Computers & Operations Research",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "doi": "",
+    "link": "",
+    "indexes": [
+      "SCI",
+      "EI",
+      "FMS B",
+      "ABS 3",
+      "2025 IF=4.6"
+    ],
+    "labels": [],
+    "note": "",
+    "note_en": "",
+    "note_zh": "",
+    "isbn": "",
+    "address": "",
+    "conference_date": "",
+    "conference_address": "",
+    "source_row": 29
+  },
+  {
+    "type": "Journal Article",
     "language": "zh",
     "year": "2026",
     "title": "A multi-criteria preference learning method considering context-dependent decision behavior",
@@ -4103,54 +4152,5 @@
     "conference_date": "3-4 December 2009",
     "conference_address": "Hong Kong, China",
     "source_row": 113
-  },
-  {
-    "type": "Journal Article",
-    "language": "en",
-    "year": "",
-    "title": "Group compromise rankings with indirect preference information: Maximizing pairwise- and rank-based support",
-    "title_en": "Group compromise rankings with indirect preference information: Maximizing pairwise- and rank-based support",
-    "title_zh": "Group compromise rankings with indirect preference information: Maximizing pairwise- and rank-based support",
-    "authors": [
-      "Li, Zhuolin",
-      "Zhang, Zhen*",
-      "Kadziński, Miłosz"
-    ],
-    "authors_en": [
-      "Li, Zhuolin",
-      "Zhang, Zhen*",
-      "Kadziński, Miłosz"
-    ],
-    "authors_zh": [
-      "Li, Zhuolin",
-      "Zhang, Zhen",
-      "Kadziński, Miłosz"
-    ],
-    "corresponding_author_en": "Zhang, Zhen",
-    "corresponding_author_cn": "Zhang, Zhen",
-    "venue": "Computers & Operations Research",
-    "venue_en": "Computers & Operations Research",
-    "venue_zh": "Computers & Operations Research",
-    "volume": "",
-    "issue": "",
-    "pages": "",
-    "doi": "",
-    "link": "",
-    "indexes": [
-      "SCI",
-      "EI",
-      "FMS B",
-      "ABS 3",
-      "2025 IF=4.6"
-    ],
-    "labels": [],
-    "note": "",
-    "note_en": "",
-    "note_zh": "",
-    "isbn": "",
-    "address": "",
-    "conference_date": "",
-    "conference_address": "",
-    "source_row": 29
   }
 ]
