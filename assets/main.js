@@ -296,7 +296,7 @@ function detailLine(p){
     if(p.pages) bits.push(p.pages);
   }
   if(p.year) bits.push(p.year);
-  return bits.filter(Boolean).join(PUB_DISPLAY_LANG === "zh" ? "; " : "; ");
+  return bits.filter(Boolean).join(", ");
 }
 function tagHtml(p){
   const tags = [...(Array.isArray(p.indexes) ? p.indexes : []), ...(Array.isArray(p.labels) ? p.labels : [])];
