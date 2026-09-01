@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-01",
+    "category": "Publication",
+    "content": "A new milestone: my Google Scholar citation count has exceeded 5,000.",
+    "link": "https://scholar.google.com/citations?user=vBSJplMAAAAJ",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://scholar.google.com/citations?user=vBSJplMAAAAJ"
+    ]
+  },
+  {
     "date": "2026-08-31",
     "category": "Publication",
     "content": "A new paper was accepted by Computers & Operations Research (SCI, IF: 4.6, ABS 3).",
@@ -98,7 +109,7 @@
     "content": "Our paper titled \"Identification and management of non-cooperative behaviors in large-scale group decision-making: Review, taxonomy and challenges from an LLM perspective\" was accepted by Expert Systems with Applications (SCI, EI, 2024 IF=7.5).",
     "link": "https://doi.org/10.1016/j.eswa.2026.131876",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://doi.org/10.1016/j.eswa.2026.131876"
     ]
