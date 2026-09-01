@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-08-31",
+    "category": "Publication",
+    "content": "A new paper was accepted by Computers & Operations Research (SCI, IF: 4.6, ABS 3).",
+    "link": "https://doi.org/10.1016/j.cor.2026.107671",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://doi.org/10.1016/j.cor.2026.107671"
+    ]
+  },
+  {
     "date": "206-08-26",
     "category": "Grant",
     "content": "A new research project was granted by the National Natural Science Foundation of China (NSFC). Congratulations to Zhuolin Li.",
@@ -98,7 +109,7 @@
     "content": "I was invited to join in the editorial board of Systems (SSCI, IF: 3.1) as an editorial board member.",
     "link": "https://www.mdpi.com/journal/systems/editors?search=zhen+zhang",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://www.mdpi.com/journal/systems/editors?search=zhen+zhang"
     ]
