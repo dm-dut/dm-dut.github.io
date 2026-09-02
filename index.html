@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Zhen Zhang's Homepage</title>
   <meta name="description" content="Homepage of Zhen Zhang, Dalian University of Technology.">
-  <link rel="stylesheet" href="assets/style.css?v=36">
+  <link rel="stylesheet" href="assets/style.css?v=32">
 </head>
 <body>
 <header class="topbar">
@@ -17,12 +17,13 @@
     <nav class="nav" aria-label="Main navigation">
       <button class="active" data-tab="home">Home</button>
       <button data-tab="publications">Publications</button>
-      <button data-tab="news">News</button>
       <button data-tab="services">Service</button>
       <button data-tab="grants">Grants</button>
       <button data-tab="awards">Awards</button>
+      <button data-tab="news">News</button>
       <button data-tab="group">Group</button>
     </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">Dark</button>
   </div>
 </header>
 
@@ -35,15 +36,17 @@
         <div class="title" id="profile-title"></div>
         <div class="meta" id="profile-affiliation"></div>
         <div class="meta" id="profile-contact"></div>
+        <div class="keyword-row hero-keywords" id="keywords"></div>
         <div class="link-row" id="profile-links"></div>
       </div>
     </div>
 
     <div class="grid two-col">
       <section class="panel bio-panel">
-        <h2>Biography</h2>
+        <div class="bio-header">
+    <h2>Biography</h2>
+</div>
         <div id="profile-bio"></div>
-        <div class="keyword-row" id="keywords"></div>
       </section>
       <section class="panel scholar-panel">
         <h2>Google Scholar</h2>
@@ -51,8 +54,8 @@
           <div class="stat"><div class="stat-label">Citations</div><div class="stat-value" id="gs-citations">—</div></div>
           <div class="stat"><div class="stat-label">h-index</div><div class="stat-value" id="gs-hindex">—</div></div>
           <div class="stat"><div class="stat-label">i10-index</div><div class="stat-value" id="gs-i10">—</div></div>
-          <div class="stat"><div class="stat-label">Updated</div><div class="stat-value small" id="gs-updated">—</div></div>
         </div>
+        <div class="scholar-foot" id="gs-status"></div>
       </section>
     </div>
 
@@ -68,27 +71,17 @@
   <section id="publications" class="tab">
     <section class="panel">
       <h2>Publications</h2>
+      <div class="pub-lang-switch" role="group" aria-label="Publication language">
+        <button class="active" type="button" data-pub-lang="en">English</button>
+        <button type="button" data-pub-lang="zh">中文</button>
+      </div>
       <div class="toolbar">
         <select id="pub-year-filter"><option value="all">All years</option></select>
-        <select id="pub-year-start-filter"><option value="all">From year</option></select>
-        <select id="pub-year-end-filter"><option value="all">To year</option></select>
         <select id="pub-type-filter"><option value="all">All types</option></select>
         <select id="pub-esi-filter">
-          <option value="all">All indexes</option>
-          <option value="sci">SCI</option>
-          <option value="ssci">SSCI</option>
-          <option value="sci-ssci">SCI/SSCI</option>
-          <option value="ei">EI</option>
-          <option value="istp">ISTP</option>
-          <option value="cssci">CSSCI</option>
-          <option value="esi-highly">ESI Highly Cited</option>
-          <option value="esi-hot">ESI Hot</option>
-        </select>
-        <select id="pub-level-filter">
-          <option value="all">All levels</option>
-          <option value="abs3">ABS 3</option>
-          <option value="abs4">ABS 4</option>
-          <option value="fmst1">FMS T1</option>
+          <option value="all">All ESI labels</option>
+          <option value="highly">ESI Highly Cited Papers</option>
+          <option value="hot">ESI Hot Papers</option>
         </select>
         <input id="pub-search" placeholder="Search title, venue, author...">
         <span id="pub-count" class="tag"></span>
@@ -97,16 +90,6 @@
     </section>
   </section>
 
-  <section id="news" class="tab">
-    <section class="panel">
-      <h2>News</h2>
-      <div class="toolbar">
-        <select id="news-year-filter"><option value="all">All years</option></select>
-        <select id="news-category-filter"><option value="all">All categories</option></select>
-      </div>
-      <ul class="item-list full-news" id="news-list"></ul>
-    </section>
-  </section>
 
   <section id="services" class="tab">
     <section class="panel">
@@ -128,6 +111,16 @@
       <ul class="item-list" id="awards-list"></ul>
     </section>
   </section>
+  <section id="news" class="tab">
+    <section class="panel">
+      <h2>News</h2>
+      <div class="toolbar">
+        <select id="news-year-filter"><option value="all">All years</option></select>
+        <select id="news-category-filter"><option value="all">All categories</option></select>
+      </div>
+      <ul class="item-list full-news" id="news-list"></ul>
+    </section>
+  </section>
 
   <section id="group" class="tab">
     <section class="panel">
@@ -140,6 +133,6 @@
 <footer class="footer">© 2014–2026 Zhen Zhang · Dalian University of Technology</footer>
 
 <script src="assets/site.config.js"></script>
-<script src="assets/main.js?v=36"></script>
+<script src="assets/main.js?v=32"></script>
 </body>
 </html>
