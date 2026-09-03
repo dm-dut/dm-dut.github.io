@@ -368,6 +368,10 @@ function buildBibtex(paper) {
   const articleNumber = String(paper.article_number || "").trim();
   const doi = String(paper.doi || "").trim();
 
+  // Online-only / in-press papers without formal volume or issue
+  // information should not include a BibTeX year field.
+  const hasFormalVolumeIssue = Boolean(volume || number);
+
   if (title) {
     fields.push(`  title = {${bibtexEscape(title)}}`);
   }
@@ -380,7 +384,7 @@ function buildBibtex(paper) {
     fields.push(`  journal = {${bibtexEscape(journal)}}`);
   }
 
-  if (year) {
+  if (year && hasFormalVolumeIssue) {
     fields.push(`  year = {${year}}`);
   }
 
