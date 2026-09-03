@@ -162,6 +162,27 @@ function bibtexEscape(value) {
   );
 }
 
+function bibtexEscapeNoAmpersand(value) {
+  const replacements = {
+    "\\": "\\textbackslash{}",
+    "{": "\\{",
+    "}": "\\}",
+    "%": "\\%",
+    "_": "\\_",
+    "#": "\\#",
+    "$": "\\$",
+    "~": "\\textasciitilde{}",
+    "^": "\\textasciicircum{}"
+  };
+
+  // Keep "&" unchanged in title, author, and journal fields for reference-manager import.
+  return String(value || "").replace(
+    /[\\{}%_#$~^]/g,
+    (char) => replacements[char]
+  );
+}
+
+
 function bibtexAuthors(value) {
   return String(value || "")
     .split(";")
@@ -373,15 +394,15 @@ function buildBibtex(paper) {
   const hasFormalVolumeIssue = Boolean(volume || number);
 
   if (title) {
-    fields.push(`  title = {${bibtexEscape(title)}}`);
+    fields.push(`  title = {${bibtexEscapeNoAmpersand(title)}}`);
   }
 
   if (authors) {
-    fields.push(`  author = {${bibtexEscape(authors)}}`);
+    fields.push(`  author = {${bibtexEscapeNoAmpersand(authors)}}`);
   }
 
   if (journal) {
-    fields.push(`  journal = {${bibtexEscape(journal)}}`);
+    fields.push(`  journal = {${bibtexEscapeNoAmpersand(journal)}}`);
   }
 
   if (year && hasFormalVolumeIssue) {
