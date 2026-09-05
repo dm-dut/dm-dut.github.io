@@ -578,14 +578,10 @@ function initFilters() {
     render();
   });
 
-  // Sorting is fixed as:
-  // NEW -> journal -> online date,
-  // then non-NEW -> journal -> online date.
-  if (sortBox) {
-    sortBox.disabled = true;
-    sortBox.title =
-      "Fixed order: NEW first, then Journal and Online Date";
-  }
+  sortBox.addEventListener("change", () => {
+    currentPage = 1;
+    render();
+  });
 
   searchBox.addEventListener("input", () => {
     currentPage = 1;
@@ -671,7 +667,7 @@ function getFilteredSortedData() {
 
   data.sort((a, b) => {
 
-    // 1. NEW papers always come first.
+    // NEW papers always come first, regardless of the selected sort mode.
     const newA = isNew(a) ? 0 : 1;
     const newB = isNew(b) ? 0 : 1;
 
@@ -679,8 +675,43 @@ function getFilteredSortedData() {
       return newA - newB;
     }
 
-    // 2. Within NEW and non-NEW groups, sort by configured
-    //    journal order first.
+    if (sortBox.value === "journal") {
+
+      // Journal mode:
+      // NEW -> Journal -> Online Date
+      // then non-NEW -> Journal -> Online Date
+      const orderA = getJournalOrder(a);
+      const orderB = getJournalOrder(b);
+
+      if (orderA !== orderB) {
+        return orderA - orderB;
+      }
+
+      const journalCompare =
+        (a.journal || "").localeCompare(b.journal || "");
+
+      if (journalCompare !== 0) {
+        return journalCompare;
+      }
+
+      const dateCompare = compareOnlineDateDesc(a, b);
+
+      if (dateCompare !== 0) {
+        return dateCompare;
+      }
+
+      return (a.title || "").localeCompare(b.title || "");
+    }
+
+    // Date mode:
+    // NEW -> Online Date -> Journal
+    // then non-NEW -> Online Date -> Journal
+    const dateCompare = compareOnlineDateDesc(a, b);
+
+    if (dateCompare !== 0) {
+      return dateCompare;
+    }
+
     const orderA = getJournalOrder(a);
     const orderB = getJournalOrder(b);
 
@@ -688,7 +719,6 @@ function getFilteredSortedData() {
       return orderA - orderB;
     }
 
-    // 3. Fallback to journal name when needed.
     const journalCompare =
       (a.journal || "").localeCompare(b.journal || "");
 
@@ -696,14 +726,6 @@ function getFilteredSortedData() {
       return journalCompare;
     }
 
-    // 4. Within the same journal, newest online date first.
-    const dateCompare = compareOnlineDateDesc(a, b);
-
-    if (dateCompare !== 0) {
-      return dateCompare;
-    }
-
-    // 5. Final tie-breaker.
     return (a.title || "").localeCompare(b.title || "");
   });
 
