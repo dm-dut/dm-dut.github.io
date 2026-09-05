@@ -578,10 +578,14 @@ function initFilters() {
     render();
   });
 
-  sortBox.addEventListener("change", () => {
-    currentPage = 1;
-    render();
-  });
+  // Sorting is fixed as:
+  // NEW -> journal -> online date,
+  // then non-NEW -> journal -> online date.
+  if (sortBox) {
+    sortBox.disabled = true;
+    sortBox.title =
+      "Fixed order: NEW first, then Journal and Online Date";
+  }
 
   searchBox.addEventListener("input", () => {
     currentPage = 1;
@@ -667,33 +671,39 @@ function getFilteredSortedData() {
 
   data.sort((a, b) => {
 
-    // NEW is always shown first.
+    // 1. NEW papers always come first.
     const newA = isNew(a) ? 0 : 1;
     const newB = isNew(b) ? 0 : 1;
-    if (newA !== newB) return newA - newB;
 
-    if (sortBox.value === "journal") {
-      const orderA = getJournalOrder(a);
-      const orderB = getJournalOrder(b);
-
-      if (orderA !== orderB) return orderA - orderB;
-
-      const journalCompare =
-        (a.journal || "").localeCompare(b.journal || "");
-
-      if (journalCompare !== 0) return journalCompare;
-
-      return compareOnlineDateDesc(a, b);
+    if (newA !== newB) {
+      return newA - newB;
     }
 
-    const dateCompare = compareOnlineDateDesc(a, b);
-    if (dateCompare !== 0) return dateCompare;
-
+    // 2. Within NEW and non-NEW groups, sort by configured
+    //    journal order first.
     const orderA = getJournalOrder(a);
     const orderB = getJournalOrder(b);
 
-    if (orderA !== orderB) return orderA - orderB;
+    if (orderA !== orderB) {
+      return orderA - orderB;
+    }
 
+    // 3. Fallback to journal name when needed.
+    const journalCompare =
+      (a.journal || "").localeCompare(b.journal || "");
+
+    if (journalCompare !== 0) {
+      return journalCompare;
+    }
+
+    // 4. Within the same journal, newest online date first.
+    const dateCompare = compareOnlineDateDesc(a, b);
+
+    if (dateCompare !== 0) {
+      return dateCompare;
+    }
+
+    // 5. Final tie-breaker.
     return (a.title || "").localeCompare(b.title || "");
   });
 
