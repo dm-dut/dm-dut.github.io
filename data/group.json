@@ -14,181 +14,217 @@
   {
     "category": "Core Member",
     "name": "Zhuolin Li",
-    "note": "Assitant Professor, School of Econimics and Management, SWJTU; Former PhD Student and Master Student",
+    "note": "Assitant Professor, School of Econimics and Management, SWJTU",
     "link": "https://lzlloveys.github.io/"
   },
   {
-    "category": "PhD Students",
+    "category": "Current PhD Students",
     "name": "Yijun Chen",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "PhD Students",
+    "category": "Current PhD Students",
     "name": "Qianqian Chen",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "PhD Students",
+    "category": "Current PhD Students",
     "name": "Zihang Jia",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "PhD Students",
+    "category": "Current PhD Students",
     "name": "Yuan Gao",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Current Master Students",
     "name": "Xu Zou",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Current Master Students",
     "name": "Shufei Peng",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Current Master Students",
     "name": "Luanyu Kong",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Current Master Students",
     "name": "Shanshan Miao",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Current Master Students",
     "name": "Junting Guo",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Current Master Students",
     "name": "Xiaotong Wu",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Current Master Students",
     "name": "Xiaoqi Zhai",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Current Master Students",
     "name": "Zhihe Yu",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Current Master Students",
+    "name": "Yuqi Yang",
+    "note": "School of Data Science and Artificial Intelligence, DUFE",
+    "link": ""
+  },
+  {
+    "category": "Current Master Students",
+    "name": "Jinping Mu",
+    "note": "School of Data Science and Artificial Intelligence, DUFE",
+    "link": ""
+  },
+  {
+    "category": "Current Master Students",
+    "name": "Chenguang Han",
+    "note": "School of Data Science and Artificial Intelligence, DUFE",
+    "link": ""
+  },
+  {
+    "category": "Current Master Students",
+    "name": "Xinrui Da",
+    "note": "School of Data Science and Artificial Intelligence, DUFE",
+    "link": ""
+  },
+  {
+    "category": "Current Master Students",
+    "name": "Siqi Zhang",
+    "note": "School of Data Science and Artificial Intelligence, DUFE",
+    "link": ""
+  },
+  {
+    "category": "Current Master Students",
     "name": "Fu Xing",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
-    "name": "Ying Li",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
-    "name": "Zitong Li",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
-    "name": "Ziyu Xu",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
-    "name": "Yuan Jin",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
-    "name": "Jize Luo",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
-    "name": "Yimingxuan Zhou",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
-    "name": "Nan Yuan",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
-    "name": "Xiaoyun Zhang",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
-    "name": "Jinfang Gu",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
-    "name": "Shuyao Shen",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
-    "name": "Siyuan Ji",
-    "note": "",
-    "link": ""
-  },
-  {
-    "category": "Master Students",
+    "category": "Previous PhD Students",
     "name": "Zhuolin Li",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
+    "link": "https://lzlloveys.github.io/"
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Ying Li",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Previous Master Students",
+    "name": "Zitong Li",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Ziyu Xu",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Yuan Jin",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Jize Luo",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Yimingxuan Zhou",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Nan Yuan",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Xiaoyun Zhang",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Jinfang Gu",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Shuyao Shen",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Siyuan Ji",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
+    "name": "Zhuolin Li",
+    "note": "School of Econimics and Management, DUT",
+    "link": ""
+  },
+  {
+    "category": "Previous Master Students",
     "name": "Nan Wang",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Previous Master Students",
     "name": "Yuan Gao",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Previous Master Students",
     "name": "Junliang Gao",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   },
   {
-    "category": "Master Students",
+    "category": "Previous Master Students",
     "name": "Xinyue Kou",
-    "note": "",
+    "note": "School of Econimics and Management, DUT",
     "link": ""
   }
 ]
