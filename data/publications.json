@@ -3,6 +3,58 @@
     "type": "Journal Article",
     "language": "en",
     "year": "2026",
+    "title": "Sorting under multiple eyes: A multi-view preference learning framework for multi-criteria decision aiding",
+    "title_en": "Sorting under multiple eyes: A multi-view preference learning framework for multi-criteria decision aiding",
+    "title_zh": "Sorting under multiple eyes: A multi-view preference learning framework for multi-criteria decision aiding",
+    "authors": [
+      "Gao, Yuan",
+      "Zhang, Zhen*",
+      "Chen, Yu-wang",
+      "Kadziński, Miłosz"
+    ],
+    "authors_en": [
+      "Gao, Yuan",
+      "Zhang, Zhen*",
+      "Chen, Yu-wang",
+      "Kadziński, Miłosz"
+    ],
+    "authors_zh": [
+      "Gao, Yuan",
+      "Zhang, Zhen",
+      "Chen, Yu-wang",
+      "Kadziński, Miłosz"
+    ],
+    "corresponding_author_en": "Zhang, Zhen",
+    "corresponding_author_cn": "Zhang, Zhen",
+    "venue": "European Journal of Operational Research",
+    "venue_en": "European Journal of Operational Research",
+    "venue_zh": "European Journal of Operational Research",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "doi": "",
+    "link": "",
+    "indexes": [
+      "SCI",
+      "EI",
+      "FMS A",
+      "ABS 4",
+      "2025 IF=7.0"
+    ],
+    "labels": [],
+    "note": "",
+    "note_en": "",
+    "note_zh": "",
+    "isbn": "",
+    "address": "",
+    "conference_date": "",
+    "conference_address": "",
+    "source_row": 28
+  },
+  {
+    "type": "Journal Article",
+    "language": "en",
+    "year": "2026",
     "title": "Group compromise rankings with indirect preference information: Maximizing pairwise- and rank-based support",
     "title_en": "Group compromise rankings with indirect preference information: Maximizing pairwise- and rank-based support",
     "title_zh": "Group compromise rankings with indirect preference information: Maximizing pairwise- and rank-based support",
@@ -4152,57 +4204,5 @@
     "conference_date": "3-4 December 2009",
     "conference_address": "Hong Kong, China",
     "source_row": 113
-  },
-  {
-    "type": "Journal Article",
-    "language": "en",
-    "year": "",
-    "title": "Sorting under multiple eyes: A multi-view preference learning framework for multi-criteria decision aiding",
-    "title_en": "Sorting under multiple eyes: A multi-view preference learning framework for multi-criteria decision aiding",
-    "title_zh": "Sorting under multiple eyes: A multi-view preference learning framework for multi-criteria decision aiding",
-    "authors": [
-      "Gao, Yuan",
-      "Zhang, Zhen*",
-      "Chen, Yu-wang",
-      "Kadziński, Miłosz"
-    ],
-    "authors_en": [
-      "Gao, Yuan",
-      "Zhang, Zhen*",
-      "Chen, Yu-wang",
-      "Kadziński, Miłosz"
-    ],
-    "authors_zh": [
-      "Gao, Yuan",
-      "Zhang, Zhen",
-      "Chen, Yu-wang",
-      "Kadziński, Miłosz"
-    ],
-    "corresponding_author_en": "Zhang, Zhen",
-    "corresponding_author_cn": "Zhang, Zhen",
-    "venue": "European Journal of Operational Research",
-    "venue_en": "European Journal of Operational Research",
-    "venue_zh": "European Journal of Operational Research",
-    "volume": "",
-    "issue": "",
-    "pages": "",
-    "doi": "",
-    "link": "",
-    "indexes": [
-      "SCI",
-      "EI",
-      "FMS A",
-      "ABS 4",
-      "2025 IF=7.0"
-    ],
-    "labels": [],
-    "note": "",
-    "note_en": "",
-    "note_zh": "",
-    "isbn": "",
-    "address": "",
-    "conference_date": "",
-    "conference_address": "",
-    "source_row": 28
   }
 ]
