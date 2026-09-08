@@ -18,7 +18,6 @@ async function loadJson(path, fallback=[]){
 
 function resetTabState(tab){
   if(tab === "publications"){
-    ensurePublicationFilterControls();
     const y = $("#pub-year-filter");
     const ys = $("#pub-year-start-filter");
     const ye = $("#pub-year-end-filter");
@@ -26,6 +25,7 @@ function resetTabState(tab){
     const e = $("#pub-esi-filter");
     const l = $("#pub-level-filter");
     const q = $("#pub-search");
+
     if(y) y.value = "all";
     if(ys) ys.value = "all";
     if(ye) ye.value = "all";
@@ -33,6 +33,7 @@ function resetTabState(tab){
     if(e) e.value = "all";
     if(l) l.value = "all";
     if(q) q.value = "";
+
     if(DATA.publications) renderPublications();
   }
   if(tab === "news"){
@@ -191,16 +192,21 @@ async function renderScholar(){
   const i10 = s.i10_index || s.i10 || fallback.i10_index || "—";
   const updated = s.updated || fallback.updated || "";
 
-  $("#gs-citations").textContent = citations;
-  $("#gs-hindex").textContent = hindex;
-  $("#gs-i10").textContent = i10;
+  const citationsEl = $("#gs-citations");
+  const hindexEl = $("#gs-hindex");
+  const i10El = $("#gs-i10");
+  if(citationsEl) citationsEl.textContent = citations;
+  if(hindexEl) hindexEl.textContent = hindex;
+  if(i10El) i10El.textContent = i10;
 
   // Keep this area intentionally minimal. Do not show default placeholder
   // text such as "Google Scholar profile" when the JSON request is blocked
   // by browser cache, local file preview, or network restrictions.
   const cleanUpdated = (/^\d{4}[-/]\d{1,2}[-/]\d{1,2}$|^\d{4}[-/]\d{1,2}$/.test(String(updated))) ? updated : "";
-  const statusEl = $("#gs-status") || $("#gs-updated");
+  const statusEl = $("#gs-status");
+  const updatedEl = $("#gs-updated");
   if(statusEl) statusEl.innerHTML = cleanUpdated ? `<span>Last updated: ${esc(cleanUpdated)}</span>` : "";
+  if(updatedEl) updatedEl.textContent = cleanUpdated || "—";
 }
 
 function sortByDateDesc(a,b){ return String(b.date||"").localeCompare(String(a.date||"")); }
@@ -252,6 +258,7 @@ function renderHomeNews(){
 
 function buildSelect(select, values, allLabel){
   const el = $(select);
+  if(!el) return;
   const current = el.value || "all";
   el.innerHTML = `<option value="all">${allLabel}</option>` + values.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join("");
   el.value = values.includes(current) ? current : "all";
@@ -425,54 +432,6 @@ function sortPublications(a,b){
   return TYPE_ORDER.indexOf(a.type||"Other") - TYPE_ORDER.indexOf(b.type||"Other");
 }
 
-function ensurePublicationFilterControls(){
-  const toolbar = $("#publications .toolbar");
-  if(!toolbar) return;
-
-  const yearSelect = $("#pub-year-filter");
-  const typeSelect = $("#pub-type-filter");
-  const searchBox = $("#pub-search");
-
-  if(yearSelect && !$("#pub-year-start-filter")){
-    yearSelect.insertAdjacentHTML("afterend", `<select id="pub-year-start-filter"><option value="all">From year</option></select>`);
-  }
-
-  const yearEndAnchor = $("#pub-year-start-filter") || yearSelect;
-  if(yearEndAnchor && !$("#pub-year-end-filter")){
-    yearEndAnchor.insertAdjacentHTML("afterend", `<select id="pub-year-end-filter"><option value="all">To year</option></select>`);
-  }
-
-  if(typeSelect && !$("#pub-esi-filter")){
-    typeSelect.insertAdjacentHTML("afterend", `
-      <select id="pub-esi-filter">
-        <option value="all">All indexes</option>
-        <option value="sci">SCI</option>
-        <option value="ssci">SSCI</option>
-        <option value="sci-ssci">SCI/SSCI</option>
-        <option value="ei">EI</option>
-        <option value="istp">ISTP</option>
-        <option value="cssci">CSSCI</option>
-        <option value="esi-highly">ESI Highly Cited</option>
-        <option value="esi-hot">ESI Hot</option>
-      </select>`);
-  }
-
-  const indexSelect = $("#pub-esi-filter") || typeSelect;
-  if(indexSelect && !$("#pub-level-filter")){
-    indexSelect.insertAdjacentHTML("afterend", `
-      <select id="pub-level-filter">
-        <option value="all">All levels</option>
-        <option value="abs3">ABS 3</option>
-        <option value="abs4">ABS 4</option>
-        <option value="fmst1">FMS T1</option>
-      </select>`);
-  }
-
-  if(searchBox){
-    searchBox.setAttribute("placeholder", "Search title, venue, author...");
-  }
-}
-
 function pubFilterText(p){
   return [
     arrayText(p.indexes),
@@ -484,15 +443,19 @@ function pubFilterText(p){
     p.index,
     p.index_en,
     p.index_zh,
+    p.index_cn,
     p.level,
     p.level_en,
     p.level_zh,
+    p.level_cn,
     p.ranking,
     p.ranking_en,
     p.ranking_zh,
-    p.category,
-    p.category_en,
-    p.category_zh
+    p.ranking_cn,
+    p.classification,
+    p.classification_en,
+    p.classification_zh,
+    p.classification_cn
   ].join(" ").toLowerCase();
 }
 
@@ -503,46 +466,32 @@ function hasToken(text, token){
 
 function matchIndexStatus(p, value){
   if(value === "all") return true;
-
   const text = pubFilterText(p);
 
-  if(value === "sci"){
-    return hasToken(text, "sci");
-  }
-
-  if(value === "ssci"){
-    return hasToken(text, "ssci");
-  }
-
+  if(value === "sci") return hasToken(text, "sci");
+  if(value === "ssci") return hasToken(text, "ssci");
   if(value === "sci-ssci"){
     return text.includes("sci/ssci") ||
       text.includes("sci & ssci") ||
       text.includes("sci and ssci") ||
+      text.includes("sci、ssci") ||
+      text.includes("sci，ssci") ||
       (hasToken(text, "sci") && hasToken(text, "ssci"));
   }
-
-  if(value === "ei"){
-    return hasToken(text, "ei");
-  }
-
-  if(value === "istp"){
-    return hasToken(text, "istp") || hasToken(text, "cpci");
-  }
-
-  if(value === "cssci"){
-    return hasToken(text, "cssci");
-  }
-
+  if(value === "ei") return hasToken(text, "ei");
+  if(value === "istp") return hasToken(text, "istp");
+  if(value === "cssci") return hasToken(text, "cssci");
   if(value === "esi-highly"){
     return text.includes("esi highly cited") ||
       text.includes("highly cited paper") ||
+      text.includes("highly cited") ||
       text.includes("高被引");
   }
-
   if(value === "esi-hot"){
     return text.includes("esi hot") ||
       text.includes("hot paper") ||
-      text.includes("热点论文");
+      text.includes("热点论文") ||
+      text.includes("热点");
   }
 
   return true;
@@ -550,57 +499,54 @@ function matchIndexStatus(p, value){
 
 function matchPubLevel(p, value){
   if(value === "all") return true;
-
   const text = pubFilterText(p);
 
   if(value === "abs3"){
     return text.includes("abs 3") ||
       text.includes("abs3") ||
+      text.includes("abs-3") ||
+      text.includes("abs_3") ||
       text.includes("ajg 3") ||
-      text.includes("ajg3");
+      text.includes("ajg3") ||
+      text.includes("ajg-3");
   }
 
   if(value === "abs4"){
     return text.includes("abs 4") ||
       text.includes("abs4") ||
+      text.includes("abs-4") ||
+      text.includes("abs_4") ||
       text.includes("ajg 4") ||
-      text.includes("ajg4");
+      text.includes("ajg4") ||
+      text.includes("ajg-4");
   }
 
   if(value === "fmst1"){
     return text.includes("fms t1") ||
       text.includes("fms-t1") ||
       text.includes("fms_t1") ||
-      text.includes("fmst1");
+      text.includes("fmst1") ||
+      text.includes("fms:t1") ||
+      text.includes("fms: t1");
   }
 
   return true;
 }
 
-function publicationYearNumber(p){
-  const m = String(p.year || "").match(/\d{4}/);
-  return m ? parseInt(m[0], 10) : 0;
-}
-
-function matchYearFilters(p, exactYear, startYear, endYear){
-  const y = publicationYearNumber(p);
-  if(!y){
-    return exactYear === "all" && startYear === "all" && endYear === "all";
+function matchYearRange(p, fromYear, toYear){
+  const y = Number(p.year || 0);
+  if(fromYear !== "all"){
+    const start = Number(fromYear);
+    if(!y || y < start) return false;
   }
-
-  if(exactYear !== "all" && String(y) !== String(exactYear)) return false;
-
-  const start = startYear !== "all" ? parseInt(startYear, 10) : null;
-  const end = endYear !== "all" ? parseInt(endYear, 10) : null;
-
-  if(start !== null && y < start) return false;
-  if(end !== null && y > end) return false;
-
+  if(toYear !== "all"){
+    const end = Number(toYear);
+    if(!y || y > end) return false;
+  }
   return true;
 }
+
 function renderPublications(){
-  ensurePublicationFilterControls();
-
   const all = (DATA.publications||[]).slice().sort(sortPublications);
   const years = [...new Set(all.map(p=>String(p.year||"")).filter(Boolean))].sort((a,b)=>b.localeCompare(a));
 
@@ -610,8 +556,8 @@ function renderPublications(){
   buildSelect("#pub-type-filter", [...new Set(all.map(p=>p.type||"Other"))].sort((a,b)=>TYPE_ORDER.indexOf(a)-TYPE_ORDER.indexOf(b)), "All types");
 
   const yr = $("#pub-year-filter") ? $("#pub-year-filter").value : "all";
-  const yearStart = $("#pub-year-start-filter") ? $("#pub-year-start-filter").value : "all";
-  const yearEnd = $("#pub-year-end-filter") ? $("#pub-year-end-filter").value : "all";
+  const fromYear = $("#pub-year-start-filter") ? $("#pub-year-start-filter").value : "all";
+  const toYear = $("#pub-year-end-filter") ? $("#pub-year-end-filter").value : "all";
   const type = $("#pub-type-filter") ? $("#pub-type-filter").value : "all";
   const indexStatus = $("#pub-esi-filter") ? $("#pub-esi-filter").value : "all";
   const level = $("#pub-level-filter") ? $("#pub-level-filter").value : "all";
@@ -636,26 +582,37 @@ function renderPublications(){
       p.conference_date
     ].join(" ").toLowerCase();
 
-    return matchYearFilters(p, yr, yearStart, yearEnd) &&
-      (type==="all" || (p.type||"Other")===type) &&
+    return (yr === "all" || String(p.year) === yr) &&
+      matchYearRange(p, fromYear, toYear) &&
+      (type === "all" || (p.type||"Other") === type) &&
       matchIndexStatus(p, indexStatus) &&
       matchPubLevel(p, level) &&
       (!q || text.includes(q));
   });
 
-  $("#pub-count").textContent = `${items.length} / ${all.length} records`;
+  const countEl = $("#pub-count");
+  if(countEl) countEl.textContent = `${items.length} / ${all.length} records`;
+
+  const listEl = $("#publication-list");
+  if(!listEl) return;
+
   if(!items.length){
-    $("#publication-list").innerHTML = `<div class="item">No publications to display.</div>`;
+    listEl.innerHTML = `<div class="item">No publications to display.</div>`;
     return;
   }
+
   if(type === "all"){
     const groups = {};
     items.forEach(p => (groups[p.type || "Other"] ||= []).push(p));
-    $("#publication-list").innerHTML = TYPE_ORDER.filter(t=>groups[t]).map(t => `<section class="pub-group"><h3>${esc(t)} <span>${groups[t].length}</span></h3>${groups[t].map((p,i)=>formatPublication(p, `${t}-${i}`)).join("")}</section>`).join("");
+    listEl.innerHTML = TYPE_ORDER
+      .filter(t=>groups[t])
+      .map(t => `<section class="pub-group"><h3>${esc(t)} <span>${groups[t].length}</span></h3>${groups[t].map((p,i)=>formatPublication(p, `${t}-${i}`)).join("")}</section>`)
+      .join("");
   }else{
-    $("#publication-list").innerHTML = items.map((p,i)=>formatPublication(p, i)).join("");
+    listEl.innerHTML = items.map((p,i)=>formatPublication(p, i)).join("");
   }
 }
+
 function parseServiceItem(item){
   const raw = String(item || "").trim();
   if(!raw) return {role:"", organization:"", period:"", note:""};
@@ -783,10 +740,7 @@ async function init(){
   ]);
   Object.assign(DATA, {news, awards, grants, services, group, publications});
   renderHomeNews(); renderNews(); renderPublications(); renderServices(); renderGrants(); renderAwards(); renderGroup();
-  ["#news-year-filter","#news-category-filter"].forEach(s => {
-    const el = $(s);
-    if(el) el.addEventListener("change", renderNews);
-  });
+  ["#news-year-filter","#news-category-filter"].forEach(s => $(s).addEventListener("change", renderNews));
   ["#pub-year-filter","#pub-year-start-filter","#pub-year-end-filter","#pub-type-filter","#pub-esi-filter","#pub-level-filter"].forEach(s => {
     const el = $(s);
     if(el) el.addEventListener("change", renderPublications);
@@ -796,6 +750,7 @@ async function init(){
     $$("[data-pub-lang]").forEach(b => b.classList.toggle("active", b === btn));
     renderPublications();
   }));
-  $("#pub-search").addEventListener("input", renderPublications);
+  const pubSearch = $("#pub-search");
+  if(pubSearch) pubSearch.addEventListener("input", renderPublications);
 }
 init();
