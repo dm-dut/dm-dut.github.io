@@ -358,3 +358,13 @@ body.dark .news-body .mini-link{background:rgba(30,41,59,.75);border-color:rgba(
   .news-body{font-size:15.5px;line-height:1.72;}
   .news-links-inline{display:inline-flex;margin-left:6px;}
 }
+
+/* Google Scholar updated date: smaller font */
+#gs-updated,
+#gs-status,
+.stat-value.small {
+  font-size: 14px !important;
+  line-height: 1.35;
+  font-weight: 500;
+  white-space: nowrap;
+}
