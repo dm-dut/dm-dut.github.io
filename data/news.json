@@ -1,5 +1,14 @@
 [
   {
+    "date": "2026-09-10",
+    "category": "Group",
+    "content": "Congratulations to Yuan Gao on successfully completing her Ph.D. thesis defense.",
+    "link": "",
+    "link_text": "",
+    "show_on_home": "yes",
+    "links": []
+  },
+  {
     "date": "2026-09-05",
     "category": "Publication",
     "content": "A new paper was accepted by European Journal of Operational Research (SCI, IF: 7.0, ABS 4).",
@@ -98,7 +107,7 @@
     "content": "I was awarded the Springer Nature Editor of Distinction Award 2026 — Author Service Award.",
     "link": "",
     "link_text": "",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": []
   },
   {
