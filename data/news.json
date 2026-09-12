@@ -3,19 +3,23 @@
     "date": "2026-09-10",
     "category": "Group",
     "content": "Congratulations to Yuan Gao on successfully completing her Ph.D. thesis defense.",
-    "link": "",
-    "link_text": "",
+    "link": "https://mp.weixin.qq.com/s/-vdbxzv1_OTD8MBa-xZcvw",
+    "link_text": "↗",
     "show_on_home": "yes",
-    "links": []
+    "links": [
+      "https://mp.weixin.qq.com/s/-vdbxzv1_OTD8MBa-xZcvw"
+    ]
   },
   {
     "date": "2026-09-05",
     "category": "Publication",
     "content": "A new paper was accepted by European Journal of Operational Research (SCI, IF: 7.0, ABS 4).",
-    "link": "",
-    "link_text": "",
+    "link": "https://doi.org/10.1016/j.ejor.2026.09.009",
+    "link_text": "↗",
     "show_on_home": "yes",
-    "links": []
+    "links": [
+      "https://doi.org/10.1016/j.ejor.2026.09.009"
+    ]
   },
   {
     "date": "2026-09-01",
