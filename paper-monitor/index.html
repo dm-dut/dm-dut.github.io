@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper Monitor</title>
+  <link rel="stylesheet" href="web/style.css?v=14.5.2">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <h1>Paper Monitor</h1>
+      <div class="subtitle">Journal Update Monitoring System</div>
+    </div>
+    <div class="update-line">
+      Last Update: <strong id="updateTime">--</strong> (UTC+8)
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="toolbar" aria-label="Paper filters">
+    <input id="searchBox" type="search" placeholder="Search title, author, DOI">
+
+    <select id="categorySelect" aria-label="Category">
+      <option value="All">All Categories</option>
+    </select>
+
+    <select id="journalSelect" aria-label="Journal">
+      <option value="All">All Journals</option>
+    </select>
+
+    <select id="statusSelect" aria-label="Status">
+      <option value="All">All Papers</option>
+      <option value="New">NEW Only</option>
+    </select>
+
+    <select id="fetchDateSelect" aria-label="Fetched date">
+      <option value="All">All Fetch Dates (GMT+8)</option>
+    </select>
+
+    <select id="sortBox" aria-label="Sort">
+      <option value="date">Sort by Date</option>
+      <option value="journal">Sort by Journal</option>
+    </select>
+  </section>
+
+  <div id="summary" class="summary"></div>
+  <section id="paperList" aria-live="polite"></section>
+  <nav id="pagination" class="pagination" aria-label="Pagination"></nav>
+
+  <footer class="footer">
+    Copyright © 2026 Zhen Zhang, Dalian University of Technology
+  </footer>
+
+</main>
+
+<script src="web/app.js?v=15.17.1"></script>
+</body>
+</html>
