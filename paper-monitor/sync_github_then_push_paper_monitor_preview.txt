@@ -1,3 +1,7 @@
+schtasks /Create /TN "Paper Monitor Git Sync 20_30" /SC DAILY /ST 20:30 /TR "cmd.exe /c \"\"E:\MY FILES\Onedrive\CV\dm-dut.github.io\paper-monitor\sync_github_then_push_paper_monitor.bat\"\"" /F
+
+
+
 @echo off
 chcp 65001 >nul
 setlocal EnableExtensions EnableDelayedExpansion
