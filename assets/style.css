@@ -368,3 +368,23 @@ body.dark .news-body .mini-link{background:rgba(30,41,59,.75);border-color:rgba(
   font-weight: 500;
   white-space: nowrap;
 }
+
+.pub-lang-switch {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pub-lang-switch .text-link {
+  border: 1px solid var(--border, #d0d7de);
+  border-radius: 999px;
+  padding: 5px 12px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.pub-lang-switch .text-link.active {
+  background: var(--accent, #2f5fa7);
+  color: #fff;
+  border-color: var(--accent, #2f5fa7);
+}
