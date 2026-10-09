@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-08",
+    "category": "Award",
+    "content": "A new milestone: selected for the first time to Stanford University’s World’s Top 2% Scientists career-long impact list and again to the single-year impact list.",
+    "link": "https://topscinet.com/scientist_profile/Zhang,%20Zhen/2011/?stype=career_data",
+    "link_text": "↗",
+    "show_on_home": "yes",
+    "links": [
+      "https://topscinet.com/scientist_profile/Zhang,%20Zhen/2011/?stype=career_data"
+    ]
+  },
+  {
     "date": "2026-09-10",
     "category": "Group",
     "content": "Congratulations to Yuan Gao on successfully completing her Ph.D. thesis defense.",
@@ -100,7 +111,7 @@
     "content": "I was invited to deliver a talk entitled \"An Optimization-Driven Framework for Persuader Selection in Social Networks with Opinion Evolution\" at Nanjing University of Information Science and Technology (NUIST).",
     "link": "https://smse.nuist.edu.cn/info/1081/7426.htm",
     "link_text": "↗",
-    "show_on_home": "yes",
+    "show_on_home": "no",
     "links": [
       "https://smse.nuist.edu.cn/info/1081/7426.htm"
     ]
