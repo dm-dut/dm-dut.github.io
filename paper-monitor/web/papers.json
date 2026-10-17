@@ -1,5 +1,33 @@
 [
   {
+    "doi": "10.1007/s40747-026-02516-9",
+    "title": "AI-driven whole-life costing for decision-ready UK public building retrofits",
+    "authors": "Ziru Tao; Paul Baguley; Rashid Maqbool; Obuks Ejohwomu",
+    "journal": "Complex & Intelligent Systems",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-10-16",
+    "fetched_date": "2026-10-17",
+    "volume": "",
+    "number": "",
+    "pages": "",
+    "article_number": ""
+  },
+  {
+    "doi": "10.1007/s10115-026-02886-z",
+    "title": "Evaluating LLMs for named entity recognition: a cost-benefit analysis in the legal domain",
+    "authors": "Shefali Singhal; Eoin O’Connell; Niall McCarroll; Niamh Keogh; Mary Doherty; Vishva Munasinghe; Sujata Rani; Kevin Curran; Eugene McNamee; Angela Clist; Andrew Brammer",
+    "journal": "Knowledge and Information Systems",
+    "category": "Springer Nature",
+    "publisher": "",
+    "online_date": "2026-10-16",
+    "fetched_date": "2026-10-17",
+    "volume": "68",
+    "number": "1",
+    "pages": "",
+    "article_number": "288"
+  },
+  {
     "doi": "10.1007/s00500-026-11507-4",
     "title": "Optimal feature fusion and generative adversarial network for multimodal biometrics recognition",
     "authors": "Prerna; Sanjeev Indora; Dinesh Kumar Atal",
@@ -69969,34 +69997,6 @@
     "volume": "",
     "number": "",
     "pages": "1-31",
-    "article_number": ""
-  },
-  {
-    "doi": "10.1080/00207721.2026.2728152",
-    "title": "Output-dependent FASs and output feedback control, part 1: case of single-order FASs",
-    "authors": "Guang-Ren Duan",
-    "journal": "International Journal of Systems Science",
-    "category": "Wiley/Taylor",
-    "publisher": "",
-    "online_date": "2026-09-21",
-    "fetched_date": "2026-09-22",
-    "volume": "",
-    "number": "",
-    "pages": "1-30",
-    "article_number": ""
-  },
-  {
-    "doi": "10.1080/00207543.2026.2729772",
-    "title": "Intelligent fuzzy queueing optimisation of uncertain maintenance systems using hybrid successive over-relaxation and reinforcement learning for smart manufacturing",
-    "authors": "Sherif I. Ammar; Amina A. Bouchentouf; Faiza A. Althubyani",
-    "journal": "International Journal of Production Research",
-    "category": "Wiley/Taylor",
-    "publisher": "",
-    "online_date": "2026-09-21",
-    "fetched_date": "2026-09-22",
-    "volume": "",
-    "number": "",
-    "pages": "1-33",
     "article_number": ""
   }
 ]
