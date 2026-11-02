@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "journal": "Applied Soft Computing",
+    "issn": "1568-4946",
+    "error": "HTTPSConnectionPool(host='api.crossref.org', port=443): Max retries exceeded with url: /journals/1568-4946/works?rows=50&sort=created&order=desc&filter=from-created-date%3A2026-10-25 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)')))"
+  }
+]
