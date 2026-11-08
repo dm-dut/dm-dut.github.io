@@ -1,1 +1,882 @@
-[]
+[
+  {
+    "journal": "Applied Soft Computing",
+    "issn": "1568-4946",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Computers & Industrial Engineering",
+    "issn": "0360-8352",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Computers & Operations Research",
+    "issn": "0305-0548",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Decision Support Systems",
+    "issn": "0167-9236",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "European Journal of Operational Research",
+    "issn": "0377-2217",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Expert Systems with Applications",
+    "issn": "0957-4174",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Fuzzy Sets and Systems",
+    "issn": "0165-0114",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Information Fusion",
+    "issn": "1566-2535",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Information Sciences",
+    "issn": "0020-0255",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Approximate Reasoning",
+    "issn": "0888-613X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Production Economics",
+    "issn": "0925-5273",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Knowledge-Based Systems",
+    "issn": "0950-7051",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Omega",
+    "issn": "0305-0483",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "issn": "0952-1976",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Management Science and Engineering",
+    "issn": "2096-2320",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Electronic Commerce Research and Applications",
+    "issn": "1567-4223",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Forecasting",
+    "issn": "0169-2070",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Information & Management",
+    "issn": "0378-7206",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Information Systems",
+    "issn": "0306-4379",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Artificial Intelligence",
+    "issn": "0004-3702",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Pattern Recognition",
+    "issn": "0031-3203",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Pattern Recognition Letters",
+    "issn": "0167-8655",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Neurocomputing",
+    "issn": "0925-2312",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Physica A: Statistical Mechanics and its Applications",
+    "issn": "0378-4371",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Reliability Engineering & System Safety",
+    "issn": "0951-8320",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Biomedical Informatics",
+    "issn": "1532-0464",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Artificial Intelligence in Medicine",
+    "issn": "0933-3657",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "AI Open",
+    "issn": "2666-6510",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Neural Networks",
+    "issn": "0893-6080",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Information Processing & Management",
+    "issn": "0306-4573",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Advanced Engineering Informatics",
+    "issn": "1474-0346",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Computers in Industry",
+    "issn": "0166-3615",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Chaos, Solitons & Fractals",
+    "issn": "0960-0779",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Safety Science",
+    "issn": "0925-7535",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Business Research",
+    "issn": "0148-2963",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Technological Forecasting and Social Change",
+    "issn": "0040-1625",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Annual Reviews in Control",
+    "issn": "1367-5788",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Transportation Research Part A: Policy and Practice",
+    "issn": "0965-8564",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Environmental Economics and Management",
+    "issn": "0095-0696",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Retailing and Consumer Services",
+    "issn": "0969-6989",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Transportation Research, Part B: Methodological",
+    "issn": "0191-2615",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Transportation Research, Part D: Transport and Environment",
+    "issn": "1361-9209",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Transportation Research, Part E: Logistics and Transportation Review",
+    "issn": "1366-5545",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Socio-Economic Planning Sciences",
+    "issn": "0038-0121",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Operations Research Perspectives",
+    "issn": "2214-7160",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Data and Information Management",
+    "issn": "2543-9251",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Data & Knowledge Engineering",
+    "issn": "0169-023X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Physics Reports",
+    "issn": "0370-1573",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Computational Science",
+    "issn": "1877-7503",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "EURO Journal on Decision Processes",
+    "issn": "2193-9446",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Computers in Human Behavior",
+    "issn": "0747-5632",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Tourism Management",
+    "issn": "0261-5177",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Annals of Tourism Research",
+    "issn": "0160-7383",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Hospitality Management",
+    "issn": "0278-4319",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Hospitality and Tourism Management",
+    "issn": "1447-6770",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Tourism Management Perspectives",
+    "issn": "2211-9736",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Destination Marketing & Management",
+    "issn": "2212-571X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Travel Research",
+    "issn": "0047-2875",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Service Research",
+    "issn": "1094-6705",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Hospitality & Tourism Research",
+    "issn": "1096-3480",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Tourism Economics",
+    "issn": "1354-8166",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Tourism and Hospitality Research",
+    "issn": "1467-3584",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Information Technology & Tourism",
+    "issn": "1098-3058",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Contemporary Hospitality Management",
+    "issn": "0959-6119",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Tourism Research",
+    "issn": "1099-2340",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Current Issues in Tourism",
+    "issn": "1368-3500",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Sustainable Tourism",
+    "issn": "0966-9582",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Tourism Planning and Development",
+    "issn": "2156-8316",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Asia Pacific Journal of Tourism Research",
+    "issn": "1094-1665",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Travel & Tourism Marketing",
+    "issn": "1054-8408",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Tourism Review",
+    "issn": "1660-5373",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Annals of Operations Research",
+    "issn": "0254-5330",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Fuzzy Optimization and Decision Making",
+    "issn": "1568-4539",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Group Decision and Negotiation",
+    "issn": "0926-2644",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Soft Computing",
+    "issn": "1432-7643",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Machine Learning and Cybernetics",
+    "issn": "1868-8071",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Knowledge and Information Systems",
+    "issn": "0219-1377",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Neural Computing and Applications",
+    "issn": "0941-0643",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Applied Intelligence",
+    "issn": "0924-669X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Cognitive Computation",
+    "issn": "1866-9956",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Complex & Intelligent Systems",
+    "issn": "2199-4536",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Fuzzy Systems",
+    "issn": "1562-2479",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "OR Spectrum",
+    "issn": "0171-6468",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Artificial Intelligence Review",
+    "issn": "0269-2821",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Engineering Management",
+    "issn": "2095-7513",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Systems Science and Systems Engineering",
+    "issn": "1004-3756",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Systems Science and Complexity",
+    "issn": "1009-6124",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Data Mining & Knowledge Discovery",
+    "issn": "1384-5810",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Information Systems Frontiers",
+    "issn": "1387-3326",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Social Network Analysis and Mining",
+    "issn": "1869-5450",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Health Care Management Science",
+    "issn": "1386-9620",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Electronic Commerce Research",
+    "issn": "1389-5753",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Operational Research",
+    "issn": "1109-2858",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "TOP",
+    "issn": "1134-5764",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Theory and Decision",
+    "issn": "0040-5833",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Central European Journal of Operations Research",
+    "issn": "1435-246X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Computational Intelligence Systems",
+    "issn": "1875-6883",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Nature Computational Science",
+    "issn": "2662-8457",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Nature Machine Intelligence",
+    "issn": "2522-5839",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "npj Artificial Intelligence",
+    "issn": "2948-2089",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Data, Information and Management",
+    "issn": "2524-8510",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+    "issn": "2168-2216",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Cybernetics",
+    "issn": "2168-2267",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Computational Social Systems",
+    "issn": "2329-924X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Fuzzy Systems",
+    "issn": "1063-6706",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Reliability",
+    "issn": "0018-9529",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Engineering Management",
+    "issn": "0018-9391",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Artificial Intelligence",
+    "issn": "2691-4581",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Knowledge and Data Engineering",
+    "issn": "1041-4347",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Evolutionary Computation",
+    "issn": "1089-778X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Neural Networks and Learning Systems",
+    "issn": "2162-237X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+    "issn": "0162-8828",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Image Processing",
+    "issn": "1057-7149",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Multimedia",
+    "issn": "1520-9210",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Big Data",
+    "issn": "2332-7790",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Network Science and Engineering",
+    "issn": "2327-4697",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Emerging Topics in Computational Intelligence",
+    "issn": "2471-285X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Signal Processing",
+    "issn": "1053-587X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Intelligent Transportation Systems",
+    "issn": "1524-9050",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Industrial Electronics",
+    "issn": "0278-0046",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Industrial Informatics",
+    "issn": "1551-3203",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Automatic Control",
+    "issn": "0018-9286",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Automation Science and Engineering",
+    "issn": "1545-5955",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Transactions on Cognitive and Developmental Systems",
+    "issn": "2379-8920",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Computational Intelligence Magazine",
+    "issn": "1556-603X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Computational Intelligence Letters",
+    "issn": "3070-1139",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IEEE Intelligent Systems",
+    "issn": "1541-1672",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Management Science",
+    "issn": "0025-1909",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Operations Research",
+    "issn": "0030-364X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "INFORMS Journal on Computing",
+    "issn": "1091-9856",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Information Systems Research",
+    "issn": "1047-7047",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Manufacturing & Service Operations Management",
+    "issn": "1523-4614",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Decision Analysis",
+    "issn": "1545-8490",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "INFORMS Journal on Data Science",
+    "issn": "2694-4022",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Production and Operations Management",
+    "issn": "1059-1478",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Marketing Science",
+    "issn": "0732-2399",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Transportation Science",
+    "issn": "0041-1655",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Marketing Research(JMR)",
+    "issn": "0022-2437",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Consumer Research",
+    "issn": "0093-5301",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Management Information Systems Quarterly",
+    "issn": "0276-7783",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of the Association for Information Systems",
+    "issn": "1536-9323",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Management Information Systems",
+    "issn": "0742-1222",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "ACM Computing Surveys",
+    "issn": "0360-0300",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "ACM Transactions on Intelligent Systems and Technology",
+    "issn": "2157-6904",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "ACM Transactions on Knowledge Discovery from Data",
+    "issn": "1556-4681",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "ACM Transactions on Management Information Systems",
+    "issn": "2158-656X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "ACM Transactions on Information Systems",
+    "issn": "1046-8188",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "ACM Transactions on the Web",
+    "issn": "1559-1131",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "ACM Transactions on Recommender Systems",
+    "issn": "2770-6699",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Expert Systems",
+    "issn": "0266-4720",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Transactions in Operational Research",
+    "issn": "0969-6016",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Multi-Criteria Decision Analysis",
+    "issn": "1057-9214",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Naval Research Logistics",
+    "issn": "0894-069X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Decision Sciences Journal",
+    "issn": "0011-7315",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Risk Analysis",
+    "issn": "0272-4332",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Finance & Economics",
+    "issn": "1076-9307",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Forecasting",
+    "issn": "0277-6693",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Information Systems Journal",
+    "issn": "1350-1917",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of the Association for Information Science and Technology",
+    "issn": "2330-1635",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Quality and Reliability Engineering International",
+    "issn": "0748-8017",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "IISE Transactions",
+    "issn": "2472-5854",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of the Operational Research Society",
+    "issn": "0160-5682",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Production Research",
+    "issn": "0020-7543",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Systems Science",
+    "issn": "0020-7721",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of General Systems",
+    "issn": "0308-1079",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "European Journal of Information Systems",
+    "issn": "0960-085X",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Control and Decision",
+    "issn": "2330-7706",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Journal of Management Analytics",
+    "issn": "2327-0012",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Information Technology & Decision Making",
+    "issn": "0219-6220",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems",
+    "issn": "0218-4885",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Asia-Pacific Journal of Operational Research",
+    "issn": "0217-5959",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Information Technology and People",
+    "issn": "0959-3845",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Internet Research",
+    "issn": "1066-2243",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Electronic Commerce",
+    "issn": "1086-4415",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "International Journal of Entrepreneurial Behavior & Research",
+    "issn": "1355-2554",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  },
+  {
+    "journal": "Patterns",
+    "issn": "2666-3899",
+    "error": "('Connection aborted.', ConnectionAbortedError(10053, '你的主机中的软件中止了一个已建立的连接。', None, 10053, None))"
+  }
+]
