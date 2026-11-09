@@ -1,5 +1,47 @@
 [
   {
+    "doi": "10.1080/01605682.2026.2753294",
+    "title": "Green upgrades under emission cap regulation",
+    "authors": "Zhiyuan Cao; Jianxiong Zhang; Xiaojie Sun; Zhaofang Mao",
+    "journal": "Journal of the Operational Research Society",
+    "category": "Wiley/Taylor",
+    "publisher": "",
+    "online_date": "2026-11-08",
+    "fetched_date": "2026-11-09",
+    "volume": "",
+    "number": "",
+    "pages": "1-19",
+    "article_number": ""
+  },
+  {
+    "doi": "10.1080/01605682.2026.2754989",
+    "title": "Pharmaceutical supply chain procurement strategies: group or decentralized",
+    "authors": "Lu Wu; Zonghuo Li; Xun Xu; Xiangfeng Chen",
+    "journal": "Journal of the Operational Research Society",
+    "category": "Wiley/Taylor",
+    "publisher": "",
+    "online_date": "2026-11-08",
+    "fetched_date": "2026-11-09",
+    "volume": "",
+    "number": "",
+    "pages": "1-21",
+    "article_number": ""
+  },
+  {
+    "doi": "10.1080/01605682.2026.2756428",
+    "title": "A robust location-routing model with self-service lockers and micro-hubs for last-mile logistics under uncertainty",
+    "authors": "Fang Guo; Jingfu Liang; Tianqi Gao; Xiaofan Ding; Zhihong Huang",
+    "journal": "Journal of the Operational Research Society",
+    "category": "Wiley/Taylor",
+    "publisher": "",
+    "online_date": "2026-11-08",
+    "fetched_date": "2026-11-09",
+    "volume": "",
+    "number": "",
+    "pages": "1-24",
+    "article_number": ""
+  },
+  {
     "doi": "10.1016/j.physa.2026.132202",
     "title": "Data-driven hybrid discovery of distribution moment closure assumptions for critical transitions",
     "authors": "Sean Daly; Graham M. Donovan",
@@ -69956,47 +69998,5 @@
     "number": "",
     "pages": "132133",
     "article_number": "132133"
-  },
-  {
-    "doi": "10.1016/j.physa.2026.132147",
-    "title": "Identifying influential nodes based on circle influence",
-    "authors": "Lanxin Wu; Hang Liang; Weiqing Xia; Yingran Zhang; Yajun Du; Xianyong Li; Yan-Li Lee",
-    "journal": "Physica A: Statistical Mechanics and its Applications",
-    "category": "Elsevier",
-    "publisher": "",
-    "online_date": "2026-10-12",
-    "fetched_date": "2026-10-13",
-    "volume": "",
-    "number": "",
-    "pages": "132147",
-    "article_number": "132147"
-  },
-  {
-    "doi": "10.1016/j.neucom.2026.135390",
-    "title": "Multi-modal relation extraction based on shortest dependency path and large language models",
-    "authors": "Hao Xue; Yange Dai; Jing Ma; Xiaoyu Guo",
-    "journal": "Neurocomputing",
-    "category": "Elsevier",
-    "publisher": "",
-    "online_date": "2026-10-12",
-    "fetched_date": "2026-10-13",
-    "volume": "",
-    "number": "",
-    "pages": "135390",
-    "article_number": "135390"
-  },
-  {
-    "doi": "10.1016/j.neucom.2026.135391",
-    "title": "Overcoming growth-induced forgetting with sparsity in task-agnostic continual learning",
-    "authors": "Yuqing Zhao; Jiannong Cao; Divya Saxena; Xiaoyun Liu; Changlin Song; Bo Yuan; Julie McCann",
-    "journal": "Neurocomputing",
-    "category": "Elsevier",
-    "publisher": "",
-    "online_date": "2026-10-12",
-    "fetched_date": "2026-10-13",
-    "volume": "",
-    "number": "",
-    "pages": "135391",
-    "article_number": "135391"
   }
 ]
