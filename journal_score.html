@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>期刊论文积分计算器（国内＋国际）｜本人及学生</title>
+<style>
+:root{--ink:#152a3d;--muted:#62788a;--line:#dce5eb;--teal:#136b77;--pale:#e7f5f5;--bg:#f4f7fa;--warn:#8b590c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,'Microsoft YaHei','PingFang SC',sans-serif;line-height:1.57}
+.wrap{max-width:1120px;margin:auto;padding:28px 18px 54px}.header{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:19px}.eyebrow{color:var(--teal);font-weight:800;font-size:12px;letter-spacing:.14em}.header h1{margin:5px 0 8px;font-size:clamp(23px,3.5vw,32px)}.intro{margin:0;font-size:13px;color:var(--muted);max-width:750px}.actions{display:flex;gap:8px;align-items:start;flex-wrap:wrap}.btn{border-radius:9px;padding:9px 12px;border:1px solid #d4e0e4;background:white;color:#274253;cursor:pointer;font:inherit;font-size:12px;font-weight:650}.btn:hover{background:#e7f5f5}.btn:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #a6d4d7;outline-offset:1px}.cols{display:grid;grid-template-columns:370px minmax(0,1fr);align-items:start;gap:16px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:21px;box-shadow:0 5px 18px #24364b07}.panel h2{font-size:16px;margin:0 0 16px}.field{margin-bottom:16px}.field label,.fieldname{font-size:13px;font-weight:700;display:block;margin-bottom:6px}.field input[type=number],.field select{width:100%;height:43px;border:1px solid #c9d6df;border-radius:8px;background:white;padding:0 11px;font:inherit;font-size:14px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hint{margin:5px 0 0;font-size:12px;color:var(--muted)}.switches{display:flex;flex-wrap:wrap;gap:7px}.switches label{display:flex;align-items:center;gap:5px;font-size:12px;border:1px solid #d9e5ea;background:#f9fbfc;border-radius:8px;padding:8px 9px;cursor:pointer}.switches label:has(input:checked){border-color:#69adb4;background:var(--pale)}input[type=radio],input[type=checkbox]{accent-color:var(--teal)}.students{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.student{display:flex;align-items:center;gap:6px;border:1px solid var(--line);padding:9px 8px;border-radius:8px;font-size:12px;cursor:pointer;background:#fafcfd}.student:has(input:checked){background:#e5f4f3;border-color:#83b8b8}.student:has(input:disabled){opacity:.48;cursor:not-allowed}.scorecard{background:linear-gradient(135deg,#e2f5f2,#f4fafb);border:1px solid #b9dfde;border-radius:13px;padding:18px 21px;margin-bottom:14px}.scorecaption{color:#376f73;font-size:13px;font-weight:650}.score{font-size:42px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.035em;line-height:1.25;margin:5px 0 10px}.score small{font-size:15px;letter-spacing:0;font-weight:600}.summary{display:grid;grid-template-columns:1fr 1fr;gap:9px}.summary>div{border:1px solid #d3e6e7;border-radius:9px;background:#ffffffce;padding:9px 10px}.summary span{display:block;font-size:12px;color:var(--muted)}.summary strong{font-size:21px;font-variant-numeric:tabular-nums}.notice{font-size:12px;border-radius:9px;border:1px solid #eedebc;background:#fff9ec;color:var(--warn);padding:10px 12px;margin:10px 0}.notice.error{border-color:#efc1c1;background:#fff2f2;color:#a43838}.notice[hidden]{display:none}.sectiontitle{font-size:14px;font-weight:750;margin:21px 0 8px}.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:9px}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:12px}th,td{padding:9px 8px;border-bottom:1px solid #edf1f3;text-align:right;font-variant-numeric:tabular-nums}th:first-child,td:first-child{text-align:left}th{background:#f5f8fa;color:#586d7d;font-weight:700}tr:last-child td{border-bottom:0}tr.mine{background:#eaf8f5}tr.studentrow{background:#f2f9fa}tr.ineligible{color:#929da6}.steps{font-size:12px;line-height:1.9;padding-left:22px;color:#44596c;margin:8px 0 0}.steps strong{color:#1d3b4d}.formula{font-size:12px;background:#f3f7fa;border:1px solid #dce6ed;padding:11px;border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}.muted{color:var(--muted);font-size:12px}.rules{margin-top:17px}.rules p{font-size:12px;color:#4c6071;margin:8px 0}.rules strong{color:#22384b}.ft{font-size:11px;color:#8797a4;text-align:center;margin:24px 0 0}@media(max-width:790px){.cols{grid-template-columns:1fr}.wrap{padding:17px 12px 35px}.panel{padding:17px}}@media print{body{background:white}.wrap{max-width:none}.panel{box-shadow:none}.actions{display:none}.cols{grid-template-columns:350px 1fr}.ft{display:none}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="header"><div><div class="eyebrow">ARTICLE POINTS CALCULATOR</div><h1>期刊论文积分计算器（国际＋国内）</h1><p class="intro">国内期刊直接按原始作者比例计分，不考虑通讯作者；国际期刊按原有唯一通讯作者规则计算。支持本人及本人学生积分合并、逐步计算过程和 Excel 公式，默认国际 A 类（5 分）。</p></div><div class="actions"><button class="btn" id="copy" type="button">复制计算结果</button><button class="btn" id="csv" type="button">导出明细 CSV</button><button class="btn" onclick="window.print()" type="button">打印</button></div></header>
+<div class="cols">
+<section class="panel"><h2>计算参数</h2>
+ <div class="grid2"><div class="field"><label for="category">期刊类别</label><select id="category"><optgroup label="国际期刊"><option value="国际 A*">国际 A* 类（10 分）</option><option value="国际 A" selected>国际 A 类（5 分）</option><option value="国际 B">国际 B 类（2 分）</option><option value="国际 C">国际 C 类（1 分）</option></optgroup><optgroup label="国内期刊"><option value="国内 中国社会科学">《中国社会科学》（10 分）</option><option value="国内 TOP">国内 TOP（5 分）</option><option value="国内 A">国内 A 类（2 分）</option><option value="国内 B">国内 B 类（1 分）</option><option value="国内 C">国内 C 类（0.5 分）</option></optgroup></select></div><div class="field"><label for="points">论文总积分（自动带入）</label><input id="points" type="number" value="5" min="0" step="any"><p class="hint">国际 A*／A／B／C：10／5／2／1 分；《中国社会科学》10 分；国内 TOP／A／B／C：5／2／1／0.5 分。支持手动调整。</p></div></div>
+ <div class="field"><label for="length">论文类型（国际 A*、国际 A、国内 TOP、《中国社会科学》短文折半）</label><select id="length"><option value="长文" selected>长文</option><option value="短文">短文</option></select></div>
+ <div class="grid2"><div class="field"><label for="num">作者总人数</label><input id="num" type="number" min="1" max="1000" step="1" value="4"></div><div class="field"><label for="mine">本人作者排名</label><input id="mine" type="number" min="1" max="1000" step="1" value="2"></div></div>
+ <div class="field" id="correspond-field"><span class="fieldname">国际期刊：本人是否为明确的唯一通讯作者</span><div class="switches"><label><input type="radio" name="correspond" value="no" checked>否（按原始比例）</label><label><input type="radio" name="correspond" value="yes">是（按规定调整）</label></div><p class="hint">仅国际期刊适用：唯一通讯且非第一作者时按规则调整。国内期刊始终按原始作者比例计分，不考虑通讯作者。</p></div>
+ <div class="field"><span class="fieldname">哪些作者是本人学生？（可多选）</span><div id="students" class="students"></div><p class="hint">学生作者的可计积分加到本人名下；本人所在名次不能再次勾选，不重复计分。第 7 作者及以后不计分。</p></div>
+</section>
+<section class="panel"><h2>计算结果</h2><div id="error" class="notice error" hidden></div>
+ <div class="scorecard"><div class="scorecaption">本人及本人学生合计积分</div><div class="score" id="total-score">— <small>分</small></div><div class="summary"><div><span>本人作者积分</span><strong id="self-score">—</strong></div><div><span>本人学生积分</span><strong id="student-score">—</strong></div></div></div>
+ <div id="notice" class="notice" hidden></div>
+ <div class="sectiontitle">作者份额明细（直接计入的作者已标色）</div>
+ <div class="tablebox"><table><thead><tr><th>作者顺序</th><th>归属</th><th>原始系数</th><th>实际系数</th><th>分配比例</th><th>可计分</th><th>计入本人的分</th></tr></thead><tbody id="rows"></tbody></table></div><p class="muted" id="ranknote"></p>
+ <div class="sectiontitle">逐步计算过程</div><ol class="steps" id="steps"></ol>
+ <div class="sectiontitle">Excel 公式示例</div><div class="formula" id="formula">=SUM(H15:H20)</div><div style="margin-top:9px"><button class="btn" type="button" id="copy-formula">复制 Excel 合计公式</button></div><p class="muted">与配套 Excel 模板一致：B5 为期刊类别，E5 为论文分值，B6 为人数，E6 为本人排名，B7 为国际期刊唯一通讯作者选项，G15:G20 为本人学生标记，G5 为总积分。</p>
+</section></div>
+<section class="panel rules"><h2>积分依据及处理方式</h2>
+<p><strong>论文分值：</strong>国际 A* 10 分、国际 A 5 分、国际 B 2 分、国际 C 1 分；《中国社会科学》10 分、国内 TOP 5 分、国内 A 2 分、国内 B 1 分、国内 C 0.5 分。其中国际 A*、国际 A、《中国社会科学》及国内 TOP 的短文折半。</p>
+<p><strong>作者原始系数：</strong>1 人独享 10；2 人 6:4；3 人 5:3:2；4 人 5:2.5:1.5:1；5 人 4.5:2.5:1.5:0.75:0.75；6 人及以上前 3 人 4.5:2.5:1，第 4—6 人平均分配剩余 2 份，第 7 位以后为零。</p>
+<p><strong>国际计分名次：</strong>国际 A* 前 6、国际 A 前 5、国际 B 前 4、国际 C 前 3。超出名次范围的份额不转移到其他作者。</p>
+<p><strong>国内计算：</strong>《中国社会科学》及国内 TOP/A/B/C 直接按原始系数 ÷ 10 计分，无论通讯作者情况如何均不调整和归一化。未提供国内期刊额外的类别排名限制，按原始比例可分配的前 6 位计算。</p>
+<p><strong>国际唯一通讯作者：</strong>本人是符合范围的唯一通讯作者且非第一作者时，本人系数调整为第一作者系数的 80%，然后对各作者系数归一化；其他情形直接用原始系数 ÷ 10 计分。</p>
+<p><strong>学生合并：</strong>所选本人学生作者的可计分数与本人积分加总，不能重复计算本人名次。</p></section>
+<p class="ft">离线单文件 · 不上传个人信息 · 所有计算在本地浏览器中完成</p></main>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const categoryMap={
+ '国际 A*':{points:10,limit:6,region:'国际',shortAllowed:true},
+ '国际 A':{points:5,limit:5,region:'国际',shortAllowed:true},
+ '国际 B':{points:2,limit:4,region:'国际',shortAllowed:false},
+ '国际 C':{points:1,limit:3,region:'国际',shortAllowed:false},
+ '国内 中国社会科学':{points:10,limit:6,region:'国内',shortAllowed:true},
+ '国内 TOP':{points:5,limit:6,region:'国内',shortAllowed:true},
+ '国内 A':{points:2,limit:6,region:'国内',shortAllowed:false},
+ '国内 B':{points:1,limit:6,region:'国内',shortAllowed:false},
+ '国内 C':{points:.5,limit:6,region:'国内',shortAllowed:false}
+};
+const coeff=n=>n===1?[10]:n===2?[6,4]:n===3?[5,3,2]:n===4?[5,2.5,1.5,1]:n===5?[4.5,2.5,1.5,.75,.75]:[4.5,2.5,1,2/3,2/3,2/3];
+const f=(v,d=4)=>Number(v).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d});
+const small=v=>Number(v).toLocaleString('zh-CN',{maximumFractionDigits:6});
+const selectedStudents=new Set();let last=null;
+function updateStudents(){
+ const n=Number($('num').value),mine=Number($('mine').value),shown=Number.isInteger(n)?Math.min(Math.max(n,0),6):0;
+ $('students').innerHTML='';for(let r=1;r<=shown;r++){
+  const disabled=r===mine,label=document.createElement('label');label.className='student';
+  const input=document.createElement('input');input.type='checkbox';input.checked=selectedStudents.has(r)&&!disabled;input.disabled=disabled;
+  input.addEventListener('change',()=>{input.checked?selectedStudents.add(r):selectedStudents.delete(r);calculate();});
+  label.append(input,document.createTextNode('第 '+r+' 作者'+(disabled?'（本人）':'')));$('students').append(label);
+ }
+}
+function calculate(){
+ const key=$('category').value,cat=categoryMap[key],n=Number($('num').value),mine=Number($('mine').value),pts=Number($('points').value);
+ const unique=cat.region==='国际'&&document.querySelector('input[name="correspond"]:checked').value==='yes';
+ const errors=[];if(!Number.isInteger(n)||n<1||n>1000)errors.push('作者总人数需为 1–1000 的整数。');
+ if(!Number.isInteger(mine)||mine<1||mine>n)errors.push('本人作者排名必须在作者人数之内。');
+ if($('points').value.trim()===''||!Number.isFinite(pts)||pts<0||pts>1e8)errors.push('论文总积分必须是非负有效数字。');
+ $('error').hidden=!errors.length;$('error').textContent=errors.join(' ');
+ if(errors.length){$('total-score').innerHTML='— <small>分</small>';$('self-score').textContent='—';$('student-score').textContent='—';$('rows').innerHTML='';$('steps').innerHTML='';$('notice').hidden=true;last=null;return;}
+ const original=coeff(n),adjusted=original.slice(),applied=unique&&mine>1&&mine<=cat.limit&&mine<=6;
+ if(applied)adjusted[mine-1]=original[0]*.8;
+ const denom=applied?adjusted.reduce((a,b)=>a+b,0):10;
+ const students=[...selectedStudents].filter(r=>r<=n&&r<=6&&r!==mine).sort((a,b)=>a-b);
+ const records=[];let my=0,studentTotal=0;
+ for(let r=1;r<=Math.min(6,n);r++){
+  const eligible=r<=cat.limit,originalCoeff=original[r-1],finalCoeff=adjusted[r-1];
+  const ratio=eligible?(applied?finalCoeff/denom:originalCoeff/10):0,points=pts*ratio;
+  const isMine=r===mine,isStudent=students.includes(r),attrib=isMine?'本人':isStudent?'本人学生':'其他';
+  if(isMine)my+=points;if(isStudent)studentTotal+=points;
+  records.push({r,attrib,eligible,originalCoeff,finalCoeff,ratio,points,included:(isMine||isStudent)?points:0,isMine,isStudent});
+ }
+ const total=my+studentTotal;
+ $('total-score').innerHTML=f(total)+' <small>分</small>';$('self-score').textContent=f(my);$('student-score').textContent=f(studentTotal);
+ $('rows').innerHTML=records.map(o=>`<tr class="${o.isMine?'mine':o.isStudent?'studentrow':o.eligible?'':'ineligible'}"><td>第 ${o.r} 位</td><td>${o.attrib}</td><td>${small(o.originalCoeff)}</td><td>${small(o.finalCoeff)}</td><td>${f(o.ratio*100,2)}%</td><td>${f(o.points)}</td><td>${f(o.included)}</td></tr>`).join('');
+ $('ranknote').textContent=cat.region==='国内'
+  ?`国内 ${key.slice(3)} 类：按原始系数直接分配，前 ${Math.min(n,6)} 位可按比例计分；第 7 位及以后为零。不设置额外的国内期刊类别名次限制。`
+  :`${key} 类只计前 ${cat.limit} 位作者${n>6?'；第 7 位及以后均为零':''}。超出计分限制的份额不重新分摊。`;
+ let note='';
+ if(cat.region==='国内')note='国内期刊直接按照原始作者比例计算，与是否为通讯作者无关；不做 80% 调整，也不重新归一化。';
+ else if(applied)note=`本人为第 ${mine} 作者且是唯一通讯作者：将原始系数 ${small(original[mine-1])} 调整为 ${small(original[0])} × 80% = ${small(adjusted[mine-1])}，再归一化。`;
+ else if(unique&&mine===1)note='本人为第一作者及唯一通讯作者，按原始比例计分。';
+ else if(unique&&mine>cat.limit)note='本人虽然是唯一通讯作者，但超过本类国际期刊可计作者名次，个人积分为 0；可计范围内的学生积分仍按原始比例计算。';
+ else note='国际期刊未触发唯一通讯作者调整，直接按原始系数除以 10 计分，不进行重新归一化。';
+ $('notice').textContent=note;$('notice').hidden=false;
+ const myRecord=records.find(x=>x.r===mine);
+ const stuLine=records.filter(x=>x.isStudent).map(o=>`第${o.r}作者：${small(pts)} × ${small(o.finalCoeff)} ÷ ${small(denom)} = ${f(o.points)}`).join('；');
+ const st=[
+  `${key} 类论文的基础积分为 <strong>${small(cat.points)} 分</strong>；${cat.shortAllowed&&$('length').value==='短文'?'短文折半；':'长文或不适用折半；'}本次按 <strong>${small(pts)} 分</strong>计算。`,
+  `作者人数为 ${n}，原始系数为 <strong>${original.map(small).join(' : ')}</strong>，原始系数分母为 10${n>6?'（第 7 作者及以后不计分）':''}。`,
+  applied?`国际期刊唯一通讯调整：第 ${mine} 作者系数 ${small(original[mine-1])} → ${small(original[0])} × 80% = ${small(adjusted[mine-1])}；调整后合计 <strong>${small(denom)}</strong>，按调整后总数归一化。`:`${cat.region==='国内'?'国内期刊不区分通讯作者':'未触发国际唯一通讯作者特殊规则'}：<strong>直接按原始系数 ÷ 10</strong> 计算，不重新归一化。`,
+  myRecord?`本人第 ${mine} 作者：${myRecord.eligible?`${small(pts)} × ${small(myRecord.finalCoeff)} ÷ ${small(denom)} = <strong>${f(my)} 分</strong>`:`超过本类计分名次，计 <strong>0 分</strong>`}。`:'本人排名第 7 位及以后，积分为 <strong>0 分</strong>。',
+  students.length?`本人学生积分：${stuLine}；学生合计 <strong>${f(studentTotal)} 分</strong>。`:'没有选择本人学生，学生积分为 0。',
+  `最终合计：本人 ${f(my)} + 本人学生 ${f(studentTotal)} = <strong>${f(total)} 分</strong>。`
+ ];
+ $('steps').innerHTML=st.map(x=>'<li>'+x+'</li>').join('');
+ $('formula').textContent=`最终合计（G5）：
+=SUM(H15:H20)
+
+是否触发唯一通讯调整（G9）：
+=IF(AND(LEFT(B5,2)="国际",B7="是",E6>1,E6<=B9,E6<=6),"是","否")
+
+每作者计分比例（D15，向下填充）：
+=IF(OR(A15>$B$6,A15>$B$9),0,IF($G$9="是",C15/SUM($C$15:$C$20),B15/10))
+
+归入本人积分（H15，向下填充）：
+=IF(OR(F15="本人",F15="本人学生"),E15,0)`;
+ last={key,n,mine,pts,unique,applied,students,records,my,studentTotal,total};
+}
+function refresh(){updateStudents();calculate();}
+function categoryChanged(){
+ const cat=categoryMap[$('category').value];$('correspond-field').hidden=cat.region==='国内';
+ $('length').disabled=!cat.shortAllowed;if(!cat.shortAllowed)$('length').value='长文';
+ updateDefaultPoints();
+}
+function updateDefaultPoints(){const cat=categoryMap[$('category').value];$('points').value=cat.points*(cat.shortAllowed&&$('length').value==='短文'?.5:1);refresh();}
+$('category').addEventListener('change',categoryChanged);$('length').addEventListener('change',updateDefaultPoints);
+$('points').addEventListener('input',calculate);$('num').addEventListener('input',refresh);$('mine').addEventListener('input',refresh);
+document.querySelectorAll('input[name="correspond"]').forEach(i=>i.addEventListener('change',calculate));
+async function copyText(t,id){try{await navigator.clipboard.writeText(t);}catch(e){const area=document.createElement('textarea');area.value=t;document.body.appendChild(area);area.select();document.execCommand('copy');area.remove();}const b=$(id),before=b.textContent;b.textContent='已复制';setTimeout(()=>b.textContent=before,1400);}
+$('copy').addEventListener('click',()=>{if(!last)return;const x=last;const msg=`${x.key} 类论文（${x.pts} 分），共 ${x.n} 位作者；本人第 ${x.mine} 作者；${x.key.startsWith('国际')?'本人是否唯一通讯作者：'+(x.unique?'是':'否')+'；':'国内不区分通讯作者；'}学生作者：${x.students.join('、')||'无'}；本人积分 ${f(x.my)} 分，学生积分 ${f(x.studentTotal)} 分，合计 ${f(x.total)} 分。`;copyText(msg,'copy');});
+$('copy-formula').addEventListener('click',()=>copyText('=SUM(H15:H20)','copy-formula'));
+$('csv').addEventListener('click',()=>{if(!last)return;const x=last,lines=[['期刊类别','论文分值','作者总人数','本人排名','国际唯一通讯作者','作者排名','归属','原始系数','调整系数','计分比例','可计积分','计入本人']];x.records.forEach(o=>lines.push([x.key,x.pts,x.n,x.mine,x.key.startsWith('国内')?'不适用':x.unique?'是':'否',o.r,o.attrib,o.originalCoeff,o.finalCoeff,o.ratio,o.points,o.included]));const data='\uFEFF'+lines.map(cols=>cols.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([data],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='期刊论文作者积分及学生明细.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+categoryChanged();
+})();
+</script></body></html>
